@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>map</title>
+</head>
+<body>
+Map 它的key键名的类型不再局限于字符串类型了，它可以是各种类型的值
+<script>
+    let m = new Map([
+        ["name","前端君"],
+        ["gender",1]
+    ]);
+
+    console.log(m);
+    //打印结果：Map {"name" => "前端君", "gender" => 1}
+
+    /*大家注意Map( )方法里面的参数，首先它是一个数组，而里面的内容也是由多个数组组成，“name”：“前端君”作为一个键值对，将它们装在一个数组里面，[“name”：“前端君”],
+	另外一组键值对也一样：[“gender”：1 ]。这就是初始化一个Map结构实例的基本写法。*/
+</script>
+</body>
+</html>

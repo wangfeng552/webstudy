@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>map</title>
+</head>
+<body>
+
+<script>
+    var m=new Map();
+
+//    set()给实例设置一对键值对，返回map实例。
+    //添加一个字符串类型的键名
+    m.set("name","巷道")
+
+	//添加一个数字类型的键名
+	m.set(1,2)
+
+	//数组类型的键名
+	m.set([1],22)
+
+	//对象类型的键名
+	m.set({"name":"张三"},"我的名字")
+
+//	布尔类型的键名
+	m.set(true,"addclass")
+
+    //Symbol类型的键名
+//    m.set(Symbol('name'),2);
+
+    //null为键名
+    m.set(null,2);
+
+    //undefined为键名
+    m.set(undefined,2);
+
+	m.set(true,33333)	//=>设置一个已经存在的键名，那么后面的键值会覆盖前面的键值
+
+	//get()方法作用：获取指定键名的键值，返回键值。
+	m.get(true)			//=> 33333
+	m.has(Array[1])
+
+	console.log(m)
+</script>
+</body>
+</html>

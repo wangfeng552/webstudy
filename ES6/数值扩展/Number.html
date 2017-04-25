@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+//	Number 对数值类型有效，对非数值类型的参数一律返回false
+
+	isNaN() 	//全称 is not a number 用于判断传入的是否是非数字
+	Number.isNaN(2.5) 	//=>false
+	Number.isNaN("SDF")	//=>false		Number下面的isNaN都懒得给字符串’abc’做类型转换，直接返回false
+	// 注意，当返回false的时候，不一定就是一个数值，有可能是一个非数值类型的参数。
+
+	Number.isFinite() 	//	用来检查一个数值是否非无穷
+	Number.isFinite(1)	//	=>true
+	Number.isFinite(Infinity)	//=>false Infinity表示无穷大的特殊值
+	Number.isFinite("ABC")	//=>false
+
+	Number.parseInt('12.356sdf')	//=>12 返回一个整数
+	Number.parseFloat("12.2562")	//=>12.2562	返回一个浮点数
+
+	Number.EPSILON					//2.220446049250313e-16 约等于0.00000000000000022204
+	//Number.EPSILON的出现是用来判断浮点数的计算误差，如果浮点数计算得到的误差不超过Number.EPSILON的值，就表示可以接受这样的误差。
+
+	Number.isInteger(2.53)			//=>false	用来判断是否是整数
+	Number.isInteger(3.0);			//=>true 注意：在javascript内部对整数和浮点数采用一样的存储方式，因此小数点后如果都是0的浮点数，都会被认为是整数。
+	//安全整数2^53到2^53之间
+	Number.isSafeInteger()			//判断是否是安全整数
+	Number.MAX_SAFE_INTEGER			//最大值 常量
+	Number.MIN_SAFE_INTEGER			//最小值 常量
+	Number.isSafeInteger(Number.MAX_SAFE_INTEGER)	//=>true
+	Number.isSafeInteger(Number.MAX_SAFE_INTEGER+1)	//=>false
+</script>
+</body>
+</html>

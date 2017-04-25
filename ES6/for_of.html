@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div>
+	<ul>
+		<li>for of优点</li>
+		<li>写法比for循环简洁很多；</li>
+		<li>可以用break来终止整个循环，或者continute来跳出当前循环，继续后面的循环；</li>
+		<li>结合keys( )获取到循环的索引，并且是数字类型，而不是字符串类型。</li>
+	</ul>
+</div>
+
+<script>
+	var arr=["123","sdaf","离散",45];
+
+	for(let v of arr){
+	   console.log(v)
+	}
+
+//	break continue
+	for(let v of arr){
+		if(v==="离散"){
+//		    break;		//终止
+			continue;	//跳过
+		}
+		console.log(v)
+	}
+
+//	数字索引
+	for(let i of arr.keys()){
+	    console.log(typeof i)			//=>0 1 2 3 得到数字类型索引
+	}
+
+//	遍历字符串
+	var str="拿到三分撒地方";
+	for(let v of str){
+	    console.log(v)		//=>拿  到  三  分  撒  地  方
+	}
+
+//	遍历类数组，DOM LIST
+	var Li=document.getElementsByTagName("li");
+	for(let v of Li){
+	    console.log(v)
+	}
+</script>
+<script>
+    var obj={
+        name:"张三",
+        age:"45"
+    }
+    for(let v of Object.keys(obj)){
+        console.log(v+'-'+obj[v])
+    }
+    for(let v in obj){
+        console.log(v+'-'+obj[v])
+	}
+</script>
+<!--总结：for...of一种新的遍历方式，能遍历的对象有：数组，类数组对象，字符串，set和map结构等具有iterator接口的数据结构。而且for...in更适合用于对象的遍历。-->
+</body>
+</html>

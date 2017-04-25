@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+	function * hello() {
+		let res= yield `hello`;		//返回值赋值给了变量res
+		yield res;
+    }
+    let iterator=hello();
+	iterator.next()				//=>{value: "hello", done: false}
+	iterator.next("你哈撒地方")	//=>{value: "你哈撒地方", done: false}
+</script>
+此外，next( )方法还可以接受一个参数，它的参数会作为上一个yield的返回值
+
+注意函数体内的第一个yield关键字，我们把它的返回值赋值给了一个变量res。
+
+再看2次next方法的调用：
+
+第1次调用next( )方法，返回的对象属性value值为“hello”，属性done值为：fasle，并暂停执行。
+
+第2次next( )方法，传入参数：字符串“你哈撒地方”。此时，第二个yield关键字紧跟着的是变量res，而变量res的值正是上一个关键字yield的返回值。
+也就是说这个值正是我们传入的参数：“你哈撒地方”。因为：next( )的参数会作为上一个yield的返回值。
+</body>
+</html>

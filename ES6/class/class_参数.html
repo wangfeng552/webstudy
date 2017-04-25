@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+	class Family{
+	    constructor(name,age){
+	        this.name=name;
+	        this.age=age;
+	        this.showAge=function () {
+				console.log(this.age)
+            }
+		}
+		showName(){
+	        alert(this.name)
+		}
+	}
+	var zhangsan =new Family("张三",29);
+	zhangsan.showName()
+    zhangsan.showAge()
+</script>
+</body>
+</html>

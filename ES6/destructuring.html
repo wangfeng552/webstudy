@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+//    ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构（Destructuring）。
+	//对象结构
+	var a="123";
+	var b="456";
+	var c={a:a,b:b}
+	console.log(c)
+
+	//es6写法
+	let cat="猫";
+	let dog="狗";
+//	简写
+	let animal={cat,dog};
+	console.log(animal);
+
+	//反过来
+	let people={name:"张三",age:"45"}
+	let {name,age}=people;
+	console.log(name+age)
+
+
+
+//对象解构赋值也可以嵌套
+	var {ages:{age}}={ages:{age:45}}
+	console.log(age)//=>45
+
+//特殊
+/*var {b:a}={b:"2"}
+ var _b = { b: "2" },
+ a = _b.b;*/
+</script>
+
+<script>
+//	数组的结构赋值
+	var [a1,b1,c1,[d0,d1]]=[1,2,3,[4,5]]
+	console.log(a1) //=>1
+
+	var [a2,b2,c2='你好']=[1,2]
+	console.log(c2) //=>你好 默认值
+</script>
+
+<script>
+//	字符串结构
+    var [a,b,c,d,e,f] = "我就是前端君";
+    console.log(a)
+</script>
+
+</body>
+</html>

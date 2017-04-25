@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+
+<script>
+var name="张三";
+var age="45";
+
+//传统
+var person={name:name,age:age}
+
+//ES6
+var person={name,age}
+
+console.log(person.name)
+</script>
+
+<script>
+//	对象方法
+
+//传统表示法
+/*var people={
+    say:function (a) {
+		alert(a)
+    }
+}*/
+
+//es6表示法
+var people={
+    say(a){
+        alert(a)
+	}
+}
+
+console.log(people.say(123))
+
+</script>
+</body>
+</html>

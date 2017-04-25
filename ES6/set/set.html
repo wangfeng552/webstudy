@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>set</title>
+</head>
+<body>
+什么是set结构？
+它的值不会有重复项 可以理解为值的集合
+<script>
+var s = new Set()
+	console.log(s)		//=>Set{}
+
+var s = new Set([1,2,3,4])		//用数组[1,2,3,4]作为参数传入，得到的变量s为Set{1,2,3,4}
+console.log(s)			//=>Set{1,2,3,4}
+
+//	还可以这样
+	var t=new Set()
+//	使用add方法添加成员
+	t.add(1)
+	console.log(t)		//=>Set{1}
+</script>
+
+<script>
+//成员值唯一
+//Set结构的成员值是没有重复的，每个值都是唯一的
+	var k=new Set();
+	k.add(3)
+	k.delete(1)			//=>true	delete用户删除Set结构中的指定值，删除成功返回：true，删除失败返回：fasle。
+	k.clear();			//clear( )方法：清除所有成员。
+    k.size				//=>1		size属性：获取成员的个数。
+	k.has("是否含有值");	//=>true	判断是否含有指定的值
+
+	k.entries()				//SetIterator { ["3", "3"]....}	返回一个键值对的遍历器
+	k.keys()				//SetIterator {3}	返回键名的遍历器。
+	k.values()				//SetIterator {3}	返回键值的遍历器
+</script>
+
+</body>
+</html>

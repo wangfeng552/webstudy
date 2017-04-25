@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+entries 函数作用对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历。
+
+对数组的键值对进行遍历，返回一个遍历器，可以用for..of对其进行遍历
+<script>
+var arr=["a","b","c"];
+for(let[i,v] of arr.entries()){
+    console.log(`${i}---${v}`)		//=>0---a 、1---b 、2---c
+}
+//我们将entries( )函数返回的一个遍历器，用for...of进行遍历，并打印出结果，能得到数组的键值：0、1和2，以及对应的数组元素：‘a‘、'b'和’c‘。
+
+//keys() 函数 对数组的索引键进行遍历，返回一个遍历器
+for(let i of arr.keys()){
+	console.log(i)					//=>0、1、2
+}
+
+//values() 函数对数组的元素进行遍历，返回一个遍历器
+for(let v1 of arr.values()){
+    console.log(v1)					//=>a、b、c
+}
+</script>
+</body>
+</html>

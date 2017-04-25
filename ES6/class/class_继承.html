@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+    //父类Animal
+    class Animal {
+        //构造方法
+        constructor(name){
+            //属性name
+            this.name = name;
+        }
+
+        //父类的自定义方法
+        say(){
+            return `This is a animal`;
+        }
+    }
+
+
+    //子类Dog 通过关键字extends来实现继承
+    class Dog extends Animal {
+        //关键字super，它相当于是父类中的this。注意：
+        //1.子类必须在constructor方法中调用super方法
+        //2.必须先调用super( )，才可以使用this，否则报错
+        constructor(name,color){
+            super(name);
+            this.color = color;
+        }
+
+        //子类的实例方法
+        //子类中调用父类的say方法的话，我们使用super.say( )即可实现。
+        getAttritube(){
+            return `${super.say()},
+                    name：${this.name},
+                    color:${this.color}`;
+        }
+    }
+
+    //创建Dog的实例对象
+    let d = new Dog("dog","black");
+
+    //调用子类的Dog的实例方法
+    d.getAttritube();
+//    结果：This is a animal,
+//    		name：dog,
+//        	color:black
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+<script>
+	//find()找出数组中符合条件的第一个元素。
+	let arr=[1,2,3,4,5];
+	arr.find(function (v) {
+		return v>2				//=>3
+    })
+	arr.find(function (v) {
+		return v<0				//=>undefined
+    })
+//    findIndex()返回符合条件的第一个数组成员的位置。
+	arr.findIndex(function (v) {
+		return v>2				//=>2
+    })
+    arr.findIndex(function (v) {
+        return v>10				//=>-1
+    })
+</script>
+</body>
+</html>

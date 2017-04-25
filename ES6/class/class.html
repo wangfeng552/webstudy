@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+	//class定义了一个“类”，
+	class Animals{
+        //这就是构造方法，而this关键字则代表实例对象
+	    constructor(){
+	        //定义方法和属性是实例对象自己的，而constructor外定义的方法和属性则是所有实力对象可以共享的
+	        this.name="dog";
+	        this.showMessage=function (a) {
+				alert(a)
+            }
+		}
+		says(say){
+	        console.log(this.name+'is'+say)
+		}
+	}
+	let animal=new Animals()
+	animal.says("50kg")
+</script>
+</body>
+</html>

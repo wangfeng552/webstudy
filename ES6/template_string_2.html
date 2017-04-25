@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+
+<script>
+var name1="123";
+//repeat( )函数：将目标字符串重复N次，返回一个新的字符串，不影响目标字符串。
+var name2=name1.repeat(3)
+	console.log(name1)
+	console.log(name2)
+
+//includes( )函数：判断字符串中是否含有指定的子字符串，返回true表示含有和false表示未含有。第二个参数选填，表示开始搜索的位置。
+//第二个参数为1，表示从第2个字符“大“开始搜索，第一个字符”斯“的位置是0；
+//传统的做法我们可以借助indexOf( )函数来实现
+var str="斯大林副科级";
+console.log(str.includes("斯",0))
+
+//startsWith( )函数：判断指定的子字符串是否出现在目标字符串的开头位置，第二个参数选填，表示开始搜索的位置。
+	var animal="牛舌糊涂"
+	console.log(animal.startsWith("牛")) //=>true
+
+//endsWith( )函数：判断子字符串是否出现在目标字符串的尾部位置，第二个参数选填，表示针对前N个字符。
+
+//	codePointAt函数
+var str = "𠮷";
+str.codePointAt();  //结果:134071
+String.fromCodePoint(134071);//=>𠮷
+
+//String.raw()返回字符串最原始的样貌
+console.log(String.raw`hello\nwolrd`);  //=>：hello\nwolrd
+</script>
+</body>
+</html>

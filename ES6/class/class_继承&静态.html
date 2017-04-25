@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+    class Animal{
+        constructor(name,age){
+            this.name=name;
+            this.age=age;
+        }
+        static xj(a1,a2){
+            alert(`${a1.name}end${a2.name}`)
+        }
+    }
+    var a1=new Animal("张三","25")
+    var a2=new Animal("lisi","36")
+    Animal.xj(a1,a2)
+
+    class People extends Animal{
+        constructor(name,age,color){
+            super(name,age);
+            this.color=color;
+        }
+    }
+    var a11=new People("aaaaaaa","25",1)
+    var a22=new People("bbbbbb","36",1)
+    Animal.xj(a11,a22)
+</script>
+</body>
+</html>

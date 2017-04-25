@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+	function * hello() {
+		yield "123";
+		yield "456";
+    }
+    function * name() {
+		yield "nihao";
+		yield "sadf"
+    }
+    function * che() {
+	    yield "123"
+		yield* hello()	//调用另一个函数 通过yield*
+		yield* name()
+    }
+    let k=che()
+	k.next()
+</script>
+在一个Generator函数里面，如果我们想调用另一个Generator函数，就需要用到的关键字是：yield*。
+如果一个Generator函数A执行过程中，进入（调用）了另一个Generator函数B，那么会一直等到Generator函数B全部执行完毕后，才会返回Generator函数A继续执行。
+</body>
+</html>

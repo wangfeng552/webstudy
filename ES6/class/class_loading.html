@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+	<script src="../../jquery/jquery-1.11.2.js"></script>
+</head>
+<body>
+<button>点击删除</button>
+<script>
+    class Animal{
+        constructor(){
+            this.name="loading";
+            this.showMsg=function (a) {
+                alert(a)
+            }
+        }
+        createLoading(){
+            var Loading=$("<div/>").addClass(this.name);
+            var inner=$("<span/>",{
+                text:"loading",
+                class:"innerspan"
+            })
+            var w=Loading.append(inner)
+            $("body").append(w)
+        }
+        remove(){
+//          $("."+this.name).remove();
+			var k=`.${this.name}`;
+			$(k).remove();
+//          console.log(`.${this.name}`)
+        }
+    }
+    var loading=new Animal();
+    loading.createLoading()
+    $("button").on("click",function () {
+        loading.remove()
+    })
+</script>
+
+
+<script>
+	/*define("loading",[],function() {
+	 function Loading(){ }
+	 Loading.prototype.init = function(){
+	 this.createLoading();
+	 }
+	 Loading.prototype.createLoading = function(){
+	 var $loading = $('<div>').addClass('loadingbox'),
+	 $circle = $('<div>').addClass('loadingcicle');
+
+	 $loading.append($circle);
+	 this.$loading = $loading;
+	 $('body').append($loading);
+	 }
+	 Loading.prototype.remove = function(){
+	 this.$loading.remove();
+	 }
+
+	 var loading = new Loading();
+	 return loading;
+	 });*/
+</script>
+</body>
+</html>

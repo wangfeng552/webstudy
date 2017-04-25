@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+//  1.提取函数返回的多个值{a,b}
+	function demo() {
+		return {"a":"123","b":"456"}
+    }
+	var {a,b}=demo()
+// var demo={a}=>({a:123})
+// 将demo函数的运行结果直接通过结构赋值赋给变量a和b，实现快速的提取对应的值。
+	console.log(a) //=>123
+	console.log(b) //=>456
+
+//	2.定义函数参数{x,y,z}
+	function animal({x,y,z}) {
+		console.log("姓名"+x)
+    }
+    animal({x:"直接爱的色放"})
+
+//	函数参数的默认值{name="张三"}
+	function people({name="张三"}) {
+		console.log(name)
+    }
+    people({})
+</script>
+
+总结：解构赋值给我们一种新的变量赋值方式，主要可以利用数组解构赋值和对象解构赋值。
+它的用途包括：交换变量值，提取函数返回值，函数参数定义，默认值设定等等，
+都给我们编程带来便利，在未来的代码中会见到越来越多人使用这个新特性。
+
+</body>
+</html>

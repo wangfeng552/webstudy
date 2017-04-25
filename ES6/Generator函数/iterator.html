@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+	let obj={
+	    name:"张三",
+		age:'45'
+	}
+	for(let v of obj){
+	    console.log(v)			//报错：obj[Symbol.iterator] is not a function
+	}
+
+	Array.prototype[Symbol.iterator]		//functioin
+	String.prototype[Symbol.iterator]
+	Set.prototype[Symbol.iterator]
+	Map.prototype[Symbol.iterator]
+
+	Object.prototype[Symbol.iterator]		//=>undefined
+	//注意Symbol.iterator是Symbol对象的iterator属性，是一个特殊的Symbol值，因此当它作为prototype对象属性名的时候，
+	//获取它的时候需要使用[]的形式；prototype[Symbol.iterator];不能使用prototype.Symbol.iterator;原因是点形式会把后面的值当做字符串类型处理
+
+
+//    也就说，只要一个数据结构拥有一个叫[Symbol.iterator]()方法的数据结构，就可以被for...of遍历，我们称之为：可遍历对象。比如：数组，字符串，Set和Map结构。
+</script>
+
+
+<!--iterator遍历器的原理-->
+<script>
+//    当可遍历对象被for...of遍历的时候，[Symbol.iterator]()就会被调用，返回一个iterator对象。其中还有一个很重要的方法：next( )；
+
+	let  arr=[1,2,3];
+
+//	调用数组的Symbol.iterator() 方法
+	let v = arr[Symbol.iterator]();
+	v.next()	//=>{value: 1, done: false}
+	v.next()	//=>{value: 2, done: false}
+	v.next()	//=>{value: 3, done: false}
+	v.next()	//=>{value: undefined, done: true}
+//	原来，for...of的原理就是：先调用可遍历对象的[Symbol.iterator]( )方法，得到一个iterator遍历器对象，
+// 	然后就在遍历器上不断调用next( )方法，直到done的值为true的时候，就表示遍历完成结束了。
+</script>
+</body>
+</html>

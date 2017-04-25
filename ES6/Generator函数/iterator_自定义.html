@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title></title>
+</head>
+<body>
+<script>
+//    既然有了[Symbol.iterator]()方法就算是可遍历对象，那么我给Object对象手动加上一个[Symbol.iterator]()方法，那么它是不是可以被for...of遍历了？
+//定义一个的Object对象
+let obj = {
+    0:"我是0",
+    1:"我是1",
+    2:"我是2",
+    length:3,
+    //添加[Symbol.iterator]方法
+    [Symbol.iterator](){
+        let _this = this;
+        let index = 0;
+        return {
+            next() {
+                let value = _this[index];
+                let done = (index >= _this.length);
+                index++;
+                return {value,done}
+            }
+        }
+    }
+};
+
+//咱们来for...of一下
+for(let v of obj){
+    console.log(v);
+}
+//结果："我是0"
+//      "我是1"
+//      "我是2"
+</script>
+</body>
+</html>

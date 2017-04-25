@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+//	{}中的语句都属于一个块,在花括号里面用let定义的所有变量在花括号外都是不可见的，我们称之为块级作用域。
+
+    var name = 'zach'
+
+    while (true) {
+        var name = 'obama'
+        console.log(name)  //obama
+        break
+    }
+    console.log(name)  //obama
+
+	//let则实际上为JavaScript新增了块级作用域。用它所声明的变量，只在let命令所在的代码块内有效。
+    let name = 'zach'
+
+    while (true) {
+        let name = 'obama'
+        console.log(name)  //obama
+        break
+    }
+
+    console.log(name)  //zach
+
+//	总结用let声明变量只在块级作用域起作用，适合在for循环使用，也不会出现变量提升现象。同一个代码块内，不可重复声明的相同变量，不可重复声明函数内的参数。
+</script>
+</body>
+</html>

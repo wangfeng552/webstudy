@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>set</title>
+</head>
+<body>
+<script>
+	var k=new Set(["张守达","了多少积分","sadf","45"])
+
+//	方法一
+	for(let [i,v] of k.entries()){
+	    console.log(i+"---"+v)
+	}
+
+//	方法二
+	k.forEach(function (v,i) {
+		console.log(i+'---'+v)
+    })
+
+
+//	去重
+    var arr=[1,2,3,1,2,3,4,5,6,3,3,3];
+    var k = new Set(arr);			//=>Set {1, 2, 3, 4, 5…}
+    var newArr=Array.from(k)		//=>[1,2,3,4,5,6]
+</script>
+
+</body>
+</html>

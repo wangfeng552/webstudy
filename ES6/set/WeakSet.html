@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>weakset</title>
+</head>
+<body>
+<script>
+//    WeakSet结构同样不会存储重复的值，不同的是，它的成员必须是对象类型的值。（严格来说是：具有 iterable 接口的对象）
+let k=new WeakSet([{"name":"张三"}]);		//我们初始化一个WeakSet对象，参数一个数组，数组的成员必须是对象类型的值{"age":18}，否则就会报错。
+console.log(k)		//=>WeakSet {Object {name: "张三"}}
+
+	let arr1=["士大夫"];
+	let arr2=["你好"];
+	let ws=new WeakSet([arr1,arr2])		//=>WeakSet {["士大夫"], ["你好"]}
+</script>
+</body>
+</html>

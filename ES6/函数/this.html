@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div class="mk"></div>
+
+
+<script>
+	class Animals{
+	    constructor(){
+	        this.name="dog";
+	        this.showMessage=function (a) {
+				alert(a)
+            }
+		}
+		says(say){
+	        setTimeout(function () {		//setTimeout( )是window对象的方法
+				console.log(this.name)		//=>undefined 	this指代的是window对象；
+            },1000)
+		}
+		//第一种是将this传给self,再用self来指代this
+		/*says(say){
+            var self=this;
+	        setTimeout(function () {
+				console.log(self.name)
+            },1000)
+		}*/
+
+		//第二种用bind(this)
+		says(say){
+		    setTimeout(function () {
+				console.log(this.name)
+            }.bind(this),1000)
+		}
+
+		//第三种用()=>
+		//当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+		/*says(say){
+	        setTimeout(()=>{console.log(this.name)},1000)
+		}*/
+	}
+	let animal=new Animals()
+	animal.says("50kg")
+</script>
+</body>
+</html>

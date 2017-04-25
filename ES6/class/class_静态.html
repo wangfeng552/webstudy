@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title></title>
+</head>
+<body>
+直接使用类名即可访问的方法，我们称之为“静态方法”。
+<script>
+	class Family{
+	    constructor(name,age){
+	        this.name=name;
+	        this.age=age;
+	        this.showAge=function () {
+				console.log(this.age)
+            }
+		}
+		//自定义一个静态方法
+		static showAll(a1,a2){				//静态方法的定义需要使用static关键字来标识
+	        alert(`${a1.name}和${a2.name}`)
+		}
+	}
+
+	//创建2个实例
+	var zhangsan =new Family("张三",29);
+	var lisi=new Family("李四",45)
+
+//	静态方法通过类名Family来的调用showAll
+	Family.showAll(zhangsan,lisi)	//=>张三和李四
+</script>
+</body>
+</html>
