@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+xml 可扩展标记语言
+标记指计算机所能理解的信息符号，通过此种标记，计算机之间可以处理包含各种的信息比如文章等。
+它可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。
+
+1.什么是可扩展标记语言？
+可扩展标记语言是一种很像超文本标记语言的标记语言。
+它的设计宗旨是传输数据，而不是显示数据。
+它的标签没有被预定义。您需要自行定义标签。
+它被设计为具有自我描述性。
+它是W3C的推荐标准。
+
+2.可扩展标记语言和超文本标记语言之间的差异
+它被设计用来传输和存储数据，其焦点是数据的内容。
+超文本标记语言被设计用来显示数据，其焦点是数据的外观。
+
+3.格式特性
+所有的标记必须成对出现;
+大小敏感;
+
+<?xml?>
+包含 XML 版本<?xml version="1.0"?>
+甚至包含字符编码<?xml version="1.0" encoding="utf-8"?>
+
+
+4.创建根元素
+根元素的开始和结束标记用于包围 XML 文档的内容。一个文件只能有一个根元素，并且需要使用 “包装器” 包含它。清单 1 显示了经过删节的示例，其中的根元素名为 <recipe>。
+<?xml version="1.0" encoding="UTF-8"?>
+<recipe>
+</recipe>
+在构建文档时，内容和其他标记必须放在 <recipe> 和 </recipe> 之间。
+
+5.命名元素
+	创建名称时可以使用英文字母、数字和特殊字符，比如下划线（_）;
+	下面给出命名时需要注意的地方：
+	a)元素名中不能出现空格。
+	b)名称只能以英文字母开始，不能是数字或符号。（在第一个字母之后就可以使用字母、数字或规定的符号，或它们的混合）。
+	c)对大小写没有限制，但前后要保持一致，以免造成混乱。
+<?xml version="1.0" encoding="UTF-8"?>
+<recipe>
+	<recipename>Ice Cream Sundae</recipename>
+	<preptime>5 minutes</preptime>
+</recipe>
+
+6.添加属性
+	有时候要为元素添加属性。属性由一个名称-值对构成，值包含在双引号中（"），比如：type="dessert"。属性是在使用元素时存储额外信息的一种方式。
+	在同一个文档中，可以根据需要对每个元素的不同实例采用不同的属性值。
+	<?xml version="1.0" encoding="UTF-8"?>
+	<recipe type="dessert">
+		<recipename cuisine="american" servings="1">Ice Cream Sundae</recipename>
+		<preptime>5 minutes</preptime>
+	</recipe>
+</body>
+</html>
+

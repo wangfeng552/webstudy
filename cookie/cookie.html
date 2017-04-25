@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>cookie</title>
+</head>
+<body>
+JavaScript是运行在客户端的脚本，因此一般是不能够设置Session的，因为Session是运行在服务器端的。
+而cookie是运行在客户端的，所以可以用JS来设置cookie
+cookie是以键值对的形式保存的，即key=value的格式。各个cookie之间一般是以“;”分隔。
+
+<script>
+//	JS设置cookie:
+//假设在A页面中要保存变量username的值("张三")到cookie中,key值为username
+document.cookie="username="+username+";age="+age;   //"username=张三;age=28"
+
+//写cookies
+function setCookie(name,value)
+{
+	var Days = 30;
+	var exp = new Date();
+	exp.setTime(exp.getTime() + Days*24*60*60*1000);
+	document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString();   //escape()函数进行编码
+													//";expires=" + exp.toGMTString() 超过这个时间，cookie将消失
+}
+
+//读取cookies
+function getCookie(name)
+{
+	var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+
+	if(arr=document.cookie.match(reg))
+
+		return unescape(arr[2]);		//unescape()解码
+	else
+		return null;
+
+
+//删除cookies
+function delCookie(name)
+{
+	var exp = new Date();
+	exp.setTime(exp.getTime() - 1);
+	var cval=getCookie(name);
+	if(cval!=null)
+		document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
+//使用示例
+setCookie("name","hayden");
+alert(getCookie("name"));
+</script>
+
+<!--
+path指定可访问cookie的路径
+	path=/next 	就表示当前cookie仅能在next目录下使用
+	path=/ 		指定为根目录
+
+domain 指定可访问cookie的主机名
+	domain=j1.com
+	-->
+
+<!--案例一-->
+
+<script>
+(function(){
+	function GetQueryString(name){
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)return  r[2];
+	}
+	var utm_source=GetQueryString("utm_source");
+	var utm_campaign=GetQueryString("utm_campaign");
+	window.setCookie=function(name,value)
+	{
+		var Days = 30;
+		var exp = new Date();
+		exp.setTime(exp.getTime() + Days*24*60*60*1000);
+		document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/;domain=zhong.com";
+		document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/;domain=zhongchouban.com.cn";
+	};
+	if(utm_source){
+		setCookie("utm_source",utm_source)
+	}
+	if(utm_campaign){
+		setCookie("utm_campaign",utm_campaign)
+	}
+})(Zepto);
+</script>
+</body>
+</html>
+
