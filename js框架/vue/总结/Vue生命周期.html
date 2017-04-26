@@ -17,7 +17,7 @@
 	     name:123
 	 },
 	//数据观察和事件配置都没好准备好
-	 /*beforeCreat(){
+	 /*beforeCreate(){
 	 console.log("123");			//=>123
 	 console.log(this.$data)		//undefined
 	 console.log(this.$el)			//undefined
@@ -46,7 +46,7 @@
 
 	 //视图并未重新渲染更新。
 	 /*beforeUpdate(){
-	     console.log("即将更新");
+	     console.log("即将更新");				//执行vm.name=1;改变数据
 		let name=this.$refs.app.innerHTML;
 	     console.log("name:"+name);
 	 },*/
@@ -58,14 +58,14 @@
 		console.log(name)
 	 },*/
 
-	 //调用实例的destroy( )方法可以销毁当前的组件，在销毁前，会触发beforeDestroy钩子。
+	 //调用实例的vm.$destroy( )方法可以销毁当前的组件，在销毁前，会触发beforeDestroy钩子。
 	 beforeDestory(){
 	     console.log("销毁之前")
 	 },
 
 	 //成功销毁
      destroyed(){
-		console.log("销毁之后")  //vm.$destroy( );实例成功被销毁
+		console.log("销毁之后")  //vm.$destroy( );实例与视图的关系解绑 之后再改vm.name='klusd'已于事无补
 	 }
 
  })

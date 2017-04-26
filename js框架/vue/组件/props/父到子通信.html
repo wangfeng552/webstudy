@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+<div class="mk">
+    <h2>211213</h2>
+    <wf-name :child-val="people"></wf-name>
+</div>
+<script>
+    Vue.component("wf-name",{
+        props:['childVal'],     //props选项声明了它要接受的参数是childVal，而接收到的对应的值是父组件的数据people。
+        template:`<ul>
+                    <li>{{childVal.name}}</li>
+                    <li>{{childVal.age}}</li>
+                </ul>`
+    })
+
+   var vm =new Vue({
+       el:".mk",
+       data:{
+           people:{
+               name:"张三",
+               age:"45"
+           }
+       }
+   })
+</script>
+</body>
+</html>
