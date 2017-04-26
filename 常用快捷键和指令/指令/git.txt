@@ -18,7 +18,6 @@ git push 推送内容到库
 添加文件到仓库分2步
 git add -A 添加目前所有
 git add .添加所有
-git add <file> 可反复多次，添加多个文件
 git commit -m "miaoshu" 完成提交
 git push origin master	提交到远程分支
 

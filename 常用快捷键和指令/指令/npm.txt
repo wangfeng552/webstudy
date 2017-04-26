@@ -1,5 +1,4 @@
 http://www.cnblogs.com/PeunZhang/p/5553574.html
-npm install 安装模块  npm install gulp@3.9.1 指定版本
 npm uninstall 卸载模块
 npm update 更新模块
 npm outdated 检查模块是否已经过时
@@ -21,3 +20,4 @@ npm access 在发布的包上设置访问级别
 npm package.json的语法
 
 npm view jquery versions 查看可安装的版本
+npm install 安装模块  npm install gulp@3.9.1 指定版本

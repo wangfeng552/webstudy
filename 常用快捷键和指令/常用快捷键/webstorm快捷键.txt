@@ -24,8 +24,3 @@ ctrl+shift+F	目录内代码批量查找
 ctrl + []:		匹配 {}[]
 ctrl + shift + ]/[: 	选中块代码<table>....</table>
 alt + left/right:	标签切换
-
-
-var domObj = document.getElementById("id"); //DOM对象
-var $obj = $("#id"); //jQuery对象;
-$obj[0]=$obj.get(0)  //转dom对象
