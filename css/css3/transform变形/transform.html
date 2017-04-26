@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.fl { float: left; }
+.fr { float: right; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+.wf li{ height:100px;width:200px;float:left;position:relative;margin:0 3px 3px 0;_display:inline; padding:0 10px; background:#ccc; transition:transform 0.5s ease 0s; -webkit-transition:-webkit-transform 0.5s ease 0s; position:relative;}
+.wf li:hover{ background-position:0 -100px; transform:skewY(50deg);-webkit-transform:skewY(50deg);}
+.wf .dd{color:#090;}
+</style>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+</head>
+
+<body>
+
+	1.translate(x,y)水平方向和垂直方向同时移动（也就是X轴和Y轴同时移动）；transform:translate(100px,20px):
+2.translateX(x)仅水平方向移动（X轴移动）；transform:translateX(100px):
+3.translateY(Y)仅垂直方向移动（Y轴移动）transform:translateY(20px):
+
+<div class="wf">
+<ul>
+	<li></li>
+</ul>
+</div>
+<!-- http://www.w3cplus.com/content/css3-transform	参考地址 -->
+
+<!-- transform字面上的意思就是变形，改变的意思。可用于内联(inline)元素和块级(block)元素
+包括：  旋转rotate
+		扭曲skew
+		缩放scale
+		移动translate
+		矩阵变形matrix
+
+取值:	none表示不变换
+		一个或多个变换，以空格分开 例如 rotate skew
+
+1.旋转 rotate
+rotate（<angle>）其中angle是指旋转角度，如果设置的值为正数表示顺时针旋转，如果设置的值为负数，则表示逆时针旋转。
+如：transform:rotate(30deg):
+
+2.移动 translate
+可分为三种情况：
+	translate（x,y）水平和垂直方向同时移动		transform:translate(100px,20px)
+	translateX（x）仅水平方向移动			transform:translateX(50px)
+	translateY（y）仅垂直方向移动。			transform:translateY(20px)
+
+3.缩放scale
+可分为三种情况：缩放基数为1，如果其值大于1元素就放大，反之其值小于1，元素缩小
+	scale（x,y）水平垂直同时缩放			scale(2,3)
+	scaleX(x)   水平缩放				scaleX（0.5）
+	scaleY（y） 垂直缩放				scaleY（2）
+
+4.扭曲skew
+可分为三种情况：
+	skew（x,y）水平垂直同时缩放			skew(10deg,5deg)
+	skewX(x)   水平缩放				skewX（5deg）
+	skewY（y） 垂直缩放				skewY（5deg）
+
+
+5.改变元素基点:transform-origin(X,Y)默认点是元素的中心点
+其中X也可以是字符参数值left,center,right；
+Y和X一样除了百分值外还可以设置字符值top,center,bottom，
+
+其中 left,center right是水平方向取值，对应的百分值为left=0%;center=50%;right=100%
+而top center bottom是垂直方向的取值，其中top=0%;center=50%;bottom=100%;如果只取一个值，表示垂直方向值不变
+
+//Mozilla内核浏览器：firefox3.5+
+  -moz-transform-origin: x y;
+  //Webkit内核浏览器：Safari and Chrome
+  -webkit-transform-origin: x y;
+  //Opera
+  -o-transform-origin: x y ;
+  //IE9
+  -ms-transform-origin: x y;
+  //W3C标准
+  transform-origin: x y ;
+	-->
+</body>
+</html>

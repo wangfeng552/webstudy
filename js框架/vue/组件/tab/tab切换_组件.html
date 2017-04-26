@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+
+<style>
+	.topnav .active{color: red;}
+	.mainshow{display: none;}
+	.main .active{display: block;}
+</style>
+
+<div class="tab">
+	<div class="topnav">
+		<wf-nav :nav01="messages"></wf-nav>
+	</div>
+	<div class="main">
+		<wf-main :main01="messages"></wf-main>
+	</div>
+</div>
+
+<script>
+Vue.component("wf-nav",{
+	template:'<li><a href="" v-for="(v,i) in nav01" :class="{active:v.isActive}" @click.prevent="showClass(i)">{{v.title}}</a></li>',
+	props:["nav01"],
+	methods:{
+		showClass:function (key) {
+			this.nav01.forEach(function (v) {
+				v.isActive=false
+			})
+			this.nav01[key].isActive=true;
+		}
+	}
+})
+Vue.component("wf-main",{
+	template:'<div><div class="mainshow" v-for="v in main01" :class="{active:v.isActive}">\
+			  <h2>{{v.counter.size}}</h2>\
+			  <h3>{{v.counter.info}}</h3>\
+			  </div></div>',
+	props:['main01']
+})
+var vm=new Vue({
+	el:".tab",
+	data:{
+	    messages:[
+            {
+                "title": "tab1",
+                "counter": {
+                    "size": "45",
+                    "info": "我峨嵋你去撒地方"
+                },
+                "isActive": true
+            },
+            {
+                "title": "tab2",
+                "counter": {
+                    "size": "63",
+                    "info": "i likeasdf ksadfh 122222222"
+                },
+                "isActive": false
+            },
+            {
+                "title": "tab3",
+                "counter": {
+                    "size": "5896",
+                    "info": "我们非往第三个"
+                },
+                "isActive": false
+            },
+		]
+	}
+})
+</script>
+</body>
+</html>
+

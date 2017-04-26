@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery定位滚动导航效果代码 - 站长素材</title>
+<link href="css/common.css" rel="stylesheet" type="text/css" />
+<link href="css/inside.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+</head>
+<body>
+<div id="advance_banner">为二手车代言</div>
+<div class="empty-placeholder hidden"></div>
+<div id="subNav">
+  <ul class="wrap">
+    <li class="adv_active"><a href="#hall_show" class="adv_door adv_active"><ins></ins>二手车旗舰店<span></span></a></li>
+    <li><a href="#checkCar" class="adv_source"><ins></ins>车源保证<span></span></a></li>
+    <li><a href="#alpha_price" class="adv_price"><ins></ins>价格透明<span></span></a></li>
+    <li><a href="#service_show" class="adv_transfer"><ins></ins>过户便捷<span></span></a></li>
+    <li><a href="#pay_show" class="adv_payment"><ins></ins>分期付款<span></span></a></li>
+    <li><a href="#quality_promise" class="adv_promise"><ins></ins>售后质保<span></span></a></li>
+  </ul>
+</div>
+
+<!--hall_show-->
+<div id="hall_show" class="wrap">
+  <div class="show_title">
+    <h1><span></span>二手车旗舰店</h1>
+  </div>
+  <p>国内首家品牌二手车旗舰店，<ins>20000平米展馆</ins>，人性化设计，宽敞的车辆展示空间，360度无死角看车；独立交易室，购车安全感倍增；设有儿童区、免费水吧，让您不只是买卖车辆，更享受星级服务。位于北京市海淀区远大路1号金源购物中心，10号线直达，交通便捷。</p>
+  <ul class="hallImg_show clearfix">
+    <li><img alt="大搜车，二手车，展馆，洽谈室" src="images/hall1.jpg" /></li>
+    <li><img alt="大搜车，二手车，展馆，接待区" src="images/hall2.jpg" /></li>
+    <li><img alt="大搜车，二手车，展馆，儿童区" src="images/hall3.jpg" /></li>
+    <li><img alt="大搜车，二手车，展馆，旗舰式展厅" src="images/hall4.jpg" /><ins>国际会展设施  可同时容纳超过700辆车</ins></li>
+    <li><img alt="大搜车，二手车，夜店，晚上22:00点" src="images/hall5.jpg" /><ins>首创“夜店”模式  营业至晚间22:00<br/>
+      为繁忙都市人提供灵活便捷的购车时间</ins></li>
+  </ul>
+</div>
+<!--hall_show end-->
+
+<!--rideCar-->
+<div id="checkCar" class="wrap">
+  <div class="show_title">
+    <h1><span></span>全方位检测&nbsp;&nbsp;保证车源质量</h1>
+    <p>大搜车的每一台在售车辆提供356项详细检测，包括底盘检测、发动机检测、驾驶体验检测、内饰外观检测及漆面修复检测。<br/>
+      操作工序多达468道，确保杜绝火烧车、水浸车及重大事故车辆，让您安心选车，放心购车。</p>
+  </div>
+  <div class="checkCar_show clearfix"> <img src="images/check1.jpg" /> <img src="images/check2.jpg" /> <img src="images/check3.jpg" /> </div>
+  <p class="check_decorate"><ins>360度全方位检测</ins>提供详细专业的检测报告</p>
+  <img src="images/check4.jpg"  class="check_img" /> </div>
+<!--rideCar end-->
+
+<!--alpha_price-->
+<div id="alpha_price" class="wrap">
+  <div class="show_title">
+    <h1><span></span>价格透明</h1>
+    <p>卖家自主定价<br/>
+      大搜车只收取卖家交易金额的3%作为服务费<br/>
+    </p>
+  </div>
+  <p class="price_decorate"></p>
+  <img src="images/alpha_price.png" /> </div>
+<!--alpha_price end--> 
+
+<!--alpha_price-->
+<div id="service_show" class="wrap">
+  <div class="show_title">
+    <h1><span></span>1对1过户专员全程服务</h1>
+    <p>大搜车全程免费为您办理过户、转籍、上牌等手续！</p>
+    <div class="service_tag"> <ins><span></span>过户</ins> <ins><span></span>转籍</ins> <ins><span></span>上牌</ins> </div>
+  </div>
+</div>
+<!--alpha_price end--> 
+
+<!--payment-->
+<div id="pay_show" class="wrap">
+  <div class="show_title">
+    <h1><span></span>分期付款&nbsp;&nbsp;购车无压力</h1>
+    <p>大搜车为您量身打造了“分期付款”业务<br/>
+      只需首付，爱车开回家！<br/>
+      轻松购车，再无压力！</p>
+  </div>
+</div>
+<!--alpha_price end--> 
+
+<!--quality_promise-->
+<div id="quality_promise" class="wrap clearfix">
+  <div class="show_title">
+    <h1><span></span>全方位质保&nbsp;&nbsp;再无后顾之忧</h1>
+    <p>大搜车为您购买的爱车提供“7天无理由退货“和“1年2W公里超长质保”</p>
+  </div>
+  <div class="promise_content"> <ins></ins>
+    <dl>
+      <dt>7天无理由退货
+      <dt>
+      <dd>只要在购车同时购买1.5%的“退货保障险”，就可以在7天内享受退货选择权，无论理由是“颜色不喜欢，或买了后悔了”。但7天内请您按约定照顾好小车。</dd>
+    </dl>
+  </div>
+  <div class="promise_content promise_content_180"> <ins></ins>
+    <dl>
+      <dt>1年2万公里质保
+      <dt>
+      <dd> 自提车之日起，大搜车为您提供长达1年或20000公里（先到原则）的质保服务。若您的爱车出现质保范围内的故障，大搜车将免费提供维修或更换部件服务。</dd>
+    </dl>
+  </div>
+</div>
+<!--quality_promise end--> 
+
+<!--ourInfo-->
+<div id="ourInfo" class="wrap clearfix">
+  <ul>
+    <li class="ourInfo_phone"><span></span>4008-010-010</li>
+    <li class="ourInfo_weibo"><span></span>站长素材新浪微博<ins>
+      <wb:follow-button uid="3206746194" type="red_1" width="67" height="24" ></wb:follow-button>
+      </ins><br/>
+      <a target="_blank" href="http://sc.chinaz.com">http://sc.chinaz.com</a></li>
+    <li class="ourInfo_taobao"><span></span>站长素材<br/>
+      <a target="_blank" href="http://sc.chinaz.com">http://sc.chinaz.com</a></li>
+    <li class="ourInfo_cooper"><span></span>商务合作<br/>
+      admin@sucaijiayuan.com</li>
+  </ul>
+  <div class="weixin">
+    <h1>微信公众号二维码</h1>
+    <p>扫一扫，关注站长素材<br/>
+      或搜索公众帐号“站长素材”</p>
+    <img src="images/weixin.jpg" width="109px" height="109px" />
+    <p>百分百真人回复，随时随地<br/>
+      掌握免费素材信息！</p>
+  </div>
+</div>
+<!--ourInfo end-->
+
+<div id="footer">
+  <div class="footer-content">
+    <div class="wrapper">
+      <div class="performance clearfix">
+        <div class="per-1 per"><a target="_blank" href="http://sc.chinaz.com"><i></i>
+          <div class="t">绝无火烧车，水淹车</div>
+          <div class="st">356项质检，保证车辆品质</div>
+          </a> </div>
+        <div class="per-2 per"><a target="_blank" href="http://sc.chinaz.com"><i></i>
+          <div class="t">1年2万公里质保</div>
+          <div class="st">二手车享受新车质保服务</div>
+          </a> </div>
+        <div class="per-3 per"><a target="_blank" href="http://sc.chinaz.com"><i></i>
+          <div class="t">分期付款</div>
+          <div class="st">提供最长3年分期付款服务</div>
+          </a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(function(){
+//优势页面点击子导航
+	var subNav_active = $(".adv_active");  //定义高亮显示
+	var subNav_scroll = function(target){  //代表事件的目标对象。也就是id为somelink的document对象 
+		subNav_active.removeClass	("adv_active");//高亮移除类
+		target.parent().addClass("adv_active");
+		subNav_active = target.parent();
+	};
+	$("#subNav a").click(function(){
+		subNav_scroll($(this));
+		var target = $(this).attr("href");
+		var targetScroll = $(target).offset().top - 80;
+		$("html,body").animate({scrollTop:targetScroll},300);
+		return false;
+	});
+	//页面跳转时定位
+	if(window.location.hash){ //用来获取或设置页面的标签值
+		var targetScroll = $(window.location.hash).offset().top - 80;
+		$("html,body").animate({scrollTop:targetScroll},300);
+	}
+
+	$(window).scroll(function(){
+		var $this = $(this);
+		var targetTop = $(this).scrollTop();
+		var footerTop = $("#footer").offset().top;
+		var height = $(window).height();
+// 导航条滚动下固定
+		if (targetTop >= 520){
+			$("#subNav").addClass("fixedSubNav");
+			$(".empty-placeholder").removeClass("hidden");
+		}else{
+			$("#subNav").removeClass("fixedSubNav");
+			$(".empty-placeholder").addClass("hidden");
+		}
+//每个楼层要滚的高度
+		if(targetTop < 750){
+			subNav_scroll($(".adv_door"));
+		}else if(targetTop > 1200 && targetTop < 1640){
+				subNav_scroll($(".adv_source"));
+		}else if(targetTop > 2314 && targetTop < 2734){
+				subNav_scroll($(".adv_price"));
+		}else if(targetTop > 2968 && targetTop < 3268){
+				subNav_scroll($(".adv_transfer"));
+		}else if(targetTop > 3327 && targetTop < 3627){
+				subNav_scroll($(".adv_payment"));
+		}else if(targetTop > 3651 && targetTop < 4071){
+				subNav_scroll($(".adv_promise"));
+		}else if(targetTop > 4163 && targetTop < 4473){
+				subNav_scroll($(".adv_ride"));
+		}else if(targetTop > 4580){
+			subNav_scroll($(".adv_finance"));
+		}
+	})
+});
+</script>
+</body>
+</html>

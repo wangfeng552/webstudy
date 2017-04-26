@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.wf{color: red;}
+</style>
+<div class="k2">
+	<ul>
+		<li>的发生地方萨芬的</li>
+		<li class="nk">的发生地方萨芬的</li>
+		<li style="position: relative">的发生地 <span class="kj">sadfasf</span>方萨芬的</li>
+		<li>的发生地方萨芬的</li>
+		<li class="main">的发生地方 <i></i> 萨芬的</li>
+		<p>sdafasdf</p>
+		<span>sadf的示范方</span>
+	</ul>
+</div>
+
+<script>
+/*
+children() 						//所有子元素的元素集合
+find()							//正在处理的元素的后代元素的好方法与$("p span")相同
+
+closest()						//从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素 返回0或1个元素
+parent()
+parents()
+parentsUntil()
+
+
+prev()
+prevAll()
+prevUntil()
+next()
+nextAll()
+nextUntil()						//查找当前元素之后所有的同辈元素，直到遇到匹配的那个元素为止。不包括那个选择器匹配到的元素
+siblings()						//同辈元素
+
+offsetParent()					//返回第一个匹配元素用于定位的父节点position设为relative或者absolute的元素
+
+ */
+$(".kj").offsetParent().addClass("wf")
+</script>
+
+</body>
+</html>
+

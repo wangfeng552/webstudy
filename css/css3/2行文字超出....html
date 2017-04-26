@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多行文字超出....</title>
+</head>
+<body>
+<style>
+.wrap{ width: 200px;}
+.wrap li{display: -webkit-box;/*将对象作为弹性伸缩盒子模型显示*/
+	-webkit-box-orient:vertical;/*设置或检索伸缩盒对象的子元素的排列方式*/
+	-webkit-line-clamp:2;
+	overflow: hidden; height: 40px; line-height: 20px;}
+</style>
+<div class="wrap">
+	<li>一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房
+		一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房一大伙房</li>
+</div>
+</body>
+</html>

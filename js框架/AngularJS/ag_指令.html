@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script src="js/angular-1.0.1.min.js"></script>
+</head>
+<body >
+{{ expression }}
+ng-app 			定义一个 AngularJS 应用程序。
+ng-model 		元素值（比如输入域的值）绑定到应用程序。
+ng-bind 		数据绑定到 HTML 视图。
+ng-init 		初始化数据
+ng-repeat 		重复一个 HTML 元素
+
+
+
+
+ng-init="firstName='John';lastName='Doe'"
+ng-init="person={firstName:'John',lastName:'Doe'}"    =>{{ person.lastName }}
+ng-init="points=[1,15,19,2,40]"							=>{{points[0]}}}
+
+</body>
+</html>
+

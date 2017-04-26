@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+</head>
+<body>
+<script>
+//	[] 方括号用于查找某个范围内的字符
+var str="Is this all there is?";
+var patt1=/[a-h]/g;			//查找在方括号内的字符
+document.write(str.match(patt1)+'<br/>');	//=>h,a,h,e,e
+var patt2=/[^a-h]/g;		//查找任何不在方括号之间的字符。
+document.write(str.match(patt2));
+/*
+[0-9]
+[a-z]
+[A-Z]
+ */
+</script>
+</body>
+</html>
+
+

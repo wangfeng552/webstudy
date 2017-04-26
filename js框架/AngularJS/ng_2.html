@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script src="js/angular-1.0.1.min.js"></script>
+</head>
+<body ng-controller="PhoneListCtrl"> <!--controller控制器 要与方法匹配-->
+
+<ul>
+	<li ng-repeat="phone in phones">			<!-- ng-repeat="phone in phones"语句是一个AngularJS迭代器 -->
+		{{phone.name}}
+		<p>{{phone.snippet}}</p>
+	</li>
+	<li>{{hello}}</li>
+</ul>
+<li ng-repeat="k in [0,1,2,3] ">{{k}}</li>
+<script>
+	function PhoneListCtrl($scope) {
+		$scope.phones = [
+			{"name": "张三",
+				"snippet": "25"},
+			{"name": "李四",
+				"snippet": "65"},
+			{"name": "开看",
+				"snippet": "86"}
+		];
+		$scope.hello="你好"
+	}
+</script>
+</body>
+</html>
+

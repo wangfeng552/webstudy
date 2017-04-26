@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk">
+	<ul></ul>
+</div>
+<button class="btn">点击</button>
+<script>
+$(".btn").on("click",function(e){
+	e.preventDefault();
+	$.ajax({
+		type:"post",
+		url:"obj.json",
+		dataType:"json",
+		success:function(data){
+			var html="";
+			$.each(data,function(i,v){
+				html+='<li><span class="m1">'+ v.name+'</span><span class="m2">'+ v.age+'</span><span class="m3">';
+				$.each(v.study,function(x,y){
+					html+='<i>'+y.clas1+'</i>'
+				})
+				html+='</span></li>';
+			});
+			$(".mk ul").html(html)
+		},
+		error:function(XMLHttpRequest,textStatus,errorThrow){
+			alert("错误了")
+		}
+	})
+})
+</script>
+</body>
+</html>
+

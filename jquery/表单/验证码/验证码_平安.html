@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<script>
+    function reloadVerifyCode() {
+        document.getElementById('verifyCodeImg').src = "/IdentifyingCode.action?" + Math.random();
+    }
+
+    /*验证码*/
+    yzm_link = $(".yzm_link");
+    var setInterval_obj = null;
+    var setInterval_obj2 = null;
+    function reverseTime(num) {
+        num -= 1;
+        yzm_link.text(num + "s后可重发");
+        setInterval_obj = setInterval(function() {
+            num -= 1;
+            yzm_link.text(num + "s后可重发");
+        }, 1000);
+        setInterval_obj2 = setInterval(function() {
+            clearInterval(setInterval_obj);
+            yzm_link.text("获取验证码");
+            yzm_link.removeClass("disable");
+        }, 1000 * num)
+    };
+    function resetTime() {
+        clearInterval(setInterval_obj2);
+        clearInterval(setInterval_obj);
+        yzm_link.text("获取验证码");
+        yzm_link.removeClass("disable");
+    };
+    yzm_link.click(function(e) {
+        var form_register = $("#form_register");
+        var mobile_val = form_register.find(".username").val();
+        var tx_yzm = $("input[name='tx_yzm']").val();
+
+        if(null==tx_yzm||''==$.trim(tx_yzm)){
+            warning_obj_inner.text("请输入图形验证码");
+            openExt(warning_obj, true);
+            return false;
+        }
+
+        if (!checkUserName_phone(mobile_val)) {
+            warning_obj_inner.text(warning);
+            openExt(warning_obj, true);
+            return false;
+        }
+
+        if ($(this).hasClass("disable")) {
+            return;
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/checkRegistered.do',
+            data: {
+                "mobile" : mobile_val
+            },
+            success: function(data) {
+                //console.log("ret: ", data);
+                if (data.success === false) {
+                    warning_obj_inner.text(data.msg);
+                    openExt(warning_obj, true);
+                    resetTime();
+                    reloadVerifyCode();
+                    yzm_link.addClass("disable");
+                    return false;
+                } else {
+                    yzm_link.removeClass("disable");
+
+                    e.preventDefault();
+                    yzm_link.addClass("disable");
+                    var num = 60;
+                    reverseTime(num);
+
+                    $.ajax({
+                        type : 'POST',
+                        url : "/sms/sendForMReg.do",
+                        data : {
+                            "mobile" : mobile_val,
+                            "verifyCode":tx_yzm
+                        },
+                        success : function(data) {
+                            $("input[name='uuid']").val(data.uuid);
+                            if (data.ok) {
+                            } else {
+                                if (data.errorCode === "01") {
+                                    warning_obj_inner.text("该手机号今日已经超过发送验证码次数上限，请明日再试");
+                                    openExt(warning_obj, true);
+                                    enable_yzm();
+                                } else if (data.errorCode === "02") {
+                                    reverseTime(data.val);
+                                }else{
+                                    warning_obj_inner.text(data.msg);
+                                    openExt(warning_obj, true);
+                                    enable_yzm();
+                                }
+
+                            }
+                        },
+                        error : function(error) {
+                            //console.log("error data: ", error);
+                        },
+                        dataType : "json"
+                    });
+                }
+            } ,
+            error: function(error) {
+                //console.log("error data: ", error);
+            },
+            dataType : "json"
+        });
+
+    });
+
+    function sendSmsVerifyCode() {
+        var form_register = $("#form_register");
+        var mobile_val = form_register.find(".username").val();
+        var tx_yzm = $("input[name='tx_yzm']").val();
+        var data = {
+            "mobile" : mobile_val,
+            "verifyCode":tx_yzm
+        };
+        $.ajax({
+            type : 'POST',
+            url : "/sms/sendForMReg.do",
+            data : data,
+            success : function(data) {
+                $("input[name='uuid']").val(data.uuid);
+                if (data.ok) {
+                } else {
+                    if (data.errorCode === "01") {
+                        warning_obj_inner.text("该手机号今日已经超过发送验证码次数上限，请明日再试");
+                        openExt(warning_obj, true);
+                    } else if(data.errorCode === "02") {
+                        reverseTime(data.val);
+                    }else{
+                        warning_obj_inner.text(data.msg);
+                        openExt(warning_obj, true);
+                        enable_yzm();
+                    }
+                }
+            },
+            error : function(error) {
+                //console.log("error data: ", error);
+            },
+            dataType : "json"
+        });
+    }
+
+    function loadWTScript(a, b) {
+        var c = document.createElement("script");
+        c.type = "text/javascript",
+            c.async = !0,
+            c.src = a,
+            dcsReady(c, b),
+            document.getElementsByTagName("head")[0].appendChild(c)
+    }
+
+    function dcsReady(a, b) {
+        a.readyState ? a.onreadystatechange = function() {
+                ("loaded" == a.readyState || "complete" == a.readyState) && (a.onreadystatechange = null, b())
+            }: a.onload = function() {
+                b()
+            }
+    }
+
+
+</script>
+</body>
+</html>
+

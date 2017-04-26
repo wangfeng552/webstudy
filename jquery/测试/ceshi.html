@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="lk" id="wf">
+	<ul>
+		<li><span>1111111</span></li>
+	</ul>
+</div>
+
+<script>
+	$.contains(document.documentElement,document.getElementById("wf"))// $.contains(c,c);一个DOM节点是否包含另一个DOM节点。 必须是DOM元素
+	$.type("123")=="string";$.type({})=="array"//	$.type(obj);检测obj的数据类型。
+	$.isArray([]) 	//测试对象是否为数组。
+	$.isFunction()	//测试对象是否为函数。
+	$.isEmptyObject()	//测试是否为空对象
+	$.isPlainObject()	//测试对象是否是纯粹的对象 （通过 "{}" 或者 "new Object" 创建的）。
+	$.isWindow()		//测试对象是否是窗口（有可能是Frame）。
+	$.isNumeric()		//确定它的参数是否是一个数字。
+</script>
+</body>
+</html>
+

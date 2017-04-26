@@ -1,0 +1,6 @@
+.du360{ width:532px; height:410px; position:relative;}
+#bg{position:absolute; left:0; top:0; filter:alpha(opacity:30); opacity:0.3;background:black; z-index:1;}
+#smallphoto{width:450px; height:368px; margin:0; background:#fff; border:solid 1px #d8d8d8; padding:40px;}
+#prog {	width:324px;height:40px;position:absolute;z-index:2;top:199px;left:90px;font-family:arial;font-size:12px;color:#fff;text-align:center;}
+#prog span {font-family:"宋体";}
+#box360{width:50px; height:50px; position:absolute; right:0px; top:0px; display:none; z-index:0;}

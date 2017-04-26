@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<!--拖放（Drag 和 drop）是 HTML5 标准的组成部分。-->
+
+<!--1.设置元素可拖放 draggable="true"-->
+<!--<img src="ych.jpg" draggable="true" alt="">-->
+
+
+<!--2.拖动什么 - ondragstart 和 setData()-->
+<!--
+ondrag		    元素被拖动时运行的脚本。
+ondragend		在拖动操作末端运行的脚本。
+ondragenter		当元素元素已被拖动到有效拖放区域时运行的脚本。
+ondragleave		当元素离开有效拖放目标时运行的脚本。
+ondragover		当元素在有效拖放目标上正在被拖动时运行的脚本。
+ondragstart		在拖动操作开端运行的脚本。
+ondrop		    当被拖元素正在被拖放时运行的脚本。
+-->
+<style type="text/css">
+    #div1 {width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<img id="drag1" src="ych.jpg" draggable="true" ondragstart="drag(event)" width="336" height="69" />
+
+<script type="text/javascript">
+    //拖动什么
+    function drag(ev)
+    {
+        ev.dataTransfer.setData("Text",ev.target.id);       //dataTransfer.setData()方法设置被拖数据的数据类型和值
+    }
+    //放到何处
+    function allowDrop(ev)
+    {
+        ev.preventDefault(); //默认地，无法将数据/元素放置到其他元素中。如果需要设置允许放置，我们必须阻止对元素的默认处理方式。
+    }
+    //进行放置
+    function drop(ev)
+    {
+        ev.preventDefault();
+        var data=ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+</body>
+</html>

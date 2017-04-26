@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--attr(name|properties|key,value|fn)		设置或返回被选元素的属性值-->
+
+<div class="sx1">1</div>
+<div class="sx2">adfadf</div>
+<div class="sx3"></div>
+<div class="sx4" title="wf">把class属性的值设置为title属性的值。</div>
+<div class="sx5" title="阿斯蒂芬"></div>
+<script>
+$(".sx1").attr("class","active")
+
+$(".sx2").attr({
+	class:"wf",
+	title:"纳士大夫"
+})
+
+$(".sx3").attr("class")  	//=>sx3   返回文档中class属性值
+
+//参数key,回调函数 描述:  把src属性的值设置为title属性的值。
+$(".sx4").attr("class",function(){
+	return this.title;
+})
+
+//删除属性
+	$(".sx5").removeAttr("title")
+</script>
+</body>
+</html>
+

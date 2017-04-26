@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--两者区别-->
+<!--setTimeout()
+　　 从载入后延迟指定的时间去执行一个表达式或者是函数;仅执行一次 ;和window.clearTimeout一起使用
+setInterval()
+　　 在执行时,它从载入页面后每隔指定的时间执行 一个表达式或者是函数;(功能类似于递归函数)；和window.clearInterval一起使用.-->
+
+
+<!--setTimeout 在指定的毫秒数后调用函数或计算表达式
+setTimeout(code,millisec)
+code		必需。要调用的函数后要执行的 JavaScript 代码串。
+millisec	必需。在执行代码前需等待的毫秒数。
+提示和注释：setTimeout() 只执行 code 一次。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。-->
+
+<!--clearTimeout(id_of_settimeout) 方法可取消由 setTimeout() 方法设置的 timeout。
+id_of_settimeout	由 setTimeout() 返回的 ID 值。该值标识要取消的延迟执行代码块。-->
+
+<!--案例一-->
+<script>
+//	执行一次
+/*	function one(){
+		alert(11111)
+	}
+	setTimeout("one()",1000)*/
+</script>
+
+<!--案例二-->
+<script>
+//	执行多次
+	/*function wf(){
+		alert(1)
+		t=setTimeout("wf()",1000)
+	}
+	wf()*/
+</script>
+
+<!--案例三-->
+<button class="quxiao">取消</button>
+<script>
+//	取消执行
+var t
+function wf(){
+	alert(1)
+	t=setTimeout("wf()",2000)
+}
+$(".quxiao").click(function(){
+clearTimeout(t)
+})
+wf()
+</script>
+
+
+<!--案例四-->
+<style>.lk{display: none;}</style>
+<ul class="lk">
+	<li style="background:red">foo</li>
+	<li>bar <span>sadf</span> </li>
+	<li>baz</li>
+</ul>
+<div class="jk">点击</div>
+<script>
+function lq(){
+ 	$(".lk").slideUp()
+ }
+ $(".jk").click(function(){
+ 	$(".lk").slideDown("slow",function(){
+ 		t=setTimeout("lq()",3000)
+ 	})
+ })
+ $(".lk").click(function(){
+ 	clearTimeout(t);
+ 	$(this).slideUp()
+ })
+</script>
+
+<!--案例五-->
+<div class="lkc">离开时还剩 <span class="t">10</span>秒</div>
+<script>
+	function djs(){
+		var a=$(".t").text();
+		if(a!=0){
+			$(".t").text(a-1);
+			setTimeout("djs()",1000)
+		}
+		else{alert(1)}
+	}
+	djs();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>默认滚动到这里开始固定在顶部</title>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+<!-- 参考网址： http://caibaojian.com/scrollfix#t5 -->
+
+<style>
+.main{ width: 1000px; margin: 0 auto;}
+.main .wl500{ width: 500px; float: left;}
+.cl1{ height: 800px; background: #cde; margin-bottom: 20px;}
+.cl2{ height: 400px; background: #ed9; margin-bottom: 20px;}
+.main .wr300{ width: 300px; float: right;}
+.cr1{ height: 300px; background: #fd6; margin-bottom: 20px;}
+.cr2{ height: 200px; background: #ccc; margin-bottom: 20px;}
+</style>
+
+</head>
+<body>
+<div class="main">
+  <div class="wl500">
+    <div class="cl1">sdfgfb</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl2">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+  </div>
+  <div class="wr300">
+    <div class="cr1">右边1111111111111111111</div>
+    <div class="cr1">右边22222222222222</div>
+    <div class="nav-fix">
+      <div id="dMark" class="clearfix" style="visibility:hidden;margin-top:-1px"></div>
+      <div class="channelHtml" id="channelHtml">
+        <div class="trial-nav">
+          <ul>
+            <li class="act"><a href="#floor-1">私人订制</a></li>
+            <li><a href="#floor-2">会员尊享价</a></li>
+            <li><a href="#floor-3">积分优惠购</a></li>
+            <li><a href="#floor-4">积分换优惠券</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="cr1">右边22222222222222</div>
+  </div>
+</div>
+<!-- <script src="js/jquery.js"></script> -->
+<script src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js" ></script>
+<script src="js/scrollfix.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var fix= $(".nav-fix");//右侧要固定的div
+			fix.scrollFix();
+		})
+</script>
+
+<!--
+参数名字        参数值          参数作用
+startTop        null            开始固定的jquery对象的顶部
+startBottom     null            开始固定的jquery对象末端，两个参数都设置的话，默认后面参数生效
+distanceTop     0/null          数值，距离顶部的高度，可以为高度或者jquery对象
+endPos          null/0          距离底部的高度，可以为高度或者jquery对象
+bottom          -1              默认不使用位置为bottom的值，当设置为0，将会停在窗口底端
+zIndex          0               当没有设置这个值时，将默认使用元素的css z-index值
+baseClassName   'scrollfixed'   当元素开始固定时给它添加一个class，你可以设置为你喜欢的类名。 -->
+</body>
+</html>

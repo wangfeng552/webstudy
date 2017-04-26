@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8" />
+<title>mdater</title>
+<link rel="stylesheet" href="zepto.mdater.css">
+<script src="zepto.js"></script>
+<script src="zepto.mdater.js"></script>
+</head>
+<body>
+<input id="in" type="text" readonly>
+
+<script>
+$('#in').mdater({
+	minDate : new Date(2015, 2, 10)
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.wf{color: red;}
+</style>
+<div class="k">11</div>
+<div class="k">11 <span>sdfsdf</span>	</div>
+<div class="k2">11</div>
+<div class="k3">11</div>
+<script>
+/*	过滤
+eq(-1)	;							//=>倒数第一个div
+first();							//=>第一个
+last();								//=>最后一个
+filter(".k,k2")						//筛选出与指定表达式匹配的元素集合;用逗号分隔多个表达式
+not()								//删除与指定表达式匹配的元素
+has()								//保留包含特定后代的元素，去掉那些不含有指定后代的元素。
+map(callback)						//=>将一组元素转换成其他数组（不论是否是元素数组）
+slice(start,end)					//选取一个匹配的子集 start(0开始) 到 end （不包括该元素）的 arrayObject 中的元素
+
+hasClass("class")					//=>检查当前的元素是否含有某个特定的类true or false
+is()								//=>根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合 返回true or false
+*/
+
+//过滤案例
+/*
+if($("div").hasClass("k")){			// 返回true or false
+	$(".k2").addClass("wf")
+}*/
+
+/*if($("span").parents().is("div")){
+	$(".k2").addClass("wf")
+}*/
+
+//$("div").not(".k").addClass("wf");
+
+//$("div").has("span").addClass("wf")		//div添加wf
+
+//$("div").slice(0,2).addClass("wf")
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.param(obj,[traditional]) 将表单元素数组或者对象序列化-->
+<!--decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。-->
+<script>
+//案例一
+	var params={width:"150",height:"25"};
+	var str= $.param(params); 			//=>width=150&height=25
+
+//	案例二
+	var obj={
+		house:{
+			a:1,
+			b:2,
+			c:3
+		},
+		address:[1,2,3]
+	}
+	var res1= $.param(obj) 				//=>house%5Ba%5D=1&house%5Bb%5D=2&house%5Bc%5D=3&address%5B%5D=1&address%5B%5D=2&address%5B%5D=3
+	var res2=decodeURIComponent(res1)   //=>house[a]=1&house[b]=2&house[c]=3&address[]=1&address[]=2&address[]=3
+
+	var sha1= $.param(obj,true)    		//house=%5Bobject+Object%5D&address=1&address=2&address=3
+	var sha2= decodeURIComponent(sha1)	//house=[object+Object]&address=1&address=2&address=3
+</script>
+</body>
+</html>
+

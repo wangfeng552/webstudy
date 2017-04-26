@@ -1,0 +1,45 @@
+﻿<!DOCTYPE HTML>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="yes" name="apple-mobile-web-app-capable" /> 
+<meta content="black" name="apple-mobile-web-app-status-bar-style" /> 
+<meta content="telephone=no" name="format-detection" />
+<head>
+<title>html5酒店预订日期选择手机日历</title>
+<script type="text/javascript" src="jquery-1.11.2.js"></script>
+	<!--<script>-->
+		<!--var $wf=jQuery.noConflict() 解决多库共存-->
+	<!--</script>-->
+<script type="text/javascript" src="dateRange.js"></script>
+<link rel="stylesheet" type="text/css" href="dateRange.css"/>
+</head>
+
+<body>
+<div class="date-main clearfix" id="date1">
+	<a href="" class="btnall js_btn_data" >入住 <span class="m_rz"></span> </a>
+	<a href="" class="btnall js_btn_data">离开 <span class="m_ld"></span></a>
+</div>
+<input type="hidden" id="ruzhuTime">
+<input type="hidden" id="lidianTime">
+<h3 class="title_01" id="xgtianshu">共<span class="count_date">1</span>晚</h3>
+<!--日期-->
+	<div class="wrapper" id="appendParent">
+	</div>
+<script type="text/javascript">
+	$(".js_btn_data").click(function(e){
+		e.preventDefault();
+		$(".wrapper").show()
+	})
+	var dateRange1 = new pickerDateRange('date1', {
+		needCompare : false,
+		defaultText : ',',
+		autoSubmit : false,
+		inputTrigger : 'input_trigger1',
+		theme : 'ta',
+		startDate:'2016-10-21',
+		endDate:'2016-10-22'
+	});
+
+</script>
+</body>
+</html>

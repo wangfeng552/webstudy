@@ -1,0 +1,325 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+
+<head>
+
+    <title>Lava Lamp Menu Demo</title>
+
+ <style type="text/css">
+ body {
+	background:#000;
+	background-repeat: repeat;
+	margin: 0px;
+	padding: 0px;
+	font-family: "微软雅黑", "宋体";
+	font-size: 14px;
+	color: #CCCCCC;
+}
+.cls {
+	clear: both;
+}
+a:focus { outline: none; }
+
+
+
+.xgsm {
+	padding: 0px;
+	width: 800px;
+	margin-top: 40px;
+	margin-right: auto;
+	margin-bottom: 20px;
+	margin-left: auto;
+}
+.xgsm p {
+	line-height: 1.8em;
+	padding: 0px;
+	margin: 0px;
+	color: #666666;
+}
+#menu1 {
+	padding: 0px;
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 60px;
+	margin-left: auto;
+}
+.topmenu1 {
+	position: relative;
+	width: 800px;
+	padding: 0px;
+	overflow: hidden;
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0px;
+	line-height: 16px;
+	height: 29px;
+	font-size: 12px;
+}
+
+.topmenu1 li {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+.topmenu1 li.back {
+	width: 14px;
+	height: 29px;
+	z-index: 8;
+	position: absolute;
+	background-image: url(images/12_03.gif);
+	background-repeat: no-repeat;
+	background-position: right -29px;
+}
+.topmenu1 li.back .left {
+	height: 29px;
+	margin-right: 14px; /* 7px is the width of the rounded shape */
+	background-image: url(images/12_03.gif);
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.topmenu1 li a {
+	text-decoration: none;
+	color: #999999;
+	outline: none;
+	text-align: center;
+	top: 7px;
+	z-index: 10;
+	display: block;
+	float: left;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+	margin-top: auto;
+	margin-right: 10px;
+	margin-bottom: auto;
+	margin-left: 10px;
+}
+.topmenu1 li a:hover, .topmenu1 li a:active, .topmenu1 li a:visited {
+       border: none;
+}
+#menu2 {
+	padding: 0px;
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 60px;
+	margin-left: auto;
+}
+.topmenu2 {
+	position: relative;
+	height: 34px;
+	padding: 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+.topmenu2 li {
+	float: left;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	height: 34px;
+	width: 91px;
+}
+ .topmenu2 li.back {
+	width: 9px;
+	height: 34px;
+	z-index: 8;
+	position: absolute;
+	background-image: url(images/12_03.gif);
+	background-repeat: no-repeat;
+	color: #999999;
+	background-position: 0px 0px;
+}
+.topmenu2 li a {
+	text-decoration: none;
+	color: #999999;
+	outline: none;
+	top: 7px;
+	z-index: 10;
+	display: block;
+	float: left;
+	height: 34px;
+	position: relative;
+	overflow: hidden;
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-top: auto;
+	margin-bottom: auto;
+
+}
+.topmenu2 li a:hover, .topmenu2 li a:active, .topmenu2 li a:visited {
+	border: none;
+	color: #FF0000;
+	background-image: none;
+}                    
+
+#menu3 {
+	padding: 0px;
+	width: 800px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.topmenu3 {
+	height: 32px;
+	padding: 0px;
+	list-style-image: none;
+	list-style-type: none;
+	margin: 0px;
+	position: relative;
+}
+.topmenu3 li {
+	float: left;
+	list-style: none;
+	margin-right: 20px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+.topmenu3 li.back {
+	width: 9px;
+	height: 32px;
+	z-index: 8;
+	position: absolute;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FF0000;
+	color: #999999;
+}
+.topmenu3 li a {
+	text-decoration: none;
+	color: #999999;
+	outline: none;
+	text-align: center;
+	top: 7px;
+	z-index: 10;
+	display: block;
+	float: left;
+	height: 30px;
+	position: relative;
+	overflow: hidden;
+	margin-right: 2px;
+	margin-left: 2px;
+	width: 60px;
+}
+ .topmenu3 li a:hover, .menu3 li a:active, .menu3 li a:visited {
+	border: none;
+	color: #FF0000;
+} 
+ </style>
+
+    <script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script></script>
+
+    <script type="text/javascript" src="jquery.easing.min.js"></script><!--easing插件(缓动效果)-->
+
+    <script type="text/javascript" src="jquery.lavalamp.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(function() {
+
+            $("#1, #2, #3").lavaLamp({
+
+                fx: "backout", 
+
+                speed: 700,
+
+                click: function(event, menuItem) {
+
+                    return false;
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</head>
+
+
+
+<body>
+
+<div class="xgsm">
+
+<p>范例二特点：用背景图或背景色来实现，导航栏项目为四字。去掉LI中宽度的设置，可用于任何长度的文字。</p>
+
+</div>
+
+<div id="menu2">
+
+<ul class="topmenu2" id="2">
+
+    <li><a href="#">首　　页</a></li>
+
+	<li><a href="#">企业文化</a></li>
+
+	<li><a href="#">产品展示</a></li>
+
+	<li><a href="#">新闻中心</a></li>
+
+	<li><a href="#">阳光服务</a></li>
+
+	<li><a href="#">加盟代理</a></li>
+
+	<li><a href="#">在线咨询</a></li>
+
+</ul>
+
+</div>
+
+<div class="xgsm">
+
+<p>范例三特点：用下划线实现，导航栏文字字数为四字，去掉或重新设置A标记中的宽度，可用于任何长度的文字</p>
+
+</div>
+
+<div id="menu3">
+
+<ul class="topmenu3" id="3">
+
+    <li><a href="#">首　　页</a></li>
+
+	<li><a href="#">企业文化</a></li>
+
+	<li><a href="#">产品展示</a></li>
+
+	<li><a href="#">新闻中心</a></li>
+
+	<li><a href="#">阳光服务</a></li>
+
+	<li><a href="#">加盟代理</a></li>
+
+	<li><a href="#">在线咨询</a></li>
+
+</ul>
+
+</div>
+
+
+
+
+
+
+
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+

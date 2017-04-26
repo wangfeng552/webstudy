@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+.infoList li{ height:24px; line-height:24px;   }
+.infoList li .date{ float:right; color:#999;  }
+.topLoop{ overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.topLoop .hd{ overflow:hidden;  height:30px; background:#f4f4f4;  }
+.topLoop .hd .prev,.topLoop .hd .next{ display:block;  width:9px; height:10px; line-height:10px; float:right; margin-right:10px; margin-top:10px;  overflow:hidden; cursor:pointer; background:url("images/icoUp.gif") center no-repeat;}
+     .topLoop .hd .next{ background:url("images/icoDown.gif") center no-repeat;  }
+.topLoop .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px;  }
+.topLoop .hd ul li{ position:relative; _display:inline; float:left;  width:10px; height:10px; overflow:hidden; background:#ccc; margin-right:10px; text-indent:-999px; cursor:pointer;
+    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; behavior: url(../PIE.htc);}
+    .topLoop .hd ul li.on{ background:#f00;  }
+.topLoop .bd{ padding:10px;   }
+.topLoop .bd ul{ overflow:hidden; zoom:1; }</style>
+</head>
+<body>
+
+<div class="topLoop" style="width:300px">
+	<div class="hd">
+		<a class="next"></a>
+		<ul class="num"><li>1</li><li>2</li><li>3</li></ul>
+		<a class="prev"></a>
+	</div>
+	<div class="bd">
+		<ul class="infoList">
+			<li><span class="date">2011-11-11</span><a href="">中国打破了世界软件巨头规则</a></li>
+			<li><span class="date">2011-11-11</span><a href="">口语：会说中文就能说英语！</a></li>
+			<li><span class="date">2011-11-11</span><a href="">农场摘菜不如在线学外语好玩</a></li>
+			<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+			<li><span class="date">2011-11-11</span><a href="">学英语送ipad2,45天突破听说</a></li>
+			<li><span class="date">2011-11-11</span><a href="">学外语，上北外！</a></li>
+		</ul>
+	</div>
+</div>
+<div class="topLoop" style="width:300px">
+	<div class="hd">
+		<a class="next"></a>
+		<ul class="num"><li>1</li><li>2</li><li>3</li></ul>
+		<a class="prev"></a>
+	</div>
+	<div class="bd">
+		<ul class="infoList">
+			<li><span class="date">2011-11-11</span><a href="">中国打破了世界软件巨头规则</a></li>
+			<li><span class="date">2011-11-11</span><a href="">口语：会说中文就能说英语！</a></li>
+			<li><span class="date">2011-11-11</span><a href="">农场摘菜不如在线学外语好玩</a></li>
+			<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+			<li><span class="date">2011-11-11</span><a href="">学英语送ipad2,45天突破听说</a></li>
+			<li><span class="date">2011-11-11</span><a href="">学外语，上北外！</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">jQuery(".topLoop").slide({ mainCell:".bd ul",effect:"topLoop",autoPlay:true,vis:1,scroll:1,trigger:"click"});</script>
+</body>
+</html>

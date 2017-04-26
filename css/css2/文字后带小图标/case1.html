@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>文字后带图标</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<style>
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0 }
+ol, ul { list-style: none }
+body { font: 12px/150% Arial, Verdana, "\5b8b\4f53"; color: #333; background: #fff; _background-image: url(about:blank); _background-attachment: fixed }
+</style>
+</head>
+<body>
+	<style>
+.login{ float: right; margin: 20px 20px 0 0; }
+.login li{ height: 14px; line-height: 14px; float: left; padding: 0 8px; border-right: 1px solid #333;}
+.login .lg-01{ padding-right: 30px;}
+.login .lg-xtdh{ border-right: none; position: relative;}
+.login .lg-xtdh .xtdh{ position: relative; padding-right: 12px; z-index: 10}
+.login .lg-xtdh .xtdh em{ display: inline-block; right: 0; position: absolute; top: 4px; width: 0; height: 0; border-width: 5px; border-style: solid dashed dashed; border-color: #bbb transparent transparent; font-size: 0; line-height: 0;}
+.login .h-hover .xtdh em{-webkit-transition: -webkit-transform .2s ease-in; -moz-transition: -moz-transform .2s ease-in; -o-transition: -o-transform .2s ease-in; transition: transform .2s ease-in; -moz-transform: rotate(180deg); -moz-transform-origin: 50% 30%; -webkit-transform: rotate(180deg); -webkit-transform-origin: 50% 30%; -o-transform: rotate(180deg); -o-transform-origin: 50% 30%; transform: rotate(180deg); transform-origin: 50% 30% }
+.login .h-hover i{background: #fff; position: absolute; top:14px; left: 0px; display: block; width: 75px; height: 3px; z-index: 9}
+.login .h-hover .outline { background: #fff; position: absolute; top:-5px; left: -1px; border: 1px solid #666; display: block; width: 75px; height: 18px; z-index: 8}
+.login .xt-list{ display: none;}
+.login .h-hover .xt-list{position: absolute; left: -1px; top: 15px; width: 75px; border: 1px solid #666; padding-top: 10px; background: #fff; display: block;}
+.login .h-hover .xt-list dt a{ display: block;height: 24px; line-height: 24px; padding-left: 8px;}
+.login .h-hover .xt-list dt a:hover{ background: #ccc}
+	</style>
+ <div class="login">
+    <ul>
+      <li class="lg-01">欢迎rachel（A001）!</li>
+      <li><a href="">修改密码</a></li>
+      <li><a href="">注销登录</a></li>
+      <li class="lg-xtdh">
+        <a href="javascript:;" class="xtdh">系统导航<em></em></a>
+        <i></i>
+        <span class="outline"></span>
+        <dl class="xt-list">
+          <dt><a href="http://rx.j1.com">运营系统</a></dt>
+          <dt><a href="http://192.168.1.16:8080/default/coframe/auth/skin1/index.jsp">OMS系统</a></dt>
+        </dl>
+      </li>
+    </ul>
+  </div>
+  <script>
+  $(function(){
+    $(".login .lg-xtdh").hover(function() {
+      $(this).addClass('h-hover')
+    }, function() {
+      $(this).removeClass('h-hover')
+    });
+  })
+</script>
+</body>
+</html>

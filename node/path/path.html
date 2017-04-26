@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta http-equiv="X-UA-Compatible" content="edge">
+    <title>路径处理模块path总结</title>
+</head>
+
+<body>
+获取路径/文件名/扩展名
+获取路径：    path.dirname(filepath)
+获取文件名：  path.basename(filepath)
+获取扩展名：  path.extname(filepath)
+
+<script type="text/javascript">
+var path=require("path");
+var glob=require("glob")
+var filepath="/tmp/demo/js/test.js"
+
+//同步的获取文件列表
+    var files = glob.sync(pattern, [options])
+
+//获取所在路径
+    path.dirname(filepath) //=> /tem/demo/js
+
+//获取文件名
+    path.basename(filepath) //=> test.js
+    //如果只想获取文件名，单不包括文件扩展呢？可以用上第二个参数。
+    path.basename(filepath,".js")   //=>test
+
+//获取文件扩展名
+    path.extname(filepath)  //=> .js
+    //  详细规则 path.basename(filepath) === B
+    //  1.从B的最后一个.开始截取，直到最后一个字符。
+    //  2.如果B中不存在.，或者B的第一个字符就是.，那么返回空字符串。
+    //例如
+    path.extname('index.html')  // returns '.html'
+    path.extname('index.coffee.md') // returns '.md'
+    path.extname('index.')  // returns '.'
+    path.extname('index')   // returns ''
+    path.extname('.index')  // returns ''*/
+
+//  路径组合
+    path.join([...paths])
+    path.join('/foo', 'bar', 'baz/asdf', 'quux', '..');//  =>'/foo/bar/baz/asdf'
+
+    path.resolve([from ...], to)    //将参数 to 位置的字符解析到一个绝对路径里。 from源路径 | to将被解析到绝对路径的字符串
+    path.resolve('/foo/bar', './baz')// '/foo/bar/baz'
+</script>
+</body>
+</html>

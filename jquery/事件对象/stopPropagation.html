@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--event.stopPropagation() 防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数-->
+<!--event.isPropagationStopped() 是否调用返回布尔值-->
+
+<div>
+	<p>段落文本内容
+		<input type="button" value="点击" />
+	</p>
+</div>
+
+<script>
+	// 为所有div元素绑定click事件
+	$("div").click( function(event){
+		alert("div-click");
+	} );
+	//为所有p元素绑定click事件
+	$("p").click( function(event){
+		alert("p-click");
+	} );
+	//为所有button元素绑定click事件
+	$(":button").click( function(event){
+		alert("button-click");
+		// 阻止事件冒泡到DOM树上
+		event.stopPropagation(); // 只执行button的click，如果注释掉该行，将执行button、p和div的click
+//		alert(event.isPropagationStopped())			//=>true
+	});
+	$(":button").click( function(event){
+		$(this).css("color","red")
+	})
+</script>
+</body>
+</html>
+

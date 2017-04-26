@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<div class="app">
+	<!--使用 ref 为子组件指定一个索引 ID-->
+	<wf-name ref="profile"></wf-name>
+</div>
+<script>
+	Vue.component("wf-name",{
+	    template:"<ul><h2>{{name}}</h2>\
+        <p>{{age}}</p></ul>",
+		data:function () {
+			return{
+                name:"张三",
+				age:"45"
+			}
+        }
+	})
+	var vm=new Vue({
+	    el:".app",
+	})
+
+	//$refs 只在组件渲染完成后才填充，并且它是非响应式的。它仅仅作为一个直接访问子组件的应急方案——应当避免在模版或计算属性中使用 $refs 。
+	var child=vm.$refs.profile;
+	console.log(child.name)
+</script>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype原型继承</title>
+</head>
+<!--网址http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html
+http://blog.csdn.net/zzulp/article/details/8144520
+-->
+prototype是一个属性，所有的函数都有，这个属性引用了一个对象，即原型对象，简称原型。
+prototype 属性使您有能力向对象添加属性和方法。
+语法：object.prototype.name=value
+
+每个函数也是一个对象，它们对应的类就是function，每个函数对象都具有一个子对象prototype。
+Prototype 表示了该函数的原型，prototype表示了一个类的属性的集合。
+当通过new来生成一个类的对象时，prototype对象的属性就会成为实例化对象的属性。
+
+<!-- 原型对象 -->
+<!-- 每当定义一个对象（函数）时候，对象中都会包含一些预定义的属性。
+其中函数对象的一个属性就是原型对象 prototype。
+注：普通对象没有prototype,但有__proto__属性。 -->
+<script>
+function f1(){}
+console.log(f1.prototype)				//Object
+console.log(typeof f1.prototype) 		//Object
+console.log(typeof Function.prototype) 	// Function，这个特殊
+console.log(typeof Object.prototype)	//Object
+
+// 	从console.log(f1.prototype)	可以看出，f1.prototype就是f1的一个实例对象，就是在f1创建的时候，创建了一个它的实例对象并赋值给它的prototype，基本过程如下：
+//	var temp=new f1();
+//	f1.prototype=temp;
+
+//	所以function.prototype为什么是函数就迎刃而解了，
+//	var temp1=new Function();
+//  Function.prototype=temp1;
+</script>
+
+<script>
+	//	创建一个类 首字母大写 (类也是一个对象，所以也有原型prototype)
+	//通过this添加的属性和方法是在当前对象上添加的，然而js是基于原型prototype的语言，所以每创建一个对象时，它都有一个原型prototype用于指向其继承的属性、方法。
+	//这样通过prototype继承的方法并不是对象自身的，所以在使用这些方法时，需要通过prototype一级一级查找来得到。
+	//这样你会发现通过this定义的属性或者方法是该对象自身拥有的，所以我们每次通过类创建一个新对象时，this指向的属性和方法都会得到相应的创建，而通过prototype继承的属性或者方法
+//	是每个对象通过prototype访问到，所以我们每次通过类创建一个新对象时这些属性和方法不会再次创建.
+	function Person(name){   //object 有prototype属性
+		this.name=name;
+		this.showMe=function(){
+			alert(this.name)
+		}
+	}
+	Person.prototype.from=function(){
+		alert('I come from prototype.');
+	}
+//	或者 不能混用
+	/*Person.prototype={
+		from:function(){}
+	}*/
+	var one=new Person("join"); //object 没有protoype属性
+	one.showMe();
+
+	console.log(one.prototype)   //=>undefined
+	console.log(Person.prototype) //=>object
+	console.log(Person.prototype.constructor)//=>function Person()...
+	console.log(one.constructor) //function Person(name) {...}
+
+</script>
+</body>
+</html>

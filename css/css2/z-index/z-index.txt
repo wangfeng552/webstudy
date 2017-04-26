@@ -1,0 +1,20 @@
+http://www.neoease.com/css-z-index-property-and-layering-tree/ 详情页面
+
+Z-index属性只能工作于那些被定义了position属性的元素中。
+
+
+1.顺序规则
+如果不对节点设定 position 属性, 位于文档流后面的节点会遮盖前面的节点. 
+
+2.定位规则
+    如果将 position 设为 static, 位于文档流后面的节点依然会遮盖前面的节点浮动, 所以 position:static 不会影响节点的遮盖关系. 
+    如果将 position 设为 relative (相对定位), absolute (绝对定位) 或者 fixed (固定定位), 这样的节点会覆盖没有设置 position 属性或者属性值为 static 的节点, 说明前者比后者的默认层级高. 
+    在没有 z-index 属性干扰的情况下, 根据这顺序规则和定位规则, 我们可以做出更加复杂的结构. 这里我们对 A 和 B 都不设定 position, 但对 A 的子节点 A-1 设定 position:relative. 根据顺序规则, B 会覆盖 A, 又根据定位规则 A' 会覆盖 B. 
+
+3.参与规则
+    我们尝试不用 position 属性, 但为节点加上 z-index 属性. 发现 z-index 对节点没起作用. 
+    W3C 对 z-index 属性的描述中提到 在 z-index 属性仅在节点的 position 属性为 relative, absolute 或者 fixed 时生效. 
+
+4.从父规则
+如果 A, B 节点都定义了 position:relative, A 节点的 z-index 比 B 节点大, 那么 A 的子节点必定覆盖在 B 的子节点前面. 
+

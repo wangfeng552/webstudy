@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+	$.ajax({
+		type:"get",
+		url:"data.json",
+		success:function(data){
+			var html="";
+			$.each(data,function(i,v){
+                if(i<2){
+                    html+='<li>'+ v.name+'<span>'+ v.age+'</span></li>'
+                    return true;
+                }
+			})
+			$(".mk").append(html)
+		}
+	})
+</script>
+</body>
+</html>
+

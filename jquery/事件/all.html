@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<input type="text" class="k1" value="123" />
+<div class="k2">点击</div>
+<div class="par"><input type="text" class="k3" value="adsfasf"/></div>
+<p><input type="text" /> <span>focusout fire</span></p>
+<script>
+//$(".k1").click()
+//$(".k2").dblclick(function(){alert(1)})
+
+$(".k1").change(function(){			//当元素的值发生改变时，会发生 change 事件。仅text field, textarea 和 select 元素
+	$(this).css({color:"red"})		//当用于 select 元素时，change 事件会在选择某个选项时发生。
+}) 									//当用于 text field 或 text area 时，该事件会在元素失去焦点时发生。
+
+$("img").error(function(){			//当元素遇到错误（没有正确载入）时，发生 error 事件
+	$(this).hide();
+});
+
+//$(".k3").focus(function(){$(this).css({color:"red"})})		//当元素获得焦点时，触发 focus 事件。
+//$(".k1").blur(function(){$(this).css({color:"red"})})			//失去焦点，鼠标行为或tab离开
+$("p").focusin(function(){										//他可以在父元素上检测子元素获取焦点的情况
+	$(this).find("span").fadeOut()
+})
+$("p").focusout(function(){										//他可以在父元素上检测子元素获取焦点的情况
+	$(this).find("span").fadeIn();
+})
+
+keydown(),keypress(),keyup() 		//键盘按下松开
+mouseenter,mouseleave()				//当鼠标指针穿过元素时
+mousemove()							//当鼠标指针在指定的元素中移动时
+mouseover()							//当鼠标指针位于元素上方时
+mousedown()							//当鼠标指针移动到元素上方，并按下鼠标按键时
+mouseout()							//当鼠标指针从元素上移开时
+mouseup()							//当在元素上放松鼠标按钮时
+
+resize()							//当调整浏览器窗口的大小时，发生 resize 事件
+scroll()							//当用户滚动指定的元素时，会发生 scroll 事件。事件适用于所有可滚动的元素和 window 对象（浏览器窗口）。
+select() 							//当 textarea 或文本类型的 input 元素中的文本被选择时，会发生 select 事件
+submit() 							//当提交表单会发生submit事件
+unload()							//在当用户离开页面时，会发生 unload 事件。
+</script>
+</body>
+</html>
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style type="text/css">
+.focusBox { width: 275px; height: 243px; overflow: hidden; position: relative; border: 1px solid #ddd; }
+.focusBox .hd { position: absolute; z-index: 1; right: 3px; bottom: 34px; }
+.focusBox .hd ul { overflow: hidden; zoom: 1; float: left; }
+.focusBox .hd ul li { float: left; margin-right: 3px; width: 14px; height: 14px; line-height: 14px; text-align: center; background: #ddd; cursor: pointer; font-family: Arial; color: #666; }
+.focusBox .hd ul li.on { background: #f00; color: #fff; }
+.focusBox .bd { position: relative; }
+.focusBox .bd .pic { line-height: 0px; }
+.focusBox .bd .pic img { width: 275px; height: 215px; }
+.focusBox .bd .con { height: 28px; line-height: 28px; text-align: center; font-weight: bold; background: #f6f6f6; }
+</style>
+</head>
+<body>
+<!-- content S -->
+<div id="demoContent">
+<div class="effect">
+<div id="focusBox" class="focusBox">
+  <div class="hd">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </div>
+  <div class="bd">
+    <ul>
+      <li>
+        <div class="pic"><img src="images/ad1.jpg" /></div>
+        <div class="con">焦点图标题1</div>
+      </li>
+      <li>
+        <div class="pic"><img src="images/ad2.jpg" /></div>
+        <div class="con">焦点图标题2</div>
+      </li>
+      <li>
+        <div class="pic"><img src="images/ad3.jpg" /></div>
+        <div class="con">焦点图标题3</div>
+      </li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">$(".focusBox").slide( { mainCell:".bd ul",autoPlay:true, delayTime:0, trigger:"click"} );</script>
+</body>
+</html>

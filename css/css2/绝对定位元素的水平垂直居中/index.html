@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>margin:auto实现绝对定位元素的水平垂直居中</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+<!-- 案例一  -->
+<style>
+.lk{ width: 600px; height: 300px; background: #ccc;position: absolute; left: 50%; top: 50%;margin-left: -300px;margin-top: -150px;}
+</style>
+<!-- <div class="lk">asdfasdf</div> -->
+
+
+<!-- 案例二 -->
+<style>
+.case2{ width: 600px; height: 300px; background: #ccc;position: absolute; left: 50%; top: 50%;transform:translate(-50%,-50%);}
+</style>
+<!-- <div class="case2">asdfasdf</div> -->
+<!-- 问题很明显，兼容性不好。IE10+以及其他现代浏览器才支持。中国盛行的IE8浏览器被忽略是有些不适宜的（手机web开发可忽略）。 -->
+
+
+<!-- 案例三 -->
+<style>
+.case3{ width: 600px; height: 100px; background: #ccc;position: absolute; left: 0; top: 0;right: 0; bottom: 0; margin:auto;}
+</style>
+<div class="case3">asdfasdf</div>
+<!-- 该方法IE8+以及其他浏览器都是OK的。 -->
+
+<!-- 参考链接：
+http://www.zhangxinxu.com/wordpress/2013/11/margin-auto-absolute-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D-%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/ -->
+</body>
+</html>

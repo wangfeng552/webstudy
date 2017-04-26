@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+</head>
+<body>
+<style>
+*{ margin:0; padding:0;}
+.con{ height:40px; width:100%; overflow:hidden; position:relative; background:#9fc;}
+.nav_u{ height:26px; font:22px/26px "ËÎÌו"; font-style:italic; font-weight:bold; color:#333; position:relative;}
+.nav_d{ height:14px; font:12px/12px "ËÎÌו"; color:#333; position:relative;}
+.pos{position:relative; left:200px;}
+.con a{ text-decoration:none; display:block; color:#666}
+.nav_ub{ width:100%; height:26px; position:absolute; top:0px;  background:#fff;}
+.nav_db{ width:100%; height:14px; position:absolute; bottom:0px; background:#fff;}
+</style>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".con").prepend('<div class="nav_ub"></div><div class="nav_db"></div>')
+    $(".con").hover(function(){
+        $(this).children(".nav_ub").stop().animate({top:-26},300);
+        $(this).find(".pos").stop().animate({left:220},250);
+        $(this).children(".nav_db").stop().animate({bottom:-14},300);
+        $(this).find(".pos").stop().animate({left:220},250);
+    },function(){
+        $(this).children(".nav_ub").stop().animate({top:0},300);
+        $(this).find(".pos").stop().animate({left:200},250);
+        $(this).children(".nav_db").stop().animate({bottom:0},300);
+        $(this).find(".pos").stop().animate({left:200},250);
+    });
+})
+</script>
+<body>
+    <div class="con">
+        <div class="nav_u"><a class="pos" href="#">AAAAA</a></div>
+        <div class="nav_d"><a class="pos" href="#">aaaaa</a></div>
+    </div>
+    <div class="con">
+        <div class="nav_u"><a class="pos" href="#">BBBBB</a></div>
+        <div class="nav_d"><a class="pos" href="#">bbbbb</a></div>
+    </div>
+    <div class="con">
+        <div class="nav_u"><a class="pos" href="#">CCCCC</a></div>
+        <div class="nav_d"><a class="pos" href="#">ccccc</a></div>
+    </div>
+    <div class="con">
+        <div class="nav_u"><a class="pos" href="#">AABBCC</a></div>
+        <div class="nav_d"><a class="pos" href="#">aabbcc</a></div>
+    </div>
+</body>
+</html>

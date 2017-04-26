@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+.picBtnTop{ width:500px; height:214px; border:1px solid #ccc; padding:5px;  position:relative;  overflow:hidden;  zoom:1;   }
+.picBtnTop .hd{ width:98px;  height:214px; position:absolute; right:5px;}
+.picBtnTop .hd ul li{ width:93px; padding:0 0 5px 5px;  text-align:center; line-height:0px;  }
+.picBtnTop .hd ul li img{ width:85px; height:60px; border:4px solid #ddd; cursor:pointer;  }
+.picBtnTop .hd ul li.on{ background:url("images/icoleft.gif") no-repeat 0 28px; }
+.picBtnTop .hd ul li.on img{ border-color:#f60;  }
+.picBtnTop .bd{ width:400px;  height:214px; position:relative;  }
+.picBtnTop .bd img{ width:400px; height:214px;  }
+.picBtnTop .bd li{ position:relative; zoom:1; }
+.picBtnTop .bd li .pic{ position:relative; z-index:0; line-height:0px;  }
+.picBtnTop .bd li .bg{ width:400px; height:30px; position:absolute; left:0; bottom:0; z-index:1;  background:#000; filter:alpha(opacity=60);opacity:0.6;    }
+.picBtnTop .bd li .title{ width:400px; height:30px; line-height:30px; left:0; bottom:0;   position:absolute; z-index:2;  }
+.picBtnTop .bd li .title a{ color:#fff;  }
+</style>
+</head>
+<body>
+
+
+<body>
+
+<div class="picBtnTop">
+	<div class="hd">
+		<ul>
+			<li><img src="images/ad1.jpg" /></li>
+			<li><img src="images/ad2.jpg" /></li>
+			<li><img src="images/ad3.jpg" /></li>
+		</ul>
+	</div>
+	<div class="bd">
+		<ul>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+				<div class="title"><a href="">效果图1</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+				<div class="title"><a href="">效果图2</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+				<div class="title"><a href="">效果图3</a></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">$(".picBtnTop").slide({ mainCell:".bd ul",effect:"topLoop",autoPlay:true });</script>
+</body>
+</html>

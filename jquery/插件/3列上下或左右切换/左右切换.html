@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<title>无标题文档</title>
+<style type="text/css">
+body { color: #444444;font: 12px/24px "宋体",san-serif;margin: 0;padding: 0;}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p, select, object {margin: 0;padding: 0;}
+address, cite, code, em, th, i {font-style: normal;font-weight: normal;}
+ul { list-style:none;}
+.dk{ width:200px;background:#ccc;height:75px;overflow:hidden;}
+.mm {width:9999px;}
+.mm ul{float:left; width:200px;}
+.mm li{height:25px;line-height:25px;}
+#sl{color:red}
+</style>
+</head>
+
+<body>
+<span id="sl">1</span>/3
+<input type="button" value="左键" class="zj"/>
+<input type="button" value="右键" class="yj"/>
+<div class="dk">
+<div class="mm">
+	<ul>
+		<li>一级栏目</li>
+		<li>一级栏目</li>
+		<li>一级栏目</li>
+	</ul>
+<ul>
+		<li>2级栏目</li>
+		<li>2级栏目</li>
+		<li>2级栏目</li>
+	</ul>
+<ul>
+		<li>3级栏目</li>
+		<li>4级栏目</li>
+		<li>5级栏目</li>
+	</ul>
+</div>
+</div>
+<div id="tt_mm">阿道夫</div>
+<div id="mmd">3d5f4af</div>
+<div id="kfc_yh">3d5f4af</div>
+<script type="text/javascript">
+$(".zj").bind("click",function(){
+		if($(".dk").scrollLeft()==0)
+		return false
+		$(".dk").animate({scrollLeft:"-="+200},100)
+		$("#sl").html( parseInt($("#sl").html())-1 );
+		//$(".dk").scrollTop($(".dk").scrollTop()-25*3)
+	})
+	$(".yj").bind("click",function(){
+		if($(".dk").scrollLeft()==200*2)
+		return false
+		$(".dk").animate({scrollLeft:"+="+200},100)
+		$("#sl").html( parseInt($("#sl").html())+1 );
+		//$(".dk").scrollTop($(".dk").scrollTop()+25*3)
+	})
+$("body [id!=mmd]").css("color","blue")//body全局 id不等于mmd选取
+$("[id$=mm]").css("color","red")//id结尾等于mmd选取
+$("[id$=yh]").css({"color":"yellow","font-size":"30px"})
+</script>
+</body>
+</html>

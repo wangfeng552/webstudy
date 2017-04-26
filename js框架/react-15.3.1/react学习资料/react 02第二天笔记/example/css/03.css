@@ -1,0 +1,35 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+	background-size: 100%;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+/*列表布局公式 (w - m * (n -1)) / n  => (1000 - 20 * 5) / 6 */ 
+.skin .container {
+	width: 1000px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+.skin ul {
+	margin-right: -20px;
+}
+.skin li {
+	width: 150px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.skin li img {
+	width: 100%;
+}
+.skin li p {
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+}

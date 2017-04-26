@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>Document</title>
+    <script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+
+<!-- 判断点击元素内外 -->
+<script>
+$(document).click(function(e){
+    if($(e.target).parents(".select_part").length==0){	//e.target 返回点击的节点
+        $(".select_part ul").hide();
+    }
+})
+</script>
+
+<!-- tab切换 -->
+<script>
+var jsTabTitleLi=$(".jsTabTitle li");
+function wfTabSwitch(a){
+    a.click(function(){
+        var self=$(this);
+        var index=self.index();
+        self.addClass("act").siblings().removeClass("act");
+        self.closest(".jsTabTitle").next().children().eq(index).show().siblings().hide();
+    })
+}
+wfTabSwitch(jsTabTitleLi)
+</script>
+
+
+<!--立即支付按钮显示在固定底部-->
+<div class="cart3_bott_vhide"></div>
+<div id="checkout_banner"></div>
+<script>
+function initGotoNewPayButtonXY() {
+    var d = $("#checkout_banner");
+    if (d.length > 0) {
+        var g = $(".cart3_bott_vhide");
+        var m = g.offset().top;
+        var f = function () {
+            var h = g.offset().top > $(window).scrollTop() + $(window).height() - 84;
+            var i = g.offset().top <= $(window).scrollTop() + $(window).height() - 84;
+            /*var h = g.offset().top > $(window).scrollTop() //固定在浏览器顶部
+            var i = g.offset().top <= $(window).scrollTop()*/
+            if ((!d.hasClass("fix-bot")) && h) {
+                d.addClass("fix-bot")
+            } else {
+                if ((d.hasClass("fix-bot")) && i) {
+                    d.removeClass("fix-bot")
+                }
+            }
+        };
+        f();
+        $(window).unbind("scroll").bind("scroll",
+                function () {
+                    f();
+                });
+    }
+}
+</script>
+
+
+<!-- 鼠标经过ico宽度改变 -->
+<script>
+var moveWidth=40,
+moveTime=200,
+curmov=null;
+$(".clys a").hover(function(){
+	var curLi=$(this)
+	curmov=setTimeout(function(){
+		curLi.animate({marginLeft:"-"+moveWidth+"px",width:moveWidth+"px"},moveTime)
+		},200)//延迟执行的动作
+},
+function(){
+
+	clearTimeout(curmov);//timeoutID来叫停
+	$(this).animate({marginLeft:"0px",width:"0px"},moveTime)
+})
+</script>
+
+
+<!-- 锚点跳转 -->
+<script>
+$("li a").click(function(){
+    var hr = $(this).attr("href");
+    var anh = $(hr).offset().top;
+    var hjk=anh-100;
+    $("html,body").stop().animate({scrollTop:hjk},2000);
+})
+</script>
+
+
+<!--查看更多-->
+<div class="nk">
+    <ul>
+        <li>以及栏目阿斯蒂芬</li>
+        <li>1</li>
+        <li>222</li>
+        <li>3333</li>
+        <li>444</li>
+    </ul>
+</div>
+<a href="" class="btn_more">更多</a>
+<script>
+    function lookMore(a,b,c,d){
+        d.on("click",function(e){
+            e.preventDefault();
+            a.slice(b,c).show()
+            b +=3;
+            c += 3;
+            if(b>a.length){alert("没有了")}
+        })
+    }
+    lookMore($(".nk li"),0,3,$(".btn_more"))
+</script>
+
+
+<!--加减数量-->
+<style>
+.btn{display: inline-block;width: 25px; height: 25px; line-height:25px;border: 1px solid #f60; text-align: center; text-decoration: none;font-size: 20px; color: #f60;}
+.max{color: #e3e3e3;border-color: #e3e3e3;}
+</style>
+<a href="" class="btn sel">-</a>
+<a href="" class="btn add">+</a>
+<span class="numbercount">1</span>
+<div class="moneyall">¥1000</div>
+
+<script>
+    function startAdd(){
+        var a=$(".btn");
+        var b=$(".numbercount");
+        var c=$(".sel");
+        var d=$(".add");
+        var f=$(".moneyall");
+        function AddAndSubtract(a,b,c,d,f){
+            a.on("click",function(event){
+                event.preventDefault();
+                var self=$(this);
+                var num=parseInt(b.text());
+                var max=10;
+                var min=1;
+                if(self.hasClass("sel")){
+                    if(num-1<min){
+                        self.addClass("max");
+                        num=min;
+                    }
+                    else if(num-1>min && num-1<max){
+                        d.removeClass("max");
+                    }
+                    num -= 1;
+                }else if(self.hasClass("add")){
+                    num += 1;
+                    if(num>0 && num <max){
+                        c.removeClass("max");
+                    }
+                    else if(num>=max){
+                        self.addClass("max")
+                        num=max;
+                    }
+                }
+                b.text(num);
+                f.html("¥"+1000*num)
+            })
+        }
+        AddAndSubtract(a,b,c,d,f)
+    }
+    startAdd();
+</script>
+
+
+<!--不区分字母大小写排序-->
+<script>
+var zmpx=["asdf","GSADF","kldf","ZDAF"];
+zmpx.sort() 	//=>["GSADF", "ZDAF", "asdf", "kldf"]
+zmpx.sort(function(a,b){
+    var s= a.toLowerCase();		//转换小写
+    var t= b.toLowerCase();
+    if(s>t)return 1;
+    if(s<t)return -1;
+    return 0;
+})				//=>["asdf", "GSADF", "kldf", "ZDAF"]
+
+//用本地特定的顺序来比较两个字符串
+var arr=["的","覆盖","离开","按时","指定","二","加快"]
+    arr.sort(function(a,b){return a.localeCompare(b)})
+</script>
+
+<!--控制高度-->
+<div class="pagewrapper"></div>
+<script>
+    var $window=$(window);
+    var page=$(".pagewrapper");
+    var window_height=$window.height();
+    $window.resize(function(){
+        window_height=$window.height();
+        page.css({"min-height":window_height+"px"})
+    }).resize()
+</script>
+</body>
+</html>

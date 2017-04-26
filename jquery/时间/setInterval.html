@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+setInterval()按照指定的周期（以毫秒计）来调用函数或计算表达式
+setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。由 setInterval() 返回的 ID 值可用作 clearInterval() 方法的参数。
+<!--案例一-->
+<button class="quxiao">取消</button>
+<script>
+	function alt(){
+		alert(1)
+	}
+	t=setInterval("alt()",5000);
+	$(".quxiao").click(function(){
+		clearInterval(t)
+	})
+</script>
+<!--<div class="time">10</div>
+<script>
+	function jsj(){
+		var t=$(".time").text()
+		$(".time").text(t-1);
+		if(t==0){
+			alert(1)
+		}
+	}
+	setInterval("jsj()",1000)
+</script>-->
+
+<!--setTimeout()-->
+<!--　　 从载入后延迟指定的时间去执行一个表达式或者是函数;仅执行一次 ;和window.clearTimeout一起使用-->
+<!--setInterval()-->
+<!--　　 在执行时,它从载入页面后每隔指定的时间执行 一个表达式或者是函数;(功能类似于递归函数)；和window.clearInterval一起使用.-->
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8" />
+<title>mtimer demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="zepto.mtimer.css">
+<script src="zepto.js"></script>
+<script src="zepto.mtimer.js"></script>
+<style>
+body,ul,h1,h2,h3{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+<input type="text" id="picktime" value="03-27 15:00" readonly>
+
+<script>
+$(function(){
+	$('#picktime').mtimer();	
+});
+
+</script>
+</body>
+</html>

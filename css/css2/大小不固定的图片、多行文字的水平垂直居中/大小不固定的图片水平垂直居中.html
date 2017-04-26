@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body, html { font: 12px/24px "宋体", san-serif; margin: 0; padding: 0; color: #FFF; background:#000; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { border: 0 none; margin: 0; padding: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none; }
+a { color: #FFF; text-decoration: none; }
+a:hover { color: #FF6600; text-decoration: underline; }
+h1, h3, h4, h5, h6 { font-size: 12px; font-weight: 100; margin: 0; padding: 0; }
+.l { float: left; }
+.r { float: right; }
+img { border-width: 0; vertical-align: top; }
+.center { margin: 0 auto; }
+.clearfix:after { clear: both; content: " "; display: block; height: 0; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+.m10 { margin-bottom: 10px; }
+/******图片垂直居中显示********/
+.main{ width:900px; margin:0 auto;}
+.allpic2 ul li { height: 243px; width: 180px; float: left; line-height: 21px; overflow: hidden; }
+.allpic2 ul li div { width: 165px; height: 165px; display:block; margin: 0 auto 5px;  }
+.allpic2 ul li div a { background:#cc6600; width: 160px; height: 160px; border: 2px solid #ECECEC; display:block; overflow: hidden; text-align: center; vertical-align: middle;  }
+.allpic2 i { display: inline-block; height: 100%; vertical-align: middle; }
+.allpic2 img { max-height: 100%; max-width: 100%; vertical-align: middle; }
+.allpic2 li h2{ text-align:center;}
+/*分页*/
+.nph_pages { text-align: center; }
+.nph_pages span { background:#494949; color: #767676; }
+.nph_pages .nph_pages_turn { width: 48px; }
+.nph_pages a, .nph_pages span { border: 1px solid #767676; display: inline-block; height: 22px; line-height: 22px; width: 22px; text-align: center; }
+.nph_pages .nph_pages_active { color: #ECDEAE; font-weight: bold; }
+.nph_pages a:hover { color: #ecdeae; background: #494949; }
+</style>
+</head>
+
+<body>
+<!--pic-->
+<div class="main">
+		<div class="allpic2 clearfix">
+        	<ul>
+            <li><div><a href="#"><i></i><img src="images/1222.jpg"></a></div><h2>一级栏目</h2></li>
+            <li><div><a href="#"><i></i><img src="images/ww.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/1222.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/ww.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/1222.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/ww.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/1222.jpg"></a></div></li>
+            <li><div><a href="#"><i></i><img src="images/ww.jpg"></a></div></li>
+            </ul>
+        </div>
+        <!--分页-->
+         <div class="nph_pages clearfix"> 
+        	<span class="nph_pages_turn">上一页</span>  
+            <span class="nph_pages_active">1</span>                  
+            <a href="#q=2">2</a>                
+            <a href="#q=3">3</a>              
+            <a href="#q=4">4</a>       
+            <a class="nph_pages_turn" href="#q=2">下一页</a>                
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,102 @@
+style
+  | .mk{color:red}
+#wf.mk
+  | sadf
+  #span
+    a.nk[title="听啥地方" target='_blank' href="http://www.baidu.com"]
+      | 你好 <em>123</em>
+  .nk
+    | 请选择
+img src="http://fanyi.baidu.com/static/translation/img/header/logo_cbfea26.png"
+
+/!这将显示为html注释。
+/不显示html注释
+
+/! Control code -
+- if (5>10)
+  .mk qweqwe
+- else
+  .mk 123456789
+
+a> href="http://wwww.baidu.com" 百度
+a< href="http://wwww.baidu.com" 百度
+a<> href="http://wwww.baidu.com" 百度
+a href="http://wwww.baidu.com" 百度
+
+/! Inline tags
+ul
+  li.first: a href="/a" A link
+  li: a href="/b" B link
+
+ul
+  li.first: a[href="http://www.baidu.com" title="百度"] 百度
+
+/! text content
+h1 id="wf"
+  | 你好
+
+/! dynamic content (= and ==) 动态内容
+/h2 = page_headline
+/a href="http://#{url}" #{url}
+
+/! Attributes wrapper 属性包裹
+h2[id='attri' class='wf active'] 你好大撒旦飞洒地方了
+h1(title="zxhdsaf") sadfsadf
+
+/! Quoted attributes 引用属性
+a href="http://www.baidu.com" 百度
+a href=="&amp;"
+a href="http://www.baidu.com" data-content="this is a boy\
+I like a girl" boy end girl
+
+/!Attribute merging 属性合并
+a class="a1 a2" class
+a class=["a1","a2"] class
+a class=:a1,:a2 class
+
+/! splat attribute 图示属性
+.card*{'data-id'=>"wf"} 内容
+
+/! Dynamic tags *
+ruby:
+  def a_unless_current
+    @page_current ? {tag: 'span'} : {tag: 'a', href: 'http://slim-lang.com/',class:"wf"}
+  end
+- @page_current = true
+*a_unless_current Link
+- @page_current = false
+*a_unless_current Link
+
+
+ruby:
+  def wf_list
+    {tag:'div',class:"main"}
+  end
+*wf_list 这里是ruby创建的标签
+
+
+/html
+= image_tag("icon.png", size: "16x10", alt: "Edit Entry",class: "menu_icon",data: { title: 'Rails Application' })
+<img alt="Edit Entry" class="menu_icon" data-title="Rails Application" src="/assets/icon.png" width="16" height="10">
+
+= link_to("标签值", home_index_path, id: "news", class: "article",target: "_blank", rel: "nofollow")
+<a id="news" class="article" target="_blank" rel="nofollow" href="/home/index">标签值</a>
+
+= link_to(home_index_path,id: "news",target:"_balnk") do
+  | 123
+  <strong>123</strong>
+  <span>Check it out!</span>
+
+/加载组件
+== render 'topbar'
+
+
+/表单
+form[action="wf.asp" method="post"]
+p
+  | First name:
+  input[type="text" name="fname"]
+p
+  | Last name:
+  input[type="text" name="lname"]
+input[type="submit" value="Submit"]

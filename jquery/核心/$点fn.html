@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+$.fn是指jquery的命名空间，加上fn上的方法及属性，会对jquery实例每一个有效。
+如扩展$.fn.abc(),即$.fn.abc()是对jquery扩展了一个abc方法,那么后面你的每一个jquery实例都可以引用这个方法了.
+那么你可以这样子：$("#div").abc();
+
+jQuery为开发插件提拱了两个方法，分别是：
+
+$.fn.extend(object);给jQuery对象添加方法。
+$.extend(object);为扩展jQuery类本身,为类添加新的方法。
+
+fn是什么东西呢。查看jQuery代码，就不难发现。
+jQuery.fn = jQuery.prototype ={
+　　　init: function( selector, context ){//....　
+　　　//......
+};
+原来 jQuery.fn =jQuery.prototype.对prototype肯定不会陌生啦。
+jQuery便是一个封装得非常好的类，比如我们用语句　$("#btn1") 会生成一个 jQuery类的实例。
+
+
+jQuery.extend(object);　为jQuery类添加添加类方法，可以理解为添加静态方法。如：
+$.extend({
+　　add:function(a,b){return a+b;}
+});
+便为　jQuery　添加一个为add　的　“静态方法”，之后便可以在引入 jQuery　的地方，使用这个方法了，
+$.add(3,4); //return 7
+
+<script>
+	$.fn.mk=function(){}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+span{background: red;}
+</style>
+<div class="mk">asdasdf</div>
+<span>这是锻炼</span>
+
+<div><p>asdfasfd</p></div>
+<div class="empty">asdfads <span>dsaf</span></div>
+
+<button class="clone">克隆</button>
+
+<script>
+//内部插入
+/*$("span").prependTo($(".mk"))	 //span前置到div中
+$("span").appendTo($(".mk"))*/   //span追加到div中
+
+//外部插入
+//$("span").insertAfter($(".mk")) 	//span插入到.mk后面
+//$("span").insertBefore($(".mk"))	//span插入到.mk前面
+
+//包裹
+/*$(".mk,span").wrap("<div class='bg'></div>")		//wrap把所有匹配的元素用其他元素的结构化标记包裹起来
+$(".mk").wrap(function(){
+	return '<div class="'+$(this).text()+'"/>'
+})*/
+//$("p").unwrap()									//unwrap移出元素的父元素
+//$(".mk,span").wrapAll("<div class='bg'></div>") 	//wrapAll将所有匹配的元素用单个元素包裹起来
+//$("p").wrapInner("<b></b>") 						//wrapInner将每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来
+
+//替换
+//$("p").replaceWith("<b>123</b>")					//replaceWidth将所有匹配的元素替换成指定的HTML或DOM元素。
+//$("<b>天上掉发</b>").replaceAll("p")					//用匹配的元素替换掉所有 selector匹配到的元素
+
+//删除
+//$(".empty").empty();									//empty删除匹配的元素集合中所有的子节点。
+//$(".empty").remove()									//从DOM中删除所有匹配的元素。所有绑定的事件、附加的数据等没了
+//$("div").detach(".empty")								//从DOM中删除所有匹配的元素。所有绑定的事件、附加的数据等都会保留下来
+
+//克隆
+$(".clone").click(function(){
+	alert(1)
+})
+$(".clone").clone(true).insertAfter($(".clone"))		//clone克隆匹配的DOM元素并且选中这些克隆的副本;一个布尔值（true 或者 false）指示事件处理函数是否会被复制
+</script>
+
+<!--
+appendTo
+prependTo
+insertAfter
+insertBefore
+wrap
+unwrap
+wrapAll
+wrapInner
+replacWidth
+replaceAll
+empty
+remove
+detach
+clone
+-->
+</body>
+</html>
+

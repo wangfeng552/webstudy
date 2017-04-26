@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<title>无标题文档</title>
+<style type="text/css">
+body { color: #444444;font: 12px/24px "宋体",san-serif;margin: 0;padding: 0;}
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p, select, object {margin: 0;padding: 0;}
+address, cite, code, em, th, i {font-style: normal;font-weight: normal;}
+ul { list-style:none;}
+.main{width:500px;height:23px;line-height:23px;border-bottom:3px solid #36c;_overflow:hidden;}
+.main li{background:#36c;width:80px; text-align:center;height:26px;line-height:26px;display:inline-block;cursor:pointer;float:left;margin-left:10px;}
+.main li.act{border:1px solid #36c;border-bottom:none;position:relative;top:-1px;background:#fff;}
+.lk{padding:5px;}
+</style>
+</head>
+
+<body>
+<div class="main">
+	<ul>
+		<li class="act" id="cc_1" onmouseover="table(this)">一级栏目</li>
+		<li id="cc_2" onmouseover="table(this)">二级栏目</li>
+		<li id="cc_3" onmouseover="table(this)">三级懒么</li>
+	</ul>
+</div>
+<div class="lk">
+	<ul id="r_cc_1">111111</ul>
+	<ul id="r_cc_2" style="display:none">22222222</ul>
+	<ul id="r_cc_3" style="display:none">33333333333</ul>
+</div>
+<script type="text/javascript">
+
+var table = function(){
+	 var data = {};
+	 return function(item){
+	  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+	  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+	  $("#r_" + x[1] + data[x[1]]).css("display","none");
+	  $("#r_" + x[1] + x[2]).css("display","");
+	  $("#" + x[1] + data[x[1]]).removeClass("act");
+	  $("#" + x[1] + x[2]).addClass("act");
+	  data[x[1]] = x[2];
+	 };
+  }();
+</script>
+</body>
+</html>

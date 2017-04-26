@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+<title>给容器div使用单独的背景色（固定布局）</title>
+</head>
+
+<body>
+<style>
+.main{ width: 1000px; margin: 0 auto;}
+.main .bg-1{ width: 100%; background: #edc; position: relative; float: left; overflow: hidden;}
+.main .bg-2{ width: 100%; background: #922; position: relative; float: left; right: 200px;}
+.main .bg-3{ width: 100%; background: #251; position: relative; float: left; right: 250px;}
+.main .bg-4{width: 100%; background: #9900cc; position: relative; float: left; right: 300px;}
+#con-4{float: left; width: 250px; position: relative; left: 750px; color: #fff;}/*left:750px 给每一列设置相对定位 而且left的值等于除第一列的所有列宽的和*/
+#con-3{ float: left; width: 300px; position: relative; left: 750px; color: #fff; }
+#con-2{ float: left; width: 250px; position: relative; left: 750px; }
+#con-1{ float: left; width: 200px; position: relative; left: 750px;}
+/*1颜色对应倒数最后一个颜色*/
+</style>
+
+<div class="main">
+    <div class="bg-1">
+        <div class="bg-2">
+            <div class="bg-3">
+                <div class="bg-4">
+                    <div id="con-4">111111111111</div>
+                    <div id="con-3">22222222222</div>
+                    <div id="con-2">3333333333333333</div>
+                    <div id="con-1">444444444444444<br />的萨芬</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 优点：
+
+这种方法是不需要借助其他东西（javascript,背景图等）,而是纯CSS和HTML实现的等高列布局，并且能兼容所有浏览器（包括IE6），并且可以很容易创建任意列数。
+
+缺点：
+
+这种方法不像其他方法一样简单明了，给你理解会带来一定难度，但是只要你理解清楚了，将能帮你创建任意列数的等高布局效果。 -->
+</body>
+</html>

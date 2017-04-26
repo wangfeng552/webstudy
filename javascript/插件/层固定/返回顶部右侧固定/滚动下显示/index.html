@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.fl { float: left; }
+.fr { float: right; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+body {_background-image: url(about:blank);_background-attachment: fixed;}
+.layout{ width:1200px; margin:0 auto;}
+/*左侧固定*/
+.fix_left{width:70px; height:437px;position:fixed;_position:absolute; left:50%; margin-left:610px; top:80px;_top: expression(documentElement.scrollTop + 80 + "px"); z-index:100;overflow:hidden; display:none;}
+/*底部固定*/
+.fix_bottom{ width:100%; height:50px; background:#d51d1d;position:fixed;_position:absolute;left:0px; bottom:0px;_top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); z-index:99;overflow:hidden;}
+.fix_bottom1{ width:1200px; margin:0 auto; height:50px;}
+</style>
+
+
+<div class="layout">
+
+</div>
+<!--左侧固定-->
+<div class="fix_left"></div>
+<!--底部固定-->
+<div class="fix_bottom">
+  <div class="fix_bottom1">
+  </div>
+</div>
+<script type="text/javascript">
+ $(window).bind("scroll resize",function () { 	//scroll当滚动条发生变化时触发  ;resize 当文档窗口改变大小时触发;	bind 为每个匹配元素的特定事件绑定事件处理函数。
+        var winWidth = $(window).width();		//width  取得第一个匹配元素当前计算的宽度值（px）。
+        var winHeight = $(window).height();		//height 取得匹配元素当前计算的高度值（px）。
+        if (winWidth > 1250 && $(window).scrollTop() > winHeight) {
+            $('.fix_left').slideDown("slow");
+        } else {
+            $('.fix_left').slideUp("slow");
+        }
+    });
+
+/*锚点跳转滑动效果
+	 <a href="#"></a> 
+	 location.pathname.replace(/^\//, '')	位置。路径名。取代（/^\//，”）
+	 location.hostname="zhidao.baidu.com"	即，主机域名
+ */
+    $('a[href*=#],area[href*=#]').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({
+                   scrollTop: targetOffset
+               }, 1000);
+                return false;
+            }
+        }
+    });
+	
+	//页面载入后滚动到活动有效内容区
+	//scrollTop获取匹配元素相对滚动条顶部的偏移。
+	//offset获取匹配元素在当前视口的相对偏移。返回的对象包含两个整型属性：top 和 left。此方法只对可见元素有效。
+	$('html, body').animate({scrollTop: $(".wf").offset().top}, 200);
+	
+</script>
+</body>
+</html>

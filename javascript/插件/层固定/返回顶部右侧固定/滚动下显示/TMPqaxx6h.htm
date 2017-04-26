@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.4.0/jquery.min.js"></script>
+<style type="text/css">
+
+/*左侧固定*/
+.fix_left{width:70px; height:369px;position:fixed;_position:absolute; left:0px; top:20%;_top: expression(documentElement.scrollTop + 200 + "px"); z-index:-0;overflow:hidden; visibility:hidden;}
+
+</style>
+</head>
+
+<body>
+<div style="height:30000px;">1111111</div>
+<div class="fix_left">
+	<img border="0" height="369" src="http://img03.j1.com//images/promotion/xq/nzsd/fix_l1.png" usemap="#Map" width="70" /><map id="Map" name="Map"><area coords="4,30,68,52" href="#lc_01" shape="rect" /> <area coords="4,58,66,80" href="#lc_02" shape="rect" /> <area coords="3,85,66,109" href="#lc_03" shape="rect" /> <area coords="4,114,66,136" href="#lc_04" shape="rect" /> <area coords="6,144,65,165" href="#lc_05" shape="rect" /> <area coords="4,170,65,192" href="#lc_06" shape="rect" /> <area coords="5,200,65,219" href="#lc_07" shape="rect" /> <area coords="5,227,65,245" href="#lc_08" shape="rect" /> <area coords="5,254,66,275" href="#lc_09" shape="rect" /> <area coords="4,284,67,301" href="#lc_10" shape="rect" /> <area coords="6,308,61,332" href="#lc_11" shape="rect" /> <area coords="10,338,58,365" href="#" shape="rect" /></map></div>
+    <a name="lc_01"></a>
+<script type="text/javascript">
+ $(window).bind("scroll resize", function () {
+        var winWidth = $(window).width();
+        var winHeight = $(window).height();
+        if (winWidth > 1250 && $(window).scrollTop() > winHeight) {
+            $('.fix_left').css('visibility', 'visible');
+        } else {
+            $('.fix_left').css('visibility', 'hidden');
+        }
+    });
+	 //锚点跳转滑动效果
+    $('a[href*=#],area[href*=#]').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({
+                   scrollTop: targetOffset
+               }, 1000);
+                return false;
+            }
+        }
+    });
+</script>
+
+</body>
+</html>

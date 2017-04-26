@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery/jquery-1.11.2.js"></script>
+</head>
+<body>
+
+<div class="nk">
+	<ul>
+
+	</ul>
+</div>
+<script>
+	var json='[{"name":"张三","age":[24,69,"答复"]},{"name":"李四","age":[12,25,26]}]';//第一步转换为字符串
+	var obj=eval('(' + json + ')');		//通过eval() 函数可以将JSON字符串转化为对象  //当被eval()转换的纯文本json数据为对象形式时，需要在前后加上"()"
+	var array=[];						//新建一个数组
+	$.each(obj,function(i,v){			//循环遍历age的值推到新的数组
+		$.each(v.age,function(i,v){
+			array.push(v)
+		})
+	})
+
+	var html="";
+	$.each(array,function(i,v){
+		html+='<li>'+v+'</li>'
+	})
+	$(".nk").html(html)
+</script>
+</body>
+</html>
+

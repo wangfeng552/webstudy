@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+<title>创建带边框的现列等高布局</title>
+</head>
+
+<body>
+<style>
+html { background: #45473f; height: auto; }
+body { width: 960px; margin: 20px auto; background: #ffe3a6; border: 5px solid #efefef; }
+#wrapper { display: inline-block; border-left: 200px solid #d4c376; position: relative; vertical-align: bottom; }
+#sidebar { float: left; width: 200px; margin-left: -200px; margin-right: -1px; border-right: 1px solid #888; position: relative; }
+#main { float: left; border-left: 1px solid #888; }
+#maing,  #sidebar { padding-bottom: 2em; }
+</style>
+
+<div id="wrapper">
+	<div id="sidebar">
+		.....
+	</div>
+	<div id="main">
+		....
+	</div>
+</div>
+
+<!-- 优点：
+
+可以制作带有边框的两列等高布局，并能兼容所有浏览器，结构简单明了。
+
+缺点：
+
+不适合于更多列的应用，比如说三列以上，这样的方法就行不通了。 -->
+</body>
+</html>

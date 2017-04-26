@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	{{message}}
+	<input type="text" v-model="message">
+</div>
+<script>
+    // 这是我们的Model
+	var exampleDate={
+	    message:"HELLO word"
+	};
+	//创建一个vue的实例
+	//它链接View与Model
+	var vm=new Vue({
+	    el:"#app",  //el: '#app'表示该Vue实例将挂载到<div id="app">...</div>这个元素
+		data:exampleDate  //data属性指向Model
+	})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--data([key],[value])
+在元素上存放或读取数据,返回jQuery对象
+key:存储的数据名
+value:将要存储的任意数据-->
+
+<!--removeData([name|list])在元素上移除存放的数据-->
+
+<!--方法1：在一个div上存取数据-->
+<div class="div1"></div>
+<script>
+	$(".div1").data("blah");  // undefined
+	$(".div1").data("blah", "hello");  // blah设置为hello
+	$(".div1").data("blah");  // hello
+	$(".div1").data("blah", 86);  // 设置为86
+	$(".div1").data("blah");  //  86
+	$(".div1").removeData("blah");  //移除blah
+	$(".div1").data("blah");  // undefined
+</script>
+
+<!--方法2：在一个div上存取名/值对数据-->
+<div class="div2"></div>
+<script>
+	$(".div2").data("name",{id:"07085262",className:"3班"})
+</script>
+
+<!--方法3：在HTML5规范中div中读取预存的data-[key]值-->
+<div class="div3" data-h5="张三"></div>
+<script>
+	$(".div3").data("h5") //=>张三
+</script>
+
+<!--方法4-->
+<style>
+.mk .act{color: red;}
+</style>
+<div class="mk">
+	<ul>
+		<li class="act" data-name="active">一级栏目</li>
+		<li data-name="active">二级栏目</li>
+		<li data-name="active">三级栏目</li>
+		<li>sdfsdf</li>
+	</ul>
+</div>
+<script>
+	$(".mk").on("click","li",function(){
+		var self=$(this);
+		var dataName=self.attr("data-name");
+//		self.attr("data-name")=="active"?self.addClass("active"):self.addClass("actuive")
+//		self.data("name")=="active"?self.addClass("active"):self.addClass("actuive")
+		$("[data-name="+dataName+"]").removeClass("act");
+		self.addClass("act")
+	})
+</script>
+</body>
+</html>
+

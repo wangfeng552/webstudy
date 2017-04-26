@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<style type="text/css">
+body, html { color: #444444; font: 12px/24px "宋体", san-serif; margin: 20px; padding: 0; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { border: 0 none; margin: 0; padding: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none; }
+a { color: #2C2C2C; text-decoration: none; }
+a:hover { color: #FF6600; text-decoration: underline; }
+h1, h3, h4, h5, h6 { font-size: 12px; font-weight: 100; margin: 0; padding: 0; }
+h2 { color: #000000; font-size: 20px; text-align: center; }
+h3 { font-size: 14px; font-weight: 600; padding-left: 15px; }
+.wrap { margin: 0 auto; width: 960px; }
+.l { float: left; }
+.r { float: right; }
+img { border-width: 0; vertical-align: top; }
+.center { margin: 0 auto; }
+.clear { clear: both; height: 0; overflow: hidden; display: block; visibility: hidden; }
+.clearfix:before, .clearfix:after { content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+/**/
+.seats_others{ width:50px; height:25px; position:relative; cursor:pointer;}
+.seats_others a{ padding:0 5px}
+.seats_others_wrap{ position:absolute; left:0; top:0;}
+.seats_others_link,.seats_others_visit {zoom:1;width:36px;cursor:pointer;}
+.seats_others_visit {display:block;font-weight:bold;color:#d50000;}
+.seats_others_link em {z-index:-1;cursor:pointer;position:absolute;top:8px; left:35px;width:7px;height:4px;overflow:hidden;background:url(images/ww.gif) 0 -66px no-repeat;}
+.seats_others_visit em {cursor:pointer;position:absolute;top:8px;left:35px;width:7px;height:4px;overflow:hidden;background:url(images/ww.gif) 0 -81px no-repeat;}
+.seats_others_wrap {z-index:-1;position:absolute;top:0;right:0;width:64px;}
+.seats_others_wrap .top {position:absolute;top:0;left:0;width:50px;height:20px;background:#f7f7f7;border:solid #cdcdcd 1px;border-bottom:none;}
+.seats_others_wrap .cont {z-index:-1;position:absolute;top:20px;left:-20px; width:70px;padding:2px 0;background:#f7f7f7;border:solid #cdcdcd 1px;white-space:nowrap;}
+.seats_others_wrap .cont a{ padding-left: 7px}
+</style>
+</head>
+
+<body>
+<li class="seats_others"><a id="aOthersSeat" class="seats_others_link">其它<em></em></a>
+
+<!--浮层-->
+  <div id="divOthersSeat" class="seats_others_wrap" style="display:none" >
+    <div class="top"></div>
+    <div class="cont">
+      <div><a href="/price/list-0-0-0-0-0-0-0-0-0-0-0-2-0-0-0-1.html">2座</a></div>
+      <div><a href="/price/list-0-0-0-0-0-0-0-0-0-0-0-4-0-0-0-1.html">4座</a></div>
+      <div><a href="/price/list-0-0-0-0-0-0-0-0-0-0-0-6-0-0-0-1.html">6座</a></div>
+      <div><a href="/price/list-0-0-0-0-0-0-0-0-0-0-0-8-0-0-0-1.html">7座以上</a></div>
+    </div>
+  </div>
+<!--end浮层-->
+</li>
+<script type="text/javascript">
+
+$(function(){
+	$(".seats_others").click(function(){
+		$(".seats_others a").addClass("seats_others_visit").removeClass("seats_others_link")
+		$("#divOthersSeat").show();
+		$("#divOthersSeat").hover(function(){},function(){$(this).hide();
+			$(".seats_others a").addClass("seats_others_link").removeClass("seats_others_visit")
+		})
+		})
+	})
+	
+</script>
+</body>
+</html>

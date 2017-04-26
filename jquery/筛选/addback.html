@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+addBack()函数用于将之前匹配的元素加入到当前匹配的元素中，并以新的jQuery对象的形式返回。
+<!--案例一-->
+<ul>
+	<li>list item 1</li>
+	<li>list item 2</li>
+	<li class="third-item">list item 3</li>
+	<li>list item 4</li>
+	<li>list item 5</li>
+</ul>
+<script>
+	$('li.third-item').nextAll().addBack().css('background-color', 'red');
+</script>
+
+<!--案例二-->
+<p id="n1">
+    <span id="n2">
+        <span id="n3">A</span>
+    </span>
+	<label id="n4">B</label>
+    <span id="n5">
+        <span id="n6">C</span>
+    </span>
+	<strong id="n7" class="active">D</strong>
+	<span id="n8" class="active">E</span>
+</p>
+<p id="n9">
+	<span id="n10"></span>
+	<label id="n11"></label>
+	<span id="n12" class="active"></span>
+</p>
+<script>
+	function getTagsInfo($doms){
+		return $doms.map(function(){
+			return "#" + this.id;
+		}).get();
+	}
+	var $p = $("p");
+	var $label = $p.find("label");
+	//由于jQuery对象$label是通过$p的特定方法创建，使用addBack()将返回一个新的jQuery对象
+	//该对象所匹配的元素是$p和$label两者的匹配元素之和
+	var $pAndLabel = $label.addBack();
+	document.write( getTagsInfo( $pAndLabel ) );	// #n1,#n4,#n9,#n11
+
+	var $elements =  $(".active").prev().addBack("span");
+	document.write( getTagsInfo( $elements ) );		//#n5,#n7,#n8,#n11,#n12
+
+	//addBack()之前有3个jQuery对象：
+	//第1个：$("p")
+	//第2个：$("p").find("strong")
+	//第3个：$("p").find("strong").siblings(".active")
+	//调用addBack()的是第3个对象，创建该对象的是第2个对象
+	//因此addBack()返回包含第3个对象和第2个对象的匹配元素之和的jQuery对象
+	var $matches = $("p").find("strong").siblings(".active").addBack();
+	console.log( getTagsInfo( $matches ) ); // #n7,#n8
+</script>
+</body>
+</html>
+

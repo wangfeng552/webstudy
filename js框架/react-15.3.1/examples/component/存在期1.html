@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建期</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<script src="https://static.zhong.com/pc/skin/js/jquery-1.11.2.js"></script>
+
+<div id="zs1"></div>
+
+<script type="text/babel">
+ var Person=React.createClass({
+     getDefaultProps:function(){
+         return {name:"张三"}
+     },
+     getInitialState:function(){
+         return {num:true}
+     },
+     handleClick:function(){
+         this.setState({num:!this.state.num});
+     },
+     //第一阶段 组件即将接收新的属性
+     componentWillReceiveProps:function(nextProps){
+         //状态发生改变的时候，不会触发这个阶段，这个阶段的触发只能由属性的改变实现
+         //第一个参数表示新的属性
+         //我们可以在这个阶段将属性数据，转化成状态数据
+//         console.log("12",nextProps,this)
+         this.setState({num:nextProps.name})
+     },
+     //第二阶段 组件是否应该更新
+     shouldComponentUpdate:function(nextProps,nextState){
+         //第一个参数表示新的属性
+         //第二个参数表示新的状态
+         //必须有返回值
+//         console.log("第二阶段",nextProps,nextState,this)
+         //true 表示可以更新 false 表示不可以更新
+        return true
+     },
+     //第三阶段 组件即将更新
+     componentWillUpdate:function(nextProps,nextState){
+         //第一个参数表示新的属性
+         //第二个参数表示新的状态
+         //这个阶段更新了属性和状态
+//         console.log("第三阶段",nextProps,nextState,this)
+     },
+     //第四阶段 渲染输出
+     render:function(){
+         var value=this.state.num?"你好":"不好";
+         return <div><p onClick={this.handleClick}>{value}</p></div>
+     },
+     //第五阶段 组件已经更新完毕
+    componentDidUpdate:function(prevProps,prevState){
+        //第一个参数表示上一个属性
+        //第二个参数表示上一个状态
+        //因此我们可以在这里修改虚拟DOM
+        console.log("第五阶段",prevProps,prevState,this)
+        $("p").css("color","red")
+    },
+    //组件构建完成
+     componentDidMount:function(){
+         $("p").css("color","red")
+     }
+ });
+    ReactDOM.render(<Person />,zs1)
+</script>
+</body>
+</html>

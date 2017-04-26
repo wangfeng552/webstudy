@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style>
+.btn-countdown{ background: url(images/btn-countdownbg.png) 0 0 no-repeat; width: 316px;height: 62px;}
+.animation {
+    -webkit-animation-duration:2s;
+    -webkit-animation-delay: .2s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-duration:2s;
+    -moz-animation-delay: .2s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-fill-mode: both;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-duration:2s;
+    -ms-animation-delay: .2s;
+    -ms-animation-timing-function: ease;
+    -ms-animation-fill-mode: both;
+    -ms-animation-iteration-count: infinite;
+    animation-duration:2s;
+    animation-delay: .2s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: scale(1) }
+    50% { -webkit-transform: scale(1.06) }
+    100% { -webkit-transform: scale(1) }
+}
+@-moz-keyframes pulse {
+    0% { -moz-transform: scale(1) }
+    50% { -moz-transform: scale(1.06) }
+    100% { -moz-transform: scale(1) }
+}
+@keyframes pulse {
+    0% { transform: scale(1) }
+    50% { transform: scale(1.06) }
+    100% { transform: scale(1) }
+}
+@-ms-keyframes pulse {
+    0% { -ms-transform: scale(1) }
+    50% { -ms-transform: scale(1) }
+    100% { -ms-transform: scale(1) }
+}
+.pulse{
+	-webkit-animation-name: pulse; 
+	-moz-animation-name: pulse; 
+	-ms-animation-name: pulse; 
+	animation-name: pulse; 
+}	
+</style>
+
+	<div class="btn-countdown animation pulse"><a href=""></a></div>
+
+</body>
+</html>

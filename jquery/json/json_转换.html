@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+</head>
+<body>
+<script>
+    //stringify()用于从一个对象解析出字符串，如
+    var obj={name:"张三"}
+	var s=JSON.stringify;
+	console.log(s(obj.name))  //=>"张三"
+
+	//parse用于从一个字符串中解析出json对象
+	var str='{"name":"里斯"}';
+	var k=JSON.parse;
+    var val=k(str);
+	console.log(val.name) 	//=>里斯
+</script>
+
+</body>
+</html>
+

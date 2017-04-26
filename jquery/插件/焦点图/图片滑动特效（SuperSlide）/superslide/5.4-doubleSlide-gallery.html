@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+.gallery{ border:1px solid #ccc; padding:5px; text-align:left; width: 450px;    }
+.gallery .bd li .pic{ line-height:0px;  }
+.gallery .bd li .bg,.gallery .bd li .title{ display:none;  }
+.gallery .bd li img{ width:450px; height:230px;   }
+.gallery .hd{ position:relative; padding:0 15px; margin-top:10px; zoom:1; }
+.gallery .hd .tempWrap{ margin-left:8px;  }
+.gallery .hd ul{ overflow:hidden; zoom:1; }
+.gallery .hd li{ width:100px; padding-top:4px; text-align:center; cursor:pointer;   }
+.gallery .hd li img{ width:86px; height:60px; border:1px solid #ddd; padding:2px;   }
+.gallery .hd li.on{ background:url("images/icoUp.gif") no-repeat center 0;  }
+.gallery .hd li.on img{ border:1px solid #f60; background:#fff;   }
+.gallery .hd .sNext,.gallery .hd .sPrev{ text-align:center;  width:15px; height:66px; line-height:66px;  border:1px solid #ddd; cursor:pointer; position:absolute;  left:0px; top:4px; }
+.gallery .hd .sNext{ left:auto; right:0px; }
+.gallery .hd .sNext:hover,.gallery .hd .sPrev:hover{ text-decoration:none; border:1px solid #f60;  }
+</style>
+</head>
+<body>
+
+
+<body>
+<div class="gallery">
+	<div class="bd">
+		<ul>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+				<div class="title"><a href="">效果图1</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+				<div class="title"><a href="">效果图2</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+				<div class="title"><a href="">效果图3</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad4.jpg" /></a></div>
+				<div class="title"><a href="">效果图4</a></div>
+			</li>
+		</ul>
+	</div>
+	<div class="hd">
+		<a class="sPrev" >&lt;</a>
+		<a class="sNext" >&gt;</a>
+		<ul>
+			<li><img src="images/ad1.jpg" /></li>
+			<li><img src="images/ad2.jpg" /></li>
+			<li><img src="images/ad3.jpg" /></li>
+			<li><img src="images/ad4.jpg" /></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".hd").slide({ mainCell:"ul",effect:"leftLoop",autoPlay:false,vis:4,prevCell:".sPrev",nextCell:".sNext" });
+	$(".gallery").slide({ mainCell:".bd ul",effect:"leftLoop", autoPlay:false, delayTime:0, defaultIndex:4 });
+
+</script>
+</body>
+</html>

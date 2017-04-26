@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>jquery模拟字母顺序排序定位城市列表方法</title>
+<link rel="stylesheet" href="css/lanren.css">
+</head>
+<body>
+
+<!-- 代码部分begin -->
+<header class="fixed">
+	<div class="header">
+		通讯录
+	</div>
+</header>
+<div id="letter" ></div>
+<div class="sort_box">
+
+</div>
+<!--侧边固定条-->
+<div class="initials">
+	<ul>
+
+	</ul>
+</div>
+<script src="../../jquery-1.11.2.js"></script>
+<script src="js/jquery.charfirst.pinyin.js"></script>
+<script src="js/sort.js"></script>
+<!-- 代码部分end -->
+<script>
+	var obj=["上海","北京市","天津市","济南","56155"]
+	var html="";
+	$.each(obj,function(i,v){
+		html+='<div class="sort_list"><div class="num_name">'+v+'</div></div>'
+	})
+	$(".sort_box").html(html)
+</script>
+</body>
+</html>

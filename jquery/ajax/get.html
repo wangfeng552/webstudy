@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+$.get(url,[data],[fn],[type])
+通过远程 HTTP GET 请求载入信息。
+这是一个简单的 GET 请求功能以取代复杂 $.ajax 。请求成功时可调用回调函数。如果需要在出错时执行函数，请使用 $.ajax。
+
+<form action="">
+	<input type="text" class="username"/>
+	<input type="password" class="password"/>
+	<a href="" class="btn">点击</a>
+</form>
+
+<script>
+//	url:待载入页面的url地址
+//	data:待发送key/val参数
+//	callback:载入成功时的回调函数
+//	type:返回内容格式，xml, html, script, json, text, _default。
+$(".btn").on("click",function(e){
+	e.preventDefault();
+	var usernameVal=$(".username").val(); //获取用户名
+	var passwordVal=$(".password").val(); //获取密码
+	var action=$("form").attr("action");  //获取地址
+	$.get(action,{usernameVal:usernameVal,passwordVal:passwordVal},function(data){console.log(data.usernameVal)})
+})
+</script>
+
+</body>
+</html>
+

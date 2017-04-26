@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+/* 双重slide-仿Mtime */
+.Mtime { width: 960px; height: 311px; overflow: hidden; position: relative; background: url("Mtime/bg_movies.jpg") no-repeat; }
+.Mtime .prev, .Mtime .next { width: 63px; height: 100%; clear: both; cursor: pointer; position: absolute; left: 0px; top: 0px; }
+.Mtime .next { width: 59px; left: auto; right: 0px; }
+.Mtime .tempWrap { margin-left: 63px; }
+.Mtime .MtimeCon { width: 840px; height: 100%; }
+.Mtime .tabBox { overflow: hidden; zoom: 1; }
+.Mtime .tabBox .bd { padding: 15px 18px 15px 20px; width: 667px; float: left; }
+.Mtime .tabBox .bd li { overflow: hidden; zoom: 1; }
+.Mtime .tabBox .bd .text { width: 225px; padding-right: 20px; word-wrap: break-word; float: left; }
+.Mtime .tabBox .bd .text h3 a { color: #86CA35; font: normal 28px/40px "Microsoft YaHei"; _font-weight: bold; }
+.Mtime .tabBox .bd .text p { padding-top: 18px; line-height: 22px; color: #fff; font-size: 14px; }
+.Mtime .tabBox .bd .imgs { float: right; }
+.Mtime .tabBox .hd { width: 103px; float: left; margin-top: 6px; }
+.Mtime .tabBox .hd li { margin-top: 7px; padding-left: 7px; cursor: pointer; vertical-align: middle; }
+.Mtime .tabBox .hd a { padding: 3px; display: block; height: 45px; overflow: hidden; }
+.Mtime .tabBox .hd img { width: 90px; height: 45px; }
+.Mtime .tabBox .hd li.on { background: url("Mtime/icoLeft.gif") 0 center no-repeat; }
+.Mtime .tabBox .hd li.on a { background: #85CB35; }
+</style>
+</head>
+<body>
+
+<body>
+<div class="Mtime"> <a class="prev"></a> 
+  <!-- MtimeCon S -->
+  <div class="MtimeCon">
+    <div class="tabBox">
+      <div class="bd">
+        <ul>
+          <li>
+            <div class="text">
+              <h3 ><a href="">失恋有“她”就好GAY蜜的33种典型</a></h3>
+              <p>GAY蜜的种种好处，只有身临其境的女人才最能领悟，她们不仅能得到一位挚友，还会有崭新的人生观与愈发细腻的生活态度。</p>
+            </div>
+            <div class="imgs"> <a title="失恋有“她”就好" > <img width="420" height="280" src="Mtime/104213.jpg"  alt="失恋有“她”就好"></a> </div>
+          </li>
+          <li >
+            <div class="text">
+              <h3 ><a href="">日媒评选容貌最令同性憧憬男女艺人</a></h3>
+              <p >近日，日本媒体《ORICON STYLE》根据问卷调查结果，评出了日本同性憧憬的男女艺人Top10，男星榜福山雅治三连冠，女星绫濑遥受捧</p>
+            </div>
+            <div class="imgs"><a title="日媒评选容貌最令" href=""> <img width="420" height="280" src="Mtime/085458.jpg"  alt="日媒评选容貌最令"></a></div>
+          </li>
+          <li >
+            <div class="text">
+              <h3 ><a href="">时光网口碑新片榜TOP10第6期</a></h3>
+              <p >本期将为大家推荐来自美国、伊朗、韩国和中国的10部口碑新片，包括年度华语票房黑马《失恋33天》及刚上映的动画大片《丁丁历险记》</p>
+            </div>
+            <div class="imgs"><a title="时光网口碑新片榜" href=""> <img width="420" height="280" src="Mtime/092404.jpg"  alt="时光网口碑新片榜"></a></div>
+          </li>
+          <li >
+            <div class="text">
+              <h3 ><a href="">一周华语片剧照选文章新片再耍宝</a></h3>
+              <p >本周曝光剧照的大部分是现代片：徐静蕾黄立行搭档"亲密敌人"、周韦彤顺应节日“脱光”、文章新片继续搞怪卖萌……古装片中周迅眼神如刀。</p>
+            </div>
+            <div class="imgs"><a title="一周华语片剧照选" href=""> <img width="420" height="280" src="Mtime/083846_002.jpg"  alt="一周华语片剧照选"></a></div>
+          </li>
+          <li>
+            <div class="text">
+              <h3 ><a href="">时光网十一月新片观影指南</a></h3>
+              <p >11月有好莱坞视效大片《丁丁历险记》《铁甲钢拳》，也有国产力作《杨门女将》《鸿门宴》，此外华语小片《树先生》《转山》也令人惊喜</p>
+            </div>
+            <div class="imgs"><a title="时光网十一月" href=""> <img width="420" height="280" src="Mtime/140911_002.jpg"  alt="时光网十一月"></a></div>
+          </li>
+        </ul>
+      </div>
+      <div class="hd">
+        <ul>
+          <li class="on"><a title="失恋有“她”就好"   ><img src="Mtime/055648.jpg"></a></li>
+          <li><a title="日媒评选容貌最令"   ><img  src="Mtime/085458_002.jpg"></a></li>
+          <li><a title="时光网口碑新片榜"   ><img  src="Mtime/091852.jpg"></a></li>
+          <li><a title="一周华语片剧照选"   ><img  src="Mtime/083846.jpg"></a></li>
+          <li><a title="时光网十一月"  ><img  src="Mtime/140911.jpg"></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- tabBox -->
+    <div class="tabBox">
+      <div class="bd">
+        <ul>
+          <li>
+            <div class="text">
+              <h3><a href="http://i.mtime.com/335587/list/146800/">特瑞·吉列姆推荐50最佳动画电影</a></h3>
+              <p>Time Out近期推出"特瑞·吉列姆50部最佳动画电影"榜单，包括迪士尼"老掉牙"经典、皮克斯“总动员”系列以及日本宫崎骏动画都包含在列</p>
+            </div>
+            <div class="imgs"><a title="特瑞·吉列姆推荐" href="http://i.mtime.com/335587/list/146800/"> <img width="420" height="280" src="Mtime/151033.jpg"  alt="特瑞·吉列姆推荐"></a> </div>
+          </li>
+          <li>
+            <div class="text">
+              <h3><a href="http://news.mtime.com/pix/2011/10/20/126895.html">恐惧产生的美"异形"原画作品赏</a></h3>
+              <p>让我们借H.R.吉格的原画来回顾32年前《异形》幕后故事，并进一步了解这位独一无二的艺术大师，体验一种恐惧带来的美吧！</p>
+            </div>
+            <div class="imgs"><a title="恐惧产生的美" href="http://news.mtime.com/pix/2011/10/20/126895.html"> <img width="420" height="280" src="Mtime/103923_002.jpg"  alt="恐惧产生的美"></a> </div>
+          </li>
+          <li>
+            <div class="text">
+              <h3><a href="http://news.mtime.com/pix/2011/10/24/128901.html">阿兰德龙经典之作《独行杀手》赏析</a></h3>
+              <p>自从1967年《独行杀手》上映后，就成为无法超越的经典，不论是电影的叙事手法、影像风格，甚至阿兰德龙的衣着都成为致敬和模仿的对象</p>
+            </div>
+            <div class="imgs"><a title="阿兰德龙经典之作" href="http://news.mtime.com/pix/2011/10/24/128901.html"> <img width="420" height="280" src="Mtime/094344_002.jpg"  alt="阿兰德龙经典之作"></a> </div>
+          </li>
+          <li>
+            <div class="text">
+              <h3><a href="http://news.mtime.com/pix/2011/10/14/124916.html">韩年度佳片赏析《阳光姐妹淘》</a></h3>
+              <p>对于这样一部影片，我们不会计较它眼泪太多、煽情太多、假象太多，只因为它祭奠了80年代长大的一代人已经逝去的青春记忆。</p>
+            </div>
+            <div class="imgs"><a title="韩年度佳片赏析" href="http://news.mtime.com/pix/2011/10/14/124916.html"> <img width="420" height="280" src="Mtime/092800_002.jpg"  alt="韩年度佳片赏析"></a></div>
+          </li>
+          <li>
+            <div class="text">
+              <h3><a href="http://news.mtime.com/2011/10/09/1472196.html">秋季日剧前瞻大牌呈献豪华盛宴</a></h3>
+              <p>如果说夏季档日剧是以青葱少年们演绎小清新作消暑餐，那秋季就是大牌们呈献的豪华盛宴。其中木村拓哉领衔的台庆剧《南极大陆》最受期待。</p>
+            </div>
+            <div class="imgs"><a title="秋季日剧前瞻" href="http://news.mtime.com/2011/10/09/1472196.html"> <img width="420" height="280" src="Mtime/025127.jpg"  alt="秋季日剧前瞻"></a> </div>
+          </li>
+        </ul>
+      </div>
+      <div class="hd">
+        <ul>
+          <li><a title="特瑞·吉列姆推荐" ><img src="Mtime/092752.jpg"></a> </li>
+          <li><a title="恐惧产生的美" ><img src="Mtime/103923.jpg"></a> </li>
+          <li><a title="阿兰德龙经典之作" ><img src="Mtime/094344.jpg"></a> </li>
+          <li><a title="韩年度佳片赏析" ><img src="Mtime/092800.jpg"></a> </li>
+          <li><a title="秋季日剧前瞻" ><img src="Mtime/025127_002.jpg"></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- tabBox -->
+  </div>
+  <!-- MtimeCon E -->
+  <a class="next"></a> </div>
+<script type="text/javascript">
+						$(".Mtime").slide({ titCell:".MtimeNull",mainCell:".MtimeCon",effect:"leftLoop", autoPlay:false});
+						$(".tabBox").slide({mainCell:".bd ul"});
+					</script>
+</body>
+</html>

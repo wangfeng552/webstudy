@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+</head>
+<body>
+<!-- content S -->
+	<div id="demoContent">
+
+		<div class="authorWord">
+			1.0版本带按钮的滚动效果（left、top）采用的是手动分页，这样做有一个缺点，就是当内容个数不确定的时候，可能会出现下面情况：<br/>
+			<b>理想情况下：</b>内容（图片）个数9，每次滚动3张，所以分页数是3<br/>
+			<b>实际情况：</b>客户只添加了6张图片，每次滚动3张，那么分页应该是2，<em>此时就多出一页！</em>
+		</div>
+
+		<div class="effect" style="width:460px">
+					<div id="selfPage" class="leftLoop">
+						<div class="hd">
+							<a class="next"></a>
+							<ul><li>1</li><li>2</li><li>3</li></ul>
+							<a class="prev"></a>
+						</div>
+						<div class="bd">
+							<ul class="picList">
+								<li>
+									<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+									<div class="title"><a href="">效果图1</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+									<div class="title"><a href="">效果图2</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+									<div class="title"><a href="">效果图3</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+									<div class="title"><a href="">效果图4</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+									<div class="title"><a href="">效果图5</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+									<div class="title"><a href="">效果图6</a></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<script type="text/javascript">jQuery("#selfPage").slide({ mainCell:".bd ul",effect:"left",vis:3,scroll:3,autoPlay:true});</script>
+		</div>
+		
+
+		<div class="js">
+			<strong>js调用：</strong><span>jQuery(".leftLoop").slide( <i>{ mainCell:".bd ul",effect:"leftLoop",vis:3,scroll:3,autoPlay:true} <i> );</span>
+		</div>
+
+		<div class="authorWord">
+			针对上述情况，1.2新增了autoPage让系统自动分页，<em>兼容1.0，如果以前项目应用了SuperSlide，那么直接覆盖代码即可。</em><br/>
+			使用方法：需结合 titCell 使用，<em>如果开启autoPage:true，此时titCell要指定为分页按钮的父层，因为系统会自动往titCell里面添加分页html！</em><br/>
+			例如：<br/>
+			<b>手动分页调用为：</b>jQuery(".leftLoop").slide( <i>{ <em>titCell:".hd ul li"</em>, mainCell:".bd ul",effect:"leftLoop",vis:3,scroll:3,autoPlay:true} <i> )<br/>
+			<b>开启autoPage后：</b>jQuery(".leftLoop").slide( <i>{ <em>titCell:".hd ul"</em>, mainCell:".bd ul",effect:"leftLoop",vis:3,scroll:3,autoPlay:true,<em>autoPage:true</em>} <i> )<br/>
+			<img src="images/autoPage-intro.png" /><br/>
+
+			<b>正确调用结果如下：</b>
+		</div>
+
+
+		<div class="effect" style="width:460px">
+					<div id="autoPage" class="leftLoop">
+						<div class="hd">
+							<a class="next"></a>
+							<ul></ul>
+							<a class="prev"></a>
+						</div>
+						<div class="bd">
+							<ul class="picList">
+								<li>
+									<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+									<div class="title"><a href="">效果图1</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+									<div class="title"><a href="">效果图2</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+									<div class="title"><a href="">效果图3</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+									<div class="title"><a href="">效果图4</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+									<div class="title"><a href="">效果图5</a></div>
+								</li>
+								<li>
+									<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+									<div class="title"><a href="">效果图6</a></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<script type="text/javascript">jQuery("#autoPage").slide({ titCell:".hd ul", mainCell:".bd ul",effect:"left",vis:3,scroll:3,autoPlay:true,autoPage:true});</script>
+		</div>
+		
+
+		<div class="js">
+			<strong>js调用：</strong><span>jQuery("#autoPage").slide(<i>{ titCell:".hd ul", mainCell:".bd ul",effect:"left",vis:3,scroll:3,autoPlay:true,autoPage:true}</i>)</span>
+		</div>
+		<p>&nbsp;</p>
+
+	</div>
+<!-- content E -->
+</body>
+</html>

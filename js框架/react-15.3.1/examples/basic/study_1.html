@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Basic Example</title>
+  </head>
+  <body>
+  <div id="example"></div>
+  <div id="example1"></div>
+  <div id="example2"></div>
+
+  <!--React 的核心库-->
+  <script src="../../build/react.js"></script>
+  <!--提供与 DOM 相关的功能-->
+  <script src="../../build/react-dom.js"></script>
+  <!--将 JSX 语法转为 JavaScript 语法 这一步很消耗时间，实际上线的时候，应该将它放到服务器完成。 -->
+  <script src="../../build/browser.min.js"></script>
+
+  <script type="text/babel">//React 独有的 JSX 语法,跟 JavaScript 不兼容
+//  case1
+//  ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
+    ReactDOM.render(
+    <h1>你好大师傅</h1>,
+    document.getElementById("example")
+    )
+
+
+//------------------------------------------------------------------------------------
+//  csae2
+//  HTML 语言直接写在 JavaScript 语言之中，不加任何引号，这就是 JSX 的语法，它允许 HTML 与 JavaScript 的混写
+//  下面代码体现了 JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析。
+    var name=["张三","李四","slisy"];
+    ReactDOM.render(
+            <div>
+            {
+              name.map(function(name){
+                  return <div>hello,{name}!</div>
+              })
+            }
+            </div>,
+            document.getElementById("example1")
+    )
+
+
+//------------------------------------------------------------------------------------
+//  case3
+//  JSX 允许直接在模板插入 JavaScript 变量。如果这个变量是一个数组，则会展开这个数组的所有成员（
+    var arr=[
+            <h2>你爱上对方</h2 >,
+            <h2>you love he!</h2>,
+    ];
+    ReactDOM.render(
+            <div>{arr}</div>,
+            document.getElementById("example2")
+    )
+  </script>
+  </body>
+</html>

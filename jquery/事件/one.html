@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+one(type,[data],fn)为每一个匹配元素的特定事件（像click）绑定一个一次性的事件处理函数。
+<div class="shuju">数据</div>
+<script>
+function xs(e){
+	alert(e.data.name)
+}
+$(".shuju").one("click",{name:"张三"},xs) 		//只执行一次
+</script>
+</body>
+</html>
+

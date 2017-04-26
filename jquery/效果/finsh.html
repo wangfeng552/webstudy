@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title></title>
+<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.mk{background: #cff;}
+</style>
+<div class="mk">大师傅好</div>
+<button>finsh</button>
+<script>
+	//finsh()停止当前正在运行的动画，删除所有排队的动画，并完成匹配元素所有的动画。
+//	$('.mk').animate({height:"100px"},1000).delay(2000).hide("slow")
+	$('.mk').animate({height:"100px"},1000).delay(2000).hide("slow").finish()
+</script>
+</body>
+</html>
+

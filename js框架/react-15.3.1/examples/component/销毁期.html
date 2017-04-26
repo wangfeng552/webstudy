@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建期</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<script src="https://static.zhong.com/pc/skin/js/jquery-1.11.2.js"></script>
+
+<div id="zs1"></div>
+
+<script type="text/babel">
+ var Xiaohui=React.createClass({
+     getInitialState:function(){
+         return {wf:" wansakf"}
+     },
+     render:function(){
+         return <div><p>123</p></div>
+     },
+     //销毁期只有一个阶段
+     componentWillUnmount:function(){
+         //这个方法是我们最后一次可以访问组件的方法
+         console.log("销毁",arguments,this)
+         alert(123)
+     }
+ });
+ReactDOM.render(<Xiaohui />,zs1)
+
+ //重新渲染虚拟DOM
+setTimeout(function(){
+    //重新渲染页面
+    ReactDOM.render(<h1>爱创课堂公开课</h1>,zs1)
+},3000)
+</script>
+</body>
+</html>

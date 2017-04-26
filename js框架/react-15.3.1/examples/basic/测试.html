@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Basic Example</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<div id="wf"></div>
+
+<script type="text/babel">
+  var DayTime=React.createClass({
+      getDefaultProps:function(){
+          return {date:new Date()}
+      },
+      render:function(){
+          var date=this.props.date.getFullYear();
+          return <div><p>{date}</p></div>
+      }
+  });
+    ReactDOM.render(<DayTime />,wf)
+</script>
+</body>
+</html>

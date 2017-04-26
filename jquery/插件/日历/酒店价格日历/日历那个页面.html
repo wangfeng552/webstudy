@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="lt-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>酒店管理控台</title>
+	<link rel="stylesheet" href="vac/bootstrap.css" />
+	<link rel="stylesheet" href="vac/style.css" />
+	<link rel="stylesheet" href="vac/date-style.css" />
+	</head>
+	<body>
+		<div class="content">
+			<div class="super-title">房态信息管理</div>
+			<div class="sub-title">产品管理控台  > 房态信息管理 > 管理房态</div>
+			<div class="content-detail row relative pb50">
+				<div class="content-detail-title">瓦克庄园</div>
+				<div class="review-state">
+					<ul>
+						<li>
+							<span class="color2fa72f">现在是2016年10月11日 18:20:43</span>
+						</li>
+					</ul>
+				</div>	
+				<div class="mt30">
+					<div class="input-module">
+						<div class="input-group">
+							<label class="label-name fb18">审核意见</label>
+							<button class="btn btn-default sm-btnSize ml10">设置房态</button>
+				        </div>
+			        </div>
+			        <div class="input-module">
+				        <div class="input-group">
+							<label class="label-name">选择子房型</label>
+				            <select class="form-control">
+				            	<option>sd</option>
+				            </select>
+				        </div>
+			        </div>
+			        
+			        <div class="input-module">
+				        <div class="input-group">
+							<label class="label-name">最低入住房晚</label>
+				            <input type="number" class="form-control" placeholder="">
+				        </div>
+			        </div>
+		        </div>
+		        
+		        <div class="content-detail-title">房态日历</div>
+			
+				<div class="input-group">
+					<label class="label-name">选择月份</label>
+					<select class="form-control sm180-form-control" id="dateChange">
+						<option>2016年12月</option>
+						<option>2017年1月</option>
+						<option>2017年2月</option>
+					</select>
+				</div>
+		        <div class="dateBox"></div>
+				<div class="houseState mt30">
+					<div class="yStyle">有房</div>
+					<div class="mStyle">满房</div>
+					<div class="gStyle">未设置放假/关房</div>
+				</div> 
+				
+				
+				<div class="houseState-inputBox mt30 relative">
+					<div class="content-detail-title">房态参数</div>
+					<button class="btn btn-default xs-btnSize houseState-bjBtn">编辑</button>
+					<div class="input-module mt30">
+				        <div class="input-group">
+							<label class="xs-label-name">时间</label>
+				            <input type="text" id="date-sta" class="form-control xs103-form-control" placeholder="">
+				        
+							<div class="broken">至</div>
+				            <input type="text" id="date-end" class="form-control xs103-form-control" placeholder="">
+				        </div>
+			        </div>
+				    <div class="row">  
+				    	<div class="input-module col-lg-4">
+							<div class="input-group">
+								<label class="xs-label-name">币种</label>
+					            <select class="sm-form-control form-control" disabled>
+					            	<option>a</option>
+					            </select>
+					        </div>
+				        </div>
+				        <div class="input-module col-lg-4">
+							<div class="input-group">
+								<label class="xs-label-name">底价</label>
+					            <input type="text" id="priceBase" class="sm-form-control form-control" placeholder="" disabled>
+					        </div>
+				        </div>
+				        <div class="input-module col-lg-4">
+							<div class="input-group">
+								<label class="xs-label-name">售价</label>
+					            <input type="text" id="priceRetail" class="sm-form-control form-control" placeholder="" disabled>
+					        </div>
+				        </div>
+				        <div class="input-module col-lg-4">
+							<div class="input-group">
+								<label class="xs-label-name">库存</label>
+					            <input type="text" id="stock" class="sm-form-control form-control" placeholder="" disabled>
+					        </div>
+				        </div>
+				        <div class="input-module col-lg-4">
+							<div class="input-group">
+								<label class="xs-label-name">剩余库存</label>
+					            <input type="text" id="stockRemain" class="sm-form-control form-control" placeholder="" disabled>
+					        </div>
+				        </div>
+					</div>
+					
+					<div class="input-module">
+						<div class="input-group">
+							<label class="label-name">最晚取消时间</label>
+							<span class="span-mshu">需提前</span>
+				            <input type="text" class="xs-form-control form-control" placeholder="" disabled>
+				            <span class="span-mshu">天</span>
+				        </div>
+			        </div>
+					<div class="input-module">
+						<div class="input-group">
+							<label class="label-name">最晚预定时间</label>
+							<span class="span-mshu">需提前</span>
+				            <input type="text" class="xs-form-control form-control" placeholder="" disabled>
+				            <span class="span-mshu">天</span>
+				        </div>
+			        </div>
+			        <div class="input-module">
+						<div class="input-group">
+							<label class="label-name">状态</label>
+				            <input type="text" class="sm-form-control form-control" placeholder="" disabled>
+				        </div>
+			        </div>
+				</div>
+				<div class="btn-area mt30">
+					<button class="btn btn-primary sm-btnSize">返回</button>
+					<button class="btn btn-primary sm-btnSize">保存</button>
+					<button class="btn btn-primary sm-btnSize">提交</button>
+				</div>
+			</div>
+		</div>
+<script src="../../jquery-1.11.2.js"></script>
+<script src="jquery-date.js"></script>
+<script>
+
+	function dateInit(startDate,tsDateArr) {
+		/*
+		 * priceRetail 售价
+		 * priceBase   底价
+		 * stock       库存
+		 * stockRemain 剩余库存
+		 * houseType   房态状态
+		 * houseType:0 有房  ；1 满房；2未设置/关房
+
+		 * */
+		var priceData = {
+			priceRetail: "0",
+			priceBase: "0",
+			stockRemain: "0",
+			stock: "0",
+			houseType:"0",
+			dayData: tsDateArr
+		}
+
+		$.yagizaDate(startDate,priceData);
+	}
+
+	$(".houseState-bjBtn").on('click',function(){
+		$(".houseState-inputBox input,.houseState-inputBox select").removeProp("disabled")
+	});
+
+	/* 选择月份select change事件 */
+	$("#dateChange").on('change',function(){
+		var v = $(this).val();
+		v = v.replace(/[\u4e00-\u9fa5]/g,"-")+"1";
+		dateInit(v,testarr2);
+	});
+
+	/*-------------------------华丽分割线--------------------------*/
+	/* 页面打开初始化 */
+	$(function(){
+		/*获取当前日期*/
+		var nowDate = new Date(),
+			nowY = nowDate.getFullYear(),
+			nowM = nowDate.getMonth()+1,
+			nowD = nowDate.getDate();
+		var p = nowY+"-"+nowM+"-"+nowD;
+		var h = "";
+		if(nowM < 13) {
+			for(var x = nowM;x<13;x++) {
+				h += '<option value="'+nowY+'年'+x+'月">'+nowY+'年'+x+'月</option>';
+			}
+		}
+		for(var i = 1;i<13;i++) {
+			h += '<option value="'+(nowY+1)+'年'+i+'月">'+(nowY+1)+'年'+i+'月</option>';
+		}
+		$("#dateChange").html(h);
+		dateInit(p,testarr1);
+	});
+
+	/* 测试数据 */
+	var testarr1 = [
+			{
+				date: "2016-12-21",
+				priceRetail: "9000",
+				priceBase: "50",
+				stock: "1",
+				stockRemain: "2",
+				houseType:"1",
+			},{
+				date: "2016-12-22",
+				priceRetail: "9000",
+				priceBase: "50",
+				stock: "1",
+				stockRemain: "5",
+				houseType:"2",
+			},{
+				date: "2016-12-23",
+				priceRetail: "9000",
+				priceBase: "50",
+				stock: "1",
+				stockRemain: "5",
+				houseType:"1",
+			}
+		];
+	var testarr2 = [
+		{
+			date: "2017-01-01",
+			priceRetail: "9000",
+			priceBase: "50",
+			stock: "1",
+			stockRemain: "2",
+			houseType:"1",
+		},{
+			date: "2017-01-22",
+			priceRetail: "9000",
+			priceBase: "50",
+			stock: "1",
+			stockRemain: "5",
+			houseType:"2",
+		},{
+			date: "2017-02-23",
+			priceRetail: "9000",
+			priceBase: "50",
+			stock: "1",
+			stockRemain: "5",
+			houseType:"1",
+		}
+	];
+</script>
+	</body>
+</html>

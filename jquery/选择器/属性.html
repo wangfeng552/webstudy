@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="lk">
+	<ul>
+		<li class="sddf">asdf</li>
+		<li class="srd">asdf</li>
+		<li class="rfg" id="k1">asdf</li>
+		<li class="jkg">asdf</li>
+	</ul>
+</div>
+<button>取消</button>
+<input type="text" value="asdf"/>
+<input type="password" value="asd"/>
+<input type="checkbox"/>
+<input type="checkbox" checked="checked"/>
+<input type="checkbox" disabled="disabled"/>
+
+<script>
+//$("input[type]").css("color","red")							//id
+//$("input[type='checkbox']").attr("checked",true)				//=  等于
+//$("input[type!='checkbox']").css({border:"1px solid red"}) 		//!= 不等于某些值
+//$("li[class^='s']").css("color","red")							//^= 以某些值开始的元素
+//$("li[class$='g']").attr("wf","25")								//$= 以某些值结尾
+//$("li[class*='f']").css("background","#986")						//*= 包含某些值
+$("li[class][id='k1']").height(50)									//复合属性选择器，需要同时满足多个条件时使用。
+</script>
+</body>
+</html>
+

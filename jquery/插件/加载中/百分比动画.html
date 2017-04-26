@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+	.ball{position:absolute;left:10px;top:10px;width:60px;height:60px;border-radius:30px;overflow:hidden}
+	.holder{height:100%;width:100%;overflow:hidden;position:relative;background-color:#ededed}
+	.inner{position:absolute;top:10%;height:100px;width:100%;background:url(wave.png)}
+</style>
+
+<div class="ball" data-value="80">
+	<div class="holder">
+		<div class="inner"></div>
+	</div>
+</div>
+<span class="rate"> 50% </span>
+
+<script>
+	(function($){
+		function ballAnimate(){
+			var ballInner=$(".ball .inner");
+			var bk_position=0 ;
+			var num=Number($(".ball").data("value"));
+			var rate=100-num;
+			if(rate>90){ rate=90; }
+			ballInner.css({top:rate+"%"})
+			var origin_css=ballInner.attr("style");
+			setInterval(function(){
+				ballInner.attr("style","background-position:"+bk_position+"% 0;"+origin_css);
+				bk_position++
+			},40)
+		}
+		ballAnimate()
+	})(jQuery)
+</script>
+</body>
+</html>
+

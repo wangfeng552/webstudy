@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<style>
+	.wf{color: red;}
+</style>
+<div id="app">
+	<h2>这里是父元素</h2>
+	<wf-child>
+		<!--在父级中，具有特殊属性 scope 的 <template> 元素，表示它是作用域插槽的模板-->
+		<!--scope 的值对应一个临时变量名，此变量接收从子组件中传递的 prop 对象：-->
+		<template scope="props" slot="zs">
+			<p>这里是新加的内容</p>
+			<p>{{props.text}}</p>
+		</template>
+	</wf-child>
+</div>
+
+<script>
+	//在子组件中，只需将数据传递到插槽 例如：text='hello from child'
+	Vue.component("wf-child",{
+	    template:"<ul>" +
+		"<li class='wf'>这里是组件内容</li>" +
+		"<slot name='zs' text='hello from child'>备用内容</slot>" +
+		"</ul>"
+	})
+	var vm =  new Vue({
+	    el:"#app"
+	})
+
+//    作用域插槽是一种特殊类型的插槽，用作使用一个（能够传递数据到）可重用模板替换已渲染元素。
+</script>
+</body>
+</html>
+

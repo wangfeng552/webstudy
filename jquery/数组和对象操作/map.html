@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.map(arr|obj, callback)将一个数组中的元素转换到另一个数组中-->
+<script>
+//将原数组中每个元素加 4 转换为一个新数组。
+var arr=[1,20,56];
+$.map(arr,function(n){
+	return n+4
+})
+
+//原数组中大于 0 的元素加 1 ，否则删除。
+var arr1=[-5,25,0,62,-26];
+$.map(arr1,function(b){
+	return b>0?b+1:null
+})
+
+//原数组中每个元素扩展为一个包含其本身和其值+1的数组，并转换为一个新的数组；
+var arr2=[-4,0,5];
+var c=$.map(arr2,function(n){
+	return [n,n+1]
+});
+c.sort(function(a,b){
+	return b-a
+})
+
+//将对象中的每个值转换为一个新数组
+var obj={name:"张三",age:"25"};
+$.map(obj,function(n){
+	return n			//=>["张三","25"]
+})
+
+//返回空数组
+var result= $.map([1,2,3], $.noop)	//=>[]  $.noop 空函数
+</script>
+
+</body>
+</html>
+

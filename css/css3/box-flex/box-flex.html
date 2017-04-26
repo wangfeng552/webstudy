@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于box-flex实现自适应页面内容均分</title>
+</head>
+<body>
+<style>
+.flex{width: 1000px; display: -webkit-box; display: -moz-box; display: box;}
+.flex>li{ -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; width: 1%;word-break: break-all; }
+</style>
+<div class="flex">
+	<li>一大伙房</li>
+	<li>一大伙房</li>
+	<li>一大伙房</li>
+	<li>一大伙房</li>
+	<li>一大伙房</li>
+</div>
+</body>
+</html>

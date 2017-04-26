@@ -1,0 +1,336 @@
+* {
+	padding: 0;
+	margin: 0
+}
+
+.clearfix:after {
+	content: '';
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+	width: 0;
+	height: 0;
+	clear: both
+}
+
+.yagiza-date-selector {
+	font-size: 12px!important;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 100%;
+    display: -webkit-flex;
+    -webkit-justify-content: center;
+    -webkit-align-items: center;
+    border-left: 1px solid #ddd;
+    box-shadow: 0px 2px 2px 3px rgba(0,0,0,.4);
+}
+
+.yagiza-date-selector .date-selector-box {
+	position: relative;
+	background-color: #FFF;
+	width: 840px;
+}
+
+.yagiza-date-selector .date-selector-box .header {
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	position: relative;
+	background: #383435
+}
+
+.yagiza-date-selector .date-selector-box .header span {
+	font-size: 1.5em;
+	color: #CCC
+}
+
+.yagiza-date-selector .date-selector-box .header a {
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	cursor: pointer
+}
+
+.yagiza-date-selector .date-selector-box .header a i {
+	display: inline-block;
+	margin-top: 6px;
+	width: 28px;
+	height: 28px;
+	background: url(../../images/prev-next.png) no-repeat 0 0
+}
+
+.yagiza-date-selector .date-selector-box .header .prev {
+	left: 0
+}
+
+.yagiza-date-selector .date-selector-box .header .prev i {
+	background-position: 0 -28px
+}
+
+.yagiza-date-selector .date-selector-box .header .next {
+	right: 0
+}
+
+.yagiza-date-selector .date-selector-box .date-table table {
+	width: 100%
+}
+
+.yagiza-date-selector .date-selector-box .date-table table .week th {
+	color: #999;
+	text-align: center!important;
+	height: 24px;
+	font-weight: 100;
+	background: #383435
+}
+
+.yagiza-date-selector .date-selector-box .date-table table .week .weekend {
+	color: #F60
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td {
+	position: relative;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+	line-height: 1.2;
+	height: 76px;
+	vertical-align: top;
+	width: 14.2%
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td>b {
+	display: block;
+	font-size: 1.4em;
+	text-align: center;
+	color: #DDD;
+	font-family: 'Arial Regular';
+	margin: 15px 4px 4px 0
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td>div {
+	margin-left: 4px;
+	margin-top: 10px;
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td>div p {
+	color: #333;
+	text-align: left;
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td.active {
+	cursor: pointer
+}
+.yagiza-date-selector .date-selector-box .date-table table td.fullStyle {
+	background: #31B0D5;
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td.closeStyle {
+	background: red;
+}
+.yagiza-date-selector .date-selector-box .date-table table td.fullStyle b,
+.yagiza-date-selector .date-selector-box .date-table table td.fullStyle div p,
+.yagiza-date-selector .date-selector-box .date-table table td.closeStyle b,
+.yagiza-date-selector .date-selector-box .date-table table td.closeStyle div p{
+	color:#fff !important;
+}
+.yagiza-date-selector .date-selector-box .date-table table td.active b {
+	color: #333
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td.active:hover {
+	background: #F60
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td.active:hover b,
+.yagiza-date-selector .date-selector-box .date-table table td.active:hover div p {
+	color: #FFF
+}
+
+.yagiza-date-selector .date-selector-box .date-table table td.last-child {
+	border-right: 0
+}
+
+.yagiza-date-selector .footer {
+	background-color: #383435;
+	padding: 10px;
+	text-align: right
+}
+
+.yagiza-date-selector .footer .btn {
+	text-align: center;
+	border-radius: 2px;
+	border: 0!important;
+	cursor: pointer;
+	color: #FFF;
+	height: 26px;
+	line-height: 26px!important;
+	display: inline-block;
+	padding: 0 15px;
+	position: relative
+}
+
+.yagiza-date-selector .footer .bg-orange {
+	background: #F60
+}
+
+.yagiza-date-selector .footer .bg-orange:hover {
+	background: #c44e00
+}
+
+.yagiza-date-selector .footer .bg-green {
+	background: #55b526
+}
+
+.yagiza-date-selector .footer .bg-green:hover {
+	background: #408f1a
+}
+
+.yagiza-date-selector .footer .bg-gray {
+	background: #777
+}
+
+.yagiza-date-selector .footer .bg-gray:hover {
+	background: #555
+}
+
+.yagiza-date-selector .footer .bg-cyan {
+	background: #31b0d5
+}
+
+.yagiza-date-selector .footer .bg-cyan:hover {
+	background: #269abc
+}
+
+.yagiza-date-selector .footer button {
+	margin-left: 5px
+}
+
+.yagiza-date-selector .date-set-box {
+	position: relative;
+	background-color: #FFF;
+	width: 640px
+}
+
+.yagiza-date-selector .date-set-box .header {
+	height: 46px;
+	line-height: 46px;
+	position: relative;
+	background: #383435
+}
+
+.yagiza-date-selector .date-set-box .header h2 {
+	color: #CCC;
+	font-size: 1.2em;
+	margin-left: 20px;
+	font-weight: 500
+}
+
+.yagiza-date-selector .date-set-box .header .close {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	top: 0;
+	width: 40px;
+	height: 46px;
+	text-align: right
+}
+
+.yagiza-date-selector .date-set-box .header .close i {
+	width: 24px;
+	height: 24px;
+	margin: 11px 11px 0 0;
+	background: url(../../images/prev-next.png) no-repeat 0 0;
+	display: inline-block
+}
+
+.yagiza-date-selector .date-set-box .header .close:hover i {
+	background-position: 0 -24px
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form {
+	margin: 8px 20px;
+	display: block;
+	width: 100%
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form dd {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	width: 49%;
+	float: left
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form dd .input-text {
+	display: block;
+	position: absolute;
+	z-index: 1;
+	height: 22px;
+	line-height: 22px;
+	vertical-align: middle;
+	padding: 0 4px;
+	border: 1px solid #CCC;
+	background: #FFF;
+	left: 80px;
+	top: 3px
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form dt {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	display: block
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form dt label {
+	margin-left: 15px;
+	cursor: pointer
+}
+
+.yagiza-date-selector .date-set-box .yagiza-form dt label:first-child {
+	margin-left: 4px
+}
+
+.yagiza-date-selector hr {
+	border: 0;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #FFF;
+	margin: 0 20px
+}
+.td-active:before {
+	content: "";
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 3px;
+    height: 10px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    background: #52de0b;
+}
+.td-active:after {
+	content: "";
+    position: absolute;
+    top: 5px;
+    left: 13px;
+    width: 3px;
+    height: 15px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    background: #52de0b;
+}
+.yagiza-date-selector .date-selector-box .date-table table td.oldDate {
+	background: #ccc;
+}
+.yagiza-date-selector .date-selector-box .date-table table td.oldDate b,
+.yagiza-date-selector .date-selector-box .date-table table td.oldDate div p {
+	color:#666;
+}

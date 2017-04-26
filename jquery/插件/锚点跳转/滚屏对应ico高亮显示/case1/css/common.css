@@ -1,0 +1,213 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote {
+	margin: 0;
+	padding: 0
+}
+fieldset, img {
+	border: 0
+}
+dl {
+	border: none;
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+}
+:focus {
+	outline: 0
+}
+address, caption, cite, code, dfn, em, strong, th, var, optgroup {
+	font-style: normal;
+	font-weight: normal
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal
+}
+abbr, acronym {
+	border: 0;
+	font-variant: normal
+}
+input, button, textarea, select, optgroup, option {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit
+}
+code, kbd, samp, tt {
+	font-size: 100%
+}
+input, button, textarea, select {
+*font-size:100%
+}
+ol, ul {
+	list-style: none
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+caption, th {
+	text-align: left
+}
+sup, sub {
+	font-size: 100%;
+	vertical-align: baseline
+}
+:link, :visited, ins {
+	text-decoration: none
+}
+blockquote, q {
+	quotes: none
+}
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+.clearfix {
+	display: inline-block
+}
+* html .clearfix {
+	height: 1%
+}
+.clearfix {
+	display: block
+}
+body {
+	font-size: 12px;
+	font-family: Tahoma, Verdana;
+	color: #000;
+	background-color: #fff
+}
+a {
+	color: #000
+}
+a:hover {
+	text-decoration: none;
+	color: #e70
+}
+.wrap {
+	width: 1000px;
+	margin: 0 auto;
+	zoom: 1;
+}
+.marginRight0 {
+	margin-right: 0
+}
+.wrapGrayBg {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 10000
+}
+.must_write {
+	color: #f00;
+	padding-right: 5px
+}
+.hidden {
+	display: none !important
+}
+optgroup {
+	color: #008000;
+	background-color: #f5f5f5;
+	font-weight: bold
+}
+option {
+	color: #333;
+	line-height: 1.8em;
+	font-style: normal;
+	font-weight: normal;
+	background-color: #fff
+}
+#header {
+	background-color: #e7e7e7
+}
+
+#footer {
+	margin-top: 30px;
+	height: auto
+}
+#footer .wrapper {
+	width: 1190px;
+	margin: 0 auto;
+	overflow: hidden
+}
+#footer .friendlinks {
+	text-align: center;
+	margin-top: 20px
+}
+#footer .friendlinks a {
+	font-size: 12px;
+	color: #999;
+	padding: 0 10px;
+	border-right: 1px solid #e6e6e6
+}
+#footer .friendlinks a.last {
+	border: none
+}
+#footer .footer-content {
+	background: #f5f5f5;
+	border-top: 1px solid #e6e6e6
+}
+#footer .performance {
+	padding: 40px 0;
+	border-bottom: 1px solid #e6e6e6;
+	width: 1400px
+}
+#footer .performance i {
+	display: block;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 8px;
+	left: 20px
+}
+#footer .performance .per {
+	float: left;
+	width: 465px
+}
+#footer .performance .per a {
+	display: block
+}
+#footer .performance .per-1 a {
+	background: url(../images/per-1.png) no-repeat;
+	background-position: left
+}
+#footer .performance .per-2 a {
+	background: url(../images/per-2.png) no-repeat;
+	background-position: left
+}
+#footer .performance .per-3 a {
+	background: url(../images/per-3.png) no-repeat;
+	background-position: left
+}
+#footer .performance .t {
+	font-size: 16px;
+	line-height: 30px;
+	color: #666;
+	margin-left: 50px
+}
+#footer .performance .st {
+	font-size: 14px;
+	color: #999;
+	line-height: 20px;
+	margin-left: 50px
+}
+#footer .company_info {
+	padding: 20px 0px
+}
+#footer .company_info .wrap {
+	text-align: center
+}
+#footer .company_info .wrap a {
+	color: #666;
+	padding: 0 10px
+}

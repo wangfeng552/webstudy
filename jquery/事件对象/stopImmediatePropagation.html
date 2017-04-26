@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--event.stopImmediatePropagation() 防止事件冒泡到DOM树上，也就是不触发的任何前辈元素上的事件处理函数-->
+<!--event.isImmediatePropagationStopped() 是否调用返回布尔值-->
+
+<style>
+	p { height: 30px; width: 150px; background-color: #ccf; }
+	div {height: 30px; width: 150px; background-color: #cfc; }
+</style>
+
+<p>paragraph</p>
+<div>division</div>
+<script>
+	$("p").click(function(event){
+		event.stopImmediatePropagation();
+		event.isImmediatePropagationStopped?alert(1):alert(2)
+	});
+
+	$("p").click(function(event){
+		// This function won't be executed
+		$(this).css("background-color", "#f00");
+	});
+
+	$("div").click(function(event) {
+		// This function will be executed
+		$(this).css("background-color", "#f00");
+	});
+</script>
+</body>
+</html>
+

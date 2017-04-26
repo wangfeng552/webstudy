@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>JQuery Validation Engine</title>
+	<link rel="stylesheet" href="validationEngine.jquery.css" type="text/css"/>
+	<link rel="stylesheet" href="template.css" type="text/css"/>
+	<script src="../../jquery-1.11.2.js" type="text/javascript"></script>
+	<script src="jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+	<script src="jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+	<!--http://code.ciaoca.com/jquery/validation-engine/  参考网址-->
+	<!--validationEngine-zh_CN 自定义验证规则-->
+	<script>
+		$(document).ready(function(){
+            $('#form_id').validationEngine('attach', {
+                promptPosition: 'centerRight',
+                scroll: true
+            });
+		});
+	</script>
+</head>
+
+<body>
+<style>
+	.prompt-target{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+</style>
+<form id="form_id" class="formular" method="post" action="">
+	<input type="text" class="validate[maxSize[5]]">
+	<input type="text" class="validate[required]">
+	<input class="submit" type="submit" value="提交"/>
+</form>
+</body>
+</html>

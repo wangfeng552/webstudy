@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>javascript的方法可以分为三类</title>
+</head>
+a 类方法
+
+b 对象方法
+
+c 原型方法
+<script>
+function people(name){
+	this.name=name;
+	//对象方法
+	this.introduce=function(){alert(this.name)}
+}
+//类方法
+people.run=function(){ alert("I can run");}
+//原型方法
+people.prototype.getName=function(){alert("我的名字是"+this.name);}
+
+//	测试
+var p1=new people("张三");
+p1.introduce();
+people.run();
+p1.getName()
+
+</script>
+</body>
+</html>

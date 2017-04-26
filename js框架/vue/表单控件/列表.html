@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<style>
+	.form-group{height: 26px; line-height: 26px; padding-bottom: 10px;}
+</style>
+<div id="case">
+	<fieldset>
+		<legend>案例一</legend>
+		<div class="form-group">
+			<label for="">name</label>
+			<input type="text" v-model="newPerson.name">
+		</div>
+		<div class="form-group">
+			<label for="">age</label>
+			<input type="text" v-model="newPerson.age">
+		</div>
+		<div class="form-group">
+			<label for="">sex</label>
+			<select name="" v-model="newPerson.sex">
+				<option value="男">男</option>
+				<option value="女">女</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button v-on:click="createPerson">提交</button>
+		</div>
+	</fieldset>
+	<table>
+		<tr>
+			<th>name</th>
+			<th>age</th>
+			<th>sex</th>
+			<th>button</th>
+		</tr>
+		<tr v-for="(person,i) in people">
+			<td>{{person.name}}</td>
+			<td>{{person.age}}</td>
+			<td>{{person.sex}}</td>
+			<td><button @click="deletePerson(i)">删除</button></td>
+		</tr>
+	</table>
+</div>
+<script>
+var vm=new Vue({
+    el:"#case",
+	data:{
+        newPerson:{
+            name:"",
+			age:"0",
+			sex:"男"
+		},
+		people:[
+			{
+                name:"张三",
+                age:"25",
+                sex:"男"
+			},
+            {
+                name:"lili",
+                age:"36",
+                sex:"女"
+            },
+            {
+                name:"agent",
+                age:"18",
+                sex:"女"
+            }
+		]
+	},
+    methods:{
+        createPerson:function () {
+            this.people.push(this.newPerson);
+            // 添加完newPerson对象后，重置newPerson对象
+            this.newPerson={name:"",age:"0",sex:"男"}
+        },
+        deletePerson:function (index) {
+			this.people.splice(index,1)
+//			console.log(index)
+        }
+    }
+})
+</script>
+</body>
+</html>
+

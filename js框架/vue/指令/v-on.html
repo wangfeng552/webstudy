@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="caseon">
+	<input type="text" v-model="name">
+	<a href="javascript:;" v-on:click="show('你好')">点击</a>
+	<!--缩写语法-->
+	<a href="javascript:;" @click="show2">点击</a>
+</div>
+<script>
+	var vm=new Vue({
+	    el:"#caseon",
+		data:{
+	        name:"张三"
+		},
+		// 在 `methods` 对象中定义方法
+		methods:{
+	        show:function(data){
+	            alert(data)
+			},
+			show2:function () {
+				alert(this.name)
+            }
+		}
+	})
+	//v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的 缩写@click
+
+/*
+.stop - 调用 event.stopPropagation()。
+.prevent - 调用 event.preventDefault()。
+.capture - 添加事件侦听器时使用 capture 模式。
+.self - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+.{keyCode | keyAlias} - 只当事件是从侦听器绑定的元素本身触发时才触发回调。
+.native - 监听组件根元素的原生事件。*/
+</script>
+
+
+</body>
+</html>
+

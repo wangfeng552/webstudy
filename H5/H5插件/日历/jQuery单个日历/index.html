@@ -1,0 +1,41 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>酒店日历</title>
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <link rel="stylesheet" href="css/smoothness/jquery.ui.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/css.css"/>
+</head>
+<body class="ticketBody">
+<!--中间-->
+<div class="webIndex">
+    <div class="stay-list clearFloat">
+        <div class="stay-list-left">
+            <span class="search-sign"></span>
+            <h3 class="search-title">住宿预订</h3>
+            <form>
+                <div class="sea-div">
+                    <label class="search-lab">目的地</label><input type="text" placeholder="景区或酒店名称" class="hotel-name" id="disHotel"/>
+                </div>
+                <div class="sea-div">
+                    <label class="search-lab">入住日期</label><input type="text" readonly  id="startDate"/>
+                </div>
+                <div class="sea-div">
+                    <label class="search-lab">退房日期</label><input type="text" readonly  id="endDate"/>
+                </div>
+                <input type="button"  class="search-but" value="搜  索"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://static.zhong.com/pc/skin/js/jquery-1.11.2.js?20160919"></script>
+<script type="text/javascript" src="js/jquery.ui.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/hotel/hotel.search.js"></script>
+<script type="text/javascript" src="js/stay.js"></script>
+
+</body>
+</html>

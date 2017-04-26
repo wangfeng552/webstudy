@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+$.fn.Kan=function(options){
+	var self=this;
+	var defaults={
+		kk:"",
+		inputId:"inputId",
+		calendars:"2",
+		aToday : 'aToday',
+	}
+	self.opts= $.extend(true,defaults,options);
+	self.periodObj = {};
+	self.periodObj[self.opts.aToday]=0;
+
+//	console.log(this.periodObj[__mothed.opts.aToday])
+	self.opts.calendars = Math.min(self.opts.calendars, 3);
+	var kk = "" == self.opts.kk ? new Date().getTime() : self.opts.kk;
+	var html = "";
+	html += '<div class='+self.opts.inputId+'>'+kk+'</div>'+self.opts.calendars;
+	$(".mk").append(html);
+}
+$(".mk").Kan({
+	kk:"你们好",
+	inputId:"wf",
+	calendars:"5"
+})
+</script>
+
+<!--案例二带事件-->
+<style> .active{color: red;} </style>
+<div class="wrap"></div>
+<script>
+	$.fn.ClickShow=function(options){
+		var self=this;
+		var defaults={
+			selectId:"kk",
+			wrap:document.body,
+			winner:'<div class="mk">我是头部</div>'
+		}
+		self.opts=$.extend(true,defaults,options);
+		var html="";
+		var selectId="kk" == self.opts.selectId ? (new Date().getTime()) : self.opts.selectId;
+		html += '<div class='+selectId+'><li>123456555</li></div>';
+		html += self.opts.winner;
+		$(self.opts.wrap).append(html);
+		$('.'+selectId + ' li').on("click",function(e){
+			var self=$(this);
+			e.preventDefault();
+			self.addClass("active").siblings().removeClass("active")
+		})
+	}
+	$(".wrap").ClickShow({
+		wrap:".wrap",
+		selectId:"lop",
+	})
+</script>
+</body>
+</html>

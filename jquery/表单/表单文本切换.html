@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.ipt {
+				display: none;
+			}
+			.show {
+				display: block !important;
+			}
+			.hide {
+				display: none !important;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="1">
+			<tr>
+				<td>
+					<div class="dv">ssdd</div>
+					<input type="text" class="ipt"/>
+				</td>
+				<td>
+					<div class="dv">2</div>
+					<select class="ipt">
+						<option value="1">1</option>
+						<option value="2">2</option>
+					</select>
+				</td>
+				<td>
+					<div class="dv">sdd</div>
+					<textarea class="ipt"></textarea>
+				</td>
+				<td>
+					<div class="dv">ssd</div>
+					<textarea class="ipt"></textarea>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+					<div class="dv">sd</div>
+					<input type="text" class="ipt"/>
+				</td>
+				<td>
+					<div class="dv">1</div>
+					<select class="ipt">
+						<option value="1">1</option>
+						<option value="2">2</option>
+					</select>
+				</td>
+				<td>
+					<div class="dv">sd</div> 
+					<textarea class="ipt"></textarea>
+				</td>
+				<td>
+					<div class="dv">sd</div>
+					<textarea class="ipt"></textarea>
+				</td>
+			</tr>
+		</table>
+
+		<script type="text/javascript" src="../jquery-1.11.2.js" ></script>
+		<script>
+			$("td").on("click",function(){
+				console.log(1);
+				var trObj = $(this).parents("tr");
+				trObj.find(".ipt").addClass("show");
+				trObj.find(".dv").addClass("hide");
+				//DIV的值给输入框
+				for(var m=0,l=trObj.find(".dv").length;m<l;m++) {
+					trObj.find(".ipt").eq(m).val(function(){
+						return trObj.find(".dv").eq(m).html();
+					});
+				}
+				$("select").on("change",function(){
+					var l = $(this).val();
+					$(this).siblings(".dv").html(l);
+				})
+				
+				//兄弟元素的输入框
+				trObj.siblings("tr").find(".ipt").each(function(){
+					if($(this).hasClass("show")){
+						var s = $(this).val();
+						$(this).siblings(".dv").html(s);
+					}
+				});
+				trObj.siblings("tr").find(".ipt").removeClass("show");
+				trObj.siblings("tr").find(".dv").removeClass("hide");
+				return false;
+				
+			});
+			$(document).on('click',function(){
+				$(".ipt").each(function(){
+					if($(this).hasClass("show")){
+						var s = $(this).val();
+						$(this).siblings(".dv").html(s);
+					}
+				});
+				$(".ipt").removeClass("show");
+				$(".dv").removeClass("hide");
+				return false;
+			});
+			
+		</script>
+	</body>
+</html>

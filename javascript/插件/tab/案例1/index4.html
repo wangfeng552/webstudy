@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://cj.j1.com/js/hbjs/common.js?v=57f48af"></script>
+<script type="text/javascript" src="http://cj.j1.com/js/hbjs/index.js?v=57f48af"></script>
+<style type="text/css">
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+.wf{ position:relative;}
+.dh{ width:180px; height:250px; position:absolute; left:0;top:0;}
+.dh li { background:#666; width:80px; height:30px; line-height:30px; margin-bottom:5px; text-align:center; display:block;}
+.dh li.act{ background:#F90; width:180px; transition:all 0.2s ease-in 0.2s;}
+.cp{ width:500px; height:300px; background:#CFF;}
+</style>
+</head>
+<body>
+<div class="wf">
+	<div class="dh">
+    	<ul>
+        	<li class="act">一级栏目</li>
+            <li>二级栏目</li>
+            <li>三级栏目</li>
+            <li>四级栏目</li>
+        </ul>
+    </div>
+    <div class="cp">
+    	<div>11111111111111111111111111111111111111111111111111</div>
+        <div style="display:none;">222222222222222222222222222222222222222222222</div>
+        <div style="display:none;">33333333333333333333333333333333333333333333333</div>
+        <div style="display:none;">444444444444444444444444444444444444444444444444444</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$(".dh li").hover(function(){
+		var index=$(this).index();
+		$(this).addClass("act").siblings().removeClass("act");
+		$(".cp div").eq(index).show().siblings().hide();
+		})
+	})
+</script>	
+
+</body>
+</html>

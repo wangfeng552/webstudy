@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+<style>
+.cj{ height: 30px; line-height: 30px;}
+.cj li{ position: relative; float: left; padding: 0 10px;}
+.cj li span{ display: inline-block; height: 30px;line-height: 30px;}
+.cj dl{ position: absolute; left: 0; top: 30px;width: 100px; height: 100px; background: #ccc;}
+dl{ display: none;}
+</style>
+<div class="cj">
+	<ul>
+		<li><span>一级栏目</span>
+			<dl>
+				<dt>111</dt>
+				<dd>22222</dd>
+			</dl>
+		</li>
+		<li>sdf</li>
+	</ul>
+</div>
+<script>
+$(function(){
+	$(".cj li span").hover(function() {
+		$(this).parent().find('dl').slideDown();
+		$(this).parent().hover(function() {
+		}, function() {
+			$(this).parent().find('dl').slideUp();
+		});
+	}, function() {	
+	});
+})	
+</script>
+
+</body>
+</html>

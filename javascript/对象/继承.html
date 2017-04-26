@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+<!--调用一个对象的一个方法，以另一个对象替换当前对象
+call([thisObj[,arg1[, arg2[, [,.argN]]]]])
+参数
+thisObj
+可选项。将被用作当前对象的对象。
+arg1, arg2, , argN
+可选项。将被传递方法参数序列。
+说明
+call 方法可以用来代替另一个对象调用一个方法。call 方法可将一个函数的对象上下文从初始的上下文改变为由 thisObj 指定的新对象。
+
+如果没有提供 thisObj 参数，那么 Global 对象被用作 thisObj。-->
+<script>
+
+
+ a.call(b);
+ // a对象的方法应用到b对象上(函数apply的意思正好说明符合这样理解：a对象应用到b对象上去)
+//a对象既然添加到b对象上了。那么b对象自然就拥有了a对象所有的内容。所有，b对象就继承了a对象了。结合自己编写的下面代码，理解怎么实现继承：
+function class1(){
+ this.name=function(){
+  alert("class1的方法name()");
+ }
+}
+
+function class2(){
+ class1.call(this)  //要想实现class2继承class1 this就是当前对象class2。
+}
+ var cl=new class2();
+ cl.name()        //class2继承了class1，class2是父类。调用父类的方法
+</script>
+</body>
+</html>

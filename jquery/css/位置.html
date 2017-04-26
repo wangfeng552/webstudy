@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="of">当前视口的相对偏移</div>
+<script>
+//offset()	获取匹配元素在当前视口的相对偏移
+$(".of").offset()		//=>{top:8,left:8}
+$(".of").offset().top	//=>8
+$(".of").offset().left	//=>8
+</script>
+
+<style>
+.scr{height: 100px; overflow: auto; width: 200px;}
+.scr p{ width: 250px;}
+</style>
+<div class="scr">
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+	<p>匹配元素相对<b>滚动条</b>顶部的偏移</p>
+</div>
+<script>
+//scrollTop() 设置或返回被选元素的【垂直滚动条位置】
+$(".scr").scrollTop(100)
+$(".scr").scrollLeft(10)
+</script>
+</body>
+</html>
+

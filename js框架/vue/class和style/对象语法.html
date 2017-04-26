@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>对象语法</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<style>
+	.active{color: red;}
+</style>
+<div id="wf">
+	<h2 class="static" v-bind:class="{active:isActive,'wf-show':hasError}">你好</h2>
+</div>
+<script>
+var vm=new Vue({
+    el:"#wf",
+	data:{
+        isActive:true,
+		hasError:false
+	}
+})
+</script>
+
+<!--案例二-->
+<style>
+	.active{color: red;}
+</style>
+<div id="list">
+	<ul>
+		<li :class="{active:(index+1)%4===0}" v-for="(message,index) in messages">{{message.name}}今年{{message.age}}岁--{{index}}</li>
+	</ul>
+</div>
+
+<script>
+    var vm=new Vue({
+        el:"#list",
+        data:{
+            messages:[
+                {name:"张三",age:"45"},
+                {name:"lisi",age:"26"},
+                {name:"张sdaf三",age:"96"},
+                {name:"张三",age:"45"},
+                {name:"lisi",age:"26"},
+                {name:"张sdaf三",age:"96"},
+                {name:"张三",age:"45"},
+                {name:"lisi",age:"26"},
+                {name:"张sdaf三",age:"96"},
+                {name:"张三",age:"45"},
+                {name:"lisi",age:"26"},
+                {name:"张sdaf三",age:"96"},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
+

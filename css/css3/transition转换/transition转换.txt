@@ -1,0 +1,45 @@
+http://www.w3cplus.com/content/css3-transition
+CSS的transition允许CSS的属性值在一定时间区间内平滑的过渡
+
+transition包括4个属性值 
+	执行变换的属性  transition-property 
+	变换延续的时间  transition-duration
+	变换的速率	transition-timing-function
+	变换延迟时间	transition-delay
+
+1.transition-property是用来制定当元素其中一个属性改变时执行transition效果
+	没有属性改变 	none		马上停止执行
+	所有属性改变	all		任何属性都将执行transition效果
+	元素属性名	indent		指定元素的某一个属性值
+
+2.transition-durantion是用来指定元素转换过程的持续时间
+	取值 		数值：<time>单位s（秒）和ms（毫秒）
+			5s
+
+3.transition-timing-function的值允许你根据时间的推进去改变属性值得变换速率。（6个值）
+	逐渐变慢	ease
+	匀速		linear
+	加速		ease-in
+	减速		ease-out
+	加速然后减速	ease-in-out
+	自定义		cubic-bezier（x1,y1,x2,y2）所有值在[0,1]区域内，否则无效	
+
+4.transition-delay用来指定一个动画开始执行的时间，也就是说当改变原始属性值后多长时间开始执行
+	取值 		数值：<time>单位s（秒）和ms（毫秒）
+			5s
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

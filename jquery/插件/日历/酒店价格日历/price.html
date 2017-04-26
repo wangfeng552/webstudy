@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>YageizaDate Demo</title>
+    <script src="../../../jquery-1.11.2.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="js.js"></script>
+    <!--[if lte IE 9]>
+    <link href="date-selector/style-ie.css" rel="stylesheet" type="text/css">
+    <![endif]-->
+    <style>
+        .container {
+            width: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <table>
+
+        <tr>
+            <td>
+                <b>结算价</b>
+                <input data-id="priceSettlement" type="text" size="10">
+                <b> 售价</b>
+                <input data-id="priceNormal" type="text" size="10">
+                <b> 返点</b>
+                <input data-id="cashback" type="text" size="10">
+                <b> 总库存</b>
+                <input data-id="stock" type="text" size="10">
+                <button type="button">设置日期价格</button>
+            </td>
+        </tr>
+
+    </table>
+
+    <textarea id="mydemo" style="width:100%;height:300px;margin-top:20px;">接收回调数据</textarea>
+</div>
+
+
+<script>
+    $(function(){
+
+        $('button').on('click', function(){
+
+            var priceData = {
+                callbackId:'#mydemo',
+                priceSettlement: $(this).siblings('[data-id="priceSettlement"]').val(),
+                priceNormal: $(this).siblings('[data-id="priceNormal"]').val(),
+                cashback: $(this).siblings('[data-id="cashback"]').val(),
+                stock: $(this).siblings('[data-id="stock"]').val(),
+                dayData: [
+                     {
+                         date: "2016-12-19",
+                         stockDay: "9000",
+                         buyNumMax: "50",
+                         buyNumMin: "1",
+                         priceNormal: "0.12",
+                         priceMarket: "100.00",
+                         priceSettlement: "90.00",
+                         priceRetail: "99.00"
+                     },{
+                         date: "2016-12-31",
+                         stockDay: "9000",
+                         buyNumMax: "50",
+                         buyNumMin: "1",
+                         priceNormal: "12.00",
+                         priceMarket: "100.00",
+                         priceSettlement: "90.00",
+                         priceRetail: "99.00"
+                     }
+                ]
+            }
+
+            $.yagizaDate('2016-12-22',priceData);
+
+        });
+
+
+
+    });
+</script>
+
+</body>
+</html>

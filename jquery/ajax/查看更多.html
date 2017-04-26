@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div id="more" data-status="1">
+	加载更多
+</div>
+<input type="hidden" id="page" value="2">
+
+<script>
+    $(function () {
+        $("#more").click(function () {
+            var page = parseInt($("#page").val());
+            $(this).html("加载中...");
+            status=$(this).attr("data-status");
+            if(status==1) {
+                status = $(this).attr("data-status", "0");
+                $.ajax({
+                    type: "post",
+                    url: "XXX",
+                    data: "page=" + page,
+                    dataType: "json",
+                    success: function (data) {
+                        data = data.data;
+						/*数据不够10条隐藏按钮*/
+                        if (data.length < 10) {
+                            $(this).hide()
+                        } else {
+                            $("#page").val(page + 1);//记录页码
+                        }
+                        insertDiv(data);
+                    }
+                });
+            }
+
+        });
+    });
+    function insertDiv(data){
+        var information = $(".information");
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+            html +="<div>"+data[i].title+"</div>"+"<div>"+data[i].date+"</div>"
+        }
+        information.append(html);
+        $("#more").html("加载更多");
+        $("#more").attr("data-status","1");
+    }
+</script>
+</body>
+</html>
+

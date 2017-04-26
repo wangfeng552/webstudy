@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<form name="form1" id="form1">
+	<p>name:<input type="text" name="name" ></p>
+	<p>gender:<input type="radio" name="gender" value="1">male <input type="radio" name="gender" value="2">female</p>
+	<p>photo:<input type="file" name="photo" id="photo"></p>
+	<p><input type="button" name="b1" value="submit" onclick="fsubmit()"></p>
+</form>
+<div id="result"></div>
+<script type="text/javascript">
+    function fsubmit(){
+        var data = new FormData($('#form1')[0]);
+        $.ajax({
+            url: 'server.php',
+            type: 'POST',
+            data: data,
+            dataType: 'JSON',
+            cache: false,
+            processData: false,
+            contentType: false
+        }).done(function(ret){
+            if(ret['isSuccess']){
+                var result = '';
+                result += 'name=' + ret['name'] + '<br>';
+                result += 'gender=' + ret['gender'] + '<br>';
+                result += '<img src="' + ret['photo']  + '" width="100">';
+                $('#result').html(result);
+            }else{
+                alert('提交失敗');
+            }
+        });
+        return false;
+    }
+</script>
+</body>
+</html>

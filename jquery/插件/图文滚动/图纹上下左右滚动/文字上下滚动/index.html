@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Form demo_懒人图库</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<style type="text/css">
+body, html { color: #444444; font: 12px/24px "宋体", san-serif; margin: 0; padding: 0; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { border: 0 none; margin: 0; padding: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none; }
+/**/
+.dk{ width: 120px; height: 145px; overflow: hidden;}
+.main{ position: relative;top: 0; left: 0;}
+.dk p{ height: 25px; line-height: 25px;}
+</style>
+</head>
+
+<body>
+<div class="dk">
+    <img src="images/12s.jpg">
+    <div class="main">
+        <p>111111111</p>
+        <p>22222222</p>
+        <p>33333</p>
+        <p>44444</p>
+        <p>5555555</p>
+    </div>
+</div>
+<div class="dk">
+    <img src="images/12s.jpg">
+    <div class="main">
+        <p>111111111</p>
+        <p>22222222</p>
+        <p>33333</p>
+        <p>44444</p>
+        <p>5555555</p>
+    </div>
+</div>
+<div class="dk">
+    <img src="images/12s.jpg">
+    <div class="main">
+        <p>111111111</p>
+        <p>22222222</p>
+        <p>33333</p>
+        <p>44444</p>
+        <p>5555555</p>
+    </div>
+</div>
+<script type="text/javascript">
+$(".dk").hover(function(){
+    $(this).addClass("act");
+    $(".act .main").animate({marginTop:"-100px"})
+},function(){
+    $(this).removeClass("act");
+    $(".main").animate({marginTop:"0"})
+})
+</script>
+</body>
+</html>

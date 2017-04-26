@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="../DD_belatedPNG.js"></script>
+<script>DD_belatedPNG.fix('#focusAd .bg,#focusAd .con,#focusAd .prev,#focusAd .next');</script>
+<![endif]-->
+<style>
+.tv-slideBox { height: 288px; overflow: hidden; background: #333; position: relative; }
+.tv-slideBox .hd { display: none; }
+.tv-slideBox li { overflow: hidden; }
+.tv-slideBox li .pic { width: 720px; float: left; }
+.tv-slideBox li .pic img { width: 720px; }
+.tv-slideBox li .con { position: relative; background: #fff; height: 288px; width: 240px; padding-left: 20px; float: left; background: url("images/gtvSplit.png") -281px 0 repeat-y; }
+.tv-slideBox li .con .bg { position: absolute; width: 96px; height: 96px; right: 0px; top: 0px; background: url("images/gtvSplit.png") -84px 0 no-repeat; }
+.tv-slideBox li .con .title { width: 170px; padding-top: 30px; height: 68px; }
+.tv-slideBox li .con .title a { color: #fff; font: normal 14px/22px "Microsoft YaHei"; _font-weight: bold; }
+.tv-slideBox li .con .intro { color: #cbcbcb; width: 220px; border-top: 1px dotted #cbcbcb; padding-top: 10px; margin-top: 10px; }
+.tv-slideBox li .con .intro .more { position: absolute; bottom: 20px; left: 20px; display: block; width: 94px; height: 28px; background: url("images/gtvSplit.png") -184px 0 no-repeat; overflow: hidden; line-height: 990px; }
+.tv-slideBox li .con .intro .more:hover { bottom: 21px; }
+.tv-slideBox .prev, .tv-slideBox .next { position: absolute; z-index: 1; width: 39px; height: 87px; overflow: hidden; cursor: pointer; left: 10px; top: 80px; background: url("images/gtvSplit.png") 0 0 no-repeat; }
+.tv-slideBox .next { background-position: -41px 0; left: 674px; }
+.tv-slideBox .prev:hover, .tv-slideBox .next:hover { top: 79px; }
+</style>
+</head>
+<body>
+<div id="focusAd" class="tv-slideBox"> <a class="prev"></a><a class="next"></a>
+  <div class="bd">
+    <ul>
+      <li class="li1">
+        <div class="pic"><a href="#" target="_self"><img src="images/gtvAD1.jpg"></a></div>
+        <div class="con">
+          <div class="bg"></div>
+          <div class="title"><a href="#" target="_self">【高清热播】《凰图腾》曹媛媛后宫与白冰一争高下 更新…</a></div>
+          <div class="intro">该剧以燕、蝶、鸿三人的爱情为主线，阐述了误入宫廷的浮生若梦。一场年少芳华，一段青春埋藏。该剧由张翰、郑爽、白冰等一代新生代演员主演，古装剧鼻祖刘仕裕导演。<a href="#" class="more">[详细]</a></div>
+        </div>
+      </li>
+      <li class="li2">
+        <div class="pic"><a href="#" target="_self"><img src="images/gtvAD2.jpg"></a></div>
+        <div class="con">
+          <div class="bg"></div>
+          <div class="title"><a href="#" target="_self">【港剧热播】TVB艺术之作《天与地》高清连载至23集</a></div>
+          <div class="intro">该剧错综复杂但张力十足的剧情安排，寥寥数语但潜台词丰富的人物对白，插叙、倒叙的巧妙运用，甚至是通过生离死别给人们带来的沉重的人性拷问，都深深的吸引着观众。<a href="#" class="more">[详细]</a></div>
+        </div>
+      </li>
+      <li class="li3">
+        <div class="pic"><a href="#" target="_self"><img src="images/gtvAD3.jpg"></a></div>
+        <div class="con">
+          <div class="bg"></div>
+          <div class="title"><a href="#" target="_self">【新剧热播】新版《亮剑》高清连载至第16集</a></div>
+          <div class="intro">新版《亮剑》在原版的基础上新增了35%的情节,其中“李云龙前传”部分讲述了李云龙在1936年到1937年间,所在的红九军25师171团与西北军阀马家军的对决。<a href="#" class="more">[详细]</a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="hd">
+    <ul>
+      <li class="li1"><span>1</span></li>
+      <li class="li2"><span>2</span></li>
+      <li class="li3"><span>3</span></li>
+    </ul>
+  </div>
+</div>
+<script language="javascript"> $("#focusAd").slide({ mainCell:".bd ul",effect: "leftLoop",autoPlay:true});</script> 
+</div>
+</body>
+</html>

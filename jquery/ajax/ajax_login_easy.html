@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<form action="" method="post" class="wfform">
+	<input type="text" class="username"/>
+	<input type="password" class="password"/>
+	<input type="button" value="点击" class="btn"/>
+</form>
+<style>
+	.mk{ display: none;}
+</style>
+<div class="mk">错误</div>
+<script>
+$(".btn").on("click",function(e){
+	e.preventDefault();
+	var action=$(".wfform").attr("action");
+	var usernameVal=$(".username").val();
+	var passwordVal=$(".password").val();
+	$.ajax({
+		url:action,
+		type:"post",
+		data:{"usernameVal":usernameVal,"passwordVal":passwordVal},
+		success:function(data){
+		    var ts=$(".mk")
+            var d = $.parseJSON(data);	//接受一个JSON字符串，返回解析后的对象
+            if(d.success!=true){
+                ts.innerHTML ='用户名已存在!';
+                ts.style.color='red';
+                return true;
+            }
+            ts.innerHTML ='用户名可以使用！';
+            ts.style.color='green';
+            return true;
+		},
+		error:function(XMLHttpRequest,textStatus,errorThrown){
+			$(".mk").show()
+		}
+	})
+})
+</script>
+</body>
+</html>
+

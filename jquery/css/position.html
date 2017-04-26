@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--position() 获取匹配元素相对父元素的偏移-->
+<style>
+	.a1{position: relative;width: 1000px; height: 800px; background: #526}
+	.mk{height: 120px; background: #88d;}
+	.btn{ display: inline-block; width: 100px; height: 30px; background: #fe6;}
+	input{position: absolute;top:0;}
+</style>
+<div class="a1">
+	<div class="mk">123</div>
+	<a class="btn">点击</a>
+	<div class="mk">dsfgs</div>
+	<a class="btn">点击</a>
+	<form action=""><input type="file" class="file"/></form>
+</div>
+<script>
+	$(".btn").hover(function(){
+		var self=$(this);
+		$(".file").css({
+			"left":self.position().left,
+			"top":self.position().top
+		})
+	})
+</script>
+</body>
+</html>
+

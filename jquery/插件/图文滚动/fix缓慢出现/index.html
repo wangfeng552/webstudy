@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<!-- <link rel="stylesheet" type="text/css" href="http://www.superslide2.com/default.css"> -->
+<style>
+.rightNav{ position:fixed; width:140px;  right:0; top:100px; _position:absolute; text-align:left; cursor:pointer; background-image:url(about:blank);  }
+	.rightNav a{ display:block; position:relative; height:30px; line-height:30px; margin-bottom:2px; background:#fff; padding-right:10px; width:130px; overflow:hidden;  cursor:pointer; right:-110px; }
+	.rightNav a:hover{ text-decoration:none; color:#39A4DC;  }
+	.rightNav a:hover em{ background:#00b700}
+	.rightNav a em{ display:block; float:left; width:30px; background:#39A4DC; color:#fff; font-size:16px; text-align:center; margin-right:10px;}
+	.rightNav a.new em{ background:#f60;  }	
+</style>
+</head>
+<body>
+
+<div class="rightNav">
+	<a href="#content"><em>^</em>回到顶部</a>
+	<a href="#effect1"><em>1</em>书签切换</a>
+	<a href="#effect2"><em>2</em>幻灯片</a>
+	<a href="#effect3"><em>3</em>图片滚动-左</a>
+	<a href="#effect4"><em>4</em>图片滚动-上</a>
+	<a href="#effect5"><em>5</em>图片无缝滚动-左</a>
+	<a href="#effect6"><em>6</em>图片无缝滚动-上</a>
+	<a href="#effect7"><em>7</em>文字滚动-左</a>
+	<a href="#effect8"><em>8</em>文字滚动-上</a>
+	<a href="#effect9"><em>9</em>文字无缝滚动-左</a>
+	<a href="#effect10"><em>10</em>文字无缝滚动-上</a>
+	<a class="new" href="#effect11"><em>11</em>常用导航 [v2.1]</a>
+	<a class="new" href="#effect12"><em>12</em>手风琴 [v2.1]</a>
+	<a href="#effectT1"><em>T1</em>其它基础效果</a>
+	<a class="ztw" href="http://www.motifw.com/"><em style="background:#C6314E">主</em>主题网</a>
+
+</div>
+<script type="text/javascript">
+	//右侧导航
+	var btb=$(".rightNav");
+	var tempS;
+	$(".rightNav").hover(function(){
+			var thisObj = $(this);
+			tempS = setTimeout(function(){
+			thisObj.find("a").each(function(i){
+				var tA=$(this);
+				setTimeout(function(){ tA.animate({right:"0"},200);},50*i);
+			});
+		},200);
+
+	},function(){
+		if(tempS){ clearTimeout(tempS); }
+		$(this).find("a").each(function(i){
+			var tA=$(this);
+			setTimeout(function(){ tA.animate({right:"-110"},200,function(){
+			});},50*i);
+		});
+
+	});
+</script>
+</body>
+</html>

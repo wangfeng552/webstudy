@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+delegate(select,type,[data],fn) 指定的元素（属于备选元素的子元素）添加一个或多个事件处理程序，并规定当这些事件发生时运行的函数。
+select:		选择器字符串，用于过滤触发事件的元素;
+type:		附加到元素的一个或多个事件，由空格隔开;
+fn:			事件发生时运行的函数;
+
+undelegate(select,type,fn) 删除由delegate方法添加的一个或多个事件;
+<div>
+	<ul>
+		<li>大师傅</li>
+		<li>大师傅</li>
+		<li>大师傅</li>
+		<li>大师傅</li>
+		<li>大师傅</li>
+	</ul>
+</div>
+<script>
+$("div").delegate("li","click mouseover",function(){
+	$(this).css("color","red")
+})
+
+//$("div").undelegate()			//从div元素删除由 delegate() 方法添加的所有事件处理器：
+$("div").undelegate("mouseover") 	//从div元素删除由 delegate() 方法添加的所有mouseover事件处理器：
+</script>
+</body>
+</html>
+

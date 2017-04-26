@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.grep(array, callback, [invert])过滤数组元素-->
+<script>
+	/*array:待过滤数组
+	 callback:此函数将处理数组每个元素。第一个参数为当前元素，第二个参数为元素索引值。
+	 invert:如果 "invert" 为 false 或为设置，则函数返回数组中由过滤函数返回 true 的元素，true则返回过滤函数中返回 false 的元素集。*/
+	var arr1=[1,-1,"你哈",25,-60];
+	nk=$.grep(arr1,function(val,i){
+		return val>0
+	})
+	$(".mian").text(nk.join("|"))
+</script>
+</body>
+</html>
+

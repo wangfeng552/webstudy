@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" />
+<title>换购成功弹窗</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<!-- http://www.zhangxinxu.com/wordpress/2010/04/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E6%8F%92%E5%85%A5%E8%AF%9D%E9%A2%98%E5%90%8E%E9%83%A8%E5%88%86%E6%96%87%E5%AD%97%E9%80%89%E4%B8%AD%E7%9A%84js%E5%AE%9E%E7%8E%B0/ -->
+<style>
+textarea{font-size:1em; width:500px; height:100px;}
+</style>
+<textarea id="target"></textarea>
+<p><button id="btn">插入话题</button></p>
+<script>
+var $ = function(id){
+    return document.getElementById(id);
+};
+$("btn").onclick = function(){
+    var con = "请在这里输入自定义话题";
+    //转载文字
+    $("target").value += "#"+con+"#";
+    var l = $("target").value.length;
+    //创建选择区域	
+    if($("target").createTextRange){//IE浏览器
+        var range = $("target").createTextRange();
+        range.moveEnd("character",-l)         
+        //range.moveStart("character",-l)              
+        range.moveEnd("character",l-1);
+        range.moveStart("character", l-1-con.length);
+        range.select();
+    }else{
+        $("target").setSelectionRange(l-1-con.length,l-1);
+        $("target").focus();
+    }
+};	
+</script>
+</body>
+</html>

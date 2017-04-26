@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+#doubleSlideTxt{ width:524px; zoom:1; position:relative; text-align:left;  } 
+#doubleSlideTxt .parHd{ position:absolute; z-index:1; top:10px; left:453px; width:44px; overflow:hidden; } 
+#doubleSlideTxt .parHd li{ width:14px; padding:5px 5px 5px 5px;  line-height:16px; border:1px solid #baccdf; border-left:0;  
+    margin-bottom:5px; background:#fff; color:#b5c4d3;  cursor:pointer; margin-left:1px;  } 
+#doubleSlideTxt .parHd li.on{ background:#dbeefd; font-weight:bold; color:#367399;  border-right:3px solid #4e98c6;   
+    margin-left:0px; position:relative; z-index:100; padding:5px 10px 5px 10px;} 
+#doubleSlideTxt .parBd{ position:relative;  z-index:0; width:440px; left:0px; border:1px solid #baccdf; padding:6px; background:#dbeefd;} 
+#doubleSlideTxt .parBd .slideTxtBox{ background:#fff; width:400px; border:0; padding:20px;    } 
+#doubleSlideTxt .parBd .slideTxtBox .hd{ background:#fff;  } 	
+</style>
+</head>
+<body>
+
+
+<body>
+
+					<div id="doubleSlideTxt">
+							<div class="parHd">
+								<ul>
+									<li>栏目一</li>
+									<li>栏目二</li>
+									<li>栏目三</li>
+								</ul>
+							</div>
+							<!-- parBd S -->
+							<div class="parBd">
+									<div class="parBdIn">
+											<!-- slideTxtBox S -->
+											<div class="slideTxtBox">
+												<div class="hd">
+													<ul><li><a href="">教育1</a></li><li><a href="">培训1</a></li><li><a href="">出国1</a></li></ul>
+												</div>
+												<div class="bd">
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">中国打破了世界软件巨头规则</a></li>
+														<li><span class="date">2011-11-11</span><a href="">口语：会说中文就能说英语！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">农场摘菜不如在线学外语好玩</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学英语送ipad2,45天突破听说</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学外语，上北外！</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">名师教作文：３妙招巧写高分</a></li>
+														<li><span class="date">2011-11-11</span><a href="">耶鲁小子：教你备考SAT</a></li>
+														<li><span class="date">2011-11-11</span><a href="">施强：高端专业语言教学</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">【推荐】名校英语方法曝光！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012高考“考点”大曝光!!</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">澳大利亚八大名校招生说明会</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012世界大学排名新鲜出炉</a></li>
+														<li><span class="date">2011-11-11</span><a href="">新加坡留学，国际双语课程</a></li>
+														<li><span class="date">2011-11-11</span><a href="">高考后留学日本名校随你选</a></li>
+														<li><span class="date">2011-11-11</span><a href="">教育培训行业优势资源推介</a></li>
+														<li><span class="date">2011-11-11</span><a href="">即刻预约今年最后一场教育展</a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- slideTxtBox E -->
+
+											<!-- slideTxtBox S -->
+											<div class="slideTxtBox">
+												<div class="hd">
+													<ul><li><a href="">教育2</a></li><li><a href="">培训2</a></li><li><a href="">出国2</a></li></ul>
+												</div>
+												<div class="bd">
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">中国打破了世界软件巨头规则</a></li>
+														<li><span class="date">2011-11-11</span><a href="">口语：会说中文就能说英语！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">农场摘菜不如在线学外语好玩</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学英语送ipad2,45天突破听说</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学外语，上北外！</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">名师教作文：３妙招巧写高分</a></li>
+														<li><span class="date">2011-11-11</span><a href="">耶鲁小子：教你备考SAT</a></li>
+														<li><span class="date">2011-11-11</span><a href="">施强：高端专业语言教学</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">【推荐】名校英语方法曝光！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012高考“考点”大曝光!!</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">澳大利亚八大名校招生说明会</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012世界大学排名新鲜出炉</a></li>
+														<li><span class="date">2011-11-11</span><a href="">新加坡留学，国际双语课程</a></li>
+														<li><span class="date">2011-11-11</span><a href="">高考后留学日本名校随你选</a></li>
+														<li><span class="date">2011-11-11</span><a href="">教育培训行业优势资源推介</a></li>
+														<li><span class="date">2011-11-11</span><a href="">即刻预约今年最后一场教育展</a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- slideTxtBox E -->
+
+											<!-- slideTxtBox S -->
+											<div class="slideTxtBox">
+												<div class="hd">
+													<ul><li><a href="">教育3</a></li><li><a href="">培训3</a></li><li><a href="">出国3</a></li></ul>
+												</div>
+												<div class="bd">
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">中国打破了世界软件巨头规则</a></li>
+														<li><span class="date">2011-11-11</span><a href="">口语：会说中文就能说英语！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">农场摘菜不如在线学外语好玩</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学英语送ipad2,45天突破听说</a></li>
+														<li><span class="date">2011-11-11</span><a href="">学外语，上北外！</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">名师教作文：３妙招巧写高分</a></li>
+														<li><span class="date">2011-11-11</span><a href="">耶鲁小子：教你备考SAT</a></li>
+														<li><span class="date">2011-11-11</span><a href="">施强：高端专业语言教学</a></li>
+														<li><span class="date">2011-11-11</span><a href="">数理化老师竟也看学习资料？</a></li>
+														<li><span class="date">2011-11-11</span><a href="">【推荐】名校英语方法曝光！</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012高考“考点”大曝光!!</a></li>
+													</ul>
+													<ul class="infoList">
+														<li><span class="date">2011-11-11</span><a href="">澳大利亚八大名校招生说明会</a></li>
+														<li><span class="date">2011-11-11</span><a href="">2012世界大学排名新鲜出炉</a></li>
+														<li><span class="date">2011-11-11</span><a href="">新加坡留学，国际双语课程</a></li>
+														<li><span class="date">2011-11-11</span><a href="">高考后留学日本名校随你选</a></li>
+														<li><span class="date">2011-11-11</span><a href="">教育培训行业优势资源推介</a></li>
+														<li><span class="date">2011-11-11</span><a href="">即刻预约今年最后一场教育展</a></li>
+													</ul>
+												</div>
+											</div>
+											<!-- slideTxtBox E -->
+									</div>
+							</div>
+							<!-- parBd E -->
+
+					</div>
+
+					<script type="text/javascript">
+					jQuery(".slideTxtBox").slide({effect:"left"});
+					jQuery("#doubleSlideTxt").slide({ titCell:".parHd li",mainCell:".parBdIn",effect:"top",trigger:"click" });
+					</script>
+		
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!-- $().each() 以每一个匹配的元素作为上下文来执行一个函数。-->
+<div class="lkj">第三方</div>
+<div class="lkj">四十多分</div>
+<script>
+	var arr=[];
+	$(".lkj").each(function(){
+		arr.push($(this).text())
+	})
+	console.log(arr) //=>["第三方", "四十多分"]
+	arr.join("+")	//数字求和
+		/*return false  //=>将停止循环break
+		return true   //=>跳过循环continue*/
+</script>
+
+<!-- $.each遍历对象和数组 -->
+<div class="nk"></div>
+<script>
+	(function($){
+		var arr=[
+			{name:"沾上干",age:"wf"},
+			{name:"sdf",age:"kl"},
+			{name:"sgfhdh",age:"ff"}
+		];
+		function df(arr){
+			var html='<ul>';
+			$.each(arr, function(index, val) {
+				html+='<li class='+val.age+'>'+val.name+'</li>';
+				if (index==1) return false;//取前面2个的值
+			});
+			html+='</ul>';
+			$(".nk").html(html)
+		}
+		df(arr);
+	})(jQuery)
+</script>
+</body>
+</html>
+

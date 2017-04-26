@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="quzhi"></div>
+
+<div class="formcontrol">
+	<div class="mk">
+		<label>
+			<input type="checkbox" name="other" value="其他" >
+			<span>其他</span>
+		</label>
+	</div>
+	<div class="mk">
+		<label>
+			<input type="checkbox" name="other" value="男">
+			<span>男</span>
+		</label>
+	</div>
+	<div class="mk">
+		<label>
+			<input type="checkbox" name="other" value="女">
+			<span>女</span>
+		</label>
+	</div>
+	<button>点击</button>
+</div>
+
+<div class="mk" onclick="wf()">123321</div>
+<script>
+	$('document').ready(function() {
+		$("input[type=checkbox]").on("click", function() {
+			var html = "";
+			$.each($("input[type=checkbox]"), function(i, v) {
+				if ($(this).prop("checked")) {
+					html += '<i class="mk1" onclick="wf(this,' + i + ')">' + $(this).val() + '</i>'
+				}
+			});
+			$(".quzhi").html(html);
+		});
+	})
+
+	function wf(a, i) {
+		a.remove();
+		$("input[type=checkbox]").eq(i).prop("checked", false)
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+</head>
+
+<body>
+<div class="test002">
+	<h2>sdf</h2>
+	<strong>sdf</strong>
+</div>
+<h5>asdf</h5>
+<script>$('.test002').hover(function(){
+  		$(this).animate({ 
+    		width: 235,
+    		height: 365,
+			marginTop: -10,
+    		opacity:1
+  		}, 100 ).animate({ 
+    		width: 235,
+    		height: 355,
+	
+    		marginTop: -5,
+    		opacity:0.9
+  		}, 100 ).animate({ 
+    		width: 235,
+    		height: 365, 
+	
+    		marginTop: -10,
+    		opacity:1,
+  		}, 100 )
+	},function(){
+		$(this).stop(true).animate({ 
+    		width: 235,
+    		height: 345,
+    		marginTop: 0,
+    		opacity:1
+  		}, 100 );
+});
+</script>
+</body>
+</html>

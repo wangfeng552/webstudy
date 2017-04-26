@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>登录</title>
+    <script src="../jquery-1.11.2.js"></script>
+
+</head>
+
+<body>
+<!--
+localStorage生命周期是永久，这意味着除非用户显示在浏览器提供的UI上清除localStorage信息，否则这些信息将永远存在。
+
+sessionStorage生命周期为当前窗口或标签页，一旦窗口或标签页被永久关闭了，那么所有通过sessionStorage存储的数据也就被清空了。-->
+
+<input type="text" class="name">
+<button class="save">保存</button>
+<button class="del">删除</button>
+
+<script>
+    $(".save").on("click",function (e) {
+        var username=$(".name").val();
+//      var storage = window.sessionStorage;
+        var storage = window.localStorage;
+        storage["name"]=username;
+     })
+    $(document).ready(function () {
+//      var storage=window.sessionStorage;
+        var storage=window.localStorage;
+        var getname=storage["name"];
+        $(".name").val(getname)
+    })
+
+//    关闭浏览器清空数据
+/*    $(window).unload( function () {
+        var storage = window.localStorage;
+        storage.clear()
+    } );*/
+
+//    关闭浏览器清空数据
+    window.onbeforeunload = onbeforeunload_handler;
+    window.onunload = onunload_handler;
+    function onbeforeunload_handler()
+    {
+        var storage = window.localStorage;
+        storage.clear()
+    }
+
+    function onunload_handler()
+    {
+        var storage = window.localStorage;
+        storage.clear()
+    }
+</script>
+</body>
+</html>

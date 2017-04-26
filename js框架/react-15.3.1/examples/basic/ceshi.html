@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Basic Example</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<div id="wf"></div>
+
+
+<script type="text/babel" src="ceshi.js"> </script>
+
+<div id="map1">
+
+</div>
+<script type="text/babel">
+    var peopleDefault={
+        getDefaultProps:function () {
+            return {name:'张三那'}
+        },
+        getInitialState:function () {
+            return {age:false}
+        },
+    }
+var People=React.createClass({
+    mixins:[peopleDefault],
+    showH:function () {
+      this.setState({age:!this.state.age})
+    },
+    render:function () {
+        var stateAge=this.state.age?"25":"65"
+        return <div><h2 onClick={this.showH}>{this.props.name}{stateAge}</h2></div>
+    }
+});
+    var Parents=React.createClass({
+        render:function () {
+            return <div>
+                <People/>
+                <span>123</span>
+            </div>
+        }
+    })
+    ReactDOM.render(<Parents name="新的父辈元素"/>,map1)
+</script>
+</body>
+</html>

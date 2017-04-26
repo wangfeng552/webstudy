@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#blank{width:100%; height:600px; background:black; opacity:0.4; filter:alpha(opacity=40); position:absolute; left:0; top:0; z-index:1;}
+</style>
+</head>
+
+<body>
+
+<div id="blank"></div>
+<div style="position:relative;">
+<div style="position:relative;z-index:1000;">
+<div style="position:absolute; z-index:9999;">
+<img src="http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg" />
+</div>
+</div>
+</div>
+<!--
+可以看到，mm3图片的父标签div 是绝对定位，层级9999，比1大多了，绝对定位的父标签层级1000(10000也一样)，也比黑色半透明层的z-index:1大多了，但是，我们可怜的IE6
+
+IE7与IE6有着同样的bug，原因很简单，虽然图片所在div当前的老爸层级很高(1000)，但是由于老爸的老爸不顶用，可怜了9999如此强势的孩子没有出头之日啊！
+
+
+知道原因解决就很轻松了，给第一任老爸添加z-index后的HTML代码如下：
+
+<div id="blank"></div>
+<div style="position:relative;z-index:1;">
+<div style="position:relative; z-index:1000;">
+<div style="position:absolute; z-index:9999;">
+<img src="http://image.zhangxinxu.com/image/study/s/s256/mm3.jpg" />
+</div>
+</div>
+</div>
+
+-->
+
+
+
+</body>
+</html>

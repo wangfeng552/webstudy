@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>window全局变量</title>
+</head>
+<body>
+<script>
+ var arr="阿斯蒂芬";
+ var wf=function(a){alert(a)};
+// wf(arr)
+ window.wf(arr)
+ //既然全局变量和函数都是window的属性和方法
+ //可以通过window.这种形式访问
+</script>
+</body>
+</html>

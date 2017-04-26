@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+$.proxy(function,context) 返回一个新函数，并且这个函数始终保持了特定的作用域。
+function:将要被改变作用域的函数
+context:一个object，那个函数的作用域会被设置到这个object上来。
+
+$.proxy(context,name)
+context:一个object，那个函数的作用域会被设置到这个object上来。
+name：改变上下文中的函数名(这个函数必须是前一个参数 'context' 对象的属性)
+<div id="test">click here!</div>
+<script>
+var obj={
+	name:"阿斯蒂芬",
+	test:function(){
+		alert(this.name);
+//		$("#test").unbind("click",obj.test)  //强制设置函数的作用域，让this指向obj而不是#test对象
+	}
+}
+//	$("#test").click($.proxy(obj,"test"))
+//	$("#test").click($.proxy(obj.test,obj))
+	$("#test").click(obj.test)
+</script>
+
+
+<!--案例2-->
+<div id="myElement">123</div>
+<script>
+	$('#myElement').click(function() {
+
+		setTimeout($.proxy(function() {
+
+			$(this).addClass('wf');  // Now "this" is again our element
+
+		}, this), 1000);
+
+	});
+</script>
+</body>
+</html>
+

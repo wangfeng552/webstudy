@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>jquery $(document).ready() 与window.onload的区别</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+	.mk{height: 2000px; background: #ccc;}
+</style>
+<div class="mk"></div>
+<h2>jquery $(document).ready() 与window.onload的区别</h2>
+
+0.文档和窗口
+$(document)			//是当前文档，就是你看到的整个网页
+$(window)			//当前浏览器的窗口 scroll,resize
+
+1.执行时间
+window.onload		//必须等到页面内包括图片的所有元素加载完毕后才能执行。
+$(document).ready() //是DOM结构绘制完毕后就执行，不必等到加载完毕。
+
+2.编写个数不同
+window.onload 		//不能同时编写多个，如果有多个方法，只执行一个
+$(document).ready() //可同时编写多个，都可执行
+
+3.jquery写法
+$(window).load() 	//Window.onload = function (){}
+$(document).ready() //简写$(function(){})
+
+<script>
+//这样加载多个函数
+/*$(window).load(function() {
+	alert("hello,我是jQ!");
+});
+$(window).load(function() {
+	alert("hello,我也是jQuery");
+});*/
+
+//下面方法错误，只能输出1个
+//window.onload=function(){alert(1)}
+//window.onload=function(){alert(2)}
+</script>
+
+
+<script>
+//定义函数并立即调用
+(function(){})()//这个语句，其实是首先用分组运算符评估了一个函数表达式，随后参与“函数调用”
+(function(window,jQuery){
+	var $=jQuery;
+	return (function(){})()
+})(window,jQuery)
+(function(){}())//这个语句，则是用分组运算符评估了一个函数调用，随后由于语句的结束而被执行
+//运行结果一样
+
+(function($){
+// 你可以在这里继续使用$作为别名...
+})(jQuery)
+
+
+//DOM加载完之后运行
+$(document).ready()
+jQuery(function(){})
+$(function(){})
+</script>
+</body>
+</html>
+

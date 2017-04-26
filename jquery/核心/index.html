@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<ul>
+	<li id="foo">foo</li>
+	<li id="bar">bar <span>sadf</span> </li>
+	<li id="baz">baz</li>
+</ul>
+<script>
+//	index([selector|element])从0开始计数,如果找不到匹配的元素，则返回-1
+$("li").index(document.getElementById("foo"))	//=>0  传递一个dom对象，返回这个对象在原先集合中的索引位置
+$('li').index($('#bar')); 						//=>1，传递一个jQuery对象
+$("li").index($("li:gt(1)"))					//=>2, 传递一组jQuery对象，返回这个对象中第一个元素在原先集合中的索引位置
+$("#bar").index("li") 							//=>1, 传递一个选择器，返回#bar在所有li中的索引位置
+$("#bar").index()								//=>1, 不传递参数，返回这个元素在同辈中的索引位置
+$("li").on("click",function(){
+	var index=$(this).index();
+	console.log(index)
+})
+</script>
+</body>
+</html>
+

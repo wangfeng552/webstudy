@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="no-key-example" class="demo">
+	<div>
+		<template v-if="loginType === 'username'">
+			<label>Username</label>
+			<input placeholder="请输入姓名" key="a1">
+		</template>
+		<template v-else="">
+			<label>Email</label>
+			<input placeholder="请输入邮箱" key="a2">
+		</template>
+	</div>
+	<button @click="toggleLoginType">Toggle login type</button>
+</div>
+<script>
+    new Vue({
+        el: '#no-key-example',
+        data: {
+            loginType: 'username'
+        },
+        methods: {
+            toggleLoginType: function () {
+                return this.loginType = this.loginType === 'username' ? 'email' : 'username'
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
+

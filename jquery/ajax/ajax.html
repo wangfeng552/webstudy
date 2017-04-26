@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.ajax(url,[setting])  通过http请求加载远程数据
+$.ajax()返回其创建的XMLHttpRequest对象，
+
+回调函数
+如果要处理$.ajax()得到的数据，则需要使用回调函数，beforeSend、error、dataFilter、success、complete
+beforeSend 	在发送请求之前调用，并且传入一个XMLHttpRequest作为参数。
+error 		在请求出错时调用。传入XMLHttpRequest对象，描述错误类型的字符串以及一个异常对象（如果有的话）
+dataFilter 	在请求成功之后调用。传入返回的数据以及"dataType"参数的值。并且必须返回新的数据（可能是处理过的）传递给success回调函数。
+success 	当请求之后调用。传入返回后的数据，以及包含成功代码的字符串。
+complete 	当请求完成之后调用这个函数，无论成功或失败。传入XMLHttpRequest对象，以及一个包含成功或错误代码的字符串。
+
+数据类型
+$.ajax()函数依赖服务器提供的信息来处理返回的数据。
+<div class="mk">11111111111</div>-->
+
+<!--案例1-->
+<div id="divtest">
+	<div class="title">
+		<span class="fl">检测数字的奇偶性</span>
+			<span class="fr">
+				<input id="btnCheck" type="button" value="检测" />
+			</span>
+	</div>
+	<ul>
+		<li>请求输入一个数字
+			<input id="txtNumber" type="text" size="12" />
+		</li>
+	</ul>
+</div>
+<script type="text/javascript">
+	$("#btnCheck").bind("click", function () {
+		$.ajax({
+			url:"http://www.imooc.com/data/check.php",
+			data: { num: $("#txtNumber").val() },
+			type:"post",
+			success: function (data) {
+				$("ul").append("<li>你输入的<b>  "
+				 + $("#txtNumber").val() + " </b>是<b> "
+				 + data + " </b></li>");
+			}
+		});
+	})
+</script>
+
+<!--案例2-->
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="checkbox"/>
+<script>
+//	获取多个checkbox的值并序列化
+	var valus=$("input[type=checkbox]").map(function(){return $(this).val()}).get();
+	$.ajax({
+		url:"dsafasf.html",
+		tranditional:"true",
+		data:{name:"valus"} //=>name=name1&name=name2
+	})
+</script>
+
+使用json-2.2.jar包时，传给前端的结果，获取时不是json对象，需要var json = eval_r("("+data+")");转义一下
+<!--参数-->
+url 		一个用来包含发送请求的URL字符串
+data 		发送到服务器的数据 {foo:["bar1", "bar2"]}转换为 "&foo=bar1&foo=bar2"
+dataType 	预期服务器返回的数据类型
+			xml: 返回 XML 文档，可用 jQuery 处理。
+			html: 返回纯文本 HTML 信息；包含的script标签会在插入dom时执行。
+			script: 返回纯文本 JavaScript 代码。不会自动缓存结果。除非设置了cache参数。注意:在远程请求时(不在同一个域下)，所有POST请求都将转为GET请求。(因为将使用DOM的script标签来加载)
+			json: 返回 JSON 数据 。
+			jsonp: JSONP 格式。使用 JSONP 形式调用函数时，如 "myurl?callback=?" jQuery 将自动替换 ? 为正确的函数名，以执行回调函数。
+			text: 返回纯文本字符串
+type 		默认get; post
+
+
+beforeSend(XHR) 	发送请求前可修改 XMLHttpRequest 对象的函数，如添加自定义 HTTP 头。XMLHttpRequest 对象是唯一的参数。这是一个 Ajax 事件。如果返回false可以取消本次ajax请求。
+					function (XMLHttpRequest) {
+						this; // 调用本次AJAX请求时传递的options参数
+					}
+error 				(默认: 自动判断 (xml 或 html)) 请求失败时调用此函数
+					有以下3个参数：XMLHttpRequest 对象、错误信息、（可选）捕获的异常对象。如果发生了错误，错误信息（第2个参数）除了得到null之外，还可能是"timeout", "error", "notmodified" 和 "parsererror"。
+					function (XMLHttpRequest, textStatus, errorThrown) {
+					// 通常 textStatus 和 errorThrown 之中只有一个会包含信息
+					this; // 调用本次AJAX请求时传递的options参数
+					}
+dataFilter 			在请求成功之后调用,传入返回的数据以及"dataType"参数的值,并且必须返回新的数据（可能是处理过的）传递给success回调函数
+success 			当请求之后调用,传入返回后的数据,以及包含成功代码的字符串
+					function (data, textStatus) {
+						// data 可能是 xmlDoc, jsonObj, html, text, 等等...
+						this; // 调用本次AJAX请求时传递的options参数
+					}
+complete(XHR, TS) 	请求完成后回调函数 (请求成功或失败之后均调用)。参数： XMLHttpRequest 对象和一个描述成功请求类型的字符串。
+					function (XMLHttpRequest, textStatus) {
+					this; // 调用本次AJAX请求时传递的options参数
+					}
+jsonp 				跨域获取数据,在一个jsonp请求中重写回调函数的名字。这个值用来替代在"callback=?"这种GET或POST请求中URL参数里的"callback"部分，
+					比如{jsonp:'onJsonPLoad'}会导致将"onJsonPLoad=?"传给服务器。
+					jsonp不支持post方法，jsonp不支持同步
+jsonpCallback 		为jsonp请求指定一个回调函数,这个值将用来取代jQuery自动生成的随机函数名,这主要用来让jQuery生成独特的函数名，这样管理请求更容易，
+					也能方便地提供回调函数和错误处理。你也可以在想让浏览器缓存GET请求的时候，指定这个回调函数名。
+crossDomain 		默认： 同域请求为false
+					跨域请求为true如果你想强制跨域请求（如JSONP形式）同一域，设置crossDomain为true。这使得例如，服务器端重定向到另一个域
+
+async 		异步默认true; 同步false
+cache 		缓存默认true; dataType为script和jsonp时默认为false
+context 	让回调函数内this指向这个对象
+			$.ajax({
+				url:"http://www.j1.com/showDowpDownBox.html",
+				context:$(".mk"),
+				success:function(){
+					$(this).addClass("wf")
+				}
+			})
+global 		默认（true）是否触发全局ajax事件，设置为false不会触发全局ajax事件，如ajaxStart，ajaxStop可用于控制不同的ajax事件。
+headers 	Default: {} | headers: { Accept: "application/json; charset=utf-8" }
+			一个额外的"{键:值}"对映射到请求一起发送。此设置被设置之前beforeSend函数被调用;因此，消息头中的值设置可以在覆盖beforeSend函数范围内的任何设置。
+statusCode 	默认: {}
+			一组数值的HTTP代码和函数对象，当响应时调用了相应的代码。例如，如果响应状态是404，将触发以下警报：
+			$.ajax({
+				statusCode: {404: function() {
+					alert('page not found');
+				}
+			});
+traditional 默认,traditional为false;如果你想要用传统的方式来序列化数据,设为true 	例:p: ["123", "456", "789"]    =>    p=123&p=456&p=789
+xhrFields 	一对“文件名-文件值”在本机设置XHR对象。例如，如果需要的话，你可以用它来设置withCredentials为true的跨域请求。
+			xhrFields: { withCredentials: true }
+			beforeSend: function(xhr) { xhr.withCredentials = true; } 解决火狐下面
+</body>
+</html>
+

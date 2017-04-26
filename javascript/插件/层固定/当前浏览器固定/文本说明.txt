@@ -1,0 +1,17 @@
+1.被固定定位的元素在滚动滚动条的时候会闪动。解决闪动问题的办法是在 CSS 文件中加入：
+*html{
+background-image:url(about:blank);
+background-attachment:fixed;
+}
+
+2.IE6使元素固定在浏览器的中间：
+#zhongjian{ position:fixed; width:54px; height:54px; left:50%; top:50%; margin-left:480px;
+_position: absolute;  /*IE6 用absolute模拟fixed*/
+_top: expression(document.documentElement.scrollTop + Math.round(document.documentElement.offsetHeight / 2) + "px"); /*IE6 动态设置top位置*/}
+
+
+3.IE6使元素固定在浏览器的底部：
+#dibu{background-color:#096;z-index:999;position:fixed;bottom:0;left:0;width:500px;
+_position:absolute;
+_top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+}

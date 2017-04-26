@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>带有 thead、tbody 以及 tfoot 元素的 HTML 表格：</title>
+</head>
+
+<body>
+<style>
+.sdf{ border-collapse: collapse;}
+.sdf td{border: 1px solid #333;}
+.sdf .w-1{ background: #ccc; width:100px;}
+</style>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="sdf">
+  <!-- 定义宽度 -->
+  <colgroup class="w-1"></colgroup>
+  <colgroup class="w-2"></colgroup>
+  <colgroup class="w-3"></colgroup>
+  <!-- 页头 -->
+  <thead>
+    <tr>
+      <th>标题一</th>
+      <th>标题二</th>
+      <th>标题三</th>
+    </tr>
+  </thead>
+  <!-- 页脚 -->
+  <tfoot>
+    <tr>
+      <td>Sum</td>
+      <td>$180</td>
+      <td>$180</td>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <tr>
+      <td>撒旦法</td>
+      <td>hgjdfgdsfg</td>
+      <td>234555</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

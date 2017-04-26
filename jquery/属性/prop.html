@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--prop(name|properties|key,value|fn) 获取在匹配的元素集中的第一个元素的属性值-->
+
+<input type="checkbox"/>
+<input type="checkbox"/>
+<input type="radio"/>
+<input type="radio"/>
+<a href="" class="dianji">点击</a>
+
+<script>
+//	选中复选框为true，没选中为false
+	/*$(".dianji").on("click",function(e){
+		e.preventDefault();
+		alert($("input[type='checkbox']").prop("checked"))
+	})*/
+
+//	禁用页面上所有radio
+	/*$("input[type='radio']").prop("disabled","false")*/
+
+//	禁用和选中所有页面上的复选框。
+	/*$("input[type='checkbox']").prop({
+		disabled:"false",
+		checked:"true"
+	})*/
+
+//	通过函数来设置所有页面上的复选框被选中。
+	$("input[type='checkbox']").prop("checked",function(i,v){  //1:属性名称 2:返回属性值的函数,第一个参数为当前元素的索引值，第二个参数为原先的属性值。
+		return !v;
+	})
+
+//	用来删除由.prop()方法设置的属性集
+	$("input[type='checkbox']").removeProp("checked")
+</script>
+</body>
+</html>
+

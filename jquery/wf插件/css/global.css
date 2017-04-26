@@ -1,0 +1,23 @@
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:12px;font-weight:400;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.wrap { margin: 0 auto; width: 960px; }
+.fl { float: left; }
+.fr { float: right; }
+.mt10{ margin-top:10px;}
+.mr10{ margin-right:10px;}
+.mb10{ margin-bottom:10px;}
+.ml10{ margin-left:10px;}
+.pt10{ padding-top:10px;}
+.pr10{ padding-right:10px;}
+.pb10{ padding-bottom:10px;}
+.pl10{ padding-left:10px;}
+img { border: 0; vertical-align: top; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+.clearfix:after {content: "";clear: both; display: table;}

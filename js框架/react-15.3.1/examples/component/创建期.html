@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>创建期</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<script src="https://static.zhong.com/pc/skin/js/jquery-1.11.2.js"></script>
+
+<div id="zs1"></div>
+
+
+<script type="text/babel">
+   var Header=React.createClass({
+//       第一阶段 获取默认属性
+        getDefaultProps:function(){
+//            console.log("第一个阶段",arguments,this);
+            return {username:"游客"}
+        },
+//       第二阶段 初始化状态
+       getInitialState:function(){
+//           console.log("第二个阶段",arguments,this)
+           return {
+               num:100,
+               username:this.props.username
+           }
+       },
+//       第三阶段 组件即将构建
+       componentWillMount:function(){
+//           console.log("第三阶段",arguments,this.props.username,this.state.num)
+           //查看是否可以访问dom元素
+//           console.log(ReactDOM.findDOMNode(this))
+       },
+//       第四阶段 组件渲染输出虚拟DOM
+       render:function(){
+//           console.log("第四阶段",arguments,this)
+           //查看是否可以访问DOM元素
+//           console.log(ReactDOM.findDOMNode(this))
+           //虚拟DOM必须通过return输出
+           return<div >{this.props.username}{this.state.username}</div>
+       },
+//       第五阶段 组件构建完成
+        componentDidMount:function(){
+//         console.log("第五阶段",arguments,this);
+//         console.log(ReactDOM.findDOMNode(this));
+           $.get("data.json",function(data){
+               //更新状态
+               this.setState({username:data[0].name})
+               console.log(this)
+           }.bind(this));
+            ReactDOM.findDOMNode(this).style.color="red"  //获取dom元素设置颜色
+        }
+   });
+    ReactDOM.render(<Header />,zs1)
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<!-- case1-->
+<style>
+.jb li{width: 120px!important;width: 50px;overflow:hidden;background-color:#ccc;height:25px;white-space:nowrap}
+/*ie6以上都用！important  ie6读取50px; */
+</style>
+
+<div class="jb">
+	<li><a href="#">阿斯顿开房间</a></li>
+	<li><a href="#">阿斯顿开房间</a></li>
+	<li><a href="#">阿斯顿开房间</a></li>
+</div>
+
+
+<!-- case2 -->
+<style>
+.tb li{width: 120px!important;overflow:hidden;background-color:#ccc;height:25px;white-space:nowrap}
+.tb li{width: 50px;}/*ie6读取!important的级别*/
+</style>
+
+<div class="tb">
+	<li><a href="#">阿斯顿开房间</a></li>
+	<li><a href="#">阿斯顿开房间</a></li>
+	<li><a href="#">阿斯顿开房间</a></li>
+</div>
+</body>
+</html>

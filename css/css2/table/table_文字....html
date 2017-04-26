@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>自适应表格连续字符换行及单行溢出点点点显示</title>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+<style>
+.wf{ width: 500px;}
+.table{ table-layout: fixed;/*列宽由表格宽度和列宽度设定*/ }
+.text{white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+	</style>
+<div class="wf">
+  <table class="table" width="100%" border="1" cellspacing="1" cellpadding="1">
+    <tr>
+      <td width="20%">撒旦法发斯蒂芬</td>
+      <td width="60%"><div class="text">东方化工地方；路公交可都是非公开公交可都是非公开公交可都是非公开,公交可都是非公开公交可都是非公开的双方各更符合</div></td>
+      <td width="20%"><div class="text">this is s asldfkj sdlkf apple lopk</div></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<!-- 定义和用法
+tableLayout 属性用来显示表格单元格、行、列的算法规则。
+
+固定表格布局：
+固定表格布局与自动表格布局相比，允许浏览器更快地对表格进行布局。
+在固定表格布局中，水平布局仅取决于表格宽度、列宽度、表格边框宽度、单元格间距，而与单元格的内容无关。
+通过使用固定表格布局，用户代理在接收到第一行后就可以显示表格。
+
+自动表格布局：
+在自动表格布局中，列的宽度是由列单元格中没有折行的最宽的内容设定的。
+此算法有时会较慢，这是由于它需要在确定最终的布局之前访问表格中所有的内容。
+
+automatic 默认。列宽度由单元格内容设定。
+fixed     列宽由表格宽度和列宽度设定。
+inherit   规定应该从父元素继承 table-layout 属性的值。 -->
+</body>
+</html>

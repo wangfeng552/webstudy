@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<style type="text/css">
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+.by{ width:1000px; margin:0 auto;}
+.cp li{ width:200px; height:200px; position:relative; background:#C00;}
+.cp li em{ width:80px; text-align:center; background:#000; opacity:0.7; height:25px; line-height:24px; position:absolute; bottom:0; right:0; color:#fff;}
+.cp li span{ position:absolute; right:80px; bottom:0; text-align:center; background:#000; opacity:0.7; height:25px; line-height:24px; width:0; overflow:hidden; display:block; color:#fff;-moz-transition:all 0.2s ease-in 0.2s; -webkit-transition:all 0.2s ease-in 0.2s;transition:all 0.2s ease-in 0.2s;}
+.cp li.act span{  -moz-transition:all 0.2s ease-in 0.2s; -webkit-transition:all 0.2s ease-in 0.2s;transition:all 0.2s ease-in 0.2s; width:120px;}
+
+</style>
+</head>
+<body>
+<div class="by">
+	<div class="cp">
+    	<ul>
+        	<li>
+            	<a href="" ><img src="11.jpg" width="200" height="200"  /></a>
+                <span>阿萨德发货</span><em>￥568</em>
+            </li>
+            <li>
+            	<a href="" ><img src="images/11.jpg" width="200" height="200"  /></a>
+                <span>阿萨德发货</span><em>￥568</em>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$("img").error(function(){
+  $("img").replaceWith("Missing image!");
+	});
+	$(".cp li").hover(function(){
+		$(this).addClass("act").siblings().removeClass("act")
+		},function(){
+		$(this).removeClass("act")
+			})
+	})
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>jQuery页面滚动监听显示第几步网页特效 - 【科e互联】</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="js/jquery-1.7.2.js"></script>
+<script src="js/waypoints.min.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body class="keBody">
+<h1 class="keTitle">jQuery页面滚动监听显示第几步网页特效</h1>
+<div class="kePublic">
+<!--效果html开始-->
+<div style="width: 1000px;margin: auto;padding-top:16px; ">
+  <ul id="step" style="float: right; width: 968px;margin: 0;padding: 0">
+<li>
+      <div class="circle">1</div>
+      <div class="cimain" style="background-color:#F60;height:300px; line-height:300px; margin-left:20px;">第1步
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';"> </div>
+</div>
+    </li>
+<li>
+      <div class="circle">2</div>
+      <div class="cimain" style="background-color:#393;height:600px; line-height:600px; margin-left:20px;">第2步</div>
+    </li>
+<li>
+      <div class="circle">3</div>
+      <div class="cimain" style="background-color:#63C;height:400px;margin-left:20px;">第3步</div>
+    </li>
+<li>
+      <div class="circle">4</div>
+      <div class="cimain" style="background-color:#09F;height:400px;margin-left:20px;">第4步</div>
+    </li>
+<li>
+      <div class="circle">5</div>
+      <div class="cimain" style="background-color:#F36;height:400px;margin-left:20px;">第5步</div>
+    </li>
+</ul>
+  <div id="ico-group" style="width: 32px;position: fixed;top: 16px;">
+<div class="circle" style="visibility: hidden">1</div>
+<div class="circle" style="visibility: hidden">2</div>
+<div class="circle" style="visibility: hidden">3</div>
+<div class="circle" style="visibility: hidden">4</div>
+<div class="circle" style="visibility: hidden">5</div>
+</div>
+</div>
+<!--效果html结束-->
+<div class="clear"></div>
+</div>
+<div class="keBottom">
+<p class="keTxtP">科e互联网页特效集锦---更多特效请访问 <a class="keUrl" href="http://www.internetke.com" target="_blank">www.internetke.com</a></p>
+<p class="keTxtP">本站导航：
+<a href="http://www.internetke.com/" target="_blank" class="cor_bs">网站建设</a> | 
+<a href="http://www.internetke.com/material/" target="_blank" class="cor_bs">网页素材</a> | 
+<a href="http://www.internetke.com/effects/" target="_blank" class="cor_bs">网页特效</a> | 
+<a href="http://www.internetke.com/share/" target="_blank" class="cor_bs">设计分享</a> | 
+<a href="http://www.internetke.com/tutorial/" target="_blank" class="cor_bs">建站教程</a> | 
+<a href="http://www.internetke.com/model/" target="_blank" class="cor_bs">网站模版</a> | 
+<a href="http://www.internetke.com/appreciate/" target="_blank" class="cor_bs">酷站赏析</a>
+</p>
+<p class="keTxtP">＊尊重他人劳动成果，转载请自觉注明出处！注：此代码为【科e整理/原创特效】仅供学习交流，请勿用于商业用途。
+<a target="_blank" href="http://wp.qq.com/wpa/qunwpa?idkey=a7df3558c291e0407375b9ad649d96a6e507286ffeb0650c65a221d1500a0779" class="button red" title="北京网站建设,网页特效QQ交流群-科e互联">加入QQ交流群</a></p>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(function () {
+$("#ico-group").css("left", ((window.screen.width - 1033) / 2) +42 + "px");
+$("#step div.circle").each(function (index, element) {
+    $(element).waypoint(function (direction) {
+        if (direction == "up") {
+            //if (index == 0) {
+            //    $($("#ico-group div").get(index)).css("visibility", "hidden");
+            //}
+            
+            for (var i = 0; i < $("#ico-group div").length; i++) {
+                if (i >= index) {
+                    $($("#ico-group div").get(i)).css("visibility", "hidden");
+                }
+                if (i > 0 && i==index) {
+                    $($("#ico-group div").get(i-1)).removeClass("gray");
+                }
+            }
+            $(element).css("visibility", "visible");
+        } else {
+            $(element).css("visibility", "hidden");
+            for (var i = 0; i < $("#ico-group div").length; i++) {
+                if (i < index) {
+                    $($("#ico-group div").get(i)).addClass("gray");
+                } else if (i == index) {
+                    $($("#ico-group div").get(i)).css("visibility", "visible");
+                    $($("#ico-group div").get(i)).removeClass("gray");
+
+                } else {
+                    $($("#ico-group div").get(i)).css("visibility", "hidden");
+                }
+            }
+        }
+
+        $($("#ico-group div").get(index)).unbind("click").bind("click", function() {
+            var _targetTop = $(element).offset().top;//获取位置
+            jQuery("html,body").animate({ scrollTop: _targetTop }, 300);//跳转
+        });
+
+    }, {
+        offset: 0 +index*32
+    });
+});
+});
+</script>

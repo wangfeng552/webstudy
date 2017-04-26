@@ -1,0 +1,113 @@
+body{background-color:#f2f2f2}
+.empty-placeholder{height:120px}
+#brand_affect,#hall_show,#alpha_price,#checkCar,#rideCar,#quality_promise,#stockFinance,#ourInfo,#sellFlow{background-color:#fff;margin-bottom:20px;border:1px solid #d9d9d9}
+
+#subNav{width:100%;height:80px;background-color:#000;margin-bottom:40px}
+#subNav li{float:left;position:relative}
+#subNav .wrap{width:1002px;}
+#subNav a{display:block;width:167px;height:67px;text-align:center;color:#9c9a9a;padding-top:13px}
+#subNav a:hover{text-decoration:none}
+#subNav a ins{display:block;width:52px;height:40px;margin:0 auto;background:url(../images/souche_sprite2.jpg) no-repeat 10px -334px}
+#subNav a span{position:absolute;width:20px;height:20px}
+#subNav a:hover,#subNav .adv_active a{background-color:#e70;color:#fff}
+#subNav a:hover ins,#subNav .adv_active ins{background:url(../images/souche_service1.png) no-repeat 10px -190px}
+#subNav a:hover span,#subNav .adv_active span{background:url(../images/souche_png.png) no-repeat 0 -90px;left:76px;bottom:-10px;_background:none}
+#subNav .adv_source ins{background-position:-49px -334px}
+#subNav .adv_price ins{background-position:-101px -334px}
+#subNav .adv_transfer ins{background-position:-155px -334px}
+#subNav .adv_payment ins{background-position:-202px -334px}
+#subNav .adv_promise ins{background-position:-251px -334px}
+#subNav .adv_ride ins{background-position:-301px -334px}
+#subNav .adv_finance ins{background-position:-349px -334px}
+#subNav .adv_source:hover ins,#subNav .adv_active .adv_source ins{background-position:-49px -191px}
+#subNav .adv_price:hover ins,#subNav .adv_active .adv_price ins{background-position:-101px -191px}
+#subNav .adv_transfer:hover ins,#subNav .adv_active .adv_transfer ins{background-position:-155px -191px}
+#subNav .adv_payment:hover ins,#subNav .adv_active .adv_payment ins{background-position:-202px -191px}
+#subNav .adv_promise:hover ins,#subNav .adv_active .adv_promise ins{background-position:-251px -191px}
+#subNav .adv_ride:hover ins,#subNav .adv_active .adv_ride ins{background-position:-301px -191px}
+#subNav .adv_finance:hover ins,#subNav .adv_active .adv_finance ins{background-position:-349px -191px}
+.fixedSubNav{position:fixed;top:0;left:0;z-index:1000}
+.show_title{color:#fff;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana}
+.show_title h1{font-size:36px;padding-top:40px;margin-bottom:10px}
+.show_title h1 span{float:left;width:56px;height:47px;background:url(../images/souche_png.png) no-repeat -53px 3px;_background:none;_width:0}
+.show_title p{font-size:16px}
+#quality_promise{padding-bottom:45px}
+#brand_affect{padding-bottom:50px}
+#quality_promise .show_title,#brand_affect .show_title{height:160px;width:100%;background-color:#93715d}
+#quality_promise h1 span{background-position:0 3px;margin-left:254px;_margin-left:290px}
+#brand_affect h1 span{background-position:0 1px;margin-left:384px}
+#quality_promise .show_title p,#brand_affect .show_title p{text-align:center}
+.brand_show{padding-top:45px;padding-left:20px;padding-bottom:32px}
+.brand_show li{float:left}
+.media{width:950px;margin:0 auto;border-top:1px dotted #b2b2b2;padding-top:43px}
+.media_visit{float:left;padding-right:40px}
+.media_title{color:#333;font-size:18px;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;margin-bottom:15px}
+.media_video{width:257px;height:183px;background-color:#000;margin-bottom:19px}
+.media_news{color:#333;line-height:2.2em;width:257px;height:77px;overflow:hidden}
+.media_news ins{color:#666}
+.media_photos{float:left;padding-right:40px}
+.media_ditie{float:left}
+.promise_content{float:left;display:inline;width:425px;margin-left:50px;margin-top:40px}
+.promise_content ins{width:76px;height:76px;background:url(../images/souche_sprite2.jpg?124) no-repeat 1px -377px;display:block;margin:0 auto;margin-bottom:22px}
+.promise_content dl{border:1px dotted #b2b2b2;height:133px;color:#333}
+.promise_content dt{width:130px;margin:0 auto;text-align:center;font-size:18px;margin-bottom:24px;margin-top:-13px;_margin-top:5px;_margin-bottom:14px;background-color:#fff;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana}
+.promise_content dd{font-size:14px;width:380px;margin:0 auto;line-height:1.6em;*margin-top:-44px}
+.promise_content_180 ins{background-position:-84px -377px}
+#hall_show{padding-bottom:5px}
+#hall_show .show_title{height:220px;background:url(../images/souche_bg.png) 345px 29px no-repeat #886c90}
+#hall_show .show_title h1{margin-left:48px;padding-top:140px}
+#hall_show p{color:#444;font-size:18px;padding-top:35px;line-height:1.8em;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;width:966px;margin:0 auto;margin-bottom:35px}
+#hall_show p ins{color:#ff4301;font-size:24px}
+.hallImg_show{padding-left:5px}
+.hallImg_show li{float:left;margin:5px;position:relative}
+.hallImg_show ins{position:absolute;left:0;bottom:0;width:100%;zoom:1;line-height:1.5em;padding:15px 0;background-color:rgba(0,0,0,0.5);font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;color:#fff;text-align:center;font-size:16px}
+#alpha_price{padding-bottom:30px}
+#alpha_price .show_title{height:270px;background:url(../images/souche_bg.png) 50px -243px no-repeat #4398ca}
+#alpha_price .show_title h1{margin-left:639px;padding-top:60px}
+#alpha_price .show_title p{margin-left:639px;line-height:1.8em}
+#alpha_price .price_decorate{text-align:center;color:#333;font-size:16px;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;line-height:74px}
+#alpha_price img{margin:0 auto;display:block}
+#checkCar .show_title{height:222px;background-color:#a98c7b}
+#rideCar .show_title{height:190px;background-color:#72954f}
+#checkCar .show_title h1,#rideCar .show_title h1{margin-left:50px;padding-top:40px}
+#checkCar .show_title p,#rideCar .show_title p{margin-left:50px;line-height:1.8em}
+.rideCar_show{padding-left:35px}
+.rideCar_show img{margin-bottom:10px}
+.rideCar_show li{float:left;display:inline;width:207px;margin:40px 0 0 80px;padding-bottom:35px;color:#333;font-size:16px;text-align:center;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana}
+.checkCar_show{margin-top:10px}
+.checkCar_show img{float:left;margin-left:10px}
+.check_decorate{color:#333;font-size:18px;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;margin:30px 0}
+.check_decorate ins{color:#ff4301;font-size:24px;padding-right:10px;padding-left:10px}
+.check_img{display:block;margin:0 auto;margin-bottom:45px}
+#service_show{height:340px;background:url(../images/service_show.jpg) no-repeat #a49742;margin-bottom:20px}
+#service_show .show_title h1{margin-left:496px;padding-top:66px}
+#service_show .show_title p{margin-left:500px;line-height:1.8em}
+.service_tag{margin-left:429px}
+.service_tag ins{float:left;display:inline;color:#fff;font-size:14px;font-weight:bold;text-align:center;margin-left:30px;margin-top:49px;width:100px}
+.service_tag ins span{float:left;width:50px;height:40px;margin-bottom:10px;margin-left:30px;margin-right:30px;background:url(../images/souche_png.png) no-repeat 5px -52px}
+#pay_show{height:324px;background:url(../images/payment.jpg) right top no-repeat #4398ca;margin-bottom:20px}
+#pay_show .show_title h1{margin-left:56px;padding-top:61px;margin-bottom:30px}
+#pay_show .show_title p{margin-left:56px;line-height:1.8em}
+#stockFinance .show_title{height:123px;width:100%;background-color:#4398ca}
+#stockFinance h1 span{background-position:0 -181px;margin-left:254px}
+.finance_content{padding-top:170px;background:url(../images/finance.jpg) no-repeat center 38px;margin-left:34px;margin-bottom:50px}
+.finance_content p{width:370px;height:140px;padding:20px 30px;float:left;color:#333;font-size:14px;line-height:1.7em;border:1px dotted #b2b2b2}
+.finance_content span{display:block;width:37px;height:37px;float:left;background:url(../images/souche_sprite2.jpg?124) no-repeat -122px -277px;margin:72px 15px 0}
+#ourInfo ul{float:left;width:450px;padding-top:50px;padding-bottom:30px}
+#ourInfo li{color:#333;font-size:14px;font-weight:bold;clear:both;height:77px;line-height:1.7em}
+#ourInfo span{display:block;width:50px;height:50px;float:left;background:url(../images/souche_sprite2.jpg?124) no-repeat -166px -276px;margin-left:48px;margin-right:10px}
+.ourInfo_weibo ins{float:right;margin-right:164px;_margin-right:114px;margin-top:-2px;*margin-top:-25px;width:65px;height:25px}
+#ourInfo a{color:#666;font-weight:normal}
+#ourInfo a:hover{color:#e70}
+.ourInfo_phone{text-indent:-9999em;background:url(../images/souche_sprite2.jpg?124) no-repeat 103px -457px;_background:none}
+#ourInfo .ourInfo_weibo span{background-position:-225px -276px}
+#ourInfo .ourInfo_taobao span{background-position:-286px -276px}
+#ourInfo .ourInfo_cooper span{background-position:-349px -276px}
+.weixin{width:245px;padding-top:56px;text-align:center;float:right;display:inline;color:#333;margin-right:63px}
+.weixin h1{font-size:18px;font-family:"\5FAE\8F6F\96C5\9ED1",Tahoma,Verdana;margin-bottom:33px}
+.weixin img{margin:20px 0}
+.weixin p{line-height:1.7em}
+.souche_weibo{color:#333;text-align:left;padding-left:52px}
+.souche_weibo:hover{text-decoration:none}
+#advance_banner{width:100%;height:370px;background:url(../images/advantage2.jpg) no-repeat top center #e6ebef;text-indent:-9999em}
+#footer{position:relative;zoom:1;}

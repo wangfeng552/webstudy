@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk"></div>
+<script>
+((function ($) {
+	$.fn.extend({
+	    showName(options){
+	        var defaults={
+	            name:"123",
+				className:"wf",
+				text:"收到卡复活"
+			}
+			var self=$(this);
+			self.opts=$.extend(true,defaults,options);
+			self.opts.name=Math.min(self.opts.name,-50)
+			var html='';
+			html += `<ul>
+						<li class="${self.opts.className}">${self.opts.name}</li>
+						<p>${self.opts["text"]}</p>
+					</ul>`;
+			$(".mk").html(html);
+		}
+	})
+}))(jQuery)
+
+$(".mk").showName({
+	name:12,
+	className:"wf2",
+	text:"第三方还是了。"
+})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>滚动到一个标签#startTop的头部开始固定</title>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+<!-- 参考网址： http://caibaojian.com/scrollfix#t5 -->
+
+<style>
+.main{ width: 1000px; margin: 0 auto;}
+.main .wl500{ width: 500px; float: left;}
+.cl1{ height: 800px; background: #cde; margin-bottom: 20px;}
+.cl2{ height: 400px; background: #ed9; margin-bottom: 20px;}
+.main .wr300{ width: 300px; float: right;}
+.cr1{ height: 300px; background: #fd6; margin-bottom: 20px;}
+.cr2{ height: 200px; background: #ccc; margin-bottom: 20px;}
+</style>
+
+</head>
+<body>
+<div class="main">
+  <div class="wl500">
+    <div class="cl1">sdfgfb</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl2" id="startTop">startTop</div>
+    <div class="cl1">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+  </div>
+  <div class="wr300">
+    <div class="cr1">右边1111111111111111111</div>
+    <div class="cr1">右边22222222222222</div>
+    <div class="cr2">滚动到一个标签#startTop的头部开始固定</div>
+    <div class="cr1">右边22222222222222</div>
+  </div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/scrollfix.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var fixStartTop= $(".cr2");//右侧要固定的div
+			fixStartTop.scrollFix({startTop:"#startTop"});
+		})
+</script>
+</body>
+</html>

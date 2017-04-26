@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.fl { float: left; }
+.fr { float: right; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+</style>
+<script type="text/javascript" src="../../jquery-1.7.2.min.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+/*焦点图*/
+.slider{width:100%;position: relative;}
+.slidercon{position: relative;width:100%;height:330px;overflow:hidden;}
+.slidercon li{width:100%;height:330px;position: absolute;}
+.slidercon li a{display: block;width:1200px;height:330px;margin:0 auto}
+.switchable-triggers{position:absolute;bottom:10px;width:200px;left:50%;margin-left:-100px;height:30px;z-index:10;}
+.switchable-triggers li{font-size: 0;border-width:16px;border-radius:16px;width:16px;height:16px;float:left;overflow:hidden;background:#8b8b8b;margin-left:10px;cursor:pointer;}
+.switchable-triggers li.current{background:#ff8800;width:16px;height:16px;top:0}
+.button{width:1200px;margin:0 auto;position:absolute;height:50px;top:119px;margin-left:-600px;left:50%;z-index:20;}
+.button a{color:#fff;width:45px;height:72px;display: block;text-align:center;font:700 30px/72px "\5B8B\4F53";background:rgba(0, 0, 0, 0.1)}
+.button a:hover{background: rgba(0, 0, 0, 0.7);text-decoration:none;}
+</style>
+<div class="slider">
+		<ul class="slidercon">
+			<li style="background:url(http://img.j1.com/upload/pic/shopGoods/1395725330775.jpg) center top no-repeat #ccc"><a href="http://miao.j1.com/"></a></li>
+			<li style="background:url(http://img.j1.com/upload/pic/shopGoods/1395713138526.jpg) center top no-repeat #ccc"><a href="http://miao.j1.com/"></a></li>
+		</ul>
+		<div class="button">
+		    <a href="javascrip:void(0);" id="prev" class="fl disabled"><</a>
+	        <a href="javascrip:void(0);" id="next" class="fr">></a>
+		</div>
+	</div>
+    
+	<script type="text/javascript" src="switchable.js"></script>
+	<script>
+$(function() {
+	$('.slidercon').switchable({
+	    putTriggers: 'insertBefore',
+	    autoplay: 'true',
+	    effect: 'fade',
+	    interval: 4,
+	    /* fade effect only supports steps == 1 */
+	    // steps: 1,
+	    easing: 'ease-in-out',
+	    loop: true,
+	    prev: '#prev',
+	    next: $('#next'),
+	    onSwitch: function(event, currentIndex) {
+	      var api = this;
+	      api.prevBtn.toggleClass('disabled', currentIndex === 0);
+	      api.nextBtn.toggleClass('disabled', currentIndex === api.length - 1);
+	    }
+	  });
+ 
+});
+</script>
+</body>
+</html>

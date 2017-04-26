@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Basic Example</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<div id="wf">
+</div>
+
+<script type="text/babel">
+  var Like=React.createClass({
+      getInitialState:function(){
+          return ({num:0})
+      },
+      likeClick:function(event){
+          this.setState({num:++this.state.num})
+      },
+      render:function(){
+          var num=this.state.num;
+          return (
+                          <ul>
+                <li style={{display:num%3==0?"block":"none"}}><a href="">一家三代</a><a href="">一家三代</a><a href="">一家三代</a></li>
+                <li style={{display:num%3==1?"block":"none"}}><a href="">er家三代</a><a href="">sdaf</a><a href="">sdf</a></li>
+                <li style={{display:num%3==2?"block":"none"}}><a href="">大师傅</a><a href="">滚动</a><a href="">黄金价格</a></li>
+                <p onClick={this.likeClick}>点击试试</p>
+          </ul>
+          )
+      }
+  });
+    ReactDOM.render(
+            <Like />,
+            document.getElementById("wf")
+    )
+</script>
+</body>
+</html>

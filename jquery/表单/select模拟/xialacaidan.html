@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>网友涛涛分享原创js实现下拉框菜单插件</title>
+    <style type="text/css">
+* { margin: 0; padding: 0; list-style-type: none; }
+a, img { border: 0; }
+/* diy_select */
+.diy_select { min-width: 94px; *width: 94px;height: 34px; margin-right: 5px; position: relative; color: #000; float: left; background-color: #fff; cursor: pointer; font-size: 12px; }
+.diy_select_btn,  .diy_select_txt { float: left; height: 100%; line-height: 34px; }
+.diy_select,  .diy_select_list { border: 1px solid #e2e2e2; }
+.select-text { padding-left: 10px; padding-right: 15px; height: 100%; width: 100%; }
+.diy_select_txt { width: 60%; }
+.diy_select_txt,  .diy_select_list li { overflow: hidden; }
+.diy_select_btn { width: 20%; background: url(http://img03.j1.com/images/images1308/ico/select_log.png) no-repeat center; }
+.select-option { width: 100%; }
+.diy_select_list { height: auto !important; height:344px; max-height: 344px; overflow-y: auto; position: absolute; top: 35px; left: -1px; z-index: 88888; border-top: none; width: 100%; display: none; background: #fff;  }
+.diy_select_list li { list-style: none; height: 22px; line-height: 22px; cursor: default; background: #fff; margin-left: 5px; }
+.diy_select_list li.focus { cursor: pointer; background: #3399FF; color: #fff }
+</style>
+      <script src="../../jquery-1.11.2.js"></script>
+    </head>
+    <body>
+      <div class='diy_select'>
+        <div class="select-text">
+          <input type='hidden' name='' id="ajh" class='diy_select_input' />
+          <div class='diy_select_txt'>请选择</div>
+          <div class='diy_select_btn'></div>
+        </div>
+        <div class="select-option">
+          <ul class='diy_select_list'>
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+            <li>深圳</li>
+            <li>香港</li>
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+            <li>深圳</li>
+            <li>香港</li>
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+            <li>深圳</li>
+            <li>香港</li>
+            <li>北京</li>
+            <li>上海</li>
+            <li>广州</li>
+            <li>深圳</li>
+            <li>香港</li>
+          </ul>
+        </div>
+      </div>
+      <div class='diy_select'>
+        <div class="select-text">
+          <input type='hidden' name='' id="b" class='diy_select_input' />
+          <div class='diy_select_txt'>请选择</div>
+          <div class='diy_select_btn'></div>
+        </div>
+        <ul class='diy_select_list'>
+          <li>Javascript</li>
+          <li>Html</li>
+          <li>Css</li>
+          <li>Php</li>
+          <li>Jquery</li>
+        </ul>
+      </div>
+      <div class='diy_select'>
+        <div class="select-text">
+          <input type='hidden' name='' id="c" class='diy_select_input' />
+          <div class='diy_select_txt'>请选择</div>
+          <div class='diy_select_btn'></div>
+        </div>
+        <div class="select-option">
+          <ul class='diy_select_list'>
+            <li>Javascript</li>
+            <li>Html</li>
+            <li>Css</li>
+            <li>Php</li>
+            <li>Jquery</li>
+          </ul>
+        </div>
+      </div>
+      <!--此JS需先加载页面HTML代码--> 
+      <script src="js/demo.js"></script> 
+</body>
+</html>

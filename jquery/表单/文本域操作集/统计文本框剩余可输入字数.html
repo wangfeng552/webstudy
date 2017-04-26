@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>文本计数</title>
+    <script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--方法1 jquery-->
+<textarea class="textareaCount" name=msgbox rows=5 cols=31></textarea>
+<span class="count">还可以输入500个字</span>
+<script>
+var a=$(".textareaCount"),
+    b=$(".count"),
+    c=5;
+function checkTextareaWord(a,b,c){
+    a.on("keyup mousedown",function(){
+        var self=$(this);
+        var str = self.val();
+        myLen=getStrleng(str);
+        if(myLen>c*2){
+            self.val(str.substring(0,i));
+            b.text("您输入的内容超出了字数限制");
+        }
+        else{
+            b.text("还可以输入"+Math.floor((c*2-myLen)/2)+"个字符");
+        }
+    })
+    function getStrleng(str){
+        myLen =0;
+        i=0;
+        for(;(i<str.length)&&(myLen<=c*2);i++){
+            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<128)      //判断是否为英文字符
+                myLen++;
+            else
+                myLen+=2;
+        }
+        return myLen;
+    }
+}
+checkTextareaWord(a,b,c)
+</script>
+
+<!--方法2 js-->
+<textarea onKeyUp="checkWord(this);" onMouseDown="checkWord(this);" name="content"></textarea>
+<span class="jsexceed"> 还可以输入5个字符 </span>
+
+<script>
+    var maxstrlen=500;
+    function Q(s){return document.getElementById(s);}
+    function checkWord(c){
+        len=maxstrlen;
+        var str = c.value;
+        myLen=getStrleng(str);
+        var wck=Q("wordCheck");
+        if(myLen>len*2){
+            c.value=str.substring(0,i+1);
+        }
+        else{
+            wck.innerHTML = Math.floor((len*2-myLen)/2);
+        }
+    }
+    function getStrleng(str){
+        myLen =0;
+        i=0;
+        for(;(i<str.length)&&(myLen<=maxstrlen*2);i++){
+            if(str.charCodeAt(i)>0&&str.charCodeAt(i)<128)
+                myLen++;
+            else
+                myLen+=2;
+        }
+        return myLen;
+    }
+</script>
+
+
+
+</body>
+</html>

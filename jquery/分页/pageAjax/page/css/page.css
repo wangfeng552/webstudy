@@ -1,0 +1,64 @@
+/* 分页 css */
+.ui-page{
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 415px;
+  text-align: center;
+  font-size: 14px;
+  color:#666666;
+}
+.ui-page span{
+  margin-right: 3px;
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  text-align: center;
+  line-height: 40px;
+  background: #e5e5e5;
+  font-size: 14px;
+  color: #666666;
+  cursor: pointer;
+}
+.ui-page span:last-child{
+  margin-right: 0;
+}
+.ui-page span.current,.ui-page span:hover{
+  background: #bcbcbc;
+  color: #ffffff;
+}
+.ui-page #home{
+  width: 60px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.ui-page #end{
+  width: 60px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.ui-page #end,.ui-page #home
+{
+  font-weight: bolder;
+}
+.ui-page .home-page{
+  display: none;
+}
+/* 分页css 结束 */
+/* 页面样式 start */
+#list-wrap{
+  margin: 0 auto;
+  width: 20%;
+  line-height: 20px;
+}
+.list{
+    padding: 15px 0;
+    border-bottom: 2px solid #ededed;
+}
+.title{
+  font-size: 16px;
+  font-weight: bolder;
+  color: #21759b;
+}
+.content{
+  font-size: 14px;
+}

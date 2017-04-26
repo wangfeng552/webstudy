@@ -1,0 +1,10 @@
+@charset "utf-8";
+* { outline:none; margin:0; padding:0; font-family:microsoft yahei; }
+ul, li { list-style:none; }
+.parentCls { width:305px; height:auto;}
+.auto-tip li {color: #666666;display: block;font-family: 'Microsoft YaHei';font-size: 12px;height: 24px;line-height: 24px;overflow: hidden;padding-left: 10px;}
+.auto-tip li.hoverBg { background:#ddd; cursor:pointer; }
+.auto-tip li em { font-style:normal; }
+.red { color:#333; }
+.hidden { display:none; }
+#mobilecheckDiv a{display:inline-block; height: 22px;line-height: 22px;padding: 0 5px; border: 1px solid #e2e2e2; background:#f5f5f5; vertical-align: middle;cursor:pointer; }

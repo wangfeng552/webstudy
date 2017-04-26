@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.4.0/jquery.min.js"></script>
+
+<style type="text/css">
+
+ body, html { color: #444; margin: 0; padding: 0; font: 12px/24px SimSun, san-serif; }
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p, select, object { margin: 0; padding: 0; }
+ul, ol, li { list-style-type: none }
+address, cite, code, em, th, i { font-weight: normal; font-style: normal; }
+img { border: 0px; }
+a { color: #999999; text-decoration: none; }
+a:hover { color: #f00; }
+.m10 { margin-bottom: 10px; }
+.clearfix:after { content: "\20"; display: block; height: 0; clear: both; }
+.clearfix { zoom: 1 }
+h2 { font-size: 14px; }
+h3 { font-size: 12px; }
+/*************************/
+#md{width:600px;margin:0 auto;overflow:hidden;_zoom:1;border:1px solid #ccc;}
+.main ul{height:23px;line-height:23px;border-bottom:2px solid #ccc;_overflow:hidden;}
+.main ul li{float:left;margin:0 5px 0 0;padding:0 8px;height:25px;line-height:25px; background-color:#ccc;cursor:pointer;}
+.main ul li.act{background:#fff;border:1px solid #ccc; border-bottom:1px solid #fff;position:relative;top:-2px;}
+.do{padding:5px;}
+
+</style>
+</head>
+
+<body>
+<div id="md">
+	<div class="main">
+		<ul>
+			<li>一级栏目</li>
+			<li>一级栏目</li>
+			<li>一级栏目</li>
+		</ul>
+	</div>
+	<div class="do">
+		<div>1111111</div>
+		<div style="display:none;">222222</div>
+		<div style="display:none;">3333333</div>
+		
+	</div>
+</div>
+<div class="de">
+	<ul>
+		<li>1111111111111</li>
+		<li>1113333322222222111</li>
+		<li>11114444444444441</li>
+		<li>1155555555551111</li>
+		<li>1116666661111</li>
+		<li>777777111</li>
+	</ul>
+</div>
+<script>
+
+$(function(){
+		 
+		   
+		   $(".main li").click(function(){
+
+				var index = $(this).index();
+
+			   $(this).addClass("act").siblings().removeClass("act");
+
+		       $(".do div").eq(index).show().siblings().hide();
+
+		    })	
+			
+})
+</script>
+
+</body>
+</html>

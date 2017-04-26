@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!-- $.extend([deep], target, object1, [objectN]) 用一个或多个其他对象来扩展一个对象，返回被扩展的对象。-->
+<script>
+	// deep:如果设为true，则递归合并。
+	// target:待修改对象。
+	// object1:待合并到第一个对象的对象。
+	// objectN:待合并到第一个对象的对象。
+	var a={},
+		b={name:"第一",age:"25"},
+		c={name:"第二",color:"red"};
+    //设置成true，第二个参数a是待修改对象
+	$.extend(true,a,b,c); //=>Object {name: "第二", age: "25", color: "red"}
+
+
+//	var opts=$.extend({},a,b,c);//=>Object {name: "第二", age: "25", color: "red"}
+
+</script>
+</body>
+</html>
+

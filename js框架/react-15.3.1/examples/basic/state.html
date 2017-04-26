@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>state</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<div id="wf">
+</div>
+
+<script type="text/babel">
+    var DefaultState={
+        getInitialState:function(){
+            return {liked:true};  //getInitialState 方法用于定义初始状态，也就是一个对象，这个对象可以通过 this.state 属性读取
+        },
+        handleClick:function(event){
+            this.setState({liked:!this.state.liked}) //this.setState 方法就修改状态值，每次修改以后，自动调用 this.render 方法，再次渲染组件。
+        },
+    }
+
+    var LikeButton=React.createClass({
+        mixins:[DefaultState],
+        render:function(){
+            var text=this.state.liked ?"喜欢":"不喜欢";
+            return (
+                    <p onClick={this.handleClick}>你{text}我.点击我切换</p>
+            )
+        }
+    });
+    ReactDOM.render(
+            <LikeButton/>,
+            document.getElementById("wf")
+    )
+</script>
+</body>
+</html>

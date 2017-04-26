@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>1</title>
+	<script src="../../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div id="main">
+	<div>
+		<h1>中奖号码</h1>
+		<div id="result"></div>
+		<p>
+			<input id="start" type="button" value="开始" />
+			<input id="end" type="button" value="停" disabled/>
+		</p>
+		<p><strong>一等奖（10名）</strong></p>
+		<div class="mk">
+			<ul>
+				<li id="winwf_1"></li>
+			</ul>
+		</div>
+		<p>二等奖（15名）</p>
+		<div class="mk">
+			<ul>
+				<li id="winwf_2"></li>
+				<li id="winwf_3"></li>
+				<li id="winwf_4"></li>
+			</ul>
+		</div>
+		<p>三等奖（20名）</p>
+		<div class="mk">
+			<ul>
+				<li id="winwf_5"></li>
+				<li id="winwf_6"></li>
+				<li id="winwf_7"></li>
+				<li id="winwf_8"></li>
+				<li id="winwf_9"></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<script language="javascript">
+	var timer,randnum;
+	var cellnum =1;
+	var mobile = new Array();
+	mobile[0]={name:"张三",tel:"13761401502"};
+	mobile[1]={name:"李四",tel:"13020000101"};
+	mobile[2]={name:"哇闪电",tel:"13020000102"};
+	mobile[3]={name:"sdf",tel:"13020000103"};
+	mobile[4]={name:"sf",tel:"13020000104"};
+	mobile[5]={name:"fdsg",tel:"13020000105"};
+	mobile[6]={name:"qqqq",tel:"13020000106"};
+	mobile[7]={name:"wwww",tel:"13020000107"};
+	mobile[8]={name:"eeeeee",tel:"13020000108"};
+	mobile[9]={name:"rrrrrr",tel:"13020000109"};
+	mobile[10]={name:"ttttttt",tel:"13020000100"};
+	mobile[11]={name:"ttttttt",tel:"13020000100"};
+	mobile[12]={name:"ttttttt",tel:"13020000100"};
+	mobile[13]={name:"ttttttt",tel:"13020000100"};
+	mobile[14]={name:"ttttttt",tel:"13020000100"};
+	mobile[15]={name:"ttttttt",tel:"13020000100"};
+	var num = mobile.length-1;
+	function GetRnd(m,n){
+		randnum =parseInt(Math.random()*(n-m+1));
+		return randnum;
+	}
+	function getRandNum(){
+		num=parseInt(num);
+		var y=GetRnd(0,num);
+		$("#result").text(mobile[y].name +" "+ mobile[y].tel);
+	}
+	function startDraw(){
+		clearInterval(timer);
+		timer = setInterval('change()',50);
+	}
+	function okDraw(){
+		clearInterval(timer);
+	}
+	$("#start").on("click",function(e){
+		e.preventDefault();
+		time=setInterval("getRandNum()",10);
+		$("#start").prop("disabled",true)
+		$("#end").prop("disabled",false)
+
+	})
+	$("#end").on("click",function(e){
+		e.preventDefault();
+		noDupNum();
+		clearInterval(time);
+		$("#start").prop("disabled",false)
+		$("#end").prop("disabled",true)
+		setValues();
+	})
+	function noDupNum(){
+		mobile.removeEleAt(randnum);
+		var o = 0;
+		for(p=0; p<mobile.length;p++){
+			if(typeof mobile[p]!="undefined"){
+				mobile[o] = mobile[p];
+				o++;
+			}
+		}
+		num = mobile.length-1;
+	}
+	Array.prototype.removeEleAt = function(dx)
+	{
+		if(isNaN(dx)||dx>this.length){return false;}
+		this.splice(dx,1);
+	}
+	function setValues(){
+		$("#winwf_"+cellnum).text($("#result").text())
+		cellnum++;
+	}
+</script>
+</body>
+</html>
+

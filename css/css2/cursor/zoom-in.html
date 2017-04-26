@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>纯CSS实现的outline切换transition动画效果</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+
+<body>
+<style>
+.zoom-in{cursor:zoom-in;}
+.zoom-out{cursor: zoom-out;}
+</style>
+
+<a href="javascript:;" class="zoom zoom-in"><img src="images/12.jpg" alt="" /></a>
+
+<script type="text/javascript">
+if (document.getElementsByClassName) {
+    var zoom = document.getElementsByClassName("zoom")[0];
+    zoom.onclick = function() {
+        var img = this.getElementsByTagName("img")[0], cl = this.className;
+        if (/in/.test(cl)) {
+            img.src = img.src.replace("12", "523");
+            this.className = "zoom zoom-out";
+        } else {
+            img.src = img.src.replace("523", "12");
+            this.className = "zoom zoom-in";
+        }
+        return false;
+    };
+}
+
+/*
+$(":text") 匹配所有单行文本框
+select 触发每一个匹配元素的select事件
+*/
+</script>
+
+</body>
+</html>

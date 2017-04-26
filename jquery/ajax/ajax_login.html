@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="lt-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,maximum-scale=0.8, minimum-scale=0.8, initial-scale=0.8,user-scalable=no">
+	<title>中国平安众+网</title>
+	<link rel="icon" href="https://static.zhong.com/pc/skin/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://static.zhong.com/m/skin/css/global.css?20160519" />
+	<link rel="stylesheet" href="https://static.zhong.com/m/skin/css/style.css?20160519" />
+	<script src="https://static.zhong.com/m/skin/js/zepto.min.js?20160519"></script>
+	<script>
+		!function(win) {
+			var dom = win.document, domEle = dom.documentElement;
+			function resize() {
+				var domWidth = domEle.getBoundingClientRect().width;
+				if(domWidth>=640){
+					win.rem = 20;
+				}else{
+					win.rem = domWidth / 640*20;
+				}
+				domEle.style.fontSize = win.rem + "px";
+			}
+			win.addEventListener("resize", function() {
+				resize();
+			}, false);
+			resize();
+		}(window);
+	</script>
+	<script>
+		$(function() {
+			$(".tracker_event").click(
+					function(e){
+						var data = $(this).attr("data-value");
+						var dataArray = data.split("&");
+						var utm_p = dataArray[0];
+						var utm_pn = dataArray[1];
+						if(dataArray[2]){
+							var utm_t = dataArray[2];
+							tracker.tool.sendEvent({category:utm_p, action:"click", optionLabel:utm_pn,optionValue:utm_t});
+						}else{
+							tracker.tool.sendEvent({category:utm_p, action:"click", optionLabel:utm_pn});
+						}
+						//WebTrends回调
+						var nodeName = e.target.nodeName;
+						pa_sdcajax ('WT.ti',data, false,'WT.obj',nodeName, false,'WT.pageurl',"http://"+window.location.hostname+window.location.pathname, false,'DCS.dcsuri',window.location.pathname+"\/click.event",false,'WT.dl',25,false,'DCSext.wt_click','page',false) ;
+
+					});
+		});
+
+	</script>
+	<script language="javascript" type="text/javascript">
+		function loadWTScript(a, b) {
+			var c = document.createElement("script");
+			c.type = "text/javascript",
+					c.async = !0,
+					c.src = a,
+					dcsReady(c, b),
+					document.getElementsByTagName("head")[0].appendChild(c)
+		}
+		function dcsReady(a, b) {
+			a.readyState ? a.onreadystatechange = function() { ("loaded" == a.readyState || "complete" == a.readyState) && (a.onreadystatechange = null, b())
+			}: a.onload = function() {
+				b()
+			}
+		}
+		loadWTScript(window.location.protocol.indexOf('https:')==0?'https://pa-ssl.pingan.com/app_js/sdc/prd/sdc9.js':'http://www.pingan.com/app_js/sdc/prd/sdc9.js', function(){
+			if (typeof(_tag) != "undefined"){
+				_tag.dcsid="dcsxqgp7nakqoagskruioagxc_1k3h"; //dcsid参数用于设置日志记录在哪个文件里
+				_tag.DCSext.platform="zhong";  //按需要修改成不同的平台名称，例如toa
+				var s=_tag.dcsGetIdAsync();
+				if(s)
+					dcsReady(s,function(){_tag.dcsCollect()});
+				else
+					_tag.dcsCollect();
+			}
+		})
+	</script>
+
+</head>
+<body>
+<div class="pagewrapper">
+	<div class="header_page custom_header_page">
+		<span>登录 </span> <a class="back tracker_event" data-value="mlogon&header&back1" href="javascript:void(0)" onclick="history.go(-1);"> back
+	</a>
+	</div>
+	<input type="hidden" id="toUrl_hidden" value="" />
+	<input type="hidden" id="needVerifyCode_hidden" value="" />
+
+	<section class="login no_banner">
+		<form id="loginForm" action="login.do">
+			<ul class="clearfix">
+				<li>
+					<label> 用户名 </label>
+					<input type="number"  placeholder="请输入您的手机号" class="username tracker_event" data-value="mlogon&typeid" name="mobile">
+				</li>
+				<li>
+					<label> 密码 </label>
+					<input type="password"  placeholder="请输入您的密码" class="password tracker_event" data-value="mlogon&typepwd" name="pwd">
+				</li>
+
+				<li id="verifyCodeLi" style="display: none;">
+					<label> 验证码 </label>
+					<input type="text" class="yzm"  placeholder="填输入右侧的验证码">
+					<a href="#">
+						<img id="verifyCodeImg" src="/IdentifyingCode.action" onclick="reloadVerifyCode();">
+					</a>
+				</li>
+
+				<li class="normal">
+					<a href="#?utm_p=mlogon&utm_pn=twoweeks" class="checkbox checked">点击</a>
+					<i> 2周内免登录 </i>
+					<span class="ab_right">
+						<a href="/m/pwd/resetVerifyForm.do?utm_p=mlogon&utm_pn=forgetpwd">忘记密码</a>
+					</span>
+				</li>
+				<li class="normal">
+					<a class="submit tracker_event" data-value="mlogon&logon"> 登录 </a>
+				</li>
+			</ul>
+			<div class="linkpart">
+				<span class="ab_left">
+					<a href="/m/login/oneAccountLoginForm.do?toUrl=">使用一账通登录</a>
+				</span>
+				<span class="ab_right">
+					没有账号？<a href="/m/reg/registerForm.do?utm_p=mlogon&utm_pn=register&toUrl=">立即免费注册</a>
+				</span>
+			</div>
+		</form>
+	</section>
+</div>
+<div class="ext ext_warning">
+	<div class="wrapper">用户名、手机号或密码有误</div>
+</div>
+<div class="logo"></div>
+
+<script>
+
+	function reloadVerifyCode() {
+		document.getElementById('verifyCodeImg').src = "/IdentifyingCode.action?" + Math.random();
+	}
+
+	$(function() {
+		var loginForm = $("#loginForm");
+		loginForm.find("a.submit").click(function(e) {
+			var mainobj = $(this).parents("form");
+			e.preventDefault();
+			e.stopPropagation();
+			var action=mainobj.attr("action");
+			var username_val=mainobj.find(".username").val();
+			var password_val=mainobj.find(".password").val();
+			var Idcode=mainobj.find(".yzm").val();
+			var toUrl = $("#toUrl_hidden").val();
+			if (!checkUserName_phone(username_val)) {//用户名
+				warning_obj_inner.text(warning);
+				openExt(warning_obj,true);
+				return false;
+			}
+			if (!(checkPassWord(password_val))) { //密码
+				warning_obj_inner.text(warning);
+				openExt(warning_obj,true);
+				mainobj.find(".password").val(""); //清空
+				return false;
+			}
+
+			var data = {
+				"mobile" : username_val,
+				"pwd" : password_val,
+				"toUrl" : encodeURI(toUrl)
+			};
+
+			var needVerifyCode = $("#needVerifyCode_hidden").val();
+			if (needVerifyCode !== '' && needVerifyCode === "1") {
+				if (!checkIdcode(Idcode) ){ //验证码
+					warning_obj_inner.text(warning);
+					openExt(warning_obj,true);
+					mainobj.find(".yzm").val(""); //清空
+					return false;
+				}
+
+				data.verifyCode = Idcode;
+				data.needVerifyCode = needVerifyCode;
+			}
+
+			addFullLoading();
+
+			if (mainobj.find("a.checkbox").hasClass("checked")) {
+				data.keepAlive = "1";
+			}
+
+			$.ajax({
+				type: 'POST',
+				url: action,
+				data: data,
+				success: function(data) {
+					//console.log("ret: ", data);
+					removeLoading();
+					if (data.success === true) {
+						if (data.toUrl !== null && data.toUrl !== undefined) {
+							if(data.toUrl.indexOf("/m/reg/registerForm.do")>-1||data.toUrl.indexOf("/m/pwd/resetVerifyForm.do")>-1){
+								window.location.href = "https://m.zhong.com";
+							}else{
+								window.location.href = data.toUrl;
+							}
+						}
+					} else {
+						document.getElementById('verifyCodeImg').src = "/IdentifyingCode.action?" + Math.random();
+						warning_obj_inner.text("登录失败:" + data.msg);
+						openExt(warning_obj, true);
+
+						if (data.maxError === true) {
+							$("#verifyCodeLi")[0].style.display = "";
+							$("#needVerifyCode_hidden").val("1");
+						}
+
+						return false;
+					}
+				} ,
+				error: function(error) {
+					removeLoading();
+				},
+				dataType : "json"
+			});
+		});
+	});
+
+</script>
+<script src="https://static.zhong.com/m/skin/js/custom.js?20160519"></script>
+</body>
+</html>

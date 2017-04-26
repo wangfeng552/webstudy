@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" />
+<title>无宽度布局</title>
+</head>
+
+<body>
+<!-- case1 -->
+<style>
+.mk2{ width: 40%; margin: 0 auto; background: #ccc; position: relative;}
+.mk2 .pic{ position: absolute; left: 0; top: 0;}
+.mk2 .pdl{ padding-left: 100px; }
+</style>
+<div class="mk2">
+    <div class="layout">
+        <div class="pic">asdf</div>
+        <div class="pdl">大家看法和萨克的发挥奥斯卡的发挥撒旦，啥地方哈萨克的发挥奥斯卡的发挥。答复客户萨克的发挥卡死的哈佛一uasdfhasdfh</div>
+    </div>
+</div>
+<!-- case2 不兼容IE6 7 需做兼容处理-->
+<style>
+.mk{ width: 40%; margin: 0 auto; background: #ccc;}
+.mk .pic{ float: left;}
+.mk .pdl{ display: table-cell; vertical-align: top; *display:inline-block;width:200px; *width:auto;}
+</style>
+<div class="mk">
+    <div class="layout">
+        <div class="pic">asdf</div>
+        <div class="pdl">大家看法和萨克的发挥奥斯卡的发挥撒旦，啥地方哈萨克的发挥奥斯卡的发挥。答复客户萨克的发挥卡死的哈佛一uasdfhasdfh</div>
+    </div>
+</div>
+</body>
+</html>

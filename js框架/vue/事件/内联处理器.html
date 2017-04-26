@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<button @click="show('hi')">hi</button>
+	<a href="http://www.baidu.com" @click="show('nihao',$event)">nihao</a>
+</div>
+<script>
+	//有时也需要在内联语句处理器中访问原生 DOM 事件。可以用特殊变量 $event 把它传入方法：
+	var vm=new Vue({
+	    el:"#app",
+		methods:{
+	        show:function (a,event) {
+	            event.preventDefault();// 现在我们可以访问原生事件对象
+				alert(a)
+            }
+
+		}
+	})
+</script>
+</body>
+</html>
+

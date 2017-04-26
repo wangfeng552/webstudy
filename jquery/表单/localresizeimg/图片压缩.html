@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script src="../../jquery-1.11.2.js"></script>
+    <script src="LocalResizeIMG.js"></script>
+    <script src="mobileBUGFix.mini.js"></script>
+
+</head>
+<body>
+<input type="file" id="filephoto" >
+<img src="" id="user-photo" alt="">
+<script>
+    $('#filephoto').localResizeIMG({
+        width: 200,
+        quality: 1,
+        success: function(result) {
+            $("#user-photo").attr("src", result.base64);
+            var dataURL = result.base64;
+            var blob = dataURItoBlob(dataURL);
+            var fd = new FormData(document.forms[0]);
+            fd.append("file", blob);
+            $.ajax({
+                url: "/clouds/upload_picture",
+                type: 'POST',
+                data: fd,
+                processData: false,
+                contentType: false,
+                beforeSend: function() {
+                    console.log("正在进行，请稍候");
+                },
+                success: function(data) {
+                    $("#user-photo").attr("src", data.url)
+                    $("#edit_pichidden").val(data.key)
+                },
+                error: function(responseStr) {
+                    console.log("error");
+                }
+            });
+        }
+    });
+    //base64转file
+    function dataURItoBlob(dataURI) {
+        // convert base64/URLEncoded data component to raw binary data held in a string
+        var byteString;
+        if (dataURI.split(',')[0].indexOf('base64') >= 0)
+            byteString = atob(dataURI.split(',')[1]);
+        else
+            byteString = unescape(dataURI.split(',')[1]);
+
+        // separate out the mime component
+        var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+        // write the bytes of the string to a typed array
+        var ia = new Uint8Array(byteString.length);
+        for (var i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
+        }
+
+        return new Blob([ia], {type:mimeString});
+    }
+</script>
+</body>
+</html>

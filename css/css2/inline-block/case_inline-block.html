@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Display:inline-block兼容性解决 http://blog.baiwand.com/?post=50</title>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+<!-- 在IE6、IE7中不识别 display:inline-block属性，但使用inline-block属性在IE下会触发layout，从而使内联元素拥有了 display:inline-block属性的表症。从上面的分析也不难理解为什么IE6、IE7下对块元素设置 display:inline- block属性无法实现inline-block的效果。这时块元素仅仅是被inline-block触发了 layout，而它本就是行布局，所以触发后，块元素依然是行布局。IE8识别display:inline-block; -->
+
+在ie6,ie7里标签div这种外层的标签是无法支持display:inline-block;的而a,span这种内嵌标签是可以的，解决办法是
+div { display:inline-block;}
+div { display:inline;}
+
+<!-- 在 IE6、IE7中实现块元素的inline-block效果有以下两种方法：
+
+1先使用display:inline-block属性触发layout，然后再定义display:inline让块元素呈现内联对象（两个display要先后放在两个CSS声明中才有效果，这是IE的一个经典BUG)。
+
+2直接将块元素设置为display:inline呈现为内联对象，然后触发layout(如zoom:1)。 -->
+
+
+<!--例子B 块状元素 display:inline-block -->
+<style>
+.item-list{ width: 300px; height: 200px; border: 1px solid #ccc; text-align: center;}
+.item-list .item2{ display: inline-block; width: 70px; height: 30px; background: #cde; line-height: 30px; margin-right: 5px;}
+.item-list .item2{ *display: inline;}
+</style>
+<div class="item-list">
+	<div href="#" class="item2">行内元素a</div><div href="#" class="item2">行内元素a</div>
+</div>
+
+
+<!--例子C 块状元素 display:inline-block -->
+<style>
+.item-list{ width: 300px; height: 200px; border: 1px solid #ccc; text-align: center;}
+.item-list .item2{ display: inline-block; *display: inline; zoom:1; width: 70px; height: 30px; background: #cde; line-height: 30px; margin-right: 5px;}
+</style>
+<div class="item-list">
+	<div href="#" class="item2">行内元素a</div><div href="#" class="item2">行内元素a</div>
+</div>
+
+
+</body>
+</html>

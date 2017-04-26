@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="casefor">
+	<ul >
+		<li v-for="(person,i) in people" v-if="i<2">{{person.name}}--{{i}}</li>
+	</ul>
+</div>
+
+<script>
+    var vmfor=new Vue({
+        el:"#casefor",
+        data:{
+            people:[
+                {name:"jack"},
+                {name:"lesxydhn"},
+                {name:"lki"},
+                {name:"seuki"},
+            ]
+        }
+    })
+	//v-for基于一个数组渲染一个列表，它和JavaScript的遍历语法相似
+</script>
+</body>
+</html>
+

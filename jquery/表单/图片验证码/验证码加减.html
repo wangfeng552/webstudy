@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>1</title>
+	<script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<style type="text/css">
+	.code
+	{
+		font-family: Arial;
+		font-style: italic;
+		color: Red;
+		border: 0;
+		padding: 2px 3px;
+		letter-spacing: 3px;
+		font-weight: bolder;
+	}
+	.unchanged
+	{
+		border: 0;
+	}
+</style>
+<form action="#">
+	<input type="text" id="input1" />
+	<input type="text" onclick="createCode()" readonly="readonly" id="checkCode" class="unchanged" style="width: 80px;background: #660099"/><br />
+</form>
+<script language="javascript" type="text/javascript">
+
+	var code; //在全局 定义验证码
+	var code2; //在全局 定义验证码
+	function createCode() {
+		code = "";
+		var checkCode = document.getElementById("checkCode");
+		function RndNum(n) {
+			var rnd = "";
+			for (var i = 0; i < n; i++)
+				rnd += Math.floor(Math.random() * 10);
+			return rnd;
+		}
+
+		var num = RndNum(2);
+		var num2 = RndNum(2);
+
+		code = num + "+" + num2 + "=";
+		code2 = parseInt(num) + parseInt(num2)
+
+		if (checkCode) {
+			checkCode.className = "code";
+			checkCode.value = code;
+		}
+
+	}
+</script>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+		$("#input1").blur(function () {
+			var inputCode = document.getElementById("input1").value;
+			if (inputCode.length <= 0) {
+				alert("请输入验证码！");
+			}
+			else if (inputCode != code2) {
+				alert("验证码输入错误！");
+				createCode(); //刷新验证码
+			}
+			else {
+				alert("^-^ OK");
+			}
+		});
+	})
+</script>
+</body>
+</html>
+

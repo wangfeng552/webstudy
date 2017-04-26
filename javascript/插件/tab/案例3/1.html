@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body, html { color: #444; margin: 0; padding: 0; font: 12px/24px "\5B8B\4F53", san-serif; }
+address, cite, code, em, th, i { font-weight: normal; font-style: normal; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { margin: 0; padding: 0; border: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none }
+a { text-decoration: none; color: #2C2C2C }
+a:hover { text-decoration: underline; color: #F60; }
+h1, h3, h4, h5, h6 { font-size: 12px; margin: 0; padding: 0; font-weight: 100; }
+h2 { font-size: 20px; color: #000; text-align: center; }
+h3 { font-size: 14px; font-weight: 600; padding-left: 15px; }
+.wrap { margin: 0 auto; width: 960px; }
+.l { float: left; }
+.r { float: right; }
+img { border-width: 0; vertical-align: top; }
+.center { margin: 0 auto; }
+.clearfix:after { content: "\20"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/*------------------------------------------------*/
+.main li { height: 24px; *height:23px;_height: 24px; overflow: hidden; vertical-align: top; cursor: pointer; }
+.main li img { margin-top: 1px; }
+.main li em { width: 207px; line-height: 22px; height: 22px; float: left; display: block; }
+.main li em a { line-height: 22px; height: 22px; display: block; border-bottom: 1px solid #E3E3E3; overflow: hidden; margin: 0; }
+.main li.act em a { color: #CC0000; font-weight: bold; }
+.main li.act, .main li.act em { height: 105px; overflow: visible; }
+.main li.act em p { border-bottom: 1px solid #E3E3E3; padding-top: 5px; height: 75px; background: #F8F8F8; }
+.main li.act em p img { float: left; margin: 0 5px 0 0; }
+.main li.act em p a { height: auto; font-weight: normal; display: inline; border: none; }
+</style>
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.4.0/jquery.min.js"></script>
+<script type="text/javascript">
+var table = function(){
+	 var data = {};
+	 return function(item){
+	  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+	  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+	  $("#r_" + x[1] + data[x[1]]).css("display","none");
+	  $("#r_" + x[1] + x[2]).css("display","");
+	  $("#" + x[1] + data[x[1]]).removeClass("act");
+	  $("#" + x[1] + x[2]).addClass("act");
+	  data[x[1]] = x[2];
+	 };
+  }();
+</script>
+</head>
+
+<body>
+<div class="main">
+	<h2>今日新闻</h2>
+    <ul>
+    	<li id="tb_1" class="act" onmouseover="table(this)">
+        	<em>
+            	<a href="#" target="_self">一级新问</a>
+            	<p>
+                	<a href="#"><img src="images/12.jpg" /></a>
+                    以撒的发空间哈打开非京户阿斯顿发了哈斯蒂芬
+                    <a href="#" class="xq">详情>></a>
+                </p>
+            </em>
+        </li>
+        <li id="tb_2"  onmouseover="table(this)"><em>
+            	<a href="#" target="_self">一级新问</a>
+            	<p>
+                	<a href="#"><img src="images/12.jpg" /></a>
+                    以撒的发空间哈斯蒂芬阿斯兰打开非京了哈斯蒂芬
+                    <a href="#" class="xq">详情>></a>
+                </p>
+            </em></li>
+        <li id="tb_3"  onmouseover="table(this)"><em>
+            	<a href="#" target="_self">一级新问</a>
+            	<p>
+                	<a href="#"><img src="images/12.jpg" /></a>
+                    以撒的发空间哈斯蒂芬阿斯兰阿斯顿发了哈斯蒂芬
+                    <a href="#" class="xq">详情>></a>
+                </p>
+            </em></li>
+        <li id="tb_4"  onmouseover="table(this)"><em>
+            	<a href="#" target="_self">一级新问</a>
+            	<p>
+                	<a href="#"><img src="images/12.jpg" /></a>
+                    以撒的发空间哈斯蒂京户阿斯顿发了哈斯蒂芬
+                    <a href="#" class="xq">详情>></a>
+                </p>
+            </em></li>
+        
+    </ul>
+</div>
+</body>
+</html>

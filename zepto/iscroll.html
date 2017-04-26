@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="lt-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+    <title></title>
+    <script src="js/iscroll-probe.js"></script>
+    <script src="js/zepto.min.js"></script>
+    <style>
+        .pagewrapper{width: 32rem; margin: 0 auto; overflow: hidden; position: relative; z-index: 1; transform-origin: 0 0; -webkit-transform-origin: 0 0; -o-transform-origin: 0 0; -moz-transform-origin: 0 0; -ms-transform-origin: 0 0; }
+    </style>
+    <script>
+        !function(win) {
+            var dom = win.document, domEle = dom.documentElement;
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth>=640){
+                    win.rem = 20;
+                }else{
+                    win.rem = domWidth / 640*20;
+                }
+                domEle.style.fontSize = win.rem + "px";
+            }
+            win.addEventListener("resize", function() {
+                resize();
+            }, false);
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+<style>
+.mk{min-height: inherit;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -16rem;
+    top: 0;
+    width: 100%;
+    background: #e6e6e6;
+    z-index: 1;}
+#wrapper li{ line-height: 4rem; background: #f60;}
+    .footer{height: 5rem;background: #000;position: fixed;bottom: 0;}
+</style>
+<script>
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+</script>
+<div class="pagewrapper">
+    <div class="homepage">
+        <div class="mk">
+            <div id="wrapper">
+                <ul>
+                    <li>衣架吊发</li>
+                    <li>衣架吊发</li>
+                    <li>衣架吊发</li>
+                    <li>衣架吊发</li>
+                    <li>阿斯顿发顺丰</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>都一九月一号可见</li>
+                    <li>衣架吊发</li>
+                    <li>衣架吊发</li>
+                    <li>衣架吊发</li>
+                    <li>都一九月一号可见</li>
+                </ul>
+                <ul>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>安抚沙发单方事故</li>
+                    <li>11111111111111</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">asdfafasf</div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $(".homepage").height($(window).height());
+        var myScroll=null;
+        var start_roll=0;
+        var temp=false;
+        var footer=$(".footer")
+        function sc1(){
+            myScroll=new IScroll('.mk',{
+                mouseWheel:true,        //开启鼠标滚轮
+                preventDefault: false,
+                scrollY:true,       //纵向滚动条使用
+                scrollX:true,       //横向滚动条使用
+            });
+
+            myScroll.on("scrollStart",function(){       //开始滚动时触发
+                if(this.y<-100){                        //this.y开始为0,后为-100
+                    footer.addClass("act")
+                }
+                alert(this.maxScrollY)                  //this.maxScrollY 滚动的最大高度
+            });
+
+            myScroll.on("scrollEnd",function(){            //滚动结束触发
+                footer.addClass("act1")
+            })
+
+//          myScroll.scrollTo(0,-100)//滚动到任意的位置
+
+            setTimeout(function () {            //刷新页面加载
+                myScroll.refresh();
+            }, 200);
+        }
+        sc1();
+    })
+</script>
+</body>
+</html>

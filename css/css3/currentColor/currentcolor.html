@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+<!-- ie9+以上 -->
+<!-- 实战1：背景色镂空技术-->
+<!-- background-color: currentColor;顾名思意就是'当前颜色'，准确讲应该是'当前的文字颜色' -->
+<style>
+.wf i{ display: inline-block; width: 13px; height: 27px; background-image: url( images/sprite_icons.png); background-color: currentColor;/* 该颜色控制图标的颜色 */}
+.wf:hover{ color: #ccc;/* 虽然改变的是文字颜色，但是图标颜色也一起变化了 */}
+</style>
+<a href="" class="wf">一级兰缪<i></i></a>
+
+<!-- 实战2：CSS3图标生成与hover控制 -->
+<style>
+.ico-a{ position: relative; padding-left: 30px; top: 50px;left: 0;}
+.ico-repeat:before{position: absolute; content: "";}
+.ico-repeat:before { width: 3px; height: 3px;background-color: currentColor;box-shadow:0 5px currentColor,5px 0 currentColor,10px 0 currentColor; top: 0; left: 0; }
+</style>
+<a href="javascript:" class="ico-a"><i class="ico ico-repeat"></i>平铺</a>
+</body>
+</html>

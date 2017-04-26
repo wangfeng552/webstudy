@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>手机号抽奖程序</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script language="javascript">
+	<!--
+	// global variables
+	var timer;
+	var flag = new Array(100);
+	var existingnum = new Array(100);
+	var clickTimes = 0;
+	var randnum;
+	var cellnum =1;
+	var mobile = new Array();
+	// set data here!!
+	mobile[0]={name:"张三",tel:"13761401502"};
+	mobile[1]={name:"李四",tel:"13020000101"};
+	mobile[2]={name:"哇闪电",tel:"13020000102"};
+	mobile[3]={name:"sdf",tel:"13020000103"};
+	mobile[4]={name:"sf",tel:"13020000104"};
+	mobile[5]={name:"fdsg",tel:"13020000105"};
+	mobile[6]={name:"qqqq",tel:"13020000106"};
+	mobile[7]={name:"wwww",tel:"13020000107"};
+	mobile[8]={name:"eeeeee",tel:"13020000108"};
+	mobile[9]={name:"rrrrrr",tel:"13020000109"};
+	mobile[10]={name:"ttttttt",tel:"13020000100"};
+	var num = mobile.length-1;
+	function getRandNum(){
+		num=parseInt(num);
+		var y=GetRnd(0,num);
+		document.getElementById("result").value = mobile[y].name +" "+ mobile[y].tel;
+	}
+	function start(){
+		clearInterval(timer);
+		timer = setInterval('change()',50);
+	}
+	function ok(){
+		clearInterval(timer);
+	}
+	function GetRnd(m,n){
+		randnum =parseInt(Math.random()*(n-m+1));
+		return randnum;
+	}
+	function setTimer(){
+		time=setInterval("getRandNum()",10);
+		document.getElementById("start").disabled = true;
+		document.getElementById("end").disabled = false;
+	}
+	function clearTimer(){
+		noDupNum();
+		clearInterval(time);
+		document.getElementById("start").disabled = false;
+		document.getElementById("end").disabled = true;
+		setValues();
+	}
+	function noDupNum(){
+		// to remove the selected mobile phone number
+		mobile.removeEleAt(randnum);
+
+		// to reorganize the mobile number array!!
+		var o = 0;
+		for(p=0; p<mobile.length;p++){
+			if(typeof mobile[p]!="undefined"){
+				mobile[o] = mobile[p];
+				o++;
+			}
+		}
+		num = mobile.length-1;
+	}
+	// method to remove the element in the array
+	Array.prototype.removeEleAt = function(dx)
+	{
+		if(isNaN(dx)||dx>this.length){return false;}
+		this.splice(dx,1);
+	}
+	// set mobile phone numbers to the table cell
+	function setValues(){
+		document.getElementById(cellnum).value =
+				document.getElementById("result").value ;
+		cellnum++;
+	}
+	//-->
+</script>
+</head>
+<body>
+<div id="main">
+  <div>
+    <h1>中奖号码</h1>
+    <p><input id="result" type="text" size="30" style="height:130px;width:800px;border:2px solid red;font-size:120;" readonly/> </p>
+ 	<p>
+	  	<input id="start" type="button" value="开始" style="border: 1px solid; border-color: #aaa 000 #000 #aaa;width:4em; background: #fc0;" onclick="setTimer()" />
+	  	<input id="end" type="button" value="停" style="border: 1px solid; border-color: #aaa 000 #000 #aaa;width:4em; background: #fc0;"onclick="clearTimer()" disabled/>
+	</p>
+    <p><strong>一等奖（10名）</strong></p>
+    <table width="946" height="79" border="1">
+          <tr>
+			<td><input name="text36" type="text" id="36" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text37" type="text" id="37" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text38" type="text" id="38" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text39" type="text" id="39" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text40" type="text" id="40" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text41" type="text" id="41" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text42" type="text" id="42" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text43" type="text" id="43" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text44" type="text" id="44" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text45" type="text" id="45" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+        </table>
+    <p>二等奖（15名）</p>
+    <table width="951" height="88" border="1">
+          <tr>
+			<td><input name="text21" type="text" id="21" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text22" type="text" id="22" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text23" type="text" id="23" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text24" type="text" id="24" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text25" type="text" id="25" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text26" type="text" id="26" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text27" type="text" id="27" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text28" type="text" id="28" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text29" type="text" id="29" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text30" type="text" id="30" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text31" type="text" id="31" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text32" type="text" id="32" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text33" type="text" id="33" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text34" type="text" id="34" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text35" type="text" id="35" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+        </table>
+    <p>三等奖（20名）</p>
+    <table width="961" height="102" border="1">
+          <tr>
+			<td><input name="text1" type="text" id="1" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text2" type="text" id="2" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text3" type="text" id="3" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text4" type="text" id="4" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text5" type="text" id="5" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text6" type="text" id="6" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text7" type="text" id="7" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text8" type="text" id="8" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text9" type="text" id="9" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text10" type="text" id="10" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text11" type="text" id="11" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text12" type="text" id="12" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text13" type="text" id="13" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text14" type="text" id="14" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text15" type="text" id="15" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+          <tr>
+			<td><input name="text16" type="text" id="16" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="28" readonly/></td>
+			<td><input name="text17" type="text" id="17" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text18" type="text" id="18" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text19" type="text" id="19" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+			<td><input name="text20" type="text" id="20" style="height:30px;width:190px;border:1px solid red;font-size:25;" size="20" readonly/></td>
+		  </tr>
+        </table>
+  	</div>
+</div>
+</body>
+</html>

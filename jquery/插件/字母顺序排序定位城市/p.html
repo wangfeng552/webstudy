@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+body{margin: 0;}
+.top,.footer{ height: 600px; background: #f60;}
+.footer{height: 1200px;}
+.nilist{ height: 30px; line-height: 30px;}
+.fixl{position: fixed;right: 0;top: 0;}
+.fixl li{ height: 20px; line-height: 20px;}
+#letter{ display: none; background: rgba(0,0,0,.5); position: fixed;left: 50%;top: 50%;width: 100px;height: 100px; margin-left: -50px; margin-top: -50px; font-size: 30px; text-align: center;color: #fff;}
+</style>
+<div class="top">11</div>
+<div class="mk">
+	<ul>
+		<div id="A">A</div>
+		<div class="nilist">1111111</div>
+		<div class="nilist">2222</div>
+		<div class="nilist">3333</div>
+		<div class="nilist">4444</div>
+		<div class="nilist">5555</div>
+		<div class="nilist">6666</div>
+		<div id="B">B</div>
+		<div class="nilist">1111111</div>
+		<div class="nilist">2222</div>
+		<div class="nilist">3333</div>
+		<div class="nilist">4444</div>
+		<div class="nilist">5555</div>
+		<div class="nilist">6666</div>
+		<div id="S">S</div>
+		<div class="nilist">1111111</div>
+		<div class="nilist">2222</div>
+		<div class="nilist">3333</div>
+		<div class="nilist">4444</div>
+		<div class="nilist">5555</div>
+		<div class="nilist">6666</div>
+		<div id="Z">Z</div>
+		<div class="nilist">1111111</div>
+		<div class="nilist">2222</div>
+		<div class="nilist">3333</div>
+		<div class="nilist">4444</div>
+		<div class="nilist">5555</div>
+		<div class="nilist">6666</div>
+		<div id="default">#</div>
+		<div class="nilist">asdf asdfadfa</div>
+		<div class="nilist">asdfasdcxzv</div>
+		<div class="nilist">的 啥地方阿斯蒂芬</div>
+		<div class="nilist">沃尔沃切尔去玩儿</div>
+		<div class="nilist">请问企鹅</div>
+		<div class="nilist">啥地方法萨芬</div>
+	</ul>
+</div>
+<div class="footer">11</div>
+<div class="fixl">
+	<ul></ul>
+</div>
+<div id="letter"></div>
+<script>
+//DOM加载完毕才执行
+$(function(){
+	var fixl=$(".fixl");
+	var letter=$("#letter");
+	fixl.find("ul").append("<li>A</li><li>B</li><li>C</li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li><li>N</li><li>O</li><li>P</li><li>Q</li><li>R</li><li>S</li><li>T</li><li>U</li><li>V</li><li>W</li><li>X</li><li>Y</li><li>Z</li><li>#</li>")
+	fixl.on("click","li",function(){
+		var self=$(this);
+		var letterHTML=self.html();
+		letter.html(letterHTML).fadeIn();
+		setTimeout(function(){
+			letter.fadeOut()
+		},2000)
+		var index=self.index();
+		console.log(index)
+		if(index==0){
+			$('html,body').animate({scrollTop:"600px"},300)
+		}
+		else if(index==26){
+			var defauleTop=$("#default").position().top;
+			$("html,body").animate({scrollTop:defauleTop+"px"},300)
+		}
+		else{
+			var lettext=self.text();
+			if($("#"+lettext).length>0){
+				var letTop=$("#"+lettext).position().top;
+				$('html,body').animate({scrollTop:letTop+'px'},300)
+			}
+
+		}
+	})
+	var windowHeight=$(window).height();
+	var inHeight=windowHeight-100;
+	fixl.height(inHeight);
+	var fixlLi=inHeight/26;
+	fixl.find("li").height(fixlLi)
+})
+</script>
+</body>
+</html>
+

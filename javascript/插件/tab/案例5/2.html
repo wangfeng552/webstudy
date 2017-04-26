@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="index.css" type="text/css" rel="stylesheet" />
+<link href="index2.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<script type="text/javascript">
+var table = function(){
+	 var data = {};
+	 return function(item){
+	  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+	  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+	  $("#r_" + x[1] + data[x[1]]).css("display","none");
+	  $("#r_" + x[1] + x[2]).css("display","");
+	  $("#" + x[1] + data[x[1]]).removeClass("act");
+	  $("#" + x[1] + x[2]).addClass("act");
+	  data[x[1]] = x[2];
+	 };
+  }();
+</script>
+</head>
+
+<body>
+<div class="w250 l bgF8 mT10">
+<div class="pLR10 mT5">
+<!--chexingpaihang -->
+<div class="conTit mT5"><span class="r"><a href="http://auto.08cms.com/info/f-17.html" id="cx_1" class="act" onmouseover="table(this)">按级别</a><a href="http://auto.08cms.com/info/f-18.html" id="cx_2" onmouseover="table(this)">按国别</a></span>
+  <h3>车型排行</h3>
+</div>
+<div class="bgFF bRBLGray clearfix" id="r_cx_1">
+  <ul class="cxxglm l">
+    <li  id="jb_1" class="act " onmouseover="table(this)"><a href="http://auto.08cms.com/weixingche/">微型车</a></li>
+    <li  id="jb_2" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/xiaoxingche/">小型车</a></li>
+    <li  id="jb_3" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/jincouxingche/">紧凑型车</a></li>
+    <li  id="jb_4" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/zhongxingche/">中型车</a></li>
+    <li  id="jb_5" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/zhongdaxingche/">中大型车</a></li>
+    <li  id="jb_6" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/haohuache/">豪华车</a></li>
+    <li  id="jb_7" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/mpv/">MPV</a></li>
+    <li  id="jb_8" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/suv/">SUV</a></li>
+    <li  id="jb_9" class=" " onmouseover="table(this)"><a href="http://auto.08cms.com/paoche/">跑车</a></li>
+  </ul>
+  <ul class="cxphCon l mT3" id="r_jb_1" >
+    <li  > <span>3.69~5.39万</span> 1 <a href="http://auto.08cms.com/biyadi/f0/">F0</a> </li>
+    <li  > <span>3.69~4.99万</span> 2 <a href="http://auto.08cms.com/changcheng/changchengjingling/">长城精灵</a> </li>
+    <li  > <span>2.99~4.89万</span> 3 <a href="http://auto.08cms.com/changanjiaoche/benbenmini/">奔奔MINI</a> </li>
+    <li  > <span>2.98~4.38万</span> 4 <a href="http://auto.08cms.com/haimashangyongche/haimawangzi/">海马王子</a> </li>
+    <li  > <span>3.69~5.89万</span> 5 <a href="http://auto.08cms.com/changanjiaoche/benben/">奔奔</a> </li>
+    <li  > <span>16.98~26.88万</span> 6 <a href="http://auto.08cms.com/feiyate/feiyate500/">菲亚特500</a> </li>
+    <li  > <span>3.69~5.05万</span> 7 <a href="http://auto.08cms.com/hafei/lubao/">路宝</a> </li>
+    <li  class="last"> <span>4.08~5.68万</span> 8 <a href="http://auto.08cms.com/jianghuai/yueyue/">悦悦</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_2" style=" display:none;">
+    <li  > <span>22.48~28.98万</span> 1 <a href="http://auto.08cms.com/aodi/a1/">A1</a> </li>
+    <li  > <span>7.89~11.79万</span> 2 <a href="http://auto.08cms.com/sikeda/jingrui/">晶锐</a> </li>
+    <li  > <span>4.58~6.28万</span> 3 <a href="http://auto.08cms.com/jili/jinying/">金鹰</a> </li>
+    <li  > <span>6.98~9.98万</span> 4 <a href="http://auto.08cms.com/bentian/linians1/">理念S1</a> </li>
+    <li  > <span>7.18~10.58万</span> 5 <a href="http://auto.08cms.com/biaozhi/bz207/">207</a> </li>
+    <li  > <span>7.99~11.29万</span> 6 <a href="http://auto.08cms.com/fute/jianianhua2/">嘉年华</a> </li>
+    <li  > <span>8.98~12.98万</span> 7 <a href="http://auto.08cms.com/bentian/feidu/">飞度</a> </li>
+    <li  class="last"> <span>6.39~8.79万</span> 8 <a href="http://auto.08cms.com/changcheng/kuxiong/">酷熊</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_3" style=" display:none;">
+    <li  > <span>8.58~31.8万</span> 1 <a href="http://auto.08cms.com/aodi/a3/">A3</a> </li>
+    <li  > <span>4.96~7.66万</span> 2 <a href="http://auto.08cms.com/zhongtai/z200hb/">Z200HB</a> </li>
+    <li  > <span>7.48~10.08万</span> 3 <a href="http://auto.08cms.com/qirui/a3liangxiang/">A3两厢</a> </li>
+    <li  > <span>3.99~5.78万</span> 4 <a href="http://auto.08cms.com/lifan/520/">520</a> </li>
+    <li  > <span>7.68~10.28万</span> 5 <a href="http://auto.08cms.com/qirui/a3sanxiang/">A3三厢</a> </li>
+    <li  > <span>0~0万</span> 6 <a href="http://auto.08cms.com/biaozhi/bz308/">308</a> </li>
+    <li  > <span>5.98~12.56万</span> 7 <a href="http://auto.08cms.com/biyadi/l3/">L3</a> </li>
+    <li  class="last"> <span>9.16~10.86万</span> 8 <a href="http://auto.08cms.com/lianhua/l3sanxiang/">L3三厢</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_4" style=" display:none;">
+    <li  > <span>29.1~57.81万</span> 1 <a href="http://auto.08cms.com/aodi/a4l/">A4L</a> </li>
+    <li  > <span>16.98~30.38万</span> 2 <a href="http://auto.08cms.com/dazhong/pasatelingyu/">帕萨特领驭</a> </li>
+    <li  > <span>17.69~30.09万</span> 3 <a href="http://auto.08cms.com/xuetielong/c5/">C5</a> </li>
+    <li  > <span>49.39~99.8万</span> 4 <a href="http://auto.08cms.com/aodi/a5/">A5</a> </li>
+    <li  > <span>23.78~27.18万</span> 5 <a href="http://auto.08cms.com/bentian/sibo/">思铂睿</a> </li>
+    <li  > <span>7.98~15.98万</span> 6 <a href="http://auto.08cms.com/biyadi/f6/">F6</a> </li>
+    <li  > <span>15.99~22.99万</span> 7 <a href="http://auto.08cms.com/xuefolan/mairuibao/">迈锐宝</a> </li>
+    <li  class="last"> <span>29.88~34.88万</span> 8 <a href="http://auto.08cms.com/ds/ds5/">DS5</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_5" style=" display:none;">
+    <li  > <span>27.28~74.26万</span> 1 <a href="http://auto.08cms.com/aodi/a6l/">A6L</a> </li>
+    <li  > <span>31.98~89.96万</span> 2 <a href="http://auto.08cms.com/fengtian/huangguan/">皇冠</a> </li>
+    <li  > <span>38.88~82.8万</span> 3 <a href="http://auto.08cms.com/kaidilake/slssaiwei/">SLS 赛威</a> </li>
+    <li  > <span>21.99~32.29万</span> 4 <a href="http://auto.08cms.com/bieke/junyue/">君越</a> </li>
+    <li  > <span>32.99~42.99万</span> 5 <a href="http://auto.08cms.com/bieke/linyindadao/">林荫大道</a> </li>
+    <li  > <span>41.26~79.76万</span> 6 <a href="http://auto.08cms.com/baoma/5xi/">5系</a> </li>
+    <li  > <span>45.3~186万</span> 7 <a href="http://auto.08cms.com/baoma/5xi1/">5系</a> </li>
+    <li  class="last"> <span>46.5~89.8万</span> 8 <a href="http://auto.08cms.com/benchi/eji/">E级</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_6" style=" display:none;">
+    <li  > <span>368.8~368.8万</span> 1 <a href="http://auto.08cms.com/asidunmading/rapide/">Rapide</a> </li>
+    <li  > <span>92.8~249.8万</span> 2 <a href="http://auto.08cms.com/aodi/a8/">A8</a> </li>
+    <li  > <span>0~0万</span> 3 <a href="http://auto.08cms.com/babosi/babosisji/">BRABUS巴博斯 S级</a> </li>
+    <li  > <span>72.8~95.8万</span> 4 <a href="http://auto.08cms.com/aodi/a7/">A7</a> </li>
+    <li  > <span>89.8~329.8万</span> 5 <a href="http://auto.08cms.com/baoma/7xi/">7系</a> </li>
+    <li  > <span>99.8~362.8万</span> 6 <a href="http://auto.08cms.com/benchi/amgchexi/">AMG车系</a> </li>
+    <li  > <span>93~259.8万</span> 7 <a href="http://auto.08cms.com/benchi/sji/">S级</a> </li>
+    <li  class="last"> <span>16.97~22.97万</span> 8 <a href="http://auto.08cms.com/biaozhi/508/">508</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_7" style=" display:none;">
+    <li  > <span>6.58~11.58万</span> 1 <a href="http://auto.08cms.com/richan/shuaike/">帅客</a> </li>
+    <li  > <span>6.98~14.98万</span> 2 <a href="http://auto.08cms.com/zhongtai/zhongtaim300/">众泰M300</a> </li>
+    <li  > <span>22.98~28.28万</span> 3 <a href="http://auto.08cms.com/bentian/aodesai/">奥德赛</a> </li>
+    <li  > <span>20.9~38.8万</span> 4 <a href="http://auto.08cms.com/bieke/gl8/">GL8</a> </li>
+    <li  > <span>41.9~86.8万</span> 5 <a href="http://auto.08cms.com/benchi/weiyanuo/">唯雅诺</a> </li>
+    <li  > <span>23.9~33.9万</span> 6 <a href="http://auto.08cms.com/daoqi/kailing/">凯领</a> </li>
+    <li  > <span>15.98~18.18万</span> 7 <a href="http://auto.08cms.com/jianghuai/ruifenghechang/">瑞风·和畅</a> </li>
+    <li  class="last"> <span>13.98~23.98万</span> 8 <a href="http://auto.08cms.com/biyadi/m6/">M6</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_8" style=" display:none;">
+    <li  > <span>37.98~56.77万</span> 1 <a href="http://auto.08cms.com/aodi/q5/">Q5</a> </li>
+    <li  > <span>42.19~119.99万</span> 2 <a href="http://auto.08cms.com/jipu/daqienuoji1/">大切诺基</a> </li>
+    <li  > <span>22.9~37.4万</span> 3 <a href="http://auto.08cms.com/sanling/sloutlander/">OUTLANDER EX</a> </li>
+    <li  > <span>81.5~257.8万</span> 4 <a href="http://auto.08cms.com/aodi/q7/">Q7</a> </li>
+    <li  > <span>28.2~49.8万</span> 5 <a href="http://auto.08cms.com/baoma/baomax1/">宝马X1</a> </li>
+    <li  > <span>9.28~31.88万</span> 6 <a href="http://auto.08cms.com/changcheng/hafuh5/">哈弗H5</a> </li>
+    <li  > <span>11.98~15.98万</span> 7 <a href="http://auto.08cms.com/richan/aoding/">奥丁</a> </li>
+    <li  class="last"> <span>20.78~26.98万</span> 8 <a href="http://auto.08cms.com/richan/qijun/">奇骏</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_jb_9" style=" display:none;">
+    <li  > <span>449.9~489.9万</span> 1 <a href="http://auto.08cms.com/asidunmading/dbs/">DBS</a> </li>
+    <li  > <span>319.9~349.9万</span> 2 <a href="http://auto.08cms.com/asidunmading/db9/">DB9</a> </li>
+    <li  > <span>50.9~78万</span> 3 <a href="http://auto.08cms.com/aodi/tt/">TT</a> </li>
+    <li  > <span>67~107.2万</span> 4 <a href="http://auto.08cms.com/baoshijie/boxster/">Boxster</a> </li>
+    <li  > <span>430~456万</span> 5 <a href="http://auto.08cms.com/asidunmading/virage/">Virage</a> </li>
+    <li  > <span>148~148万</span> 6 <a href="http://auto.08cms.com/guanggang/dashe/">大蛇</a> </li>
+    <li  > <span>232.8~262.8万</span> 7 <a href="http://auto.08cms.com/aodi/r8/">R8</a> </li>
+    <li  class="last"> <span>16.58~20.68万</span> 8 <a href="http://auto.08cms.com/biyadi/s81/">S8</a> </li>
+  </ul>
+
+</div>
+<div class="bgFF bRBLGray clearfix" id="r_cx_2" style="display:none;">
+  <ul class="cxxglm l">
+    <li href='#' id='gb_1' onmouseover='table(this)' class="act">中国</li>
+    <li href='#' id='gb_2' onmouseover='table(this)' >德国</li>
+    <li href='#' id='gb_3' onmouseover='table(this)' >日本</li>
+    <li href='#' id='gb_4' onmouseover='table(this)' >美国</li>
+    <li href='#' id='gb_5' onmouseover='table(this)' >韩国</li>
+    <li href='#' id='gb_6' onmouseover='table(this)' >法国</li>
+    <li href='#' id='gb_7' onmouseover='table(this)' >英国</li>
+    <li href='#' id='gb_8' onmouseover='table(this)' >意大利</li>
+    <li href='#' id='gb_9' onmouseover='table(this)' >其他</li>
+  </ul>
+  <ul class="cxphCon l mT3" id="r_gb_1" >
+    <li  > <span>3.28~3.78万</span> 1 <a href="http://auto.08cms.com/dongfeng/k02/">K02</a> </li>
+    <li  > <span>3.18~4.35万</span> 2 <a href="http://auto.08cms.com/dongfeng/k072/">K07Ⅱ</a> </li>
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_2" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_3" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_4" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_5" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_6" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_7" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_8" style=" display:none;">
+  </ul>
+
+  <ul class="cxphCon l mT3" id="r_gb_9" style=" display:none;">
+  </ul>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>

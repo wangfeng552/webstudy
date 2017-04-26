@@ -1,0 +1,12 @@
+/* 转载请保留版权信息：懒人图库 www.lanrentuku.com */
+*{ padding:0px; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+ul,li{ list-style:none;}
+.box{ height:35px;}
+.menu{ width:100px; height:35px; background:url(../images/bg.png) no-repeat; padding:0 26px; margin-left:-25px; float:right; position:relative;}
+.m_hover{ background-position:0 -40px;}
+.menu p{ line-height:34px; color:#fff; text-align:center; cursor:pointer;}
+.menu ul{ display:none;}
+.menu ul li{ width:106px; height:27px; background:url(../images/bg.png) 0 -80px no-repeat; font:normal 12px/26px Arial; text-align:center; padding:0 20px; position:absolute;}
+.menu ul li.li_hover{ background-position:0 -112px;}
+.menu ul li a:link,.menu ul li a:visited,.menu ul li a:hover{ color:#fff; text-decoration:none; display:block;}
+

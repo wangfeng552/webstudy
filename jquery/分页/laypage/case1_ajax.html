@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>layPage demo</title>
+<meta name="keywords" content="分页插件,ajax分页,异步分页">
+<meta name="description" content="laypage是一款多功能的js分页组件，主要应用于前端页面Ajax普通分页以及信息流加载，并且可无缝迁移至Node.js平台。laypage不依赖于任何第三方库，直接拿来用即可，它的接口继承了layui系列组件的一贯简洁，极易上手。那么，从现在开始，将分页的任务交给laypage吧！">
+</head>
+<body>
+
+<ul id="biuuu_city_list"></ul>
+
+<div id="biuuu_city"></div>
+
+<div style="width:800px; margin:100px 0 0; font-size:14px;">
+    <p>====================================================================</p>
+    <p>把laypage整个目录放入你的项目，只需引入laypage.js即可，其它一律无视。</p>
+    <p>详细文档打开demo，或者直接进入官网http://laypage.layui.com/doc.html
+</div>
+<script src="../../jquery-1.11.2.js"></script>
+<script src="js/laypage.js"></script>
+<script>
+    $.ajax({
+        type:"post",
+        url:"csdata.json",
+        success:function(data){
+            var nums = 1; //每页出现的数量
+            var pages = data.length; //得到总页数
+            var showData = function (data) {
+                var html='';
+                for(var i=0;i<data.length;i++){
+                    html +='<li>'+data[i].title+'</li>';
+                }
+                return html;
+            }
+            //调用分页
+            laypage({
+                cont: 'biuuu_city',  //容器。值支持id名、原生dom对象，jquery对象,
+                pages: pages,        //总页数
+                jump: function(obj,first){
+                    console.log(obj);
+                    $("#biuuu_city_list").html(showData(data[obj.curr-1].name))
+                },
+                groups: 7,      //连续显示分页数
+                skip: true,     //是否开启跳页
+                first: false,   //隐藏首页
+                last: false,    //隐藏尾页
+                hash: 'fenye',  //看看URL的变化。通过hash，你可以记录当前页。当前正处于第4页
+                skin:'#c00'     //皮肤  "molv","yahei","flow"
+            })
+        },
+        error:function () {
+            alert("错误")
+        }
+    })
+</script>
+</body>
+</html>

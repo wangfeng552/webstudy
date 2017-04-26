@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script src="../jquery-1.11.2.js"></script>
+<script>
+    $(document).ready(function(){
+        //读取 localStage 本地存储，填充用户名密码,如果自动登录有值直接跳转；
+        //相反，跳转到本页面,等待登陆处理
+
+        var storage = window.localStorage;
+        var getname = storage["name"];
+        var getPwd = storage["pwd"];
+        var getisstroepwd = storage["isstorePwd"];
+        var getisautologin = storage["isautologin"];
+        if("yes" == getisstroepwd)
+        {
+            if("yes" == getisautologin)
+            {
+                if(( ("" != getname) ||(null != getname)) && (("" != getPwd) ||(null != getPwd)))
+                {
+                    //lacoste  已经保存 登陆信息 直接登陆
+                    $("#loginAccout").val(getname);
+                    $("#loginPwd").val(getPwd);
+//                        window.location="";
+                }
+            }
+            else
+            {
+                $("#loginAccout").val(getname);
+                $("#loginPwd").val(getPwd);
+                document.getElementById("isRemberPwdId").checked = true;
+            }
+        }
+    });
+
+    function loginCheckAjaxFunction()
+    {
+        //ajax   登陆验证
+        var userAccout=$("#loginAccout").val();
+        var userPassWord=$("#loginPwd").val();
+
+        var storage = window.localStorage;
+        //记住密码
+        if(document.getElementById("isRemberPwdId").checked)
+        {
+            //存储到loaclStage
+
+            storage["name"] = userAccout;
+            storage["pwd"] =  userPassWord;
+            storage["isstorePwd"] =  "yes";
+        }
+        else
+        {
+            storage["name"] = userAccout;
+            storage["isstorePwd"] =  "no";
+        }
+
+        //下次自动登录
+        if(document.getElementById("isAutoLoginId").checked)
+        {
+            //存储到loaclStage
+            storage["name"] = userAccout;
+            storage["pwd"] =  userPassWord;
+            storage["isstorePwd"] =  "yes";
+            storage["isautologin"] =  "yes";
+        }
+        else
+        {
+            storage["name"] = userAccout;
+            storage["isautologin"] =  "no";
+        }
+        /*$.ajax({
+         url : "loginCheckAjax.action",
+         type : "post",
+         data:{//设置数据源
+         loginAccout:$("input[name=loginAccout]").val(),
+         loginPwd:$("input[name=loginPwd]").val()
+         },
+         dataType:"json",//设置需要返回的数据类型
+         success:function(data){
+         //登陆成功后的处理
+         },
+         error:function(){
+         ui.error('登陆失败，请重试',2000);
+         }//这里不要加","
+         });*/
+    }
+
+</script>
+<form name="loginform"  method="post">
+    <div>
+        账户：
+        <input type="text" name="loginAccout" id="loginAccout" class="loginInput" size="18" autofocus="autofocus" maxlength="30" required="required" autocomplete="off" placeholder="请输入用户名"  style="height:30px;width:160px"/><br />
+    </div>
+    <div>
+        密码：
+        <input type="password" name="loginPwd" id="loginPwd" size="18" maxlength="15" class="loginInput" required="required" placeholder="请输入密码" style="height:30px;width:160px"/><br />
+    </div>
+
+    <div>
+        <input type="checkBox" name="isRemberPwd" id="isRemberPwdId"/> 记住密码
+        <input type="checkBox" name="isAutoLogin" id="isAutoLoginId"/> 下次自动登录
+    </div>
+
+    <div>
+
+        <a  onclick="loginCheckAjaxFunction()">登录</a>
+    </div>
+</form>
+</body>
+</html>

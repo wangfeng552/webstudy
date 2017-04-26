@@ -1,0 +1,79 @@
+body{font-family:\5B8B\4F53,Arial Narrow,arial,serif;font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,textarea,blockquote{margin:0;padding:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+img{vertical-align:top;border:0;}
+ol,ul{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-size:12px;font-weight:400;}
+a { color: #333; text-decoration: none; }
+a:hover { color: #c10000; text-decoration: underline; }
+.wrap { margin: 0 auto; width: 960px; }
+.fl { float: left; }
+.fr { float: right; }
+.mt10{ margin-top:10px;}
+.mr10{ margin-right:10px;}
+.mb10{ margin-bottom:10px;}
+.ml10{ margin-left:10px;}
+.pt10{ padding-top:10px;}
+.pr10{ padding-right:10px;}
+.pb10{ padding-bottom:10px;}
+.pl10{ padding-left:10px;}
+img { border: 0; vertical-align: top; }
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
+.clearfix:after {content: "";clear: both; display: table;}/*第二种方法*/
+
+/*样式*/
+
+.zt { font-style: italic; font-variant: small-caps; font-weight: bold; font-size: 12px; line-height: 140%; font-family: "Lucida Grande", sans-serif; }
+.zt { font:italic small-caps bold 1em/140% "Lucida Grande", sans-serif; }/*字体缩写 如果值为若干单词，则要给值加引号*/
+.zt { font-family: 宋体, Arial, Helvetica, sans-serif; }/*任何浏览器下下划线都有距离*/
+.zt { font-family: Georgia, Tahoma, Arial/*第一个为数字不规则型*/ }
+
+.dk { word-break: break-all /*与normal相同，也允许非亚洲文字断开例eng lish*/
+	/*keep-all	不允许字断开*/
+	/* noraml;   允许在字内换行*/ }
+.dk	{/*允许超出指定容器*/
+	/*break-word;内容在边界换行*/}
+.dk { white-space: nowrap; overflow: hidden; text-overflow: clip | ellipsis  /*超出不换行 裁剪|...*/}
+.dk { word-spacing: 1px;/*单词间距 中文无效*/ }
+.dk { letter-spacing: 1px;/*每个字母间距，如果是中文则每个文字之间的间隔*/ }
+
+.kk:first-line { color: red/*首行文字效果*/ }
+.kk:first-letter {/*首字下沉*/ }
+
+.kk { min-height: 80px; _height: expression( this.scrollHeight < 80 ? "80px" : "auto"); /*最小高度*/}
+.kk { max-height: 600px; _height: expression(this.scrollHeight >600 ? "600px" : "auto");
+overflow: hidden;/*最大高度*/ }
+.kk{min-height:100px; height: auto !important; height: 100px;}
+
+.im li { width: 100px !important; width: 80px; }/*ie6以上读取important级别的样式,ie6读取后面的*/
+.im li { width: 100px !important; }/*ie6和以上的没有区别都读取宽度100px*/
+.im li { width: 80px; }
+
+.kk { color: #ccc; }
+.kk { text-decoration: underline; }
+.kk { text-indent: 2em;/*缩进2个单位*/ }
+.kk { text-align: center; }
+.kk { background: #ccc url(anli/images/btn_login1.gif) 0 0 no-repeat /*背景颜色 背景图片 X轴 Y轴 不平铺*/ }
+.kk { background-attachment:fixed;/*默认是scroll 背景图像滚动时固定*/}
+.kk { border: 1px solide #333; /*边框颜色为1px 直线 333颜色*/ }
+.kk { padding: 0; margin: 0; height: 0; line-height: 0; width: 0; }
+.kk { position: absolute /*绝对定位/relative 相对定位/inherit无*/ }
+.kk { display: inline-block; _display: inline; _zoom: 1; height: 58px; }
+.kk { cursor: pointer   /*手 default箭头*/ }
+.kk { overflow: auto; zoom: 1; /*超出自动 hidden隐藏*/ }
+
+.kk { Opacity: 0.7;       /*半透明（0~1）非IE浏览器*/ filter: alpha(opacity=70);/*半透明（0~100）IE浏览器*/ }
+#search * { vertical-align: middle; }  /** 为通配符，意为 匹配 ID search 下的所有元素应用这属性。*/
+
+/*表格边框为1PX*/
+.fs12 { border-collapse: collapse; border-spacing: 0; border: 1px solid #000 }
+.fs12 tr, .fs12 td { border: 1px solid #000; }
+/*&nbsp; 空格*/
+/*&raquo; >>*/
+
+/*属性和值选择器 IE7以上*/
+[title]{color:red;}/*<img title="aodi" /> 属性选择器*/
+[title=aodi]{color:red;}/*属性和值选择器*/
+[title~=aodi]{color:red;}/*属性和值选择器 - 多个值*/
+input[type="text"]/*表单的样式*/

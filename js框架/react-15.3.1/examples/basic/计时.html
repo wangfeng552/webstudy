@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Basic Example</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+<div id="wf">
+
+</div>
+
+<script type="text/babel">
+  var start = new Date().getTime();
+  var ExampleApplication=React.createClass({
+    render:function(){
+      var elapsed = Math.round(this.props.elapsed  / 100);
+      var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0' );
+      return <div><p>React has been successfully running for ' + {seconds} + ' seconds.'</p></div>
+    }
+  });
+  setInterval(function(){
+    ReactDOM.render(
+    <ExampleApplication elapsed={new Date().getTime() - start} />,wf
+    )
+  },50)
+</script>
+</body>
+</html>

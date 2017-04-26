@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+	.mk{color: #f60;}
+</style>
+<a href="" class="btn">点击3次</a>
+<div>adfadf</div>
+<script>
+	//为匹配的元素切换 'mk' 类
+	/*$(".btn").on("click",function(e){
+		var self=$(this);
+		e.preventDefault();
+		self.next().toggleClass("mk")
+	})*/
+
+//	每点击三下加上一次 'mk' 类
+	var towf={
+		wf:function (){
+			var count=1;
+			$(".btn").on("click",function(e){
+				var self=$(this);
+				e.preventDefault();
+				self.next().toggleClass("mk",count++ %3 ==0)
+			})
+		}
+	}
+	towf.wf();
+</script>
+
+
+<div class="father">
+	<span class="nk">a1231312313</span>
+</div>
+<script>
+//根据父元素来设置class属性
+	$(".nk").toggleClass(function(){
+		if($(this).parent().hasClass("father")){
+			return console.log("1")
+		}
+		else{
+			return console.log("2")
+		}
+	})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<!--<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>-->
+<script type="text/javascript" src="../../../jquery-1.11.2.js"></script>
+<script type="text/javascript" src="scrollfix.js"></script>
+<style>
+.kl{ background: #ccc; height: 1200px;}
+.kl li{ float: left; padding: 10px; width: 80px;}
+.kl li.act{ background: #f60;}
+.lk{ width: 200px; height: 200px; background: #f60; display: none; }
+.hh{ height: 3000px;}
+.mnj{ width: 1000px; margin: 0 auto;position: relative;}
+</style>
+
+</head>
+<body>
+<div class="kl">
+    <ul>
+        <li class="act">一级栏目</li>
+        <li>耳机栏目</li>
+        <li>耳机栏目</li>
+    </ul>
+</div>
+<div class="mnj"><div class="lk">1233</div></div>
+
+<div class="hh"></div>
+<script>
+$(".lk").scrollFix("top","top").show();
+/*
+插件功能
+
+当用户向上或向下滚动页面到一定位置时，目标元素开始固定定位（position:fixed），当回滚到原位置时目标元素恢复到原状态，可以定制触发滚动相对屏幕位置和触发滚动方向，兼容IE6
+
+插件参数
+
+$(".target_element").scrollFix( [ "top" | "bottom" | length(可以为负,表示相对bottom), [ "top" | "bottom" ] ]);
+
+第一个参数： 可选，默认为"top"，当目标元素到了屏幕相对的位置时开始触发固定，可以填一个数值，如100,-200 ,负值表示相对于屏幕下方
+
+第一个参数： 可选，默认为"top"，表示触发固定的滚动方向，"top"表示从上向下滚动时触发，"bottom"表示从下向上滚动时触发
+*/
+</script>
+</body>
+</html>

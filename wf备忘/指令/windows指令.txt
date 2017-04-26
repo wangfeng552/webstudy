@@ -1,0 +1,10 @@
+powershell
+dir		显示当前目录文件
+ls -ah		查看隐藏目录
+pwd 		查看目录
+d: 		切换磁盘
+cd \ 		返回当前目录
+cd xiayiji  	进入文件夹
+mkdir mulu	创建目录
+
+rm wenjian	删除文件

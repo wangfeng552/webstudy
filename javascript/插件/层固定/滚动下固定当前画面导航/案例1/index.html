@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文章</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<style type="text/css">
+/*统一样式*/
+body, html { color: #444444; font: 12px/24px "宋体", san-serif; margin: 0; padding: 0; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { border: 0 none; margin: 0; padding: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none; }
+.mb10{ margin-bottom: 10px;}
+.clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}
+/*必须样式*/
+* html, * html body { background-image: url(about:blank); background-attachment: fixed; }
+.channelMove { position:fixed;top:0px;_position:absolute;_top:expression(documentElement.scrollTop);z-index:200; width:330px; overflow:hidden;}
+
+/*页面样式不搭*/
+.header{ height: 120px;width: 960px; background: #000;}
+.bt_ad{height: 90px;width: 960px; background: blue;}
+.footer{ height: 90px; background: #ccc;width: 960px;}
+.main{ width: 960px;}
+.main .fl{ width: 700px; height: 1600px; background: #c00; float: left;}
+.main .fr{ width: 250px; float: right;}
+.main .fr .cas1{ border: 1px solid #d00; height: 120px; margin-bottom: 10px; background: #dff;width: 248px;}
+</style>
+</head>
+
+<body>
+<div class="header mb10">222222222</div>
+<div class="bt_ad mb10">3333333333</div>
+<div class="main mb10 clearfix">
+    <div class="fl"></div>
+    <div class="fr">
+        <div class="cas1"></div>
+        <div class="cas1"></div>
+        <div style="visibility:hidden;margin-top:-1px" class="clearfix" id="dMark"></div><!--第一步-->
+        <div id="channelHtml" class="channelHtml cas1"><!--第二步-->
+                <h2>三菱撒东方红</h2>
+                <ul>
+                   <li>111111111</li>
+                   <li>222222</li>
+                   <li>333333333</li>
+                   <li>4444444444</li>
+                   <li>5555555555</li>
+                </ul>  
+        </div>
+    </div>
+</div>
+<div class="footer">111111111</div>
+<script>
+function showIntf() {
+var isIE6= !!window.ActiveXObject&&!window.XMLHttpRequest;
+$$ = function(id) {
+return document.getElementById(id)
+}
+function addClass(o, cn) {
+var re = new RegExp("(\\s*|^)" + cn + "\\b", "g");
+o.className += o.className ? (re.test(o.className) ? "": " " + cn) : cn
+}
+function removeClass(o, cn) {
+var re = new RegExp("(\\s*|^)" + cn + "\\b", "g");
+var sName = o.className;
+o.className = sName.replace(re, "")
+}
+window.onscroll = window.onresize = function() {
+var scrTop = document.documentElement.scrollTop + document.body.scrollTop,
+offTop = $$("dMark").getBoundingClientRect().top + scrTop - document.documentElement.clientTop;
+scrTop > offTop ? addClass($$("channelHtml"), "channelMove") : removeClass($$("channelHtml"), "channelMove");
+}
+}
+showIntf();
+</script>
+
+
+</body>
+</html>

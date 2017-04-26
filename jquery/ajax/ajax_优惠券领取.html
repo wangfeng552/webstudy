@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="../jquery-1.11.2.js"></script>
+</head>
+
+<body>
+  <a href="javascript:;" onclick="getActivityCouppons(this,'GUANAI2015','99-10',1)"><img src="" alt="" /></a>
+  <a href="javascript:;" onclick="getActivityCouppons(this,'GUANAI2015','599-60',2)"><img src="" alt="" /></a>
+
+<style type="text/css">
+.nzjtc{width: 533px; height: 150px; background: #fff; border: 10px solid #be0620; position:fixed; left: 50%; top: 50%; margin-left: -275px; margin-top: -85px;
+_position: absolute;_top: expression(document.documentElement.scrollTop + Math.round(document.documentElement.offsetHeight / 2) + "px"); z-index: 30; /*display: none;*/}
+.nzjbg{ background: #000; opacity: 0.5; filter:alpha(opacity=50); width: 100%; height: 100%; position: fixed; left: 0 ; top: 0; z-index: 20; display: none;}
+.bonus{ position: relative;}
+.nzjtc .nzjpic{ width: 185px; height: 94px; padding: 26px 0 0 15px; float: left;}
+.nzjtc .ylw{ padding: 15px 0 0 30px; width: 120px;}
+.nzjtc .qrk{ margin-left: 210px;}
+.nzjtc .qiang-02{ margin-left:175px; padding-top: 30px;}
+.nzjtc .qiang-01{ padding-top: 34px; }
+.nzjtc .qiang-03{ padding-top: 25px; }
+.nzjtc .qiang-02 dt{ width: 240px; float:left;  padding-top: 10px; }
+.nzjtc p{ height: 22px; font-size: 16px; line-height: 22px; color: #666666; font-weight: bold;}
+.nzjtc .f1490{ font-size: 14px; color: #909090;}
+.nzjtc p span{ color: #f75d57;}
+.nzjtc .nzjclose{ width: 27px; height: 27px; display: inline-block; position: absolute; right: 5px; top: 5px; background: url(images/hyhdclose.png) 0 0 no-repeat;}
+.nzjtc .btn-red{ padding: 7px 10px; font-size: 18px; background: #be0620; color: #fff; display: inline-block; margin: 10px 5px 0 0; border-radius: 5px;}
+.nzjtc .btn-red:hover{ text-decoration: none;}
+.nzjtc .btn-36c{ background: #be0620;}
+.wxfix{ position: absolute;right: 38px; top: 38px;}
+.nzjtc .qiang-03 a{ margin-top: 0;}
+</style>
+<div class="nzjbg"></div>
+<!-- 第一种领券状况 -->
+<div class="nzjtc" id="nzjtc1">
+    <div class="bonus">
+        <a href="javascript:;" class="nzjclose"></a>
+        <div class="nzjpic"><img id="nzjpicImg1" src="images/gayhq1.jpg" alt="" /></div>
+        <div class="qrk qiang-01">
+            <div class="lk" id="nzjpicP1">
+                <p><span>恭喜您</span>，已经成功领取了一张10元优惠券！~</p>
+                <p>请尽快使用哦~用完才能来领第二张~</p>
+            </div>
+            <a href="http://www.j1.com/myec/assign/myCoupons.html" class="btn-red" target="_blank">查看我的优惠券</a>
+            <a href="javascript:;" class="btn-red btn-36c" target="_blank">返回主会场</a>
+        </div>
+    </div>
+</div>
+<!-- 第二种已领 -->
+<!-- <div class="nzjtc" id="nzjtc2">
+    <div class="bonus">
+        <a href="javascript:;" class="nzjclose"></a>
+        <div class="nzjpic"><img id="nzjpicImg2" src="images/geq3.jpg" alt="" /></div>
+        <div class="qrk qiang-03">
+            <div class="lk" id="nzjpicP2">
+                <p><span>对不起</span>，查询到您的用户中还有一张</p>
+                <p>20元优惠券尚未使用。</p>
+                <p class="f1490">请尽快使用哦~用完才能来领第二张~</p>
+            </div>
+            <a href="http://www.j1.com/myec/assign/myCoupons.html" class="btn-red" target="_blank">查看我的优惠券</a>
+            <a href="javascript:;" class="btn-red btn-36c" target="_blank">返回主会场</a>
+        </div>
+    </div>
+</div> -->
+<!-- 全部领取 -->
+<!-- <div class="nzjtc" id="nzjtc3">
+    <div class="bonus">
+        <a href="javascript:;" class="nzjclose"></a>
+        <div class="nzjpic ylw"><img  src="http://img02.j1.com/images/activity/yhqwf/geq5.jpg" alt="" /></div>
+        <div class="qrk qiang-02">
+            <dl> 
+                <dt><p><span>对不起，</span>优惠券已经全部领完啦!</p>
+                    <p>扫一扫健一网，也有惊喜哦~</p>
+                    <a href="javascript:;" class="btn-red btn-36c" target="_blank">更多精彩优惠请点击>></a>
+                </dt>
+                <dd><img src="http://img02.j1.com/images/activity/hy818/hyrwx1.jpg" alt="微信" /></dd>
+            </dl>
+        </div>
+    </div>
+</div> -->
+<script>
+$(".nzjclose,.btn-red").click(function() {
+    $(".nzjbg").hide();
+    $(".nzjtc").hide();
+});
+
+/*******************新************/
+
+    function getActivityCouppons(obj,activityNo,activityGoodsNo,type)
+  {
+    if($(obj).attr("state")==null||$(obj).attr("state")=="0"){
+      $(obj).attr("state","1");
+    }else{
+      return;
+    }
+    //判断是否登录
+    var loginmsg=checkLogin();
+    if(loginmsg== "nologin"){ 
+      $(obj).attr("state","0");
+      beginloginrove("/activity/gajk.html");
+    }else{
+      $.ajax({
+        url:appPath + "/getActivityCouppons.html",
+        data:{'activityNo':activityNo,'activityGoodsNo':activityGoodsNo},
+        type:"post",
+        success:function(data){
+          $(obj).attr("state","0");
+          //根据领取优惠劵的类型修改弹窗的图片和内容
+          if(type == 1){
+            //修改领取成功弹窗的图片URL
+             $("#nzjpicImg1").attr("src","http://img02.j1.com/images/activity/yhqwf/gayhq1.jpg");
+            //修改领取成功弹窗文字
+            $("#nzjpicP1").html("<p><span>恭喜您</span>，已经成功领取了一张10元优惠券！~</p><p>请尽快使用哦~用完才能来领第二张~</p>");
+            //修改领取失败弹窗的URL
+            $("#nzjpicImg2").attr("src","http://img02.j1.com/images/activity/yhqwf/gayhq4.jpg");
+            //修改领取失败弹窗的文字
+            $("#nzjpicP2").html("<p><span>对不起</span>，查询到您的用户中还有一张</p><p>20元优惠券尚未使用。</p><p class='f1490'>请尽快使用哦~用完才能来领第二张~</p>");
+          //200-20的劵
+          }else if(type == 2){
+            $("#nzjpicImg1").attr("src","http://img02.j1.com/images/activity/yhqwf/gayhq2.jpg");
+            $("#nzjpicP1").html("<p><span>恭喜您</span>，已经成功领取了一张60元优惠券！~</p><p>请尽快使用哦~用完才能来领第二张~</p>");
+            $("#nzjpicImg2").attr("src","http://img02.j1.com/images/activity/yhqwf/gayhq3.jpg");
+            $("#nzjpicP2").html("<p><span>对不起</span>，查询到您的用户中还有一张</p><p>60元优惠券尚未使用。</p><p class='f1490'>请尽快使用哦~用完才能来领第二张~</p>");
+          //500-60的劵
+          }else if(type == 3){
+            $("#nzjpicImg1").attr("src","http://img02.j1.com/images/dl/yhqk_50.jpg");
+            $("#nzjpicP1").html("<p><span>恭喜您</span>，</p><p>已经成功领取了一张50元红包~</p>");
+            $("#nzjpicImg2").attr("src","http://img02.j1.com/images/dl/yhqk_501.jpg");
+            $("#nzjpicP2").html("<p><span>对不起</span>，您已经领取过该红包啦~</p><p>更多优惠红包敬请关注~</span></p>");
+          }
+          //领取成功
+          if(data.state==0){
+            //弹出领取成功的弹窗
+            $(".nzjbg").show();
+            $("#nzjtc1").show();
+          //不满足领取条件
+          }else if(data.state!=null&&data.state==2){
+            if(data.data!=null){
+              var count = data.data.length;
+              for (var i = 0; i < count; i++) {
+                var condition = data.data[i];
+                //未登录
+                if(condition.conditionType==1){
+                  beginloginrove("/activity/gajk.html");
+                  return;
+                //未验证手机
+                }else if(condition.conditionType==2){
+                  $.ajax({
+                  url:appPath + "/checkMobile.html",
+                  type:"post",
+                  success:function(data){
+                    $("#checkMobileDiv").html(data);
+                    showActivityMoblie(
+                      function(){
+                        getActivityCouppons(obj,activityNo,activityGoodsNo,type);
+                      }
+                    );
+                  }
+                  });
+                  return;
+                //不是新注册会员
+                }else if(condition.conditionType==3){
+                    $("#nzjpicImg2").attr("src","http://img02.j1.com/images/activity/yh318/yhj_01.jpg");
+                    $("#nzjpicP2").html("<span>对不起</span>，您已经是健一网忠实会员");
+                    $(".nzjbg").show();
+                    $("#nzjtc2").show();
+                    //showAlert("您可以领取20元、60元红包各一张。");
+                }
+              }
+            }else{
+              showAlert(data.msg);
+            }
+          //已经领取过
+          }else if(data.state==3){
+            //弹出领取失败的弹窗
+            $(".nzjbg").show();
+            $("#nzjtc2").show();
+          //优惠劵已领完
+          }else if(data.state==4){
+            //弹出对应的弹窗
+            $(".nzjbg").show();
+            $("#nzjtc3").show();
+          //领取失败
+          }else{
+            //其他原因领取失败，直接弹出失败原因
+            showAlert(data.msg);
+          }
+        },
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+          $(obj).attr("state","0");
+          showError("系统错误，请稍候再试！");
+        }
+      }); 
+    }
+  }
+</script>
+</body>
+</html>

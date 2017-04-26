@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>2D/3D 转换属性（Transform）</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+<body>
+
+<!-- transform 属性向元素应用 2D 或 3D 转换。该属性允许我们对元素进行旋转、缩放、移动或倾斜。
+	移动
+	translate(x,y)
+	translate3d(x,y,z)
+	translateX(x)
+	translateY(x)
+	translateZ(x)
+	缩放
+	scale(x,y)
+	scale3d(x,y,z)
+	scaleX(x)
+	scaleY(y)
+	scaleZ(z)
+	旋转
+	rotate(angle)
+	rotate3d(x,y,z,angle)
+	rotateX(angle)
+	rotateY(angle)
+	rotateZ(angle)
+	扭曲
+	skew(x,y)
+	skewX(x)
+	skewY(y)
+	矩阵
+	matrix(n,n,n,n,n,n)		使用6个值得矩阵
+	matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)  16个值得4x4矩阵
+	为 3D 转换元素定义透视视图。
+	perspective(n) -->
+
+------------------------------------------------------------------------------------
+
+<!-- transform-origin	允许改变被转换的位置--设置旋转元素的基点位置：
+语法 transform-origin: x-axis y-axis z-axis;
+
+x-axis	定义视图被置于 X 轴的何处。可能的值：
+    left、center、right、length、%
+
+y-axis 定义视图被置于 Y 轴的何处。可能的值：
+    top、 center、 bottom、 length、 %
+
+z-axis	定义视图被置于 Z 轴的何处。可能的值：
+    length -->
+------------------------------------------------------------------------------------
+
+<!-- transform-style 使被转换的子元素保留其 3D 转换：
+
+语法 transform-style: flat|preserve-3d;
+
+flat		子元素将不保留其3D位置
+preserve-3d	子元素将保留其3D位置 -->
+
+------------------------------------------------------------------------------------
+
+<!-- perspective 设置元素被查看位置的视图
+
+perspective 属性定义 3D 元素距视图的距离，以像素计。该属性允许您改变 3D 元素查看 3D 元素的视图。
+
+当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。
+
+提示：请与 perspective-origin 属性一同使用该属性，这样您就能够改变 3D 元素的底部位置。
+
+语法	perspective: number|none;
+perspective: 500;
+-webkit-perspective: 500; /* Safari 和 Chrome */ -->
+
+-------------------------------------------------------------------------------------
+
+<!-- perspective origin	规定3D元素的底部位置
+
+perspective-origin 属性定义 3D 元素所基于的 X 轴和 Y 轴。该属性允许您改变 3D 元素的底部位置。
+
+当为元素定义 perspective-origin 属性时，其子元素会获得透视效果，而不是元素本身。
+
+注释：该属性必须与 perspective 属性一同使用，而且只影响 3D 转换元素。
+
+语法	perspective-origin: x-axis y-axis;
+
+x-axis	定义该视图在 x 轴上的位置。默认值：50%。	[left、center、right、length、%]
+y-axis	定义该视图在 y 轴上的位置。默认值：50%。	[top、 center、 bottom、 length、 %] -->
+
+-----------------------------------------------------------------------------------------
+
+<!-- backface-visibility	定义元素在不面对屏幕时是否可见。
+
+backface-visibility: visible|hidden; 背面可见 | 背面不可见 -->
+</html>

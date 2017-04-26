@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>Document</title>
+    <script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<!-- m站窗口定义字体 -->
+<script>
+!function(win) {
+    var dom = win.document, domEle = dom.documentElement;
+    function resize() {
+        var domWidth = domEle.getBoundingClientRect().width;
+        if(domWidth>=640){
+            win.rem = 20;
+        }else{
+            win.rem = domWidth / 640*20;
+        }
+        domEle.style.fontSize = win.rem + "px";
+    }
+    win.addEventListener("resize", function() {
+        resize();
+    }, false);
+    resize();
+}(window);
+</script>
+
+<!--PC端传统网页试试使用Zepto.js进行开发-->
+<script>
+var fnJsLoad = function(url, callback) {
+    callback = callback || function() {};
+
+    var eleScript = document.createElement('script');
+
+    eleScript.onload = function() {
+        if (!eleScript.isInited) {
+            eleScript.isInited = true;
+            callback();
+        }
+    };
+    // 一般而言，低版本IE走这个
+    eleScript.onreadystatechange = function() {
+        if (!eleScript.isInited && /^loaded|complete$/.test(eleScript.readyState)) {
+            eleScript.isInited = true;
+            callback();
+        }
+    };
+
+    eleScript.src = url;
+
+    doc.getElementsByTagName('head')[0].appendChild(eleScript);
+};
+//然后，我们就可以加载Zepto或者jQuery了：
+// IE10+加载zepto.js
+// IE7-IE9加载jQuery
+var URLLIB = '/js/zepto.min.js';
+
+if (!history.pushState) {
+    URLLIB = '/js/jquery.min.js';
+}
+
+fnJsLoad(URLLIB, function() {
+    // 业务脚本初始化
+    init();
+});
+</script>
+</body>
+</html>

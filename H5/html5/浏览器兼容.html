@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html>         <!--<![endif]-->
+
+<head>
+    <title></title>
+</head>
+<body>
+<!--这段代码包含了一些条件注释，它会根据浏览器的不同选择性地给<html>标记添加（或不添加）一个包含浏览器版本信息的class属性。
+具体来说，对于IE5-IE8，<html>标记会增加一个class属性，属性值由IE的版本来决定。对于IE9、较IE9更高的IE版本以及非IE浏览器，<html>保持原样。
+这样，我们就可以针对IE5-IE8这些老式浏览器来编写只对它们生效的CSS代码-->
+<style>
+.foo { color: red;}
+.ie6 .foo { color: yellow;}
+.ie7 .foo { color: blue;}
+.ie8 .foo { color: green;}
+</style>
+<div class="foo">123</div>
+</body>
+</html>

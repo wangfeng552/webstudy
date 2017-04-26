@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>Document</title>
+</head>
+<body>
+<script>
+isNaN()					//检查其参数是否是非数字值
+typeof 					//检测数据类型
+instanceof 				//检测某个对象是不是另一个对象的实例 【obj instanceof 构造函数】
+isPrototypeOf			//判断指定对象object1是否存在于另一个对象object2的原型链中，是则返回true，否则返回false【person.prototype.isPrototypeOf(c)】
+hasOwnProperty			//判断一个对象是否有名称的属性或对象【person.prototype.hasOwnProperty("showName")】
+obj.constructor			//constructor 属性返回对创建此对象的数组函数的引用。
+
+parseInt(string)  		//返回一个整数。
+parseFloat(string)		//返回一个浮点数 例33.33
+RegExpObject.test(string)//检测一个字符串是否匹配某个模式
+
+call(thisObj,arr1,arr2) //调用一个对象的一个方法，以另一个对象来替换当前对象
+apply(thisObj,[array])	//应用某一对象的一个方法，用另一个对象来替换当前对象
+
+innerHTML 				//属性设置或返回表格行的开始和结束标签之间的 HTML。$("li").innerHTML  或 $("li").innerHTML='这是被插入的内容'
+innerText				//从起始位置到终止位置的内容, 但它去除Html标签
+indexOf()				// 返回某个指定的字符串值在字符串中首次出现的位置 。如果要检索的字符串值没有出现，则该方法返回 -1
+substring(strat,stop)	//方法用于提取字符串中介于两个指定下标之间的字符
+split() 				// 把一个字符串分割成字符串数组
+
+eval('(' + json + ')');		//通过eval() 函数可以将JSON字符串转化为对象
+
+
+
+toLowerCase()   	//将字母转小写
+toUpperCase()		//将字母转大写
+toString() 			//方法可把一个逻辑值转换为字符串，并返回结果。
+toLocaleString() 	//方法可根据本地时间把 Date 对象转换为字符串，| 并返回结果 =>"2016/7/15 上午10:19:03"
+str.charCodeAt(index)	//返回指定位置字符的 Unicode 编码。这个返回值是 0 - 65535 之间的整数。0~128为英文数字单个字符
+str.charAt(index)		//返回指定位置的字符。
+</script>
+
+<script>
+(function($){
+	get() 					//取得所有匹配的 DOM 元素集合$(this).get(0)与$(this)[0]等价
+	e.preventDefault(); 	//阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）
+	e.stopPropagation();	//该事件不会触发执行当前元素的任何祖辈元素的任何事件处理函数
+	return false			//阻止事件冒泡
+
+	$.trim(string)								//去掉字符串起始和结尾的空格
+	$.each(arr|obj,fn(i,val){ val.name})		//遍历对象或数组
+	$.extend([deep], target, obj1, [objN])   	//用一个或多个其他对象来扩展一个对象，返回被扩展的对象
+	$.merge(arr1,arr2)							//合并两个数组 返回的结果会修改第一个数组
+	$.unique(arr)								//删除数组中重复元素
+	$.map(arr|obj,fn(a){return a+2})			//将一个数组中的元素转换到另一个数组中
+	$.grep(arr,function(a){return a>0})			//过滤数组元素
+	$.makeArray(obj)							//将类数组对象转换为数组对象
+	$.inArray(val,arr,[formindex])				//确定一个参数在数组中的位置
+
+	$("li").toArray() 							//DOM 元素方法 把jquery集合中所有DOM元素恢复成一个数组
+})(jQuery)
+</script>
+</body>
+</html>

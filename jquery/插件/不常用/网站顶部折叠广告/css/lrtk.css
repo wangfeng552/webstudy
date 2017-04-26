@@ -1,0 +1,7 @@
+/* 懒人图库 搜集整理 www.lanrentuku.com */
+
+*{ margin:0; padding:0; list-style:none;}
+.lrtk{ width:100%; height:250px; margin:0 auto; overflow:hidden; display:none; background:url(../images/big.jpg) no-repeat center top #7B010B; text-align:center; position:relative;}
+.lrtk .link{ width:100%; height:250px; display:block; z-index:10;}
+.lrtk .up{ display:block; width:120px; height:12px; background:url(../images/arrow.jpg) no-repeat left bottom; position:absolute; left:50%; bottom:0; z-index:20; margin-left:-60px;}
+.lrtk .down{ display:block; width:120px; height:12px; background:url(../images/arrow.jpg) no-repeat left top; position:absolute; left:50%; top:88px; z-index:20; margin-left:-60px;}

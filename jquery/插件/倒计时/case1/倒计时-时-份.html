@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script src="../../../jquery-1.11.2.js"></script>
+<div class="hs-time" stime="2015/03/15 14:50:00" etime="2017/3/24 13:02:00"  ></div>
+<script type="text/javascript">
+LoadTime();
+function LoadTime() {
+
+	$(".hs-time").each(
+		function(i) { 
+			var stime = $(this).attr("stime");
+			var etime = $(this).attr("etime");
+			var d = Date.parse(stime);
+			var today = new Date();
+			var time = d - today;
+			if (Math.floor(time) <= 0) {
+				var str = "";
+				d = Date.parse(etime);
+//				$(this).attr("stime", $(this).attr("etime"));
+				today = new Date();
+				time = d - today;
+				if(Math.floor(time) <= 0){
+					str = "活动已结束";
+				}else{
+					//var tday = Math.floor(time/ (1000 * 60 * 60 * 24)); 
+					var thour = Math.floor(time / (1000 * 60 * 60 * 24))*24 + Math.floor(time / (1000 * 60 * 60)) % 24;
+					if(thour < 10){
+						thour = "0" + thour;
+					}
+					var tminute = Math.floor(time / (1000 * 60)) % 60;
+					if(tminute < 10){
+						tminute = "0" + tminute;
+					}
+					var tsecond = Math.floor(time / 1000) % 60;
+					str = "还剩"
+							+ thour + "</cite>时<cite>" + tminute
+							+ "</cite>分<cite>" + tsecond
+							+ "</cite>秒";
+				}
+				$(this).html(str);
+			} else {
+					//var tday = Math.floor(time / (1000 * 60 * 60 * 24));
+					var thour = Math.floor(time / (1000 * 60 * 60 * 24))*24 + Math.floor(time / (1000 * 60 * 60)) % 24;
+					if(thour < 10){
+						thour = "0" + thour;
+					}
+					var tminute = Math.floor(time / (1000 * 60)) % 60;
+					if(tminute < 10){
+						tminute = "0" + tminute;
+					}
+					var tsecond = Math.floor(time / 1000) % 60;
+					str = "还剩" + thour
+							+ "</cite>时<cite>" + tminute
+							+ "</cite>分<cite>" + tsecond + "</cite>秒开始";
+					$(this).html(str);
+				}
+			});
+	setTimeout(LoadTime, 1000);
+}
+</script>
+</body>
+</html>

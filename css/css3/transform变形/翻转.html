@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+
+<style>
+.act{ display: block;width: 242px; height: 191px;}
+.act .nor-img{position:absolute;left:0;top:0;z-index:99;line-height:0;}
+.act .hover-img{position:absolute;left:0;top:0;z-index:98;line-height:0;}
+.act:hover .hover-img{z-index:100;}
+.act .hover-img{
+    transition: all 0.2s linear 10ms;
+}
+.act .nor-img{
+    transition: all 0.2s linear 10ms;
+}
+.act .hover-img2{
+    transition: all 0.5s linear 10ms;
+}
+.act .nor-img2{
+    transition: all 0.5s linear 10ms;
+}
+.act:hover .nor-img,.act:hover .hover-img,.act:hover .nor-img2,.act:hover .hover-img2{
+	transform:rotateX(180deg);
+	-ms-transform:rotateX(180deg); 	/* IE 9 */
+	-moz-transform:rotateX(180deg); 	/* Firefox */
+	-webkit-transform:rotateX(180deg); /* Safari 和 Chrome */
+	-o-transform:rotateX(180deg); 	/* Opera */
+}
+
+.act .hover-img img{
+	transform:rotateX(180deg);
+	-ms-transform:rotateX(180deg); 	/* IE 9 */
+	-moz-transform:rotateX(180deg); 	/* Firefox */
+	-webkit-transform:rotateX(180deg); /* Safari 和 Chrome */
+	-o-transform:rotateX(180deg); 	/* Opera */
+}
+</style>
+
+</head>
+<body>
+<div class="lk">
+  <a href="" class="act">
+  <div class="nor-img"><img src="http://d6.yihaodianimg.com/N05/M08/7D/06/CgQI0lRTLceAcpWwAABacHRjFV484900.jpg"></div>
+  <div class="hover-img"><img src="http://d8.yihaodianimg.com/V00/M00/2A/3E/CgQDsFRTXJSAVGFxAAA1RxvKA-872000.jpg"></div>
+  </a>
+</div>
+<script>
+	$(".act").hover(function() {
+		$(this).find('.nor-img').addClass('nor-img2');
+		$(this).find('.hover-img').addClass('hover-img2');
+	}, function() {
+		$(this).find('.nor-img').removeClass('nor-img2');
+		$(this).find('.hover-img').removeClass('hover-img2');
+	});
+</script>
+</body>
+</html>

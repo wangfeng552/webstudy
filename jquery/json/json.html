@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+</head>
+<body>
+JSON (JavaScript Object Notation)是一种轻量级的数据交换格式。一般用于提升网络传输速率。
+
+JSON 可以将 JavaScript 对象中表示的一组数据转换为字符串，然后就可以在函数之间轻松地传递这个字符串，或者在异步应用程序中将字符串从 Web 客户机传递给服务器端程序。
+这个字符串看起来有点儿古怪，但是JavaScript很容易解释它，而且 JSON 可以表示比"名称 / 值对"更复杂的结构。例如，可以表示数组和复杂的对象，而不仅仅是键和值的简单列表。
+
+<!--JSON语法
+JSON语法是JavaScript对象表示语法的子集
+	数据在键值对中
+	数据由逗号分隔
+	花挂号保存对象
+	方挂号保存数组
+
+JSON名称/值对
+	书写格式:名称/值对
+	名称值对组合中的名称写在前面（在双引号中），值对写在后面（在双引号中），中间用冒号隔开:
+	"name":"张三" 等价于这条javascript语句 name="张三"
+
+JSON 值
+	数字（整数或浮点数）
+	字符串（在双引号中）
+	逻辑值（true / false）
+	数组（在方括号中）
+	对象（在花括号中）
+	null-->
+
+
+<!--基础结构有2种
+
+json简单的说就是JavaScript中的对象和数组，所以这2种结构就是对象和数组，通过这2种结构可以表示各种复杂的结构
+
+	对象:对象在js中表示为"{}"括起来的内容，数据结构为{key:value,ley:value,...}的键值对的结构，在面向对象的语言中，key为对象的属性，value为对应的属性值，
+		 取值方法为 对象.key 获取属性值，这个属性值的类型可以是 数字、字符串、数组、对象几种。
+
+	数组:数组在js中是中括号"[]"括起来的内容，表示一组值，数据结构为["java","js","vb",...],取值方式用索引获取。-->
+
+<!--修改数据
+	正如可以用点号和方括号访问数据，也可以按照同样的方式轻松地修改数据
+	obj.people[0].name="北京"-->
+
+<script>
+var obj={
+	"people":[
+		{"name":"上海市", "age":"25", "sedf":"第三方"},
+		{"name":"是打发", "age":"25", "sedf":"第三方"},
+		{"name":"干活", "age":"25", "sedf":"第三方"}
+	]
+}
+
+</script>
+
+<script>
+//	JSON嵌套格式 多叉树
+	var city={
+		"name":"上海市",
+		"id":"0",
+		"content":[
+			{
+				"name":"奉贤区",
+				"id":"0_0",
+				"content":[
+					{
+						"name":"西渡",
+						"id":"0_0_0"
+					}
+				]
+			},
+			{
+				"name":"徐汇区",
+				"id":"0_1",
+				"content":[
+					{
+						"name":"龙华",
+						"id":"0_1_0"
+					}
+				]
+			}
+		]
+	}
+</script>
+
+</body>
+</html>
+

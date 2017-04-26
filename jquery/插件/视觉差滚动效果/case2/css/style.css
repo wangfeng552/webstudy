@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*公共样式*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td { margin: 0; padding: 0; border: none; }
+body { font-size: 12px; font-family:"Microsoft YaHei",Arial, Helvetica, sans-serif;; background: #fff; color: #2b2b2b; }
+body { margin: 0; min-width: 980px; padding: 0; }
+p, ul { font-size-adjust: 0.488; font-weight: 200; font-style: normal; }
+img { border: 0; }
+h1, #pixels { font-family: "Museo 900", Verdana, serif; font-size-adjust: 0.40; font-weight: 700; font-style: normal; }
+h2 { font-size-adjust: 0.531; font-weight: 500; font-style: normal; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style: normal; font-weight: normal; }
+ol, ul { list-style: none; }
+select, input, img { vertical-align: middle; }
+table { border-collapse: collapse; border-spacing: 0; }
+table, td, tr, th { font-size: 12px; }
+input:focus { outline: 0 none; }
+a:focus { outline: medium none; }
+a { text-decoration: none; cursor: pointer; }
+a:link { color: #004276; }
+a:visited { color: #004276; }
+a:hover { text-decoration: underline; color: #ff9c00; }
+fieldset, img { border: 0; }
+h1, h2, h3, h4, h5, h6 { font-size: 12px; font-weight: normal; }
+q:before, q:after { content: ''; }
+.clear { clear: both; height: 0; line-height: 0; font-size: 0; overflow: hidden; }
+.blank10 { clear: both; font-size: 0px; line-height: 0px; height: 10px; margin: 0px; padding: 0px; }
+.fb { font-weight: bold; }
+.f12 { font-size: 12px; }
+.f14 { font-size: 14px; }
+.left { float: left; }
+.right { float: right; }
+/* 公共图片*/
+/* color */
+.ccc {color:#ccc;}
+.eee {color:#eee;}
+.c555 {color:#555;}
+.c47 {color:#474747;}
+.c01 {color:#0E5B77;}
+
+#header .logo, .videoStart, .pub_tit, #about .about_logo, .num ol li, .istart, .navsub ul li i, .qrcode, .point { background: url(http://ev-digital.com/images/indexbg.png) no-repeat 30px 30px; }
+.navfixed { }
+#header { height: 60px; width: 100%; position: fixed; top: 0; left: 0; border-top: #21a6cc 1px solid; padding-top: 20px; z-index: 999;/*  background: #000000; -moz-opacity: 0.3; opacity: 0.3; filter: alpha(opacity=30); */ background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0 !important;/*实现FF背景透明，文字不透明*/ filter: Alpha(opacity=80); background: #000;/*实现IE背景透明*/ }
+#header .logo { float: left; position: relative; background-position: 0 0; width: 95px; height: 40px; overflow: hidden; margin-left: 5%; margin-right: 5%; display: inline; }
+/* 主导航 */
+
+.nav { height: 40px; line-height: 40px; color: #999; }
+.nav ul.mainnav li { float: left; width: 100px; font-size: 12px; font-weight: bold; }
+.nav ul.mainnav li i { display: none; }
+.nav ul.mainnav li:hover i, .nav ul.mainnav li.cur i { display: inline-block; }
+.nav ul.mainnav li a { text-align: center; color: #999; }
+.nav ul.mainnav li.cur a, .nav ul.mainnav li a:hover { text-decoration: none; color: #ccc; }
+#iconbar { margin-top: 5px; float: right; display: inline; }
+#iconbar li { float: left; position: relative; margin-right: 10px; overflow: hidden; }
+#iconbar .bj { background: url(http://ev-digital.com/images/tel-bj.png) no-repeat; }
+#iconbar a { text-decoration: none; outline: none; color: #d00000; display: block; width: 31px; height: 32px; cursor: pointer; margin: 0; }
+#iconbar span { width: 140px; height: 30px; position: absolute; display: none; line-height: 30px; padding-left: 10px; font-family: "微软雅黑"; font-size: 14px; color: #767676; }
+#iconbar img { vertical-align: top; }
+/* 副导航 */
+#nav { list-style: none; position: fixed; left: 20px; bottom: 100px; z-index: 999; }
+#nav li { margin: 0 0 15px 0; }
+#navs { position: absolute; right: 200px; bottom: 400px; width: 80px; height: 80px; line-height: 40px; list-style-type: none; margin: 0; padding: 0; text-align: center; color: #FFF; cursor: pointer; }
+#navs>li, #navs:after { position: absolute; left: 0; top: 0; width: 100%; height: 100%; border-radius: 50%; -webkit-border-radius: 50%; background-color: #4ECDC4; }
+#navs>li { transition: all .6s; -webkit-transition: all .6s; -moz-transition: .6s; }
+#navs:after { content: attr(data-close); z-index: 1; border-radius: 50%; -webkit-border-radius: 50%; }
+#navs.active:after { content: attr(data-open); }
+#navs a { width: 40px; height: 40px; display: inline-block; border-radius: 50%; -webkit-border-radius: 50%; text-decoration: none; color: #fff; font-size: 0.8em; }
+.float-left { float: left; margin: 0 0 0 20px; }
+.float-right { float: right; margin: 0 20px 0 0; }
+.center { font-size: 2.5em; padding: 80px 0; text-align: center; }
+/**/
+#home { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height:784px; overflow: hidden; padding-top: 0px; }
+#video { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height:689px; overflow: hidden; padding-top: 0px; }
+#about { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height: 726px; overflow: hidden; padding-top: 0px; }
+#service { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height: 800px; overflow: hidden; padding-top: 0px; }
+#partner { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height:683px; overflow: hidden; padding-top: 0px; }
+#fourth { position: relative; padding-bottom: 0px; margin: 0px auto; padding-left: 0px; width: 100%; padding-right: 0px; height:700px; overflow: hidden; padding-top: 0px; }
+.sprite { z-index: 200; position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; height: 1000px; top: 0px; padding-top: 0px; }
+.screen { z-index: 201; position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; height: 1000px; top: 0px; padding-top: 0px; }
+/*.screen .content { width: 280px; margin-left: 20%; margin-top: 10%; }
+.screen .content h1 { background: url(http://ev-digital.com/images/bg_content_border.png) no-repeat 0 0; padding-top: 35px; }
+.screen .content p { width: 275px; font-size: 13px; font-family: "DINProRegular" }*/
+/* #home,#partner{ background:#333;}
+#video,#service,#fourth{background:#000;} */
+#home { background:#0c0f14 url(../images/banner.jpg) 50% 0 no-repeat fixed; }
+#video { background:url(../images/banner2.jpg) no-repeat center top;}
+#about { background:url(../images/banner3.jpg) 50% 0 no-repeat fixed; }
+#service { background:#040404 url(http://ev-digital.com/images/bg_multimedia.jpg) 50% 0 no-repeat fixed; }
+#partner { background:url(../images/banner4.jpg) no-repeat center top;/* url(http://ev-digital.com/images/thirdBG.jpg) 50% 0 no-repeat fixed; */ }
+#fourth { background: #282828 url(http://ev-digital.com/images/contactus.png) 50% 0 no-repeat fixed; }
+#header { width: 100%; }
+/* #home { color: white; height: 800px; margin: 0; padding: 0; } */
+#home .ht01 { background:url(../images/bg2.png) 50% 240px no-repeat fixed; height:784px; margin: 0px auto; padding: 0; position: absolute; width: 1000px; z-index: 300; }
+#home .ht02 { background:url(../images/bg3.png) 50% 300px no-repeat fixed; height:784px; margin: 0px auto; padding: 0; position: absolute; width: 1000px; z-index: 200; }
+#home .ht03 { background:url(../images/bg4.png) 50% 520px no-repeat fixed; height:784px; margin: 0px auto; padding: 0; position: absolute; width: 1000px; z-index: 100; }
+#home .home_mouse{ background:url(../images/bg5.png) 50% 0px no-repeat fixed; height:800px; margin: 0px auto; padding: 0; position: relative; width: 60px; z-index: 500; display: block;  cursor: pointer;}
+/*video*/
+#video .screen .content { width: 100%; height: 2000px; margin-left: 0; margin-top: 0; padding-top: 0; background: none; }
+#video .screen #video-content { background: url(http://ev-digital.com/images/ajax-loader.gif) no-repeat 42% 50%; }
+#video .screen .csc-header { margin: auto; width: 900px; }
+#video .screen h1 { width: 275px; height: 45px; }
+/* -- Content-Slides [END] ----------------------------- */
+/* -- Project Thumbs ----------------------------- */
+#video .screen { position: relative; }
+#video .content { position: absolute; top: 100px; }
+#video-container { position: absolute; top: 376px; z-index: 100; width: 100%; height: 467px; }
+/* -- #thumbscreen */
+.thumbscreen-slides { width: 1184px; margin: auto; }
+#thumbscreen .pagination { display: none; /*position: fixed; top: 0; left: 0; z-index: 1000;*/ }
+#thumbscreen .prev { position: absolute; top: 395px; left: 0px; z-index: 250; width: 110px; height: 60px; display: none; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav.png) no-repeat 0 0;  }
+#thumbscreen .next { position: absolute; top: 395px; right: 0px; z-index: 250; width: 110px; height: 60px; display: none; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav.png) no-repeat 0 -180px; }
+#thumbscreen .prev:hover { background-position: 0 -60px; }
+#thumbscreen .prev:active { background-position: 0 -120px; }
+#thumbscreen .next:hover { background-position: 0 -240px; }
+#thumbscreen .next:active { background-position: 0 -300px; }
+/* -- .video-thumbnails */
+.video-thumbnails-wrap { width: 1184px; height: 1100px; margin: auto; }
+.video-thumbnails {}
+.video-div { clear: both; height:466px; display: none; }
+.video-thumbnails li { width:129px; height:72px;float:left; padding:10px 10px 0 0; }
+.video-thumbnails li a { width:129px; height:72px; display: block; position: relative; color: #fff; text-decoration: none; }
+.video-thumb-client { width:126px; height:69px; display: none; position: absolute; top:0px; left: 0; font-size:12px; font-family: "DINProRegular", Arial, sans-serif; font-weight: normal; padding:3px; line-height:18px;}
+.video-thumb-task { width:129px; display: none; position: absolute; top:69px; left: 0; font-size: 14px; font-family: Times, serif; font-weight: normal; font-style: italic; text-align: center; }
+.video-thumbnails a:hover { background: #000;opacity: 0.5;filter: progid:dximagetransform.microsoft.alpha(opacity=50);}
+.video-thumbnails a:hover .video-thumb-client,  .video-thumbnails a:hover .video-thumb-task { display: block;background: #000;opacity: 0.5;filter: progid:dximagetransform.microsoft.alpha(opacity=50); }
+/* -- Project Thumbs [END] ----------------------------- */
+/* -- Project Detail ----------------------------- */
+#content { height: 467px; }
+#video-wrap { width: 100%; height: 467px; background: url(http://ev-digital.com/images/bg_project_wrap.gif) repeat-x 0 0; }
+#video-content { position: relative; width: 899px; height: 467px; margin: 0 auto; }
+#video-slider { width: 899px; height: 467px; overflow: hidden; }
+.video-slide { width: 897px; height: 392px; padding: 25px 0 0 2px; }
+#video-content a.video-slider-close { position: absolute; top: 8px; right: 6px; color: #9e9c9c; font-size: 14px; font-family: Times, serif; font-weight: normal; font-style: italic; background: url(http://ev-digital.com/images/bg_video-slider_close.png) no-repeat 100% 2px; padding-right: 15px; height: 14px; width: 60px; text-align: right; }
+.video-slider-prev { position: absolute; top: 192px; left: -140px; width: 110px; height: 60px; display: block; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav_text.png) no-repeat 0 0; }
+.video-slider-next { position: absolute; top: 192px; right: -140px; width: 110px; height: 60px; display: block; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav_text.png) no-repeat 0 -180px; }
+.video-slider-prev:hover { background-position: 0 -60px; }
+.video-slider-prev:active { background-position: 0 -120px; }
+.video-slider-next:hover { background-position: 0 -240px; }
+.video-slider-next:active { background-position: 0 -300px; }
+.video-cycle { width: 701px; height: 417px; overflow: hidden; float: left; }
+.video-cycle li { width: 701px; height: 417px; }
+.bx-wrapper { box-shadow: 2px 2px 5px 0px #000000; -moz-box-shadow: 2px 2px 5px 0px #000000; -webkit-box-shadow: 2px 2px 5px #000000; }
+.bx-pager { position: absolute; top: -16px; right: 0; width: 40px; z-index: 2000; text-align: right; color: #7f7f7f; font-family: Arial, sans-serif; font-size: 11px; }
+.bx-pager .bx-pager-current { color: #fff; }
+.bx-prev { position: absolute; left: -2px; top: 0px; display: block; width: 100px; height: 417px; background: url(http://ev-digital.com/images/bg_video-cycle_nav.gif) no-repeat 0 182px; z-index: 2000; text-indent: -999em; }
+.bx-next { position: absolute; right: -2px; top: 0px; display: block; width: 100px; height: 417px; background: url(http://ev-digital.com/images/bg_video-cycle_nav.gif) no-repeat -100px 182px; z-index: 2000; text-indent: -999em; }
+.bx-prev:hover { background-position: 0 -238px; }
+.bx-next:hover { background-position: -100px -238px; }
+.video-info { float: right; width: 178px; height: 417px; }
+.video-info-text { /*height: 239px;*/ height: 246px; }
+.video-info h2 { /* height: 50px;  */ padding: 30px 0 15px 0; color: #fff; font-size: 18px; font-family: "DINProRegular", Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 22px; }
+.video-info h3 { /* height: 30px; */ padding-bottom: 10px; margin-bottom: 16px; background: url(http://ev-digital.com/images/bg_video-info_border.gif) no-repeat 0 100%; color: #fff; font-size: 14px; font-family: Times, serif; font-weight: normal; font-style: italic; }
+.video-info-text p { }
+#video .video-info p { width: 178px; font-family: Arial, sans-serif; color: #9e9c9c; font-size: 12px; line-height: 14px; padding-bottom: 12px; margin: 0; line-height: 1.5 }
+#video .video-info .manufactured p { color: #9e9c9c; font-size: 14px; padding: 0; font-family: Times, serif; font-weight: normal; font-style: italic; }
+.video-info .manufactured ul { margin-top: 3px; }
+.video-info .manufactured ul li { float: left; width: 15px; height: 15px; margin-right: 5px; text-indent: -999em; position: relative; }
+.ok-d-active { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat 0 0; }
+.ok-t-active { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat -20px 0; }
+.ok-l-active { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat -40px 0; }
+.ok-d-inactive { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat -60px 0; }
+.ok-t-inactive { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat -60px 0; }
+.ok-l-inactive { background: url(http://ev-digital.com/images/bg_manufactured.png) no-repeat -60px 0; }
+#tooltip { position: absolute; z-index: 1000; top: -34px; left: -3px; text-indent: 0; display: block; height: 26px; width: 59px; padding: 4px 8px; background: url(http://ev-digital.com/images/bg_tooltip.png) no-repeat 0px 100%; color: #000; white-space: nowrap; text-align: center; }
+#about .sprite1 { position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; background: url(http://ev-digital.com/images/about_frei01.png) fixed no-repeat center bottom; height: 1100px; top: 0px; padding-top: 0px; }
+#about .sprite { z-index: 202; background: url(http://ev-digital.com/images/about_sprite_main.png) fixed no-repeat center bottom;/* background: url(http://ev-digital.com/images/design_sprite_frei.png) 50% 0px no-repeat; */}
+#about .screen { background: url(http://ev-digital.com/images/about_frei02.png) 50% 120px no-repeat; }
+#about .screen .content { margin-top: 14%; margin-left: 68%; color: #fff; }
+#about .screen .content h1 { background-position: -300px 0; }
+#about .screen .content p { color: #c5b8ad; }
+/* #service { color: white; height: 800px; margin: 0 auto; overflow: hidden; padding: 0; } */
+#service .screen { background: url(http://ev-digital.com/images/bubbles.png) 0% 0 no-repeat fixed; height: 800px; }
+#service .setitle { background: url(http://ev-digital.com/images/servicetit_cn.png) 50% bottom no-repeat; height: 60px; padding-top: 100px; }
+#service .sprite { height: 800px; }
+#service .story { /* background: url('http://ev-digital.com/images/bg_multimedia_dots.gif') fixed; */ width: 100%; height: 800px; }
+#service .sprite1 { position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; background: url(http://ev-digital.com/images/ser_frei.png) fixed no-repeat right bottom; height: 800px; top: 0px; padding-top: 0px; }
+/* #partner { color: white; height: 650px; padding: 100px 0 0 0; } */
+#partner .story { margin: 0 auto; min-width: 980px; width: 1200px; }
+#partner .patitle { background: url(http://ev-digital.com/images/partnertit_cn.png) 50% bottom no-repeat; height: 60px; padding-top: 100px; }
+#partner .sprite1 { z-index: 201; position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; /* background: url(http://ev-digital.com/images/sector_frei.png) fixed no-repeat center 300px;  */height: 800px; top: 0px; padding-top: 0px; }
+#partner .sprite2 { z-index: 201; position: absolute; padding-bottom: 0px; padding-left: 0px; width: 100%; padding-right: 0px; /* background: url(http://ev-digital.com/images/sector_sprite_frei.png) fixed no-repeat center 435px;  */height: 800px; top: 0px; padding-top: 0px; }
+.carousel { width: 1200px; margin-top: 100px; overflow: hidden; text-align: center; z-index: 206 ;position: relative;}
+.imgbox { width: 1200px; overflow: hidden; max-height: 280px; margin: 0 auto; }
+.imgbox ul { float: left; width: 1200px; }
+.imgbox ul li { width: 135px; height: 130px; background: #fff; float: left; margin-right: 15px; margin-bottom: 15px; display: inline; text-align: center; overflow: hidden; -moz-opacity: 0.3; filter: alpha(opacity=30); opacity: 0.3 }
+.imgbox ul li:hover { -moz-opacity: 1; filter: alpha(opacity=100); opacity: 1; }
+.imgbox ul li img, .imgbox ul li span { vertical-align: middle; display: inline-block; }
+.imgbox ul li span { height: 100%; }
+/* #fourth { color: white; height: 800px; padding: 100px 0 0 0; } */
+#fourth .cutitle { background: url(http://ev-digital.com/images/contactTit_cn.png) 50% bottom no-repeat; height: 60px; padding-top: 100px; }
+#fourth .story { width: 1200px; }
+.contactInfo { background: url(http://ev-digital.com/images/contactOther_cn.png) no-repeat 0 0; position: relative; width: 700px; height: 170px; margin-left: 210px; margin-top: 135px; padding-top: 44px; padding-left: 60px; line-height: 35px; }
+.contactInfo #info { position: absolute; bottom: 8px; }
+.contactInfo #info span { display: inline-block; width: 225px; }
+.qrcode { background-position: -2px -340px; width: 184px; height: 184px; position: absolute; right: -130px; top: -125px; }
+#fifth { background: url(http://ev-digital.com/images/contactus.png) 50% 0 no-repeat fixed; height: 1000px; margin: 0 auto; padding: 40px 0 0 0; }
+.story { margin: 0 auto; min-width: 980px; width: 980px; }
+.story .float-left, .story .float-right { padding: 100px 0 0 0; position: relative; width: 350px; }
+/*ssss*/
+.pop-FixedBg { background: #000; filter: alpha(opacity=50); opacity: .5; position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 9998; }
+.pop-main { display: none; width: 400px; z-index: 9999; }
+.pop-main .pop-title { background: url(http://ev-digital.com/images/video.png) no-repeat 0px 0px; height: 51px; }
+.pop-main .pop-title span { float: right; font-size: 14px; font-weight: bold; font-family: Arial; }
+.pop-main .pop-content { background-color: #c5ccdd; padding: 10px; line-height: 25px; }
+.pop-main .pop-bottom { background: #FFF4F4; padding: 5px 10px; margin: 20px -10px -10px; border-top: #34724b 1px solid; }
+.pop-close { cursor: pointer; background: url(http://ev-digital.com/images/video.png) no-repeat -5px -81px; width: 23px; height: 23px; display: inline-block; margin-top: 30px; }
+#footer {border-top:#3e3e3e 1px solid; background:#282828;}
+#footer .footer_bt {height:50px;line-height:50px;border-top:#080808 1px solid;color:#a7a6a8;overflow:hidden;}
+#footer .footer_bt .share {width:210px; float:right;} 
+.w1200{width: 1200px; margin:0 auto;}
+#footer .footer_bt .bdsharebuttonbox {height:34px;overflow:hidden;padding-top:10px;}
+#footer .footer_bt .bdsharebuttonbox  a {-moz-opacity:0.4;filter:alpha(opacity=40);opacity:0.4;}
+#footer .footer_bt .bdsharebuttonbox  a:hover {-moz-opacity:1;filter:alpha(opacity=100);opacity:1;}
+#partner .slideprev { position: absolute; left: 65px;top: 370px; z-index: 250; width: 110px; height: 60px; display: block; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav.png) no-repeat 0 0; }
+#partner .slidenext { position: absolute; right: 80px;top: 370px; z-index: 250; width: 110px; height: 60px; display: block; text-indent: -999em; background: url(http://ev-digital.com/images/bg_video-slider_nav.png) no-repeat 0 -180px; }
+#partner .slideprev:hover { background-position: 0 -60px; }
+#partner .slideprev:active { background-position: 0 -120px; }
+#partner .slidenext:hover { background-position: 0 -240px; }
+#partner .slidenext:active { background-position: 0 -300px; }
+/*Layer*/
+.Smohan_Layer_Shade{position:fixed; _position:absolute; zoom:1; top:0; left:0; width:100%; height:100%; overflow:hidden; background:url(http://ev-digital.com/images/hei.png) repeat; z-index:99900;}
+.Smohan_Layer_box{ min-width:300px; height:auto; padding:20px; background:#ffffff; position:fixed; _position:absolute; top:50%; left:50%; overflow:hidden; z-index:99999;-moz-border-radius:20px;-webkit-border-radius:20px;
+border-radius:20px;}
+.Smohan_Layer_box h3{ display:block; width:100%; height:30px; line-height:30px; padding:0px 0px 10px 0px; margin:0; border-bottom:1px solid #cccccc; overflow:hidden;}
+.Smohan_Layer_box h3 .text{ float:left;font-size:16px; font-family:'Microsoft JhengHei','Microsoft YaHei', Arial, sans-serif; font-weight:600; color:#84c017; text-indent:0.5em; display:block;}
+.Smohan_Layer_box h3 .close{ display:block; width:30px; height:30px; background:url(/images/Smohan.layer.close.png) 0px 0px no-repeat; float:right;}
+.Smohan_Layer_box h3 .close:hover{background-position:0px -31px;}
+.Smohan_Layer_box .layer_content{ display:block; width:100%; height:100%; margin-top:10px; margin-bottom:10px; padding:0; overflow:hidden; position:relative;}
+.Smohan_Layer_box .layer_content .loading{ display:block; width:36px; height:36px; background:url(/images/load.gif) center center no-repeat; position:absolute; top:0; left:0;}
+/*popup*/
+#popup{ display:none; width:360px; height:400px;}
+#popup a{ display: block; width: 170px;height: 50px;line-height: 50px;margin: 3em auto;text-align: center;color: #FFF;font-size: 14px;font-size: 0.875rem;font-weight: bold;text-transform: uppercase;border-radius: 50em;background: #35a785;box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);}
+
+/*nav_wp*/
+.nav_wp{ width:100%; height:60px; line-height:55px; background:url(../images/bg1.png) repeat-x; z-index:997; position:fixed; top:0px;}
+.nav_menu{ width:1000px; margin:0 auto; position:relative; text-align:center;}
+.nav_menu span{ display:inline-block; padding:0 30px;}
+.nav_logo{ width:70px; height:72px; position:absolute; top:0px; left:440px;}
+.service{ width:1000px; margin:0 auto; position:relative;}
+/*tab*/
+.tab_menubox{ height:185px;}
+.tab_menubox li{float:left;display:block;width:128px;cursor:pointer;color:#333; text-align:center; line-height:40px; font-size:18px; margin-left:112px;}
+.tab_menubox li.hover {color:#f5821f;}
+.tab_menubox li img{-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;transition:all .3s ease-in-out;}
+.tab_menubox li img:hover{-moz-transform:scale(1.1); -webkit-transform:scale(1.1); -o-transform:scale(1.1);transform:scale(1.1);}
+.tab_content{ clear:both; width:390px; padding:85px 0 0 215px;}
+.tab{ padding-top:115px;}
+.tab_content1{font-size:24px;font-weight:bold;text-transform:uppercase;}
+.tab_content2{ padding-top:15px; line-height:24px;}
+.service_img1{ width:168px; height:190px; border-right:dotted 1px #333; position:absolute; top:350px; left:0px; padding-top:30px;}
+.service_img2{ width:342px; height:190px; border-left:dotted 1px #333; position:absolute; top:350px; right:0px; text-align:center;padding-top:30px;}
+.index_wp{ width:1000px; margin:0 auto;}
+.works_left{ width:630px; height:518px; background:url(../images/img1.png) no-repeat; float:left;}
+.works{ padding-top:108px;width:1100px; margin:0 auto;}
+/*第三频左侧焦点图*/
+.works_left1{ width:580px; height:329px; padding:25px 0 0 25px;}
+.slide-top .prev,.slide-top .next,.left-slide .prev,.left-slide .next{background: url(../images/slidelf_01.png) 0 0 no-repeat;}
+.slide-top{ width:580px; height:329px; overflow:hidden; position:relative;z-index:4; } 
+.slide-top .bd{ position:relative; height:100%; z-index:0;} 
+.slide-top .bd img{ width:580px; height:329px;} 
+.slide-top .prev,.slide-top .next { display: none;  width: 35px; height: 70px;  position: absolute; top: 130px; z-index:10; }
+.slide-top .prev { left: 0; }
+.slide-top .next { right: 0; background-position: right top; }
+.left-slide{ overflow:hidden; position:relative;  border:1px solid #E6E6E6; height: 142px; width: 748px;   } 
+.left-slide .bd ul{ overflow:hidden; zoom:1; } 
+.left-slide .bd ul li{ padding:0 1px 0 2px; width: 245px; height: 142px; border-right: 1px solid #E6E6E6; text-align:center; float:left;display:_inline;   } 
+.left-slide .bd ul li.nom{ border-right: 1px solid #fff;}
+.left-slide .bd ul li img{ width: 245px; height: 140px;}
+.left-slide .prev,.left-slide .next { display: none;  width: 35px; height: 70px;  position: absolute; top: 38px; z-index:10; }
+.left-slide .prev { left: 0; }
+.left-slide .next { right: 0; background-position: right top; }
+/*第三频右侧*/
+.works_right{ width:420px; padding-left:50px; float:left;}
+.ourwork{ width:418px; height:320px; position:relative; top: 80px;  overflow:hidden;  zoom:1;   }
+.ourwork .hd{ width:418px;  height:84px; position:absolute;  top:295px; }
+.ourwork .hd ul{ width: 60px; margin: 0 auto; overflow:hidden; zoom:1; }
+.ourwork .hd ul li{ float:left; _display:inline;cursor: pointer; text-align:center;background:url(../images/dian2.png) 0 0 no-repeat;  width: 10px; height: 10px; margin: 0 5px 0 0; }
+.ourwork .hd ul li.on{ background:url(../images/dian1.png) 0 0 no-repeat; }
+.ourwork .bd{ width:418px; position:relative;  }
+.ourwork .bd li{ position:relative; zoom:1; cursor:pointer; }
+.ourwork .bd .smpic-01{ float: left; width: 129px; height: 72px; margin: 0 15px 15px 0; position: relative;}
+.ourwork .bd .mr0{ margin-right: 0px;}
+.ourwork .bd .smpic-01 dd{ position: absolute;width: 129px; height: 72px;z-index: 10; background: url(../images/work_bg.png) 0 0 no-repeat; left: 0; top: 0; color: #fff;display: none; padding: 5px;}
+/*弹窗*/
+.hui_bg{ width:100%; height:100%;position: fixed; _position: absolute; left: 0; top: 0;z-index: 9999;opacity:0.7;filter:alpha(opacity=70); background:#000; display:none;}
+.tc{ width: 1200px; height:550px; position: fixed; _position: absolute; left: 50%; top: 50%; margin-left: -600px; margin-top: -275px; background: #fff;box-shadow: 0 0 5px #ccc;z-index: 10000; display: none;}
+.tc .w1000{ width: 900px; height: 550px; overflow: auto; overflow-x:hidden;  float: left;}
+.tc .w300{ width: 300px; height: 550px; overflow: hidden;float: left; position: relative;}
+.tc .w300 .close-tc{ width: 50px; height: 50px; background: url(../images/close.jpg) 0 0 no-repeat; display: inline-block; position: absolute;right: 0;top: 0;}
+.tc .w300 .info{ padding:50px 0 0 20px; height: 120px;}
+.tc .w300 .info h2{ font-size: 14px; height: 30px; font-weight: bold;}
+.tc .w300 .info p{ height: 20px; margin-bottom: 8px; color: #666;padding-left: 20px;}
+.tc .w300 .info .ico-1{ background: url(../images/ico_1.jpg) 0 2px no-repeat;}
+.tc .w300 .info .ico-2{ background: url(../images/ico_2.jpg) 0 2px no-repeat;}
+.tc .w300 .miaoshu{ padding:20px 20px 0; border-top: 1px solid #ccc;}
+.tc .w300 .miaoshu p{ line-height: 22px; text-indent: 2em;}
+
+.cl{ height:10px; line-height:1px; clear:both; font-size:0px;}
+.works_text1{font-size:60px;text-transform:uppercase; padding-top:25px;}
+.works_img{ padding-top:88px;}
+.footer_text1{font-size:60px;text-transform:uppercase;color:#fff;}
+.footer_text2{font-size:30px;text-transform:uppercase; padding-top:20px;color:#fff;}
+.footer_text3{font-size:18px;text-transform:uppercase; padding-top:10px;color:#fff;}
+.footer_wp{ text-align:center; padding-top:140px;}
+.footer_ct a{ color:#ccc;}
+.footer_ct span{ display:inline-block; padding:0 75px; line-height:30px;}
+.footer_ct{ padding-top:80px;}
+.footer_bot{ text-align:center; padding-top:135px;}
+.footer_bot span{ color:#999;}
+

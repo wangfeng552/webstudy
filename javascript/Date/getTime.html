@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+Date对象用于处理日期和时间
+<script>
+	var d=new Date(); 	//Date 对象会自动把当前日期和时间保存为其初始值。
+	d.getFullYear()   	//=>2016  	从 Date 对象以四位数字返回年份
+	d.getMonth()      	//=>7     	从 Date 对象返回月份 (0 ~ 11)。
+	d.getDate()       	//=>31		从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+	d.getDay()       	//=>3		从 Date 对象返回一周中的某一天 (0 ~ 6)。
+	d.getHours()		//=>9 		返回 Date 对象的小时 (0 ~ 23)。
+	d.getMinutes()		//=>53		返回 Date 对象的分钟 (0~59)
+	d.getSeconds()		//=>25		返回 Date 对象的秒数 (0~59)
+	d.getMilliseconds()	//=>25		返回 Date 对象的毫秒 (0~999)
+	d.getTime()			//=>14726..	返回 1970 年 1 月 1 日至今的毫秒数。
+	d.getTimezoneOffset()//-480		返回本地时间与格林威治标准时间 (GMT) 的分钟差。
+</script>
+</body>
+</html>

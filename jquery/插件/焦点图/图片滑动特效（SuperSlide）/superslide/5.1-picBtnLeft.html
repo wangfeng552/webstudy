@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+.picBtnLeft{ width:467px; height:313px; border:1px solid #ccc; padding:5px;  position:relative;  overflow:hidden;  zoom:1;   }
+.picBtnLeft .hd{ width:467px;  height:84px; position:absolute;  top:240px; }
+.picBtnLeft .hd ul{ width:480px;  overflow:hidden; zoom:1; }
+.picBtnLeft .hd ul li{ padding-top:5px; float:left; _display:inline; text-align:center;  }
+.picBtnLeft .hd ul li img{ width:105px; height:65px; border:4px solid #ddd; cursor:pointer; margin-right:5px;   }
+.picBtnLeft .hd ul li.on{ background:url("images/icoUp.gif") no-repeat center 0; }
+.picBtnLeft .hd ul li.on img{ border-color:#f60;  }
+.picBtnLeft .bd{ width:467px;  height:230px; position:relative;  }
+.picBtnLeft .bd img{ width:467px; height:230px;  }
+.picBtnLeft .bd li{ position:relative; zoom:1; }
+.picBtnLeft .bd li .pic{ position:relative; z-index:0; line-height:0px;  }
+.picBtnLeft .bd li .bg{ display:none;  width:467px; height:30px; position:absolute; left:0; bottom:0; z-index:1;  background:#000; filter:alpha(opacity=60);opacity:0.6;    }
+.picBtnLeft .bd li .title{ display:none;  width:467px; height:30px; line-height:30px; left:0; bottom:0;   position:absolute; z-index:2;  }
+</style>
+
+</head>
+<body>
+<div class="picBtnLeft">
+	<div class="hd">
+		<ul>
+			<li><img src="images/ad1.jpg" /></li>
+			<li><img src="images/ad2.jpg" /></li>
+			<li><img src="images/ad3.jpg" /></li>
+			<li><img src="images/ad4.jpg" /></li>
+		</ul>
+	</div>
+	<div class="bd">
+		<ul>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+				<div class="title"><a href="">效果图1</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+				<div class="title"><a href="">效果图2</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+				<div class="title"><a href="">效果图3</a></div>
+			</li>
+			<li>
+				<div class="bg"></div>
+				<div class="pic"><a href=""><img src="images/ad4.jpg" /></a></div>
+				<div class="title"><a href="">效果图4</a></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">$(".picBtnLeft").slide({ mainCell:".bd ul",effect:"left",autoPlay:true });</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div class="app" >
+	<div>{{name}}</div>
+	<p v-html="href"></p> <!--绑定纯html-->
+
+	<a :href="href">baidu</a>
+	<input type="button" :disabled="a" value="提交"><!--	v-bind: true会返回disabled-->
+	<input type="button" :disabled="b" value="提交">
+
+	<div>{{name+3}}</div> <!--js支持加减乘除运算-->
+	<div>{{a?"yes":"no"}}</div> <!--js支持三目运算符-->
+	<a :href="'http://'+link">123123123132</a> <!--js支持字符串拼接-->
+</div>
+<script>
+	var vm=new Vue({
+		el:".app",
+		data:{
+		    href:"http://www.baidu.com",
+			a:true,
+			b:false,
+			name:123,
+			link:"www.baidu.com"
+		}
+	})
+</script>
+</body>
+</html>

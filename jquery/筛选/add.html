@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+
+<!--案例一-->
+<style>
+div { width:60px; height:60px; margin:10px; float:left; }
+p { clear:left; font-weight:bold; font-size:16px; color:blue; margin:0 10px; padding:2px; }
+</style>
+
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<p>Added this… (notice no border)</p>
+
+<script>
+$("div").css("border", "2px solid red").add("p").css("background", "yellow");
+//这里的add("p")相当于和的意思，就是说$("div")的css和p的css。这里注意的是div是有边框的。而p没有。
+</script>
+
+<!--案例二-->
+<p class="p1">diadsf</p>
+<span>第三方</span>
+<script>
+$(".p1").add("span").css("background","red")
+//	p和span的css，相当于
+//	$(".p1,span").css("background","yellow");
+</script>
+
+</body>
+</html>
+

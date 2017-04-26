@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<!-- 1 、半透明效果可以使用 css3 中的 opacity 属性，在低版本的IE浏览器中使用IE的alpha 滤镜。代码:
+.opacity{ opacity:0.3; filter: alpha(opacity=30); background-color:#000; }
+2 、要覆盖整个可视区域通常的做法是:
+html,body{ height:100%}
+.mask{height:100%;width:100%;}
+但是这样做当内容超过一屏时只有IE6下显示的效果是我们所期望的，在其他浏览器中首屏以下的没能被遮盖住，为了兼容其他浏览器我们可以使用position:fixed; 来解决这个问题 -->
+
+<div class="mask opacity"></div>
+<style>
+html,body{ height:100%; margin:0; padding:0}
+.mask{height:100%; width:100%; position:fixed; _position:absolute; top:0; z-index:1000; }
+.opacity{ opacity:0.3; filter: alpha(opacity=30); background:#000; }
+</style>
+</body>
+</html>

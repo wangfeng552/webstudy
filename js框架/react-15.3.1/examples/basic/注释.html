@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>注释</title>
+</head>
+<body>
+<script src="../../build/react.js"></script>
+<script src="../../build/react-dom.js"></script>
+<script src="../../build/browser.min.js"></script>
+
+React的jsx语法中，书写注释只能书写在插值符号中，并且是多行注释
+
+<div id="zs1"></div>
+<div id="zs2"></div>
+
+<script type="text/babel">
+    var name=["张三","李四","slisy"];
+    ReactDOM.render(
+    <div>
+    {/* 子节点
+        name.map(function(name){
+                return <div>hello,{name}!</div>
+            })*/
+    }
+    </div>,
+            document.getElementById("zs1")
+    )
+</script>
+<script type="text/babel">
+    var BaseCar=React.createClass({
+        render: function () {
+            return <h2 /*className='wf' 内联属性*/>你们好</h2>;
+        }
+    })
+    ReactDOM.render(
+            <BaseCar/>,
+            document.getElementById("zs2")
+    )
+</script>
+</body>
+</html>

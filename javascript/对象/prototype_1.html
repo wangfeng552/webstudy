@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>prototype原型继承</title>
+</head>
+<!--网址http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html-->
+
+<!--案例1-->
+<!-- A.prototype = new B();
+理解prototype不应把它和继承混淆。A的prototype为B的一个实例，可以理解A将B中的方法和属性全部克隆了一遍。
+A能使用B的方法和属性。这里强调的是克隆而不是继承。可以出现这种情况：A的prototype是B的实例，同时B的prototype也是A的实例。-->
+<script>
+	function a(){
+		this.showName=function(){alert("11111111")}
+	}
+	function b(){}
+	b.prototype=new a();// b是以a的一个实例为原型克隆创建的;
+	var peopel=new b();
+	peopel.showName()
+</script>
+
+<!--案例2-->
+<!--那么就会有一个问题，如果b中本身包含有一个与showName的方法同名的方法会怎么样？-->
+<script>
+	function a(){
+		this.showName=function(){alert("111111111")}
+	}
+	function b(){
+		this.showName=function(){alert("222222")}
+	}
+	b.prototype=new a();
+	var instance =new b();
+	instance.showName() 	//=>222222
+	//实验证明：函数运行时会先去本体的函数中去找，如果找到则运行，找不到则去prototype中寻找函数。或者理解为prototype不会克隆同名函数。
+</script>
+
+<!--案例3-->
+<!--如果我想使用b的一个实例instance调用a的对象方法showMsg怎么办？-->
+<script>
+	function a(){
+		this.showName=function(){alert("111111111")}
+	}
+	function b(){
+		this.showName=function(){alert("222222")}
+	}
+	b.prototype=new a();
+	var instance =new b();
+	instance.showName()
+
+	var basinstance=new a();
+	basinstance.showName.call(instance);  //将instance当做baseinstance来调用，调用它的对象方法showMsg
+</script>
+</body>
+</html>

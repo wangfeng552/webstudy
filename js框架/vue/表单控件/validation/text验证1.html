@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+	<script src="../../js/vue.js"></script>
+</head>
+<body>
+<style>
+    .mk{ height: 3000px; background-color: #00a2d4}
+    .hs{height: 200px; background-color: #fff;}
+</style>
+<div class="mk">
+    <input type="text" v-on:blur="checkval" v-model.number="name">
+    <div class="mk" v-show="a">{{error}}</div>
+</div>
+<div class="hs" id="aa">123123</div>
+<div class="mk"></div>
+<script>
+    var vm=new Vue({
+        el:".mk",
+        data:{
+            name:"",
+            a:false,
+            error:"错误1"
+        },
+        methods:{
+            checkval(){
+                if(this.name==""){
+                    this.a=true;
+                    this.error="错误1";
+                    document.body.scrollTop=document.getElementById("aa").offsetTop
+                }else if(!(/^1\d{10}$/.test(this.name))){
+                    this.a=true;
+                    this.error="错误2"
+                }
+                else{
+                    this.a=false;
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

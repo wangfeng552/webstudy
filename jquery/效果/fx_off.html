@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title></title>
+<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.fx.off=true; 把这个属性设置为true可以立即关闭所有动画(所有效果会立即执行完毕)
+你在配置比较低的电脑上使用jQuery。
+* 你的一些用户由于动画效果而遇到了 可访问性问题
+当把这个属性设成false之后，可以重新开启所有动画
+-->
+<style> .mk{ width: 100px; background: #ccc; height: 50px;} </style>
+<button class="bt1">点击</button>
+<div class="mk">1</div>
+<script>
+(function($) {
+//点击按钮后div元素的几个不同属性一同变化
+	$.fx.off=true;		//关闭所有动画
+//	$.fx.interval=100;设置动画的显示帧速
+	$(".bt1").on("click",function(){
+		$(".mk").animate({
+			width:"+50px",
+			height:"100px"
+		}, 3000)
+	})
+})(jQuery);
+</script>
+</body>
+</html>
+

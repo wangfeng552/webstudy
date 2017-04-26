@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title></title>
+<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.mk{ width: 100px; background: #ccc; height: 50px;}
+.block{position: relative;}
+</style>
+<!--案例一-->
+<button class="bt1">点击</button>
+<button class="btover">stop</button>
+<div class="mk">1</div>
+
+<!--案例二-->
+<button id="left">«</button> <button id="right">»</button>
+<div class="block">111111111111</div>
+
+<!--案例三-->
+<button class="bt2">点击</button>
+<div class="to">111111</div>
+<script>
+(function($) {
+//点击按钮后div元素的几个不同属性一同变化
+	$(".bt1").on("click",function(){
+		$(".mk").animate({
+			width:"+50px",
+			height:"100px"
+		}, 3000)
+	})
+	 $(".btover").click(function(){
+//		 $(".mk").stop();			//=>停止当前正在运行的动画
+		 $(".mk").stop(true,true);	//=>直接完成动画
+	 })
+
+//让指定元素左右移动
+	$("#right").click(function(){
+		$(".block").animate({
+			left: '+10px',
+			opacity:"1"
+		}, "slow")
+	});
+	$("#left").click(function(){
+		$(".block").animate({
+			left: '-10px',
+			opacity:"0"
+		}, "slow")
+	});
+
+//在600毫秒内切换段落的高度和透明度
+	$(".bt2").click(function(){
+		$(".to").animate({
+			hight:"toggle",
+			opacity:"toggle"
+		},"slow")
+	})
+})(jQuery);
+</script>
+</body>
+</html>
+

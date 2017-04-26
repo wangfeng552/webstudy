@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<title>文字超出....</title>
+</head>
+
+<body>
+<!-- case1 -->
+<style>
+.case1{ width: 100px; background: #cde; overflow: hidden; text-overflow:ellipsis; white-space: nowrap; margin-bottom: 10px;}
+.zxx_text_overflow{ width: 100px;}
+</style>
+<div class="case1">地方撒旦法撒东方红东方化工，地方撒旦法撒东方红东方化工，地方撒旦法撒东方红东方化工，地方</div>
+
+
+<!-- case2 jquery  -->
+<div class="zxx_text_overflow">地方撒旦法撒东方红东方化工，地方撒旦法撒东方红东方化工，地方撒旦法撒东方红东方化工，地方撒旦法撒东方红东方化工</div>
+<script>
+    $(document).ready(function(){
+//限制字符个数
+$(".zxx_text_overflow").each(function(){
+var maxwidth=23;
+if($(this).text().length>maxwidth){
+$(this).text($(this).text().substring(0,maxwidth));
+$(this).html($(this).html()+'…');
+}
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+	<title>Document</title>
+    <script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!-- 下拉列表多选切换     -->
+<style>
+ul,li,p{margin: 0;}
+li{list-style: none;}
+.drop_layout{ position: relative; z-index: 8}
+.drop_layout .topdrop_down{position: relative; z-index: 10; height: 4.4rem; background: #fff; margin-bottom: 0.5rem; font-size: 1.4rem;}
+.drop_layout .topdrop_down li{ width: 50%; float: left; text-align: center; position: relative;}
+.drop_layout .topdrop_down li a{ display: inline-block; width: 16rem; line-height: 4.4rem; color: #333;}
+.drop_layout .topdrop_down li.active a{ color: #f60;}
+.drop_layout .topdrop_down li a:after{ content: ""; position: absolute;right: 4rem;top: 2rem; border-color: #333 transparent transparent;border-width: 0.4rem ;border-style: solid dashed dashed;}
+.drop_layout .topdrop_down li.active a:after{ border-color: #f60 transparent transparent;  -webkit-transition: -webkit-transform .2s ease-in; -moz-transition: -moz-transform .2s ease-in; -o-transition: -o-transform .2s ease-in; transition: transform .2s ease-in; -moz-transform: rotate(180deg); -moz-transform-origin: 50% 30%; -webkit-transform: rotate(180deg); -webkit-transform-origin: 50% 30%; -o-transform: rotate(180deg); -o-transform-origin: 50% 30%; transform: rotate(180deg); transform-origin: 50% 30% }
+.drop_layout .pull_down_module{position: relative; z-index: 9;}
+.drop_layout .drop_list{ position: absolute; top: -40rem; left: 0; background: #fff; width: 32rem; text-indent: 6rem; z-index: 50; display: block;}
+.drop_layout .drop_list li{ border-top: 0.1rem #e7e7e7 solid ; line-height: 4rem; font-size: 1.4rem;}
+.drop_layout .drop_list li.active{ color: #f60;}
+.bg{position: fixed;width: 100%; height: 100%; background: rgba(0,0,0,0.5);z-index: 5;}
+</style>
+<div class="drop_layout">
+                    <div class="topdrop_down">
+                        <ul>
+                            <li><a href="">众筹状态</a></li>
+                            <li><a href="">项目类型</a></li>
+                        </ul>
+                    </div>
+                    <div class="pull_down_module">
+                        <div class="drop_list">
+                            <ul>
+                                <li>全部状态</li>
+                                <li>预热中</li>
+                                <li class="active">众筹中</li>
+                                <li>众筹成功</li>
+                                <li>众筹失败</li>
+                            </ul>
+                        </div>
+                        <div class="drop_list">
+                            <ul>
+                                <li>全部分类</li>
+                                <li>科技</li>
+                                <li>健康</li>
+                                <li class="active">智能</li>
+                                <li>家电</li>
+                                <li>创意</li>
+                                <li>其他</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+<script>
+    /*状态选择*/
+    var tDown=$(".topdrop_down"),
+            topDropLi=tDown.find('li'),
+            topLiA=topDropLi.find('a'),
+            bgfix=$(".bg"),
+            pulDowMod=$(".pull_down_module").find('.drop_list');
+
+    topLiA.click(function(event) {
+        event.preventDefault();
+        var parLi=$(this).parent("li");
+        var index=parLi.index();
+        if(parLi.hasClass('active')){
+            pulDowMod.animate({top:"-40rem"},500);
+            parLi.removeClass('active').siblings().removeClass('active');
+            bgfix.hide()
+        }else{
+            parLi.addClass('active').siblings().removeClass('active');
+            pulDowMod.animate({top:"-40rem"},500);
+            pulDowMod.eq(index).show().animate({top:"-1rem"},500).siblings().hide();
+            bgfix.show()
+        }
+    });
+    pulDowMod.eq(0).find("li").click(function() {
+        var a1=$(this).html();
+        topLiA.eq(0).html(a1);
+        pulDowMod.animate({top:"-40rem"},500)
+        topDropLi.removeClass('active');
+        $(this).addClass('active').siblings().removeClass('active');
+        bgfix.hide();
+    });
+    pulDowMod.eq(1).find("li").click(function() {
+        var a1=$(this).html();
+        topLiA.eq(1).html(a1);
+        pulDowMod.animate({top:"-40rem"},500);
+        topDropLi.removeClass('active');
+        $(this).addClass('active').siblings().removeClass('active');
+        bgfix.hide();
+    });
+    $(document).click(function(event) {
+     var $target=$(event.target);
+     if($target.parents(".drop_layout").length==0){
+     pulDowMod.animate({top:"-40rem"},500);
+     topDropLi.removeClass('active');
+     }
+     });
+    bgfix.click(function(){
+        pulDowMod.hide();
+        bgfix.hide();
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--radio-->
+<form action="">
+    <div class="mk">
+        <input type="radio" name="k0" value="aa">
+        <input type="radio" name="k0" value="bb">
+        <input type="radio" name="k0" value="cc">
+    </div>
+    <a href="" class="btn">提交</a>
+</form>
+<script>
+    $(".btn").on("click",function(e){
+        e.preventDefault();
+        var mklength=$(".mk").length;
+        for(var i=0;i<mklength;i++){
+            var val=$('input:radio[name=k'+i+']:checked').val();
+            if(val==null){
+                alert("什么也没选中!");
+                return false;
+            }
+            else{
+                alert(val);
+            }
+        }
+    })
+</script>
+
+<!--checkbox-->
+<form>
+    <input type="checkbox" name="newsletter" checked="checked" value="Daily" />
+    <input type="checkbox" name="newsletter" value="Weekly" />
+    <input type="checkbox" name="newsletter" checked="checked" value="Monthly" />
+</form>
+<script>
+    var arr=[]
+    $("input:checked").each(function(){
+        arr.push($(this).val())
+    })
+</script>
+
+
+<!--下拉框-->
+<select name="" id="" class="select">
+    <option value="1">上海</option>
+    <option value="2">北京</option>
+    <option value="3">新疆</option>
+</select>
+<a href="" class="sel">选则</a>
+<script>
+    $(".sel").on("click",function (e) {
+        e.preventDefault();
+        console.log($(".select option:selected").val())
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+</head>
+<body>
+<script>
+document.documentElement				//是整个节点树的根节点root，即<html> 标签
+document.body							//body是DOM对象里的body子节点，即 <body> 标签；
+var id=document.getElementById("id")	//返回对拥有指定 ID 的第一个对象的引用。
+document.getElementsByName()			//返回带有指定名称的对象的集合。 查询元素的 name 属性
+document.getElementsByTagName()			//返回带有指定标签名的对象集合
+
+
+var div=document.createElement("div")		//创建一个div标签对象
+	div.innerHTML="插入内容"
+	div.style.color="blue";
+	script=document.createElement("script")	//创建script标签
+	script.setAttribute("src",url)			//添加指定的属性，并为其赋指定的值		ie9+
+id.appendChild(div) 						//方法在节点的子节点列表末添加新的子节点。
+id.insertBefore(div,null) 					//方法在节点的子节点列表任意位置插入新的节点。
+
+
+var para=document.createElement("p");
+var node=document.createTextNode("这是新段落。");//创建了一个文本节点
+para.appendChild(node);
+
+//	删除元素 您必须首先获得该元素的父元素
+var parent=document.getElementById("div1");
+var child=document.getElementById("p1");
+parent.removeChild(child);
+</script>
+
+</body>
+</html>
+

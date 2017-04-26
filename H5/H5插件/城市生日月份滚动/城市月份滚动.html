@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="lt-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="width=device-width,initial-scale=0.8, maximum-scale=0.8, minimum-scale=0.8, user-scalable=no">
+    <title>城市月份滚动</title>
+    <!--全局样式-->
+    <link rel="stylesheet" href="css/global.css">
+
+    <!--月份-->
+    <link rel="stylesheet" href="css/mdatetimer.css">
+    <script src="js/zepto.min.js"></script>
+    <script src="js/mdatetimer.js"></script>
+    <!--<script src="js/jquery-1.11.2.js"></script>-->
+
+    <!--城市-->
+    <link rel="stylesheet" href="css/LArea.css">
+    <script src="js/LAreaData1.js"></script>
+    <script src="js/LArea.js"></script>
+
+    <script>
+        !function(win) {
+            var dom = win.document, domEle = dom.documentElement;
+            function resize() {
+                var domWidth = domEle.getBoundingClientRect().width;
+                if(domWidth>=640){
+                    win.rem = 20;
+                }else{
+                    win.rem = domWidth / 640*20;
+                }
+                domEle.style.fontSize = win.rem + "px";
+            }
+            win.addEventListener("resize", function() {
+                resize();
+            }, false);
+            resize();
+        }(window);
+    </script>
+</head>
+<body>
+<div class="pagewrapper">
+    <ul class="clearfix">
+        <li>
+            <label>生日 </label>
+            <input id="picktime"  placeholder="请输入您的生日" class="username" value="" readonly="readonly">
+            <script type="text/javascript">
+                $('#picktime').mdatetimer({
+                    mode : 1,
+                    format : 2,
+                    years : [1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017,2018], //年份数组
+                    nowbtn : false,
+                    onOk : function(){
+                        //alert('OK');
+                    },  //点击确定时添加额外的执行函数 默认null
+                    onCancel : function(){
+//                                    alert('A');
+                    } //点击取消时添加额外的执行函数 默认null
+                });
+            </script>
+        </li>
+        <li>
+            <label>城市&emsp;</label>
+            <input id="citylayout" type="text" readonly="" placeholder="选择城市"  value=""/>
+            <input id="cityvalue1" type="hidden" value="20,234,504"/>
+            <script>
+                var area1 = new LArea();
+                area1.init({
+                    'trigger': '#citylayout', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+                    'valueTo': '#cityvalue1', //选择完毕后id属性输出到该位置
+                    'keys': {
+                        id: 'id',
+                        name: 'name'
+                    }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+                    'type': 1, //数据源类型
+                    'data': LAreaData //数据源
+                });
+                area1.value=[25,0,0];//控制初始位置，注意：该方法并不会影响到input的value
+            </script>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

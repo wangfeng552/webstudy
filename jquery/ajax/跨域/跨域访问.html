@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>跨域访问</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--1.-->
+remote.js文件代码如下:alert('我是远程文件');
+<script type="text/javascript" src="http://remoteserver.com/remote.js"></script>
+<!--毫无疑问，页面将会弹出一个提示窗体，显示跨域调用成功。-->
+
+
+<!--2.现在我们在jsonp.html页面定义一个函数，然后在远程remote.js中传入数据进行调用-->
+<script>
+	var localHandler=function(data){
+		data.result
+	}
+</script>
+<script type="text/javascript" src="http://remoteserver.com/remote.js"></script>
+remote.js文件代码如下：localHandler({"result":"我是远程js带来的数据"});
+<!--运行之后查看结果，页面成功弹出提示窗口，显示本地函数被跨域的远程js调用成功，并且还接收到了远程js带来的数据。很欣喜，跨域远程获取数据的目的基本实现了，
+但是又一个问题出现了，我怎么让远程js知道它应该调用的本地函数叫什么名字呢？毕竟是jsonp的服务者都要面对很多服务对象，而这些服务对象各自的本地函数都不
+相同啊？我们接着往下看。-->
+
+
+<!--3.-->
+<script type="text/javascript">
+	// 得到航班信息查询结果后的回调函数
+	var flightHandler = function(data){
+		alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+	};
+	// 提供jsonp服务的url地址（不管是什么类型的地址，最终生成的返回值都是一段javascript代码）
+	var url = "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998&callback=flightHandler";
+	// 创建script标签，设置其属性
+	var script = document.createElement('script');
+	script.setAttribute('src', url);
+	// 把script标签加入head，此时调用开始
+	document.getElementsByTagName('head')[0].appendChild(script);
+</script>
+<!--这次的代码变化比较大，不再直接把远程js文件写死，而是编码实现动态查询，而这也正是jsonp客户端实现的核心部分，本例中的重点也就在于如何完成jsonp调用的全过程。
+我们看到调用的url中传递了一个code参数，告诉服务器我要查的是CA1998次航班的信息，而callback参数则告诉服务器，我的本地回调函数叫做flightHandler，所以请把查询
+结果传入这个函数中进行调用。
+OK，服务器很聪明，这个叫做flightResult.aspx的页面生成了一段这样的代码提供给jsonp.html（服务端的实现这里就不演示了，与你选用的语言无关，说到底就是拼接字符串）：
+flightHandler({
+	"code": "CA1998",
+	"price": 1780,
+	"tickets": 5
+});-->
+<script>
+	var obj=[{"name":"暂时干"},{"name":"kjl"},{"name":"111"},{"name":"222"},{"name":"333"}];
+	var jsonpCallBack=function(data){
+		for(var k,i=0;i<data.length;i++ ){
+			for(k in data[i]){
+				console.log(data[i][k])
+				if(i==2) return false;
+			}
+		}
+	}
+	jsonpCallBack(obj)
+</script>
+
+
+<!--jquery方法-->
+<script type="text/javascript">
+		/*
+		 //简写形式，效果相同
+		 $.getJSON("http://app.example.com/base/json.do?sid=1494&busiId=101&jsonpCallback=?",
+		 function(data){
+		 $("#showcontent").text("Result:"+data.result)
+		 });
+		 */
+		$.ajax({
+			type : "get",
+			async:false,
+//			url : "http://flightQuery.com/jsonp/flightResult.aspx?code=CA1998",
+			url:"ceshi.js",
+			dataType : "jsonp",//数据类型为jsonp
+			jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+			jsonpCallback:"flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+			success: function(json){
+//				alert('您查询到航班信息：票价： ' + json.price + ' 元，余票： ' + json.tickets + ' 张。');
+				console.log(json)
+			},
+			error:function (XMLHttpRequest, textStatus, errorThrown) {
+				// 通常 textStatus 和 errorThrown 之中
+				// 只有一个会包含信息
+				this; // 调用本次AJAX请求时传递的options参数
+			}
+		});
+</script>
+<body>
+<div id="showcontent">Result:</div>
+</body>
+</html>
+

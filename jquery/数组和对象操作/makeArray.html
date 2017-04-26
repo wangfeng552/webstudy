@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.makeArray(obj) 将类数组对象转换为真正的数组对象。-->
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<script>
+var arr= $.makeArray($("div"))
+arr.reverse();
+
+
+我们常用的jQuery对象,NodeList对象,arguments对象也都是类数组对象
+// jQuery对象也是一个类数组对象
+var $p = $("p");
+var arr1 = $.makeArray( $p );
+$p instanceof Array ; // false
+arr1 instanceof Array ; // true
+
+// NodeList对象也是一个类数组对象
+var p = document.getElementsByTagName("p");
+var arr2 = $.makeArray( p );
+p instanceof Array ; // false
+arr2 instanceof Array ; // true
+
+function foo(a, b){
+	// arguments对象也是一个类数组对象
+	var arr3 = $.makeArray( arguments );
+	arguments instanceof Array ; // false
+	arr3 instanceof Array ; // true
+}
+</script>
+
+<!--案例一-->
+<div class="nk">
+	<ul>
+		<li>sadfasdf</li>
+		<li>奥迪</li>
+		<li>本次</li>
+		<li>发送</li>
+	</ul>
+</div>
+<script>
+	var html="";
+	var arr= $.makeArray($(".nk li"));
+	for(var i=0;i<arr.length;i++){
+		if(i<(arr.length-1)){
+			html += arr[i].innerHTML+',';
+		}
+		else if(i==(arr.length-1)){
+			html += arr[i].innerHTML;
+		}
+	}
+	alert(html)
+</script>
+</body>
+</html>
+

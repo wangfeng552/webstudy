@@ -1,0 +1,388 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 8]> <html class="lt-ie8"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,maximum-scale=0.8, minimum-scale=0.8, initial-scale=0.8,user-scalable=no">
+	<title>中国平安众筹网</title>
+	<link rel="icon" href="https://static.zhong.com/pc/skin/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://static.zhong.com/m/skin/css/global.css?20170328" />
+	<link rel="stylesheet" href="https://static.zhong.com/m/skin/css/style.css?20170328" />
+	<link rel="stylesheet" href="https://static.zhong.com/m/skin/css/house.css?20170328"/>
+	<script src="https://static.zhong.com/m/skin/js/zepto.min.js?20170328"></script>
+</head>
+<body>
+<div class="pagewrapper">
+	<div class="header_page custom_header_page">
+		<span>注册 </span> <a class="back tracker_event" data-value="mlogon&header&back1" href="javascript:void(0)" onclick="history.go(-1);"> back
+	</a>
+	</div>
+
+	<script src="https://static.zhong.com/m/skin/js/security.js"></script>
+	<section class="register_detail">
+		<div class="banner3">
+			<img class="pic01" src="https://static.zhong.com/m/skin/images/banner3.jpg">
+		</div>
+
+		<input id="wxOpenID_hidden" type="hidden" value="" />
+		<input id="nickName_hidden" type="hidden" value="" />
+		<input id="from_hidden" type="hidden" value="" />
+		<input id="headImgUrl_hidden" type="hidden" value="" />
+		<!--<input id="sellerId_hidden" type="hidden" value="" />
+		<input id="buildingId_hidden" type="hidden" value="" />-->
+		<form id="form_register" action="register.do" class="rgnew_1208">
+			<ul class="clearfix">
+				<li>
+					<cite class="r_pic"></cite>
+					<input type="text" class="picyzm" placeholder="输入图片验证码" name="tx_yzm" autocomplete="off" />
+					<img id="verifyCodeImg" src="/IdentifyingCode.action" onclick="reloadVerifyCode();" class="yzm-pic">
+				</li>
+				<li>
+					<cite class="r_pic r_ico02"></cite>
+					<input type="number" class="username" data-value="mregister&phone" name="mobile" placeholder="输入您的手机号">
+					<a href="javascript:void(0);" class="yzm_link" data-value="mregister&sendmessage"> 发送验证码 </a>
+				</li>
+				<li>
+					<cite class="r_pic r_ico03"></cite>
+					<input type="text" class="yzm" name="dx_yzm" data-value="mregister&messagecode" placeholder="输入短信验证码" autocomplete="off">
+					<input type="hidden" name="uuid">
+				</li>
+				<li>
+					<cite class="r_pic r_ico04"></cite>
+					<input type="password" class="password" data-value="mregister&newpwd" placeholder="请设置6-20位密码" autocomplete="off">
+					<a href="#?utm_p=mregister&utm_pn=seepwd" class="visible">
+						看密码
+					</a>
+				</li>
+				<li class="normal">
+					<a href="#?utm_p=mregister&utm_pn=selectagree" class="checkbox checked">点击</a>
+					<i> 我已阅读并同意<a href="#?utm_p=mregister&utm_pn=click" class="open">《平台注册协议》</a></i>
+				</li>
+				<li class="normal">
+					<a class="submit tracker_event" data-value="mregister&register"> 注册 </a>
+				</li>
+			</ul>
+			<div class="linkpart-128">
+				已有账号，<a href="javascript:gotoLoginPage();">立即登录</a>
+			</div>
+		</form>
+		<script src="https://static.zhong.com/pc/skin/js/Base64.js"></script>
+		<script>
+
+            function reloadVerifyCode() {
+                document.getElementById('verifyCodeImg').src = "/IdentifyingCode.action?" + Math.random();
+            }
+
+            var allcookies = document.cookie;
+            function getCookie(cookie_name) {
+                var allcookies = document.cookie;
+                var cookie_pos = allcookies.indexOf(cookie_name);
+
+                if (cookie_pos != -1) {
+                    cookie_pos += cookie_name.length + 1;
+
+                    var cookie_end = allcookies.indexOf(";", cookie_pos);
+
+                    if (cookie_end == -1) {
+                        cookie_end = allcookies.length;
+                    }
+
+                    var value = unescape(allcookies.substring(cookie_pos, cookie_end));
+                }
+
+                return value;
+            }
+
+
+            function gotoLoginPage() {
+                var toUrl = "http://profile.zhong.com/m/summary/userCenter.do";
+                toUrl = encodeURIComponent(doDecode(toUrl));
+                var loginPage = "https://passport.zhong.com/m/login/loginForm.do?utm_p=mregister&utm_pn=logon&toUrl=" + toUrl;
+                window.location.href = loginPage;
+            }
+
+			/*验证码*/
+            yzm_link = $(".yzm_link");
+            var setInterval_obj = null;
+            var setInterval_obj2 = null;
+            function reverseTime(num) {
+                num -= 1;
+                yzm_link.text(num + "s后可重发");
+                setInterval_obj = setInterval(function() {
+                    num -= 1;
+                    yzm_link.text(num + "s后可重发");
+                }, 1000);
+                setInterval_obj2 = setInterval(function() {
+                    clearInterval(setInterval_obj);
+                    yzm_link.text("获取验证码");
+                    yzm_link.removeClass("disable");
+                }, 1000 * num)
+            };
+            function resetTime() {
+                clearInterval(setInterval_obj2);
+                clearInterval(setInterval_obj);
+                yzm_link.text("获取验证码");
+                yzm_link.removeClass("disable");
+            };
+            //验证码点击事件
+            yzm_link.click(function(e) {
+                var form_register = $("#form_register");
+                var mobile_val = form_register.find(".username").val();  //手机号
+                var tx_yzm = $("input[name='tx_yzm']").val();		//图片验证码
+
+                if(null==tx_yzm||''==$.trim(tx_yzm)){
+                    warning_obj_inner.text("请输入图形验证码");
+                    openExt(warning_obj, true);
+                    return false;
+                }
+
+                if (!checkUserName_phone(mobile_val)) {
+                    warning_obj_inner.text(warning);
+                    openExt(warning_obj, true);
+                    return false;
+                }
+
+                if ($(this).hasClass("disable")) {
+                    return;
+                }
+
+                $.ajax({
+                    type: 'GET',
+                    url: '/checkRegistered.do',
+                    data: {
+                        "mobile" : mobile_val
+                    },
+                    success: function(data) {
+                        //console.log("ret: ", data);
+                        if (data.success === false) {
+                            warning_obj_inner.text(data.msg);
+                            openExt(warning_obj, true);
+                            resetTime();
+                            reloadVerifyCode();
+                            yzm_link.addClass("disable");
+                            return false;
+                        } else {
+                            yzm_link.removeClass("disable");
+
+                            e.preventDefault();
+                            yzm_link.addClass("disable");
+                            var num = 60;
+                            reverseTime(num);
+
+                            $.ajax({
+                                type : 'POST',
+                                url : "/sms/sendForMReg.do",
+                                data : {
+                                    "mobile" : mobile_val,
+                                    "verifyCode":tx_yzm
+                                },
+                                success : function(data) {
+                                    $("input[name='uuid']").val(data.uuid);
+                                    if (data.ok) {
+                                    } else {
+                                        if (data.errorCode === "01") {
+                                            warning_obj_inner.text("该手机号今日已经超过发送验证码次数上限，请明日再试");
+                                            openExt(warning_obj, true);
+                                            enable_yzm();
+                                        } else if (data.errorCode === "02") {
+                                            reverseTime(data.val);
+                                        }else{
+                                            warning_obj_inner.text(data.msg);
+                                            openExt(warning_obj, true);
+                                            enable_yzm();
+                                        }
+
+                                    }
+                                },
+                                error : function(error) {
+                                    //console.log("error data: ", error);
+                                },
+                                dataType : "json"
+                            });
+                        }
+                    } ,
+                    error: function(error) {
+                        //console.log("error data: ", error);
+                    },
+                    dataType : "json"
+                });
+
+            });
+           
+            //表单提交
+                var form_register = $("#form_register");
+                form_register.find("a.submit").click(function(e) {
+                    var mainobj = $(this).parents("form");
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var action = mainobj.attr("action");
+                    //console.log(action);
+                    var username_val = mainobj.find(".username").val();
+                    var password_val = mainobj.find(".password").val();
+                    var repassword_val = mainobj.find(".repassword").val();
+                    // var email_val = mainobj.find(".email").val();
+                    var Idcode = $("input[name='dx_yzm']").val();
+                    var verifyCode = $("input[name='tx_yzm']").val();
+                    var uuid = $("input[name='uuid']").val();
+                    if (!checkUserName_phone(username_val)) {
+                        warning_obj_inner.text(warning);
+                        openExt(warning_obj, true);
+                        return false;
+                    } else if (!(checkPassWord_register(password_val))) {//密码
+                        warning_obj_inner.text(warning);
+                        openExt(warning_obj, true);
+                        mainobj.find(".password").val(""); //清空
+                        mainobj.find(".repassword").val(""); //清空
+                        return false;
+                    } else if (null==verifyCode||''==$.trim(verifyCode)){
+                        warning_obj_inner.text("请填写图形验证码");
+                        openExt(warning_obj, true);
+                        return false;
+                    }/*else if (!checkRePassWord(repassword_val, password_val)) {//重复密码
+					 warning_obj_inner.text(warning);
+					 openExt(warning_obj, true);
+					 mainobj.find(".password").val(""); //清空
+					 mainobj.find(".repassword").val(""); //清空
+					 return false;
+					 } else if (!checkEmail(email_val)) {//重复密码
+					 warning_obj_inner.text(warning);
+					 openExt(warning_obj, true);
+					 return false;
+					 }*/ else if (!checkIdcode(Idcode)) {//验证码
+                        warning_obj_inner.text(warning);
+                        openExt(warning_obj, true);
+                        mainobj.find(".yzm").val(""); //清空
+                        return false;
+                    } else if (!(mainobj.find("a.checkbox").hasClass("checked"))) {//协议
+                        warning_obj_inner.text("请先同意平台注册协议");
+                        openExt(warning_obj, true);
+                        return false;
+                    } else if (password_val === username_val) {
+                        warning_obj_inner.text("密码不能与用户名相同");
+                        openExt(warning_obj, true);
+                        return false;
+                    } else {
+                        var wxOpenID_val = $("#wxOpenID_hidden").val();
+                        var nickName_val = $("#nickName_hidden").val();
+                        var from_val = $("#from_hidden").val();
+                        //var sellerId = $("#sellerId_hidden").val();
+                        //var buildindId = $("#buildindId_hidden").val();
+                        var data = {
+                            "wxOpenID" : wxOpenID_val,
+                            "nickName" : nickName_val,
+                            "from" : from_val,
+                            "mobile" : username_val,
+                            "pwd" : RSAUtils.doEncrypt(password_val),
+                            // "confirmPwd" : repassword_val,
+                            // "email" : username_val,
+                            "smsVerifyCode" : Idcode,
+                            "verifyCode":verifyCode,
+                            "uuid":uuid,
+                            "agreement" : "0"
+                        };
+
+                        var headImgUrl_val = $("#headImgUrl_hidden").val();
+                        if ($.trim(headImgUrl_val) !== "") {
+                            data.headImgUrl = encodeURI(headImgUrl_val);
+                        }
+
+                        var toUrl = "http://profile.zhong.com/m/summary/userCenter.do";
+                        if (toUrl !== undefined && toUrl !== null && toUrl !== '') {
+                            data.toUrl = doDecode(toUrl);
+                        }
+
+                        var visitorId = getCookie("WT-FPC");
+                        console.log("visitorId", visitorId);
+                        if (visitorId !== undefined && visitorId !== null && visitorId !== "") {
+                            data.visitorId = visitorId;
+                        }
+
+                        addmfLoading("注册中，<br>请耐心等待...");
+
+                        $.ajax({
+                            type : 'POST',
+                            url : action,
+                            data : data,
+                            success : function(data) {
+                                //console.log("ret: ", data);
+                                removemfLoading();
+                                if (data.code === 0) {
+                                    if (toUrl !== undefined && toUrl !== null && toUrl !== '') {
+                                        window.location.href = decodeURIComponent(toUrl);
+                                    } else {
+                                        if (data.isWeixin === true) {
+                                            window.location.href = "/m/bindResult/success.do";
+                                        } else {
+                                            window.location.href = "/m/reg/success.do";
+                                        }
+                                    }
+                                } else {
+                                    warning_obj_inner.text("注册失败:" + data.msg);
+                                    openExt(warning_obj, true);
+                                    resetTime();
+                                    reloadVerifyCode();
+                                    mainobj.find(".yzm").val("");
+                                    return false;
+                                }
+
+                            },
+                            error : function(error) {
+                                removemfLoading();
+                            },
+                            dataType : "json"
+                        });
+
+                    }
+                });
+				//手机失去焦点
+                $("[name=mobile]").blur(function() {
+                    var mobile_val = $("[name=mobile]").val();
+                    var data = {
+                        "mobile" : mobile_val
+                    };
+
+                    if (!checkUserName_phone(mobile_val)) {
+                        warning_obj_inner.text(warning);
+                        openExt(warning_obj, true);
+                        yzm_link.addClass("disable");
+                        return false;
+                    } else {
+                        yzm_link.removeClass("disable");
+                    }
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '/checkRegistered.do',
+                        data: data,
+                        success: function(data) {
+                            //console.log("ret: ", data);
+                            if (data.success === false) {
+                                warning_obj_inner.text(data.msg);
+                                openExt(warning_obj, true);
+                                resetTime();
+                                reloadVerifyCode();
+                                yzm_link.addClass("disable");
+                                return false;
+                            } else {
+                                yzm_link.removeClass("disable");
+                            }
+                        } ,
+                        error: function(error) {
+                            //console.log("error data: ", error);
+                        },
+                        dataType : "json"
+                    });
+
+                });
+
+            });
+		</script> </section>
+</div>
+<div class="logo"></div>
+<script src="https://static.zhong.com/m/skin/js/custom.js?20170328"></script>
+</body>
+</html>

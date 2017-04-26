@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Super Slide</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+<link rel="stylesheet" href="css/global.css" />
+<style>
+.picList li{ width:126px;  }
+.picList .pic{ text-align:center; line-height:0px;  }
+.picList .pic img{ width:120px; height:90px; padding:2px; border:1px solid #ccc; }
+.picList .pic a:hover img{ border-color:#f00;  }
+.picList .title{ line-height:24px;   }
+/* 多个上滚动 - 公用类 */
+.topLoop{ overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.topLoop .hd{ overflow:hidden;  height:30px; background:#f4f4f4;  }
+.topLoop .hd .prev,.topLoop .hd .next{ display:block;  width:9px; height:10px; line-height:10px; float:right; margin-right:10px; margin-top:10px;  overflow:hidden;
+     cursor:pointer; background:url("images/icoUp.gif") center no-repeat;}
+     .topLoop .hd .next{ background:url("images/icoDown.gif") center no-repeat;  }
+.topLoop .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px;  }
+.topLoop .hd ul li{ position:relative; _display:inline; float:left;  width:10px; height:10px; overflow:hidden; background:#ccc; margin-right:10px; text-indent:-999px; cursor:pointer;
+    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; behavior: url(PIE.htc);}
+    .topLoop .hd ul li.on{ background:#f00;  }
+.topLoop .bd{ padding:10px;   }
+.topLoop .bd ul{ overflow:hidden; zoom:1; }
+</style>
+</head>
+<body>
+
+<div class="topLoop" style="width:148px">
+	<div class="hd">
+		<a class="next"></a>
+		<ul><li>1</li><li>2</li><li>3</li></ul>
+		<a class="prev"></a>
+	</div>
+	<div class="bd">
+		<ul class="picList">
+			<li>
+				<div class="pic"><a href=""><img src="images/ad1.jpg" /></a></div>
+				<div class="title"><a href="">效果图1</a></div>
+			</li>
+			<li>
+				<div class="pic"><a href=""><img src="images/ad2.jpg" /></a></div>
+				<div class="title"><a href="">效果图2</a></div>
+			</li>
+			<li>
+				<div class="pic"><a href=""><img src="images/ad3.jpg" /></a></div>
+				<div class="title"><a href="">效果图3</a></div>
+			</li>
+			<li>
+				<div class="pic"><a href=""><img src="images/ad4.jpg" /></a></div>
+				<div class="title"><a href="">效果图4</a></div>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">jQuery(".topLoop").slide({ mainCell:".bd ul",effect:"topLoop",vis:2,scroll:2,trigger:"click"});</script>
+		
+</body>
+</html>

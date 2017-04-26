@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<style>
+	.err,.yes{ display: none;}
+</style>
+<body>
+<div class="form-control">
+	<input type="text" class="username">
+	<div class="err">不能为空</div>
+	<div class="yes">yes</div>
+</div>
+<div class="form-control">
+	<input type="text" class="password">
+	<div class="err">不能为空</div>
+	<div class="yes">yes</div>
+</div>
+<script>
+class CheckInput{
+    constructor(a){
+        this.a=a;
+	}
+    checkUserName_phone(val){
+        if($.trim(val)==""){
+            return {
+                name:false,
+                val:"手机号不能为空"
+            }
+        }else if(!(/^1\d{10}$/.test($.trim(val)))){
+            return {
+                name:false,
+                val:"手机号格式不正确"
+            }
+        }else{
+            return{
+                name:true,
+                val:"yes"
+            }
+        }
+    }
+    checkPassWord(val){
+		if($.trim(val)=="") {
+			return {
+				name:false,
+				val:"密码不能为空白"
+			}
+		}
+		else if(!/^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9~!@#$%^&*()_+=`;':",.<>/?]{6,20}$/.test($.trim(val))){
+			return {
+				name:false,
+				val:"密码必须为6-20位数字和字母组合"
+			}
+		}
+		else{
+			return{
+				name:true,
+				val:"yes"
+			}
+		}
+	}
+}
+
+var checkVal=new CheckInput();
+$(".username").blur(function () {
+	var usernameVal=$(this).val();
+	var formControl=$(this).closest(".form-control");
+	var formControlErr=formControl.find(".err");
+	var formControlYes=formControl.find(".yes");
+	var checkUsernameVal=checkVal.checkUserName_phone(usernameVal)
+
+	if(!(checkUsernameVal.name)){
+        formControlYes.hide();
+        formControlErr.text(checkUsernameVal.val).show()
+    }else{
+        formControlErr.hide()
+        formControlYes.text(checkUsernameVal.val).show()
+    }
+})
+$(".password").blur(function () {
+    var passwordVal=$(this).val();
+    var formControl=$(this).closest(".form-control");
+    var formControlErr=formControl.find(".err");
+    var formControlYes=formControl.find(".yes");
+    var checkPasswordVal=checkVal.checkPassWord(passwordVal)
+
+    if(!(checkPasswordVal.name)){
+        formControlYes.hide();
+        formControlErr.text(checkPasswordVal.val).show()
+    }else{
+        formControlErr.hide()
+        formControlYes.text(checkPasswordVal.val).show()
+    }
+})
+</script>
+</body>
+</html>
+

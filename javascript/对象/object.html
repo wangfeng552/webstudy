@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+<!-- 对象是js的基本数据类型；
+对象是一种复合值，它将很多值聚合在一起，可通过名字访问这些值；
+对象也可看作属性的无序集合，每个属性都是一个名/值对；
+对象的方法通常是继承的属性，从一个称为原型的对象继承属性；
+创建create，设置set，查找query，删除delete，检测test，枚举enumerate；
+属性：名/值，不能存在两个同名的属性；
+可写，可枚举for/in，可配置；
+
+对象特性：
+1：对象的原型prototype指向另外一个对象，本对象的属性继承自它的原型对象；
+2：对象的类是一个标识对象类型的字符串；
+3：对象的扩展标记是否可以向该对象添加新属性；
+
+总结：
+内置对象，宿主对象，自定义对象
+自有属性，继承属性 -->
+
+<!--对象属性访问的固定方法.和[]-->
+<script>
+	var obj={name:"张三",age:"25",sex:"男"};
+	console.log(obj.name)
+	console.log(obj["age"])
+</script>
+
+<!-- 普通对象Object与函数对象Function -->
+<script>
+var a={};
+var b=new Object();
+var c=function(){};
+var d=new Function();
+
+console.log(a);		//object
+console.log(b);		//object
+console.log(c);		//function
+console.log(d);		//function
+// 总结：凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象
+</script>
+
+
+<!--new形式创建对象的过程实际上可以分为三步
+第一步是建立一个新对象（叫A吧）；
+第二步将该对象（A）内置的原型对象设置为构造函数(就是Person)prototype 属性引用的那个原型对象；
+第三步就是将该对象（A）作为this 参数调用构造函数(就是Person)，完成成员设置等初始化工作。
+其中第二步中出现了一个新名词就是内置的原型对象，注意这个新名词跟prototype对象不是一回事，为了区别我叫它inobj,inobj就指向了函数Person的prototype对象。
+在person的prototype对象中出现的任何属性或者函数都可以在one对象中直接使用，这个就是javascript中的原型继承了。
+var one={};
+Person.call(one,'js');-->
+</body>
+</html>

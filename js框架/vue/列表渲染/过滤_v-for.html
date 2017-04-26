@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>过滤排序</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<!--计算属性-->
+<div id="app">
+	<ul>
+		<li v-for="n in evenNumbers">{{n}}</li>
+	</ul>
+</div>
+<script>
+	var vm=new Vue({
+	    el:"#app",
+		data:{
+	        numbers:[1,2,3,4,5,6,7,8]
+		},
+		computed:{
+	        evenNumbers:function () {
+				return this.numbers.filter(function (number) {
+					return number%2===0
+                })
+            }
+		}
+	})
+</script>
+
+<!--methods方法-->
+<div id="me">
+	<li v-for="n in evenNumbers(numbers)">{{n}}</li>
+</div>
+<script>
+	var vm2=new Vue({
+	    el:"#me",
+		data:{
+	        numbers:[1,2,3,4,5,6]
+		},
+		methods:{
+	        evenNumbers:function (number) {
+	            return number.filter(function (number) {
+					return number%2===0
+                })
+
+            }
+		}
+	})
+</script>
+</body>
+</html>
+

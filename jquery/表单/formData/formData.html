@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<body>
+<form  enctype="multipart/form-data" method="post">
+	<input type="file" id="uploadFile" runat="server" />
+	<input type="button" class="btnUpload" value="确定" />
+	<div id="imgDiv"></div>
+</form>
+<script>
+	$('.btnUpload').on("click",function () {
+        var formData = new FormData();
+        formData.append("file",$("#uploadFile")[0].files[0]);
+        console.log(formData)
+        $.ajax({
+            url : Url,
+            type : 'POST',
+            data : formData,
+// 告诉jQuery不要去处理发送的数据
+            processData : false,
+// 告诉jQuery不要去设置Content-Type请求头
+            contentType : false,
+            beforeSend:function(){
+                console.log("正在进行，请稍候");
+            },
+            success : function(responseStr) {
+                if(responseStr.status===0){
+                    console.log("成功"+responseStr);
+                }else{
+                    console.log("失败");
+                }
+            },
+            error : function(responseStr) {
+                console.log("error");
+            }
+        });
+    })
+</script>
+</body>
+</html>

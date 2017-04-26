@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<!--$.inArray(value,arr,[formindex])确定第一个参数在数组中的位置，从0开始计数（未找到则返回-1）-->
+<!--formindex:指定从数组的指定索引位置开始查找，默认为 0。-->
+<!--如果数组中存在多个相同的值，则以查找到的第一个值的索引为准。-->
+<script>
+	var arr=[1,23,-52,"sadf",1];
+	c=$.inArray(2,arr,1)			//=>4
+
+	if(c!=-1){						//注意：如果要判断数组中是否存在指定值，你需要通过该函数的返回值不等于(或大于)-1来进行判断。
+		alert(1)
+	}
+	else{alert(2)}
+</script>
+</body>
+</html>
+

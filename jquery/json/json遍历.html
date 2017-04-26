@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk">
+	<ul>
+
+	</ul>
+</div>
+<script>
+var data=[
+    {
+        "title": [
+            {
+                "name": "沾上干",
+                "age": "45"
+            },
+            {
+                "name": "李四",
+                "age": "455"
+            },
+            {
+                "name": "王五",
+                "age": "89"
+            }
+        ]
+    },
+    {
+        "title": [
+            {
+                "name": "讽德诵功",
+                "age": "589"
+            },
+            {
+                "name": "阿斯蒂芬",
+                "age": "123"
+            },
+            {
+                "name": "过分的话",
+                "age": "654"
+            }
+        ]
+    },
+    {
+        "title": [
+            {
+                "name": "北京",
+                "age": "1252"
+            },
+            {
+                "name": "上海",
+                "age": "123"
+            },
+            {
+                "name": "离开家",
+                "age": "654"
+            }
+        ]
+    }
+];
+//原始方法
+/*var findData=function (data) {
+	var html="";
+	for (var i=0;i<data.length;i++){
+	    html += '<li><h2>'+data[i].name+'</h2><p>'+data[i].age+'</p></li>'
+    }
+    return html;
+}
+$(".mk ul").html(findData(data[0].title))*/
+
+
+
+//jQuery方法
+	var html="";
+	$.each(data[0].title,function (i,v) {
+        html += '<li><h2>'+v.name+'</h2><p>'+v.age+'</p></li>'
+    })
+$(".mk ul").html(html)
+</script>
+</body>
+</html>
+

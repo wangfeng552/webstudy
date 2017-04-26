@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+
+<style> .mk{color: red;} </style>
+<div class="mk"> 1111 </div>
+<script>
+//取得.mk的color样式属性的值
+$(".mk").css("color") 	//=>red
+
+//设置css
+$(".mk").css({
+	color:"blue",
+	fontSize:"24px"
+})
+
+$(".mk").css("color","yellow")
+</script>
+
+
+<style> .dongh{background: #ccc;} </style>
+<div class="dongh">asdf</div>
+<script>
+//	逐渐增加div的大小
+$(".dongh").click(function(){
+	$(this).css({
+		height:function(i,val){
+			return parseFloat(val)*1.2
+		}
+	})
+})
+</script>
+
+<script>
+function meh(wf){
+	$(".wrap").css("color",wf=="1" ? "red" : "blue")
+}
+meh(1)
+</script>
+</body>
+</html>
+

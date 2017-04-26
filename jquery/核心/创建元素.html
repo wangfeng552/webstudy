@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+$(html,[ownerDocument])
+根据提供的原始 HTML 标记字符串，动态创建由 jQuery 对象包装的 DOM 元素。同时设置一系列的属性、事件等。
+html:用于动态创建DOM元素的HTML标记字符串;
+ownerDocument:创建DOM元素所在的文档;
+<div class="mk">asdf</div>
+<script>
+//创建一个 <input> 元素必须同时设定 type 属性。因为微软规定 <input> 元素的 type 只能写一次。
+$("<input type='text'>").appendTo("body")
+
+//	动态创建一个 div 元素（以及其中的所有内容），并将它追加到 body 元素中。在这个函数的内部，是通过临时创建一个元素，并将这个元素的 innerHTML 属性设置为给定的标记字符串，
+//	来实现标记到 DOM 元素转换的。所以，这个函数既有灵活性，也有局限性。
+	$("<div/>",{
+		class:"wf",
+		id:"name",
+		text:"123456",
+		click:function(){alert(1)}
+	}).appendTo("body");
+
+//创建一个 <input> 元素，同时设定 type 属性、属性值，以及一些事件。
+	$("<input>",{
+		type:"text",
+		val:"动态创建的text",
+		class:"wenben",
+		focus:function(){
+			$(this).css({
+				color:"red",
+				border:"1px solid red"
+			})
+		}
+	}).appendTo("body")
+</script>
+</body>
+</html>
+

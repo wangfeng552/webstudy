@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs
+/jquery/1.4.0/jquery.min.js"></script>
+<style type="text/css">
+body, html { color: #444; margin: 0; padding: 0; font: 12px/24px "\5B8B\4F53", san-serif; }
+address, cite, code, em, th, i { font-weight: normal; font-style: normal; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { margin: 0; padding: 0; border: 0; }
+input, select, h2, object { margin: 0; padding: 0; }
+object { vertical-align: top; }
+ul, li { list-style-type: none }
+a { text-decoration: none; color: #2C2C2C }
+a:hover { text-decoration: underline; color: #F60; }
+h1, h3, h4, h5, h6 { font-size: 12px; margin: 0; padding: 0; font-weight: 100; }
+h2 { font-size: 20px; color: #000; text-align: center; }
+h3 { font-size: 14px; font-weight: 600; padding-left: 15px; }
+.wrap { margin: 0 auto; width: 960px; }
+.l { float: left; }
+.r { float: right; }
+img { border-width: 0; vertical-align: top; }
+.center { margin: 0 auto; }
+.clearfix:after { content: "\20"; display: block; height: 0; clear: both; visibility: hidden; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/*------------------------------------------------*/
+.conTit,.ztCon li i,.ztCon li.act i{ background: url(images/newindexbg.png) no-repeat; }
+.conTit { height: 28px; line-height: 28px; background-position: 0 -490px; border-bottom: 1px solid #D9D7D7; }
+.mT5 { width: 400px; }
+/***zhuanti***/
+.ztCon li { height: 24px; *height:23px;
+_height: 24px; overflow: hidden; vertical-align: top; cursor: pointer; }
+.ztCon li img { margin-top: 1px; }
+.ztCon li i { width: 20px; height: 22px; display: block; background-position: 0 -789px; float: left; padding-right: 3px; }
+.ztCon li.act i { background-position: -23px -789px; height: 105px; background-color: #F8F8F8; }
+.ztCon li em a { line-height: 22px; height: 22px; display: block; border-bottom: 1px solid #E3E3E3; overflow: hidden; margin: 0; }
+.ztCon li em { width: 207px; line-height: 22px; height: 22px; float: left; display: block; }
+.ztCon li.act, .ztCon li.act em, .ztCon li.act i { height: 105px; overflow: visible; }
+.ztCon li.act em a { color: #CC0000; font-weight: bold; }
+.ztCon li.act em p { border-bottom: 1px solid #E3E3E3; padding-top: 5px; height: 75px; background: #F8F8F8; }
+.ztCon li.act em p img { float: left; margin: 0 5px 0 0; }
+.ztCon li.act em p a { height: auto; font-weight: normal; display: inline; border: none; }
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+var table = function(){
+	 var data = {};
+	 return function(item){
+	  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+	  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+	  $("#r_" + x[1] + data[x[1]]).css("display","none");
+	  $("#r_" + x[1] + x[2]).css("display","");
+	  $("#" + x[1] + data[x[1]]).removeClass("act");
+	  $("#" + x[1] + x[2]).addClass("act");
+	  data[x[1]] = x[2];
+	 };
+  }();
+</script>
+<div class="pLR10 mT5">
+  <div class="conTit"><a href="http://auto.08cms.com/zhuanti/" class="r">更多&gt;&gt;</a>
+    <h3><a href="http://auto.08cms.com/zhuanti/">热门专题</a></h3>
+  </div>
+  <div class="bgFF clearfix  mT10"> 
+    <!--整首_专题 专题推荐：推荐 6 -->
+    <ul class="ztCon">
+      <li  id="zt_1" class="act" onmouseover="table(this)"><i></i><em><a title="9月的最后一击 价格战在国庆前已将点燃" href="http://auto.08cms.com/zhuanti/20120411/442940_1.html">9月的最后一击 价格战在国庆前已将点燃</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120411/442940_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120411/111146366bc839e3e96657_80_70.jpg" width="80" height="70" alt="9月的最后一击 价格战在国庆前已将点燃"></a>伴随着今天火爆的中国车市，即将来到的国庆假期更......<a href="http://auto.08cms.com/zhuanti/20120411/442940_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+      <li  id="zt_2"  onmouseover="table(this)"><i></i><em><a title="多款新车本周上市 荐价格大幅跳水车型" href="http://auto.08cms.com/zhuanti/20120411/442939_1.html">多款新车本周上市 荐价格大幅跳水车型</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120411/442939_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120411/1111450541b34977a55598_80_70.jpg" width="80" height="70" alt="多款新车本周上市 荐价格大幅跳水车型"></a>英特尔酷睿2系列的T6600处理器是目前最主流的中端......<a href="http://auto.08cms.com/zhuanti/20120411/442939_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+      <li  id="zt_3"  onmouseover="table(this)"><i></i><em><a title="金九银十购车宝典 全程支招 购车无忧" href="http://auto.08cms.com/zhuanti/20120411/442938_1.html">金九银十购车宝典 全程支招 购车无忧</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120411/442938_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120411/11114409a9e59ef8e88058_80_70.jpg" width="80" height="70" alt="金九银十购车宝典 全程支招 购车无忧"></a>从往年来看每年9-10月份都是传统的购车旺季，对于......<a href="http://auto.08cms.com/zhuanti/20120411/442938_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+      <li  id="zt_4"  onmouseover="table(this)"><i></i><em><a title="给力2011 汽车行业前景展望专题" href="http://auto.08cms.com/zhuanti/20120411/442937_1.html">给力2011 汽车行业前景展望专题</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120411/442937_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120411/11114255259dec47265252_80_70.jpg" width="80" height="70" alt="给力2011 汽车行业前景展望专题"></a>在介绍完2011年将要上市的小型车、紧凑级车、中级......<a href="http://auto.08cms.com/zhuanti/20120411/442937_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+      <li  id="zt_5"  onmouseover="table(this)"><i></i><em><a title="[PCAUTO策划]3·15破解汽车消费种种陷阱" href="http://auto.08cms.com/zhuanti/20120411/442936_1.html">[PCAUTO策划]3·15破解汽车消费种种陷阱</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120411/442936_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120411/111140000af6ef5ad74252_80_70.jpg" width="80" height="70" alt="[PCAUTO策划]3·15破解汽车消费种种陷阱"></a>从你走进4S店的那一刻开始，一直到你开上车之后的......<a href="http://auto.08cms.com/zhuanti/20120411/442936_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+      <li  id="zt_6"  onmouseover="table(this)"><i></i><em><a title="新车本田新CR-V上市" href="http://auto.08cms.com/zhuanti/20120316/442245_1.html">新车本田新CR-V上市</a>
+        <p><a href="http://auto.08cms.com/zhuanti/20120316/442245_1.html"><img  src="http://auto.08cms.com/userfiles/image/20120410/10093834b383b5b4ca5585_80_70.jpg" width="80" height="70" alt="新车本田新CR-V上市"></a>CR-V是城市化SUV概念的开创者，空间多变、驾驶感......<a href="http://auto.08cms.com/zhuanti/20120316/442245_1.html">详情&gt;&gt;</a></p>
+        </em></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

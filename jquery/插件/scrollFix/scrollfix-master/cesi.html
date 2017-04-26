@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>混合使用参数：1.元素距离顶部20像素，滚动到某个标签开始滚动，最后停靠在底部300像素位置</title>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+<!-- 参考网址： http://caibaojian.com/scrollfix#t5 -->
+
+<style>
+.main{ width: 1000px; margin: 0 auto;}
+.main .wl500{ width: 500px; float: left;}
+.cl1{ height: 800px; background: #cde; margin-bottom: 20px;}
+.cl2{ height: 400px; background: #ed9; margin-bottom: 20px;}
+.main .wr300{ width: 300px; float: right;}
+.cr1{ height: 300px; background: #fd6; margin-bottom: 20px;}
+.cr2{ height: 200px; background: #ccc; margin-bottom: 20px;}
+.cr3{ height: 200px; background: #963; margin-bottom: 20px;}
+#startBottom{ background: #555;}
+</style>
+
+
+</head>
+<body>
+<div class="main">
+  <div class="wl500">
+    <div class="cl1">sdfgfb</div>
+    <div class="cl1" >sdfffgfb</div>
+    <div class="cl1" id="startBottom">sdfffgfb</div>
+    <div class="cl1" >sdfffgfb</div>
+    <div class="cl1" id="startBottom2">sdfffgfb</div>
+    <div class="cl2" id="fixFooter">sdfffgfb</div>
+    <div class="cl1">sdfffgfb</div>
+  </div>
+  <div class="wr300">
+    <div class="cr1">右边1111111111111111111</div>
+    <div class="cr1">右边22222222222222</div>
+    <div class="cr2">开始one开始one开始one开始one开始one开始one</div>
+    <div class="cr1">右边22222222222222</div>
+    <div class="cr3">endENDEDADSLFJASDFASFD</div>
+  </div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/scrollfix.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var fix = $(".cr2"),fixfooter=$(".cr3");//右侧要固定的div
+      fix.scrollFix({endPos:"#startBottom"});
+      fixfooter.scrollFix({startBottom:"#startBottom", endPos:"#fixFooter",bottom:0});//开始对象末端 结束于底部高度
+		})
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+load(url, [data], [callback])
+载入远程 HTML 文件代码并插入至 DOM 中。
+默认使用 GET 方式 - 传递附加参数时自动转换为 POST 方式。
+
+url:待装入 HTML 网页网址。
+data:发送至服务器的 key/value 数据。在jQuery 1.3中也可以接受一个字符串了。
+callback:载入成功时回调函数。
+<div class="mk"></div>
+<script>
+	$(".mk").load("http://www.baidu.com")
+</script>
+</body>
+</html>
+

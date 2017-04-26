@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<script>
+var xml='<?xml version="1.0" encoding="UTF-8"?><recipe><recipename>Ice Cream Sundae</recipename><preptime>5 minutes</preptime></recipe>';
+var xmlDoc= $.parseXML(xml);		//转换成xml文件
+var $xml=$(xmlDoc);					//转换成jQuery对象
+	$xml.find("recipe")				//可以查询及操作
+</script>
+</body>
+</html>
+

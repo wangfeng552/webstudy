@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery-1.11.2.js"></script>
+</head>
+<script>
+    /**
+     * @author yangqiuqin
+     *
+     * 密码安全程度控制
+     */
+    function passwordAqCheck() {
+        var aqpwd = $(".yck").val();
+        var aqFlag = AnalyzePasswordSecurityLevel(aqpwd);
+        if (aqFlag == 1 || aqFlag == 0 || aqFlag == 2) {
+            $("#aqStyle").attr("class", "cd-01");
+        } else if (aqFlag == 3) {
+            $("#aqStyle").attr("class", "cd-02");
+        } else if (aqFlag == 4) {
+            $("#aqStyle").attr("class", "cd-03");
+        }
+    }
+
+    /**
+     * @author yangqiuqin
+     *
+     * 分析密码的级别
+     * @returns {Number}
+     */
+    function AnalyzePasswordSecurityLevel(analyPwd) {
+        var securityLevelFlag = 0;
+        if (analyPwd.length < 6) {
+            return 0;
+        } else {
+            if (/[a-z]/.test(analyPwd)) {
+                securityLevelFlag++;    //lowercase
+            }
+            if (/[A-Z]/.test(analyPwd)) {
+                securityLevelFlag++;    //uppercase
+            }
+            if (/[0-9]/.test(analyPwd)) {
+                securityLevelFlag++;    //digital
+            }
+            if (containSpecialChar(analyPwd)) {
+                securityLevelFlag++;    //specialcase
+            }
+            return securityLevelFlag;
+        }
+    }
+
+    /**
+     * @author yangqiuqin
+     *
+     * 判断密码包含了哪些字符
+     * @param str
+     * @returns
+     */
+    function containSpecialChar(str) {
+        var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);
+        return (containSpecial.test(str));
+    }
+
+</script>
+</body>
+</html>
+

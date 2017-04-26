@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>演示：jQuery插件实现的页面功能介绍引导页效果</title>
+<link rel="stylesheet" href="css/jquery.pagewalkthrough.css">
+<script type="text/javascript" src="../../jquery-1.11.2.js"></script>
+<script type="text/javascript" src="js/pagewalkthrough.js"></script>
+</head>
+
+<body>
+<div id="header">
+   <div id="logo"><h1><a href="http://www.helloweba.com" title="返回helloweba首页">helloweba</a></h1></div>
+   <div class="demo_topad"><script src="/js/ad_js/demo_topad.js" type="text/javascript"></script></div>
+</div>
+
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-286.html">jQuery插件实现的页面功能介绍引导页效果</a></h2>
+   <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+   <div class="demo">
+	<a target="_blank" class="button green" href="http://www.helloweba.com/down-286.html">下载源码</a>
+   </div>
+	<div class="ad_76090"><script src="/js/ad_js/bd_76090.js" type="text/javascript"></script></div><br/>
+</div>
+
+<div id="walkthrough-content">
+    <div id="walkthrough-1">
+        <h3>欢迎来到Helloweba示例DEMO演示页</h3>
+
+        <p>页面功能介绍引导页的效果是通过一款叫做<a href="https://github.com/jwarby/jquery-pagewalkthrough" target="_blank">pagewalkthrough.js</a>的jQuery插件实现的。</p>
+        <p>点击下一步了解更多...</p>
+    </div>
+
+    <div id="walkthrough-2">
+        这里是Helloweba网站LOGO，点击这里可以直通网站首页。
+    </div>
+
+    <div id="walkthrough-3">
+        点击这里可以直接看插件的使用教程。
+    </div>
+
+    <div id="walkthrough-4">
+        点击这里去下载源码，免费的哦。。
+    </div>
+
+    <div id="walkthrough-5">
+        这是页脚和版权信息。
+    </div>
+</div>
+
+
+<script>
+$(function() {
+    // Set up tour
+    $('body').pagewalkthrough({
+        name: 'introduction',
+        steps: [{
+           popup: {
+               content: '#walkthrough-1',
+               type: 'modal'
+           }
+        }, {
+            wrapper: '#logo',
+            popup: {
+                content: '#walkthrough-2',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: 'h2.top_title a',
+            popup: {
+                content: '#walkthrough-3',
+                type: 'tooltip',
+                position: 'bottom'
+            }
+        }, {
+            wrapper: 'a[href="http://www.helloweba.com/down-286.html"]',
+            popup: {
+                content: '#walkthrough-4',
+                type: 'tooltip',
+                position: 'right'
+            }
+        }, {
+            wrapper: '#footer p',
+            popup: {
+                content: '#walkthrough-5',
+                type: 'tooltip',
+                position: 'top'
+            }
+        }]
+    });
+
+    // Show the tour
+    $('body').pagewalkthrough('show');
+});
+</script>
+
+<div id="footer">
+    <p style="width:960px; margin:10px auto">Powered by helloweba.com  允许转载、修改和使用本站的DEMO，但请注明出处：<a href="http://www.helloweba.com">www.helloweba.com</a></p>
+</div>
+</body>
+</html>

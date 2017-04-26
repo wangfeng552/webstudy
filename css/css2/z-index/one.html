@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#blank{width:100%; height:600px; background:black; opacity:0.4; filter:alpha(opacity=40); position:absolute; left:0; top:0; z-index:1;}
+</style>
+</head>
+
+<body>
+
+<div id="blank"></div>
+
+<div style="position:relative; z-index:9999;">
+
+<img style="float:left;" src="http://image.zhangxinxu.com/image/study/s/s256/mm2.jpg" />
+
+</div>
+<!--
+IE6的抱怨：浮动让我沉沦
+
+
+首先讲讲第一种z-index无论设置多高都不起作用情况。
+
+这种情况发生的条件有三个：
+
+1、父标签 position属性为relative；
+
+2、问题标签无position属性（不包括static）；
+
+3、问题标签含有浮动(float)属性。
+
+解决方法有三，1、position:relative改为position:absolute；2、去除浮动；3、浮动元素添加position属性（如relative，absolute等）。
+
+
+-->
+
+
+
+</body>
+</html>

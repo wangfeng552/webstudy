@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>无标题文档</title>
+	<link rel="stylesheet" href="css/global.css"/>
+	<script src="../jquery-1.11.2.js"></script>
+	<!--<script src="wf.js"></script>-->
+</head>
+
+<body>
+<style>
+	.bgcover{ display: none; position: fixed;left: 0;top: 0;width: 100%;height: 100%; background: #000; filter: alpha(opacity=50); z-index: 99;}
+	.pop_part{ /*display: none;*/ width: 300px; margin-left: -150px; margin-top: -150px; position: fixed;_position:absolute;left: 50%;top: 50%; z-index: 100; background: url("images/pop/pop_board.png") 0 0 repeat;}
+	.pop_part .pop_inner{margin: 6px; background-color: #fff;}
+	.pop_part .pop_header{ background-color: #f60;position: relative; height: 44px;}
+	.pop_part .pop_header .pop-title01{ line-height: 44px; text-indent: 1em; font-size: 18px; color: #fff;}
+	.pop_part .pop_header .pop_close{ background: url("images/pop/pop_close.png") 0 0 no-repeat; position: absolute; right: 0;top: 0;display: block;width: 44px;height: 44px;}
+	.pop_part .pop_body{ padding: 20px 10px;}
+	.pop_part .pop_body .p_des_01{ font-size: 14px; line-height: 18px; margin-bottom: 10px;}
+	.pop_part .pop_btn{ text-align: center;}
+	.pop_part .pop_btn a{ display: inline-block;padding: 0 8px; border: 1px solid #ccc; height: 24px; line-height: 24px; font-size: 14px;}
+	.pop_part .pop_btn .btn_sure{ background-color: #f60;border-color: #f60; color: #fff; margin-right: 10px;}
+</style>
+<button class="dianji">点击</button>
+<script>
+	(function(window,jQuery){
+		var $=jQuery;
+		return (function(){
+			var wf=function(){};
+			wf._tool={
+				check_bgcover:function(){
+					if($(".bgcover").length>0)return;
+					else{
+						$("body").append('<div class="bgcover"></div>');
+					}
+				},
+				pop_open:function(obj){
+					$(".bgcover").show().stop().animate({opacity:"0.6"},500);
+					obj.show().stop().animate({opacity:"1"},500);
+				},
+				pop_close:function(obj){
+					obj.stop().animate({opacity:"0"},500,function(){
+						obj.hide();
+					});
+					$(".bgcover").stop().animate({opacity:"0"},500,function(){
+						$(".bgcover").hide();
+					});
+				},
+				pop_estate:function(option){
+					var _default={
+						title:"提示",
+						content:'<p class="p_des_01">用户名不存在，请核实后再试。</p>',
+						submit:undefined,
+						submit_link:"http://www.baidu.com",
+						submit_link_function:function(){},
+						sub_submit:undefined,
+						sub_submit_link:"#",
+						btn_close:true,
+						width:200,
+						height:200
+					};
+					var popPart=$(".pop_part");
+					var jsClose=$(".js_close")
+					option= $.extend(_default,option);
+					if(popPart.length <= 0){
+						var html="";
+						html+='<div class="pop_part" style="width: '+option.width+'px;height: '+option.height+'px;margin-top: -'+option.height/2+'px;margin-left: -'+option.width/2+'px"><div class="pop_inner"><div class="pop_header">';
+						if(!option.title){
+							option.title="";
+						}
+						html +='<h3 class="pop-title01">'+option.title+'</h3>';
+						if(option.btn_close){
+							html+='<a href="" class="pop_close"></a>';
+						}else{
+							html+='<a href="" style="display: none;" class="pop_close"></a>';
+						}
+						html+='</div><div class="pop_body">'+option.content;
+						html+='<div class="pop_btn"><a class="btn_sure" href="'+option.submit_link+'">确定</a><a href="" class="js_close">取消</a></div>'
+						html+='</div></div></div>';
+						$("body").append(html);
+						wf._tool.check_bgcover();
+						var popPart=$(".pop_part");
+					}
+					wf._tool.pop_open(popPart);
+					popPart.find(".pop_close").on("click",function(e){
+						e.preventDefault();
+						wf._tool.pop_close(popPart)
+					})
+					popPart.find(".js_close").on("click",function(e){
+						e.preventDefault();
+						option.submit_link_function()
+					})
+					jsClose.on("click",function(e){
+						e.preventDefault();
+						wf._tool.pop_close(popPart)
+					});
+					$(".bgcover").on("click",function(e){
+						e.preventDefault();
+						wf._tool.pop_close(popPart);
+					})
+				}
+			};
+			window.$wf=wf._tool;
+		})();
+	})(window,jQuery)
+	$(".dianji").on("click", function (e) {
+		e.preventDefault();
+		$wf.pop_estate({
+			content:'<p class="p_des_01">用户名不存在，请核实后再试。</p><p class="p_des_01">用户名不存在，请核实后再试。</p>',
+			width:300,
+			height:178,
+			submit_link_function:function(){alert(1)}
+		});
+	})
+</script>
+</body>
+</html>
+
+

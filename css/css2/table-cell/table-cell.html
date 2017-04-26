@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta name="viewport" />
+<title>display:table-cell</title>
+<!-- http://www.zhangxinxu.com/wordpress/2010/10/%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84%E5%87%A0%E7%A7%8Ddisplaytable-cell%E7%9A%84%E5%BA%94%E7%94%A8/ -->
+</head>
+
+<body>
+<!-- case1 大小不固定元素的垂直居中 -->
+<style>
+.kls{display:table-cell; width:1em; height:1em; border:1px solid #beceeb; font-size:144px; text-align:center; vertical-align:middle;} 
+.kls img{vertical-align:middle;}
+</style>
+<div class="kls"><img src="http://img.j1.com/images/listpage/product/productljzx.jpg" alt="" /></div>
+
+<!-- case2 两栏自适应布局 -->
+<style>
+.mk{ width: 40%; margin: 0 auto; background: #ccc;}
+.mk .pic{ float: left;}
+.mk .pdl{ display: table-cell; *display:inline-block; vertical-align: top; width:200px; *width:auto; }
+</style>
+<div class="mk">
+    <div class="layout">
+        <div class="pic">asdf</div>
+        <div class="pdl">大家看法和萨克的发挥奥斯卡的发挥撒旦，啥地方哈萨克的发挥奥斯卡的发挥。答复客户萨克的发挥卡死的哈佛一uasdfhasdfh</div>
+    </div>
+</div>
+
+<!-- case3 等高布局实现 -->
+<!-- 对于不支持display:table-cell属性的IE6/7浏览器，又当如何解决呢？
+我们可以使用“补差等高法”，就是一个一个很大的margin-bottom负值配上一个同样大小的padding-bottom值，本例中为了实例需要，margin-bottom值就百来像素。 
+认识display:table-cell属性的元素对margin属性不敏感，所以上面margin-bottom属性前没有加*号-->
+<style>
+.w1000{ width: 1000px; margin: 0 auto;}
+.list_row{display:table-row; overflow:hidden;}
+.list_cell{display:table-cell; width:30%; margin-bottom:-100px; padding:15px; *padding-bottom:100px; background-color:#f5f5f5; *float:left;}
+.list_center{background-color:#f0f3f9;}
+</style>
+<div class="w1000">
+	<div class="list_row">
+	    <div class="list_cell">你一定也有过这种感觉的。...罗兰《寂寞的感觉》</div>
+	    <div class="list_cell list_center">作为一个被基阿异捅过...水，四积阴功五读书。</div>
+	    <div class="list_cell">奔波了一...永远幸福快乐！</div>
+	</div>
+	<div class="list_row">
+	    <div class="list_cell">你一定也有过这种感觉的。...罗兰《寂寞的感觉》</div>
+	    <div class="list_cell list_center">作为一个被基阿异捅过...水，四积阴功五读书。</div>
+	    <div class="list_cell">奔波了一...永远幸福快乐！</div>
+	</div>
+</div>
+</body>
+</html>

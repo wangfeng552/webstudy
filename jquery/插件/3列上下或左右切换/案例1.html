@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+
+</script>
+<style type="text/css">
+body, html { color: #444; margin: 0; padding: 0; font: 12px/24px SimSun, san-serif; }
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, blockquote, p, select, object { margin: 0; padding: 0; }
+ul, ol, li { list-style-type: none }
+address, cite, code, em, th, i { font-weight: normal; font-style: normal; }
+img { border: 0px; }
+a { color: #999999; text-decoration: none; }
+a:hover { color: #f00; }
+.m10 { margin-bottom: 10px; }
+.clearfix:after { content: "\20"; display: block; height: 0; clear: both; }
+.clearfix { zoom: 1 }
+h2 { font-size: 14px; }
+h3 { font-size: 12px; }
+/*****************************/
+.main{ height:75px; background-color:#802080; overflow:hidden;}
+.main ul{ background-color:#960; height:75px;  }
+</style>
+</head>
+
+<body>
+<span id="sl">1</span>/3
+<input type="button" class="zb" value="左边" />
+<input type="button" class="yb" value="又边" />
+<div class="main">
+        <ul>
+            <li>第1页面</li>
+            <li>第1页面</li>
+            <li>第1页面</li>
+        </ul>
+        <ul>
+            <li>第2页面</li>
+            <li>第2页面</li>
+            <li>第2页面</li>
+        </ul>
+        <ul>
+            <li>第3页面</li>
+            <li>第3页面</li>
+            <li>第3页面</li>
+        </ul>
+    </div>
+
+<script>
+$(function(){
+
+	$(".zb").bind( 'click',function(){
+		if( $(".main").scrollTop() == 0 )
+			return false;
+		//$(".main").scrollTop( $(".main").scrollTop() - 65*3 )
+		$("#sl").html(parseInt($("#sl").html())-1)
+		$(".main").animate( {scrollTop:"-="+25*3}, 100 )
+	});
+
+	$(".yb").bind( 'click',function(){
+
+		if( $(".main").scrollTop() == 25*3 * 2 )
+			return false;
+            $(".main").animate( {scrollTop:"+="+25*3}, 100 )//+=递增，递增65*3的高度
+			$("#sl").html(parseInt($("#sl").html())+1)
+		//$(".main").scrollTop( $(".main").scrollTop() + 60 );
+	});
+});
+</script>
+</body>
+</html>

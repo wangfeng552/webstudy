@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.inn{border: 5px solid blue; background: #cde; padding: 10px; margin: 20px; width: 100px;}
+</style>
+<div class="gaodu">大师傅</div>
+<div class="inn">asdfasdf</div>
+<script>
+//height()取得匹配元素当前计算的高度值（px）
+$(".gaodu").height()		//获取高度  content
+$(".gaodu").height(50)		//设置高度
+
+$(".gaodu").width()			//获取宽度
+$(".gaodu").width(200)		//设置宽度
+
+$(".inn").innerWidth()		//=>120 content+pading
+$(".inn").outerWidth()		//=>130 content+pading+border
+$(".inn").outerWidth(true)	//=>170 content+pading+border+margin
+</script>
+</body>
+</html>
+

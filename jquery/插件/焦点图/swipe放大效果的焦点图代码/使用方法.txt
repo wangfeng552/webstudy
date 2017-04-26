@@ -1,0 +1,14 @@
+swipe放大效果的焦点图代码，切换后图片不是静止在哪里，而是由无及近的放大效果，类似flash效果，但比Flash更平滑，支持缩略图预览加载和longding倒计时功能。兼容主流浏览器，懒人图库推荐下载！
+
+使用方法：
+1、在head区域引入样式表文件lrtk.css，js/pe.kenburns/themes/default/skin.min.css
+2、在head区域引入jquery-1.5.2.min.js和js/pe.kenburns/jquery.pixelentity.kenburnsslider.min.js
+3、初始化
+<script>
+	jQuery(function($){
+		$(".peKenBurns").peKenburnsSlider({externalFont:true})
+	})
+</script>
+4、在你的网页中加入<!-- 代码 开始 --><!-- 代码 结束 -->注释区域代码即可
+
+*更多代码请访问：懒人图库 www.lanrentuku.com/js/

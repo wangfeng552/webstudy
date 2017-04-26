@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<!--v-text  指令用于更新标签包含的文本，它的作用跟双大括号的效果一样-->
+<div class="app">
+	<p v-text="name"></p>
+	<span>{{name}}</span>
+</div>
+<script>
+	var vm=new Vue({
+		el:".app",
+		data:{"name":123123}
+	})
+</script>
+</body>
+</html>
+

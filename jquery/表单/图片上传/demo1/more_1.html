@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script src="../../../jquery-1.11.2.js"></script>
+
+</head>
+<body>
+<div class="preview0">
+    <img class="imghead0" src="img/photo_icon.png" onclick="$('.previewImg0').click();" width="90" height="90"/>
+</div>
+<input type="file" onchange="previewImage(this,0)" style="display: none;" class="previewImg0">
+
+<div class="preview1">
+    <img class="imghead1" src="img/photo_icon.png" onclick="$('.previewImg1').click();" width="90" height="90"/>
+</div>
+<input type="file" onchange="previewImage(this,1)" style="display: none;" class="previewImg1">
+<script>
+    function previewImage(file,n){
+        var MAXWIDTH  = 102;
+        var MAXHEIGHT = 102;
+        var div = $('.preview'+n);
+//        console.log(file.val());
+        var developerCertPath = file.value;
+        var extStart = developerCertPath.lastIndexOf(".");
+        var ext = developerCertPath.substring(extStart).toLowerCase();
+        var fileSize = Math.ceil(file.files[0].size/1024);
+        if(!developerCertPath) {
+            return false;
+        }else if(!(ext == ".jpg" || ext == ".pdf" || ext == ".png")) {
+            alert("请上传正确格式证件");
+            return false;
+        }else if(fileSize>1024*6) {
+            alert("证件大小不超过6M");
+            return false;
+        }else if (file.files && file.files[0]){
+            div.innerHTML ='<img class=imghead'+n+'onclick=$(".previewImg'+n+'").click()>';
+            var img = $('.imghead'+n)
+            var reader = new FileReader();
+            reader.onload = function(evt){                                  //文件读取成功完成时触发
+                img.attr("src",evt.target.result);
+            }
+            reader.readAsDataURL(file.files[0]);                            // 将文件读取为 DataURL
+        }else //兼容IE
+        {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img class=imghead'+n+'>';
+            var img = $('.imghead'+n);
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+        }
+    }
+    function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+        var param = {top:0, left:0, width:width, height:height};
+        if( width>maxWidth || height>maxHeight ){
+            rateWidth = width / maxWidth;
+            rateHeight = height / maxHeight;
+
+            if( rateWidth > rateHeight ){
+                param.width =  maxWidth;
+                param.height = Math.round(height / rateWidth);
+            }else{
+                param.width = Math.round(width / rateHeight);
+                param.height = maxHeight;
+            }
+        }
+        param.left = Math.round((maxWidth - param.width) / 2);
+        param.top = Math.round((maxHeight - param.height) / 2);
+        return param;
+    }
+</script>
+</body>
+</html>

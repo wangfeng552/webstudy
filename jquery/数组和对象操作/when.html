@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+</head>
+<body>
+<script src="jquery-1.11.2.js"></script>
+<h2>Http同步和异步请求区别</h2>
+普通B/S模式（同步）
+AJAX技术（异步）
+同步:提交请求》等待服务器处理》处理完毕返回 这个期间客户端浏览器不能做任何事;
+异步:请求通过事件触发》服务器处理（浏览器仍然可以做任何事情）》处理完毕；
+<script>
+//$.when(deferreds) 提供一种方法来执行一个或多个对象的回调函数，延迟对象通常表示异步事件。
+//deferreds: 一个或多个异步请求。
+
+//when()函数常常和done()函数、fail()函数、then()函数联合使用：
+//done(Function func) - 当deferreds中的处理都完成的时候执行Function回调函数
+//fail(Function func) - 当deferreds中有一个处理失败的时候执行Function回调函数
+//then(Function func1,Function func2)- 结合了done和fail函数，当都成功执行func1，当有一个失败执行func2
+
+var whenResult = $.when($.ajax("page1.php"), $.ajax("page2.php"));
+whenResult.done(function(a1,a2){
+//a1和a2俩参数是when函数中两个ajax请求的相关jqXHR对象
+	var jqXHR = a1[2]; /* arguments are [ "success", statusText, jqXHR ] */
+	if ( /Whip It/.test(jqXHR.responseText) ) {
+		alert("First page has 'Whip It' somewhere.");
+	}
+});
+whenResult.fail(function(){
+//函数内容略
+})
+whenResult.then(successFunc,failureFunc);
+</script>
+</body>
+</html>
+

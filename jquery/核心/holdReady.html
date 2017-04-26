@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="hold">点击</div>
+<botton class="jc">解除</botton>
+<!--$.holdReady()
+调用此方法可以延迟jQuery的ready事件，也就是说尽管文档已经加载完成，也不会执行ready事件处理方法。
+可以多次调用jQuery.holdReady()方法，以延迟jQuery的ready事件，当满足一定条件时，再通过将此方法的参数设置为false，一一解除延迟。
+方法一般用于动态脚本加载，直到脚本加载完成然后再通过将此方法的参数设置为false，解除对jQuery.ready()事件延迟。
+
+语法:
+jQuery.holdReady(hold)
+	如果值为true，则会延迟jQuery.ready()事件。
+	如果值为false，则会解除对jQuery.ready()事件延迟。
+-->
+
+
+<script type="text/javascript">
+jQuery.holdReady(true);			//设置ready延迟
+
+//DOM加载完成之后运行可以设置延迟
+$(document).ready(function(){
+	$(".hold").click(function(){
+		alert("我不会被弹出");
+	})
+})
+
+//立即执行方法无法延迟
+(function($){
+	$(".hold").click(function(){
+		alert("我不会被弹出");
+	})
+})(jQuery)
+
+//解除延迟
+$(".jc").click(function(){
+	jQuery.holdReady(false)
+})
+</script>
+</body>
+</html>
+

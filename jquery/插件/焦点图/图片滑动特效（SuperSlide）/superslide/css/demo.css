@@ -1,0 +1,178 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* 通用信息列表_普通式 */
+.infoList li{ height:24px; line-height:24px;   }
+.infoList li .date{ float:right; color:#999;  }
+
+
+/* 通用图片列表_普通式 */
+.picList li{ width:126px;  }
+.picList .pic{ text-align:center; line-height:0px;  }
+.picList .pic img{ width:120px; height:90px; padding:2px; border:1px solid #ccc;  }
+.picList .pic a:hover img{ border-color:#f00;  }
+.picList .title{ line-height:24px;   }
+
+/* 文本切换盒子 - 公用类 */
+.slideTxtBox{ width:450px; border:1px solid #ddd; text-align:left;  }
+.slideTxtBox .hd{ height:30px; line-height:30px; background:#f4f4f4; padding:0 20px; border-bottom:1px solid #ddd;  position:relative;  }
+.slideTxtBox .hd ul{ float:left; position:absolute; left:20px; top:-1px; height:32px;   }
+.slideTxtBox .hd ul li{ float:left; padding:0 15px; }
+.slideTxtBox .hd ul li.on{ height:30px;  background:#fff; border:1px solid #ddd; border-bottom:2px solid #fff; cursor:pointer; }
+.slideTxtBox .bd{ padding:15px;  }
+.slideTxtBox .bd ul{ padding:10px;  }
+.slideTxtBox .tempWrap{ margin:15px;  }
+
+
+/* 单个图片幻灯片盒子 - 公用类 */
+.slideBox{ width:450px; height:230px; overflow:hidden; position:relative; border:1px solid #ddd;  }
+.slideBox .hd{ height:15px; overflow:hidden; position:absolute; right:10px; bottom:10px; z-index:1; }
+.slideBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.slideBox .hd ul li{ float:left; margin-right:5px;  width:15px; height:15px; line-height:14px; text-align:center; background:#fff; cursor:pointer; }
+.slideBox .hd ul li.on{ background:#f00; color:#fff; }
+.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox .bd img{ width:450px; height:230px; }
+
+
+/* 多个左滚动 - 图片- 公用类 */
+.leftLoop{ overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.leftLoop .hd{ overflow:hidden;  height:30px; background:#f4f4f4;  }
+.leftLoop .hd .prev,.leftLoop .hd .next{ display:block;  width:5px; height:9px; line-height:10px; float:right; margin-right:10px; margin-top:10px;  overflow:hidden;  
+	 cursor:pointer; background:url("images/icoLeft.gif") no-repeat;}
+.leftLoop .hd .next{ background:url("images/icoRight.gif") no-repeat;  }
+.leftLoop .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px;  }
+.leftLoop .hd ul li{ position:relative; _display:inline; float:left;  width:10px; height:10px; overflow:hidden; background:#ccc; margin-right:10px; text-indent:-999px; cursor:pointer;
+	-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; behavior: url(../PIE.htc);}
+.leftLoop .hd ul li.on{ background:#f00;  }
+.leftLoop .bd{ padding:10px;   }
+.leftLoop .bd ul{ overflow:hidden; zoom:1; }
+.leftLoop .bd ul li{ margin:0 10px; text-align:center; float:left; _display:inline; overflow:hidden;  }
+
+
+/* 多个上滚动 - 图片- 公用类 */
+.topLoop{ overflow:hidden; position:relative;  border:1px solid #ccc;   }
+.topLoop .hd{ overflow:hidden;  height:30px; background:#f4f4f4;  }
+.topLoop .hd .prev,.topLoop .hd .next{ display:block;  width:9px; height:10px; line-height:10px; float:right; margin-right:10px; margin-top:10px;  overflow:hidden;  
+	 cursor:pointer; background:url("images/icoUp.gif") center no-repeat;}
+.topLoop .hd .next{ background:url("images/icoDown.gif") center no-repeat;  }
+.topLoop .hd ul{ float:right; overflow:hidden; zoom:1; margin-top:10px;  }
+.topLoop .hd ul li{ position:relative; _display:inline; float:left;  width:10px; height:10px; overflow:hidden; background:#ccc; margin-right:10px; text-indent:-999px; cursor:pointer;
+	-webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; behavior: url(../PIE.htc);}
+.topLoop .hd ul li.on{ background:#f00;  }
+.topLoop .bd{ padding:10px;   }
+.topLoop .bd ul{ overflow:hidden; zoom:1; }
+
+
+/* 多个左滚动 - 文本 - 公用类 */
+.leftLoopTxt{  }
+
+
+/* 图片按钮(左)滚动 - 公用类 */
+.picBtnLeft{ width:467px; height:313px; border:1px solid #ccc; padding:5px;  position:relative;  overflow:hidden;  zoom:1;   }
+.picBtnLeft .hd{ width:467px;  height:84px; position:absolute;  top:240px; }
+.picBtnLeft .hd ul{ width:480px;  overflow:hidden; zoom:1; }
+.picBtnLeft .hd ul li{ padding-top:5px; float:left; _display:inline; text-align:center;  }
+.picBtnLeft .hd ul li img{ width:105px; height:65px; border:4px solid #ddd; cursor:pointer; margin-right:5px;   }
+.picBtnLeft .hd ul li.on{ background:url("images/icoUp.gif") no-repeat center 0; }
+.picBtnLeft .hd ul li.on img{ border-color:#f60;  }
+.picBtnLeft .bd{ width:467px;  height:230px; position:relative;  }
+.picBtnLeft .bd img{ width:467px; height:230px;  }
+.picBtnLeft .bd li{ position:relative; zoom:1; }
+.picBtnLeft .bd li .pic{ position:relative; z-index:0; line-height:0px;  }
+.picBtnLeft .bd li .bg{ display:none;  width:467px; height:30px; position:absolute; left:0; bottom:0; z-index:1;  background:#000; filter:alpha(opacity=60);opacity:0.6;    }
+.picBtnLeft .bd li .title{ display:none;  width:467px; height:30px; line-height:30px; left:0; bottom:0;   position:absolute; z-index:2;  }
+.picBtnLeft .bd li .title a{ color:#fff;  }
+
+/* 图片按钮(上)滚动 - 公用类 */
+.picBtnTop{ width:500px; height:214px; border:1px solid #ccc; padding:5px;  position:relative;  overflow:hidden;  zoom:1;   }
+.picBtnTop .hd{ width:98px;  height:214px; position:absolute; right:5px;}
+.picBtnTop .hd ul li{ width:93px; padding:0 0 5px 5px;  text-align:center; line-height:0px;  }
+.picBtnTop .hd ul li img{ width:85px; height:60px; border:4px solid #ddd; cursor:pointer;  }
+.picBtnTop .hd ul li.on{ background:url("images/icoleft.gif") no-repeat 0 28px; }
+.picBtnTop .hd ul li.on img{ border-color:#f60;  }
+.picBtnTop .bd{ width:400px;  height:214px; position:relative;  }
+.picBtnTop .bd img{ width:400px; height:214px;  }
+.picBtnTop .bd li{ position:relative; zoom:1; }
+.picBtnTop .bd li .pic{ position:relative; z-index:0; line-height:0px;  }
+.picBtnTop .bd li .bg{ width:400px; height:30px; position:absolute; left:0; bottom:0; z-index:1;  background:#000; filter:alpha(opacity=60);opacity:0.6;    }
+.picBtnTop .bd li .title{ width:400px; height:30px; line-height:30px; left:0; bottom:0;   position:absolute; z-index:2;  }
+.picBtnTop .bd li .title a{ color:#fff;  }
+ 
+
+/* 5、More Idea 衍生效果 不共用样色 ----------------------------------------------------------------------------------- */
+
+/* 双重slide-文本滚动效果 */
+#doubleSlideTxt{ width:524px; zoom:1; position:relative; text-align:left;  }
+#doubleSlideTxt .parHd{ position:absolute; z-index:1; top:10px; left:453px; width:44px; overflow:hidden; }
+#doubleSlideTxt .parHd li{ width:14px; padding:5px 5px 5px 5px;  line-height:16px; border:1px solid #baccdf; border-left:0; 
+	margin-bottom:5px; background:#fff; color:#b5c4d3;  cursor:pointer; margin-left:1px;  }
+#doubleSlideTxt .parHd li.on{ background:#dbeefd; font-weight:bold; color:#367399;  border-right:3px solid #4e98c6;  
+	margin-left:0px; position:relative; z-index:100; padding:5px 10px 5px 10px;}
+#doubleSlideTxt .parBd{ position:relative;  z-index:0; width:440px; left:0px; border:1px solid #baccdf; padding:6px; background:#dbeefd;}
+#doubleSlideTxt .parBd .slideTxtBox{ background:#fff; width:400px; border:0; padding:20px;    }
+#doubleSlideTxt .parBd .slideTxtBox .hd{ background:#fff;  }
+
+/* 双重slide-相册效果 */
+.gallery{ border:1px solid #ccc; padding:5px; text-align:left;    }
+.gallery .bd li .pic{ line-height:0px;  }
+.gallery .bd li .bg,.gallery .bd li .title{ display:none;  }
+.gallery .bd li img{ width:450px; height:230px;   }
+.gallery .hd{ position:relative; padding:0 15px; margin-top:10px; zoom:1; }
+.gallery .hd .tempWrap{ margin-left:8px;  }
+.gallery .hd ul{ overflow:hidden; zoom:1; }
+.gallery .hd li{ width:100px; padding-top:4px; text-align:center; cursor:pointer;   }
+.gallery .hd li img{ width:86px; height:60px; border:1px solid #ddd; padding:2px;   }
+.gallery .hd li.on{ background:url("images/icoUp.gif") no-repeat center 0;  }
+.gallery .hd li.on img{ border:1px solid #f60; background:#fff;   }
+.gallery .hd .sNext,.gallery .hd .sPrev{ text-align:center;  width:15px; height:66px; line-height:66px;  border:1px solid #ddd; cursor:pointer; position:absolute;  left:0px; top:4px; }
+.gallery .hd .sNext{ left:auto; right:0px; }
+.gallery .hd .sNext:hover,.gallery .hd .sPrev:hover{ text-decoration:none; border:1px solid #f60;  }
+
+/* 双重slide-仿Mtime */
+.Mtime{ width:960px; height:311px;  overflow:hidden; position:relative; background:url("demoEffect/Mtime/bg_movies.jpg") no-repeat;  }
+.Mtime .prev,.Mtime .next{ width:63px; height:100%; clear:both; cursor:pointer; position:absolute; left:0px; top:0px; }
+.Mtime .next{ width:59px; left:auto; right:0px;  }
+.Mtime .tempWrap{ margin-left:63px; }
+.Mtime .MtimeCon{ width:840px; height:100%;     }
+.Mtime .tabBox{ overflow:hidden; zoom:1; }
+.Mtime .tabBox .bd{ padding: 15px 18px 15px 20px; width: 667px;  float:left;  }
+.Mtime .tabBox .bd li{ overflow:hidden; zoom:1; }
+.Mtime .tabBox .bd .text{  width: 225px; padding-right: 20px; word-wrap: break-word; float:left;  }
+.Mtime .tabBox .bd .text h3 a{ color:#86CA35; font:normal 28px/40px "Microsoft YaHei"; _font-weight:bold;  }
+.Mtime .tabBox .bd .text p{ padding-top:18px; line-height:22px; color:#fff; font-size:14px;     }
+.Mtime .tabBox .bd .imgs{ float:right;  }
+.Mtime .tabBox .hd{ width:103px; float:left; margin-top:6px;   }
+.Mtime .tabBox .hd li{ margin-top:7px; padding-left:7px;  cursor:pointer; vertical-align:middle; }
+.Mtime .tabBox .hd a{ padding:3px; display:block; height:45px; overflow:hidden;   }
+.Mtime .tabBox .hd img{ width:90px; height:45px;  }
+.Mtime .tabBox .hd li.on{ background:url("demoEffect/Mtime/icoLeft.gif") 0 center no-repeat; }
+.Mtime .tabBox .hd li.on a{ background:#85CB35;  }
+
+/* 常见焦点图 */
+.focusBox{ width:275px; height:243px; overflow:hidden; position:relative; border:1px solid #ddd;  }
+.focusBox .hd{ position:absolute; z-index:1; right:3px; bottom:34px; }
+.focusBox .hd ul{ overflow:hidden; zoom:1; float:left;  }
+.focusBox .hd ul li{ float:left; margin-right:3px;  width:14px; height:14px; line-height:14px; text-align:center; background:#ddd; cursor:pointer; 
+	font-family:Arial; color:#666; }
+.focusBox .hd ul li.on{ background:#f00; color:#fff;     }
+.focusBox .bd{ position:relative;  }
+.focusBox .bd .pic{ line-height:0px;  }
+.focusBox .bd .pic img{ width:275px; height:215px;}
+.focusBox .bd .con{ height:28px; line-height:28px; text-align:center; font-weight:bold; background:#f6f6f6; }
+ 
+/* 视频网站大焦点图 */
+.tv-slideBox{  height:288px; overflow:hidden; background:#333; position:relative;   }
+.tv-slideBox .hd{ display:none;  }
+.tv-slideBox li{ overflow:hidden;  }
+.tv-slideBox li .pic{ width:720px; float:left;   }
+.tv-slideBox li .pic img{ width:720px;  }
+.tv-slideBox li .con{ position:relative;  background:#fff;  height:288px; width:240px; padding-left:20px;   float:left; background:url("demoEffect/images/gtvSplit.png") -281px 0 repeat-y;  }
+.tv-slideBox li .con .bg{ position:absolute; width:96px; height:96px; right:0px; top:0px; background:url("demoEffect/images/gtvSplit.png") -84px 0 no-repeat;    }
+.tv-slideBox li .con .title{  width:170px; padding-top:30px; height:68px;  }
+.tv-slideBox li .con .title a{ color:#fff;  font:normal 14px/22px "Microsoft YaHei"; _font-weight:bold; }
+.tv-slideBox li .con .intro{ color:#cbcbcb; width:220px; border-top:1px dotted #cbcbcb;  padding-top:10px; margin-top:10px;   }
+.tv-slideBox li .con .intro .more{ position:absolute; bottom:20px; left:20px; display:block; width:94px; height:28px; background:url("demoEffect/images/gtvSplit.png") -184px 0 no-repeat; overflow:hidden; line-height:990px;   }
+.tv-slideBox li .con .intro .more:hover{ bottom:21px; }
+.tv-slideBox .prev,.tv-slideBox .next{ position:absolute; z-index:1;width:39px; height:87px; overflow:hidden; cursor:pointer; left:10px; top:80px; background:url("demoEffect/images/gtvSplit.png") 0 0 no-repeat; }
+.tv-slideBox .next{ background-position:-41px 0; left:674px; }
+.tv-slideBox .prev:hover,.tv-slideBox .next:hover{ top:79px;  }

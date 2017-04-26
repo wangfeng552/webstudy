@@ -1,0 +1,25 @@
+
+/* 头部通用css 更新时间:2014-07-11 版本:css0.0.1 作者:bihu */
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0 }
+ol, ul { list-style: none }
+li{list-style-type:none;}
+:focus { outline: 0 }/*表单Button的Outline*/
+a img { border: 0 }
+img { vertical-align: middle }
+table { border-collapse: collapse; border-spacing: 0;}
+ins { text-decoration: none }/*带有已删除部分和新插入部分的文本*/
+del { text-decoration: line-through }
+em { font-style: normal }
+button::-moz-focus-inner, input[type=reset]::-moz-focus-inner, input[type=button]::-moz-focus-inner, input[type=submit]::-moz-focus-inner, input[type=file]>input[type=button]::-moz-focus-inner {border:0; padding:0 }/*火狐表单Button的Outline*/
+body { font: 12px/150% Arial, Verdana, "\5b8b\4f53"; color: #333; background: #fff; _background-image: url(about:blank); _background-attachment: fixed }
+h1 { font: 20px "microsoft yahei", "\5b8b\4f53" }
+h2, h3 { font-size: 14px }
+h4, h5, h6 { font-size: 12px }
+p { word-wrap: break-word }
+a { color: #333; text-decoration: none }
+a:hover { color: #c40000; text-decoration: underline }
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
+.clearfix { display: inline-table }
+*html .clearfix { height: 1% }
+.clearfix { display: block }
+*+html .clearfix { min-height: 1% }

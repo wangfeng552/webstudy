@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="mk"></div>
+<div class="new"></div>
+<script>
+	$.fn.extend({
+	    diyuplod:function (options) {
+            var self=this;
+            var defaults={
+                kk:"",
+                inputId:"inputId",
+                calendars:"2",
+                aToday : 'aToday',
+            }
+            self.opts= $.extend(true,defaults,options);
+            self.periodObj = {};
+            self.periodObj[self.opts.aToday]=0;
+
+//	console.log(this.periodObj[__mothed.opts.aToday])
+            self.opts.calendars = Math.min(self.opts.calendars, 3);
+            var kk = "" == self.opts.kk ? new Date().getTime() : self.opts.kk;
+            var html = "";
+            html += '<div class='+self.opts.inputId+'>'+kk+'</div>'+self.opts.calendars;
+            $(".mk").append(html);
+        },
+        wf:function (options) {
+			var self=$(this);
+			var defaults={
+			    name:"xin",
+				age:"45",
+				text:"撒地方拉萨的积分是拉动房价"
+			};
+			self.opts=$.extend(true,defaults,options);
+			var html="";
+//			html += '<div class='+self.opts.name+'>'+self.opts.text+'</div>';
+			html += `<div class="${self.opts.name}">${self.opts.text}</div>`;
+			$(".new").append(html);
+        }
+	})
+
+    $(".mk").diyuplod({
+        kk:"你们好",
+        inputId:"wf",
+        calendars:"5"
+    })
+	$(".new").wf({
+	    name:"lisi",
+		text:"新盖对了"
+	})
+</script>
+
+
+</body>
+</html>
+

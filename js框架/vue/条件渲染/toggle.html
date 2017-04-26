@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+<div class="mk">
+	<p v-if="title==='username'">123</p>
+	<p v-else>456</p>
+	<button @click="toggle">点击</button>
+</div>
+<script>
+	var vm=new Vue({
+	    el:".mk",
+		data:{
+	        title:"username"
+		},
+		methods:{
+	        toggle:function () {
+				return this.title=this.title==='username'?'password':'username'
+            }
+		}
+	})
+</script>
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+readyStae状态的介绍
+创建－初始化请求－发送请求－接收数据－解析数据－完成
+0 － （未初始化）还没有调用send()方法
+1 － （载入）已调用send()方法，正在发送请求
+2 － （载入完成）send()方法执行完成，已经接收到全部响应内容
+3 － （交互）正在解析响应内容
+4 － （完成）响应内容解析完成，可以在客户端调用了
+
+AJAX状态值
+运行AJAX所经历过的几种状态，无论访问是否成功都将响应的步骤，可以理解成为AJAX运行步骤。如：正在发送，正在响应等，由AJAX对象与服务器交互时所得；
+使用“ajax.readyState”获得。（由数字1~4单位数字组成）
+
+AJAX状态码
+无论AJAX访问是否成功，由HTTP协议根据所提交的信息，服务器所返回的HTTP头信息代码，该信息使用“ajax.status”所获得；（由数字1XX,2XX三位数字组成，详细查看RFC）
+这就是我们在使用AJAX时为什么采用下面的方式判断所获得的信息是否正确的原因。
+</body>
+</html>
+

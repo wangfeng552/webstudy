@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>拖拽</title>
+</head>
+<body>
+	<!-- http://www.zhangxinxu.com/wordpress/2010/03/javascript%E5%AE%9E%E7%8E%B0%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%8B%96%E6%8B%BD%E6%95%88%E6%9E%9C/ -->
+<style type="text/css">
+#box{position:absolute; left:100px; top:100px; padding:5px; background:#f0f3f9; font-size:12px; -moz-box-shadow:2px 2px 4px #666666; -webkit-box-shadow:2px 2px 4px #666666;}
+#main{border:1px solid #a0b3d6; background:white;}
+#bar{line-height:24px; background:#beceeb; border-bottom:1px solid #a0b3d6; padding-left:5px; cursor:move;}
+#content{width:420px; height:250px; padding:10px 5px;}
+</style>
+
+<div id="box">
+    <div id="main">
+        <div id="bar">拖拽</div>
+        <div id="content">
+            内容……
+        </div>
+    </div>
+</div>
+<script src="js.js" type="text/javascript"></script>
+<script type="text/javascript">
+    var oBox = document.getElementById("box");
+    var oBar = document.getElementById("bar");
+    startDrag(oBar, oBox);
+</script>
+</body>
+</html>

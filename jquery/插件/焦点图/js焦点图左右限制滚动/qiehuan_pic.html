@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>纯CSS实现的outline切换transition动画效果</title>
+<script type="text/javascript" src="http://cj.j1.com/js/lib/jquery/jquery-1.5.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.j1.com/css/home_v1/global.css">
+</head>
+
+<body>
+    <div default="0" id="Complaint-pic">
+      <ul>
+        <li class="btnPrev"><img src="http://img.j1.com/images/listpage/product/left.jpg"></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-01" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_0.jpg" class="thumb_img-1"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-02" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_1.jpg" class="thumb_img-2"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-03" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_2.jpg" class="thumb_img-3"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-04" href="http://www.j1.com" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_3.jpg" class="thumb_img-4"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-05" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_4.jpg" class="thumb_img-5"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-06" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_5.jpg" class="thumb_img-6"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-07" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_6.jpg" class="thumb_img-7"></a></li>
+        <li class="comsmallpic" style="display: block;">
+          <a id="thumb_xixi-08" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_0.jpg" class="thumb_img-8"></a></li>
+        <li class="comsmallpic" style="display: none;">
+          <a id="thumb_xixi-9" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_1.jpg" class="thumb_img-9"></a></li>
+        <li class="comsmallpic" style="display: none;">
+          <a id="thumb_xixi-10" href="" target="_blank"><img width="58" height="58" alt="" title="" src="http://img01.j1.com/upload/goods/58-58/1500_2.jpg" class="thumb_img-10"></a></li>
+        <li class="btnNext"><img id="play_next" src="http://img.j1.com/images/listpage/product/right.jpg"></li>
+      </ul>
+    </div>
+    <!-- sadfdaf -->
+<script>
+	var a = $("#Complaint-pic").attr("default");
+    var c = $("#Complaint-pic ul li.comsmallpic").size();
+    $("#Complaint-pic ul li.btnPrev").click(function() {
+        if (c <= 8 || a == 0) {
+            return false
+        } else {
+            if (c - a > 0) {
+                a--;
+                $("#Complaint-pic ul li.comsmallpic").hide();
+                $("#Complaint-pic ul li.comsmallpic").slice(a, a + 8).show()
+				if(a == 0){
+					alert("123");
+				}
+            }
+        }
+    });
+    $("#Complaint-pic ul li.btnNext").click(function() {
+        if (c <= 8 || a == c) {
+            return false
+        } else {
+            if (c - a > 8) {
+                a++;
+                $("#Complaint-pic ul li.comsmallpic").hide();
+                $("#Complaint-pic ul li.comsmallpic").slice(a, a + 8).show()
+				if((c - a) == 8){
+					alert("123");
+				}
+            }
+        }
+    });
+</script>
+</body>
+</html>

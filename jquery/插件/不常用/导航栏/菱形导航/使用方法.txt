@@ -1,0 +1,14 @@
+使用方法：
+
+1.引用样式文件css/lrtk.css
+
+2.引用jquery的库文件js/jquery.js
+
+3.引用效果的具体js代码文件js/lrtk.js复制至html文件中。
+
+4.将class为box的div的内容复制到您的html文件
+
+5.具体参数更改请查看lrtk.js中的注释
+
+
+*更多代码请访问：懒人图库 www.lanrentuku.com/js/

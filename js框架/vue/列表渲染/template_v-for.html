@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>vue</title>
+	<script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<wf-name></wf-name>
+</div>
+
+<template id="ani" >
+	<ul>
+		<li v-for="animal in animals">{{animal.name}}</li>
+	</ul>
+</template>
+
+<script>
+	Vue.component("wf-name",{
+	    template:"#ani",
+		data:function () {   			//在组件中data就得是函数返回对象
+			return {
+                animals:[
+                    {name:"张三"},
+                    {name:"123123"},
+                    {name:"sdfgdsfg"},
+                ]
+            }
+        }
+	})
+	var vm = new Vue({
+	    el:"#app",
+        /*data:{							//在实例中data是对象,
+            animals:[
+                {name:"张三"},
+                {name:"123123"},
+                {name:"sdfgdsfg"},
+            ]
+		}*/
+	})
+</script>
+</body>
+</html>
+

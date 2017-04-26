@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<style>
+.mk{ background: #ccc; width: 100px;}
+</style>
+<div class="mk">wodafasdfasdfh</div>
+<button class="dj">电机</button>
+<button class="qx">取消</button>
+<script>
+//on(events,[selector],[data],fn)
+//events:一个或多个用空格分隔的事件类型和可选的命名空间，如"click"或"keydown.myPlugin" 。
+//selector:一个选择器字符串用于过滤器的触发事件的选择器元素的后代。如果选择的< null或省略，当它到达选定的元素，事件总是触发。
+//data:当一个事件被触发时要传递event.data给事件处理函数。
+//fn:该事件被触发时执行的函数。 false 值也可以做一个函数的简写，返回false。
+
+/*off(events,[selector],[fn])
+events:一个或多个空格分隔的事件类型和可选的命名空间，或仅仅是命名空间，比如"click", "keydown.myPlugin", 或者 ".myPlugin".
+selector:一个最初传递到.on()事件处理程序附加的选择器。
+fn:事件处理程序函数以前附加事件上，或特殊值false.*/
+var ani=function(){
+	$(".mk").animate({
+		width:"+=10px",
+		fontSize:"+=2px"
+	})
+}
+//写法1
+/*$(".dj").on("click",ani);
+$(".qx").click(function(){
+	$(".dj").off("click",ani);
+})*/
+
+//写法2
+$("body").on("click",".dj",ani)
+$(".qx").click(function(){
+	$("body").off("click",".dj",ani)
+})
+
+$(".mk").on({
+	click:function(){alert(1)},
+	mouseover:function(){$(this).html(1234)}
+})
+</script>
+
+</body>
+</html>
+

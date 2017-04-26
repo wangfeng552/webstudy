@@ -1,0 +1,489 @@
+﻿@charset "utf-8";
+/**全局设定**/
+body,h1,h3,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,fieldset,lengend,button,input,textarea,th,td{margin:0;padding:0;}
+body,button,input,select,textarea{	font-size:14px;	font-family: Arial,Tahoma,  "宋体";}
+img,a{border:0;}
+ul,ol,li{list-style:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:none;}
+table {max-width: 100%;border-collapse: collapse;border-spacing: 0;background-color: transparent;}
+/*html{overflow-y:scroll;}
+.allpic{background-image: url(../images/backgroundpic.png);}
+.b_color{background-color: #f6f7f7;}*/
+/*** 头部 ***/
+/*.h_main{width:100%;margin-right: auto;margin-left: auto;}
+.header,.footer{width:990px; margin-right: auto;margin-left: auto; font-size:12px; color:#666666;}
+.header_logo{ float:left; width:990px; height:45px;}
+.header_logo ul{float:left; width:990px;}
+.header_logo li.logo{float:left;height: 41px;margin-top:2px;width: 214px;}
+.header_logo li img{ display:block;}
+.header_logo li.info{float:right;height: 41px;line-height:41px;margin-top:2px;}
+.clearfix:after {content: "";display: block;height: 0;clear: both;}
+.clearfix {zoom: 1;}
+.btn{ color:#fff!important; font-weight:bold; width:110px!important; height:27px; line-height:14px; padding-top:10px;text-align:center; display:inline-block; text-decoration:none!important; margin-right:10px; font-size:14px;}
+.ie .btn{height:24px; padding-top:13px;}
+.btn.confirm{ background:url(../images/confim_btn.png);}*/
+.mb20{ margin-bottom: 20px;}
+.mr20{ margin-right: 20px;}
+.mt10{ margin-top: 10px;}
+.wf_btn_w1{ width: 140px;}
+.mb10 {
+	margin-bottom: 10px;
+}
+.mb30 {
+	margin-bottom: 30px;
+}
+.mt20 {
+	margin-top: 20px;
+}
+.ml0 {
+	margin-left: 0px !important;
+}
+.pd0 {
+	padding: 0 !important;
+}
+.mb0 {
+	margin-bottom: 0px !important;
+}
+.mt30 {
+	margin-top: 30px;
+}
+.pl20 {
+	padding-left: 20px !important;
+}
+.pl150 {
+	padding-left: 150px !important;
+}
+.pb50 {
+	padding-bottom: 50px !important;
+}
+.ml10 {
+	margin-left: 10px;
+}
+.fb18 {
+	font-size: 18px;
+	font-weight: bold;
+}
+.sm-btnSize {
+	width: 120px;
+}
+.xs-btnSize {
+	width: 80px;
+}
+.textc {
+	text-align: center !important;
+}
+.xs-label-name {
+	width: 80px !important;
+}
+table th,table td {
+	font-weight: inherit;
+	text-align: center !important;
+	vertical-align: middle !important;
+}
+textarea {
+	width: 340px;
+    height: 160px;
+}
+.relative {
+	position: relative;
+}
+.sm-form-control {
+	width:150px !important;
+}
+.sm180-form-control {
+	width:180px !important;
+}
+.xs103-form-control {
+	width:103px !important;
+}
+.xs-form-control {
+	width:80px !important;
+}
+.overh {
+	overflow: hidden;
+}
+.tar {
+	text-align: right;
+}
+/*** 右边布局 ***/
+* {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box
+}
+.content {
+	padding: 30px 0 0 20px;
+	width: 1000px;
+	min-width: 1000px;
+	height: auto;
+}
+.super-title {
+	font-size: 22px;
+	font-weight: bold;
+	padding-left: 20px;
+	line-height: 35px;
+	border-bottom: 1px solid #000;
+}
+.sub-title {
+	font-size: 14px;
+	line-height: 30px;
+	padding-left: 20px;
+	border-bottom: 1px solid #000;
+}
+.content-detail {
+	padding-left: 20px;
+	margin-top: 20px;
+}
+.content-detail-title {
+	line-height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.addrome {
+	width: 140px;
+	line-height: 40px;
+}
+.input-group {
+	margin-bottom: 20px;
+}
+.input-group label {
+	float: left;
+	line-height: 34px;
+	width: 150px;
+}
+.input-group .form-control {
+	margin-left: 10px;
+	width: 240px;
+}
+.uploadBtn {
+	width: 80px;
+	margin-left: 15px;
+	line-height: 20px !important;
+}
+.show-img {
+	position: relative;
+	width: 700px;
+	height: 300px;
+	padding: 10px;
+	border: 1px dotted #000;
+}
+.img-area {
+	width: 100%;
+	height: 240px;
+}
+.deleteBtn {
+	position: absolute;
+	width: 200px;
+	left:50%;
+	margin-left: -100px;
+	margin-top:5px;
+}
+.img-area li.addImg {
+	float: left;
+	width: 80px;
+	height: 80px;
+	border: 1px solid #ddd;
+	color: #999;
+	font-size: 60px;
+	text-align: center;
+	line-height: 80px;
+}
+.radio-box {
+	max-width: 900px;
+	margin-bottom: 20px;
+}
+.radio-box label {
+	float: left;
+}
+.radio-box .row {
+	padding-left: 80px;
+}
+.radio-box .row input[type="radio"] {
+	margin-right: 10px;
+}
+.editBtn {
+	width:120px;
+}
+
+/* 酒店新增  */
+.finish-state li {
+	line-height: 30px;
+}
+.finish-state li .state-iden {
+	display: inline-block;
+	width: auto;
+	line-height: 30px;
+	margin-right: 10px;
+}
+
+/* 酒店基本信息  */
+
+.sm-addbtn {
+	margin-left: 25px;
+}
+.textarea-box {
+	padding-left: 160px;
+}
+.textarea-box textarea {
+    margin-top: 20px;
+}
+
+/* 联系信息  */
+.broken {
+	float: left;
+	line-height: 34px;
+	padding: 0 0 0 10px;
+}
+
+
+/* 客房信息弹框  */
+.mask-edit {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,.4);
+	z-index: 10;
+}
+.edit-pop {
+	display: none;
+	position: absolute;
+	width: 700px;
+	top: 20%;
+	left: 50%;
+	margin-left: -350px;
+	padding: 20px 20px 40px;
+	background: #fff;
+	z-index: 20;
+}
+.choose-list > div {
+	float: left;
+	margin-left: 10px;
+}
+.choose-box {
+	width: 240px;
+	border:1px solid #ddd;
+	height: 300px;
+	overflow-y: scroll;
+}
+.btn-box-e {
+	width: 140px;
+}
+
+
+/* 酒店审核  */
+.review-state li {
+	display: inline-block;
+	margin-right: 30px;
+	color: #666;
+	font-size: 14px;
+}
+
+/* 上线维护管理  */
+.tain-postbtn {
+	position: absolute;
+	right:0;
+	bottom: 10px;
+}
+.record-num {
+	color: #0099FF;
+}
+.xs-select {
+	padding: 6px 1px !important;
+}
+
+/* shezhi  */
+.wf_table_center{ text-align: center;}
+.wf-title{line-height: 50px;
+	font-size: 14px;
+	font-weight: bold;}
+.wf-checkbox input[type=checkbox]{ margin: 0 3px 0 0;}
+.wf-checkbox label{ vertical-align: middle; float: none!important;}
+.wf-zdy-date{ position: relative;}
+.wf-zdy-date .wf-btn-default{ font-style: normal;}
+.wf-btn-default{color: #333;
+	background-color: #fff;
+	border-color: #ccc;}
+a:hover .wf-btn-default,.wf-btn-blue{color: #fff;
+	background-color: #337ab7;
+	border-color: #337ab7;}
+.wf-zdy-date .wf-date-main{position: absolute; background-color: #f2f2f2; left: 8px;top: 41px; z-index: 100; width: 260px; padding: 10px 0; display: none;}
+.wf-zdy-date .wf-date-main .col-lg-3{ margin-bottom: 10px;}
+.wf-zdy-date .wf-date-main .col-lg-3 span{ background-color: #fff; display: inline-block; color: #333;border: 1px solid #ddd; width: 40px;height: 40px; text-align: center;line-height: 40px;}
+.wf-zdy-date .wf-date-main .col-lg-3 span.active{ background-color: #337ab7; border-color: #337ab7; color: #fff;}
+.wf-zdy-date .wf-date-main .col-lg-6{ text-align: center; }
+.wf-zdy-date .wf-date-main .col-lg-6 cite{font-style: normal; display: block}
+.wf-date-select .col-lg-1{ padding: 0; margin-right: 10px;}
+.wf-date-select li{background-color: #337ab7; display: inline-block; color: #fff;border: 1px solid #337ab7; height: 40px; text-align: center;line-height: 40px; margin-right: 5px; margin-bottom: 5px;padding: 0 5px;}
+.wf-popup-bg{ background: rgba(0,0,0,.4);position:fixed;top: 0;left: 0; z-index: 10001; width: 100%;height: 100%; display: none;}
+.wf-popup-main{ width: 780px; height: 580px; position: absolute;left: 50%;top: 50%; margin-left: -400px; margin-top: -300px; background-color: #fff; padding: 20px;}
+.wf-popup-main .wpop-title{ font-size: 18px; line-height: 30px; font-weight: bold;}
+.wf_fullhouse{ background: #337ab7}
+.wf_shuthouse{ background: #c81623}
+.wf_setroomstyle{ margin-bottom: 20px;}
+.wf_setroomstyle i{ display: inline-block; width: 20px; height: 20px; border: 1px solid #ccc; vertical-align: middle; margin-right: 10px;}
+.wf_setroomstyle .wf-chico1{ background-color:#337ab7 }
+.wf_setroomstyle .wf-chico2{ background-color:#c81623 }
+.wf-checkbox {text-align: left;}
+.xs-textarea {width:150px;height:70px}
+.xs45-form-control{width: 45px !important;}
+
+.setup-room {
+	padding: 10px;
+    border: 1px solid #999;
+}
+table .input-group {
+	margin-bottom: 5px !important;
+}
+
+.hbox-type {
+	display: inline-block;
+    margin-left: 10px;
+    line-height: 34px;
+}
+.hbox-type li {
+	float: left;
+    margin-right: 15px;
+}
+.hbox-type li input[type="checkbox"] {
+	margin-top: 10px;
+    float: left;
+    margin-right: 5px;
+}
+.cgrBox {
+	width: 100%;
+}
+.order-mon {
+	line-height: 34px;
+}
+.order-tip {
+	font-size: 12px;
+    color: #ff6600;
+}
+.img-sl {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+    float: left;
+    margin-right: 15px;
+    border: 1px solid #666;
+}
+.img-sl input[type="checkbox"] {
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	margin: 0;
+	padding: 0;
+}
+.img-sl img {
+	width: 100%;
+	height: 100%;
+}
+.disabled,.notAllow {
+	background: #999 !important;
+	color: #fff !important;
+	cursor: no-drop;
+}
+
+.btn-area {
+	position: relative;
+    float: left;
+    left: 50%;
+}
+.btn-area button {
+	position: relative;
+    right: 50%;
+    float: left;
+    margin-right: 30px;
+}
+option {
+	height: 34px;
+	line-height: 34px;
+}
+.manage-user input {
+	text-align: center;
+}
+.pl15 {
+	padding-left: 15px;
+}
+.flo-left {
+	float:left;
+}
+.flo-right {
+	float: right;
+}
+.lh34 {
+	line-height: 34px;
+}
+.score-cz {
+	line-height: 34px;
+	margin-left: 10px;
+}
+.score-sx-box {
+	padding: 10px 0;
+    border-top: 1px dotted #999;
+    border-bottom: 1px dotted #999;
+    margin-bottom: 20px;
+}
+.boder-r {
+	border-right: 1px dotted #999;
+}
+.score-sx-box .input-group {
+	margin-bottom: 0;
+}
+.color109 {
+	color: #109610;
+}
+.color250 {
+	color: #ff2500;
+}
+.color2fa72f {
+	color:#2fa72f;
+}
+.dateBox {
+	width: 840px;
+}
+.houseState div {
+	position: relative;
+	display: inline-block;
+	line-height: 30px;
+	padding-left: 40px;
+	margin-right: 35px;
+}
+.houseState div:before {
+	content: "";
+	position: absolute;
+	width:30px;
+	height: 30px;
+	left:0;
+	top: 0;
+	border:1px solid #ccc;
+}
+.houseState div.mStyle:before {
+	background: #31B0D5;
+}
+.houseState div.gStyle:before {
+	background: red;
+}
+
+.houseState-bjBtn {
+	position: absolute;
+	top: 25px;
+	right:0;
+}
+.houseState-inputBox {
+	padding-top: 10px;
+	border-top: 1px solid #ccc;
+}
+.houseState-inputBox .col-lg-4 {
+	padding-left: 0 !important;
+}
+.houseState-inputBox span.span-mshu {
+    float: left;
+    line-height: 34px;
+    padding-left: 10px;
+    color: #999;
+}

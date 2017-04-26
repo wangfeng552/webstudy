@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+
+<!--
+bind(type,[data],fn) 为每个匹配元素的特定事件绑定事件处理函数。
+
+type: 	含有一个或多个事件类型的字符串，由空格分隔多个事件。比如"click"或"submit"，还可以是自定义事件名。
+data: 	作为event.data属性值传递给事件对象的额外数据对象
+fn:		绑定到每个匹配元素的事件上面的处理函数
+-->
+
+<!--unbind(type,[data],fn)
+bind()的反向操作，从每一个匹配的元素中删除绑定的事件。
+如果没有参数，则删除所有绑定的事件。
+你可以将你用bind()注册的自定义事件取消绑定。
+如果提供了事件类型作为参数，则只删除该类型的绑定事件。
+如果把在绑定时传递的处理函数作为第二个参数，则只有这个特定的事件处理函数会被删除。-->
+
+<style>
+.bg{background: red;}
+</style>
+<div class="dl">打客服</div>
+<div class="dl">打客服</div>
+<div class="dl">打客服</div>
+<script>
+//	同时绑定多个事件类型
+$(".dl").bind("click mouseover",function(){
+	$(this).addClass("bg")
+})
+//同时绑定多个事件类型/处理程序
+$(".dl").bind({
+	click:function(){},
+	mouseover:function(){},
+	mouseout:function(){}
+})
+
+//把mouseover事件取消
+$(".dl").unbind("mouseover")
+
+//把所有事件取消绑定
+//$(".dl").unbind();
+</script>
+
+
+
+<div class="shuju">数据处理</div>
+<script>
+//你可以在事件处理之前传递一些附加的数据。
+function handler(event) {
+	alert(event.data.foo[0]);
+}
+$(".shuju").bind("click",{foo:["你们好","1234"]},handler)
+
+//删除特定函数的绑定，将函数作为第二个参数传入
+$(".shuju").unbind("click",handler)
+</script>
+
+
+
+<div class="nk"> <a href="http://www.j1.com" class="zuzhi">取消默认的行为并阻止事件起泡。</a></div>
+<script>
+//通过返回false来取消默认的行为并阻止事件起泡。
+	$(".zuzhi").bind("click",function(){
+		return false;
+	})
+</script>
+</body>
+</html>
+

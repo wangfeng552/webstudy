@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style>
+.blur {
+	/**  格式，filer: blur(模糊半径)  模糊半径，取值范围0~Npx，0为无效果 */
+	filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+	-webkit-filter: blur(10px); /* Chrome, Opera */
+	-moz-filter: blur(10px);
+	-o-filter: blur(10px);
+	-ms-filter: blur(10px);
+	filter: blur(10px);
+	filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+</style>
+<img src="images/fc_01.jpg" alt="" class="blur"/>
+
+<!--IE10+-->
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
+	 xmlns:ev="http://www.w3.org/2001/xml-events"
+	 baseProfile="full">
+	<defs>
+		<filter id="blur">
+			<feGaussianBlur stdDeviation="10" />
+		</filter>
+	</defs>
+	<image xlink:href="images/fc_01.jpg" x="0" y="0" height="230" width="270" filter="url(#blur)"/>
+</svg>
+</body>
+</html>

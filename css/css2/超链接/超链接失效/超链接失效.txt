@@ -1,0 +1,6 @@
+parseInt :转为整数
+
+<a href="javascript:;">，让超链接失效，等于没有任何效果，用于写一些事件等。
+
+<button onclick="window.open('http://www.163.com')" style="border:0px;width:472px;height:48px;background:background-color;cursor:hand" >  给flash增加超链接
+

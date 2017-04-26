@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="area"></div>
+<div class="quyu"><span class="bx">不限</span></div>
+<script>
+	var obj1=[{上海:["奉贤区","南汇区","徐汇区","黄浦区"]},{北京:["长阳","第三个","离开"]},{西安:["塘桥","暗示"]}];
+	$.each(obj1,function(i,v){
+		$.each(v,function(x,y){
+			$(".area").append('<a href="" data-kvale='+y+'>'+x+'</a>')
+		})
+	})
+
+	/*for(var i= 0,n=obj.length;i<n;i++){
+		$.each(obj[i],function(i,v){
+			$(".area").append('<a href="" data-kvale='+v+'>'+i+'</a>')
+		})
+	}*/
+
+	$(".area").on("click","a",function(e){
+		e.preventDefault();
+		var self=$(this);
+		var dataKvale=self.data("kvale");
+		var html='<span class="bx">不限</span>';
+		var arr1=dataKvale.split(",");    //字符串转数组
+//		var arr1=$.makeArray(dataKvale);
+		$.each(arr1,function(i,v){
+			html += '<a href="">'+v+'</a>';
+		})
+		$(".quyu").html(html);
+	})
+
+
+
+	/*--原声JS遍历法------------------------------------*/
+
+	var obj=[{上海:[1,2,3,4]},{北京:"25"},{sex:"boy"}];
+	var i,k;
+	var arr1=[],arr2=[];
+	for(i in obj){
+		for(k in obj[i]){
+			arr1.push(k);
+			arr2.push(obj[i][k])
+		}
+	}
+	for(var i=0;i<arr1.length;i++){
+		$(".hk").append('<a href="" data-kvalue='+arr2[i]+'>'+arr1[i]+'</a>')
+	}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="mk">
+</div>
+<dd id="area"><span class="active">不限</span><a href="javascript:void(0)">昌平区</a><a href="javascript:void(0)">昌平区</a></dd>
+<script>
+	var obj = [{"上海市":["昌平区","徐汇区","松江区","闵行区","徐汇区","浦东新区","浦东新区","松江区","徐汇区","嘉定区","浦东新区","黄浦区"]},{"北京市":["昌平区","昌平区"]}];
+//console.log(obj[0])
+	for(var i= 0,n=obj.length;i<n;i++){
+		$.each(obj[i],function(i,v){
+			$(".mk").append('<a href="" data-nkvalue='+v+'>'+i+'</a>')
+		})
+	}
+	$(".mk").on("click","a",function(e){
+		e.preventDefault();
+		var dataNkvalue=$(this).data("nkvalue");
+		var c=$.makeArray(dataNkvalue)
+		var html='<span class="active">不限</span>';
+		$.each(c,function(i,v){
+			html += '<a href="javascript:void(0)">'+v+'</a>';
+		})
+		$("#area").html(html)
+	})
+</script>-->
+</body>
+</html>
+

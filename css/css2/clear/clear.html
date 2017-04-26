@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body, html { color: #444444; font: 12px/24px "宋体", san-serif; margin: 0; padding: 0; }
+div, p, form, img, ul, ol, li, dl, dt, dd, textarea { border: 0 none; margin: 0; padding: 0; }
+
+/****2012-2-3第一种清除浮动****/
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden }
+.clearfix { display: inline-table }
+*html .clearfix { height: 1% }
+.clearfix { display: block }
+/*对大多数符合标准的浏览器应用第一个声明块，目的是创建一个隐形的内容为空的块来为目标元素清除浮动。
+第二条为clearfix应用 inline-table 显示属性，仅仅针对IE/Mac。
+height:1% 用来触发 IE6 下的haslayout。
+重新对 IE/Mac 外的IE应用 block 显示属性。最后一行用于结束针对 IE/Mac 的hack。*/
+
+
+/****2015-3-26第二种清除浮动****/
+.layout:after,.content:after{content:"";display:table;clear:both;}
+.layout{*zoom:1}
+/*在IE+、现代浏览器上使用伪元素
+在IE6、7使用hasLayout
+具体应该使用哪种方式来使元素hasLayout为true呢？相对而言zoom：1比较好，因为不会造成其它影响。*/
+/*1.content 属性与 :before 及 :after 伪元素配合使用，来插入生成内容。*/
+/*2.display:table此元素会作为块级表格来显示*/
+</style>
+</head>
+<body>
+</body>
+</html>

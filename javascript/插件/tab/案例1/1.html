@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+body { margin: 0 auto; font-size: 12px; font-family: Verdana; line-height: 1.5; }
+ul, dl, dd, h1, h2, h3, h4, h5, h6, form, p { padding: 0; margin: 0; }
+ul { list-style: none; }
+img { border: 0px; }
+a { color: #05a; text-decoration: none; }
+a:hover { color: #f00; }
+a:hover { color: #f00; }
+/***********************************/
+
+.quote { width:718px; border:1px solid #ccc; }
+.quote h3{ float:left; font-size:14px; color:#0a65b0; margin-right:20px;}
+.quote .jxsTit{ float:left;}
+.pricetb{ background:#f9f9f9;height: 31px; line-height: 31px;}
+.jxsTit { height: 31px; line-height: 31px; }
+.jxsTit ul li {  display: block; float: left; font-size: 12px; height: 31px; line-height: 31px; padding: 0 12px; color:#595959;border-left: 1px solid #ccc;border-bottom: 1px solid #ccc; }
+.jxsTit ul li.act { background: none repeat scroll 0 0 #FFFFFF; border-top: 2px solid #f60; height: 30px; position: relative; top: -1px;*top:0px; color:#f60; cursor:pointer; border-bottom:1px solid #fff; }
+.jxsCon{ overflow:hidden;_zoom:1; }
+.p10 { padding: 10px; }
+.jxsbjtb .jxsbg{ float:left; margin-right:20px; width:335px;}
+.jxsbjtb .jxswbj{ margin:0;}
+.jxsbjtb .jxsbg th{ text-align:center; border-bottom:1px solid #d1dfe8; color:#333; font-weight:normal; height:30px; line-height:30px;}
+.jxsbjtb .jxsbg td{ color:#c10000; height:25px; line-height:25px;}
+</style>
+</head>
+
+<body>
+<div class="line_box quote">
+	<div class="pricetb">
+    	<h3>上海经销商报价</h3>
+        <div class="jxsTit">
+            <ul>
+              <li class="act" id="fl_1" onmouseover="table(this)">8万以下</li>
+              <li id="fl_2" onmouseover="table(this)">8-10万</li>
+              <li id="fl_3" onmouseover="table(this)">10-15万</li>
+              <li id="fl_4" onmouseover="table(this)">15-20万</li>
+              <li id="fl_5" onmouseover="table(this)">20-25万</li> 
+              <li id="fl_6" onmouseover="table(this)">25-35万</li>
+              <li id="fl_7" onmouseover="table(this)">35万以上</li>
+              <li><a href="">更多&gt;&gt;</a></li>
+           </ul>
+ 	    </div>
+    </div>
+  
+  <div class="jxsCon p10" id="r_fl_1"></div>
+  <div class="jxsCon p10" id="r_fl_2" style="display:none;"> 阿士大夫 </div>
+  <div class="jxsCon p10" id="r_fl_3" style="display:none;"> <a href="http://www.08cms.com"  title="地方门户系统">地方门户系统</a> </div>
+  <div class="jxsCon p10" id="r_fl_4" style="display:none;"> <a href="http://www.08cms.com"  title="地方门户系统">地方门3户系统</a> </div>
+  <div class="jxsCon p10" id="r_fl_5" style="display:none;"> <a href="http://www.08cms.com"  title="地方门户系统">地方门4户系统</a> </div>
+  <div class="jxsCon p10" id="r_fl_6" style="display:none;"> <a href="http://www.08cms.com"  title="地方门户系统">地方5门户系统</a> </div>
+  <div class="jxsCon p10" id="r_fl_7" style="display:none;"> <a href="http://www.08cms.com"  title="地方门户系统">地方6门户系统</a> </div>
+</div>
+
+
+
+<script type="text/javascript">
+
+var table = function(){
+
+ var data = {};
+
+ return function(item){
+
+  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+
+  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+
+  document.getElementById("r_"+ x[1] + data[x[1]]).style.display = "none";
+
+  document.getElementById("r_"+ x[1] + x[2]).style.display = "";
+
+  document.getElementById(x[1] + data[x[1]]).className = "";
+
+  document.getElementById( x[1] + x[2]).className = "act";
+
+  data[x[1]] = x[2];
+
+ };
+
+}();
+
+  /*jquery写法
+  var table = function(){
+	 var data = {};
+	 return function(item){
+	  var x = item.id.match(/^(\w+\_(?:\d+\_)?)(\d+)$/);
+	  if(typeof data[x[1]] == "undefined") data[x[1]] = 1;
+	  $("#r_" + x[1] + data[x[1]]).css("display","none");
+	  $("#r_" + x[1] + x[2]).css("display","");
+	  $("#" + x[1] + data[x[1]]).removeClass("act");
+	  $("#" + x[1] + x[2]).addClass("act");
+	  data[x[1]] = x[2];
+	 };
+  }();*/
+
+</script>
+</body>
+</html>

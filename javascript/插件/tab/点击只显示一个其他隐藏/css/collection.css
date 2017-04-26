@@ -1,0 +1,322 @@
+@charset "utf-8";
+/* CSS Document */
+#collection-left {WIDTH: 205px; FLOAT: left;margin-right:10px}
+#container{width:1200px;}
+.ul-member {}
+.li-member {TEXT-ALIGN: center; LINE-HEIGHT: 29px}
+.li-member A {COLOR: #666}
+.li-member .choose {COLOR: #b00000; FONT-WEIGHT: bold}
+#collection-right {WIDTH:785px; FLOAT: left; margin-left:10px;}
+#collectionRight {WIDTH: 785px; FLOAT: right}
+.shelves-title {}
+.shelves-t-left {padding-left:10px;TEXT-ALIGN: left;HEIGHT: 32px; LINE-HEIGHT: 32px; border:1px solid #e6e6e6; border-bottom:2px solid #b00000; COLOR: #b00000; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.shelves-t-right {TEXT-ALIGN: right; LINE-HEIGHT: 36px; PADDING-RIGHT: 10px; HEIGHT: 36px; COLOR: #ff3404}
+.my-collection {WIDTH:985px; MARGIN-BOTTOM: 10px}
+.process-table {MARGIN: 10px 0px 10px 0px; WIDTH:985px; }
+.process-table TH {TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: #f3f3f3; COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: normal; PADDING-TOP: 10px}
+.process-td {PADDING-BOTTOM: 10px; LINE-HEIGHT: 18px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 10px}
+.process-01 {BORDER-BOTTOM: #f0f0f0 1px solid; BORDER-LEFT: #f0f0f0 1px solid; MARGIN: 0px 5px; WIDTH: 58px; FLOAT: left; HEIGHT: 58px; OVERFLOW: hidden; BORDER-TOP: #f0f0f0 1px solid; BORDER-RIGHT: #f0f0f0 1px solid}
+.process-02 {TEXT-ALIGN: left; WIDTH: 200px; FLOAT: left; MARGIN-LEFT: 5px}
+.process-num {MARGIN: 0px auto; WIDTH: 86px; HEIGHT: 22px}
+.process-num_01 {WIDTH: 21px; FLOAT: left}
+.process-num_02 {BORDER-BOTTOM: #6d6d6d 1px solid; BORDER-LEFT: #6d6d6d 1px solid; WIDTH: 42px; FLOAT: left; HEIGHT: 20px; BORDER-TOP: #6d6d6d 1px solid; BORDER-RIGHT: #6d6d6d 1px solid}
+.font18 {FONT-SIZE: 18px}
+.process-bottom {padding:0 10px 0 0}
+.process-aft {BORDER-BOTTOM: #ffa217 1px solid; BORDER-LEFT: #ffa217 1px solid; PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; WIDTH: 978px; PADDING-RIGHT: 10px; BACKGROUND: #f2f1ec; HEIGHT: 45px; OVERFLOW: hidden; BORDER-TOP: #ffa217 1px solid; BORDER-RIGHT: #ffa217 1px solid; PADDING-TOP: 10px}
+.process-aft .btn1 {BORDER-RIGHT-WIDTH: 0px; WIDTH: 190px; BACKGROUND: url(http://img.j1.com/images/process_r7_c5.jpg) no-repeat; FLOAT: left; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 45px; BORDER-LEFT-WIDTH: 0px}
+.process-aft .btn2 {BORDER-RIGHT-WIDTH: 0px; WIDTH: 190px; BACKGROUND: url(http://img.j1.com/images/process_r7_c5.jpg) no-repeat; FLOAT: left; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 45px; BORDER-LEFT-WIDTH: 0px}
+.process-aft .btn2 {BACKGROUND: url(http://img.j1.com/images/process_r7_c11.jpg) no-repeat; FLOAT: right}
+.process-aft .price {LINE-HEIGHT: 45px; WIDTH: 260px; FLOAT: right; FONT-SIZE: 14px}
+.process-aft .price SPAN {COLOR: #eb3100; FONT-SIZE: 25px; FONT-WEIGHT: bold}
+.add-cart {BORDER-RIGHT-WIDTH: 0px; WIDTH: 79px; MARGIN-BOTTOM: 5px; BACKGROUND: url(http://img.j1.com/images/c_01_r3_c4.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 21px; BORDER-LEFT-WIDTH: 0px}
+.address-01 {PADDING-BOTTOM: 5px; LINE-HEIGHT: 20px; PADDING-LEFT: 10px; PADDING-RIGHT: 20px; PADDING-TOP: 5px}
+.suggest-table-cont{width:983px; border:1px solid #e6e6e6; overflow:hidden;}
+.suggest-Account-title{width:783px; height:40px; background:#fffdee; border:1px solid #edd28b; margin-top:10px;}
+.suggest-Account-mc{width:763px; height:40px; margin:0px auto; line-height:40px; color:#000;}
+.suggest-Account-fore{height:40px; display:block; float:left; font-size:14px;}
+.suggest-Account-ftx-01{ float:left; display:block; margin-left:100px; color:#ff6600;}
+.suggest-table-Landed{width:923px; height:30px; margin:auto;}
+.suggest-table-fore1{width:155px; height:30px; float:left; line-height:30px; position:relative;border-right:2px solid #e6e6e6;}
+.suggest-table-fore2{width:450px; height:30px; float:left; line-height:30px; margin-left:20px;}
+.suggest-table-fore3{width:75px; height:30px; float:right; line-height:30px; text-align:center; padding:0px 20px 0 0;}
+.suggest-table-icon-01{height:100%; font-size:18px; color:#000; display:block;width:100px; position:absolute; left:55px;top:0px;}
+.suggest-table-ftx-03{ font:14px Arial, Helvetica, sans-serif; color:#999999; font-weight:bold;}
+.suggest-step-su{ display:block; width:250px; height:25px; line-height:25px; text-align:center; float:left; color:#ffffff;}
+.suggest-step-wc{width:100px; height:25px; line-height:25px; text-align:left; margin-left:110px;}
+.suggest-step{width:720px; height:25px; margin:0px auto; margin-top:20px; overflow:hidden;background:url(http://img.j1.com/images/shopcart-hyzx-step.gif) no-repeat;}
+.suggest-step2{width:720px; height:25px; margin:0px auto; margin-top:20px; overflow:hidden;background:url(http://img.j1.com/images/shopcart-hyzx-step2.gif) no-repeat;}
+.suggest-have-gx{width:650px;margin:auto; padding:20px 0px; margin-top:30px; margin-bottom:20px; background:#fcf9f4; border:1px solid #edd4b3;}
+.suggest-have-gx-cont{width:610px; margin:auto; }
+.suggest-email-cont{width:220px; margin:auto;}
+.suggest-email-cont2{width:600px; margin:auto; line-height:25px;}
+.suggest-email-cont2 h3{ font-size:13px;}
+.suggest-email-ftx-01{ color:#cc0000; font-size:12px;}
+.suggest-email-ftx-02{ color:#009900; font-size:14px; font-weight:bold;}
+.suggest-email-ftx-03{ color:#999999;}
+.suggest-email-enter{width:50px; height:25px; margin-left:280px;margin-top:25px;}
+.suggest-email-enter2{width:100px; height:25px; margin-left:25px; margin-top:15px;}
+.email-label{ height:25px; float:left; line-height:25px;}
+.suggest-email-sm{width:650px;margin:auto; padding:20px 0px;margin-bottom:50px; background:#fff; border:1px solid #e6e6e6; position:relative; line-height:25px;}
+.suggest-email-sm-title{padding:0px 8px; height:20px; line-height:20px; position:absolute; left:10px; top:-10px; font-weight:bold; background:#fff;}
+.email-fl{width:140px; height:25px; line-height:25px; float:left; margin-left:5px;}
+.suggest-email{width:150px; height:25px; line-height:25px; border-left:1px solid #aaaaaa; border-top:1px solid #aaaaaa; border-right:1px solid #dddddd; border-bottom:1px solid #dddddd;color:#000; padding-left:5px; font-size:11px; font-family:Verdana, Geneva, sans-serif;}
+.suggest-another{ display:block;width:80%; margin-left:10px; color:#009900; font-size:14px; font-weight:bold;}
+.suggest-buy{ display:block;width:80%; height:25px; line-height:25px; margin-left:10px; color:#999999;font-weight:bold; position:relative;}
+.suggest-buy-img{ position:absolute; left:213px; top:0px;}
+.suggest-notice{display:block;width:80%; margin-left:10px; color:#ff6600;}
+.suggest-table {WIDTH: 400px; COLOR: #000; padding-top:15px;}
+.suggest-table TD {PADDING-BOTTOM: 10px; LINE-HEIGHT: 20px; PADDING-LEFT: 5px; PADDING-RIGHT: 0px; FONT-SIZE: 14px; PADDING-TOP: 10px}
+.suggest-table TD  suggest{margin-bottom:10px}
+.suggest-input1 {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 647px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.suggest-input2 {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 647px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.suggest-input3 {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 647px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.suggest-input4 {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 647px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.suggest-input2 {WIDTH: 180px}
+.suggest-input3 {WIDTH: 64px}
+.suggest-input4 {WIDTH: 250px}
+.suggest-textarea {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 647px; HEIGHT: 190px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.suggest-table SPAN {COLOR: #999; FONT-SIZE: 12px}
+.suggest-table .btn {BORDER-RIGHT-WIDTH: 0px; WIDTH: 70px; BACKGROUND: url(http://img.j1.com/images/j_02_r2_c2.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 24px; COLOR: #333; FONT-SIZE: 14px; BORDER-LEFT-WIDTH: 0px; FONT-WEIGHT: bold}
+.coupons-table .btn {BORDER-RIGHT-WIDTH: 0px; WIDTH: 70px; BACKGROUND: url(http://img.j1.com/images/j_02_r2_c2.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 24px; COLOR: #333; FONT-SIZE: 14px; BORDER-LEFT-WIDTH: 0px; FONT-WEIGHT: bold}
+.coupons-body {MARGIN-TOP: 20px; WIDTH:985px; MARGIN-LEFT: 0px}
+.coupons-title {}
+.coupons-01 {TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 120px; BACKGROUND: #b00000; FLOAT: left; HEIGHT: 28px; COLOR: #fff; FONT-SIZE: 14px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 1px}
+.coupons-01 a{color:#fff}
+.coupons-02 {TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 120px; BACKGROUND: #b00000; FLOAT: left; HEIGHT: 28px; COLOR: #b00000; FONT-SIZE: 14px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 1px}
+.coupons-03 {TEXT-ALIGN: center; LINE-HEIGHT: 28px; WIDTH: 120px; BACKGROUND: #b00000; FLOAT: left; HEIGHT: 28px; COLOR: #fff; FONT-SIZE: 14px; CURSOR: pointer; FONT-WEIGHT: bold; MARGIN-RIGHT: 1px}
+
+.coupons-02 {BACKGROUND: #f3f3f3}
+.coupons-03 {BACKGROUND: #f3f3f3}
+.coupons-02 A {COLOR: #b00000}
+.coupons-03 A {COLOR: #b00000}
+.coupons-table {MARGIN: 0px 0px 10px; WIDTH:985px; BORDER-TOP: #b00000 2px solid}
+.coupons-table TH {TEXT-ALIGN: center; PADDING-BOTTOM: 10px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: #f3f3f3; COLOR: #000; FONT-SIZE: 12px; FONT-WEIGHT: normal; PADDING-TOP: 10px}
+.coupons-td {TEXT-ALIGN: center; PADDING-BOTTOM: 10px; LINE-HEIGHT: 18px; PADDING-LEFT: 0px; PADDING-RIGHT: 5px; PADDING-TOP: 10px}
+.coupons-bottom {BORDER-BOTTOM: #ececec 1px solid}
+.integral-content {}
+.integral-01 {LINE-HEIGHT: 30px; PADDING-LEFT: 20px; WIDTH: 200px; FLOAT: left; HEIGHT: 30px; COLOR: #000; FONT-WEIGHT: bold}
+#order2-content {WIDTH: 800px; MARGIN-LEFT: 10px}
+.process2-table {BORDER-BOTTOM: #036cd5 1px solid; BORDER-LEFT: #036cd5 1px solid; MARGIN-BOTTOM: 8px; BORDER-TOP: #036cd5 2px solid; BORDER-RIGHT: #036cd5 1px solid}
+.process2-table TD {PADDING-BOTTOM: 5px; LINE-HEIGHT: 20px}
+.process2-table STRONG {FONT-SIZE: 14px}
+.process2-table2 {MARGIN: 10px}
+.padding10 {PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px}
+.process-tip {BORDER-BOTTOM: #e5d7ba 1px solid; BORDER-LEFT: #e5d7ba 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #fdffe1; FLOAT: left; HEIGHT: 22px; BORDER-TOP: #e5d7ba 1px solid; BORDER-RIGHT: #e5d7ba 1px solid; PADDING-TOP: 0px}
+.process2-table .preferential {MARGIN-LEFT: 30px}
+.process2-list-table {}
+.process2-list-table TH {BACKGROUND: #f3f3f3; HEIGHT: 30px; FONT-WEIGHT: normal}
+.process2-list-table TD {PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 10px}
+.process-right {BORDER-RIGHT: #ffa217 1px dashed}
+.use-btn {BORDER-RIGHT-WIDTH: 0px; WIDTH: 70px; BACKGROUND: url(http://img.j1.com/images/process_r2_c2.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 25px; BORDER-LEFT-WIDTH: 0px}
+.textarea-process {WIDTH: 470px; HEIGHT: 55px}
+.textarea-input {WIDTH: 135px; HEIGHT: 20px}
+.process-submit-btn {BORDER-RIGHT-WIDTH: 0px; WIDTH: 190px; BACKGROUND: url(http://img.j1.com/images/process_r4_c4.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 45px; BORDER-LEFT-WIDTH: 0px}
+.pay-btn {BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 5px; WIDTH: 58px; MARGIN-BOTTOM: 5px; BACKGROUND: url(http://img.j1.com/images/order_r2_c2.jpg) no-repeat; FLOAT: right; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 21px; BORDER-LEFT-WIDTH: 0px; MARGIN-RIGHT: 20px}
+.address-input2 {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 200px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.inquires-content {MARGIN-TOP: 10px; WIDTH: 800px; MARGIN-LEFT: 10px}
+.inquires-card {LINE-HEIGHT: 25px; PADDING-RIGHT: 12px; BACKGROUND: url(http://img.j1.com/images/in_01_r2_c3.jpg) no-repeat right 50%; FLOAT: left; HEIGHT: 25px; MARGIN-RIGHT: 10px}
+.inquires-card SPAN {WIDTH: 2px; BACKGROUND: url(http://img.j1.com/images/in_r2_c2.jpg) no-repeat left 50%; FLOAT: left; HEIGHT: 25px; OVERFLOW: hidden; MARGIN-RIGHT: 10px}
+#share-content {LINE-HEIGHT: 22px; MARGIN-TOP: 15px; WIDTH: 800px; MARGIN-LEFT: 10px}
+.menu0 {WIDTH: 390px; FLOAT: left; FONT-WEIGHT: bold}
+.menu0 LI {Z-INDEX: 2; BORDER-BOTTOM: #e9ddc5 0px solid; POSITION: relative; TEXT-ALIGN: center; BORDER-LEFT: #e9ddc5 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 27px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; DISPLAY: block; BACKGROUND: #ebf5f6; FLOAT: left; HEIGHT: 27px; BORDER-TOP: #e9ddc5 1px solid; TOP: 1px; CURSOR: pointer; MARGIN-RIGHT: 2px; BORDER-RIGHT: #e9ddc5 1px solid; PADDING-TOP: 0px}
+.menu0 LI IMG {MARGIN: 3px 0px 0px; FLOAT: left}
+.menu0 LI.select {PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; BACKGROUND: #fff; HEIGHT: 28px; PADDING-TOP: 0px}
+#main0 .none {DISPLAY: none}
+#main0 .block {DISPLAY: block}
+.share-body {BORDER-BOTTOM: #e9ddc5 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #e9ddc5 1px solid; PADDING-BOTTOM: 20px; WIDTH: 470px; MARGIN-BOTTOM: 10px; BACKGROUND: #fff; FLOAT: left; OVERFLOW: hidden; BORDER-TOP: #e9ddc5 1px solid; BORDER-RIGHT: #e9ddc5 1px solid}
+.share-body UL {PADDING-BOTTOM: 10px; HEIGHT: 110px; MARGIN-LEFT: 20px}
+.share-body LI {BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; MARGIN: 10px 20px 0px 0px; WIDTH: 88px; FLOAT: left; HEIGHT: 88px; OVERFLOW: hidden; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid}
+.share-textarea {LINE-HEIGHT: 18px; WIDTH: 400px; FONT-SIZE: 12px}
+.share-btn {BORDER-RIGHT-WIDTH: 0px; WIDTH: 70px; MARGIN-BOTTOM: 15px; BACKGROUND: url(http://img.j1.com/images/process_r8_c10.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 24px; BORDER-LEFT-WIDTH: 0px}
+.wid800 {LINE-HEIGHT: 20px; MARGIN-TOP: 10px; WIDTH:780px;FONT-SIZE: 14px}
+.validation {BORDER-BOTTOM: #edd28b 1px solid; BORDER-LEFT: #edd28b 1px solid; PADDING-BOTTOM: 20px; MARGIN-TOP: 8px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; BACKGROUND: #fffdee; BORDER-TOP: #edd28b 1px solid; BORDER-RIGHT: #edd28b 1px solid; PADDING-TOP: 20px}
+.success-register {LINE-HEIGHT: 20px}
+.success-register SPAN {COLOR: #9f9f9f}
+.success-register .btn {TEXT-ALIGN: center; PADDING-BOTTOM: 5px; LINE-HEIGHT: 25px; BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 3px; WIDTH: 108px; BACKGROUND: url(http://img.j1.com/images/index_r8_c3.gif) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 25px; COLOR: #fff; FONT-SIZE: 14px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer; FONT-WEIGHT: bold}
+.mailbox-absolute .btn2 {TEXT-ALIGN: center; PADDING-BOTTOM: 5px; LINE-HEIGHT: 25px; BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 3px; WIDTH: 108px; BACKGROUND: url(http://img.j1.com/images/index_r8_c3.gif) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 25px; COLOR: #fff; FONT-SIZE: 14px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer; FONT-WEIGHT: bold}
+.fs-btn {TEXT-ALIGN: center; PADDING-BOTTOM: 5px; LINE-HEIGHT: 25px; BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 3px; WIDTH: 108px; BACKGROUND: url(http://img.j1.com/images/index_r8_c3.gif) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 25px; COLOR: #fff; FONT-SIZE: 14px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer; FONT-WEIGHT: bold}
+.success-register-h {HEIGHT: 25px; FONT-WEIGHT: bold}
+.success-register-h SPAN {LINE-HEIGHT: 18px; COLOR: #36862d; FONT-SIZE: 22px}
+.success-register-h EM {LINE-HEIGHT: 18px; FONT-STYLE: normal; COLOR: #36862d; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.mailbox-relative {POSITION: relative; WIDTH: auto; HEIGHT: 20px; TOP: 13px}
+.mailbox-relative SPAN {PADDING-BOTTOM: 0px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BACKGROUND: #fff; MARGIN-LEFT: 10px; FONT-WEIGHT: bold; PADDING-TOP: 0px}
+.mailbox-absolute {PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; WIDTH: 760px; PADDING-RIGHT: 20px; MARGIN-BOTTOM: 10px; BACKGROUND: url(http://img.j1.com/images/mailbox_r2_c2.png) no-repeat; HEIGHT: 42px; PADDING-TOP: 30px}
+.mailbox-800 {BORDER-BOTTOM: #e6e6e6 1px solid; BORDER-LEFT: #e6e6e6 1px solid; PADDING-BOTTOM: 10px; WIDTH: 798px; BORDER-TOP: #e6e6e6 1px solid; BORDER-RIGHT: #e6e6e6 1px solid}
+.address-relative {POSITION: relative}
+.address-relative-body {BORDER-BOTTOM: #f5e190 1px solid; POSITION: absolute; BORDER-LEFT: #f5e190 1px solid; PADDING-BOTTOM: 15px; PADDING-LEFT: 15px; WIDTH: 335px; PADDING-RIGHT: 15px; BACKGROUND: #fffae2; BORDER-TOP: #f5e190 1px solid; TOP: -50px; RIGHT: 77px; BORDER-RIGHT: #f5e190 1px solid; PADDING-TOP: 15px}
+.address-relative H4 {FONT-SIZE: 14px}
+.address-absolute {POSITION: absolute; WIDTH: 7px; BACKGROUND: url(http://img.j1.com/images/address-tip.gif) no-repeat; HEIGHT: 11px; RIGHT: -7px}
+.address-tip {}
+.address-tip TD {LINE-HEIGHT: 24px}
+.address-bottom {BORDER-BOTTOM: #f5e190 1px solid}
+.expend {BORDER-BOTTOM: #fc5b2d 5px solid; BORDER-LEFT: #fc5b2d 5px solid; PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 780px; PADDING-RIGHT: 5px; BACKGROUND: #fdf8f7; MARGIN-LEFT: 10px; BORDER-TOP: #fc5b2d 5px solid; BORDER-RIGHT: #fc5b2d 5px solid; PADDING-TOP: 5px}
+.expend-content {BORDER-BOTTOM: #fc5b2d 1px solid; BORDER-LEFT: #fc5b2d 1px solid; WIDTH: 778px; HEIGHT: 352px; BORDER-TOP: #fc5b2d 1px solid; BORDER-RIGHT: #fc5b2d 1px solid}
+.expend-left {WIDTH: 500px; FLOAT: left}
+.expend-right {PADDING-BOTTOM: 20px; PADDING-LEFT: 20px; WIDTH: 288px; PADDING-RIGHT: 20px; FLOAT: left; PADDING-TOP: 20px}
+.expend-right-img {BORDER-BOTTOM: #c5c7c6 1px solid; BORDER-LEFT: #c5c7c6 1px solid; MARGIN: 5px 0px 10px; WIDTH: 272px; HEIGHT: 220px; OVERFLOW: hidden; BORDER-TOP: #c5c7c6 1px solid; BORDER-RIGHT: #c5c7c6 1px solid}
+.expend A {COLOR: #0288cf}
+.expend-left-right {PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; PADDING-RIGHT: 20px; PADDING-TOP: 20px}
+.expend-left-right .td1 {TEXT-ALIGN: right; LINE-HEIGHT: 20px; WIDTH: 135px; MARGIN-BOTTOM: 20px; FLOAT: left; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.expend-left-right .td2 {WIDTH: 15px; MARGIN-BOTTOM: 20px; FLOAT: left; HEIGHT: 20px; MARGIN-RIGHT: 15px; BORDER-RIGHT: #cecac7 1px dashed}
+.expend-left-right .td3 {WIDTH: 280px; MARGIN-BOTTOM: 20px; FLOAT: left}
+.expend-left-right P {LINE-HEIGHT: 16px; MARGIN-TOP: 5px; COLOR: #b2b3ae}
+.expend-border-r {BORDER-RIGHT: #cecac7 1px dashed}
+.expend-bottom {BORDER-BOTTOM: #cecac7 1px dashed}
+.expend-input {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 147px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; BORDER-RIGHT: #cdcdcd 1px solid}
+.expend-font14 {LINE-HEIGHT: 20px; FONT-SIZE: 14px}
+.expend-font14 SPAN {COLOR: #b2b3ae}
+.expend-btn {TEXT-ALIGN: center; LINE-HEIGHT: 33px; BORDER-RIGHT-WIDTH: 0px; WIDTH: 98px; BACKGROUND: url(http://img.j1.com/images/expend.png) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 33px; COLOR: #fff; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer; FONT-WEIGHT: bold}
+.expend-step {LINE-HEIGHT: 30px; WIDTH: 800px; HEIGHT: 30px; MARGIN-LEFT: 10px}
+.expend-step LI {FLOAT: left; COLOR: #cccccc; MARGIN-RIGHT: 20px; PADDING-TOP: 2px}
+.expend-step LI.current {COLOR: #b00000}
+.expend-payment LI {WIDTH: 150px; MARGIN-BOTTOM: 10px; FLOAT: left; MARGIN-LEFT: 5px}
+.expend-payment LI INPUT {MARGIN: 10px 3px 0px 0px; FLOAT: left; _margin: 6px 0px 0 0}
+.expend-payment LI IMG {BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; FLOAT: left; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid}
+.expend-success {TEXT-ALIGN: center; LINE-HEIGHT: 33px; MARGIN-TOP: 150px; BACKGROUND: url(http://img.j1.com/images/process_r4_c8.jpg) no-repeat 40% 40%; HEIGHT: 33px; COLOR: #000; FONT-SIZE: 16px; FONT-WEIGHT: bold}
+.prepaid {LINE-HEIGHT: 35px; MARGIN-TOP: 10px; WIDTH: 800px; HEIGHT: 35px; MARGIN-LEFT: 10px}
+.prepaid IMG {BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; FLOAT: left; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid}
+.prepaid A {FLOAT: left; COLOR: #3366cc; MARGIN-LEFT: 25px}
+.prepaid-surplus {LINE-HEIGHT: 40px; WIDTH: 800px; HEIGHT: 40px; COLOR: #000; MARGIN-LEFT: 10px; FONT-WEIGHT: bold}
+.prepaid-surplus SPAN {COLOR: #f53100}
+.prepaid-j1 {WIDTH: 800px; MARGIN-LEFT: 10px; BORDER-TOP: #ffa217 1px dashed}
+.prepaid-h1 {LINE-HEIGHT: 35px; PADDING-LEFT: 30px; BACKGROUND: #f3f3f3; HEIGHT: 35px; COLOR: #000; FONT-SIZE: 14px; FONT-WEIGHT: bold}
+.prepaid-div {LINE-HEIGHT: 20px; MARGIN: 20px 0px; PADDING-LEFT: 30px; HEIGHT: 20px; FONT-SIZE: 14px}
+.prepaid-div-input {BORDER-BOTTOM: #cdcdcd 1px solid; BORDER-LEFT: #cdcdcd 1px solid; LINE-HEIGHT: 20px; PADDING-LEFT: 3px; WIDTH: 60px; HEIGHT: 20px; FONT-SIZE: 12px; BORDER-TOP: #cdcdcd 1px solid; MARGIN-RIGHT: 5px; BORDER-RIGHT: #cdcdcd 1px solid}
+.prepaid-div SPAN {COLOR: #f53100}
+.prepaid-div2 {LINE-HEIGHT: 20px; MARGIN: 20px 0px; PADDING-LEFT: 30px}
+.prepaid-div2 A {COLOR: #3366cc}
+.prepaid-div2-btn {BORDER-RIGHT-WIDTH: 0px; MARGIN-TOP: 10px; WIDTH: 190px; BACKGROUND: url(http://img.j1.com/images/01_r2_c3.jpg) no-repeat; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 45px; BORDER-LEFT-WIDTH: 0px; CURSOR: pointer}
+.red-error {LINE-HEIGHT: 15px; FONT-STYLE: normal; COLOR: #ff0000; FONT-SIZE: 12px}
+.font12-left {WIDTH: 150px; FLOAT: left; COLOR: #999; MARGIN-LEFT: 20px; FONT-SIZE: 12px}
+.font12-left A {COLOR: #005aa0}
+.font12-g1 {PADDING-LEFT: 50px; COLOR: #666; FONT-SIZE: 12px}
+.p-content {WIDTH: 1000px; OVERFLOW: hidden}
+.p-content IMG {FLOAT: left}
+.question-answer {LINE-HEIGHT: 25px; MARGIN: 0px auto 20px; WIDTH: 970px; FONT-FAMILY:Arial, Helvetica, sans-serif; FONT-SIZE: 16px}
+.question-answer .left {WIDTH: 40px; FLOAT: left; FONT-WEIGHT: bold}
+.question {COLOR: #d00c1f}
+.answer {COLOR: #999}
+.question-answer .right {WIDTH: 900px; FLOAT: left}
+
+/*新样式20130625*/
+.mail1_jindu{ padding-top:10px;}
+.mail_btn a,.mail_btn a:link,.mail_btn a:visited{ display:inline-block; height:21px; line-height:21px; background:url(http://img.j1.com/images/mail_new_bg1.jpg) center; padding:0px 10px; border:solid 1px #ff650c; color:#fff;}
+.mail1_jindu li{ font-weight:bold; text-align:center; width:190px; height:25px; line-height:25px; background:url(http://img.j1.com/images/mail_new_bg2.png) no-repeat; float:left;}
+.mail1_jindu .mail1_jindu_color1{ background:url(http://img.j1.com/images/mail_new_bg3.png) no-repeat; color:#f60;}
+.cl{ clear:both; height:10px; line-height:1px;}
+.mail1_text1{ border:1px #e6e6e6 solid; height:165px; padding-left:100px;}
+.mail1_text1 span{ display:inline-block; width:10em; text-align:right; }
+.mail1_text1 p{ padding:20px 0 0 0;line-height:22px;}
+.mail1_textbox{ width:200px; height:22px; line-height:22px; padding-left:3px; border:solid 1px #aaa; color:#999; font-size:12px;}
+.boxButton_mail{ height:23px; line-height:23px; background:url(http://img.j1.com/images/mail_new_bg1.jpg) center; padding:0px 10px; border:solid 1px #ff650c; color:#fff; font-size:12px;cursor:pointer;}
+.mail1_ask1{ height:60px; border:solid 1px #e6e6e6; line-height:30px; padding:10px; position:relative;}
+.mail1_ask2{ position:absolute; z-index:1; left:0px; top:-15px; height:20px; display:inline-block; padding:0px 10px; background:#fff; font-weight:bold;}
+.mail_send{ padding:30px 40px; border:solid 1px #f2ceb4; background:#fefced; line-height:30px;}
+.mail_send_text1{ font-size:18px; color:#009800; font-weight:bold;}
+.mail_send_text2{ font-size:14px; color:#cb0000;}
+.mail_send_text3{ font-size:18px;}
+.mail_send_text4{ color:#cb0000; font-size:14px; font-weight:bold;}
+.mail_send_text5{ font-size:18px; color:#c00; font-weight:bold;}
+.mail_jindu1,.mail_jindu2,.mail_jindu3,.mail_jindu4,.mail_jindu5,.mail_jindu6{ display:inline-block; width:106px; height:14px; vertical-align:middle;}
+.mail_jindu1{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center 0px;}
+.mail_jindu2{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center -14px;}
+.mail_jindu3{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center -28px;}
+.mail_jindu4{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center -44px;}
+.mail_jindu5{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center -58px;}
+.mail_jindu6{ background:url(http://img.j1.com/images/mail_jindu.png) no-repeat center -74px;}
+.mail_link1 a,.mail_link1 a:link,.mail_link1 a:visited{ color:#f13100;}
+.mail_send1{ padding:30px 40px 30px 80px; border:solid 1px #f2ceb4; line-height:30px; background:#fefced url(http://img.j1.com/images/collection-have.gif) no-repeat 20px center;}
+.mail_send2{ padding:30px 40px 30px 80px; border:solid 1px #f2ceb4; line-height:22px; background:#fefced url(http://img.j1.com/images/mail_safe.gif) no-repeat 20px center;}
+
+/*找回密码style*/
+.pass_select{width:200px; height:22px; line-height:22px; padding-left:3px; border:solid 1px #aaa; color:#333; font-size:12px;}
+.pass_color1{ color:#f60; font-weight:bold; font-family:"Arial", Helvetica, sans-serif;}
+.mail1_text2{  padding:0 0 10px 100px; overflow:hidden;}
+.mail1_text2 span{ display:inline-block; width:10em; text-align:right; }
+.mail1_text2 p{ padding:20px 0 0 0;line-height:22px;}
+/*teb切换*/
+.menubox2{ height:30px; background:url(http://img.j1.com/images/arrow_img1.gif) repeat-x bottom;}
+.menubox2 li{float:left;display:block;width:120px;cursor:pointer;color:#333; text-align:center; height:28px; line-height:28px;border:1px #e6e6e6 solid;}
+.menubox2 li.hover { background:#fff;color:#f60; border-bottom:solid 1px #fff;}
+.pass_menubox{ overflow:hidden;border:1px #e6e6e6 solid; border-top:none;}
+
+/*我的健一网  新样式*/
+#myeccontainer{width:1200px;margin:0 auto}
+#myeccollection-left{width:205px;float:left;margin-right:10px}
+#myeccollection-right{width:985px;float:left}
+#myecorder2-content{width:985px;}
+#collectionRight{width:985px;float:left}
+#collection-right{width:985px;margin-left:0}
+#orderConfirm{width:985px}
+.couponsY a{color:#fff}
+
+.mobilecheckbox{border:1px solid #c40000;background:#fff;z-index:2010;position:absolute;left:50%;top:50%;width:320px;margin-left:-160px}
+.mobilecheckbox .title{background:#c40000;padding:2px;line-height:30px;height:30px;width:316px;}
+.mobilecheckbox .title span{font:700 14px/30px "\5FAE\8F6F\96C5\9ED1";color:#fff;margin-left:4px}
+.addcart_close{margin:8px 4px 0 0;cursor:pointer}
+.mobilecheckbox .con{padding:10px}
+.mobilecheckbox .con p{margin-bottom:8px}
+.mobilecheckbox .con p strong{margin:0 4px}
+.mobilecheckbox form{line-height:30px}
+.mobilecheckbox input{border:1px solid #ddd;height:18px;line-height:18px;padding:4px;float:left;margin-right:10px;width:164px}
+.mobilecheckbox label{float:left;line-height:30px}
+.yzm_button{float:left;color:#0074D9;font:400 12px/28px "\5B8B\4F53";line-height:28px;padding:0 4px;cursor:pointer;text-decoration:underline}
+.yzm_button:hover{color:#0074D9;text-decoration:underline}
+.mobilecheckbox .confirm{float:left;background:#c40000;color:#fff;font:700 16px/30px "\5FAE\8F6F\96C5\9ED1";line-height:30px;padding:0 20px;cursor:pointer;margin:0 auto;margin:0 0 10px 150px}
+.mobilecheckbox .confirm:hover{color:#fff;text-decoration:none}
+.mobilecheckbox .grey{width:300px;color:#666}
+.mobilecheckbox .grey a{color:#0074D9;text-decoration:underline;cursor:pointer}
+.mobilecheckbox strong{color:#c40000}
+#hdfkcon p{font:700 12px "\5B8B\4F53";margin:10px 0}
+#hdfkcon .inputbox{line-height:20px;margin-top:4px;height:20px}
+#hdfkcon .yzm_button{float:Left}
+#hdfkcon .inputbox label{float:left;line-height:20px}
+#hdfkcon .inputbox input{float:Left;margin-top:2px}
+.moblietext{border:1px solid #CCC;height:20px;line-height:20px;float:left}
+.confirm{padding:5px 20px;background:#c40000;color:#fff;margin:0px 0 0 48px;cursor:pointer}
+a.confirm:hover{color:#fff;text-decoration:none;}
+/*2014-5-28评论样式*/
+.coupons-body .coupons-table a.blue{ color: #1072BF;}
+.pingjia-wf{ margin-bottom: 20px;border-top: 2px solid #c40000;}
+.shelves-t-left em{ font-size: 12px; color: #333; margin-left: 5px;}
+.shelves-t-left i{ font-size: 12px; color: #999; font-style: normal;margin-left: 5px; font-weight: normal;}
+.coupons-body .pllist{ border-bottom: 1px solid #e2e2e2; padding: 8px 10px;}
+.coupons-body .pllist dt{ height: 66px; overflow: hidden;}
+.coupons-body .pllist li{ margin-right: 20px; float: left; line-height: 66px; font-size: 14px;}
+.coupons-body .pllist .kd-05 a{ color: #1072bf;}
+.coupons-body .pllist .kd-05 a:hover{ color: #c40000;}
+.coupons-body .pllist .kd-01 img{ width: 60px; height: 60px; padding: 2px; border: 1px solid #e2e2e2;}
+.pingjia-wf .tit{ height: 40px; line-height: 40px; font-weight: bold; background: #f3f3f3; padding: 0 10px; font-size: 14px; }
+.pingjia-wf .tit li{ float: left; height: 40px; margin-right: 20px;}
+.coupons-body .pllist .kd-01,.pingjia-wf .tit .zd-01{ width: 66px; overflow: hidden;}
+.coupons-body .pllist .kd-02,.pingjia-wf .tit .zd-02{ width: 310px; text-align: center;}
+.coupons-body .pllist .kd-03,.pingjia-wf .tit .zd-03{ width: 200px;text-align: center;}
+.coupons-body .pllist .kd-04,.pingjia-wf .tit .zd-04{ width: 180px;text-align: center;}
+.coupons-body .pllist .kd-05,.pingjia-wf .tit .zd-05{ width: 100px;text-align: center;}
+.coupons-body .pllist .kd-05{color: #1072bf;}
+.coupons-body .pllist .kd-05 a:hover{ text-decoration: none;}
+.pllist .ms-wf { border: 1px solid #e2e2e2; padding:20px 8px; position: relative; width:850px; margin: 10px 0 0 50px; box-shadow: 0 0 5px #eaeaea; background: #fffff9; display: none;}
+.ms-wf span.conjtw { color: #e2e2e2; width: 28px; height: 15px; font:400 30px/30px 'SimSun'; position: absolute; top: -15px; _top: -14px; left: 822px; overflow: hidden; display: block;}
+.ms-wf i.conjtn { font-style: normal; color: #fff; position: absolute; top: 1px; left: 0px; font-family: "SimSun"}
+.ms-wf table{ font-size: 14px;}
+.ms-wf .bg-l,.ms-wf .bg-r{ padding: 10px;}
+.ms-wf .bg-l{ text-align: right; width: 140px;}
+.ms-wf .bg-l i{ color: #c40000; padding-right:5px; font-family:'SimSun'; font-style: normal; }
+.ms-wf .bg-r .ms{ width: 350px; height: 20px;line-height: 20px; padding:3px; margin-right: 10px;}
+.ms-wf .bg-r .msxq{ position: relative;}
+.ms-wf .bg-r .msxq em{ position: absolute; color: #d5d5d5;left: 3px; top: 0;cursor:text;}
+.ms-wf .pinfen{ margin-right: 15px; width: 100px; float: left; text-align: center;}
+.ms-wf .pinfen input,.ms-wf .nm input{ margin-right:3px; }
+.ms-wf .pinfen em,.ms-wf .pjjx{ background: url(http://img.j1.com/images/images1308/ico/xing.jpg) 0 0 no-repeat;}
+.ms-wf .pinfen em{  background-position: 0 0; display: inline-block; width: 14px; height: 14px;}
+.ms-wf .pinfen .hui{ background-position: -18px 0; }
+.ms-wf .wby{ width: 550px; padding: 3px;}
+.ms-wf .tit-2{ float: right;; padding-right: 20px;}
+.ms-wf .pjjx{ width: 105px; height: 30px; line-height: 30px; text-align: center; cursor: pointer; display: inline-block; font-weight: bold; background-position: 0 -25px; margin: 0 25px 0 350px;}
+.ms-wf .pjjx:hover{ text-decoration: none;}
+.coupons-body .zzc{height:100%; width:100%; position:fixed; _position:absolute; top:0; left: 0; z-index:500; opacity:0.7; filter: alpha(opacity=70); background-color:#000; display: none;}
+.gxpjcg{ width: 400px; height: 120px; background: #fff; border: 6px solid #666; color: #fff; position: fixed;; left: 50%; top: 50%; margin-left: -220px; margin-top: -80px; padding: 20px;color: #333; display: none; z-index: 999;}
+.gxpjcg p{ font: 700 18px/24px "\5FAE\8F6F\96C5\9ED1"; text-align: center; margin: 20px 0 30px; }
+.gxpjcg p em{ display: inline-block; background: url("http://img.j1.com/images/success_r2_c2.jpg") -10px 0 no-repeat; width: 70px; height: 35px; vertical-align: middle;}
+.gxpjcg a{ display: block;float: left; width: 80px; height: 30px; line-height: 30px; color: #fff; background: #e64346; border-radius: 3px; text-align: center; margin-left: 80px; text-decoration: none;}
+.gxpjcg a.hui{ background: #eaeaea; border: 1px solid #dcdcdc; color: #333;}
