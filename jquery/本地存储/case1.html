@@ -1,21 +1,21 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <title>µÇÂ¼</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ç™»å½•</title>
     <script src="../jquery-1.11.2.js"></script>
 
 </head>
 
 <body>
 <!--
-localStorageÉúÃüÖÜÆÚÊÇÓÀ¾Ã£¬ÕâÒâÎ¶×Å³ı·ÇÓÃ»§ÏÔÊ¾ÔÚä¯ÀÀÆ÷Ìá¹©µÄUIÉÏÇå³ılocalStorageĞÅÏ¢£¬·ñÔòÕâĞ©ĞÅÏ¢½«ÓÀÔ¶´æÔÚ¡£
+localStorageç”Ÿå‘½å‘¨æœŸæ˜¯æ°¸ä¹…ï¼Œè¿™æ„å‘³ç€é™¤éç”¨æˆ·æ˜¾ç¤ºåœ¨æµè§ˆå™¨æä¾›çš„UIä¸Šæ¸…é™¤localStorageä¿¡æ¯ï¼Œå¦åˆ™è¿™äº›ä¿¡æ¯å°†æ°¸è¿œå­˜åœ¨ã€‚
 
-sessionStorageÉúÃüÖÜÆÚÎªµ±Ç°´°¿Ú»ò±êÇ©Ò³£¬Ò»µ©´°¿Ú»ò±êÇ©Ò³±»ÓÀ¾Ã¹Ø±ÕÁË£¬ÄÇÃ´ËùÓĞÍ¨¹ısessionStorage´æ´¢µÄÊı¾İÒ²¾Í±»Çå¿ÕÁË¡£-->
+sessionStorageç”Ÿå‘½å‘¨æœŸä¸ºå½“å‰çª—å£æˆ–æ ‡ç­¾é¡µï¼Œä¸€æ—¦çª—å£æˆ–æ ‡ç­¾é¡µè¢«æ°¸ä¹…å…³é—­äº†ï¼Œé‚£ä¹ˆæ‰€æœ‰é€šè¿‡sessionStorageå­˜å‚¨çš„æ•°æ®ä¹Ÿå°±è¢«æ¸…ç©ºäº†ã€‚-->
 
 <input type="text" class="name">
-<button class="save">±£´æ</button>
-<button class="del">É¾³ı</button>
+<button class="save">ä¿å­˜</button>
+<button class="del">åˆ é™¤</button>
 
 <script>
     $(".save").on("click",function (e) {
@@ -31,13 +31,13 @@ sessionStorageÉúÃüÖÜÆÚÎªµ±Ç°´°¿Ú»ò±êÇ©Ò³£¬Ò»µ©´°¿Ú»ò±êÇ©Ò³±»ÓÀ¾Ã¹Ø±ÕÁË£¬ÄÇÃ´ËùÓĞ
         $(".name").val(getname)
     })
 
-//    ¹Ø±Õä¯ÀÀÆ÷Çå¿ÕÊı¾İ
+//    å…³é—­æµè§ˆå™¨æ¸…ç©ºæ•°æ®
 /*    $(window).unload( function () {
         var storage = window.localStorage;
         storage.clear()
     } );*/
 
-//    ¹Ø±Õä¯ÀÀÆ÷Çå¿ÕÊı¾İ
+//    å…³é—­æµè§ˆå™¨æ¸…ç©ºæ•°æ®
     window.onbeforeunload = onbeforeunload_handler;
     window.onunload = onunload_handler;
     function onbeforeunload_handler()
