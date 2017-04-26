@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+    //用new关键字创建一个Promise实例
+    let pro = new Promise(function(resolve,reject){
+        //假设condition的值为true
+        let condition = true;
+
+        if(condition){
+            //调用操作成功方法
+            resolve('操作成功');
+            //状态：pending->fulfilled
+        }else{
+            //调用操作异常方法
+            reject('操作异常');
+            //状态：pending->rejected
+        }
+    });
+
+    //用then处理操作成功，catch处理操作异常
+    pro.then(function (res) {
+
+        //操作成功的处理程序
+        console.log(res)
+
+    }).catch(function (error) {
+
+        //操作失败的处理程序
+        console.log(error)
+
+    });
+    //控制台输出：操作成功
+</script>
+</body>
+</html>

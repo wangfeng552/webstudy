@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../../jquery/jquery-1.11.2.js"></script>
+</head>
+<body>
+<script>
+class pop{
+    constructor(title,miaoshu,benText,btnHref,leixing,mainName){
+        this.title=title,
+		this.miaoshu=miaoshu,
+		this.btnText=benText,
+		this.btnHref=btnHref,
+		this.leixing=leixing,
+		this.mainName=mainName
+	}
+    showPop(){
+        var mk=$(".mk");
+        var n=this.leixing;
+        console.log(n)
+        switch (n){
+			case 1:
+			    this.mainName="err";
+			break;
+			case 2:
+			    this.mainName="yes";
+			break;
+		}
+        if(mk.length<=0){
+			var html="";
+			html+='<div class="mk '+this.mainName+'"><h2>'+this.title+'</h2>\
+                <p>'+this.miaoshu+'</p> \
+                <a href="'+this.btnHref+'">'+this.btnText+'</a></div>';
+			$("body").append(html)
+        }else{
+            mk.text(this.miaoshu)
+		}
+	}
+}
+var wf=new pop("新闻","今天新奇士大夫","提交","http://www.baidu.com",2);
+wf.showPop()
+</script>
+</body>
+</html>
+

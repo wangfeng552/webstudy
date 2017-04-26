@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+//promise 	为全局对象，可以理解为一个类;
+// 			参数是一个匿名函数，其中有2个参数,resolve和reject,2个函数均为方法；
+//resolve 	处理异步操作成功后的业务;
+//reject 	处理异步操作失败后的业务;
+
+//有3种状态
+/*pending:	刚刚创建一个promise实例的时候，表示初始状态
+fulfilled:	resolve方法调用的时候，表示操作成功
+rejected:	reject方法调用的时候，表示操作失败
+状态只能从 初始化=>成功 或 初始化=>失败; 不能逆向转换，也不能在成功fulfilled和失败 rejected之间转换
+*/
+
+let pro=new promise(function (resolve,reject) {
+    //实例化后状态:pending
+	if('操作成功'){
+	    resolve();
+	    //resolve方法调用;状态为成功 fulfilled
+	}
+	else{
+	    reject();
+	    //reject方法调用;状态为失败 rejected
+	}
+})
+
+//then()方法: 用于绑定处理操作后的处理程序
+//参数是两个函数，第一个用于处理操作成功后的业务，第二个用于处理操作异常后的业务。
+pro.then(
+    function (res) {
+	//操作成功的处理程序
+	},function (error) {
+	//操作失败的处理程序
+    }
+)
+
+//catch()方法: 对于操作异常的程序，Promise专门提供了一个实例方法来处理
+//catch只接受1个参数，用于处理操作异常后的业务。
+	pro.catch(function (error) {
+		//操作失败的处理程序
+    })
+
+//综合上面的两个方法，大家都建议将then方法用于处理操作成功，catch方法用于处理操作异常
+	pro.then(function (res) {
+		//操作成功的处理程序
+    }).catch(function (error) {
+		//操作异常的处理程序
+    })
+//之所以能够使用链式调用，是因为then方法和catch方法调用后，都会返回promise对象。
+
+</script>
+</body>
+</html>

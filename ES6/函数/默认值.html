@@ -7,12 +7,12 @@
 </head>
 <body>
 <script>
-//	传统
+//	传统  undefined null 0 -0 NaN ""空字符串 返回false
 	function name(a) {
 		var zs=a || "张三"
     }
 
-//    ES6
+//    ES6  只有当传入的参数为undefined，才会触发默认值赋值
 	function wf(a="12") {
 		console.log(a)
     }
@@ -24,6 +24,8 @@
     function (b,a="11") {
 		console.log(a+b)
     }
+
+//函数的参数是默认声明的，声明过的变量，就不能用let或者const关键字再次声明，否则会报错的
 </script>
 </body>
 </html>

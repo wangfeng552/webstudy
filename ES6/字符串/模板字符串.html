@@ -22,18 +22,9 @@ var f=`a+b=${c}<b>这是b标签</b>`  //=>"a+b=3<b>这是b标签</b>"
 		return 3
     }
     var str=`this is ${wf()}`  //=>this is 3
-</script>
 
-<script>
-//	标签模板 =>标签函数+模板字符串
-	var name="张三";
-	var age=45;
-	tagFn`姓名${name},今年${age}岁`;
-	function tagFn(arr,v1,v2){
-		console.log(arr)
-		console.log(v1)
-		console.log(v2)
-	}
+    var obj={name:"大",age:45};
+    var k=`${obj.name}哥今年${obj.age}岁`	//=>"大哥今年45岁"
 </script>
 </body>
 </html>

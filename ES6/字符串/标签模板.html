@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<script>
+//	标签模板 =>标签函数+模板字符串
+	var name="张三";
+	var age=45;
+
+	//标签+模板字符串
+	tagFn`姓名${name},今年${age}岁`;
+
+	//定义一个函数，作为标签
+	function tagFn(arr,v1,v2){
+		console.log(arr)  //=> ['姓名',',今年','岁']
+		console.log(v1) 	//=>张三
+		console.log(v2)		//=>45
+	}
+</script>
+</body>
+</html>

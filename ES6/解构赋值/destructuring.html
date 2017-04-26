@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>Destructuring</title>
+</head>
+<body>
+<script>
+//    ES6允许按照一定模式，从数组和对象中提取值，对变量进行赋值，这被称为解构
+
+//关于给变量赋值，传统的变量赋值是这样的：
+var arr = [1,2,3];//把数组的值分别赋给下面的变量；
+var a = arr[0];
+var b = arr[1];
+var c = arr[2];
+
+console.log(a);//a的值为1
+console.log(b);//b的值为2
+console.log(c);//c的值为3
+
+//变量的解构赋值：
+var [a,b,c] = [1,2,3]; //把数组的值分别赋给下面的变量；
+console.log(a);//a的值为1
+console.log(b);//b的值为2
+console.log(c);//c的值为3
+</script>
+
+</body>
+</html>

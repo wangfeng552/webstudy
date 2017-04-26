@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+    let pro = new Promise(function(resolve,reject){
+
+        if(true){
+            //调用操作成功方法
+            resolve('操作成功');
+        }else{
+            //调用操作异常方法
+            reject('操作异常');
+        }
+    });
+
+    //用then处理操作成功，catch处理操作异常
+    pro.then(requestA)
+        .then(requestB)
+        .then(requestC)
+        .catch(requestError);
+
+    function requestA(){
+        console.log('请求A成功');
+        return '请求B，下一个就是你了';
+    }
+    function requestB(res){
+        console.log('上一步的结果：'+res);
+        console.log('请求B成功');
+        return '请求C，下一个就是你了';
+    }
+    function requestC(res){
+        console.log('上一步的结果：'+res);
+        console.log('请求C成功');
+    }
+    function requestError(){
+        console.log('请求失败');
+    }
+</script>
+</body>
+</html>

@@ -7,7 +7,8 @@
 </head>
 <body>
 <script>
-//    rest参数，这是一个新的概念，rest的中文意思是：剩下的部分
+//  rest参数，这是一个新的概念，rest的中文意思是：剩下的部分
+//	注意，rest参数必须是函数的最后一个参数，后面不能再跟其他参数
 
 //使用rest参数与箭头函数结合的例子
 numbers = (...nums) => nums;
@@ -25,14 +26,14 @@ headAndTail(1,2,3,4,5,6,7,8,9);// [1, [2,3,4,5,6,7,8,9]]
 </script>
 
 <script>
-    function sun(a,b,c,...v) {
-        var k=0;
-        v.forEach(function (v) {
-            k+=v		//=>3+4+5
-        })
-        console.log(k*c)//=>12*2
-    }
-    sun(0,1,2,3,4,5)
+function sun(a,b,c,...v) {
+	var k=0;
+	v.forEach(function (v) {
+		k+=v		//=>3+4+5
+	})
+	console.log(k*c)//=>12*2
+}
+sun(0,1,2,3,4,5)
 </script>
 
 <script>

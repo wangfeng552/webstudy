@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+/*
+Promise.race()方法：
+它的参数要求跟Promise.all( )方法一样，
+不同的是，它参数中的promise实例，
+只要有一个状态发生变化，不管是成功fulfilled还是异常rejected，
+它就会有返回，其他实例中再发生变化，它也不管了。*/
+
+let pro1=new Promise(function (resolve) {
+	setTimeout(function () {
+		resolve("成功了")
+    },5000)
+})
+let pro2=new Promise(function (resolve,reject) {
+	setTimeout(function () {
+		reject("失败了")
+    },3000)
+})
+	Promise.race([pro1,pro2]).then(function (res) {
+		console.log(res)
+    }).catch(function (err) {
+		console.log(err)
+    })
+</script>
+</body>
+</html>

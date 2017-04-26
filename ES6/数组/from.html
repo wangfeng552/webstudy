@@ -15,6 +15,7 @@
 <script>
 //    可以将类似数组的对象或者可遍历的对象转换成真正的数组。
 //Array.from()
+document.querySelectorAll('li');
 	var Li=document.getElementsByTagName("li")
 	Li instanceof Array;  			//=>false，不是数组
 	Li instanceof Object; 			//=>true，是对象
@@ -24,6 +25,19 @@
 <script>
 	let str="Hello"
 	Array.from(str)					//=>["H", "e", "l", "l", "o"]
+</script>
+
+<script>
+	//es5方法
+    let arrayLike = {
+        '0': 'a',
+        '1': 'b',
+        '2': 'c',
+        length: 3
+    };
+
+    // ES5的写法
+    var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
 </script>
 </body>
 </html>

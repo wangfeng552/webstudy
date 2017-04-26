@@ -7,6 +7,12 @@
 </head>
 <body>
 <script>
+//	0. 交换变量的值
+var x=1;
+var y=2;
+[x,y]=[y,x]
+
+
 //  1.提取函数返回的多个值{a,b}
 	function demo() {
 		return {"a":"123","b":"456"}
@@ -17,17 +23,29 @@
 	console.log(a) //=>123
 	console.log(b) //=>456
 
-//	2.定义函数参数{x,y,z}
+
+//	2. 定义函数参数{x,y,z}
 	function animal({x,y,z}) {
 		console.log("姓名"+x)
     }
     animal({x:"直接爱的色放"})
 
-//	函数参数的默认值{name="张三"}
+
+//	3. 函数参数的默认值{name="张三"}
 	function people({name="张三"}) {
 		console.log(name)
     }
     people({})
+
+
+//	4. 提取JSON数据
+	let JSONDate={
+    	id:"452655",
+		age:"56",
+		name:"张阿多"
+	}
+	let {id,age,name}=JSONDate;
+	console.log(id,age,name)	//=>452655 56 张阿多
 </script>
 
 总结：解构赋值给我们一种新的变量赋值方式，主要可以利用数组解构赋值和对象解构赋值。

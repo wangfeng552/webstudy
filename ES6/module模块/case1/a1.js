@@ -1,10 +1,11 @@
-/*var name="张三";
+var name="张三";
 var age="45";
 var says=function (a) {
     alert(a)
-}*/
-// export {name,age,says}
+}
+export {name,age,says}
 //默认导出
+/*
 
 var obj={
     name:"张三",
@@ -13,4 +14,4 @@ var obj={
         alert(a)
     }
 }
-export default obj
+export default obj*/

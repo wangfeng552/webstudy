@@ -1,22 +1,21 @@
-/*import {name as myname,age,says} from "./js/a1"
+import {name as myname,age,says} from "./a1"
 //导入name属性 并赋值给变量name
 //as 重命名
 
 console.log(myname)
 console.log(age)
-says(123)*/
+says(123)
 
 
-/*
-import * as obj from "./js/a1"
-// //使用*实现整体导入
+/*import * as obj from "./a1"
+//使用*实现整体导入
 console.log(obj.name)
 console.log(obj.age)*/
 
 // 默认导出后
 // 导入这个模块的时候取任意名字均可
-import a1 from "./a1"
-console.log(a1.name)
+/*import a1 from "./a1"
+console.log(a1.name)*/
 
 
 /*注意事项

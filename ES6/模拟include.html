@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<div class="wrapper">
+{{topbar}}
+</div>
+<script>
+	var source=document.getElementsByTagName("body")[0];
+	var result=source.innerHTML.replace("{{topbar}}",'<div class="topbar">\
+        <div class="fl">logo</div>\
+        <div class="fr">\
+        <ul>\
+        <li>以及撒地方</li>\
+        <li>萨弗迪</li>\
+        <li>离开家</li>\
+        </ul>\
+        </div>\
+        </div>');
+    source.innerHTML=result;
+</script>
+</body>
+</html>

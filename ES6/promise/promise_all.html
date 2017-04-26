@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let</title>
+</head>
+<body>
+<script>
+//  Promise.all( )方法：接受一个数组作为参数，数组的元素是Promise实例对象，
+// 	当参数中的实例对象的状态都为fulfilled时，Promise.all( )才会有返回。
+	
+	let pro1=new Promise(function (resolve) {
+		setTimeout(function () {
+			resolve("实例1操作成功了")
+        },5000)
+    })
+	let pro2=new Promise(function (resolve) {
+		setTimeout(function () {
+			resolve("实例2操作成功了")
+        },1000)
+    })
+
+	Promise.all([pro1,pro2]).then(function (res) {
+		console.log(res)			//当我们调用Promise.all( )方法的时候，会延迟到5秒控制台才会输出结果。
+    })
+
+	//打印结果：["实例1操作成功", "实例2操作成功"]
+
+/*因为1000毫秒以后，实例pro2进入了成功fulfilled状态；此时，Promise.all( )还不会有所行动，
+因为实例pro1还没有进入成功fulfilled状态；等到了5000毫秒以后，
+实例pro1也进入了成功fulfilled状态，Promise.all( )才会进入then方法，
+然后在控制台输出：["实例1操作成功","实例2操作成功"]。*/
+
+/* 这个方法有什么用呢？
+一般这样的场景：我们执行某个操作，这个操作需要得到需要多个接口请求回来的数据来支持，
+但是这些接口请求之前互不依赖，不需要层层嵌套。这种情况下就适合使用Promise.all( )方法，
+因为它会得到所有接口都请求成功了，才会进行操作。
+ */
+</script>
+</body>
+</html>

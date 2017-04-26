@@ -8,6 +8,18 @@
 <body>
 <div class="mk"></div>
 <script>
+	//顶层对象属性
+	var a=1;
+	window.a=1;
+
+	let b=2;
+	window.b //undefined
+
+	//var命令和function命令声明的全局变量，依旧是顶层对象的属性；
+	//let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。
+</script>
+
+<script>
 //	{}中的语句都属于一个块,在花括号里面用let定义的所有变量在花括号外都是不可见的，我们称之为块级作用域。
 
     var name = 'zach'
