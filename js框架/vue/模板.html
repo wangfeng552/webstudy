@@ -8,66 +8,25 @@
 	<script src="js/vue.js"></script>
 </head>
 <body>
-<style>
-    .act{color:red}
-</style>
 <div class="mk">
-    <input type="text" placeholder="请输入" v-model="task.content" @keydown.enter="addTask">
-    <p class="empty" v-if="showEmpty">暂无任务</p>
-    <!--<p class="empty" v-if="list.length===0">暂无任务</p>-->
-    <div class="list">
-        <ul>
-            <li v-for="(v,i) in list">
-                <input type="checkbox" :checked="v.finished" @click="changClass(i)">
-                <span :class="{'act':v.finished}">{{v.content}}</span>
-                <button @click="delContent(i)">delete</button>
-            </li>
-        </ul>
-    </div>
+	<h2>标题</h2>
+	<wf-name>
+		<!--<p>这是一些初始内容</p>
+		<p>这是更多的初始内容</p>-->
+	</wf-name>
 </div>
-<script>
-    var vm = new Vue({
-        el: ".mk",
-        data: {
-            task: {
-                content: "", //内容
-                finished: false, //未完成
-                deleted: false //未删除
-            },
-            list:[]         //存储用户输入的每一个任务task。
-        },
-        //没有数据添加占位符
-        computed:{
-            showEmpty(){
-                if(this.list.length===0){
-                    return true
-                }
-            }
-        },
-        methods: {
-            addTask(){
-                //将task存入list数组
-                this.list.push(this.task);
-                //存入list之后将task重置
-                this.task={
-                    content:"",
-                    finished:false,
-                    deleted:false
-                }
-            },
-            //点击修改任务状态
-            changClass(i){
-                var actStore=this.list[i].finished;
-                this.list[i].finished=!actStore;
-            },
-            //删除对应的数据
-            delContent(i){
-                //使用splice操作删除数组指定项
-                this.list.splice(i,1)
-            }
 
-        }
-    })
+<script>
+	Vue.component("wf-name",{
+	    template:`<ul>
+					<li>123123123</li>
+					<slot>只有在没有要分发的内容时才会显示。</slot>
+				</ul>`
+	})
+	var vm=new Vue({
+		el:".mk",
+
+	})
 </script>
 </body>
 </html>

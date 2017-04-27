@@ -1,41 +1,32 @@
 <template>
     <div class="mk">
-        <input type="text" v-model="newText">
-        <div class="name">{{name}}{{age}}</div>
-        <button @click="addname">改变姓名年龄</button>
-        <p>{{wf}}</p>
+        <div class="a1">{{name}}</div>
+        <button @click="changeName">点击</button>
     </div>
 </template>
 <script>
-    import {mapActions} from "vuex";
+    import {mapGetters}  from "vuex"
+
+    //    方法1，传参数
     export default{
-        data(){
-            return {newText:""}
-        },
-        computed:{
-            name(){
-                return this.$store.state.name
-            },
-            age(){
-                return this.$store.state.age
-            },
-            wf(){
-                return this.$store.state.wf
-            }
-        },
-        /*方法1*/
-       methods:{
-            addname(){
-                this.$store.dispatch('actionName2',this.newText)  //可以传参数
-//                排错
+        computed: mapGetters(['name']),
+        methods: {
+            changeName(){
+                this.$store.dispatch("action2", "12")
+                // 排错
                 /*try{
-                    this.$store.dispatch('actionName2',this.newText)
-                } catch(error){
-                    alert(error)
-                }*/
+                 this.$store.dispatch('action2',this.newText)
+                 } catch(error){
+                 alert(error)
+                 }*/
             }
-       }
-//       方法2
-//        methods: mapActions({addname:"actionName"})
+        }
+    }
+
+    //    方法2 mapActions
+    import {mapActions} from "vuex"
+    export default{
+        computed: mapGetters(["name"]),
+        methods: mapActions({"changeName": "action1"})
     }
 </script>
