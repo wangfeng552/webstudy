@@ -9,26 +9,13 @@
 从数组和对象中提取值，对变量进行赋值，这被称为解构
 
 <script>
-//1.交换变量值
-//	提取函数返回值
-//	默认值设置
-//	函数参数定义
-
-	var [a,...b]=[1,2,3,4];
-
-	var x=1;
-	var y=2;
-	var [x,y]=[y,x]
-
-	function wf() {
-		return {m:"123",n:"456"}
-    }
-    var {m,n}=wf()
-
-	function canshu({a='123',b}) {
-		console.log(a+b)
-    }
-    canshu({b:"456"})
+let pro = new Promise((resolve, reject) => {
+    if(false){
+        resolve("成功了")
+	}else
+	    reject("失败了")
+})
+	pro.then( res => { console.log(res)}).catch( res => { console.log(res)})
 </script>
 
 </body>
