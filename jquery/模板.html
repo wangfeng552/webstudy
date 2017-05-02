@@ -3,18 +3,39 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta http-equiv="X-UA-Compatible" content="edge">
-    <title>登录</title>
-    <script src="jquery-1.11.2.js"></script>
-
+    <title>sticky-footers </title>
+    <!--<script src="jquery-1.11.2.js"></script>-->
 </head>
 
 <body>
 <style>
-    .mk{width: 300px; height: 300px; vertical-align: middle; background-color: #f60; display: table-cell; overflow: hidden}
-    .mk img{max-width: 800px;}
+    * {
+        margin: 0;
+    }
+    html, body {
+        height: 100%;
+    }
+    .wrapper {
+        min-height: 100%;
+        height: auto !important; /* 如果你不需要考虑IE6，则可以把这行与下一行代码删除 */
+        height: 100%;
+        margin: 0 auto -4em;
+    }
+    .footer, .push {
+        height: 4em;
+    }
 </style>
-<div class="mk">
-    <img src="12.jpg" alt="">
+<div class="wrapper">
+    <p>Your website content here.</p>
+    <p>Your website content here.</p>
+    <p>Your website content here.</p>
+    <p>Your website content here.</p>
+
+
+    <div class="push"></div>
+</div>
+<div class="footer">
+    <p>Copyright (c) 2008</p>
 </div>
 </body>
 </html>

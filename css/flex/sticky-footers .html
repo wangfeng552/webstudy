@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>sticky-footers </title>
+</head>
+<body>
+<style>
+    .clearfix{
+        display: inline-block;
+    }
+    .clearfix:after{display: block;content: ""; font-size: 0; line-height: 0;clear: both; visibility: hidden;}
+    .detail{
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,.3);
+    }
+    .detail-wrapper{min-height: 100%}
+    .detail-wrapper .detail-main{
+        margin-top: 64px;
+        padding-bottom: 60px;
+    }
+    .detail-close{
+        position: relative;
+        width: 32px;
+        height: 32px;
+        margin: -64px auto 0;
+        clear: both;
+    }
+    .wenzi{height: 80px;}
+</style>
+<div class="detail">
+    <div class="detail-wrapper clearfix">
+        <div class="detail-main">
+            <div class="wenzi">123123123</div>
+            <div class="wenzi">123123123</div>
+            <div class="wenzi">123123123</div>
+            <div class="wenzi">123123123</div>
+            <div class="wenzi">123123123</div>
+        </div>
+    </div>
+    <div class="detail-close">X</div>
+</div>
+</body>
+</html>
