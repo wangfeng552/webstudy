@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>登录</title>
+    <script src="../jquery-1.11.2.js"></script>
+
+</head>
+
+<body>
+<button class="save">保存</button>
+
+<button class="get">获取</button>
+
+<button class="delete">删除</button>
+
+<script>
+    var arr = {'name': '张三', 'age': '45'}
+    var localStorage = window.localStorage;
+    //    保存数据
+    $(".save").on("click", function () {
+//        localStorage.setItem("name", arr)
+        localStorage.setItem("name", JSON.stringify(arr))
+    })
+    //    获取数据
+    $(".get").on("click", function () {
+        console.log(JSON.parse(localStorage.getItem("name", arr)))
+    })
+    //    删除数据
+    $(".delete").on("click", function () {
+        localStorage.removeItem('name')
+    })
+</script>
+</body>
+</html>
