@@ -1,6 +1,8 @@
 <template>
 	<div class="cartconcol">
-		<div class="cart-decrease" @click="decreasecart" v-show="food.count>0">-</div>
+		<div class="cart-decrease" @click="decreasecart" v-show="food.count>0" transition="move">
+			<span class="inner icon-font1">-</span>
+		</div>
 		<div class="cart-count" v-show="food.count>0">{{food.count}}</div>
 		<div class="cart-add" @click="addCart">+</div>
 	</div>
@@ -44,3 +46,33 @@ import Vue from 'vue'
 		}
 	}
 </script>
+<style>
+	.cartconcol{
+		font-size:0;
+		.cart-decrease{
+			display: inline-block;
+			padding: 6px;
+			transition:all 0.4s linear;
+			.move-transition{
+				opacity: 1;
+				transform:translate3D(0,0,0);
+			}
+			.inner{
+				line-height: 24px;
+				font-size: 24px;
+				color: #fff;
+			}
+			.mover-enter,.mover-leave{
+				opacity: 0;
+				transform:translate3D(24px,0,0);
+			}
+		}
+		.cart-count{
+			display: inline-block;
+			vertical-align: top;
+			width: 12px;
+			padding-top: 6px;
+			line-height: 24px;
+		}
+	}
+</style>
