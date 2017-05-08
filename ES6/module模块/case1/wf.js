@@ -1,16 +1,18 @@
 import {name as myname,age,says} from "./a1"
 //导入name属性 并赋值给变量name
-//as 重命名
 
 console.log(myname)
 console.log(age)
 says(123)
 
 
+//as 重命名
+//* as obj 整体导入
 /*import * as obj from "./a1"
 //使用*实现整体导入
 console.log(obj.name)
 console.log(obj.age)*/
+
 
 // 默认导出后
 // 导入这个模块的时候取任意名字均可

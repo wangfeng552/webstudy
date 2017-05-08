@@ -14,7 +14,7 @@ import Vue from 'vue'
 			food:{
 				type:Object
 			}
-		}
+		},
 		methods:{
 			_initScroll(){
 				this.menuScroll=new BScroll(this.$els.menuWrapper,{		//使用better-scroll里的元素点击事件设置为true

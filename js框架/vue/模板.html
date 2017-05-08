@@ -9,23 +9,15 @@
 </head>
 <body>
 <div class="mk">
-	<h2>标题</h2>
-	<wf-name>
-		<!--<p>这是一些初始内容</p>
-		<p>这是更多的初始内容</p>-->
-	</wf-name>
+	{{messages}}
 </div>
 
 <script>
-	Vue.component("wf-name",{
-	    template:`<ul>
-					<li>123123123</li>
-					<slot>只有在没有要分发的内容时才会显示。</slot>
-				</ul>`
-	})
 	var vm=new Vue({
-		el:".mk",
-
+	  el:".mk",
+	  data:{
+        messages:"123"
+	  }
 	})
 </script>
 </body>

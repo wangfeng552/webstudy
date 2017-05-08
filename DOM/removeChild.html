@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<p id="demo">点击按钮来删除列表中的首个项目。</p>
+<button onclick="myFunction()">试一下</button>
+
+<script>
+  function myFunction()
+  {
+    var demo=document.getElementById("demo");
+    document.body.removeChild(demo);
+  }
+</script>
+</body>
+</html>

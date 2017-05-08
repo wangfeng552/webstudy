@@ -8,34 +8,16 @@
 </head>
 
 <body>
-<style>
-    * {
-        margin: 0;
-    }
-    html, body {
-        height: 100%;
-    }
-    .wrapper {
-        min-height: 100%;
-        height: auto !important; /* 如果你不需要考虑IE6，则可以把这行与下一行代码删除 */
-        height: 100%;
-        margin: 0 auto -4em;
-    }
-    .footer, .push {
-        height: 4em;
-    }
-</style>
-<div class="wrapper">
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
+    <div class="mk">
 
-
-    <div class="push"></div>
-</div>
-<div class="footer">
-    <p>Copyright (c) 2008</p>
-</div>
+    </div>
+    <script>
+      var arr=[];
+      for(let i=0;i<5;i++){
+        arr[i]=function () {
+          alert(i)
+        }
+      }
+    </script>
 </body>
 </html>

@@ -1,0 +1,35 @@
+.width{
+  width:(50px/2);
+  width:50px + 20px;
+  width:50px - 20px;
+  width:(50px*20)/2;
+}
+
+//跳出嵌套
+@at-root .child{ }
+@at-root {
+  .child1{}
+  .child2{}
+}
+
+//&.mk &表示父元素选择器
+.father{
+  &.mk{}
+}
+
+//建议传递参数的用@mixin
+@mixin opacity($opacity:50){
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+.demo{@include opacity(80)}
+
+//而非传递参数类的使用下面的继承%
+%inlineblock{
+  display:inline-block;
+  zoom:1
+}
+.demo{ @include inlineblock}
+
+
+

@@ -30,6 +30,8 @@
           clickParent(){
               //访问子组件
             this.$refs.child.showClick("123")
+              // 访问child的dom
+//            this.$refs.child.$el
           }
       }
   }
