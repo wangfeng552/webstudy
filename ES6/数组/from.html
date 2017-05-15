@@ -13,13 +13,12 @@
 	</ul>
 </div>
 <script>
-//    可以将类似数组的对象或者可遍历的对象转换成真正的数组。
-//Array.from()
-document.querySelectorAll('li');
-	var Li=document.getElementsByTagName("li")
-	Li instanceof Array;  			//=>false，不是数组
-	Li instanceof Object; 			//=>true，是对象
-	Array.from(Li) instanceof Array //=>true ,是数组
+  // Array.from() 可以将类似数组的对象或者可遍历的对象转换成真正的数组。
+  document.querySelectorAll('li');
+  var Li = document.getElementsByTagName("li")
+  Li instanceof Array;  			//=>false，不是数组
+  Li instanceof Object; 			//=>true，是对象
+  Array.from(Li) instanceof Array //=>true ,是数组
 </script>
 
 <script>
@@ -28,16 +27,8 @@ document.querySelectorAll('li');
 </script>
 
 <script>
-	//es5方法
-    let arrayLike = {
-        '0': 'a',
-        '1': 'b',
-        '2': 'c',
-        length: 3
-    };
-
-    // ES5的写法
-    var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
+//  Array.from还可以接受第二个参数，作用类似于数组的map方法，用来对每个元素进行处理，将处理后的值放入返回的数组。
+	Array.from([1,2,3],(x) => x*x)
 </script>
 </body>
 </html>

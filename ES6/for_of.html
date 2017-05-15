@@ -19,8 +19,12 @@
 	var arr=["123","sdaf","离散",45];
 
 	for(let v of arr){
-	   console.log(v)
+	   console.log(v)			// "123","sdaf","离散",45
 	}
+    //	数字索引
+    for(let i of arr.keys()){
+      console.log(typeof i)			//=>0 1 2 3 得到数字类型索引
+    }
 
 //	break continue
 	for(let v of arr){
@@ -29,11 +33,6 @@
 			continue;	//跳过
 		}
 		console.log(v)
-	}
-
-//	数字索引
-	for(let i of arr.keys()){
-	    console.log(typeof i)			//=>0 1 2 3 得到数字类型索引
 	}
 
 //	遍历字符串
@@ -48,18 +47,33 @@
 	    console.log(v)
 	}
 </script>
+
+
 <script>
-    var obj={
-        name:"张三",
-        age:"45"
-    }
-    for(let v of Object.keys(obj)){
-        console.log(v+'-'+obj[v])
-    }
-    for(let v in obj){
-        console.log(v+'-'+obj[v])
-	}
+  //  for...in更适合用于对象的遍历。
+  var obj = {name: "张三", age: "45"}
+  for (let v in obj) {
+    console.log(v + '-' + obj[v])  // key v && value obj[v]
+  }
 </script>
-<!--总结：for...of一种新的遍历方式，能遍历的对象有：数组，类数组对象，字符串，set和map结构等具有iterator接口的数据结构。而且for...in更适合用于对象的遍历。-->
+
+
+<script>
+  var obj=[{上海:[1,2,3,4]},{北京:"25"},{sex:"boy"}];
+  var i,k;
+  var arr1=[],arr2=[];
+  for(i in obj){
+    for(k in obj[i]){
+      arr1.push(k); // 把key放入
+      arr2.push(obj[i][k]) //把value放入
+    }
+  }
+</script>
+
+<!--总结：
+
+for...of一种新的遍历方式，能遍历的对象有：数组，类数组对象，字符串，set和map结构等具有iterator接口的数据结构。
+
+而for...in更适合用于对象的遍历。-->
 </body>
 </html>
