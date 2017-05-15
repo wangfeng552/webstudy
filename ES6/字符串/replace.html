@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<!--案例1-->
 <script>
 	var str = "打防结合的萨芬撒地方";
 	var aa = str.replace("打","huan")
@@ -21,10 +22,10 @@
 </script>
 
 
+<!--案例2-->
 <div class="wrapper">
 	{{topbar}}
 </div>
-
 <script>
 	var source=document.getElementsByTagName("body")[0];
 	var topbar=source.innerHTML.replace("{{topbar}}",'<div class="topbar">\
@@ -33,5 +34,13 @@
         </div>')
     source.innerHTML=topbar
 </script>
+
+
+<!--案例3-->
+<script>
+  var people='打款发货 撒地方 阿斯蒂芬';
+  people.replace(/[\n\s\t]/g,'') 	//把换行 空格 tab 都替换成空
+</script>
+
 </body>
 </html>

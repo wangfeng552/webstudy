@@ -34,12 +34,15 @@
     str.sup()						//显示为商上标
     String.fromCharCode("22763")	//可接受一个指定的 Unicode 值，然后返回一个字符串。 =>士
 
+	//ES5
+	at(1)							//返回字符串给定位置的字符 需要垫片库 https://github.com/es-shims/String.prototype.at
+
 	//ES6新增
 	var str4=`上面的str内容是${str+str2+str3}`;//``链接字符串 ${}内放变量  ${}中可以是运算表达式
 	str.repeat(2)					//重复几次
-	str.startsWith("纳")				//第一个是否是纳 =>true
-	str.endsWith("2")				//最后一个是否是2 =>false
-	str.includes("大")				//是否包含大		=>true
+    str.includes("大")				//是否包含大		=>true
+    str.startsWith("纳")				//第一个是否是纳 =>true
+    str.endsWith("2")				//最后一个是否是2 =>false
     var str6 = "𠮷";
     str6.codePointAt();  			//结果:134071
     String.fromCodePoint(134071);	//=>𠮷

@@ -51,5 +51,11 @@ git rm text.txt
 切换别人的分支
 git checkout -b {} origin/{}
 
+查看远程仓库地址
+git remote -v
+替换远程仓库地址
+git remote rm origin
+git remote add origin [url]
+
 
 
