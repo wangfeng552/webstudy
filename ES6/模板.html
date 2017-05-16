@@ -9,11 +9,19 @@
 <p>12313</p>
 <p>dsg</p>
 <p>ghjg</p>
+
 <script>
-	var arr1=[1,2,3];
-	var m=arr1.every(function (v) {
-	  return v>-5
-    })
+  function Person(name) {
+    this.name = name
+  }
+  Person.prototype = {
+    'type': '动物',
+    say(){
+      console.log('名字叫' + this.name)
+    }
+  }
+  var dog = new Person('第三发斯蒂芬')
+//  Object.setPrototypeOf(dog,{name:"123",say(){console.log(1)}})
 </script>
 
 </body>

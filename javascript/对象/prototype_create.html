@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  //构造函数模拟创建一个Person类
+	function Person(name) {
+	  this.name = name
+    }
+  //把一些属性和方法，定义在prototype对象上
+    Person.prototype = {
+	  'type': '人',
+	  say(){
+	    console.log('姓名叫'+this.name)
+	  }
+	}
+  //实例化
+	var zs = new Person("张三")
+  //调用name方法
+	zs.name
+</script>
+
+<!--上面的案例告诉我们，模拟面向对象编程有几个关键步骤：
+1、构造函数；
+2、给prototype对象添加属性和方法；
+3、实例化；
+4、通过实例化后的对象调用类的方法或者属性。-->
+</body>
+</html>

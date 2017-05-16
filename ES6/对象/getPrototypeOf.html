@@ -23,10 +23,10 @@
 	}
 	var dog=new Animal();
 
-//	获取dog对象的prototype属性
+//	Object.getPrototypeOf()函数对对象的prototype查看方法和属性
 	console.log(Object.getPrototypeOf(dog))
 
-//	设置dog对象的name属性
+//Object.setPrototypeOf()函数对对象的prototype属性进行了修改
 	Object.setPrototypeOf(dog,{name:"lisi"})
 
 	console.log(dog.name)

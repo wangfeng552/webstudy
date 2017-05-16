@@ -17,6 +17,15 @@
 	let origin={age:"45",height:"178cm"}
 
 	Object.assign(target,origin)	//=>{name:"张三",age: "45", height: "178cm"}
+
+
+//    后面的属性值就会覆盖前面的属性值
+	let a={family:"上海"};
+	let b={family:"北京"};
+	let c={family:"武汉"}
+	Object.assign(a,b,c) //=>{family:"武汉"}
 </script>
+
+<!--    巧妙利用Object.assign( )函数的功能，我们可以完成很多效果，比如：给对象添加属性和方法，克隆对象，合并多个对象，为对象的属性指定默认值。-->
 </body>
 </html>
