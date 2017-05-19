@@ -8,16 +8,11 @@
 <body>
 <script>
 //  rest参数，这是一个新的概念，rest的中文意思是：剩下的部分
+//	首先是表示法：...values（三个点+变量名）；其次，values是一个数组
 //	注意，rest参数必须是函数的最后一个参数，后面不能再跟其他参数
 
 //使用rest参数与箭头函数结合的例子
 numbers = (...nums) => nums;
-numbers = function numbers() {
-	for (var _len = arguments.length, nums = Array(_len), _key = 0; _key < _len; _key++) {
-		nums[_key] = arguments[_key];
-	}
-	return nums;
-};
 numbers(1,2,3,4,5) //=>[1,2,3,4,5]
 
 //...nums 表示的是一个数组 在实参中，除了第一个参数以外，剩余的参数都会被...nums。
