@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+	let name = Symbol();
+	let person = {
+	  [name]: '撒地方'
+	}
+	person.name 	//=>undefined
+	person[name]	//=>撒地方
+	// 总结：当symbol值作为对象的属性名的时候，不能用点运算符获取对应的值。
+
+	// 当symbol类型的值作为属性名的时候，该属性是不会出现在for...in和for...of中的，也不会被Object.keys( )获取到。
+	Object.keys(person) //=>[]
+</script>
+
+<script>
+	let sex = Symbol();
+	let animal ={}
+	animal.sex = 'boy'
+//	animal[sex] = 'boy'	必须使用 []作为对象的属性名
+
+	animal[sex]		//=>undefined
+	animal['sex']	//=>boy
+	animal.sex		//=>boy
+	/*此外还有一点要注意，把一个symbol类型的值作为对象的属性名的时候，一定要用中括号[ ]，不能用点运算符，
+	 因为用点运算符的话，会导致javascript把后面的属性名为理解为一个字符串类型，而不是symbol类型*/
+</script>
+</body>
+</html>

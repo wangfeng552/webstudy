@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+如果我们硬是想要获取symbol类型的属性怎么办？我们可以用一个方法：Object.getOwnPropertySymbols( )，
+它会找到symbol类型的属性并且返回一个数组，数组的成员就是symbol类型的属性值
+<script>
+	let name = Symbol('name');
+	let age = Symbol('age')
+	let person = {
+	  [name]: '张三',
+	  [age]: 45,
+	  color:'white'
+	}
+	//获取sumbol类型的属性
+	Object.getOwnPropertySymbols(person) //=>[Symbol(name), Symbol(age)]
+
+	//一次性获取所有类型的属性
+	Reflect.ownKeys(person) 	//=>["color", Symbol(name), Symbol(age)]
+</script>
+</body>
+</html>

@@ -11,8 +11,12 @@
 	<h2>{{name | uppercase}}</h2>
 	<h2>{{people | lowercase}}</h2>
 	<h2>{{price | currency}}</h2>
+	<div class="time">
+		{{rating.rateTime | formatDate}}
+	</div>
 </div>
 <script>
+  import {formatDate} from 'common/js/date';
 	var vm=new Vue({
 	    el:"#case",
 		data:{
@@ -54,7 +58,12 @@
                 var sign = v < 0 ? '-' : '';
                 console.log(_int.slice(i).replace(digitsRE, '$1,'))
                 return sign + c + head + _int.slice(i).replace(digitsRE, '$1,') + _float;
-            }
+            },
+			  // 2016-10-06 20:16
+			  formatDate(time) {
+				let date = new Date(time);
+				return formatDate(date, 'yyyy-MM-dd hh:mm');
+			  }
         }
 	})
 </script>
