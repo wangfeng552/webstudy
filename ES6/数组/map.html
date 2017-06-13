@@ -8,22 +8,22 @@
 <script>
 //	map()对数组的每个元素进行一定操作（映射）后，会返回一个新的数组，
 //  map()是处理服务器返回数据时是一个非常实用的函数。
+
+//案例1
+var arr3=[15,25,-26,1520,-9562]
+function getMap1(){
+  return arr3.map((v,i,arr)=>{
+    return v-10
+  })
+}
+getMap1()
+
+//案例2
 var oldArr = [
 	{first_name:"Colin",last_name:"Toh"},
 	{first_name:"Addy",last_name:"Osmani"},
 	{first_name:"Yehuda",last_name:"Katz"}
 ];
-
-/*function getNewArr(){
-	var newArr=[];
-	for(var i= 0,l=oldArr.length;i<l;i++){
-		var item=oldArr[i];
-		item.full_name=[item.first_name,item.last_name].join(" ");//["Colin","Toh"].join(" ")=>Colin Toh
-		newArr[i]=item
-	}
-	return newArr;
-}
-console.log(getNewArr())*/
 
 function getNewArr(){
 	return oldArr.map(function(item,index){
@@ -31,10 +31,7 @@ function getNewArr(){
 		return item
 	})
 }
-console.log(getNewArr())
-
-
-
+getNewArr()
 </script>
 </body>
 </html>

@@ -10,13 +10,15 @@
 //	forEach为每个元素执行对应的方法
 
 var arr=[1,2,"第三方",4,5];
-
+var newArr=[]
 /*for(var i= 0,l=arr.length;i<l;i++){
 	console.log(arr[i])
 }*/
 
-arr.forEach(function(v,index){
-	console.log(v)
+arr.forEach(function(v,i,arr){
+	if(i%2==0){
+      newArr.push(v)	//取奇数的值
+	}
 })
 </script>
 </body>

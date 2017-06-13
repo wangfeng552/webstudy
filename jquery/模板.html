@@ -8,15 +8,24 @@
 </head>
 
 <body>
-<script>
-Number.parseFloat()
-    Number.parseInt()
-    Number.isSafeInteger()
-    Number.isNaN()
-    Number.isInteger()
-    Number.isFinite()
-    Number.EPSILON
 
+<button id="btn">复制</button>
+<input type="text" value="12312312312" id="inp">
+
+<script type="text/javascript">
+  // 事件依附的按钮
+  var button = document.getElementById('btn')
+  // 包含待复制内容的input
+  var input = document.getElementById('inp')
+
+  button.addEventListener("click", function(event) {
+    event.preventDefault();
+    // 选取input元素的内容
+    input.select();
+    console.log(input)
+    // 将选区内容复制到剪贴板
+    document.execCommand("copy");
+  });
 </script>
 </body>
 </html>

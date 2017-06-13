@@ -15,16 +15,16 @@
 	unshift()				//向数组的开头添加一个或更多元素，并返回新的长度。
 	shift() 				//把数组的第一个元素从其中删除，并返回第一个元素的值。
 	slice(strart,end)		//可从已有的数组中返回选定的元素,包含从 start 到 end （不包括该元素）| 返回一个新的数组，
-	splice(i,howmany,item1...itemX) //方法向/从数组中添加/删除项目，| 返回被删除的项目,会改变原始数组
-	toString()				//将数组转为字符串
+	splice(i,1,items...) 	//位置,个数,添加新项目 | 返回被删除的项目,会改变原始数组
+	toString()				//将数组转为字符串逗号分隔
 	toLocaleString()  		//将数组转化为本地化字符串
 
 	//ES5
 	every					//确定数组的所有成员是否满足指定的测试。返回true /false
 	some					//确定数组的一些成员是否满足指定的测试。返回true /false
 	filter()				//返回数组中的满足回调函数中指定的条件的元素。
-	arr.forEach(function(v,i,arr){})	//遍历，循环
-	map()					//映射 原数组被“映射”成对应新数组 基本用法跟forEach方法类似：
+	arr.forEach((v,i,arr)=>{})	//遍历，循环
+    arr.map((v,i,arr)=>{})		//映射 原数组被“映射”成对应新数组 基本用法跟forEach方法类似：
 	indexOf()				//该数组中第一个找到的元素位置，如果它不存在则返回-1
 	lastIndexOf()			//最后出现的位置
 	[1,2,3].reduce(function(prev,next){		// 可以实现一个累加器的功能，将数组的每个值（从左到右）将其降低到一个值

@@ -2,21 +2,28 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>proxy代理</title>
 </head>
 <body>
 <script>
-    //定义一个对象person
-    var person = {"name":"张三","age":"45"};
+  //定义一个对象person
+  var person = {"name": "张三", "age": "45"};
 
-    //创建一个代理对象pro，代理person的读写操作
-    var pro = new Proxy(person,{
-        get:function(target,property){
-            return "李四"
-        }
-    });
+  //创建一个代理对象pro，代理person的读写操作
+  var pro = new Proxy(person, {
+	// get方法实现了拦截的作用，不管你读取什么属性
+    get: function (target, property) {  //target 对象  property 属性   target[property]
+      return target[property]
+    },
+	// set它用于拦截对对象的写操作
+    set: function (target, property, value) {
+      target[property] = value		//设置值
+    }
+  });
 
-    pro.name;//李四
+  pro.name;//张三
+  pro.name = '李四'
+  pro.name;//=>李四
 </script>
 </body>
 </html>

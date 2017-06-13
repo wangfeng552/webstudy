@@ -6,12 +6,14 @@
 	<title>let</title>
 </head>
 <body>
-<p>12313</p>
-<p>dsg</p>
-<p>ghjg</p>
 
 <script>
-
+  # 营业执照类型（普通营业执照、三证合一）
+  enumerize :cert_type, in: { normal: 0, unify: 1 }
+  # 审核状态（未认证 认证中 认证失败 已认证）；默认：unauthorized
+  enumerize :auth_status, in: { unauthorized: 0, verifying: 1, verified: 2, failed: 3 }, default: :unauthorized
+  # 状态 (有效 冻结 待激活)
+  enumerize :status, in: { effective: 0, freeze: 1, unclaimed: 2 }
 </script>
 
 </body>
