@@ -2,8 +2,13 @@
   <div>
     <el-form :model="form" :rules="rules" ref="wf_form_v" label-width="120px">
 
-      <el-form-item label="电话" prop="tel">
+      <!--自定义验证加红*在el-form-item上加require-->
+      <el-form-item label="电话" prop="tel" required="">
         <el-input v-model="form.tel" ></el-input>
+      </el-form-item>
+
+      <el-form-item label="删了大富科技" prop="user.name">
+        <el-input v-model="form.user.name"></el-input>
       </el-form-item>
 
       <el-form-item label="姓名" prop="name">
@@ -95,6 +100,9 @@
       return {
         form: {
           tel: '',
+          user:{
+            name:''
+          },
           name: '',
           textarea:'',
           canting:'',
@@ -106,9 +114,10 @@
         },
         rules: {
           tel: [
-            {required: true, message: "必填", trigger: 'blur'},
+//            {required: true, message: "必填", trigger: 'blur'},
             {validator: valid_tel, trigger: 'blur'}
           ],
+          'user.name':[{required:true,message:'必填',trigger:'blur'}],
           name: [{required: true, message: "必填", trigger: 'blur'}],
           leixing: [{required: true, message: "必填", trigger: 'change'}],
           duoxuan: [{type: 'array', required: true, message: "必填", trigger: 'change'}],

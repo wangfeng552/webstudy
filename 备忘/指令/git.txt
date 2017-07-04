@@ -37,8 +37,8 @@ HEAD指向当前版本
 git reset --hard commit_id 版本穿梭
 git log 		查看历史提交
 git log --pretty=oneline最近到最远的提交日志
-git reflog		查看命令历史
-git checkout -- index.html 丢弃修改回到最近的commit
+git reflog		查看命令历史 以便确定要回到未来的哪个版本
+git checkout -- file  丢弃修改回到最近的commit file指定的文件
 
 bug修复
 git stash  		隐藏现在的工作区，然后在bug的地方创建分支，修改提交合并
@@ -56,6 +56,7 @@ git remote -v
 替换远程仓库地址
 git remote rm origin
 git remote add origin [url]
+
 
 
 

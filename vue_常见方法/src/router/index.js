@@ -21,6 +21,7 @@ const promise1 = resolve => require(['components/promise/index'], resolve)
 const elementui = resolve => require(['components/elementui/elementui'], resolve)
 const input = resolve => require(['components/input/input'], resolve)
 const validate = resolve => require(['components/validate/validate'], resolve)
+const btnClick = resolve => require(['components/btnClick/btnClick'], resolve)
 
 const router = new VueRouter({
   mode: 'history',
@@ -54,6 +55,7 @@ const router = new VueRouter({
     {path: '/elementui', component: elementui},
     {path: '/input', component: input},
     {path: '/validate', component: validate},
+    {path: '/btnClick', component: btnClick},
     {path: '*', redirect: '/swiper'}
   ]
 })

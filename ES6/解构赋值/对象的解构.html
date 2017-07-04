@@ -21,6 +21,10 @@ var {a:{b}}={a:{b:1}}
 //2、可以指定默认值
 var {a,b=22}={a:11}
 
+var meta={}				//未设置auth
+//var meta={auth:false}  //设置了auth
+var {auth=true}=meta 	//未设置返回true 设置了返回false
+
 //3.变量与属性名不一致的解构
 	var {x:y}={x:"你好"} //=> y:"你好"
 

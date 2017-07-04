@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import ElementUi from 'element-ui'
 import App from './App'
+import Appp from './App2'
 import router from './router'
 import store from './vuex/store'
 import VueResource from 'vue-resource'
@@ -17,6 +18,19 @@ Vue.http.options.before = function(request) {
   request.headers.set('Access-Token', localStorage.getItem('wf'))
 }
 
+
+/*window.onload=function(){
+  if(!window.FormData){//IE9以下
+    /!* eslint-disable no-new *!/
+    var vm = new Vue({
+      el: '#app',
+      render: h => h(Appp)
+    })
+  }else{
+
+  }
+}*/
+
 /* eslint-disable no-new */
 var vm = new Vue({
   el: '#app',
@@ -24,5 +38,10 @@ var vm = new Vue({
   store,
   render: h => h(App)
 })
+
+
+
+
+
 
 

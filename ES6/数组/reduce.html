@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+/*	reduce(callback, initialValue)
+	callback函数接受4个参数：之前值、当前值、索引值以及数组本身 previous, current, index, array
+	initialValue参数可选，表示初始值。
+	若指定，则当作最初使用的previous值；
+	如果缺省，则使用数组的第一个元素作为previous初始值，同时current往后排一位，相比有initialValue值少一次迭代
+	index的位置就是current的位置
+	*/
+
+//	案例1 数组求和
+	var arr=[3,4,5];
+	var sum = arr.reduce(function (previous,current,i,arr) {
+	  console.log(i+'---'+current)
+	  return previous+current		// => 12
+    },'dfault')
+
+
+//	案例2 二维数组的扁平化
+	var arrAll=[['a','b'],['c','d'],['ee','ff']]
+	var arr1 = arrAll.reduce(function (previous,current) {
+	  return previous.concat(current)		// => ["a", "b", "c", "d", "ee", "ff"]
+    })
+</script>
+
+<script>
+//  reduceRight(callback, initialValue)
+//	从数组的末尾开始实现
+	var data = [1,2,3,4];
+	var count = data.reduceRight(function (previous,current,i) {
+//	  console.log(i)
+	  if(i==0){
+	    return previous+current;
+	  }
+	  else{
+	    return previous-current
+	  }
+    })
+</script>
+</body>
+</html>
