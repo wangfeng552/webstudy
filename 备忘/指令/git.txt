@@ -20,9 +20,9 @@ git add -A 添加目前所有
 git add .添加所有
 git commit -m "miaoshu" 完成提交
 git push origin master	提交到远程分支
-
 git status 	查看状态
 git diff 	查看修改的内容
+git rm file 	删除文件
 
 
 分支管理
@@ -32,6 +32,8 @@ git checkout <name>	切换分支
 git checkout -b <name>	创建+切换分支
 git merge <name> 	合并某分支到当前分支
 git branch -d <name>	删除分支
+git checkout -b {} origin/{}切换别人的分支
+git branch --set-upstream-to=origin/develop develop 指定远程分支
 
 
 版本回退
@@ -39,25 +41,19 @@ HEAD指向当前版本
 git reset --hard commit_id 版本穿梭
 git log 		查看历史提交
 git log --pretty=oneline最近到最远的提交日志
+git log --graph		查看分支合并图
 git reflog		查看命令历史 以便确定要回到未来的哪个版本
-git checkout -- file  丢弃修改回到最近的commit file指定的文件
+git checkout -- file  	丢弃修改回到最近的commit file指定的文件
+git reset HEAD file 	在暂存区回退到工作区
 
 bug修复
 git stash  		对当前的暂存区和工作区状态进行保存
 git stash list		列出所有保存的进度列表
 git stash pop [--index] [<stash>]恢复工作进度
-
 --index 参数：不仅恢复工作区，还恢复暂存区
 <stash> 指定恢复某一个具体进度。如果没有这个参数，默认恢复最新进度
-
 如：以下命令恢复编号为0的进度的工作区和暂存区
 # git stash pop --index stash@{0}
-
-删除文件
-git rm text.txt
-
-切换别人的分支
-git checkout -b {} origin/{}
 
 
 查看远程仓库地址
@@ -66,10 +62,10 @@ git remote -v
 git remote rm origin
 git remote add origin [url]
 
-git branch --set-upstream-to=origin/develop develop 指定远程分支
 
 
-git reset HEAD file 在暂存区回退到工作区
+
+
 
 
 
