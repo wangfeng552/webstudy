@@ -15,8 +15,10 @@
 			<!--<a href="javascripit:void(0)" v-bind:class="activeNumber === n  ? 'active' : ''">{{ n }}</a>-->
 			<!--缩写语法-->
 			<a href="javascripit:void(0)" :class="activeNumber === n  ? 'active' : ''">{{ n }}</a>
-
 		</li>
+		<a :href="'images/' + item.id ">
+			<span>凉快第三方</span>
+		</a>
 	</ul>
 </div>
 <script>
@@ -26,7 +28,10 @@
         el: '#app',
         data: {
             activeNumber: 3,
-            pageCount: 10
+            pageCount: 10,
+		  item:{
+              id:'123123'
+		  }
         }
     })
 </script>

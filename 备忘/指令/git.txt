@@ -41,9 +41,15 @@ git reflog		查看命令历史 以便确定要回到未来的哪个版本
 git checkout -- file  丢弃修改回到最近的commit file指定的文件
 
 bug修复
-git stash  		隐藏现在的工作区，然后在bug的地方创建分支，修改提交合并
-git stash pop		恢复的同时把stash内容也删了
-git stash list		查看，就看不到任何stash内容了：
+git stash  		对当前的暂存区和工作区状态进行保存
+git stash list		列出所有保存的进度列表
+git stash pop [--index] [<stash>]恢复工作进度
+
+--index 参数：不仅恢复工作区，还恢复暂存区
+<stash> 指定恢复某一个具体进度。如果没有这个参数，默认恢复最新进度
+
+如：以下命令恢复编号为0的进度的工作区和暂存区
+# git stash pop --index stash@{0}
 
 删除文件
 git rm text.txt
@@ -56,6 +62,8 @@ git remote -v
 替换远程仓库地址
 git remote rm origin
 git remote add origin [url]
+
+git branch --set-upstream-to=origin/develop develop 从远程分支拉项目
 
 
 

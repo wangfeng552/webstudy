@@ -12,7 +12,6 @@ var x=1;
 var y=2;
 [x,y]=[y,x]
 
-
 //  1.提取函数返回的多个值{a,b}
 	function demo() {
 		return {"a":"123","b":"456"}
@@ -23,20 +22,17 @@ var y=2;
 	console.log(a) //=>123
 	console.log(b) //=>456
 
-
 //	2. 定义函数参数{x,y,z}
 	function animal({x,y,z}) {
 		console.log("姓名"+x)
     }
     animal({x:"直接爱的色放"})
 
-
 //	3. 函数参数的默认值{name="张三"}
 	function people({name="张三"}) {
 		console.log(name)
     }
     people({})
-
 
 //	4. 提取JSON数据
 	let JSONDate={

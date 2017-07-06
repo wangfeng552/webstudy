@@ -31,6 +31,18 @@ components
 */
 </script>
 
+
+
+<!--对比-->
+<imgInputer v-model="target"></imgInputer>
+<!-- 默认等同于下面几行-->
+<imgInputer ref="x" :value="target"></imgInputer>
+<script>
+  ...
+  // 默认给这个组件对象绑定input事件！
+  this.$refs.x.$on('input', value => {this.target = value})
+  ...
+</script>
 </body>
 </html>
 
