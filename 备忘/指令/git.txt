@@ -66,5 +66,8 @@ git remote add origin [url]
 git branch --set-upstream-to=origin/develop develop 从远程分支拉项目
 
 
+git reset HEAD file 回退到工作区
+
+
 
 
