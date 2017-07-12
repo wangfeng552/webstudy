@@ -11,8 +11,8 @@
 var {a,b,c}={"a":"1","b":"2","c":"3"}
 
 //如果变量找不到与其名字相同的属性，就会赋值不成功，如下面的例子：
-var { a } = {"b":2};
-console.log(a);//结果：a的值为undefined
+var { a } = {"b":2}
+console.log(a)	//结果：a的值为undefined
 
 
 //1、对象解构赋值也可以嵌套
@@ -25,9 +25,17 @@ var meta={}				//未设置auth
 //var meta={auth:false}  //设置了auth
 var {auth=true}=meta 	//未设置返回true 设置了返回false
 
+
 //3.变量与属性名不一致的解构
 	var {x:y}={x:"你好"} //=> y:"你好"
 
+	let obj={name:'张三',age:45}
+	let {name:a,age:b}=obj		// a=张三 b=45
+
+
+//4.对象的解构赋值是下面形式的简写
+//对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者
+	let { foo: foo, bar: bar } = { foo: "aaa", bar: "bbb" }
 </script>
 </body>
 </html>

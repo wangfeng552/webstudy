@@ -22,10 +22,17 @@ if(/dog1/i.test(str)){		//=>直接量语法
 	console.log(1)
 }
 
-var k=new RegExp("dog","i");
-if(k.test(str)){
-	console.log(1)
+if(!(/\/1234/.test('/123'))){
+  console.log(1111)
 }
+
+(/123.*luc/.test('1233245325luc'))   //.*连在一起就意味着任意数量的不包含换行的字符
+
+</script>
+
+<script>
+//  因为使用了^和$，所以输入的整个字符串都要用来和\d{2,3}来匹配，也就是说整个输入必须是2到3个数字
+(/^\d{2,3}$/).test('123')
 </script>
 </body>
 </html>

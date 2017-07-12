@@ -20,9 +20,11 @@ git add -A 添加目前所有
 git add .添加所有
 git commit -m "miaoshu" 完成提交
 git push origin master	提交到远程分支
+git push origin --delete fenzhi 删除远程分支
 git status 	查看状态
 git diff 	查看修改的内容
 git rm file 	删除文件
+
 
 
 分支管理
