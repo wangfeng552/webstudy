@@ -3,11 +3,10 @@ import Vuex from 'vuex'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import ElementUi from 'element-ui'
 import App from './App'
-import Appp from './App2'
 import router from './router'
 import store from './vuex/store'
 import VueResource from 'vue-resource'
-import 'element-ui/lib/theme-default/index.css'
+import './assets/green/index.css'
 
 Vue.use(Vuex)
 Vue.use(VueResource)
@@ -18,7 +17,6 @@ Vue.http.options.before = function(request) {
   request.headers.set('Access-Token', localStorage.getItem('wf'))
 }
 
-
 /*window.onload=function(){
   if(!window.FormData){//IE9以下
     /!* eslint-disable no-new *!/
@@ -27,7 +25,6 @@ Vue.http.options.before = function(request) {
       render: h => h(Appp)
     })
   }else{
-
   }
 }*/
 

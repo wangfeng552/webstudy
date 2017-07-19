@@ -6,6 +6,8 @@ const getters={
     let end = state.user.history.length
     let begin = end - limit < 0 ? 0 : end - limit
     return state.user.history.slice(begin, end).toString().replace(/,/g, ' ')
-  }
+  },
+  selectText: state => state.admin.admin,
+  city: state => state.city.city,
 }
 export default getters

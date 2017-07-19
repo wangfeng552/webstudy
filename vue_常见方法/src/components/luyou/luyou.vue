@@ -11,15 +11,9 @@
 
 <script>
   export default{
-    data() {
-      return {
-        name:"打款发货"
-      }
-    },
     created() {
 //      console.log(this.$route)
     },
-
     beforeRouteEnter (to, from, next) {
       console.log(to)       //当前的路径
       console.log(from)     //之前的路径
@@ -28,6 +22,7 @@
       // 不！能！获取组件实例 `this`
       // 因为当钩子执行前，组件实例还没被创建
 /*      next(vm => {
+        vm.$store.commit('REMOVE_COUNT')
         vm.$http.get().then((res) => {
           console.log(res)
         }).catch((res) => {
@@ -71,7 +66,6 @@
    },
    methods: {
      fetchData(){
-       this.error = this.post = null
        this.loading = true
        this.$http.get(url + this.$routes.params.id).then((res) => {
          console.log(res)

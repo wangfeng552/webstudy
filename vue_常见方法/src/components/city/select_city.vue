@@ -1,67 +1,56 @@
 <template>
-  <div class="city">
-    <form action="">
-    <select class="pro" v-model="pid" @change="prochange()">
-      <option :value="v.id" v-for="v in pro">{{v.name}}</option>
-    </select>
-    <select class="city" v-model="cid" @change="citychange()">
-      <option :value="v.id" v-for="v in city">{{v.name}}</option>
-    </select>
-    <select class="county" v-model="ccid">
-      <option :value="v.id" v-for="v in county">{{v.name}}</option>
-    </select>
+  <div >
+    <v-distpicker :placeholders="placeholders" :province="province" @province="selectProvince">
+    </v-distpicker>
+    <button @click="saveCity"> 提交</button>
+    <button @click="quxiao"> 删除</button>
+    <div>{{province}}本地</div>
+    <div>{{city}}vuex</div>
 
-    <div class="fuzhi">
-      <input type="text" value="你好" ref="wfShow">
-      <button @click="fuzhi">复制</button>
-    </div>
-    </form>
   </div>
 </template>
 
 <script>
-  import area_data from './area_data'
-  export default{
-    data() {
-      return{
-        all:area_data, // 所有数据
-        pro:"",        // 省份
-        city:"",       // 市
-        county:"",     // 区
-        pid:"",
-        cid:"",         // 市的value值
-        ccid:""         // 区的value值
-      }
+  import {mapGetters} from 'vuex'
+  import VDistpicker from 'v-distpicker'
+  export default {
+    components: { VDistpicker },
+    computed:{
+      ...mapGetters(['city'])
     },
-    created:function(){
-      this.pro=this.all.pro; // 设置省份
-      this.pid=this.pro[0]['id'];  // 取省第一个id赋值给省的value值
-      this.prochange(); //改变的时候触发
+    beforeRouteEnter(to, from, next){
+      next(vm => {
+        vm.$nextTick(()=>{
+          vm.province=vm.city
+          console.log(vm.province)
+        })
+      })
+    },
+    data(){
+      return {
+        username:'',
+        province:'',
+//        select: { province: '', city: '', area: '' },
+        placeholders: {
+          province: '------- 省 --------',
+          city: '--- 市 ---',
+          area: '--- 区 ---',
+        }
+      }
     },
     methods:{
-      prochange:function(){
-        this.city=this.all.city[this.pid];  // 根据省的id取city的数据赋值给市
-        this.cid=this.city[0]['id'];    // 取市第一个id赋值给市的value值
-        this.county=this.all.county[this.cid]; //  根据市的id取区的数据赋值给区
-        if(this.county.length>0){
-          this.ccid=this.county[0]['id'];
-        }
+      selectProvince(value) {
+        this.province = value
       },
-      citychange:function(){
-        this.county=this.all.county[this.cid];
-        if(this.county.length>0){
-          this.ccid=this.county[0]['id'];
-        }
+      saveCity(){
+        this.$store.dispatch('getCity',this.province)
       },
-      fuzhi(){
-//        console.log(this.$refs.wfShow.value)
-        this.$refs.wfShow.select()
-        document.execCommand("copy");
-      }
+      quxiao:function () {
+        this.$store.dispatch('cancelCity');
+        this.selectProvince(this.city)
+      },
     }
   }
 </script>
-
-<style>
-
+<style lang="scss">
 </style>

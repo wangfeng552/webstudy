@@ -15,6 +15,9 @@ const user={
       SALE_COUNT (state) {
         state.count--
         state.history.push('sale_count')
+      },
+      REMOVE_COUNT(state){
+        state.count = ''
       }
     },
     actions:{

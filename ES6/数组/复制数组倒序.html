@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  // 数组排序倒序
+  var arr = [
+    {
+      name: '张三', age: '45', steps: [
+      {id: 1},
+      {id: 2},
+      {id: 3},
+    ]
+    },
+    {
+      name: '李四', age: '64', steps: [
+      {id: 'a'},
+      {id: 'b'},
+      {id: 'c'},
+    ]
+    },
+  ]
+
+//  方法1
+ /* let audits = JSON.parse(JSON.stringify(arr));
+  audits.reverse(); //倒序
+  audits.forEach((v) => {
+    v.steps.reverse()		// 数组里面的值也倒序
+  })*/
+
+// 方法2
+  let newArr=[];
+  Object.assign(newArr,arr)
+  newArr.reverse();
+
+  console.log(newArr)
+
+</script>
+</body>
+</html>

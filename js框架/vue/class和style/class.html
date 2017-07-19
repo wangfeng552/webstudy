@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<div v-for="(v,i) in name" :class="v | filterClass(i)">
+		{{v.age}}{{i}}
+	</div>
+</div>
+<script>
+var Main={
+	data(){
+		return {
+			name:[
+				{age:'25'},
+				{age:'35'},
+				{age:'45'},
+			]
+		}
+	},
+	filters:{
+		filterClass(v,i){
+			if(v.age==25){
+				return 'a1'
+			}else if(v.age==35){
+				return 'a1 a2'
+			}else if(v.age==45){
+				return 'a3'
+			}
+		}
+	}
+}
+var Ctor = Vue.extend(Main)
+new Ctor().$mount('#app')
+</script>
+</body>
+</html>

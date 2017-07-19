@@ -3,12 +3,13 @@ import Vuex from 'vuex'
 import user from './user'
 import loc from './loc'
 import persiste from './persiste'
+import city from './city'
 import getters from './getters'
 import createPersistedState from 'vuex-persistedstate';
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
-  modules: {user, loc, persiste},
+  modules: {user, loc, persiste,city},
   getters,
   plugins: [createPersistedState(
     {

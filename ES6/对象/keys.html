@@ -6,14 +6,23 @@
 </head>
 <body>
 <script>
-/*  在实际开发中，我们有时需要知道对象的所有属性，原生js给我们提供了一个很好的方法：
-Object.keys()，该方法返回一个数组,传入对象，返回属性名*/
+	/*  在实际开发中，我们有时需要知道对象的所有属性，原生js给我们提供了一个很好的方法：
+	 Object.keys()，该方法返回一个数组,传入对象，返回属性名*/
 
-	var prople={
-	  name:"心寒大概",
-	  age:"12313"
-	}
-	console.log(Object.keys(prople))  // => ["name", "age"]
+    var prople = {
+      name: "心寒大概",
+      age: "12313"
+    }
+    console.log(Object.keys(prople))  // => ["name", "age"]
+
+
+    // 案例2 如果值是空的话就不传对象名
+    let clearParams = function (obj) {
+      var copy = JSON.parse(JSON.stringify(obj))
+      Object.keys(copy).forEach((key) => (copy[key] == null || copy[key] == '') && delete copy[key])  //delete 对象属性删除
+      return copy
+    }
+    clearParams({name:'打款发货',age:''})
 </script>
 </body>
 </html>

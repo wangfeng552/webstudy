@@ -20,8 +20,11 @@ const luyou = resolve => require(['components/luyou/luyou'], resolve)
 const promise1 = resolve => require(['components/promise/index'], resolve)
 const elementui = resolve => require(['components/elementui/elementui'], resolve)
 const input = resolve => require(['components/input/input'], resolve)
+const file = resolve => require(['components/input/file'], resolve)
+const radioCheckbox = resolve => require(['components/input/radioCheckbox'], resolve)
 const validate = resolve => require(['components/validate/validate'], resolve)
 const btnClick = resolve => require(['components/btnClick/btnClick'], resolve)
+const filterClass = resolve => require(['components/filterClass/filterClass'], resolve)
 
 const router = new VueRouter({
   mode: 'history',
@@ -53,9 +56,16 @@ const router = new VueRouter({
     {path: '/luyou', component: luyou, meta: { requiresAuth: true }},
     {path: '/promise1', component: promise1},
     {path: '/elementui', component: elementui},
-    {path: '/input', component: input},
+    {
+      path: '/input', components: {
+      default: input,
+      tab2: file,
+      tab3:radioCheckbox
+    }
+    },
     {path: '/validate', component: validate},
     {path: '/btnClick', component: btnClick},
+    {path: '/filterClass', component: filterClass,name:'filterClass'},
     {path: '*', redirect: '/swiper'}
   ]
 })

@@ -6,7 +6,7 @@
       <li><router-link to="/vueresource">VueResource</router-link></li>
       <li><router-link to="/star">星星</router-link></li>
       <li><router-link to="/tab">tab</router-link></li>
-      <li><router-link to="/ceshi"  target = _blank>测试</router-link></li>
+      <li><router-link to="/ceshi">测试</router-link></li>
       <li><router-link to="/selectcity">选择城市</router-link></li>
       <li><router-link to="/city2">选择城市2</router-link></li>
       <li><router-link to="/city4">四级联动</router-link></li>
@@ -17,6 +17,7 @@
       <li><router-link to="/input">input</router-link></li>
       <li><router-link to="/validate">validate</router-link></li>
       <li><router-link to="/btnClick">btnClick</router-link></li>
+      <li><router-link to="/filterClass">filterClass</router-link></li>
     </ul>
     <router-view></router-view>
     <router-view name="tab2"></router-view>
