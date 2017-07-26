@@ -17,14 +17,12 @@ git push 推送内容到库
 
 添加文件到仓库分2步
 git add -A 添加目前所有
-git add .添加所有
 git commit -m "miaoshu" 完成提交
 git push origin master	提交到远程分支
 git push origin --delete fenzhi 删除远程分支
 git status 	查看状态
 git diff 	查看修改的内容
-git rm file 	删除文件
-
+git diff branch1 branch2 --stat  比较两个分支间所有变更的文件列表
 
 
 分支管理
@@ -41,12 +39,14 @@ git branch --set-upstream-to=origin/develop develop 指定远程分支
 版本回退
 HEAD指向当前版本 
 git reset --hard commit_id 版本穿梭
+git push -f origin develop:develop  
 git log 		查看历史提交
 git log --pretty=oneline最近到最远的提交日志
 git log --graph		查看分支合并图
 git reflog		查看命令历史 以便确定要回到未来的哪个版本
 git checkout -- file  	丢弃修改回到最近的commit file指定的文件
 git reset HEAD file 	在暂存区回退到工作区
+
 
 bug修复
 git stash  		对当前的暂存区和工作区状态进行保存

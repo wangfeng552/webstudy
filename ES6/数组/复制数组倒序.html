@@ -24,19 +24,22 @@
     },
   ]
 
-//  方法1
- /* let audits = JSON.parse(JSON.stringify(arr));
-  audits.reverse(); //倒序
-  audits.forEach((v) => {
-    v.steps.reverse()		// 数组里面的值也倒序
-  })*/
+  //  方法1
+   let audits = JSON.parse(JSON.stringify(arr));
+   audits.reverse(); //倒序
+   audits.forEach((v) => {
+   v.steps.reverse()		// 数组里面的值也倒序
+   })
 
-// 方法2
-  let newArr=[];
-  Object.assign(newArr,arr)
+  // 方法2
+  let newArr = [];
+  Object.assign(newArr, arr)
   newArr.reverse();
 
   console.log(newArr)
+
+  //方法3
+  let newArr2 = [...arr] //拷贝数组
 
 </script>
 </body>
