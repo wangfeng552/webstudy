@@ -1,25 +1,30 @@
 <template>
  <div class="ceshi">
    <ul>
-     <li v-for="(v,i) in mk" :class="v | filterClass(isTruy)">的首付款</li>
+     <div><input type="text"></div>
+     <button @click="show">点击</button>
    </ul>
  </div>
 </template>
 
 <script>
+  import qs from 'qs'
 export default {
   data(){
     return {
-      mk:[{name:11},{name:12},{name:11}],
-      isTruy:false
+      mk:[
+        {name:[1,2,3]},
+        {name:['sdf',34,58]},
+        {name:[1,'就看到',3]}
+      ],
+      isTruy:false,
+      name:{a:'123',b:55}
     }
   },
-  methods:{},
-  filters:{
-    filterClass(v,a){
-      if(v.name==11&&!a){
-        return 'red'
-      }
+  methods:{
+    show(){
+      let m=qs.stringify(this.name);
+      console.log(m)
     }
   }
 }

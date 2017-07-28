@@ -20,6 +20,7 @@
     },
     methods:{
       showFile(){
+        console.log(123123)
         let inputDom = this.$refs.inputfile;
         // 通过DOM取文件数据
         this.file = inputDom.files[0];

@@ -18,6 +18,7 @@
       <li><router-link to="/validate">validate</router-link></li>
       <li><router-link to="/btnClick">btnClick</router-link></li>
       <li><router-link to="/filterClass">filterClass</router-link></li>
+      <li><router-link to="/zhiling">自定义指令</router-link></li>
     </ul>
     <router-view></router-view>
     <router-view name="tab2"></router-view>

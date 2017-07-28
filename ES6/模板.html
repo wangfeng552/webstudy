@@ -8,6 +8,13 @@
 </head>
 <body>
 <script>
+	var str='/?name=张三123&age=4sd5';
+	var m = str.split('=')
+	var name=m[1];
+	var endfuhao=name.lastIndexOf('&')
+	var n=name.substr(0,endfuhao);
+	var age=m[2];
+	console.log(n+'===='+age)
 </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ import swiper from 'components/swiper/swiper'
 // 路由懒加载
 const vuex1 = resolve => require(['components/vuex/vuex'], resolve)
 const persiste = resolve => require(['components/vuex/persiste'], resolve)
-const vueresource = resolve => require(['components/vueResource/vueResource'], resolve)
+const vueresource = resolve => require(['components/axios/axios'], resolve)
 const star = resolve => require(['components/star/star'], resolve)
 const tab = resolve => require(['components/tab/tab'], resolve)
 const tab2 = resolve => require(['components/tab/tab2'], resolve)
@@ -25,6 +25,7 @@ const radioCheckbox = resolve => require(['components/input/radioCheckbox'], res
 const validate = resolve => require(['components/validate/validate'], resolve)
 const btnClick = resolve => require(['components/btnClick/btnClick'], resolve)
 const filterClass = resolve => require(['components/filterClass/filterClass'], resolve)
+const zhiling = resolve => require(['components/zhiling/zidingyi'], resolve)//自定义指令
 
 const router = new VueRouter({
   mode: 'history',
@@ -65,6 +66,7 @@ const router = new VueRouter({
     },
     {path: '/validate', component: validate},
     {path: '/btnClick', component: btnClick},
+    {path: '/zhiling', component: zhiling},
     {path: '/filterClass', component: filterClass,name:'filterClass'},
     {path: '*', redirect: '/swiper'}
   ]
