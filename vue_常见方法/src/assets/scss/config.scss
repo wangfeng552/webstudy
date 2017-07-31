@@ -1,0 +1,192 @@
+@charset "utf-8";
+$fc5c5:#5c5c5c;
+$fc3c8:#3c8ced;
+$fc0c5:#0c57bd;
+$fcfff:#fff;
+$fc333:#333;
+$fcd1d:#d1d1d1;
+$fcf5f:#f5f5f5;
+$fcfce:#ec6a6a;
+$mb19:19px;
+$fcred:#f52727;
+$fc1d1: #1d1d1d;
+$imageurl:'http://public.entservice.com/';//七牛上的图片路径
+
+@mixin fix-width { width: 1200px; margin: auto; }
+@mixin ellipsis{ white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+@mixin inlineBlock{display: inline-block; *display: inline; zoom:1;}
+//遮罩
+@mixin mask{ background-color: #000; height:100%; width:100%; position:fixed; _position:absolute; top:0; left: 0; @include opacity(50); z-index:1000; }
+//浮动列居中
+@mixin floatCenter{
+  float:left; position:relative; left:50%;
+  li{ position:relative; right:50%; float:left; }
+}
+//多行文字水平垂直居中
+@mixin moreTextCenter{
+  display:table-cell;vertical-align:middle;
+  li{
+    vertical-align:middle;
+    @include inlineBlock;
+  }
+}
+//圆角
+@mixin borderRadius($a:5px){
+  -webkit-border-radius:$a;
+  -moz-border-radius:$a;
+  border-radius:$a;
+}
+//content-box || border-box
+@mixin boxSizing($a){
+  -webkit-box-sizing: $a;
+  -moz-box-sizing: $a;
+  box-sizing: $a;
+}
+//透明
+@mixin opacity($opacity:50){
+  opacity: $opacity/100;
+  filter:alpha(opacity=$opacity)
+}
+//最小高度
+@mixin minHeight($minheight:100px){
+  min-height:$minheight;
+  height: auto !important;
+  height: $minheight;
+}
+//最小宽度
+@mixin minWidth($minWidth:80px){
+  min-width:$minWidth;
+  width: auto !important;
+  width: $minWidth;
+}
+//最大高度
+@mixin maxHeight($maxHeight:100px){
+  max-height:$maxHeight;
+  height: auto !important;
+  overflow-y: auto;
+}
+//盒子水平居中
+@mixin boxCenter01($a,$b){
+  width: $a;
+  height: $b;
+  margin-left: -$a/2;
+  margin-top: -$b/2;
+  position: fixed; _position: absolute; left: 50%; top: 50%; z-index: 100;
+}
+@mixin boxCenter02($a,$b){
+  //IE8+
+  width: $a;
+  height: $b;
+  position: absolute; left: 0; top: 0; right: 0; bottom: 0; margin:auto; z-index: 100;
+}
+//垂直渐变
+@mixin gradient($color1,$color2){
+  background: -moz-linear-gradient(center top,$color1 ,$color2) repeat;
+  background:-webkit-gradient(linear,0 0,0 100%,from($color1),to($color2));
+}
+@mixin transition($a:all,$b:0.2s,$c:ease-out,$d:0s){
+  -webkit-transition:$a $b $c $d;
+  -o-transition: $a $b $c $d;
+  -moz-transition:$a $b $c $d;
+  -ms-transition:$a $b $c $d;
+  transition:$a $b $c $d;
+}
+@mixin transform($a){
+  -webkit-transform: $a;
+  -moz-transform: $a;
+  -ms-transform: $a;
+  -o-transform: $a;
+  transform: $a;
+}
+@mixin shadow($a:0,$b:0,$c:5px,$d:#000){
+  -webkit-box-shadow: $a $b $c $d;
+  -moz-box-shadow: $a $b $c $d;
+  box-shadow: $a $b $c $d;
+}
+//多行文字超出...|| 2
+@mixin moreTextEllipsis($line){
+  display: -webkit-box;//将对象作为弹性伸缩盒子模型显示
+  -webkit-box-orient:vertical;//设置或检索伸缩盒对象的子元素的排列方式
+  -webkit-line-clamp:$line;
+  overflow: hidden;
+}
+//模糊 || 10px
+@mixin vague($a){
+  -webkit-filter: blur($a);
+  -moz-filter: blur($a);
+  -o-filter: blur($a);
+  -ms-filter: blur($a);
+  filter: blur($a);
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+}
+//表格文字...
+@mixin tableTextEllipsis{
+  table-layout: fixed;
+  td{@include ellipsis;}
+}
+//表格边框
+@mixin tableBorder($bordercolor:1px solid #000){
+  border-collapse: collapse;
+  border-spacing: 0;
+  tr{ border:$bordercolor; }
+  td{ border:$bordercolor; }
+}
+@mixin tableBorderLine($bordercolor:1px solid #d1d1d1){
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-align: center;
+  font-size: 14px;
+  tr{ border:$bordercolor; }
+  th{background-color: #f5f5f5; font-weight: 700;color: $fc5c5;}
+  td,th{ padding: 15px 5px;}
+  .btn-blue{ width: 98px; height: 32px; line-height: 32px; font-size: 14px;}
+}
+//三角旋转  5px || solid dashed dashed;  || #bbb transparent transparent;
+@mixin triangle($a,$b,$c){
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border-width: $a;
+  border-style: $b;
+  border-color: $c;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+//三角旋转  5px || solid dashed dashed;  || #bbb transparent transparent;@include triangle2(5px,solid dashed dashed,#bbb transparent transparent);
+@mixin triangle2($a,$b,$c){
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 0;
+  height: 0;
+  border-width: $a;
+  border-style: $b;
+  border-color: $c;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+  &:hover{
+    -webkit-backface-visibility: hidden;
+    border-color: $c;
+    -webkit-transition: -webkit-transform .2s ease-in;
+    -moz-transition: -moz-transform .2s ease-in;
+    -o-transition: -o-transform .2s ease-in;
+    transition: transform .2s ease-in;
+    -moz-transform: rotate(180deg);
+    -moz-transform-origin: 50% 30%;
+    -webkit-transform: rotate(180deg);
+    -webkit-transform-origin: 50% 30%;
+    -o-transform: rotate(180deg);
+    -o-transform-origin: 50% 30%;
+    transform: rotate(180deg);
+    transform-origin: 50% 30%;
+  }
+}
+
+
+
+
