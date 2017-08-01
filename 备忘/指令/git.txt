@@ -36,6 +36,8 @@ git branch -d <name>	删除分支
 git checkout -b {} origin/{}切换别人的分支
 git branch --set-upstream-to=origin/develop develop 指定远程分支
 
+git cherry-pick 62ecb3  合并某个分支上的单个commit
+
 
 版本回退
 HEAD指向当前版本 
