@@ -43,7 +43,7 @@ git cherry-pick 62ecb3  合并某个分支上的单个commit
 版本回退
 HEAD指向当前版本 
 git reset --hard commit_id 版本穿梭
-git push -f origin develop:develop  
+git push -f origin develop:develop  回退提交
 git log 		查看历史提交
 git log --pretty=oneline最近到最远的提交日志
 git log --graph		查看分支合并图

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		main {
+			min-height: calc(100vh - 80px - 100px);
+			/* Avoid padding/borders screwing up our height: */
+			box-sizing: border-box;
+		}
+
+		/* Toggle checkbox to alternate between short/long content */
+		#contents:checked ~ p { display: none }
+
+		/* Basic styling */
+		body {
+			margin: 0;
+			font: 100%/1.5 Palatino Linotype, Palatino, serif;
+		}
+
+		h1 { margin: 0; }
+
+		header { text-align: center; height: 100px;  background-color: #3c8ced}
+
+		main, footer {
+			display: block;
+		}
+
+		footer {
+			background: linear-gradient(#222, #444);
+			color: white;
+			height: 80px;
+		}
+	</style>
+</head>
+<body>
+<header>
+	<h1>Site name</h1>
+</header>
+<main>
+	<input type="checkbox" id="contents" /><label for="contents">Toggle contents</label>
+	<p>Bacon ipsum dolor sit amet turkey veniam shankle, culpa short ribs kevin t-bone occaecat. Et laborum venison nostrud, ut veniam sint kielbasa ullamco pancetta. Qui drumstick tail, bacon leberkas shoulder capicola laborum. Minim ipsum bacon, mollit laboris t-bone pariatur. Ham hock reprehenderit sint beef, sausage pig eiusmod t-bone shankle strip steak.</p>
+	<p>Flank anim chuck boudin id consectetur bresaola ham pork loin cupim andouille frankfurter. Proident do ball tip nostrud nulla sed, frankfurter ut commodo corned beef ut. Ex aute in, pig deserunt beef ribs turducken pastrami irure ball tip pork belly pork chop sausage id. Chicken sunt nisi tempor sed. In eiusmod non fatback tempor tenderloin pastrami adipisicing cow lorem ut tail jerky cupidatat venison. Jowl consequat commodo pork loin ipsum pork belly prosciutto aute beef. Ball tip shoulder aliqua, fugiat landjaeger kevin pork chop beef ribs leberkas hamburger cillum turkey ut doner culpa.</p>
+</main>
+<footer>
+	<p>© 2015 No rights reserved.</p>
+	<p>Made with ♥ by an anonymous pastafarian.</p>
+</footer>
+</body>
+</html>

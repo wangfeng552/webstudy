@@ -51,6 +51,23 @@ database.users.forEach(  // database.users中人遍历
 // 抱歉，江一燕，你不是本家人
 // 抱歉，李小璐，你不是本家
 </script>
+
+<script>
+  var arr=[
+    {status:'pass',name:'啥地方看'},
+    {status:'pass',name:'dsfg'},  //获取这个值
+    {status:'processing',name:'ghfhj'},
+    {status:'proce3ssing',name:'222'},
+    {status:'wait',name:'ghfhj'},
+  ]
+  var newArr=[];
+
+  arr.forEach((v,i,arr)=>{
+    if(v.status=='processing' && arr[i-1]['status']=='pass'){
+      newArr.push(arr[i-1])
+    }
+  })
+</script>
 </body>
 </html>
 

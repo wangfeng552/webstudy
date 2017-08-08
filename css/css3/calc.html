@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+calc: 用来指定元素的长度
+vh:相对于视窗的高度
+vw:则是相对于视窗的宽度
+<style>
+.demo{
+	width: 300px;
+	background-color: #60f;
+}
+.box {
+	width: 100%;
+	background: #f60;
+	height: 50px;
+	padding: 10px;
+	border: 5px solid #ccc;
+	width: calc(100% - 20px - 10px);
+	min-height: calc(100vh - 20px - 10px);/*sticky footer*/
+}
+</style>
+<div class="demo">
+	<div class="box">
+
+	</div>
+</div>
+</body>
+</html>

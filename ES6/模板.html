@@ -8,13 +8,26 @@
 </head>
 <body>
 <script>
-	var str='/?name=张三123&age=4sd5';
-	var m = str.split('=')
-	var name=m[1];
-	var endfuhao=name.lastIndexOf('&')
-	var n=name.substr(0,endfuhao);
-	var age=m[2];
-	console.log(n+'===='+age)
+	var arr=[
+	  {status:'pass',name:'啥地方看'},
+	  {status:'pass',name:'dsfg'},
+	  {status:'dfg',name:'ghfhj'},
+	]
+
+	function wf(arr) {
+      var last = undefined;
+      for(var i=0 ;i<arr.length;i++){
+        var current = arr[i];
+        if(i>0){
+          last = arr[i-1];
+          if(last.status == 'pass' && current.status == 'reject'){
+            break;
+          }
+        }
+      }
+      return last;
+    }
+
 </script>
 </body>
 </html>
