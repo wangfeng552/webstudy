@@ -14,7 +14,7 @@ const tab3 = resolve => require(['components/tab/tab3'], resolve)
 const ceshi = resolve => require(['components/ceshi/ceshi'], resolve)
 const selectcity = resolve => require(['components/city/select_city'], resolve)
 const city2 = resolve => require(['components/city2/city2'], resolve)
-const city4 = resolve => require(['components/city4/city4'], resolve)
+const propsChild = resolve => require(['components/props/parent'], resolve)
 const trans = resolve => require(['components/transition/demo1'], resolve)
 const luyou = resolve => require(['components/luyou/luyou'], resolve)
 const promise1 = resolve => require(['components/promise/index'], resolve)
@@ -26,6 +26,9 @@ const validate = resolve => require(['components/validate/validate'], resolve)
 const btnClick = resolve => require(['components/btnClick/btnClick'], resolve)
 const filterClass = resolve => require(['components/filterClass/filterClass'], resolve)
 const zhiling = resolve => require(['components/zhiling/zidingyi'], resolve)//自定义指令
+const sticky = resolve => require(['components/scrollfix/sticky'], resolve)//滚动固定
+const maodian= resolve => require(['components/href/maodian'], resolve)//锚点跳转
+const edit= resolve => require(['components/edit/edit'], resolve)//文本编辑器
 
 const router = new VueRouter({
   mode: 'history',
@@ -52,11 +55,12 @@ const router = new VueRouter({
     }},
     {path: '/selectcity', component: selectcity},
     {path: '/city2', component: city2},
-    {path: '/city4', component: city4},
+    {path: '/propsChild', component: propsChild},
     {path: '/trans', component: trans},
     {path: '/luyou', component: luyou, meta: { requiresAuth: true }},
     {path: '/promise1', component: promise1},
     {path: '/elementui', component: elementui},
+    {path: '/sticky', component: sticky},
     {
       path: '/input', components: {
       default: input,
@@ -68,6 +72,8 @@ const router = new VueRouter({
     {path: '/btnClick', component: btnClick},
     {path: '/zhiling', component: zhiling},
     {path: '/filterClass', component: filterClass,name:'filterClass'},
+    {path: '/maodian', component: maodian,name:'maodian'},
+    {path: '/edit', component: edit,name:'edit'},
     {path: '*', redirect: '/swiper'}
   ]
 })

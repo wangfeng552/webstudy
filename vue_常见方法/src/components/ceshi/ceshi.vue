@@ -1,33 +1,21 @@
 <template>
- <div class="ceshi">
-   <ul>
-     <div><input type="text"></div>
-     <button @click="show">点击</button>
-   </ul>
- </div>
+  <div class="mk">
+    <child :parents-child="parents"></child>
+  </div>
 </template>
-
 <script>
-  import qs from 'qs'
+  import child from './child.vue'
 export default {
   data(){
     return {
-      mk:[
-        {name:[1,2,3]},
-        {name:['sdf',34,58]},
-        {name:[1,'就看到',3]}
-      ],
-      isTruy:false,
-      name:{a:'123',b:55}
-    }
-  },
-  methods:{
-    show(){
-      let m=qs.stringify(this.name);
-      console.log(m)
+      parents:{
+        name:'站是固定',
+        name:'sdaf'
+      }
     }
   }
 }
 </script>
-<style lang="scss">
+<style>
+
 </style>

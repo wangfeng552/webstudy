@@ -6,13 +6,20 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 // import VueResource from 'vue-resource'
+import VueFroala from 'vue-froala-wysiwyg'
 import './assets/green/index.css'
 import axios from 'axios'
 Vue.prototype.$http = axios
 
+require('froala-editor/js/froala_editor.pkgd.min')
+require('froala-editor/css/froala_editor.pkgd.min.css')
+require('font-awesome/css/font-awesome.css')
+require('froala-editor/css/froala_style.min.css')
+
 Vue.use(Vuex)
 Vue.use(VueAwesomeSwiper)
 Vue.use(ElementUi)
+Vue.use(VueFroala)
 // Vue.http.options.root = 'http://192.168.1.117:49008/api/v1/';
 // Vue.http.options.before = function(request) {
 //   request.headers.set('Access-Token', localStorage.getItem('wf'))

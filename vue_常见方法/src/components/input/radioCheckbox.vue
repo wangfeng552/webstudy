@@ -1,6 +1,6 @@
 <template>
   <div class="ceshi">
-    <el-form :model="form" ref="wf_form_v" label-width="120px">
+    <el-form :model="form" ref="wf_form_v" label-width="120px" :rules="rules">
       <el-form-item prop="duoxuan">
         <!--v-model绑定Array类型的变量即可,label与数组中的元素值相对应-->
         <el-checkbox-group v-model="form.duoxuan">
@@ -13,6 +13,19 @@
           <el-radio label="reject">拒绝</el-radio>
         </el-radio-group>
       </el-form-item>
+      <el-form-item v-if="form.danxuan=='reject'">
+        <el-form-item label="活动区域" prop="region">
+          <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-option label="区域一" value="shanghai"></el-option>
+            <el-option label="区域二" value="beijing"></el-option>
+          </el-select>
+        </el-form-item>
+      </el-form-item>
+
+      <el-form-item>
+        <el-button type="primary" @click="submitForm('wf_form_v')">立即创建</el-button>
+      </el-form-item>
+
     </el-form>
     <div>{{mk}}</div>
   </div>
@@ -30,6 +43,11 @@
         form:{
           danxuan:'pass',
           duoxuan:[]
+        },
+        rules: {
+          region: [
+            { required: true, message: '请选择活动区域', trigger: 'change' }
+          ],
         }
       }
     },
@@ -46,8 +64,17 @@
             v.isTrue = false;
           })
         }
-
-      }
+      },
+      submitForm(formName) {
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            alert('submit!');
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
     }
   }
 </script>

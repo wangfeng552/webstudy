@@ -1,9 +1,9 @@
 <template>
   <div class="tab2">
     <ul>
-      <li :class="{'active1':p_a1===1}" @click="tab2Bg('p_a1',1)">满意</li>
-      <li :class="{'active2':p_a1===2}" @click="tab2Bg('p_a1',2)">不满意</li>
-      <li :class="{'active3':p_a1===3}" @click="tab2Bg('p_a1',3)">点评</li>
+      <li :class="{'active1':p_a1===1}" @click="tab2Bg('p_a1',1)">满意111</li>
+      <li :class="{'active2':p_a1===2}" @click="tab2Bg('p_a1',2)">不满意11</li>
+      <li :class="{'active3':p_a1===3}" @click="tab2Bg('p_a1',3)">点评11</li>
     </ul>
   </div>
 </template>
@@ -16,7 +16,7 @@
       //设置默认值
       a1:{
         type:Number,
-        default:2
+        default:3
       }
     },
     methods:{

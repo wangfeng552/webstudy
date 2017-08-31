@@ -9,7 +9,7 @@
       <li><router-link to="/ceshi">测试</router-link></li>
       <li><router-link to="/selectcity">选择城市</router-link></li>
       <li><router-link to="/city2">选择城市2</router-link></li>
-      <li><router-link to="/city4">四级联动</router-link></li>
+      <li><router-link to="/propsChild">数据传递</router-link></li>
       <li><router-link to="/trans">transsition</router-link></li>
       <li><router-link to="/luyou">路由</router-link></li>
       <li><router-link to="/promise1">promise</router-link></li>
@@ -19,6 +19,9 @@
       <li><router-link to="/btnClick">btnClick</router-link></li>
       <li><router-link to="/filterClass">filterClass</router-link></li>
       <li><router-link to="/zhiling">自定义指令</router-link></li>
+      <li><router-link to="/sticky">sticky</router-link></li>
+      <li><router-link to="/maodian">锚点跳转</router-link></li>
+      <li><router-link to="/edit">edit</router-link></li>
     </ul>
     <router-view></router-view>
     <router-view name="tab2"></router-view>
