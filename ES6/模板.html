@@ -11,13 +11,13 @@
 <div><img src="cw_3.gif" alt=""></div>
 <button id="dj"> 点击</button>
 <script>
-	var xml =new XMLHttpRequest();
-	xml.open("POST",url,false);
-	xml.setRequestHeader('Token',token);
-	xml.send(JSON.stringify({
-	  name:'123'
-	}))
-	  var res = JSON.parse(xml.responseText)
+function throwIfMissing() {
+  throw new Error('MIssing')
+}
+function wf(a=throwIfMissing()) {
+  return a
+}
+
 </script>
 </body>
 </html>

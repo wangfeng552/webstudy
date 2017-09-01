@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数length属性</title>
+</head>
+<body>
+<script>
+//  指定了默认值以后，函数的length属性，将返回没有指定默认值的参数个数。也就是说，指定了默认值后，length属性将失真。
+  (function wf(a) { }).length   // 1;
+  (function wf(a=1){}).length   // 0
+  (function wf(x,y,a=1){}).length   // 2
+
+  (function(...args) {}).length // 0
+
+//如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。
+  (function (a = 0, b, c) {}).length // 0
+  (function (a, b = 1, c) {}).length // 1
+</script>
+</body>
+</html>
