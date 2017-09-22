@@ -1,0 +1,1038 @@
+@import "config";
+
+.com-btn-el{
+  .el-button{
+    min-width: 90px ;
+  }
+}
+
+.css_text_blue{
+  color: #20a0ff !important;
+}
+// 鼠标到达变小手
+.css_cursor_pointer{
+  cursor: pointer;
+}
+
+.current_paoviders_g{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #5C5C5C;
+  span{
+    color: #1B1B1B;
+    display: inline-block;
+    margin-left: 50px;
+  }
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+.mr20 {
+  margin-right: 20px;
+}
+
+.ml50 {
+  margin-left: 50px;
+}
+.mt20{
+  margin-top:20px;
+}
+.mt50{
+  margin-top:50px;
+}
+.cp {
+  cursor: pointer;
+}
+.tc{
+  text-align: center;
+}
+.fcff7 {
+  color: #ff7904;
+}
+.fc3c8{
+  color: #3c8ced;
+}
+.fc5c5{
+  color: #5c5c5c;
+}
+.fc1b1{
+  color: #1b1b1b;
+}
+.fs14{
+  font-size:14px;
+}
+
+.clearfix {
+  &:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+.system {
+  width:100%;
+  min-width: 1400px;
+}
+
+//下载图标
+.icon-download {
+  display: inline-block;
+  height: 14px;
+  width: 16px;
+  background: url("../../assets/images/project/download.png") no-repeat 0/cover;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+//顶层菜单
+.top-bar {
+  background: #4d4d4d;
+  height: 60px;
+  padding: 14px 20px 11px 48px;
+  color: #FFFFFF;
+  .qfx-logo {
+    display: inline-block;
+    height: 35px;
+    width: 111px;
+    background: url("../../assets/images/qfx_logo.png") 0/cover no-repeat;
+    margin-right: 47px;
+  }
+  .title {
+    vertical-align: top;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+  .user-name {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px 0 0 8px;
+    font-size: 14px;
+  }
+  .quit {
+    display: inline-block;
+    margin: 7px 0 0 20px;
+    vertical-align: middle;
+    font-size: 12px;
+    color: #b7b7b7;
+  }
+  .userState {
+    .user-photo {
+      height: 34px;
+      width: 34px;
+      @include borderRadius(50%);
+    }
+  }
+}
+
+//侧边栏
+.side-bar {
+  background: #3c3c3c;
+  width: 200px;
+  float: left;
+  height: 100%;
+  .el-menu--dark {
+    background: #3c3c3c;
+  }
+  .el-menu-item {
+    padding: 0;
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .el-submenu__title {
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  a {
+    color: #bfcbd9;
+    &.active {
+      color: #20a0ff;
+      transition: color .3s;
+    }
+  }
+
+}
+
+.main-part {
+  width:1400px;
+}
+
+.main-content {
+  float: left;
+  width: 1200px;
+}
+
+//面包屑
+.el-breadcrumb {
+  position: relative;
+  padding: 20px 0 22px 22px;
+  width: 1181px;
+  overflow: hidden;
+  .el-breadcrumb__separator, .el-breadcrumb__item__inner, .el-breadcrumb__item__inner a {
+    font-size: 14px;
+    color: #5c5c5c;
+  }
+  .el-breadcrumb__item:last-child .el-breadcrumb__item__inner, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner a:hover, .el-breadcrumb__item:last-child .el-breadcrumb__item__inner:hover {
+    color: #5c5c5c;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 1200px;
+    height: 1px;
+    background: #efefef;
+  }
+}
+
+//标签选择
+.blue-tab {
+  padding: 20px 0 20px 22px;
+  position: relative;
+  height: 72px;
+  width:820px;
+  li {
+    font-size: 14px;
+    color: #1b1b1b;
+    padding: 0 3px 4px 3px;
+    border-bottom: 4px solid transparent;
+    float: left;
+    cursor: pointer;
+    margin-right: 42px;
+  }
+  .active {
+    color: #3c8ced;
+    border-bottom: 4px solid #3c8ced;
+    transition: border-color .3s, color .3s;
+  }
+  .btn-addqiye {
+    position: absolute;
+    right: 17px;
+    top: 17px;
+  }
+}
+
+//表单提交
+.form-box {
+  //display: none;
+  background: #f5f5f5;
+  padding: 30px 20px 4px 20px;
+  .el-form--inline .el-form-item {
+    margin-right: 42px;
+  }
+  .date-line {
+    display: inline-block;
+    width: 8px;
+    height: 2px;
+  }
+  .el-form--inline .el-form-item__label {
+    width: 68px;
+  }
+  .el-form-item {
+    margin-bottom: 26px;
+  }
+  .el-select{
+    width:175px;
+  }
+  .el-input{
+    width: 175px;
+  }
+}
+
+//表格
+.table-box {
+  padding: 21px 22px;
+  .el-table {
+    border: none;
+    td {
+      height: 60px;
+      border: none;
+    }
+    th {
+      height: 60px;
+      background-color: #e7f9ff;
+      &.is-leaf {
+        border: none;
+      }
+    }
+    tr:nth-child(2n) {
+      background: #f5f5f5;
+      border: none;
+    }
+    &:after, &:before {
+      background: none;
+    }
+  }
+  .el-table__header-wrapper thead div {
+    background: #e7f9ff;
+    color: #1b1b1b;
+  }
+  .checkDtl {
+    color: #3c8ced;
+    cursor: pointer;
+  }
+  .el-table .cell, .el-table__footer-wrapper, .el-table__header-wrapper {
+    overflow: inherit;
+  }
+  a:visited {
+    color: #20a0ff;
+  }
+  .table-box .del span:hover {
+
+  }
+  .del {
+    color: #f44236;
+    &:hover {
+      color: #f44236 !important;
+    }
+
+  }
+
+  .el-button--text:hover {
+    color: #20a0ff;
+  }
+
+}
+
+.el-table .cell {
+  color: #5c5c5c;
+}
+
+//分页
+.pagination {
+  text-align: right;
+  margin-right: 22px;
+}
+
+//查看详情页小标题
+.blue-title {
+  margin: 18px 19px 18px 21px;
+  background: #f5f5f5;
+  height: 40px;
+  border-left: 4px solid #3c8ced;
+  color: #1b1b1b;
+  font-size: 14px;
+  line-height: 40px;
+  text-indent: 10px;
+}
+
+//查看详情页内容
+.detail-imf {
+  margin: 20px 19px 18px 21px;
+  padding-left: 16px;
+  overflow: hidden;
+  .main-dtl {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #efefef;
+  }
+  li {
+    float: left;
+    width: 50%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    .tit {
+      color: #1b1b1b;
+    }
+    .content{
+      color: #5c5c5c;
+    }
+  }
+  .pay-imf {
+    margin: 19px 0 21px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1b1b1b;
+  }
+}
+.detail-imf {
+  .main-dtl {
+    border-bottom: 1px solid #efefef;
+  }
+  .each-item {
+    float: left;
+    width: 50%;
+    li {
+      width: 100%;
+      .address {
+        margin-top: 10px;
+        width: 356px;
+        margin-left: 74px;
+      }
+      .el-switch--wide {
+        margin-left: 17px;
+      }
+    }
+  }
+  .img-box {
+    width:100%;
+    li {
+      position: relative;
+      float: left;
+      height: 102px;
+      width: 102px;
+      border: 1px solid #979797;
+      margin-right: 18px;
+      margin-bottom:0;
+      cursor: pointer;
+      img{
+        height:100%;
+        width:100%;
+      }
+      .tag{
+        position: absolute;
+        left:0;
+        bottom:0;
+        text-align:center;
+        background: rgba(0, 0, 0, 0.60);
+        width: 100px;
+        height: 22px;
+        line-height:22px;
+        font-size:12px;
+        color: #FFFFFF;
+      }
+    }
+    .pdf-url{
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      height:100px;
+      width:100px;
+    }
+  }
+
+}
+
+//图片上传
+.wf-upload{
+  background: url("../images/upload1.jpg") center no-repeat;
+  font-size: 28px;
+  color: #8c939d;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  border:1px dashed  #3c8ced;
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+}
+.el-icon-plus:before{
+  display: none;
+}
+
+/* 定义动画 */
+.fade-enter-active, .fade-leave-active {
+  transition: all .5s ease;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-leave-active {
+  opacity: 0;
+}
+
+/* 重要：定义初始状态 */
+.fade-enter {
+  opacity: 0;
+}
+
+//花样滚动条
+.scroll-beauty{
+  ::-webkit-scrollbar {
+    width:8px;
+    height:10px;
+  }
+  ::-webkit-scrollbar-track     {
+    background: #efefef;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: #c1c1c1;
+    border-radius:4px;
+  }
+  ::-webkit-scrollbar-corner {
+    background:#82AFFF;
+  }
+
+}
+
+//内部审核样式
+@mixin base_font_bold{
+  font-weight: 800;
+}
+.inter_title {
+  text-align: left;
+  padding-bottom: 20px;
+  .require {
+    padding-left: 8px;
+    position: relative;
+    font-size: 14px;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '*';
+      font-size: 14px;
+      color: red;
+    }
+  }
+  .el-input {
+    margin-left: 10px;
+    width: 200px;
+  }
+}
+
+.interPro{
+  position: relative;
+  width:1118px;
+  margin-bottom:20px;
+  border: 1px solid #efefef;
+  .operators_del {
+    position: absolute;
+    right: 29px;
+    top: 44px;
+    color: #e65c5c;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .operators_modify {
+    position: absolute;
+    right: 29px;
+    top: 10px;
+    color: #20a0ff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .operators_cancel {
+    position: absolute;
+    right: 29px;
+    top: 44px;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
+.choose_operators {
+  position: relative;
+  //height: 150px;
+  height: 160px;
+  $width_item: 170px;
+  width:1033px;
+  overflow-x: auto;
+  border-right:1px solid #efefef;
+  .operator_box {
+    position: absolute;
+    left:130px;
+    top:0;
+    height: 100%;
+    width:10000px;
+    .span_button {
+      //margin-top: 10px;
+      margin-top: 30px;
+      display: inline-block;
+      border-radius: 3px;
+      width: 90px;
+      height: 36px;
+      font-size: 14px;
+      color: #3c6ea9;
+      text-align: center;
+      line-height: 36px;
+      background: #e4f0ff;
+      border-radius: 4px;
+    }
+    .icon-start {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background: url("../../assets/images/serviceadd/person_1.jpg") no-repeat 0/cover;
+    }
+    .icon-during {
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background: url("../../assets/images/serviceadd/person_2.jpg") no-repeat 0/cover;
+    }
+    .icon-add {
+      cursor: pointer;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background: url("../../assets/images/serviceadd/person_add.jpg") no-repeat 0/cover;
+    }
+    .el-select {
+      margin-top: 10px;
+      width: 91px;
+    }
+    .icon-del {
+      position: absolute;
+      top: 22px;
+      right: 50px;
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      cursor: pointer;
+      background: url("../../assets/images/serviceadd/right_cha_nomal.png") no-repeat 0/cover;
+    }
+  }
+
+  .operator_item {
+    position: relative;
+    width: $width_item;
+    padding-right: 40px;
+    padding-top: 20px;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    &:last-child:after {
+      background: none;
+    }
+    &:after {
+      position: absolute;
+      right: 6px;
+      top: 40px;
+      content: '';
+      width: 27px;
+      height: 15px;
+      background: url("../../assets/images/serviceadd/arrows.png") no-repeat 0/cover;
+    }
+    .name{
+      font-size: 14px;
+    }
+  }
+
+  /*新增的功能*/
+  .operator_header {
+    width: auto;
+    padding-right: 0;
+    min-width: 130px;
+    border: 1px solid #efefef;
+    &:after {
+      background: none;
+    }
+    .default {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #ccc;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 60px;
+      color: #ccc;
+      font-size: 14px;
+    }
+    .text {
+      display: inline-block;
+      margin-top: 10px;
+      color: #444;
+      font-size: 14px;
+    }
+    .bi {
+      cursor: pointer;
+      width: 11px;
+      height: 11px;
+      position: absolute;
+      right: 15px;
+      top: 60px;
+      background: url("../../assets/images/serviceadd/bi.jpg") 0 0 no-repeat;
+      z-index: 5;
+    }
+  }
+}
+
+/*pop 选择操作人员*/
+.pop_operator_content {
+  border: 1px solid #efefef;
+  overflow: hidden;
+
+  // 树形 样式设置
+  .el-tree{
+    border: 0px;
+    min-height: 201px;
+    border-left: 1px solid #efefef;
+    border-right: 1px solid #efefef;
+  }
+  .el-tree--highlight-current
+  .el-tree-node.is-current
+  >.el-tree-node__content{
+    background-color:#3c8ced;
+    span{
+      color: white;
+    }
+  }
+
+  > div{
+    width: 40%;
+    &:first-child{
+      width: 20%;
+      border-bottom: 1px solid #efefef;
+      ul{
+        li{
+          border-bottom: 1px solid #efefef;
+          border-left: 0px solid #efefef!important;
+          &:last-child{
+            border-bottom: 0px solid #efefef;
+          }
+        }
+      }
+    }
+  }
+  .operator_item {
+    float: left;
+    ul{
+      overflow-y: auto;
+      max-height: 201px;
+      //border-left: 1px solid #efefef;
+      li{
+        height: 38px;
+        font-family:MicrosoftYaHei;
+        font-size:14px;
+        color:#5c5c5c;
+        letter-spacing:0;
+        text-align: center;
+        line-height: 38px;
+      }
+    }
+    .li_header {
+      font-family:MicrosoftYaHei;
+      font-size:14px;
+      color:#1b1b1b;
+      letter-spacing:0;
+      @include base_font_bold;
+      /*background-color: rebeccapurple;*/
+      text-align: center;
+      height: 38px;
+      line-height: 38px;
+      background:#efefef;
+    }
+  }
+  .other_operator {
+    border-left: 1px solid #efefef;
+    //height: 153px;
+    height: 191px;
+    width: 79%;
+    text-align: center;
+    /*line-height: 70px;*/
+    span{
+      display: inline-block;
+      //margin-top: 40px;
+      margin-top: 80px;
+      &:last-child{
+        margin-top: 0px;
+      }
+    }
+  }
+
+}
+/*选中的 蓝色的样式*/
+.bg_selected_blue {
+  background:#3c8ced;
+  color: white!important;
+}
+
+.file-list {
+  li {
+    position: relative;
+    margin: 10px 0 10px 0;
+    a {
+      font-size: 14px;
+    }
+  }
+  .icon-del-g {
+    width: 15px;
+    height: 15px;
+    cursor:pointer;
+    //margin-right: 5px;
+  }
+  .icon-file {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  .icon-delete{
+    display: inline-block;
+    height:16px;
+    width:14px;
+    background: url("../../assets/images/serviceadd/delete.png") no-repeat 0/cover;
+    cursor: pointer;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 14px;
+    color: #5c5c5c;
+    vertical-align: middle;
+  }
+  .name {
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    vertical-align: middle;
+    color: #1b1b1b;
+  }
+  .size, .date {
+    width: 200px;
+  }
+  .file-preview, .download {
+    float: right;
+    color: #3c8ced;
+    cursor: pointer;
+    margin-right:5px;
+
+  }
+  .delete{
+    float: right;
+    color: #e65c5c;
+    cursor: pointer;
+    margin-right:5px;
+  }
+}
+
+.icon-default-g{
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+//删除按钮
+.icon-del-g {
+  background: url("../../assets/images/serviceadd/delete.png") no-repeat;
+}
+
+.icon-doc-g {
+  background: url("../../assets/images/serviceadd/doc.png") no-repeat;
+}
+.icon-jpg-g {
+  background: url("../../assets/images/serviceadd/jpg.png") no-repeat;
+}
+.icon-txt-g {
+  background: url("../../assets/images/serviceadd/txt.png") no-repeat;
+}
+.icon-ppt-g {
+  background: url("../../assets/images/serviceadd/ppt.png") no-repeat;
+}
+.icon-pdf-g {
+  background: url("../../assets/images/serviceadd/pdf.png") no-repeat;
+}
+.icon-xls-g {
+  background: url("../../assets/images/serviceadd/xls.png") no-repeat;
+}
+
+//表单样式
+.typeline {
+  margin:20px 30px;
+  position: relative;
+  /*background-color: red;*/
+  .leftshouru{
+    color: #1b1b1b;
+    font-size:14px;
+  }
+  //输入样式
+  .base_input{
+    /*background:no-repeat 0 0 scroll ＃EEEEEE;*/
+    border:1px solid #ccc;
+    width:600px;
+    height:38px;
+    line-height:36px;
+    outline:medium;
+    /*background:#ffffff;*/
+    border-radius:3px;
+    margin-left:19px;
+    text-indent:.5em;
+    margin-top:5px;
+  }
+  //文本域样式
+  .base_textarea{
+    height: 100px;
+    width: 600px;
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-left:19px;
+    padding:5px;
+    margin-top:5px;
+  }
+  //单选多选样式
+  .base_radio, .base_checkbox{
+    vertical-align: middle;
+    margin-top: -3px;
+    margin-left: 19px;
+  }
+  //上传文件样式
+  .compact_stage{
+    width:700px;
+    padding:30px 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 10px;
+    margin-left:19px;
+  }
+  span{
+    font-size:14px;
+    color:#1b1b1b;
+  }
+  .beizhu{
+    font-size: 14px;
+    color: #999;
+    margin:5px 0;
+  }
+  .upload-demo {
+    text-align: center;
+    .el-upload-list{
+      text-align: left;
+      padding:0 100px;
+      li{
+        height:30px;
+      }
+    }
+    .el-upload-dragger {
+      width: 59%;
+      height: 130px;
+    }
+  }
+  .errormessage{
+    color: red;
+    margin:5px 0 5px 19px;
+    font-size:14px;
+  }
+  .block{
+    margin-top: 20px;
+  }
+  .yuandian{
+    position: absolute;
+    left: -11px;
+  }
+  .compact_stage {
+    .first {
+      font-size: 14px;
+      color: #a9a9a9;
+      letter-spacing: 0;
+      line-height: 14px;
+      text-align: left;
+      margin: 0 auto;
+      height: 40px;
+      span {
+        display: inline-block;
+        margin-top: 13px;
+        width: 100%;
+        text-align: center;
+      }
+    }
+    /*上传按钮*/
+    .button_upload {
+      width: 90px;
+      margin: 0 auto;
+      height: 80px;
+      padding-top: 20px;
+    }
+  }
+  .first {
+    span {
+      color: #aaa;
+    }
+  }
+}
+
+// 全局 上传 下载的 样式
+.upload-module-g{
+  //width:700px;
+
+  margin-top: 10px;
+  //margin-left:19px;
+  i{
+    @extend .icon-default-g;
+  }
+  .upload-box{
+    padding:30px 20px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .file_item{
+    font-size: 12px;
+    color: #999;
+    margin:5px 0;
+    .del {
+      float: right;
+      cursor: pointer;
+      i{
+        width: 15px;
+        height: 15px;
+      }
+    }
+    .file_name{
+      display: inline-block;
+      font-size: 14px;
+      color:#1b1b1b;
+      width:500px;
+      vertical-align: middle;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      white-space:nowrap;
+      overflow: hidden;
+    }
+  }
+  .first {
+    font-size: 14px;
+    color: #a9a9a9;
+    letter-spacing: 0;
+    line-height: 14px;
+    text-align: left;
+    margin: 0 auto;
+    height: 40px;
+    span {
+      display: inline-block;
+      margin-top: 13px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  .upload-demo{
+    text-align: center;
+  }
+  .upload-el{
+    margin: 0 auto;
+    width: 700px
+  }
+}
+
+.xsx_list_none{
+  background: url("../images/nodata.png") center 20px no-repeat;
+  background-size: (586px/2);
+  width: (586px/2);
+  height: 250px;
+  margin: 0 auto;
+}

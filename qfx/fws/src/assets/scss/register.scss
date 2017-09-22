@@ -1,0 +1,134 @@
+@import "config";
+.register{ width: 1200px; margin: auto;}
+.register .title{ font-size: 22px;padding:30px 0 38px 0; height: 98px;*height:98px - 68px;}
+.register .userinfor{border: 1px solid $fcd1d}
+.register .tit-02{ font-size: 18px; background-color: $fcf5f; height: 63px; line-height: 63px; padding-left: 19px;}
+.register .tit-bk{border-top: 1px solid $fcd1d;}
+.register .bgfff{ background-color: $fcfff; padding: 45px 0;}
+.register .u-mian478{ margin: 0 auto; width: 500px;*width:504px; font-size: 0}
+.register .fs16{ font-size: 16px;}
+.form-group{ margin-bottom: 19px; position: relative; font-size: 0;}
+.form-group label{
+  @include inlineBlock; width: 100px;font-size: 14px; color: #5c5c5c; text-align: right; padding-right: 15px;vertical-align: middle;
+  .fcred{
+    color: red; padding-right: 3px; vertical-align: middle;
+  }
+}
+::-webkit-input-placeholder{color:#a9a9a9}
+:-moz-placeholder{color:#a9a9a9}
+:-ms-input-placeholder{color:#a9a9a9}
+.form-group label.sex{width:auto;margin-right:20px}
+.form-group label.sex input[type=radio]{margin-top:-1px}
+.form-group label.sex em{font-size:14px;color:#5c5c5c;margin-left:5px;}
+.form-group .btn-yzm{ background-color: #efefef; display: block;position: absolute; right: 23px;*right:11px; top: 3px;  width: 125px; height: 34px; line-height: 34px;
+text-align: center;color: #5c5c5c;font-size: 14px;border:none;outline:none}
+.form-group .w-90{ width: 90px;}
+.form-group .w-460{ width: 460px; *width: 440px;}
+.form-group .w-270{ width: 270px;}
+.form-group .radio{ vertical-align: middle; color: #5c5c5c; padding:0 10px;}
+.form-group .radio .sex{ width: 21px; height: 16px; background: url("../images/r_ico.png") 0 -80px no-repeat;@include inlineBlock; vertical-align: -2px;}
+.form-group .radio.act .sex{ background-position: 0 0;}
+.form-group .tel01{ width: 100px; margin-right: 5px;}
+.form-group .tel02{ width: 254px; margin-left: 5px; *width: 242px;}
+.form-group .form-area{ width: 117px; margin-right: 14px; *margin-right: 10px;}
+.form-group .form-area:last-of-type{margin-right: 0;}
+.form-group .form-address{ margin: 8px 0 0 99px;*margin: 8px 0 0 110px; }
+.form-group .btn-w380{ width: 380px; margin-left: 99px;}
+.form-group .form-read{ cursor: pointer;}
+.form-group .form-read .checkbox{@include inlineBlock; margin-right: 5px; width: 16px; height: 16px; background: url("../images/r_ico.png") 0 -400px no-repeat; vertical-align: -2px;}
+.form-group .form-read .checkbox.act{ background-position: 0 -320px;}
+.form-group .form-correct{background: url("../images/r_ico.png") 0 -240px no-repeat; position: absolute;right: -16px; top:11px; width: 16px; height: 18px;}
+.form-group .form-error{background:#fff url("../images/r_ico.png") 0 -160px no-repeat; position: absolute;right: -263px; top:11px; width: 275px; padding-left: 20px; height: 18px; line-height: 16px; font-size: 14px; color: #e83f3f;}
+.form-group .form-yqr{ font-size: 14px;color: #a9a9a9; position: absolute;right: -91px;top:11px; width: 100px;}
+.form-group .fc5c5{color: #5c5c5c;}
+.register_success{ background-color: #fff; text-align: center; padding: 75px 0;}
+.register_success .title03{ font-size: 24px; font-weight: bold; margin-bottom: 50px;}
+.register_success .djs{
+  color: #a9a9a9;
+  font-size: 14px;
+  .fcec6{
+    color: $fcfce
+  ;}
+}
+.register_success .btn-msdl{
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 0;
+  @include inlineBlock;
+}
+.login-layout{ width: 480px; margin: 0 auto; padding: 45px 0 45px;}
+.login-layout .title{ font-size: 22px; padding-bottom: 45px;}
+.login-layout .wzddl{ width: 120px; text-align: left;}
+.login-layout .wzddl .zddl-middle{vertical-align: middle; padding-left: 3px;}
+.login-layout .form-group .form-error{background:#f5f5f5 url("../images/r_ico.png") 0 -160px no-repeat}
+
+.btn{
+  display: inline-block;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+}
+.btn-blue{
+  color: $fcfff; background-color: $fc3c8; border-color: $fc3c8;width: 142px; height: 42px; line-height: 42px;
+  &:hover{ background-color: $fc0c5; border-color: $fc0c5;}
+}
+/*find-password*/
+.find-password{
+  .form-group{
+    .btn-yzm{
+      right:23px;
+    }
+    input[type=submit]{
+      margin-top:40px;
+    }
+  }
+}
+
+.login-layout .re-keyword{
+  margin-bottom:10px;
+}
+.login-layout .re-submit{
+  margin-bottom:10px;
+}
+
+.login-layout .re-login{
+  margin-bottom:30px;
+}
+.login-layout .forget-pwd:hover{
+  color: #3c8ced;
+}
+.form-group .re-address{
+  margin-top:9px;
+}
+.form-group .plr5{
+  font-size:16px;
+  color: #a9a9a9;
+  vertical-align: middle;
+}
+
+.is-agreement .form-error,.is-agreement .form-correct{
+  margin-top:-7px;
+}
+
+/*reset_password*/
+.reset-password{
+  input[type='submit']{
+    width:380px;
+  }
+  .form-error{
+    width: 275px;
+    right:-263px;
+  }
+  .form-correct{
+    right:-44px;
+  }
+}
+.form-group .inviter-error{
+  right:-385px;
+  top:13px;
+}
