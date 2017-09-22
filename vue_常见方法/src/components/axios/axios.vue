@@ -2,6 +2,7 @@
   <div class="mk">
     123
     <button @click="show">点击</button>
+    <div>{{fanhui}}</div>
   </div>
 </template>
 <script>
@@ -9,12 +10,13 @@
   export default{
     data() {
       return {
-        name:{a:'123',b:55}
+        name:{a:'123',b:55},
+        fanhui:[]
       }
     },
     created() {
-      this.$http.get('/platform/home/index').then((res)=>{
-        console.log(res)
+      this.$http.get('customer/home/index').then((res)=>{
+        this.fanhui = res;
       })
     },
     methods:{

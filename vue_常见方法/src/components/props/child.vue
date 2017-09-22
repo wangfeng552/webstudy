@@ -24,7 +24,7 @@
         this.parentList.push({name:'123'})
       },
       addDot(){
-        this.$emit('isDot',25,46,28) // 可以传多个值
+        this.$emit('isDot',25,46,28) // 监听父组件方法 可以传多个值
       }
     }
   }

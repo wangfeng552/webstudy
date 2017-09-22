@@ -1,6 +1,6 @@
 <template>
   <div class="file">
-
+    <a href="" @click.prevent="getParent">dianji</a>
 </div>
 </template>
 
@@ -15,6 +15,11 @@
             name:'22'
           }
         }
+      }
+    },
+    methods:{
+      getParent(){
+        this.$emit('showWf','你好')
       }
     }
   }

@@ -1,36 +1,21 @@
 <template>
   <div >
-    <v-distpicker :placeholders="placeholders" :province="province" @province="selectProvince">
+    <v-distpicker :placeholders="placeholders"
+                  :province="select.province" :city="select.city" :area="select.area"
+                  @province="selectProvince" @city="selectCity" @area="selectArea">
     </v-distpicker>
-    <button @click="saveCity"> 提交</button>
-    <button @click="quxiao"> 删除</button>
-    <div>{{province}}本地</div>
-    <div>{{city}}vuex</div>
-
+    <div @click="reset">quxiao </div>
   </div>
 </template>
 
 <script>
-  import {mapGetters} from 'vuex'
   import VDistpicker from 'v-distpicker'
   export default {
     components: { VDistpicker },
-    computed:{
-      ...mapGetters(['city'])
-    },
-    beforeRouteEnter(to, from, next){
-      next(vm => {
-        vm.$nextTick(()=>{
-          vm.province=vm.city
-          console.log(vm.province)
-        })
-      })
-    },
     data(){
       return {
         username:'',
-        province:'',
-//        select: { province: '', city: '', area: '' },
+        select: { province: '广东省', city: '广州市', area: '海珠区' },
         placeholders: {
           province: '------- 省 --------',
           city: '--- 市 ---',
@@ -40,15 +25,20 @@
     },
     methods:{
       selectProvince(value) {
-        this.province = value
+        console.log(value)
+        this.select.province = value
+        if (this.select.province != '' && this.select.city != '' && this.select.area != '') {
+          this.showAddressError = false
+        }
       },
-      saveCity(){
-        this.$store.dispatch('getCity',this.province)
-      },
-      quxiao:function () {
-        this.$store.dispatch('cancelCity');
-        this.selectProvince(this.city)
-      },
+      selectCity(v){},
+      selectArea(v){},
+      reset(){
+        console.log(123)
+        this.select.province=''
+        this.select.city=''
+        this.select.area=''
+      }
     }
   }
 </script>

@@ -1,4 +1,7 @@
 import Vue from 'vue'
+import Es6Promise from 'es6-promise'
+import QS from 'qs'
+Es6Promise.polyfill()
 import Vuex from 'vuex'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import ElementUi from 'element-ui'
@@ -25,7 +28,7 @@ Vue.use(VueFroala)
 //   request.headers.set('Access-Token', localStorage.getItem('wf'))
 // }
 
-axios.defaults.baseURL = 'http://localhost:8008';
+axios.defaults.baseURL = 'http://192.168.1.117:49008/api/v1';
 
 /*window.onload=function(){
   if(!window.FormData){//IE9以下

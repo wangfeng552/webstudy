@@ -8,10 +8,16 @@
 </head>
 <body>
 <script>
-	var obj={
-	  name:'啊SD卡返回',
-	  age:'士大夫'
-	}
+	var arr=[
+	  {name:'张三',age:'45'},
+	  {name:'电饭锅',age:'45'},
+	  {name:'刚发的',age:'45'}
+	];
+	var mk;
+	mk=arr.filter((v)=>{
+	  return v.name==='张三'
+	})
+
 </script>
 </body>
 </html>

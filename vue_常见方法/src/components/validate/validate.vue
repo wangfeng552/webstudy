@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :model="form" :rules="rules" ref="wf_form_v" label-width="120px">
+    <el-form  :model="form" :rules="rules" ref="wf_form_v" label-width="120px">
 
       <!--自定义验证加红*在el-form-item上加require-->
       <el-form-item label="电话" prop="tel" required="">

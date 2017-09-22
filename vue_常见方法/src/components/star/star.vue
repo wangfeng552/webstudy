@@ -9,7 +9,7 @@
   export default{
     computed: {
       stars () {
-          let results = []
+        let results = []
         let dianwu = Math.floor(fenshu * 2) / 2   // 向下取0.5的倍数
         let xiaoshu = dianwu % 1 !== 0            // 判断是否有小数
         let zhen = Math.floor(dianwu)             // 取整数
@@ -34,7 +34,7 @@
     width: 50px;
     height: 50px;
   }
-  .x-1{ background: url("./x1.png") 0 0 no-repeat};
-  .x-2{ background: url("./x2.png") 0 0 no-repeat};
-  .x-3{ background: url("./x3.png") 0 0 no-repeat};
+  .x-1{ background: url("./x1.png") 0 0 no-repeat}
+  .x-2{ background: url("./x2.png") 0 0 no-repeat}
+  .x-3{ background: url("./x3.png") 0 0 no-repeat}
 </style>

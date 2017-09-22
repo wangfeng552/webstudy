@@ -1,20 +1,28 @@
 <template>
   <div class="mk">
-    <child :parents-child="parents"></child>
+    <child @showWf="show" ref="childwf"></child>
+    <button @click="parentClick">点击父</button>
   </div>
 </template>
 <script>
   import child from './child.vue'
-export default {
-  data(){
-    return {
-      parents:{
-        name:'站是固定',
-        name:'sdaf'
+  export default {
+    components:{
+      child
+    },
+    data() {
+      return {
+      }
+    },
+    methods:{
+      show(a){
+        console.log(a)
+      },
+      parentClick(){
+        this.$refs.childwf.getParent()
       }
     }
   }
-}
 </script>
 <style>
 
