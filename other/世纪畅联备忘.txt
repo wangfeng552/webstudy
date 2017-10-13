@@ -1,0 +1,29 @@
+ÓÊÏä
+http://mail.centchain.com/
+wang.feng@centchain.com
+LDP_1206
+
+NCÏµÍ³
+http://nc.cigmall.cn:20000/portal/ 
+wangfeng1
+LDP_1206
+
+Óò¿Ø
+centchain\wang.feng
+wf1206LDP
+
+ìøµÀ
+http://172.16.16.253:9100/zentao/my/
+
+ÕËºÅ£ºwangfeng
+
+ÃÜÂë£º1qaz2wsx
+
+BETA·şÎñÆ÷WINSCP
+IP    		ÕËºÅ  	ÃÜÂë
+172.16.16.16  	wd 	wd@sjcl#2017
+172.16.17.103	wd	wd@sjcl#2017
+
+Svn
+ÕËºÅ£ºwangfeng  
+ÃÜÂë£ºwangfeng@4321
