@@ -4,28 +4,23 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta http-equiv="X-UA-Compatible" content="edge">
     <title>sticky-footers </title>
-    <!--<script src="jquery-1.11.2.js"></script>-->
+    <script src="jquery-1.11.2.js"></script>
 </head>
 
 <body>
+<div class="mk">
+    <ul>
 
-<button id="btn">复制</button>
-<input type="text" value="12312312312" id="inp">
+    </ul>
+</div>
 
 <script type="text/javascript">
-  // 事件依附的按钮
-  var button = document.getElementById('btn')
-  // 包含待复制内容的input
-  var input = document.getElementById('inp')
-
-  button.addEventListener("click", function(event) {
-    event.preventDefault();
-    // 选取input元素的内容
-    input.select();
-    console.log(input)
-    // 将选区内容复制到剪贴板
-    document.execCommand("copy");
-  });
+var arr=[1,2,3,'aaa',5,6];
+var html
+$.each(arr,function (i,v) {
+  html += `<li>${v}</li>`
+})
+    $('.mk ul').append(html)
 </script>
 </body>
 </html>
