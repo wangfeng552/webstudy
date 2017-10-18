@@ -68,6 +68,16 @@
       arr2.push(obj[i][k]) //把value放入
     }
   }
+
+  var obj=[{上海:[1,2,3,4]},{北京:"25"},{sex:"boy"}];
+  var ar1=[];
+  var ar2=[]
+  for(let v of obj){
+    for(let m in v){
+      ar1.push(m);
+      ar2.push(v[m])
+    }
+  }
 </script>
 
 <!--总结：

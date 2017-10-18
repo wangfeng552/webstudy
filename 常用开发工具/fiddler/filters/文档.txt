@@ -1,0 +1,17 @@
+http://www.cnblogs.com/chenshaoping/p/5785010.html
+
+在Filers面板中勾选“Use Filters”，并在Hosts区域，设置以下三个选项：
+
+1).第一项有三个选项，分别是“No zone filter”“Show Only Intranet Hosts”“Show Only Internet Hosts”，不做更改；
+
+2).第二项有四个选项，分别是：
+
+No Host Filter”不设置hosts过滤“；
+
+Hide The Following Hosts”隐藏过滤到的域名；
+
+“Show Only The Following Hosts”只显示过滤到的域名；
+
+“Flag The Following Hosts”标记过滤到的域名；
+
+选中“Show Only The Following Hosts”，在文本框内输入需要过滤的域名，多个域名使用”;“分号分割。fiddler默认会检查http头中设置的host，强制显示http地址中德域名。以“www.kugou.com”为例：

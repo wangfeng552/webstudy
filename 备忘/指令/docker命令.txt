@@ -1,3 +1,0 @@
-docker ps
-docker commit °æ±¾ºÅ °æ±¾Ãû
-docker commit 1ec3 wf-dev01

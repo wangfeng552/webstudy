@@ -1,0 +1,24 @@
+ctrl+alt+f 	js代码整理
+
+双击函数     》	右键Goto Definition  	查找函数方法
+
+ctrl+shift+P 》 HTML2slim  		html转slim
+
+
+
+常用快捷键
+
+编辑类
+ctrl+J 		合并选中的多行代码为一行
+ctrl+Shift+D 	复制光标所在整行，插入到下一行
+ctrl+Shift+k	删除整行
+Ctrl+/ 		注释单行。
+Ctrl+Shift+/ 	注释多行。
+Ctrl+K+U 	转换大写。
+Ctrl+K+L 	转换小写。
+Ctrl+T 		左右字母互换
+
+
+搜索
+Ctrl+shift+F 	在文件夹内查找
+Ctrl+P		快速查找文件名
