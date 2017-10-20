@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>加载中按钮</title>
+  <link rel="stylesheet" href="css/mui.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/mui.min.js"></script>
+  <script src="js/jquery-1.7.2.min.js"></script>
+</head>
+<body>
+<button type="button"
+        data-loading-text="提交中"
+        data-loading-icon="mui-spinner mui-spinner-custom"
+        class="mui-btn mui-btn-primary">确认</button>
+<script type="text/javascript">
+  mui(document.body).on('tap', '.mui-btn', function(e) {
+    mui(this).button('loading');
+    setTimeout(function() {
+      mui(this).button('reset');
+    }.bind(this), 2000);
+  });
+</script>
+</body>
+</html>

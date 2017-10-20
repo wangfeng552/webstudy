@@ -27,9 +27,9 @@ children() 						//所有子元素的元素集合
 find()							//正在处理的元素的后代元素的好方法与$("p span")相同
 
 closest()						//从元素本身开始，逐级向上级元素匹配，并返回最先匹配的元素 返回0或1个元素
-parent()
+parent()						//从父元素开始
 parents()
-parentsUntil()
+parentsUntil()     	//这个返回的jQuery对象里包含了下面所有找到的父辈元素，但不包括那个选择器匹配到的元素
 
 
 prev()
