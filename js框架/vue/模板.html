@@ -10,6 +10,7 @@
 <body>
 <div class="mk">
 	{{messages}}
+  <button @click="show">点击</button>
 </div>
 
 <script>
@@ -17,7 +18,12 @@
 	  el:".mk",
 	  data:{
         messages:"123"
-	  }
+	  },
+    methods:{
+	    show(){
+	      alert('123')
+      }
+    }
 	})
 </script>
 </body>

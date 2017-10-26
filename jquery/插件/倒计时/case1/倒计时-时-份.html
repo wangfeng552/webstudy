@@ -6,7 +6,7 @@
 </head>
 <body>
 <script src="../../../jquery-1.11.2.js"></script>
-<div class="hs-time" stime="2015/03/15 14:50:00" etime="2017/3/24 13:02:00"  ></div>
+<div class="hs-time" stime="2017/10/23 14:50:00" etime="2017/10/24 13:02:00"  ></div>
 <script type="text/javascript">
 LoadTime();
 function LoadTime() {
@@ -15,9 +15,10 @@ function LoadTime() {
 		function(i) { 
 			var stime = $(this).attr("stime");
 			var etime = $(this).attr("etime");
-			var d = Date.parse(stime);
+			var d = Date.parse(stime); //1970-1-1 00:00:00 UTC 到该日期对象
 			var today = new Date();
 			var time = d - today;
+			//活动已开始
 			if (Math.floor(time) <= 0) {
 				var str = "";
 				d = Date.parse(etime);
@@ -28,7 +29,7 @@ function LoadTime() {
 					str = "活动已结束";
 				}else{
 					//var tday = Math.floor(time/ (1000 * 60 * 60 * 24)); 
-					var thour = Math.floor(time / (1000 * 60 * 60 * 24))*24 + Math.floor(time / (1000 * 60 * 60)) % 24;
+					var thour = Math.floor(time / (1000 * 60 * 60 * 24))*24 + Math.floor(time / (1000 * 60 * 60)) % 24;  //天*24 =小时
 					if(thour < 10){
 						thour = "0" + thour;
 					}
@@ -43,7 +44,7 @@ function LoadTime() {
 							+ "</cite>秒";
 				}
 				$(this).html(str);
-			} else {
+			} else { //活动即将开始
 					//var tday = Math.floor(time / (1000 * 60 * 60 * 24));
 					var thour = Math.floor(time / (1000 * 60 * 60 * 24))*24 + Math.floor(time / (1000 * 60 * 60)) % 24;
 					if(thour < 10){

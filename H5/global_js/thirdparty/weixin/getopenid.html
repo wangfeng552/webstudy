@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>Loading</title>
+	</head>
+	<body>
+		
+		Loading...
+		<script src="../../../../event/packet/js/jquery-1.8.3.min.js"></script>
+		<script src="../../../../event/packet/js/md5.js"></script>
+		<script src="../../../../event/packet/js/common.js"></script>
+		<!--<script src="getopenid.js"></script>-->
+		<script>
+		
+		var type = packet.getUrlParams(location.href,"type") || "";
+		console.log('userAgent', navigator.userAgent);
+		if(type != "") {
+			var appid = (location.hostname.match(/stg/)) ? "wx8226a225de914a2f": "wxaf9e286e6b78030f";
+			var getUrl = location.origin +'/static/js/thirdparty/weixin/getopenid.html';
+			var h = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+encodeURIComponent(getUrl)+'&response_type=code&scope=snsapi_base&state=123#wechat_redirect';
+			parent.location.href = h; 
+		} else {
+			var code = packet.getUrlParams(location.href,"code") || "";
+			if(code != "") {
+				ajaxUtil.loadData({
+					type:"get",
+					url:interface.getopenid,
+					params:{
+						"code":code
+					},
+					onSuccess:function(data){
+						var openid = data.openid;
+						//var nickname = data.nickname || "灞波儿奔";
+						sessionStorage.setItem("weixin.openid",openid);
+						//sessionStorage.setItem("nickname",nickname);
+						parent.window.location.href=window.sessionStorage.getItem("weixin.returl");
+						//location.href = "../../../../event/packet/packet_start.html";
+					},
+					onError:function(e){
+						packet.tips("openid:"+e.msg);
+					}
+				})
+			} /*else { 
+				if(openid != "") {
+					location.href = "../../../../event/packet/packet_start.html";
+				} else {
+					getWeixinOpenId();
+				}
+			}*/
+		}	
+		</script>
+	</body>
+</html>

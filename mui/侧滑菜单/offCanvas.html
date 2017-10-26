@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>offCanvas</title>
+  <link rel="stylesheet" href="../css/mui.min.css">
+  <script src="../js/mui.min.js"></script>
+</head>
+<body>
+<!--动画3：主界面不动、菜单移动 滑导航根容器class上增加一个mui-slide-in类-->
+<!-- 侧滑导航根容器 -->
+<div class="mui-off-canvas-wrap mui-draggable">
+  <!-- 菜单容器 -->
+  <aside class="mui-off-canvas-left">
+    <div class="mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!-- 菜单具体展示内容 -->
+        sadfkhasdflkasdfj
+      </div>
+    </div>
+  </aside>
+  <!-- 主页面容器 -->
+  <div class="mui-inner-wrap">
+    <!-- 主页面标题 -->
+    <header class="mui-bar mui-bar-nav">
+      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+      <h1 class="mui-title">标题</h1>
+    </header>
+    <div class="mui-content mui-scroll-wrapper">
+      <div class="mui-scroll">
+        <!-- 主界面具体展示内容 -->
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  /*
+    方法名	    作用
+    show()	  显示
+    close()	  隐藏
+    toggle()	切换*/
+
+  mui('.mui-off-canvas-wrap').offCanvas('show');
+
+  /*事件监听
+  事件名	作用
+  shown	显示
+  hidden	隐藏*/
+  document.querySelector('.mui-off-canvas-wrap').addEventListener('shown',function (event) {
+    //...
+  })
+
+  //也可以通过isShown()方法判断是否为显示状态
+  mui('.mui-off-canvas-wrap').offCanvas().isShown();
+
+  //isShown() 方法也可以传递 direction(方向) 参数( 非必选!! )进而可以判断左右侧滑
+  mui('.mui-off-canvas-wrap').offCanvas().isShown('left');//true
+</script>
+</body>
+</html>
