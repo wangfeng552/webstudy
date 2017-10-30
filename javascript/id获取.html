@@ -5,10 +5,15 @@
 	<title>继承</title>
 </head>
 <body>
+<div class="mk">123123</div>
 <script>
     var $ = function(id){
         return document.getElementById(id);
     };
+    var $wf = function(id){
+      return document.querySelector(id)
+		}
+		$wf('.mk').innerHTML='1231231asdfasdfk '
 </script>
 
 </body>

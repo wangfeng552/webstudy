@@ -1,4 +1,4 @@
-<template>
+str%<template>
   <div class="star">
       <span class="star-main" v-for="v in stars" :class="v" ></span>
   </div>

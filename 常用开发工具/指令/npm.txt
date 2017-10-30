@@ -1,4 +1,14 @@
 http://www.cnblogs.com/PeunZhang/p/5553574.html
+
+npm install --save 
+npm install -S
+
+npm install --save-dev 
+npm install -D
+
+npm install --save-optional
+npm install -O
+
 npm uninstall 卸载模块
 npm update 更新模块
 npm outdated 检查模块是否已经过时

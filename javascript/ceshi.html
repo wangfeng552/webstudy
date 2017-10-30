@@ -2,17 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>继承</title>
+	<title></title>
 </head>
 <body>
-<div id="divA">
-	<ul>
-		<li id="aa">123</li><li>323245325</li>
-		<li>32324sdfkjh</li>
-	</ul>
+<div>
+
 </div>
 <script>
-	document.getElementById('aa').nextSibling
+function Animal(name){
+  this.name=name;
+  this.showName = function(){
+    alert(this.name)
+	}
+}
+
+function Cat(name){
+  Animal.call(this,name)
+}
+var animal=new Animal();
+var cat = new Cat('你好');
 </script>
 </body>
 </html>
