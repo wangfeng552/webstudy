@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="css/mui.min.css">
   <link rel="stylesheet" href="css/common.css">
   <script src="js/mui.min.js"></script>
-  <script src="js/jquery-1.7.2.min.js"></script>
+  <!--<script src="http://test-m-stg.ppppoints.com/static/js/libs/mui/mui.js?v=2017110301"></script>-->
+  <!--<script src="js/jquery-1.7.2.min.js"></script>-->
 </head>
 <body>
 <button type="button"
@@ -20,6 +21,8 @@
       mui(this).button('reset');
     }.bind(this), 2000);
   });
+
+  document.querySelector('.mui-btn').classList.add('wf')
 </script>
 </body>
 </html>

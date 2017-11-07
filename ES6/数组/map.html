@@ -19,19 +19,19 @@ function getMap1(){
 getMap1()
 
 //案例2
-var oldArr = [
-	{first_name:"Colin",last_name:"Toh"},
-	{first_name:"Addy",last_name:"Osmani"},
-	{first_name:"Yehuda",last_name:"Katz"}
-];
-
-function getNewArr(){
-	return oldArr.map(function(item,index){
-		item.full_name=[item.first_name,item.last_name].join(" ")
-		return item
-	})
+var arr=[{nameA:'张三',age:45},{nameA:'了开始',age:23}];
+function bian(){
+  var list = [];
+  arr.map(function(v){
+    var newItem={
+      title:v.nameA,
+      nianling:'/'+v.age
+    }
+    list.push(newItem)
+  })
+  return list
 }
-getNewArr()
+list=[{title:'张三',nianling:'/45'},{title:'了开始',nianling:'/23'}]
 </script>
 </body>
 </html>
