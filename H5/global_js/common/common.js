@@ -255,11 +255,26 @@
 		getQueryValue: function(str, name) {
 			if (!name) {
 				name = str;
-				str = location.search;
+				str = location.href + '';
 			}
 			var reg = new RegExp("(^|&|\\?|#)" + name + "=([^&]*)(&|\x24)", "");
 			var match = str.match(reg);
-			return (match && match[2] || '').trim();
+			return ((match && match[2] || '').trim()).split('#')[0];
+		},
+		addQueryValue: function(url, name, value) {
+			var m = this, _hash = '', _val, a = "#";
+			value = value || '';
+			_val = m.getQueryValue(url, name);
+			if (_val) {
+				url = url.replace(name + '=' + _val, name + '=' + value);
+			} else {
+				if (url.indexOf(a) != -1) {
+					_hash = a + url.slice(url.indexOf(a) + 1);
+					url = url.substring(0, url.indexOf(a));
+				}
+				url += ((url.indexOf('?') > -1) ? '&' : '?') + name + "=" + value;
+			}
+			return url + _hash;
 		},
 		//getQueryJSON()
 		//getQueryJSON(str)
@@ -460,7 +475,16 @@
 			if (this.jfmore) {
 				this.closeWebview();
 			} else {
-				location.href = url || '/jfmall/index.htm';
+				url = url || '/jfmall/index.htm';
+				if (typeof(spm) == "object" && spm && spm._getPageCode()) {
+					url = spm.addSpm(url);
+				}
+				var source = 'channel_source';
+				var source_val = stringUtil.getQueryValue(source);
+				if (source_val) {
+					url = stringUtil.addQueryValue(url, source, source_val)
+				}
+				location.href = url;
 			}
 		};
 		return obj;
@@ -520,7 +544,7 @@
                         }  else {
 							options.onError({
 								code: '9999',
-								msg: data.respMsg
+								msg: data?data.respMsg:''
 							});
 						}
 					},
@@ -593,7 +617,7 @@
 			*/
 		}
 	};
-	
+
 	// 用户登录态相关
 	var TOKENKEY = 'login_token',userUtil = {
 		data: {
@@ -616,7 +640,7 @@
 			return !!this.get('token');
 		},// 增加版验证登录
 		check_v1: function(callback) {
-			var m = this, __token, __key ;
+			var m = this, __token, __key, __run;
 			__key = '__cache_key';
 			__token = cookieUtil.get(TOKENKEY);
 			callback = callback || function () {};
@@ -628,30 +652,35 @@
 				return m.__callbacks.push(callback);
 			}
 			m.__callbacks = [ callback ];
+			__run = function (token) {
+				m.__callbacks.map(function(item) {
+					setTimeout(function() {item(token);}, 0);
+				});
+				delete m.__callbacks;
+			}
+			if (!__token) {
+				__run('');
+				return;
+			}
 			ajaxUtil.loadData({
 				type : 'payload',
 				url : '/pointgate/service/validate/loginToken',
 				params : {login_token:__token},
 				onSuccess : function(data) {
 					m.data.token = (data && data.validResult == '00') ? __token : '';
-					m.__callbacks.map(function(item) {
-						item(m.data.token);
-					});
-					delete m.__callbacks;
+					cookieUtil.set(TOKENKEY, m.data.token);
+					__run(m.data.token);
 					m.data.token && cache.set(__key, m.data.token, 1000 * 5);
 				},
 				onError : function(data) {
-					m.__callbacks.map(function(item) {
-						item('');
-					});
-					delete m.__callbacks;
+					__run('');
 				},
 			});
 		},
 		// checkLogin(url);
 		// checkLogin(callback);
 		checkLogin: function(callback, beforeLogin) {
-			var that = this, url = '';
+			var that = this, url = '', loginUrl, source, source_val, _spm;
 			if (typeof (callback) == 'string') {
 				url = callback;
 				callback = function() {
@@ -675,8 +704,22 @@
 						if (beforeLogin) {
 							beforeLogin();
 						}
-						var _channel = stringUtil.getQueryValue('channel_source'), channel_source = (_channel ? '&channel_source=' + _channel : "");
-						location.href = '/login/getlogincode.htm?callback='	+ encodeURIComponent(url || location.href) + channel_source;
+						_spm = 'spm';
+						source = 'channel_source';
+						loginUrl = '/login/getlogincode.htm';
+						source_val = stringUtil.getQueryValue(source);
+						if (source_val) {
+							loginUrl = stringUtil.addQueryValue(loginUrl, source, source_val)
+						} else {
+							source_val = stringUtil.getQueryValue(url || location.href, source);
+							if (source_val) {
+								loginUrl = stringUtil.addQueryValue(loginUrl, source, source_val)
+							}
+						}
+						if (typeof(spm) == "object" && spm && stringUtil.getQueryValue(url, _spm)) {
+							loginUrl = stringUtil.addQueryValue(loginUrl, _spm, stringUtil.getQueryValue(url, _spm))
+						}
+						location.href = stringUtil.addQueryValue(loginUrl, 'callback', encodeURIComponent(url || location.href));
 					}
 				}
 			});
@@ -697,7 +740,7 @@
 		}
 	};
 	var cache = {
-			_libs : { },	
+			_libs : { },
 			_opts : {ext:'__t__m_', t: 1000 * 60 * 30},
 			debug : false,
 			set : function(item, value, time) {
@@ -841,7 +884,8 @@
 								title: window._shareData.title.othTitle,
 								link: window._shareData.shareurl,
 								imgUrl: window._shareData.imageurl,
-								desc: window._shareData.content
+								desc: window._shareData.content,
+								success:window._shareData.success
 							}
 						}
 
@@ -897,9 +941,6 @@
 				that.initHead();
 				that.initMain();
 				that.initStat();
-				if(browserUtil.weixin&&(!userUtil.check() || (userUtil.check()&&true))&&window.g&&window.g.followme){
-					that.initFollow();
-				}
 			});
 		},
 		initHead: function() {
@@ -1011,43 +1052,6 @@
 				}
 			});
 			//console.log('百度统计部署');
-		},
-		initFollow: function(){
-			var btncss = document.createElement('style'),
-				headEle = document.getElementsByTagName('head')[0];
-			btncss.type = 'text/css';
-			btncss.innerHTML = [
-				'@keyframes bounceInDown{0%,60%,75%,90%,to{-webkit-animation-timing-function:cubic-bezier(.215,.61,.355,1);animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;-webkit-transform:translate3d(0,-3000px,0);transform:translate3d(0,-3000px,0)}60%{opacity:1;-webkit-transform:translate3d(0,25px,0);transform:translate3d(0,25px,0)}75%{-webkit-transform:translate3d(0,-10px,0);transform:translate3d(0,-10px,0)}90%{-webkit-transform:translate3d(0,5px,0);transform:translate3d(0,5px,0)}to{-webkit-transform:none;transform:none}}.bounceInDown{-webkit-animation-name:bounceInDown;animation-name:bounceInDown}',
-				'.animated{-webkit-animation-duration:.6s;animation-duration:.6s;-webkit-animation-fill-mode:both;animation-fill-mode:both}',
-				'#btn-follow { position:fixed; z-index:10; top:2rem; right:0; width:1.2rem; height:1.92rem; background:url("/static/images/common/follow.png") no-repeat; background-size:100%; -webkit-transition:right .3s ease-in-out; transition:right .3s ease-in-out }',
-				'#btn-follow.active { right:-1.5rem }',
-				'#pop-mask {-webkit-user-select:none;-webkit-touch-callout:none; position:fixed; z-index:20; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,.5) }',
-				'#pop-mask img { position:absolute; top:50%; left:50%; margin-top:-2.65rem; margin-left:-2.2rem; width:4.4rem; height:5.3rem }'
-			].join('\n');
-			headEle.appendChild(btncss);
-			var btn = document.createElement('a');
-			btn.id = 'btn-follow';
-			btn.href = 'javascript:void(0)';
-			document.body.appendChild(btn);
-			document.getElementById('btn-follow').onclick = function(){
-				document.getElementById('btn-follow').className = 'active';
-				if(!document.getElementById('pop-mask')){
-					followPop();
-				}else{
-					document.getElementById('pop-mask').style.display = 'block';
-				}
-			};
-			function followPop(){
-				var pop = document.createElement('div');
-				pop.id = 'pop-mask';
-				pop.className = 'animated bounceInDown';
-				pop.innerHTML = '<img src="/static/images/common/follow_qr.png?v=20170914">';
-				document.body.appendChild(pop);
-				document.getElementById('pop-mask').onclick = function(e){
-					document.getElementById('pop-mask').style.display = 'none';
-					document.getElementById('btn-follow').className = '';
-				}
-			}
 		}
 	};
 	page.init();

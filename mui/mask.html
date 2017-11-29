@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>遮罩</title>
+  <link rel="stylesheet" href="css/mui.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/mui.min.js"></script>
+</head>
+<body>
+<style>
+  .ps{ position: relative;z-index: 1000;}
+</style>
+<button class="ps">点击关闭遮罩</button>
+<script>
+  var flag = false;
+  var mask = mui.createMask(function () {
+      return flag
+  })
+  mask.show();
+  document.querySelector('.ps').addEventListener('click',function () {
+      flag = true;
+      mask.close()
+  })
+</script>
+</body>
+</html>

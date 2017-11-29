@@ -215,11 +215,26 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 		getQueryValue: function(str, name) {
 			if (!name) {
 				name = str;
-				str = location.search;
+				str = location.href + '';
 			}
 			var reg = new RegExp("(^|&|\\?|#)" + name + "=([^&]*)(&|\x24)", "");
 			var match = str.match(reg);
-			return (match && match[2] || '').trim();
+			return ((match && match[2] || '').trim()).split('#')[0];
+		},
+		addQueryValue: function(url, name, value) {
+			var m = this, _hash = '', _val, a = "#";
+			value = value || '';
+			_val = m.getQueryValue(url, name);
+			if (_val) {
+				url = url.replace(name + '=' + _val, name + '=' + value);
+			} else {
+				if (url.indexOf(a) != -1) {
+					_hash = a + url.slice(url.indexOf(a) + 1);
+					url = url.substring(0, url.indexOf(a));
+				}
+				url += ((url.indexOf('?') > -1) ? '&' : '?') + name + "=" + value;
+			}
+			return url + _hash;
 		},
 		//getQueryJSON()
 		//getQueryJSON(str)
@@ -545,7 +560,9 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 								points: item.points,
 								amount: item.amount,
 								stockNum: item.storedCount,
-								saleNum: item.outCount
+								saleNum: item.outCount,
+                                storeCount: item.storeCount,
+								marketPrice: (item.marketPrice/100)
 							};
 							if (item.payType == 'cust' || item.payType == 'cash') {
 								good.priceHtml = '<em>'+ (item.price/100).toFixed(2) +'</em>元';
@@ -626,7 +643,7 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 		// checkLogin(url);
 		// checkLogin(callback);
 		checkLogin: function(callback, beforeLogin) {
-			var that = this, url = '';
+			var that = this, url = '', loginUrl, source, source_val, _spm;
 			if (typeof(callback) == 'string') {
 				url = callback;
 				callback = function() {
@@ -647,8 +664,22 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 						if (beforeLogin) {
 							beforeLogin();
 						}
-						var _channel = stringUtil.getQueryValue('channel_source'), channel_source = (_channel ? '&channel_source=' + _channel : "");
-						location.href = '/login/getlogincode.htm?callback='	+ encodeURIComponent(url || location.href) + channel_source;
+						_spm = 'spm';
+						source = 'channel_source';
+						loginUrl = '/login/getlogincode.htm';
+						source_val = stringUtil.getQueryValue(source);
+						if (source_val) {
+							loginUrl = stringUtil.addQueryValue(loginUrl, source, source_val)
+						} else {
+							source_val = stringUtil.getQueryValue(url || location.href, source);
+							if (source_val) {
+								loginUrl = stringUtil.addQueryValue(loginUrl, source, source_val)
+							}
+						}
+						if (typeof(spm) == "object" && spm && stringUtil.getQueryValue(url, _spm)) {
+							loginUrl = stringUtil.addQueryValue(loginUrl, _spm, stringUtil.getQueryValue(url, _spm))
+						}
+						location.href = stringUtil.addQueryValue(loginUrl, 'callback', encodeURIComponent(url || location.href));
 					}
 				}
 			});
@@ -740,8 +771,16 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 			if (this.jfmore) {
 				this.closeWebview();
 			} else {
-				var _channel = stringUtil.getQueryValue('channel_source'), channel_source = (_channel ? '&channel_source=' + _channel : "");
-				location.href = url || '/jfmall/index.htm' + _channel;
+				url = url || '/jfmall/index.htm';
+				if (typeof(spm) == "object" && spm && spm._getPageCode()) {
+					url = spm.addSpm(url);
+				}
+				var source = 'channel_source';
+				var source_val = stringUtil.getQueryValue(source);
+				if (source_val) {
+					url = stringUtil.addQueryValue(url, source, source_val)
+				}
+				location.href = url;
 			}
 		};
 		return obj;
@@ -777,7 +816,17 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 			if (this.jfmore) {
 				this.closeWebview();
 			} else {
-				location.href = url || '/jfmall/index.htm';
+				url = url || '/jfmall/index.htm';
+				if (typeof(spm) == "object" && spm && spm._getPageCode()) {
+					url = spm.addSpm(url);
+				}
+				var source = 'channel_source';
+				var source_val = stringUtil.getQueryValue(source);
+				if (source_val) {
+					url = stringUtil.addQueryValue(url, source, source_val)
+				}
+				location.href = url;
+				
 			}
 		};
 		browserUtil.loadJS = function(url, onSuccess, onError) {
@@ -945,6 +994,13 @@ C,15,a[50]),d=n(d,e,f,c,s,21,a[51]),c=n(c,d,e,f,A,6,a[52]),f=n(f,c,d,e,q,10,a[53
 						userUtil.checkLogin(this.href);
 						return false;
 					});
+					if (stringUtil.getQueryValue('needlogin') == 'true') {
+						userUtil.check_v1(function (token){
+							setTimeout(function () {
+								!token && userUtil.checkLogin(document.URL);
+							}, 0)
+						})
+					}
 					// 页面上的分享按钮初始化
 					// data-sharepage=true自定义；为key值就需要调取后台接口
 					var $share = $('[data-sharepage]');

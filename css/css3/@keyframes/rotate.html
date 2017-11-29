@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<style>
+.btn-countdown{ background: url(images/btn-countdownbg.png) 0 0 no-repeat; width: 316px;height: 62px;}
+.animation {
+    -webkit-animation-duration:2s;
+    -webkit-animation-delay: .2s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-duration:2s;
+    -moz-animation-delay: .2s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-fill-mode: both;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-duration:2s;
+    -ms-animation-delay: .2s;
+    -ms-animation-timing-function: linear;
+    -ms-animation-fill-mode: both;
+    -ms-animation-iteration-count: infinite;
+    animation-duration:2s;
+    animation-delay: .2s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulse {
+    0% { -webkit-transform: rotate(0deg) }
+    25% { -webkit-transform: rotate(20deg) }
+    50% { -webkit-transform: rotate(0deg) }
+    75% { -webkit-transform: rotate(-20deg) }
+    100% { -webkit-transform: rotate(0) }
+}
+@-moz-keyframes pulse {
+	0% { -webkit-transform: rotate(0deg) }
+	25% { -webkit-transform: rotate(20deg) }
+	50% { -webkit-transform: rotate(0deg) }
+	75% { -webkit-transform: rotate(-20deg) }
+	100% { -webkit-transform: rotate(0) }
+}
+@keyframes pulse {
+	0% { transform: rotate(0deg) }
+	25% { transform: rotate(20deg) }
+	50% { transform: rotate(0deg) }
+	75% { transform: rotate(-20deg) }
+	100% { transform: rotate(0) }
+}
+@-ms-keyframes pulse {
+	0% { -webkit-transform: rotate(0deg) }
+	25% { -webkit-transform: rotate(20deg) }
+	50% { -webkit-transform: rotate(0deg) }
+	75% { -webkit-transform: rotate(-20deg) }
+	100% { -webkit-transform: rotate(0) }
+}
+.pulse{
+	-webkit-animation-name: pulse; 
+	-moz-animation-name: pulse; 
+	-ms-animation-name: pulse; 
+	animation-name: pulse; 
+}	
+</style>
+
+	<div class="btn-countdown animation pulse"><a href=""></a></div>
+
+</body>
+</html>

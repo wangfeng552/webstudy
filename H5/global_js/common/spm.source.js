@@ -1,5 +1,6 @@
-var spm = (function () {
-	var SPMKEY ='spm', SPMSIGN = ".", NOSPM = 'no', ITEM = 'item', LIST = 'list', historyArr = [];
+var spm = (typeof(spm) == "object") ? window.spm : (function () {
+	var SPMKEY ='spm', SPMSIGN = ".", NOSPM = 'no', ITEM = 'item', LIST = 'list', historyArr = [], historyArrCurr = [], startime, __pvid, __channel, __refer;
+	__refer = document.referrer;
 	// 浏览器相关
 	var ua = navigator.userAgent, platform, browser, system = {
 		jfmore : /_jfmore_(\d\.\d\.\d)/.test(ua) ? (/android/i.test(ua) ? 'android' : 'ios') : '', // App
@@ -104,7 +105,7 @@ var spm = (function () {
 			set : function(a, b, d) {
 		        var k;d = d || {};
 		        d.K && (k = new Date, k.setTime(k.getTime() + d.K));
-		        document.cookie = a + "=" + b + (d.domain ? "; domain=" + d.domain : "") + (d.path ? "; path=" + d.path : "") + (k ? "; expires=" + k.toGMTString() : "") + (d.rb ? "; secure" : "");
+		        document.cookie = a + "=" + b + (d.domain ? "; domain=" + d.domain : "") + ("; path=" + (d.path || "/")) + (k ? "; expires=" + k.toGMTString() : "") + (d.rb ? "; secure" : "");
 		    },
 		    get : function(a) {
 		        return (a = RegExp("(^| )" + a + "=([^;]*)(;|$)").exec(document.cookie)) ? a[2] : null;
@@ -113,12 +114,11 @@ var spm = (function () {
 		getQueryValue : function(url, name) {
 			if (!name) {
 				name = url;
-				url = location.search;
+				url = location.href + '';
 			}
-			url = url.indexOf('#') >= 0 ? url.substring(0, url.indexOf('#')) : url;
-			var reg = new RegExp("(^|&|\\?|#)" + name + "=([^&]*)(&|\x24)", '');
+			var reg = new RegExp("(^|&|\\?|#)" + name + "=([^&]*)(&|\x24)", "");
 			var match = url.match(reg);
-			return (match && match[2] || '').trim();
+			return ((match && match[2] || '').trim()).split('#')[0];
 		},
 		getSiteCode : function(url) {
 			var data, _spm, site = '';
@@ -150,10 +150,37 @@ var spm = (function () {
 		}
 		// 初始化处理
 		m.install = function() {
-			if (!m._status) {
-				m._initDebug();
-				m._initPage();
-				m._bindEvent();
+			var cId = null, num = 0, __run, clearRun, d, meta;
+			d = document;
+			clearRun = function() {
+				cId && (clearInterval(cId), cId = null);
+			};
+			__run = function () {
+				if (d.body && !m._status) {
+					meta = d.createElement('meta');
+					meta.setAttribute("content", "always");
+					meta.setAttribute("name", "referrer");
+					d.head.appendChild(meta);
+					clearRun();
+					m._initDebug();
+					m._initPage();
+					m._initSour();
+					m._bindEvent();
+					m._bindBack();
+					m._correctId();
+					m._status = 1;
+				}
+			};
+			if (d.body) {
+				__run();
+			} else {
+				cId = setInterval(function() {
+					if (num++ > 100) {
+						clearRun();
+						return;
+					}
+					__run();
+				}, 20);
 			}
 		};
 		m.debug = function(type, id, message) {
@@ -163,7 +190,7 @@ var spm = (function () {
 		m.setDebugOn = function(onOff) {
 			m.debugMode = onOff;
 		};// 设置body spm
-		m.setPageCode = function(code) {
+		m.setPageCode = function(code, title) {
 			var spm_id, body = util.get("body");
 			code = m.spmToArr(code);
 			code.length && (m._data[2] = code.pop());
@@ -175,6 +202,7 @@ var spm = (function () {
 			spm_id = util.format(m._tmpl.page, m._data);
 			body.setAttribute(m._attr.page, spm_id);
 			body.removeAttribute(m._attr.base);
+			title && (document.title = title);
 		};// 获得body spm
 		m.getPageCode = function() {
 			return m.arrToSpm(m._data);
@@ -213,7 +241,19 @@ var spm = (function () {
 			var spm = m._data.slice(0);
 			spm[3] = code;
 			return m.arrToSpm(spm);
-		};// 设置元素spm
+		};
+		m.getNumberCode = function(code) {
+			var spm = m._data.slice(0), spm_id;
+			code = m.spmToArr(code);
+			if (!code.length) return code;
+			code.length && (spm[4] = code.pop());
+			code.length && (spm[3] = code.pop());
+			code.length && (spm[2] = code.pop());
+			code.length && (spm[1] = code.pop());
+			code.length && (spm[0] = code.pop());
+			return m.arrToSpm(spm);
+		};
+		// 设置元素spm
 		m.setElemItem = function(elem, spmArr, index, isOnly) {
 			var dataSpm, spm_id, tag = 'a';
 			dataSpm = elem.getAttribute(m._attr.base);
@@ -228,6 +268,7 @@ var spm = (function () {
 		};// 统计方法
 		m.push = function (arr) {
 			var method = arr.shift();
+			m.install();
 			m[method].apply(m, arr);
 		};// 刷新页面
 		m.refresh = function(url, reload) {
@@ -249,7 +290,7 @@ var spm = (function () {
 			return (arr || []).join(SPMSIGN);
 		};// spm转数组格式
 		m.spmToArr = function(spm) {
-			return (spm || '').split(SPMSIGN);
+			return ((spm || '') + '').split(SPMSIGN);
 		};// 截取分隔符前部分
 		m.sliceBefore = function(str, a) {
 	        return str.indexOf(a) >= 0 ? str.substring(0, str.indexOf(a)) : '';
@@ -273,20 +314,39 @@ var spm = (function () {
 				url += ((url.indexOf('?') > 0) ? '&' : '?') + SPMKEY + "=" + spm;
 			}
 			return url + hash;
-		};// 获得PVID
+		};
+		// channel_source
+		m.getSource = function() {
+			var m = this, _s_v, _sour = [], meta, _source;
+			m.getPVID();
+			_s_v = util.cookie.get(m._SOURKEY);
+			meta = util.get('meta[name=channel_source]');
+			if ((m._IS_NEW_PVKEY && !_s_v ) || meta) {
+				_source = meta ? meta.getAttribute('content') : '';
+				_sour = m.spmToArr(m.getQueryValue(SPMKEY));
+				_s_v = _source || _sour[6] || m.getQueryValue('channel_source') || '';
+				_s_v && util.cookie.set(m._SOURKEY, _s_v);
+			}
+			(!_s_v && __channel) && util.cookie.set(m._SOURKEY, __channel);
+			_s_v = _s_v || __channel;			
+			__channel = _s_v || '';
+			return _s_v || '02000000';
+		};
+		// 获得PVID
 		m.getPVID = function() {
-			var date, pvid, chars, chlen, spm;
-			var _t = '_P_U_V_', _t_v, refer;
-			_t_v = util.cookie.get(_t);
+			var m = this, _t_v;
+			var date, pvid, chars, chlen, spm, _sour;
+			_t_v = util.cookie.get(m._PVKEY);
 			if (!_t_v) {
-				refer = document.referrer;
-				if (m._domain.test(refer)) {
+				m._IS_NEW_PVKEY = true;
+				if (m._domain.test(__refer)) {
 					spm = m.spmToArr(m.getQueryValue(SPMKEY));
 					_t_v = spm[5] || '';
 				} else if (system.jfmore){// 从APP端获得
 					spm = m.spmToArr(m.getQueryValue(SPMKEY));
 					_t_v = spm[5] || '';
 				}
+				_t_v = _t_v || __pvid;
 				if (!_t_v) {
 					date = new Date();
 					pvid = '';
@@ -297,14 +357,20 @@ var spm = (function () {
 					}
 					_t_v = pvid + '' + date.getMonth() + '' + date.getDate() + '' + date.getHours();
 				}
-				util.cookie.set(_t, _t_v);
+				util.cookie.set(m._PVKEY, _t_v);
 			}
+			__pvid = _t_v;
 			return _t_v;
 		};
 	}
 	spmObj.prototype = {
-//		_url :'http://172.16.20.41:8080/test/servlet/Spm',
-		_url :'https://'+(/changyoyo\.com/.test(document.domain) ? 'm.changyoyo.com' : 'test-m-stg.ppppoints.com')+'/wxservice/datacenter/ckd',
+		_stSid : null,
+		_status : 0,
+		_IS_NEW_PVKEY : false,
+		_PVKEY : '_P_U_V_',
+		_SOURKEY : 'S_O_U_R_C_E',
+//		_url :'http://172.16.20.18:8080/test/servlet/Spm',
+		_url :'https://'+(document.domain == "m.changyoyo.com" ? 'm.changyoyo.com/notify' : 'test-m-stg.ppppoints.com/wxservice')+'/datacenter/ckd',
 		_send : function (data) {
 			try {
 				(new Image()).src = this._url + '?' + util.param(data);
@@ -332,27 +398,35 @@ var spm = (function () {
 			_data.spm		 	= 0; // 模块的位置
 			_data.siCode 		= m._getSiteCode(); 	// 站点编码
 			_data.paCode		= m._getPageCode() || 0;// 页面编码
+			_data.source		= m.getSource();
+			_data.reserve		= document.title || '';
 			if (opts.action == '02') {
 				_data.moCode	= _spm[3] || 0; // 模块编码
 				_data.spm		= _spm[4] || 0; // 模块的位置
 			}
-			
-			_data.preurl 	= document.referrer || "";// 前置页url
+			_data.time			= ''; // 当前时间
+			_data.preurl 	= __refer || "";// 前置页url
 			if (/00|01|page/.test(opts.action)) { // PV类型
 				historyArr.length > 0 && (_data.preurl = historyArr[historyArr.length - 1]);// 单页面的时候
 				_data.curUrl 	= opts.url; 	  // 当前页url
-				var __url = !_data.preurl && !historyArr.length ? '' : _data.preurl && historyArr.length > 0 ? _data.preurl : _data.curUrl;
-				_data.preSiCode = util.getSiteCode(__url); // 前置页站点编码
-				_data.prePaCode = util.getPageCode(__url); // 前置页页面编码
-				_data.preMoCode = util.getPosCode(__url); // 前置页模块编码
+				//var __url = !_data.preurl && !historyArr.length ? '' : _data.preurl && historyArr.length > 0 ? _data.preurl : _data.curUrl;
+				_data.preSiCode = util.getSiteCode(_data.curUrl); // 前置页站点编码
+				_data.prePaCode = util.getPageCode(_data.curUrl); // 前置页页面编码
+				_data.preMoCode = util.getPosCode(_data.curUrl); // 前置页模块编码
+				if (m._removeSpm(opts.url) == m._removeSpm(historyArr[historyArr.length - 1])) {
+					return;
+				}
 				historyArr.push(opts.url);
+				historyArrCurr.push(spm.addSpm(opts.url));
+				startime = new Date().getTime();
 			} else {// 非PV类型
 				historyArr.length > 1 && (_data.preurl = historyArr[historyArr.length - 2]);// 单页面的时候
 				_data.curUrl 	= historyArr[historyArr.length - 1]; 
 				_data.preSiCode = util.getSiteCode(_data.curUrl); // 前置页站点编码
 				_data.prePaCode = util.getPageCode(_data.curUrl); // 前置页页面编码
 				_data.preMoCode = util.getPosCode(_data.curUrl);; // 前置页模块编码
-				!document.referrer && historyArr.length == 1 && (_data.preurl = "");
+				!__refer && historyArr.length == 1 && (_data.preurl = "");
+				_data.time = new Date().getTime() - startime;
 			}
 			
 			_data.curUrl 	= encodeURIComponent(_data.curUrl); // 编码链接
@@ -386,7 +460,7 @@ var spm = (function () {
 			var m = this, body, meta, spm_id;
 			body = util.get("body");
 			meta = util.get('meta[name=' + m._attr.base + ']');
-			m._setSiteCode(meta ? meta.getAttribute('content') : '');
+			m._setSiteCode(meta ? meta.getAttribute('content') : '3.1');
 			m.setPageCode(body ? body.getAttribute(m._attr.base) : '');
 			spm_id = body ? body.getAttribute(m._attr.page) : '';
 			if (m._data[0] == '') {
@@ -396,12 +470,20 @@ var spm = (function () {
 			} else if (m._data[2] == '') {
 				m.debug("warn", '100', "页面spm初始化失败： 请在页面<body>中定义页面ID");
 			} else {
-				m._status = 1;
 				m.debug("info", '100', "页面初始化， spm = " + spm_id);
 			}
 		},
+		_initSour: function() {
+			var m = this, sour = m.getSource();
+			for ( var _key in m._tmpl) {
+				if (m._tmpl.hasOwnProperty(_key)) {
+					m._tmpl[_key] = m._tmpl[_key] + "." + sour;
+				}
+			}
+			m._data[6] = sour;
+		},
 		_bindEvent: function() {
-			var m = this, w = window, d = document, ae, s, e, tm, n, time = 350, dom;
+			var m = this, w = window, d = document, ae, s, e, tm, n, time = 350, dom, sElem;
 			var st = 0, et = 0, sl = 0, x = 0, y = 0, cx = 0, cy = 0, len = 6,ismove;
 			n = 'undefined';
 			ae = 'addEventListener';
@@ -416,7 +498,6 @@ var spm = (function () {
 				tm = '';
 				dom = d;
 			}
-			
 			dom[ae](s, function(e) {
 				st = new Date().getTime();
 				if (e.touches && e.touches[0]) {
@@ -425,6 +506,7 @@ var spm = (function () {
 				}
 				m._execute(e, false);
 				ismove = false;
+				sElem = e;
 			}, false);
 			tm && dom[ae](tm, function(e) {
 				ismove = true;
@@ -439,9 +521,26 @@ var spm = (function () {
 				if (ismove || et - st >= time) {
 					return;
 				}
-				m._execute(e, true);
+				m._execute(sElem, true);
 			}, false);
 			
+		},
+		_bindBack: function() {
+			var __go = history.go;
+			history.go = function() {
+				historyArrCurr.length && historyArr.push(historyArrCurr.pop());
+				__go.apply(history, arguments);
+			};
+		},
+		_correctId: function() {
+			var m = this, _run = function() {
+				m.getSource();
+				m._stSid = setTimeout(function() {
+					_run();
+				}, 1000);
+			};
+			clearTimeout(m._stSid);
+			_run();
 		},
 		// 页面点击事件处理
 		_execute: function(e, isSta) {
@@ -463,8 +562,13 @@ var spm = (function () {
 				} else if (ele.getAttribute(m._attr.base)) {
 					m._updateItemContent(ele);
 				}
-				if (isSta && ele.getAttribute(m._attr.item)) {// 是元素统计
-					m._addClickStat(ele);
+				if (isSta) {// 是元素统计
+					if (ele.getAttribute(m._attr.item)) {
+						m._addClickStat(ele);
+					} else if (tag == 'a' || tag == 'area') {
+						m._updateLink(ele, m._data, 0);
+						m._addClickStat(ele);
+					}
 				}
 				ele = ele.parentNode;
 			}
@@ -485,6 +589,7 @@ var spm = (function () {
 		
 		_trackPageview: function(url) {// 页面统计
 			var m = this, _spm = [];
+			!historyArr.length && (url = document.URL);
 			if (url && m.getQueryValue(url, SPMKEY)) {
 				_spm = m.spmToArr(m.getQueryValue(url, SPMKEY));
 			}
@@ -612,14 +717,24 @@ var spm = (function () {
 		},// 获得body spm
 		_getPageCode : function() {
 			return this._data[2];
-		}	
+		},
+		_removeSpm : function(url) {
+			var m = this;
+			url = url || '';
+			var __pre = m.sliceBefore(url, "?");
+			if (!__pre) {
+				return url;
+			}
+			var __preSarch = m.sliceAfter(url, "?");
+			var __val = m.getQueryValue(url, SPMKEY);
+			__preSarch = __preSarch.replace(SPMKEY + "=" + __val, '');
+			return __pre + __preSarch;
+		}
 	};
 	return new spmObj();
 })();
 
 typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = spm :
-typeof define === 'function' && define.amd ? define(spm) :
-(window.spm = spm);		
-			
-			
+typeof define === 'function' && define.amd ? define(spm) : (window.spm = spm);		
+spm.install();			
 			
