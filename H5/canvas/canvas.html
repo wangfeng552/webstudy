@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d'); // 获得绘图环境对象
+    ctx.fillStyle='#ff0000';
+    // fillRect 方法规定了形状、位置和尺寸。
+    ctx.fillRect(0,0,80,100)  //在画布上绘制 80x100 的矩形，从左上角开始 (0,0)。
+</script>
+</body>
+</html>

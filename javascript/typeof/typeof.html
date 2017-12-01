@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    typeof undefined    // =>   "undefined"
+    typeof null         // =>   "object"
+    typeof true         // =>   "boolean"
+    typeof 1234         // =>   "number"
+    typeof "abc"        // =>   "string"
+    typeof function(){} // =>   "function"
+    typeof {}           // =>   "object"
+    typeof []           // =>   "object"
+    typeof unknowVasd   // =>   "undefined"
+
+    function isShow(a,callback) {
+        if(typeof callback == 'function'){
+            callback()
+        }
+    }
+
+    function wf() {
+        console.log('123')
+    }
+    isShow(1,wf)
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.如果没有找到任何匹配的文本， match() 将返回 null
+2.该数组的第 0 个元素存放的是匹配文本，而其余的元素存放的是与正则表达式的子表达式匹配的文本。
+    index 属性声明的是匹配文本的起始字符在 stringObject 中的位置，
+    input 属性声明的是对 stringObject 的引用。
+
+<script>
+    var a1 = 'abcde1234aksdfa';
+    var reg2 = new RegExp('a','')
+    var reg1 =new RegExp(/a/);
+    a1.match(reg1)
+    //=>["a", index: 0, input: "abcde1234aksdfa"]
+</script>
+
+
+<script>
+    // regxep具有标志g
+var str = '士大夫撒地方看法拉萨的飞机234看法'
+    var regg = new RegExp('看法','g')
+    var reg=new RegExp(/看法/g);
+     str.match(reg)
+    //=>["看法", "看法"]
+</script>
+</body>
+</html>
