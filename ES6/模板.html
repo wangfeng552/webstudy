@@ -9,54 +9,6 @@
 <body>
 <script>
 
-    var person=['张三','李四','航安','李四',1,2,1];
-    var newPerson=[];
-    for(var i=0;i<person.length;i++){
-        var repeat =false;
-        for(var j=0;j<newPerson.length;j++){
-            if(person[i]==newPerson[j]){
-                repeat = true;
-                break;
-            }
-        }
-        if(!repeat){
-            newPerson.push(person[i])
-        }
-    }
-
-  /*for(var i=1;i<arr.length;i++){
-      var repeat =false;
-      for(var j=0;j<newArr.length;j++){
-          if(arr[i]==newArr[j]){
-              repeat = true;
-              break;
-          }
-      }
-      if(!repeat){
-          newArr.push(arr[i])
-      }
-  }*/
-
-
-
-    /*Array.prototype.unique1 = function(){
-        var res = [this[0]];
-        for(var i = 1; i < this.length; i++){
-            var repeat = false;
-            for(var j = 0; j < res.length; j++){
-                if(this[i] == res[j]){
-                    repeat = true;
-                    break;
-                }
-            }
-            if(!repeat){
-                res.push(this[i]);
-            }
-        }
-        return res;
-    }
-    var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
-    alert(arr.unique1());*/
 </script>
 </body>
 </html>
