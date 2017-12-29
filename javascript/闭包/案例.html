@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>闭包</title>
+</head>
+<body>
+函数对象可以通过作用域链相互关联起来,函数体内部的变量都可以保存在函数作用域内，称为闭包。
+<script>
+//	案例一
+	/*var scorp="你们好";
+	function wf(){
+		var scorp="新定义";
+		function f(){
+			return scorp
+		}
+		return f
+	}
+	wf()()*/
+
+//	案例二
+	var uniqueInteger=(function(){			//定义函数并立即调用
+		var counter = 0;
+		return function(){ return counter++ };  //函数的返回值赋值给变量uniqueInteger
+	}());
+
+//	案例三
+	function counter(){
+		var n=0;
+		return {
+			count:function(){return n++},
+			reset:function(){n=0}
+		}
+	}
+	var c=counter(),d=counter();	//创建2个计数器
+	c.count();
+	d.count();
+	c.reset()					//reset()和count()方法共享
+	console.log(c.count());		//=>0	因为重置了c
+	console.log(d.count());		//=>1	d没有重置
+</script>
+</body>
+</html>
