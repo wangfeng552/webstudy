@@ -100,5 +100,13 @@
        return res;
    }
 </script>
+
+<script>
+//    第4种
+    var arr4=[1,2,3,1,2,'asdf'];
+    let b=arr4.filter((v,i,arr)=>{
+        return arr.indexOf(v)===i
+    })
+</script>
 </body>
 </html>

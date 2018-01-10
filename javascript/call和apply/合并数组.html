@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=[1,2,3,'上岛咖啡'];
+    var arr1=[2,'asdad']
+    Array.prototype.push.apply(arr,arr1)  //=> arr  [1, 2, 3, "上岛咖啡", 2, "asdad"]
+</script>
+</body>
+</html>

@@ -165,10 +165,6 @@
 		bridge: {
 			check: function(callback) {
 				var that = this;
-				if (browserUtil.jfmore < '1.0.2') {
-					callback('您的APP版本过低，请升级APP。');
-					return false;
-				}
 				if (!window.WebViewJavascriptBridge) {
 					this.load();
 				}
@@ -674,7 +670,7 @@
 				},
 				onError : function(data) {
 					__run('');
-				},
+				}
 			});
 		},
 		// checkLogin(url);
@@ -1007,10 +1003,6 @@
 				});
 			}else{
 				$share.tap(function(){
-					if(browserUtil.jfmore < '1.0.2'){
-						alert('您的APP版本过低，请升级APP。')
-						return;
-					}
 					window.android.getShareData(JSON.stringify(window._shareData));
 				})
 			}
