@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    /*小三角样式*/
+    summary{
+        width: -moz-fit-content;
+        width: fit-content;
+        direction: rtl;
+    }
+    ::-webkit-details-marker{
+        direction: ltr;
+        color: gray;
+        margin-left: .5ch;
+    }
+    ::-moz-list-bullet{
+        direction: ltr;
+        color: gray;
+        margin-left: .5ch;
+    }
+</style>
+<details open>
+    <summary>这是标题</summary>
+    <p>sdafasdfasf</p>
+</details>
+</body>
+</html>

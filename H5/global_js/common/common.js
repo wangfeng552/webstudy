@@ -234,12 +234,14 @@
 
 	// string方法
 	var stringUtil = {
+      //"1,345,123,123"
 		comma: function(str, length) {
 			if (!length || length < 1) length = 3;
 			var source = ('' + str).split('.');
 			source[0] = source[0].replace(new RegExp('(\\d)(?=(\\d{' + length + '})+$)', 'ig'), '$1,');
 			return source.join('.');
 		},
+			//{name:'123',age:23} => "name=123&age=23"
 		params: function(obj) {
 			var params = [];
 			for (var item in obj) {
@@ -247,7 +249,8 @@
 			}
 			return params.join('&');
 		},
-		//getQueryValue(str, name)
+		//http://www.m.com?name=12
+		//	getQueryValue('name')  => 12
 		getQueryValue: function(str, name) {
 			if (!name) {
 				name = str;
@@ -257,6 +260,8 @@
 			var match = str.match(reg);
 			return ((match && match[2] || '').trim()).split('#')[0];
 		},
+			//stringUtil.addQueryValue('http://www.m.com','key','1234')
+			// =>http://www.m.com?key=1234"
 		addQueryValue: function(url, name, value) {
 			var m = this, _hash = '', _val, a = "#";
 			value = value || '';
@@ -272,8 +277,8 @@
 			}
 			return url + _hash;
 		},
-		//getQueryJSON()
-		//getQueryJSON(str)
+		//http://m16.jflm.com/event/2018/0104jsyd/index.html?name=123&age=12
+			// =>{name: "123", age: "12"}
 		getQueryJSON: function(str) {
 			str = str || location.search;
 			if (str.indexOf('?') < 0) return {};
@@ -300,7 +305,9 @@
 			}
 			return result;
 		},
-		formatTime: function(time, format) {
+			//var date = new Date()
+      //  stringUtil.formatTime(date,'M-d')  =>"10-26"
+    formatTime: function(time, format) {
 			var o = {
 				'M+': time.getMonth() + 1,
 				'd+': time.getDate(),

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>晒单记录</title>
+    <script src="https://m.changyoyo.com/indiana/js/rem.js"></script>
+    <link href="https://m.changyoyo.com/indiana/css/mui.min.css" rel="stylesheet" />
+    <link href="https://m.changyoyo.com/indiana/css/common.css" rel="stylesheet" />
+    <link rel="stylesheet prefetch" href="https://m.changyoyo.com/indiana/css/photoswipe.css">
+    <link rel="stylesheet prefetch" href="https://m.changyoyo.com/indiana/css/default-skin.css">
+    <script src="https://m.changyoyo.com/indiana/js/jquery-latest.js">
+    </script>
+    <script src="https://m.changyoyo.com/indiana/js/mui.min.js"></script>
+    <script src="https://m.changyoyo.com/indiana/js/common.js"></script>
+    <script src="https://m.changyoyo.com/indiana/js/spm.js"></script>
+</head>
+
+<body>
+
+<div class="mui-content">
+    <!--分页数据 -->
+    <div class="mui-scroll-wrapper " id="refreshContainer">
+        <div class="mui-scroll " id="ajaxContent">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron">
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script>
+
+    mui.init({
+        pullRefresh : {
+            container: "#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+            down: {
+                height:50,//可选,默认50.触发下拉刷新拖动距离,
+                auto: false,//可选,默认false.自动下拉刷新一次
+                contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+                contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+                contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+                callback :pulldownRefresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+            },
+            up : {
+                height:50,//可选.默认50.触发上拉加载拖动距离
+                auto:true,//可选,默认false.自动上拉加载一次
+                contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+                contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+                callback :pullfresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+            }
+        }
+    });
+    function pulldownRefresh() {
+        location.reload(); // 刷新页面，重新加载
+        mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+    }
+    var getNum = 0;
+    var page = 0;
+    var rows = 4;
+    var totals = 0;
+    var total2;
+    function pullfresh() {
+        page++;
+        setTimeout(function () {
+            getData(page);
+            mui('#refreshContainer').pullRefresh().endPullupToRefresh((total2 <= page));
+        },100)
+
+    }
+
+    function getData(page) {
+        $.get("/indiana/opinion/show/order/record/list", {
+            "page": page,
+            "rows":4
+        }, function(response) {
+            var retData2 = eval('(' + response + ')');
+            var jsonData2 = response.data.list; //数据
+            total2 = retData2.data.paging.totalPage; //总页数
+            totals = retData2.data.paging.total  // 一共几条数据
+
+            //dom处理
+            jsonData2.forEach(function(act,index) {
+            });
+
+            // 结束上拉加载判断是否还有数据
+            getNum++; // 循环计数
+            if(getNum>=total2){ // 循环次数是否大于总页数，>= 就没有数据了
+                mui('#refreshContainer').pullRefresh().endPullupToRefresh(true); // true 没有数据了
+            }else{
+                mui('#refreshContainer').pullRefresh().endPullupToRefresh(false); //false 还有数据
+            }
+
+            // 0条数据梳处理
+            if(totals==0){
+                var html="";
+                html += "<div class='default_text'>暂无晒单记录</div>";
+                $("#ajaxContent").html(html);
+            }
+        });
+    }
+</script>
+</html>
