@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="param" content="text:返回活动页&link:/event/2018/0118xy/index.html?endTime=1517414400000" />
+    <title>中奖名单</title>
+    <script src="/static/js/common/rem.js"></script>
+    <link rel="stylesheet" href="/static/css/libs/mui/mui.min.css" />
+    <link rel="stylesheet" href="css/index.css?v=2017121901">
+</head>
+<body data-sharemode="true" style="background-color: #292b40;">
+    <header class="mui-bar mui-bar-nav title">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title white">中奖名单</h1>
+    </header>
+    <div class="mui-content bfa1 mui-scroll-wrapper" id="refreshContainer">
+        <div class="mui-scroll">
+            <div>
+                <div class="ptbanner"><img src="img/banner2.png" alt="中奖名单"></div>
+                <div class="xy-main">
+
+                    <div class="ljcy-c">
+                        <div class="zjmd">活动这么具有诱惑力，何不赶快参与？</div>
+
+                        <a href="index.html" class="zj-ljcy">立即参与</a>
+                    </div>
+                    <!--数据-->
+                    <div class="zjmd-main" id="ajaxContent"><ul></ul></div>
+                </div>
+                <div><img src="img/xy_03.gif" alt=""></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="/static/js/libs/mui/mui.min.js?v=2017112301"></script>
+    <script src="/static/js/libs/zepto.min.js"></script>
+    <script src="/static/js/libs/CryptoJS/md5.js?v=2017112301"></script>
+    <script src="/static/js/common/common.js?v=20170726"></script>
+    <script src="/static/js/common/spm.js?v=2017112301"></script>
+    <script>
+        window.onload = function() {
+            spm.push(['_trackPageview']);
+            mui.init({
+                pullRefresh : {
+                    container: "#refreshContainer",//待刷新区域标识，querySelector能定位的css选择器均可，比如：id、.class等
+                    up : {
+                        height:50,//可选.默认50.触发上拉加载拖动距离
+                        auto:true,//可选,默认false.自动上拉加载一次
+                        contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+                        contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+                        callback :pullfresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+                    }
+                }
+            });
+            var getNum = 0;
+            var page = 1;// 当前页
+            var totals = 0;// 一共几条数据
+            var total2;//总页数
+            function pullfresh() {
+                page++;
+                setTimeout(function () {
+                    getData(page);
+                    mui('#refreshContainer').pullRefresh().endPullupToRefresh((total2 <= page));
+                },100)
+
+            }
+
+            function getData(page) {
+
+                ajaxUtil.loadData({
+                    url: '/zjmdlist',
+                    type: 'post',
+                    params:{page: page},
+                    onSuccess: function (data) {
+                        var html ='';
+                        var dataList =data.list;//数据
+                        var totalPage=data.paging.totalPage //总页数
+                        var total = data.paging.total //一共几条数据
+
+                        //》0条数据,dom处理
+                        if(total>0){
+                            $.each(dataList,function (i,v) {
+
+                                html +=`<li>
+                                <div class="qishu"><div class="r-qi">第${v.drawNum}期</div></div>
+                                <table cellspacing="0" width="100%" class="zjmd-table">
+                                    <tr>
+                                        <td colspan="2" ><span class="a3">${v.goodsName}</span></td>
+                                        <td class="text-c"><span class="a2">第${v.winningIndex}位</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>${v.mobileId}</td>
+                                        <td>中奖次序：第${v.winningIndex}位</td>
+                                        <td width="15%" class="text-c"><strong class="a1">888</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>订单号：${v.orderId}</td>
+                                        <td>参与份额：${v.buyNum}份</td>
+                                        <td class="text-c"><span class="a2">积分</span></td>
+                                    </tr>
+                                </table>
+                            </li>`
+                                $("#ajaxContent ul").append(html)
+                            })
+                        }
+
+                        // 结束上拉加载判断是否还有数据
+                        getNum++; // 循环计数
+                        if(getNum>=totalPage){ // 循环次数是否大于总页数，>= 就没有数据了
+                            mui('#refreshContainer').pullRefresh().endPullupToRefresh(true); // true 没有数据了
+                            var nomo='<div class="spdaodi"><img src="img/daodi.gif" alt=""></div>';
+                            $("#ajaxContent").append(nomo)
+                        }else{
+                            mui('#refreshContainer').pullRefresh().endPullupToRefresh(false); //false 还有数据
+                        }
+                    },
+                    onError: function (data) {
+                        spm.push(['_trackEvent', '', 'click', data.code || data.msg]);
+                        mui.toast(data.msg, {duration: '1000', type: 'div'});
+                    }
+                })
+            }
+            mui('body').on('tap', 'a', function () {
+                spm.refresh('index.html')
+            });
+        }
+    </script>
+
+</body>
+</html>

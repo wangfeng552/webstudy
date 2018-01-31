@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    Math.random()*(n-m)+m; 生成[m,n}的数
+
+    Math.random() //生成[0,1}的数
+    Math.random()*5 //生成{0,5）的数
+
+//所以生成[1,max]的随机数，公式如下：
+
+// max - 期望的最大值
+parseInt(Math.random()*max,10)+1;
+Math.floor(Math.random()*max)+1;
+Math.ceil(Math.random()*max);
+
+
+
+//所以生成[0,max]到任意数的随机数，公式如下：
+
+// max - 期望的最大值
+parseInt(Math.random()*(max+1),10);
+Math.floor(Math.random()*(max+1));
+
+
+
+//所以希望生成[min,max]的随机数，公式如下：
+
+// max - 期望的最大值
+// min - 期望的最小值
+parseInt(Math.random()*(max-min+1)+min,10);
+Math.floor(Math.random()*(max-min+1)+min);
+</script>
+
+
+</body>
+</html>
