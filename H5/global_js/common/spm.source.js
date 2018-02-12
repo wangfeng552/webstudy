@@ -262,7 +262,7 @@ var spm = (typeof(spm) == "object") ? window.spm : (function () {
 			dataSpm == NOSPM && (spm_id = NOSPM);
 			elem.setAttribute(m._attr.item, spm_id);
 			elem.removeAttribute(m._attr.base);
-			if (elem.tagName.toLowerCase() == tag) {
+			if (elem.tagName.toLowerCase() == tag && spm_id != NOSPM) {
 				elem.setAttribute('href', m.addSpm(elem.getAttribute('href'), spm_id));
 			}
 		};// 统计方法
@@ -690,8 +690,6 @@ var spm = (typeof(spm) == "object") ? window.spm : (function () {
 			dataSpm = elem.getAttribute(m._attr.base);
 			m.setElemItem(elem, spm, index, isOnly);
 			if (dataSpm == NOSPM) {
-				m.debug('info', 403, '链接' + linkUrl + '已设置为不需要spm');
-			} else {
 				m.debug('info', 403, '链接' + linkUrl + '已设置为不需要spm');
 			}
 			return true;

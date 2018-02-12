@@ -46,4 +46,5 @@ var a = {a:1,b:2}
 
 this.$route 获取路由参数
 this.$router.push 路由跳转
+1635624458 QQ
 RabbiT_YoonJae
