@@ -11,3 +11,8 @@ var wf={
         return Object.prototype.toString.call(arr) === "[object Array]"
     }
 }
+/** 注释
+ *
+ * @param {Number} tIndex 开始时间
+ * @param {Number} c 当前时间
+ */
