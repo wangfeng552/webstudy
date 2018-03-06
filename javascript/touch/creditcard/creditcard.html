@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>信用卡优惠</title>
+    <script src="./static/rem.js"></script>
+    <link rel="stylesheet" href="./static/creditcard.css"/>
+</head>
+
+<body data-sharemode="true" data-spm="100224">
+<div id="loading" style="display: none;">
+    <div class="spinner">
+        <div class="spinner-container container1">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container2">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+        <div class="spinner-container container3">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="circle3"></div>
+            <div class="circle4"></div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <div class="wrapper">
+        <section class="page page1 clearfix">
+            <span class="icon logo"></span>
+            <span class="icon t"></span>
+            <span class="icon st"></span>
+            <div class="content">
+                <p class="title"><span>办信用卡赠</span><b>1000</b>积分</p>
+                <p class="txt">现已开通畅由专属中行、兴业、民生银行信用卡申请通道</p>
+                <p class="txt">成功开卡并首刷兴业银行信用卡或者成功办理民生银行信用卡即可<b>获赠1000积分</b></p>
+                <p class="txt">积分在次月5号前发放至您的畅由账户</p>
+            </div>
+            <a href="/event/2017/1102/index.html" class="btn submit">立即申请</a>
+        </section>
+        <section class="page page2 image">
+            <span class="icon t image"></span>
+            <div class="content">
+                <span class="txt">万龙度假天堂消费满200元立减60元</span>
+                <p class="txt">海底捞消费满200元立减60元</p>
+                <p class="txt">部分持卡用户在加油站类商户消费单卡累计满1000元返现50元</p>
+                <p class="txt">成功办理部分品牌汽车分期业务且分期金额大于等于人民币5万元，可获赠最高600元价值的礼品</p>
+            </div>
+            <a class="btn submit" data-id="P000000446" data-spm="69">立即申请</a>
+        </section>
+        <!--上海银行-->
+        <section class="page page3 image">
+            <span class="icon t image"></span>
+            <div class="content">
+                <p class="txt">新用户刷卡三笔即送价值<strong class="aa">598</strong>元双肩包</p>
+                <p class="txt">每周三星巴克买一赠一</p>
+                <p class="txt">每周五COSTA咖啡买一赠一</p>
+                <p class="txt">每周五天天果园满100立减30元</p>
+            </div>
+            <a class="btn submit" data-id="P000001185" data-spm="100167">立即申请</a>
+            <!--https://mbank.bankofshanghai.com/Latte/#/CreditHot?YLLink=450026-->
+        </section>
+        <!--兴业-->
+        <section class="page page4 image">
+            <span class="icon t image"></span>
+            <div class="content">
+                <p class="txt">盒马鲜生满88立减18 </p>
+                <p class="txt">香天下/王品牛排/wagas/BAKER&SPICE/满记甜品/一风堂/沁园到店刷卡立享五折</p>
+                <span class="txt">屈臣氏满100元最高优惠30元</span>
+                <p class="txt">百果园满50元立减10元优惠</p>
+                <p class="txt">好利来满30立减10</p>
+                <span class="txt">太平洋咖啡满28立减20</span>
+                <p class="txt">爱茜茜里享单品8元专享价</p>
+
+            </div>
+            <a class="btn submit" data-id="P000000447" data-spm="70">立即申请</a>
+        </section>
+        <!--民生银行-->
+        <section class="page page5 image">
+            <span class="icon t image"></span>
+            <div class="content">
+                <p class="txt">境外指定消费，单月累计满1000美元可享最高80美元返现，单月累计满5000美元，超额部分返10%</p>
+                <p class="txt">每周五至周日，淘票票购买电影票，单笔满30立减15</p>
+                <p class="txt">在12306的APP购票中银联在线支付满30元最高立减30元</p>
+                <span class="txt">东航官方渠道购票银联在线支付满500元，每月18日立减62元，每周二、六立减20元</span>
+                <p class="txt">每周二、六9:00-23:59，神州专车iOS客户端Apple Pay支付充100元送20元，支付100元减20元</p>
+            </div>
+            <a class="btn submit" data-id="P000000681" data-spm="100066">立即申请</a>
+        </section>
+    </div>
+</div>
+<a class="icon" id="next"></a>
+<script src="./static/zepto.min.js"></script>
+<script src="./static/common.js"></script>
+<script>
+    document.querySelector('.main').style.top = !browserUtil.weixin ? '.88rem' : 0;
+    var fontSize = parseInt(document.documentElement.style.fontSize.replace('px', ''));
+    document.documentElement.style.fontSize = (!browserUtil.weixin && !browserUtil.jfmore ? fontSize * 0.9 : fontSize) + 'px';
+
+    var api = {
+        adBank: '/pointgate/service/ad/recommend',
+        getScore: '/pointgate/creditScore/getScore'
+    }
+    var cr = {
+        data: {}, //存储银行链接
+        param: {
+            isclick: false,
+            ismoving: false,
+            setId: ''
+        }, //全局变量
+        checkLogin: function () {
+            //验证登录与否
+            if (!userUtil.check()) {
+                userUtil.checkLogin(location.href);
+                return false;
+            } else {
+                return true;
+            }
+        },
+        ad_bank: function (fn) {
+            var _self = this;
+            cui.ajax({
+                url: api.adBank,
+                data: {
+                    keyId: 'CreditApplyTest_1102-1'
+                },
+                success: function (data) {
+                    data = data.data;
+                    for (i in data) {
+                        _self.data[data[i].id] = data[i].adUrl;
+                    }
+                }
+            });
+        },
+        cc_check: function (id, btn) {
+            var _self = this,
+              download_link = {
+                  ios_appstore: 'https://itunes.apple.com/cn/app/%E7%95%85%E7%94%B1-%E7%95%85%E6%84%8F%E4%BA%BA%E7%94%9F-%E7%94%B1%E6%AD%A4%E8%80%8C%E7%94%9F/id1284042183?mt=8',
+                  android_appstore: 'market://details?id=com.centchain.changyo',
+                  android_apk: 'http://m.changyoyo.com/appversion/Alliance1.2.4_Build124_2017-11-17_release_1.apk',
+                  tencent_appstore: 'http://android.myapp.com/myapp/detail.htm?apkName=com.centchain.changyo&ADTAG=mobile'
+              },
+              app_changyodai = 'native://user?action=loan',
+              scoreLimit = 500;
+            cui.ajax({
+                url: api.getScore,
+                data: {
+                    login_token: cookieUtil.get('login_token')
+                },
+                success: function (data) {
+                    _self.param.isclick = false;
+                    if (data.respCode === '0000') {
+                        //已评分
+                        if (data.data.creditScore >= scoreLimit) {
+                            location.href = !id ? btn.attributes['href'].value : _self.data[id];
+                        } else {
+                            cui.confirmPop({
+                                title: '您的信用分不足' + scoreLimit + '，快去<a href="/credit/">“提分技巧”</a>查看攻略吧~',
+                                close: {
+                                    show: true
+                                }
+                            });
+                        }
+                    } else if (data.respCode === 'U005' || data.respCode === 'U004') {
+                        //未评分
+                        cui.confirmPop({
+                            title: '您尚未评测信用分<a href="/credit/dist/toMeasuring.html">前往评测</a>',
+                            close: {
+                                show: true
+                            }
+                        });
+                    } else {
+                        cui.alert(data.respMsg);
+                    }
+                }
+            });
+        },
+        action: function () {
+            var _self = this,
+              $submit = document.querySelectorAll('.submit'),
+              len = $submit.length;
+            for (var i = 0; i < len; i++) {
+                $submit[i].addEventListener('click', function (e) {
+                    clearTimeout(_self.param.setId);
+                    _self.param.setId = setTimeout(function () {
+                        if (!_self.param.isclick) {
+                            _self.param.isclick = true;
+                            _self.checkLogin() ? _self.cc_check(e.target.attributes['data-id'] ? e.target.attributes['data-id'].value : '', e.target) : _self.param.isclick = false;
+                        }
+                    }, 200);
+                });
+            }
+        },
+        slide: function () {
+            var _self = this;
+            var $w = document.querySelector('.wrapper'),
+              $s = document.querySelectorAll('section'),
+              index = 0,
+              startY = 0,
+              endY = 0,
+              len = $s.length;
+            $w.style.height = len + '00%';
+            $s.forEach(function (e) {
+                e.style.height = 1 / len * 100 + '%';
+            });
+            $w.addEventListener('touchstart', function (e) {
+                _self.param.ismoving = false;
+                startY = e.touches[0].pageY;
+            });
+            $w.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+                _self.param.ismoving = true;
+                clearTimeout(_self.param.setId);
+            });
+            $w.addEventListener('touchend', function (e) {
+                endY = e.changedTouches[0].pageY;
+                var moveY = endY - startY;
+                Math.abs(moveY) > 50 ? _self.param.ismoving = true : _self.param.ismoving = false;
+                if (_self.param.ismoving) {
+                    _self.param.isclick = true;
+                    _self.param.ismoving = false;
+                    if (moveY > 0) {
+                        index--;
+                        if (index < 0) {
+                            index = 0;
+                        }
+                    } else {
+                        index++;
+                        if (index > len - 1) {
+                            index = len - 1;
+                        }
+                    }
+                    moveAction(index);
+                } else {
+                    _self.param.isclick = false;
+                }
+            });
+
+            function moveAction(index) {
+                document.getElementById('next').style.display = index === len - 1 ? 'none' : 'block';
+                $w.style.top = '-' + index + '00%';
+                var $page = document.querySelector('.page' + (index + 1)),
+                  $img = document.querySelector('.page' + (index + 1) + ' .image');
+                if (!/active/.test($page.className)) {
+                    $page.className += ' active';
+                    $img ? $img.className += ' active' : '';
+                }
+            }
+        },
+        loading: function () {
+            var $load = document.getElementById('loading');
+            $load.style.opacity = 0;
+            setTimeout(function () {
+                $load.outerHTML = '';
+            }, 300);
+        },
+        init: function () {
+            //引导关注
+            window.g = window.g || {};
+            g.followme = true;
+            //引导关注end
+            window._shareData = {
+                title: {
+                    wechat: "办信用卡赠1000积分", //分享给微信好友 title
+                    othTitle: '办信用卡赠1000积分' //分享其它七个的title
+                },
+                content: '畅由平台专属申请通道，卡种多、审核快、通过率高',
+                shareurl: location.origin + '/event/2017/creditcard/creditcard.html',
+                imageurl: location.origin + '/event/2017/creditcard/static/images/share.jpg'
+            }
+            this.slide();
+            this.action();
+            this.ad_bank();
+        }
+    }
+    //	cr.checkLogin();
+
+    if (!Array.prototype.forEach) {
+        Array.prototype.forEach = function forEach(callback) {
+            var len = this.length;
+            if (typeof callback != "function") {
+                throw new TypeError();
+            }
+            var thisArg = arguments[1];
+            for (var i = 0; i < len; i++) {
+                if (i in this) {
+                    callback.call(thisArg, this[i], i, this);
+                }
+            }
+        }
+    }
+    window.onload = function () {
+        if (!browserUtil.weixin) {
+            document.querySelector('.wrapper').className += ' h5';
+        }
+        cr.loading();
+        document.querySelector('.wrapper').style.display = 'block';
+        cr.init();
+    }
+</script>
+</body>
+
+</html>

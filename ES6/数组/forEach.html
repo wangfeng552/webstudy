@@ -67,6 +67,22 @@ database.users.forEach(  // database.users中人遍历
       newArr.push(arr[i-1])
     }
   })
+
+	//如果没有forEach添加功能
+  if ( !Array.prototype.forEach) {
+      Array.prototype.forEach = function forEach(callback) {
+          var len = this.length;
+          if(typeof callback != "function") {
+              throw new TypeError();
+          }
+          var thisArg = arguments[1];
+          for(var i = 0; i < len; i++) {
+              if(i in this) {
+                  callback.call(thisArg, this[i], i, this);
+              }
+          }
+      }
+  }
 </script>
 </body>
 </html>

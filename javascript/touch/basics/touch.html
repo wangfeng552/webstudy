@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="inp">
+    asdfasfasdf
+    asdfasdf
+</div>
+<script>
+    function load() {
+        document.addEventListener('touchstart',touch,false);
+        document.addEventListener('touchmove',touch,false);
+        document.addEventListener('touchend',touch,false);
+
+        function touch(event) {
+            var event =event || window.event;
+            var oInp = document.getElementById('inp');
+            var distance,clientX_start,clientX_end,
+              minRang =10;
+            this.clientX_start;
+            this.direction;
+            this.callbackFun =function () {
+                if(this.direction == 'ltr'){
+                    console.log('从左往右')
+                }
+                else{
+                    console.log('从右往左');
+                }
+            }
+            switch(event.type){
+                case "touchstart":
+                    console.log(1);
+                    break;
+                case "touchend":
+                    console.log(2);
+                    break;
+                case "touchmove":
+                    console.log(3);
+                    break
+            }
+
+        }
+    }
+    window.addEventListener('load',load, false);
+</script>
+</body>
+</html>
