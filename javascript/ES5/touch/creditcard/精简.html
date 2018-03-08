@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>信用卡优惠</title>
+    <script src="./static/rem.js"></script>
+</head>
+<body>
+<style>
+    body {
+        font-family: 'PingFang', Arial;
+        overflow: hidden;
+    }
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    a {
+        text-decoration: none
+    }
+
+    img {
+        max-width: 100%
+    }
+
+    .clearfix:before, .clearfix:after {
+        content: '';
+        clear: both;
+        display: block;
+        width: 0;
+        height: 0
+    }
+
+    .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 400%; /*定义整体高度*/
+        overflow: hidden;
+        -webkit-transition: top .6s ease-in-out;
+        transition: top .6s ease-in-out;
+    }
+
+    .list {
+        height: 25%; /*平均等分*/
+    }
+
+    /**/
+    .list li {
+        font-size: .2rem;
+    }
+</style>
+<div class="wrapper">
+    <div class="list">
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+    </div>
+    <div class="list">
+        <li>111111111</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+    </div>
+    <div class="list">
+        <li>222222sldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+    </div>
+    <div class="list">
+        <li>333df</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+        <li>sdafasldfkas lasdjf l asldfj asldf</li>
+    </div>
+</div>
+<script>
+    var activity = {
+        init: function () {
+            this.slide();
+        },
+        param: {
+            isClick: false,
+            isMoveing: false,
+            setId: ''
+        },
+        slide: function () {
+            var _self = this;
+            var $w = document.querySelector('.wrapper'),
+              $list = document.querySelectorAll('.list'),
+              index = 0,
+              startY = 0,
+              endY = 0,
+              len = $list.length;
+            $w.addEventListener('touchstart',function (e) {
+                _self.param.isMoveing = false;
+                startY = e.touches[0].pageY;
+                console.log(startY)
+            })
+            $w.addEventListener('touchmove',function (e) {
+                e.preventDefault();
+                _self.param.ismoving = true;
+            })
+            $w.addEventListener('touchend',function (e) {
+                endY =e.changedTouches[0].pageY;
+                var moveY=endY-startY;
+                Math.abs(moveY)>50?_self.param.isMoveing = true : _self.param.isMoveing =false;
+                if(_self.param.isMoveing){
+                    _self.param.isClick = true;
+                    _self.param.isMoveing =false;
+                    if(moveY>0){
+                        index--;
+                        if(index <0){
+                            index =0
+                        }
+                    }else{
+                        index++
+                        if(index >len-1){
+                            index =len -1
+                        }
+                    }
+                $w.style.top='-'+index +"00%"
+                }else{
+                    _self.param.isClick = false;
+                }
+            })
+
+        }
+    }
+    window.onload = function () {
+        activity.init();
+    }
+</script>
+</body>
+</html>

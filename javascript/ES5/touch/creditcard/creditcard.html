@@ -10,29 +10,7 @@
     <link rel="stylesheet" href="./static/creditcard.css"/>
 </head>
 
-<body data-sharemode="true" data-spm="100224">
-<div id="loading" style="display: none;">
-    <div class="spinner">
-        <div class="spinner-container container1">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="circle4"></div>
-        </div>
-        <div class="spinner-container container2">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="circle4"></div>
-        </div>
-        <div class="spinner-container container3">
-            <div class="circle1"></div>
-            <div class="circle2"></div>
-            <div class="circle3"></div>
-            <div class="circle4"></div>
-        </div>
-    </div>
-</div>
+<body>
 <div class="main">
     <div class="wrapper">
         <section class="page page1 clearfix">
@@ -99,106 +77,20 @@
     </div>
 </div>
 <a class="icon" id="next"></a>
-<script src="./static/zepto.min.js"></script>
 <script src="./static/common.js"></script>
 <script>
     document.querySelector('.main').style.top = !browserUtil.weixin ? '.88rem' : 0;
     var fontSize = parseInt(document.documentElement.style.fontSize.replace('px', ''));
     document.documentElement.style.fontSize = (!browserUtil.weixin && !browserUtil.jfmore ? fontSize * 0.9 : fontSize) + 'px';
 
-    var api = {
-        adBank: '/pointgate/service/ad/recommend',
-        getScore: '/pointgate/creditScore/getScore'
-    }
     var cr = {
-        data: {}, //存储银行链接
         param: {
             isclick: false,
             ismoving: false,
             setId: ''
-        }, //全局变量
-        checkLogin: function () {
-            //验证登录与否
-            if (!userUtil.check()) {
-                userUtil.checkLogin(location.href);
-                return false;
-            } else {
-                return true;
-            }
         },
-        ad_bank: function (fn) {
-            var _self = this;
-            cui.ajax({
-                url: api.adBank,
-                data: {
-                    keyId: 'CreditApplyTest_1102-1'
-                },
-                success: function (data) {
-                    data = data.data;
-                    for (i in data) {
-                        _self.data[data[i].id] = data[i].adUrl;
-                    }
-                }
-            });
-        },
-        cc_check: function (id, btn) {
-            var _self = this,
-              download_link = {
-                  ios_appstore: 'https://itunes.apple.com/cn/app/%E7%95%85%E7%94%B1-%E7%95%85%E6%84%8F%E4%BA%BA%E7%94%9F-%E7%94%B1%E6%AD%A4%E8%80%8C%E7%94%9F/id1284042183?mt=8',
-                  android_appstore: 'market://details?id=com.centchain.changyo',
-                  android_apk: 'http://m.changyoyo.com/appversion/Alliance1.2.4_Build124_2017-11-17_release_1.apk',
-                  tencent_appstore: 'http://android.myapp.com/myapp/detail.htm?apkName=com.centchain.changyo&ADTAG=mobile'
-              },
-              app_changyodai = 'native://user?action=loan',
-              scoreLimit = 500;
-            cui.ajax({
-                url: api.getScore,
-                data: {
-                    login_token: cookieUtil.get('login_token')
-                },
-                success: function (data) {
-                    _self.param.isclick = false;
-                    if (data.respCode === '0000') {
-                        //已评分
-                        if (data.data.creditScore >= scoreLimit) {
-                            location.href = !id ? btn.attributes['href'].value : _self.data[id];
-                        } else {
-                            cui.confirmPop({
-                                title: '您的信用分不足' + scoreLimit + '，快去<a href="/credit/">“提分技巧”</a>查看攻略吧~',
-                                close: {
-                                    show: true
-                                }
-                            });
-                        }
-                    } else if (data.respCode === 'U005' || data.respCode === 'U004') {
-                        //未评分
-                        cui.confirmPop({
-                            title: '您尚未评测信用分<a href="/credit/dist/toMeasuring.html">前往评测</a>',
-                            close: {
-                                show: true
-                            }
-                        });
-                    } else {
-                        cui.alert(data.respMsg);
-                    }
-                }
-            });
-        },
-        action: function () {
-            var _self = this,
-              $submit = document.querySelectorAll('.submit'),
-              len = $submit.length;
-            for (var i = 0; i < len; i++) {
-                $submit[i].addEventListener('click', function (e) {
-                    clearTimeout(_self.param.setId);
-                    _self.param.setId = setTimeout(function () {
-                        if (!_self.param.isclick) {
-                            _self.param.isclick = true;
-                            _self.checkLogin() ? _self.cc_check(e.target.attributes['data-id'] ? e.target.attributes['data-id'].value : '', e.target) : _self.param.isclick = false;
-                        }
-                    }, 200);
-                });
-            }
+        init: function () {
+            this.slide();
         },
         slide: function () {
             var _self = this;
@@ -214,26 +106,30 @@
             });
             $w.addEventListener('touchstart', function (e) {
                 _self.param.ismoving = false;
-                startY = e.touches[0].pageY;
+                startY = e.touches[0].pageY; // 触摸目标在页面中的y坐标
+//                var clientY=e.touches[0].clientY;  触摸目标在视口中的x坐标
+//                var screenY = e.touches[0].screenY 触摸目标在屏幕中的y坐标
+
             });
             $w.addEventListener('touchmove', function (e) {
-                e.preventDefault();
+                e.preventDefault(); // 阻止滚动
                 _self.param.ismoving = true;
-                clearTimeout(_self.param.setId);
+//                clearTimeout(_self.param.setId);
             });
             $w.addEventListener('touchend', function (e) {
-                endY = e.changedTouches[0].pageY;
-                var moveY = endY - startY;
-                Math.abs(moveY) > 50 ? _self.param.ismoving = true : _self.param.ismoving = false;
+                endY = e.changedTouches[0].pageY;  // 触摸结束后的页面Y坐标。
+                var moveY = endY - startY; // 判断从上往下？
+                console.log(moveY)
+                Math.abs(moveY) > 50 ? _self.param.ismoving = true : _self.param.ismoving = false;//绝对值>50的滑动
                 if (_self.param.ismoving) {
                     _self.param.isclick = true;
                     _self.param.ismoving = false;
-                    if (moveY > 0) {
+                    if (moveY > 0) { //从上往下
                         index--;
                         if (index < 0) {
                             index = 0;
                         }
-                    } else {
+                    } else {//从下往上
                         index++;
                         if (index > len - 1) {
                             index = len - 1;
@@ -246,43 +142,18 @@
             });
 
             function moveAction(index) {
-                document.getElementById('next').style.display = index === len - 1 ? 'none' : 'block';
+                document.getElementById('next').style.display = index === len - 1 ? 'none' : 'block'; // 判断箭头显示
                 $w.style.top = '-' + index + '00%';
-                var $page = document.querySelector('.page' + (index + 1)),
-                  $img = document.querySelector('.page' + (index + 1) + ' .image');
+                var $page = document.querySelector('.page' + (index + 1)),          // .page5
+                  $img = document.querySelector('.page' + (index + 1) + ' .image'); //.page5 .image
+                //滚动加载图片
                 if (!/active/.test($page.className)) {
                     $page.className += ' active';
                     $img ? $img.className += ' active' : '';
                 }
             }
-        },
-        loading: function () {
-            var $load = document.getElementById('loading');
-            $load.style.opacity = 0;
-            setTimeout(function () {
-                $load.outerHTML = '';
-            }, 300);
-        },
-        init: function () {
-            //引导关注
-            window.g = window.g || {};
-            g.followme = true;
-            //引导关注end
-            window._shareData = {
-                title: {
-                    wechat: "办信用卡赠1000积分", //分享给微信好友 title
-                    othTitle: '办信用卡赠1000积分' //分享其它七个的title
-                },
-                content: '畅由平台专属申请通道，卡种多、审核快、通过率高',
-                shareurl: location.origin + '/event/2017/creditcard/creditcard.html',
-                imageurl: location.origin + '/event/2017/creditcard/static/images/share.jpg'
-            }
-            this.slide();
-            this.action();
-            this.ad_bank();
         }
     }
-    //	cr.checkLogin();
 
     if (!Array.prototype.forEach) {
         Array.prototype.forEach = function forEach(callback) {
@@ -299,11 +170,6 @@
         }
     }
     window.onload = function () {
-        if (!browserUtil.weixin) {
-            document.querySelector('.wrapper').className += ' h5';
-        }
-        cr.loading();
-        document.querySelector('.wrapper').style.display = 'block';
         cr.init();
     }
 </script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    typeof undefined    // =>   "undefined"
+    typeof null         // =>   "object"
+    typeof true         // =>   "boolean"
+    typeof 1234         // =>   "number"
+    typeof "abc"        // =>   "string"
+    typeof function(){} // =>   "function"
+    typeof {}           // =>   "object"
+    typeof []           // =>   "object"
+    typeof unknowVasd   // =>   "undefined"
+
+    function isShow(a,callback) {
+        if(typeof callback == 'function'){
+            callback()
+        }
+    }
+
+    function wf() {
+        console.log('123')
+    }
+    isShow(1,wf)
+
+
+    var bar = null;
+    console.log( bar !== null && typeof bar === 'object') // 判断是否为object
+
+    var bar =[];
+    bar !==null && (typeof bar === 'object') && (toString.call(bar) !== "[object Array]") //对数组返回false
+//    toString.call(bar) !== "[object Array]"
+</script>
+
+<script>
+    var wf={
+        //是否为数组
+        isArray:function (arr) {
+            console.log(Object.prototype.toString.call(123)) //[object Number]
+            console.log(Object.prototype.toString.call('123')) //[object String]
+            console.log(Object.prototype.toString.call(undefined)) //[object Undefined]
+            console.log(Object.prototype.toString.call(true)) //[object Boolean]
+            console.log(Object.prototype.toString.call({})) //[object Object]
+            console.log(Object.prototype.toString.call([])) //[object Array]
+            console.log(Object.prototype.toString.call(function(){})) //[object Function]
+            return Object.prototype.toString.call(arr) === "[object Array]"
+        }
+    }
+</script>
+<script>
+    /** 注释
+     *
+     * @param {Number} tIndex 开始时间
+     * @param {Number} c 当前时间
+     */
+</script>
+</body>
+</html>

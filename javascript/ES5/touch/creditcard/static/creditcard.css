@@ -214,12 +214,12 @@ section {
 .page3 .txt{ line-height: .8rem;}
 .page3 .txt:before{ top:.43rem}
 @-webkit-keyframes next {
-	0 {opacity:1}
+	0% {opacity:1}
 	50% {opacity:.3}
 	100% {opacity:1}
 }
 @keyframes next {
-	0 {opacity:1}
+	0% {opacity:1}
 	50% {opacity:.3}
 	100% {opacity:1}
 }
