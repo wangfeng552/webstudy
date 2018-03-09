@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var myObject = {
+        foo: "bar",
+        func: function() {
+            var self = this;
+            console.log(this.foo); //=>"bar"
+            console.log(self.foo); //=>"bar"
+            (function() {
+                console.log(this.foo);//undefined
+                console.log(self.foo);//=>"bar"
+            }());
+        }
+    };
+    myObject.func();
+
+    /*解释
+    * 在内部函数中, this不再指向myObject。
+    * 其结果是，this.foo 没有在内部函数中被定义，相反，指向到本地的变量 self 保持在范围内，并且可以访问。
+    * （在ECMA 5之前，在内部函数中的this 将指向全局的 window 对象；反之，因为作为ECMA 5，内部函数中的功能this 是未定义的。）*/
+</script>
+</body>
+</html>

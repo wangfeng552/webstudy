@@ -10,7 +10,7 @@
 <script>
 //	Number 对数值类型有效，对非数值类型的参数一律返回false
 
-	isNaN() 	//全称 is not a number 用于判断传入的是否是非数字
+	isNaN() 	//全称 is not a number 用于判断传入的是否是非数值
 	Number.isNaN(2.5) 	//=>false
 	Number.isNaN("SDF")	//=>false		Number下面的isNaN都懒得给字符串’abc’做类型转换，直接返回false
 	// 注意，当返回false的时候，不一定就是一个数值，有可能是一个非数值类型的参数。

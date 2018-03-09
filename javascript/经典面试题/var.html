@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    (function () {
+        var a = b =3;
+    })()
+    console.log(typeof a == 'undefined')  //=>true
+    console.log(typeof b == 'undefined')  //=>false
+
+   /* 解释
+    b = 3;  变量b声明是不加关键字var的，也就是说变量b是全局变量（隐式全局变量）。
+    var a = b;
+    在严格模式下（使用 use strict），又会是什么结果？
+    报错:b is not undefined
+    */
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+NaN '不是数字'
+<script>
+//    虽然NaN意味着'不是数字'，但是它的类型，是Number
+    typeof NaN   //=> 'number'
+
+//    NaN和任何东西比较，甚至是它自己本身，结果是false
+    NaN === NaN  //=> false
+
+//ES6提供新的函数
+    Number.isNaN()
+
+    var a="sdaf";
+    var b=12
+    var isTrue=Number.isNaN(a)
+    var isType=typeof a === 'number'
+
+    if(!isTrue && isType){
+        console.log(123)
+    }else{
+        console.log('非数值')
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <title>jQuery手机端中奖领取抽奖代码 - 站长素材</title>
+
+    <link href="css/layer.css" rel="stylesheet" type="text/css"/>
+    <script src="js/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <style>
+        *, :after, :before {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            padding-top: 3em;
+        }
+
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .draw {
+            width: 560px;
+            height: 600px;
+            margin: 0 auto;
+            padding: 51px;
+            background-image: url(images/bg.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .draw .item {
+            width: 150px;
+            height: 150px;
+            background-image: url(images/bg1.png);
+            background-repeat: no-repeat;
+            background-size: 96%;
+        }
+
+        .draw .item.active {
+            background-image: url(images/bg2.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .draw .img {
+            display: table-cell;
+            width: 150px;
+            height: 61px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .draw .img img {
+            vertical-align: top;
+        }
+
+        .draw .gap {
+            width: 5px;
+        }
+
+        .draw .gap-2 {
+            height: 5px;
+        }
+
+        .draw .name {
+            display: block;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .draw .draw-btn {
+            display: block;
+            height: 150px;
+            line-height: 150px;
+            border-radius: 20px;
+            font-size: 25px;
+            font-weight: 700;
+            text-decoration: none;
+            background-image: url(images/bg3.png);
+            background-repeat: no-repeat;
+            background-size: 96%;
+        }
+    </style>
+
+</head>
+<body ng-app="mainApp" ng-controller="indexCtrl" style="background: #f02d2f;">
+
+<div class="headerWrapper container-fluid">
+
+</div>
+
+<main style="background: #f02d2f;">
+    <div class="draw" id="lottery">
+        <table>
+            <tr>
+                <td class="item lottery-unit lottery-unit-0">
+                    <div class="img">
+                        <img src="images/img1.png" alt="">
+                    </div>
+                    <span class="name">终身VIP会员</span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-1">
+                    <div class="img">
+                        <img src="images/img2.png" alt="">
+                    </div>
+                    <span class="name">三年VIP会员</span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-2">
+                    <div class="img">
+                        <img src="images/img3.png" alt="">
+                    </div>
+                    <span class="name">半年VIP会员</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="gap-2" colspan="5"></td>
+            </tr>
+            <tr>
+                <td class="item lottery-unit lottery-unit-7">
+                    <div class="img">
+                        <img src="images/img4.png" alt="">
+                    </div>
+                    <span class="name">399元充值卡一张</span>
+                </td>
+                <td class="gap"></td>
+                <td class="">
+                    <a class="draw-btn" href="javascript:"></a>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-3">
+                    <div class="img">
+                        <img src="images/img5.png" alt="">
+                    </div>
+                    <span class="name">100元充值卡一张</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="gap-2" colspan="5"></td>
+            </tr>
+            <tr>
+                <td class="item lottery-unit lottery-unit-6">
+                    <div class="img">
+                        <img src="images/img7.png" alt="">
+                    </div>
+                    <span class="name">免费体验一次</span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-5">
+                    <div class="img">
+                        <img src="images/img6.png" alt="">
+                    </div>
+                    <span class="name">九折优惠券一张</span>
+                </td>
+                <td class="gap"></td>
+                <td class="item lottery-unit lottery-unit-4">
+                    <div class="img">
+                        <img src="images/img8.png" alt="">
+                    </div>
+                    <span class="name">参与大礼包一份</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</main>
+
+<script type="text/javascript">
+    (function () {
+        var lottery={
+            index: -1, //当前转动到哪个位置，起点位置
+            count: 0, //总共有多少个位置
+            timer: 0, //setTimeout的ID，用clearTimeout清除
+            speed: 20, //初始转动速度
+            times: 0, //转动次数
+            cycle: 2, //转动基本次数：即至少需要转动多少次再进入抽奖环节
+            prize: -1, //中奖位置
+            isClick: false,
+            init: function (id) {
+                var self =this;
+                if ($('#' + id).find('.lottery-unit').length > 0) {
+                    $lottery = $('#' + id);
+                    $units = $lottery.find('.lottery-unit');
+                    this.obj = $lottery;
+                    this.count = $units.length;
+                    $lottery.find('.lottery-unit.lottery-unit-' + this.index).addClass('active');
+                }
+                $('.draw-btn').click(function () {
+                    if (self.isClick) { //click控制一次抽奖过程中不能重复点击抽奖按钮，后面的点击不响应
+                        return false;
+                    } else {
+                        self.speed = 100;
+                        self.roll(); //转圈过程不响应click事件，会将click置为false
+                        self.isClick = true; //一次抽奖完成后，设置click为true，可继续抽奖
+                        return false;
+                    }
+                });
+            },
+            rollActive: function () {
+                var index = this.index;
+                var count = this.count;
+                console.log(index)
+                var lottery = this.obj;
+                $(lottery).find('.lottery-unit.lottery-unit-' + index).removeClass('active');
+                index += 1;
+                if (index > count - 1) {
+                    index = 0;
+                }
+                $(lottery).find('.lottery-unit.lottery-unit-' + index).addClass('active');
+                this.index = index;
+                return false;
+            },
+            stop: function (index) {
+                this.prize = index;
+                return false;
+            },
+            roll: function () {
+                var self = this;
+                self.times += 1;
+                self.rollActive(); //转动过程调用的是lottery的roll方法，这里是第一次调用初始化
+
+                if (self.times > self.cycle + 10 && self.prize == self.index) {
+                    clearTimeout(self.timer);
+                    console.log('1231')
+                    console.log(self.prize)
+                    self.prize = -1;
+                    self.times = 0;
+                    self.isClick = false; //转圈结束
+                } else {
+                    if (self.times < self.cycle) {
+                        self.speed -= 10;
+                    } else if (self.times == self.cycle) {
+                        var index = Math.random() * (self.count) | 0; //静态演示，随机产生一个奖品序号，实际需请求接口产生
+                        console.log(index + 'asdfasf')
+                        self.prize = index;
+                    } else {
+                        if (self.times > self.cycle + 10 && ((self.prize == 0 && self.index == 7) || self.prize == self.index + 1)) {
+                            self.speed += 110;
+                        } else {
+                            self.speed += 20;
+                        }
+                    }
+                    if (self.speed < 40) {
+                        self.speed = 40;
+                    }
+                    ;
+                    self.timer = setTimeout(function () {
+                        self.roll()
+                    }, self.speed); //循环调用
+                }
+                return false;
+            }
+        };
+        lottery.init('lottery')
+    })()
+</script>
+
+
+<div id='info' style="display : none">
+    <a href=""><img src="images/tk_img.png"></a>
+    <h1>100元</h1>
+</div>
+
+</body>
+</html>
