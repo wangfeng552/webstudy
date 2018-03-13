@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+关于闭包，是一种使函数能够都去其它函数的局部变量的语法机制
+<script>
+    function outFunc(){
+        var name = "前端军";
+        function inFunc() {
+            console.log(name)
+        }
+        return inFunc;
+    }
+    outFunc()() //=> "前端军"
+</script>
+
+<script>
+//    闭包应用举例：模拟类的私有属性。看下面的例子。
+    function User() {
+        this.name = "前端君"; //公有属性
+        var age = 23; //私有属性
+        this.sayAge = function () {
+            console.log("my age is " + age)
+        }
+    }
+    var user =new User();
+
+    user.name   // => "前端君"
+    user.age    //=> undefined
+    user.sayAge() //=>"my age is 23"
+
+</script>
+</body>
+</html>

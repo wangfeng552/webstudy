@@ -24,3 +24,5 @@ ctrl+shift+F	目录内代码批量查找
 ctrl + []:		匹配 {}[]
 ctrl + shift + ]/[: 	选中块代码<table>....</table>
 alt + left/right:	标签切换
+ctrl+tab		切换代码选项卡（还要进行此选择，效率差些）
+alt+←/→		切换代码选项卡
