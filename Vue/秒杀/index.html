@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link type="text/css" href="css/reset.css" rel="stylesheet" />
+    <link type="text/css" href="css/main.css" rel="stylesheet" />
+    <script src="/static/js/common/browser.js"></script>
+    <title>幸运夺金</title>
+</head>
+
+<body data-sharemode="true" data-spm="100294">
+    <div id="app" v-cloak>
+        <!-- 秒杀 -->
+        <div class="seckill">
+          <div>
+            <img src="img/seckill.jpg" alt="">
+            <ul class="field-time">
+              <li :class={'field-time-current':index==tabIndex&&index==currentIndex,'end-bg-color':index==tabIndex&&currentClass==0,'future-bg-color':index==tabIndex&&currentClass==1} v-for="(item,index) in fieldTime" :key="index" v-html="item.text" @click=onTabs(index)></li>
+            </ul>
+          </div>
+          <div>
+            <div v-if="tabIndex == currentIndex">
+              <div v-if="currentClass==2" class="instruction">
+                <p>活动进行中</p>
+                <p class="w">距结束 <span>{{showTime}}</span></p>
+              </div>
+              <div v-if="currentClass==1" class="instruction">
+                <p>该场次暂未开始</p>
+                <p class="w">距开始 <span>{{showTime}}</span></p>
+              </div>
+            </div>
+            <div v-else-if="tabIndex > currentIndex" class="instruction">
+              <p>该场次暂未开始</p>
+              <p class="w">距开始 <span>{{showTime}}</span></p>
+            </div>
+            <div v-else="tabIndex < currentIndex" class="instruction">
+              <p>该场次已结束</p>
+            </div>
+          </div>
+          <div class="content">
+            <ul class="goodsDetail">
+                <li>
+                    <div class="list" v-for="(item,index) in products" :key="index">
+                        <div class="pro-img">
+                            <img :src="item.img" alt="">
+                        </div>
+                        <div class="pro-detail">
+                            <p class="pro-title">
+                                {{item.title}}
+                            </p>
+                            <div class="pro-price">
+                                <span v-html="item.priceHtml"></span>
+                                <del>{{item.marketPrice}}<i>元</i></del>
+                            </div>
+                            <a :href="item.link" class="pro-btn">
+                                <div v-if="tabIndex == currentIndex">
+                                    <p  class="btn-buy" v-if="currentClass==2 && item.storeCount>0">立即抢购</p>
+                                    <p class="btn-over" v-if="currentClass==2 && item.storeCount<=0">已售罄</p>
+                                    <p class="btn-before" v-if="currentClass==1">未开始</p>
+                                </div>
+                                <div class="btn-before" v-else-if="tabIndex > currentIndex">
+                                    <p>未开始</p>
+                                </div>
+                                <div class="btn-end" v-else="tabIndex < currentIndex">
+                                    <p>已结束</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script src="/static/js/common/template.js"></script>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      fieldTime: [], // 时间列表
+      tabIndex: 3,   // tab位置
+      currentIndex: 4,//当前高亮位置
+      currentClass: null,//0 结束 1 马上开始 2 开始
+      showTime: null,
+      clearTimer: null,
+      watchClearTimer: null,
+      watchSaleFlag: 0,
+      products: [], //商品列表
+      day: 1,    //活动第几天
+      serverDate: '' // 服务器返回的时间
+    },
+    created() {
+      this.init(false);
+    },
+    methods: {
+      init: function (v) {
+        var _this = this;
+        ajaxUtil.currTime(function (res) {
+          if (res) {
+            _this.serverDate = res.getTime();
+            var result = _this.getCurrentDate(v);
+            _this.day = _this.diff(v);
+            var day = _this.day * 4;
+            console.log('活动第'+_this.day+'天');
+            _this.fieldTime = [
+              {text: '  &nbsp;' + result.month + '<br>08:00', timeStamp: _this.s('' + result.year + ' 08:00:00'), endTime: _this.s('' + result.year + ' 12:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 3)},
+              {text: '  &nbsp;' + result.month + '<br>12:00', timeStamp: _this.s('' + result.year + ' 12:00:00'), endTime: _this.s('' + result.year + ' 16:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 2)},
+              {text: '  &nbsp;' + result.month + '<br>16:00', timeStamp: _this.s('' + result.year + ' 16:00:00'), endTime: _this.s('' + result.year + ' 20:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 1)},
+              {text: '  &nbsp;' + result.month + '<br>20:00', timeStamp: _this.s('' + result.year + ' 20:00:00'), endTime: _this.s('' + result.year + ' 23:59:59'), keyId: 'Feb_Activity_Sale_' + day}
+            ]
+            _this.getProduct();
+          }
+        })
+      },
+      getCurrentTime: function (t) {
+        var _this = this;
+        ajaxUtil.currTime(function (res) {
+          _this.interval(res.getTime(), t);
+        })
+      },
+      getCurrentDate: function (v) {
+        // 动态计算毫秒
+        var d = v ? new Date(this.serverDate + (1000 * 60 * 60 * 24)) : new Date(this.serverDate);
+        return {
+          month: d.getDate() + '&nbsp;日',
+          year: d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate()
+        }
+      },
+      s: function (v) {
+        return new Date(v).getTime();
+      },
+      diff: function (v) {
+        // 计算活动进行到第几天
+        var d = v ? this.serverDate + (1000 * 60 * 60 * 24) : this.serverDate;
+        // 服务器时间-活动开始时间
+        return parseInt(Math.ceil((d - new Date('2018/03/14'))) / (1000 * 60 * 60 * 24) + 1);
+      },
+      getProduct: function (t) {
+        this.getCurrentTime(t);
+      },
+      getProductList: function (keyID) {
+        var _this = this;
+        ajaxUtil.loadComGoods(keyID, function (res) {
+          _this.products = res;
+        }, '/pointgate/service/panicBuying/goodsList', '/mall/#/flashSale?productId=')
+
+      },
+      interval: function (currentTime, t) {
+        var time = null
+        _this = this;
+
+        function common(v, b) {
+          time = _this.fieldTime[v].timeStamp;
+          _this.currentIndex = _this.tabIndex = v;
+          _this.currentClass = 1;
+          if (b && currentTime > _this.fieldTime[v].timeStamp) {
+            time = _this.fieldTime[v].endTime;
+            _this.currentClass = 2;
+          }
+        }
+
+        if (t) {
+          time = t;
+        } else if (currentTime < this.fieldTime[0].timeStamp) {
+          common(0, false);
+        } else if (currentTime < this.fieldTime[0].endTime) {
+          common(0, true);
+        } else if (currentTime < this.fieldTime[1].endTime) {
+          common(1, true);
+        } else if (currentTime < this.fieldTime[2].endTime) {
+          common(2, true);
+        } else if (currentTime <= this.fieldTime[3].endTime) {
+          common(3, true);
+        } else if (this.day < 19) {
+          this.init(true);
+          common(0, false);
+          return;
+        } else {
+          this.tabIndex = 3;
+          this.currentIndex = 4;
+          this.currentClass = 0;
+          this.getProductList(this.fieldTime[this.tabIndex].keyId)
+          return;
+        }
+        this.getProductList(this.fieldTime[this.tabIndex].keyId);
+        this.countDown(time, currentTime);
+      },
+      countDown: function (date, currentTime) {
+        var _this = this;
+        var setTime = +date;// 活动时间
+        var countTime = +currentTime;// 防止时间篡改
+        core(_this);
+
+        function core(_this) {
+          var nowTime = countTime += 1000,
+            times,
+            leftTime = 0,
+            d = 0, h = 0, m = 0, s = 0;
+          times = setTime;
+          leftTime = Math.ceil((setTime - nowTime) / 1000);
+          if (nowTime <= times) {
+            d = ~~(leftTime / 86400);
+            h = (~~(leftTime % 86400 / 3600)) < 10 ? '0' + (~~(leftTime % 86400 / 3600)) : ~~(leftTime % 86400 / 3600);
+            m = (~~(leftTime % 86400 % 3600 / 60)) < 10 ? '0' + (~~(leftTime % 86400 % 3600 / 60)) : ~~(leftTime % 86400 % 3600 / 60);
+            s = (~~(leftTime % 86400 % 3600 % 60)) < 10 ? '0' + (~~(leftTime % 86400 % 3600 % 60)) : ~~(leftTime % 86400 % 3600 % 60);
+            if (d == 0) {
+              _this.showTime = h + ':' + m + ':' + s;
+            } else {
+              _this.showTime = d + '天' + h + ':' + m + ':' + s;
+            }
+            _this.clearTimer = setTimeout(function () {
+              core(_this)
+            }, 1e3);
+          } else {
+            _this.showTime = '00:00:00';
+            clearTimeout(_this.clearTimer);
+            _this.clearTimer = null;
+            _this.watchSaleFlag++;
+          }
+        }
+      },
+      onTabs: function (i) {
+        this.tabIndex = i;
+        if (i == this.currentIndex) {
+          clearTimeout(this.clearTimer);
+          this.getProduct();
+        } else if (i < this.currentIndex) {
+          this.currentClass = 0;
+          this.getProductList(this.fieldTime[i].keyId)
+        } else {
+          this.currentClass = 1;
+          clearTimeout(this.clearTimer);
+          this.getProduct(this.fieldTime[i].timeStamp);
+        }
+      },
+      login: function(){
+        userUtil.checkLogin(location.href)
+      },
+      closed: function(){
+        this.tip3 = false;
+        this.tip4 = false;
+        this.tip5 = false;
+      },
+    },
+    watch: {
+      watchSaleFlag: function () {
+        // 解决误差 1000毫秒
+        var _this = this;
+        clearTimeout(this.watchClearTimer);
+        this.watchClearTimer = setTimeout(function () {
+          _this.init();
+        }, 1000)
+      }
+    }
+  })
+
+</script>
+
+</html>
