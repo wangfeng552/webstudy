@@ -17,7 +17,11 @@
           <div>
             <img src="img/seckill.jpg" alt="">
             <ul class="field-time">
-              <li :class={'field-time-current':index==tabIndex&&index==currentIndex,'end-bg-color':index==tabIndex&&currentClass==0,'future-bg-color':index==tabIndex&&currentClass==1} v-for="(item,index) in fieldTime" :key="index" v-html="item.text" @click=onTabs(index)></li>
+              <li :class={'field-time-current':index==tabIndex&&index==currentIndex,'end-bg-color':index==tabIndex&&currentClass==0,'future-bg-color':index==tabIndex&&currentClass==1}
+                  v-for="(item,index) in fieldTime"
+                  :key="index"
+                  v-html="item.text"
+                  @click=onTabs(index)></li>
             </ul>
           </div>
           <div>
@@ -102,15 +106,35 @@
         ajaxUtil.currTime(function (res) {
           if (res) {
             _this.serverDate = res.getTime();
-            var result = _this.getCurrentDate(v);
-            _this.day = _this.diff(v);
-            var day = _this.day * 4;
-            console.log('活动第'+_this.day+'天');
+            var result = _this.getCurrentDate(v); // 服务器时间返回 15日和2018/3/15
+            _this.day = _this.diff(v);  // 返回活动第2天  =>_this.day = 2
+            var day = _this.day * 4;    // day = 8
+            console.log('活动第'+_this.day+'天');  //活动第2天
             _this.fieldTime = [
-              {text: '  &nbsp;' + result.month + '<br>08:00', timeStamp: _this.s('' + result.year + ' 08:00:00'), endTime: _this.s('' + result.year + ' 12:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 3)},
-              {text: '  &nbsp;' + result.month + '<br>12:00', timeStamp: _this.s('' + result.year + ' 12:00:00'), endTime: _this.s('' + result.year + ' 16:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 2)},
-              {text: '  &nbsp;' + result.month + '<br>16:00', timeStamp: _this.s('' + result.year + ' 16:00:00'), endTime: _this.s('' + result.year + ' 20:00:00'), keyId: 'Feb_Activity_Sale_' + (day - 1)},
-              {text: '  &nbsp;' + result.month + '<br>20:00', timeStamp: _this.s('' + result.year + ' 20:00:00'), endTime: _this.s('' + result.year + ' 23:59:59'), keyId: 'Feb_Activity_Sale_' + day}
+                {
+                    text: '&nbsp;' + result.month + '<br>08:00',  // tab 文案
+                    timeStamp: _this.s('' + result.year + ' 08:00:00'),  // "2018/3/15 08:00:00"
+                    endTime: _this.s('' + result.year + ' 12:00:00'),
+                    keyId: 'Feb_Activity_Sale_' + (day - 3)
+                },
+                {
+                    text: '  &nbsp;' + result.month + '<br>12:00',
+                    timeStamp: _this.s('' + result.year + ' 12:00:00'),
+                    endTime: _this.s('' + result.year + ' 16:00:00'),
+                    keyId: 'Feb_Activity_Sale_' + (day - 2)
+                },
+                {
+                    text: '  &nbsp;' + result.month + '<br>16:00',
+                    timeStamp: _this.s('' + result.year + ' 16:00:00'),
+                    endTime: _this.s('' + result.year + ' 20:00:00'),
+                    keyId: 'Feb_Activity_Sale_' + (day - 1)
+                },
+                {
+                    text: '  &nbsp;' + result.month + '<br>20:00',
+                    timeStamp: _this.s('' + result.year + ' 20:00:00'),
+                    endTime: _this.s('' + result.year + ' 23:59:59'),
+                    keyId: 'Feb_Activity_Sale_' + day
+                }
             ]
             _this.getProduct();
           }
@@ -119,7 +143,7 @@
       getCurrentTime: function (t) {
         var _this = this;
         ajaxUtil.currTime(function (res) {
-          _this.interval(res.getTime(), t);
+          _this.interval(res.getTime(), t);  // 服务器时间123213123, 点击的开始时间
         })
       },
       getCurrentDate: function (v) {
@@ -201,9 +225,9 @@
             leftTime = 0,
             d = 0, h = 0, m = 0, s = 0;
           times = setTime;
-          leftTime = Math.ceil((setTime - nowTime) / 1000);
-          if (nowTime <= times) {
-            d = ~~(leftTime / 86400);
+          leftTime = Math.ceil((setTime - nowTime) / 1000);  // 返回当前时间和活动时间之间的分钟数
+          if (nowTime <= times) { //当前时间小于活动时间
+            d = ~~(leftTime / 86400);  //
             h = (~~(leftTime % 86400 / 3600)) < 10 ? '0' + (~~(leftTime % 86400 / 3600)) : ~~(leftTime % 86400 / 3600);
             m = (~~(leftTime % 86400 % 3600 / 60)) < 10 ? '0' + (~~(leftTime % 86400 % 3600 / 60)) : ~~(leftTime % 86400 % 3600 / 60);
             s = (~~(leftTime % 86400 % 3600 % 60)) < 10 ? '0' + (~~(leftTime % 86400 % 3600 % 60)) : ~~(leftTime % 86400 % 3600 % 60);
@@ -223,7 +247,7 @@
           }
         }
       },
-      onTabs: function (i) {
+      onTabs: function (i) { //i =tab第几个
         this.tabIndex = i;
         if (i == this.currentIndex) {
           clearTimeout(this.clearTimer);
@@ -239,11 +263,6 @@
       },
       login: function(){
         userUtil.checkLogin(location.href)
-      },
-      closed: function(){
-        this.tip3 = false;
-        this.tip4 = false;
-        this.tip5 = false;
       },
     },
     watch: {
