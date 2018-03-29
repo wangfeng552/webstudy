@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var altwrite =document.write;
+//    altwrite('hello')
+//    altwrite()函数改变this的指向global或window对象，导致执行时报错，正确的方法使用bind()方法
+
+    altwrite.bind(document)('hello')
+    altwrite.call(document,'hello')
+</script>
+</body>
+</html>

@@ -8,7 +8,10 @@ import VueRouter from "vue-router"
 
 //懒加载
 // 通过懒加载就不会一次性把所有组件都加载进来，而是当你访问到那个组件的时候才会加载那一个。对于组件比较多的应用会提高首次加载速度。
-const login = resolve => require(['../components/Addinput'],resolve)
+const login = resolve => require(['../components/Addinput'],resolve)、
+
+const Province = r => require.ensure([], () => r(require('@/components/Province.vue')), 'chunkname1')
+// 1.空数组作为参数
 
 //使用路由
 Vue.use(VueRouter)

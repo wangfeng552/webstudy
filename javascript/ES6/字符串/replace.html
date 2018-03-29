@@ -8,6 +8,9 @@
 <body>
 replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
 stringObject.replace(regexp/substr,replacement)
+replacement 可以是函数
+该函数的第一个参数是匹配模式的字符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有 0 个或多个这样的参数。
+接下来的参数是一个整数，声明了匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身。
 <!--案例1-->
 <script>
 	var str = "打防结合的萨芬撒地方";

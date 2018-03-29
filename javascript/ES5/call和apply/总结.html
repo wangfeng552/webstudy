@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.每个函数都包含2个非继承而来的方法:call()方法和apply()方法。
+2.相同点：这2个方法的作用是一样的。
+<script>
+    //    call()方法示例
+    window.color = 'red'
+    document.color = 'yellow'
+    var s1 = {color: 'blue'}
+
+    function changeColor() {
+        console.log(this.color)
+    }
+    changeColor.call();         //red (默认传递参数)
+    changeColor.call(window);   //red
+    changeColor.call(document); //yellow
+    changeColor.call(this);     //red
+    changeColor.call(s1);       //blue
+
+    //例2
+    var Pet ={
+        words:'...',
+        speak:function (say) {
+            console.log(say + '' + this.words)
+        }
+    }
+    Pet.speak('Speak') //Speak...
+    var Dog ={
+        words:'wang'
+    }
+    // 将this的指向改编成了Dog
+    Pet.speak.call(Dog,'Speak')   //调用Pet对象的speak方法，以Dog对象替换Pet对象
+</script>
+
+<script>
+//    apply()方法示例
+    window.number='one';
+    document.number = 'two';
+    var s2={number:'three'};
+    function changeNumber() {
+        console.log(this.number)
+    }
+    changeNumber.apply()    //one (默认传参)
+    changeNumber.apply(window)//one
+    changeNumber.apply(document) //two
+    changeNumber.apply(this) //one
+    changeNumber.apply(s2) //three
+
+//例2
+    function Animal(words) {
+        this.words = words;
+        this.speak2 = function () {
+            console.log(this.words)
+        }
+    }
+    function Cat(words) {
+//        Animal.call(this,words)       //=> liyang
+        Animal.apply(this,arguments)    //=> liyang
+    }
+    var cat =new Cat('liyang')
+    cat.speak2()
+
+
+</script>
+</body>
+</html>

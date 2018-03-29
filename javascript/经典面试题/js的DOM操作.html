@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+获取(太多了,有document.getElementById/ClassName/Name/TagName 等,或者 querySelector)
+<script>
+    // get Node
+    var element = document.querySelector('#test');
+
+    // 追加
+    element.appendChild(Node);
+
+    // 删除
+    element.removeChild(Node);
+
+    // 查找
+    element.nextSibling // 获取元素之后的兄弟节点 , 会拿到注释文本,空白符这些
+    element.nextElementSibling  // 等同, 获取标签(不会拿到注释文本这些)
+
+    element.previousSibling // 和上面同理,往前找兄弟节点
+    element.previousElementSibling
+
+    // 改动,比如 属性这些
+    element.setAttribute(name, value); // 增加属性
+    element.removeAttribute(attrName); //删除属性
+
+    // 来一个简易的练习题,随便一个网页追加插入一块DOM(非覆盖:不能 innerHTML);
+    /*
+    <div id="test">
+       <span>Hello, World</span>
+    </div>
+    */
+
+    // 以上面的例子为例
+    var test = document.createElement('div');  // 创建一个块级元素
+    test.setAttribute("id","test"); // 设置其id 属性
+    var span = document.createElement('span'); // 创建一个 span
+    span.innerText = "Hello,world"; // 插入 span 的文本内容
+    test.appendChild(span); // 组合节点
+
+    element.appendChild(test); //追加到某个节点区域
+</script>
+</body>
+</html>

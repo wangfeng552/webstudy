@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props</title>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+<body>
+默认 Props
+你可以通过 getDefaultProps() 方法为 props 设置默认值，
+<div id="state"></div>
+
+<script type="text/babel">
+   var HelloMessage = React.createClass({
+       getDefaultProps:function () {
+         return {
+             name:"张三"
+         }
+       },
+       render:function () {
+           return <h1>hello {this.props.name}</h1>
+       }
+   })
+    ReactDOM.render(<HelloMessage/>,document.querySelector('#state'))
+</script>
+</body>
+</html>

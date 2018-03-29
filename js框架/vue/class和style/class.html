@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
 </head>
 <body>
 <div id="app">
-	<div v-for="(v,i) in name" :class="v | filterClass(i)">
-		{{v.age}}{{i}}
-	</div>
+    <ul>
+        <li v-for="(v,i) in name" :class="v | filterClass(i)">{{v.age}}</li>
+    </ul>
 </div>
 <script>
-var Main={
-	data(){
-		return {
-			name:[
-				{age:'25'},
-				{age:'35'},
-				{age:'45'},
-			]
-		}
-	},
-	filters:{
-		filterClass(v,i){
-			if(v.age==25){
-				return 'a1'
-			}else if(v.age==35){
-				return 'a1 a2'
-			}else if(v.age==45){
-				return 'a3'
-			}
-		}
-	}
-}
-var Ctor = Vue.extend(Main)
-new Ctor().$mount('#app')
+    var vm =new Vue({
+        el:"#app",
+        data(){
+            return {
+                name:[
+                    {age:12},
+                    {age:14},
+                    {age:15},
+                ]
+            }
+        },
+        filters:{
+            filterClass(v,i){
+                if(v.age==12){
+                    return 'a2'
+                }
+            }
+        }
+
+    })
 </script>
+
 </body>
 </html>

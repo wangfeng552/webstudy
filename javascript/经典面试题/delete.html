@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var x = 1;
+    var output = (function(){
+        delete x;
+        return x;
+    })();
+
+    console.log(output);   //=>1
+//    delete 操作符是将 object 对象的属性删去的操作。但是这里的 x 是并不是对象的属性，  delete 操作符并不能作用，所以打印的出的结果仍然是 x 的值。
+</script>
+
+<script>
+    var x = { foo : 1};
+    var output = (function(){
+        delete x.foo;
+        return x.foo;
+    })();
+
+    console.log(output); //=> undefined
+//    x 虽然是全局变量，但是它是一个 object 。 delete 作用在 x.foo 上，成功的将 x.foo 删去。所以返回 undefined
+</script>
+</body>
+</html>
