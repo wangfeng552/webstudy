@@ -3,24 +3,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
     <meta http-equiv="X-UA-Compatible" content="edge">
-    <title>sticky-footers </title>
     <script src="jquery-1.11.2.js"></script>
+    <meta name="param" content="text:返回活动页&link:/event/2018/0104jsyd/index.html?endTime=1517414400000" />
 </head>
 
 <body>
 <div class="mk">
     <ul>
-
     </ul>
 </div>
 
-<script type="text/javascript">
-var arr=[1,2,3,'aaa',5,6];
-var html
-$.each(arr,function (i,v) {
-  html += `<li>${v}</li>`
-})
-    $('.mk ul').append(html)
+<script>
+    /*var metaName=document.createElement("meta")		//创建一个div标签对象
+    var url="text:返回活动页&link:/event/2018/0104jsyd/index.html?endTime=1517414400000"
+    metaName.setAttribute("name","param")
+    metaName.setAttribute("content",url)
+    document.getElementsByTagName('head')[0].appendChild(metaName) 						//方法在节点的子节点列表末添加新的子节点。*/
+</script>
+<script>
+    var pathName=location.pathname;
+    var text="text:返回活动页&link:"+pathName+'?endTime=1517414400000'
+$("meta[name='param']").attr('content',text)
 </script>
 </body>
 </html>
