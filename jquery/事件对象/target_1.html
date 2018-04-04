@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>1</title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<ul>
+	<li>item 1
+		<ul>
+			<li>sub item 1-a</li>
+			<li>sub item 1-b</li>
+		</ul>
+	</li>
+	<li>item 2
+		<ul>
+			<li>sub item 2-a</li>
+			<li>sub item 2-b</li>
+		</ul>
+	</li>
+</ul>
+<script>
+    function handler(event) {
+        var $target = $(event.target);
+        console.log($target)
+        if ($target.is("li")) {
+            $target.children().toggle();
+        }
+    }
+
+    $("ul").click(handler).find("ul").hide();
+</script>
+</body>
+</html>
+

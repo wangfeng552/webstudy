@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+描述事件触发时序问题的术语。
+事件捕获指的是从document到触发事件的那个节点，即自上而下的去触发事件。
+相反的，事件冒泡是自下而上的去触发事件。
+
+绑定事件方法的第三个参数，就是控制事件触发顺序是否为事件捕获。true,事件捕获；false,事件冒泡。默认false,即事件冒泡。
+Jquery的e.stopPropagation会阻止冒泡，意思就是到我为止，我的爹和祖宗的事件就不要触发了。
+
+<div id="parent">
+    <div id="child" class="child">123123</div>
+</div>
+<script>
+//    case 1
+    document.getElementById('parent').addEventListener("click", function (e) {
+        console.log('parent事件触发' + this.id)
+
+    })
+    document.getElementById('child').addEventListener("click", function (e) {
+        e.stopPropagation() //阻止事件冒泡
+        console.log('child事件' + this.id)
+    })
+//    结论：先child，然后parent。事件的触发顺序自内向外，这就是事件冒泡。
+
+</script>
+
+<script>
+//    case 2
+    /*document.getElementById('parent').addEventListener("click", function (e) {
+        alert('parent事件触发' + this.id)
+    },true)
+    document.getElementById('child').addEventListener("click", function (e) {
+        alert('child事件' + this.id)
+    },true)*/
+    //    结论：先parent，然后child。事件触发顺序变更为自外向内，这就是事件捕获。
+</script>
+
+<!--见jquery事件冒泡案例-->
+</body>
+</html>

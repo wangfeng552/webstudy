@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1）减少不必要的全局变量，或者生命周期较长的对象，及时对无用的数据进行垃圾回收；
+
+2）注意程序逻辑，避免“死循环”之类的 ；
+
+3）避免创建过多的对象  原则：不用了的东西要及时归还。
+<script>
+//    哪些操作会造成内存泄露
+
+// 1. leak成为一个全局变量，不会被回收
+    function leak(){
+        leak="xxx";
+    }
+
+// 2.闭包引起的内存泄露
+function bindEvent(){
+    var obj=document.createElement("XXX");
+    obj.onclick=function(){
+        //Even if it's a empty function
+    }
+}
+/*闭包可以维持函数内局部变量，使其得不到释放。 上例定义事件回调时，由于是函数内定义函数，并且内部函数--事件回调的引用外暴了，形成了闭包。
+解决之道，将事件处理函数定义在外部，解除闭包,或者在定义事件处理函数的外部函数中，删除对dom的引用。*/
+//将事件处理函数定义在外部
+function onclickHandler(){
+    //do something
+}
+function bindEvent(){
+    var obj=document.createElement("XXX");
+    obj.onclick=onclickHandler;
+}
+
+//在定义事件处理函数的外部函数中，删除对dom的引用
+function bindEvent(){
+    var obj=document.createElement("XXX");
+    obj.onclick=function(){
+        //Even if it's a empty function
+    }
+    obj=null;
+}
+</script>
+
+</body>
+</html>

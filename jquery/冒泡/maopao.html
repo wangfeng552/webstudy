@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div>
+    <ul>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+        <li>313123</li>
+        <li>423424234</li>
+    </ul>
+</div>
+<script>
+//    利用事件冒泡实现：
+    $('ul').on('mouseover',function (e) {
+        $(e.target).css('color','red').siblings().css('color','#000')
+    })
+
+   /* $("li").on("mouseover",function(){
+        $(this).css("background-color","#ddd").siblings().css("background-color","white");
+    })
+*/
+//前者少了一个遍历所有li节点的操作，所以在性能上肯定是更优的
+
+//还有就是，如果我们在绑定事件完成后，页面又动态的加载了一些元素……
+    $('<li>第三发沙发斯蒂芬</li>').appendTo('ul')
+</script>
+</body>
+</html>
