@@ -5,38 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="edge">
     <script src="jquery-1.11.2.js"></script>
     <meta name="param" content="text:返回活动页&link:/event/2018/0104jsyd/index.html?endTime=1517414400000"/>
-    <style>  span, strong, p {
-        padding: 8px;
-        display: block;
-        border: 1px solid #999;
-    }      </style>
 </head>
 
 <body>
-<ul>
-    <li>item 1
+<div class="mk">
+    <div id="3">
         <ul>
-            <li>sub item 1-a</li>
-            <li>sub item 1-b</li>
+            <li>12313</li>
+            <li>撒打发士大夫</li>
+            <li>12313</li>
+            <li>12313</li>
         </ul>
-    </li>
-    <li>item 2
+    </div>
+    <div id="1">
         <ul>
-            <li>sub item 2-a</li>
-            <li>sub item 2-b</li>
+            <li>12313</li>
+            <li>12313</li>
+            <li>大幅度发给</li>
+            <li>12313</li>
         </ul>
-    </li>
-</ul>
+    </div>
+    <div id="4">
+        <ul>
+            <li>12313</li>
+            <li>sdfgadffsg</li>
+            <li>12313</li>
+            <li>12313</li>
+        </ul>
+    </div>
+    <div id="2">
+        <ul>
+            <li>12313</li>
+            <li>dsfgadfg</li>
+            <li>12313</li>
+            <li>12313</li>
+        </ul>
+    </div>
+</div>
 <script>
-    function handler(event) {
-    var $target = $(event.target);
-    console.log($target)
-    if ($target.is("li")) {
-        $target.children().toggle();
-    }
-}
-
-$("ul").click(handler).find("ul").hide();
+  var childArray =  $('.mk').children();
+  childArray.sort(function (a,b) {
+      var firstChildNew =$(a).attr('id')
+      var firstChildOld =$(b).attr('id');
+      if(firstChildNew>firstChildOld) return 1
+      if(firstChildNew<firstChildOld) return -1
+  }).appendTo($('.mk'))
 </script>
 <script>
     var pathName = location.pathname;

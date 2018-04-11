@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.11.2.js"></script>
+</head>
+<body>
+<div id="mk">
+    <ul>
+        <div id="5">5</div>
+        <div id="1">1</div>
+        <div id="3">3</div>
+        <div id="4">4</div>
+        <div id="2">2</div>
+    </ul>
+</div>
+<script>
+   var goodsArray = $('#mk ul').children()
+    goodsArray.sort(function (a,b) {
+        var priceIdOld=$(a).attr('id')
+        console.log(priceIdOld)
+        var priceIdNew=$(b).attr('id')
+        if(priceIdOld>priceIdNew) return 1
+        if(priceIdOld<priceIdNew) return -1
+        return 0
+    }).appendTo($('#mk ul'))
+</script>
+</body>
+</html>

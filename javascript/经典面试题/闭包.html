@@ -5,7 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-关于闭包，是一种使函数能够都去其它函数的局部变量的语法机制
+关于闭包，有权访问另一个函数作用域内变量的函数都是闭包
+另一个就是让这些变量的值始终保持在内存中
 <script>
     function outFunc(){
         var name = "前端军";
@@ -32,6 +33,7 @@
     user.age    //=> undefined
     user.sayAge() //=>"my age is 23"
 
+//    这里sayAge函数访问了构造函数User里面的变量age，所以形成了闭包
 </script>
 </body>
 </html>
