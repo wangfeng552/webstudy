@@ -37,14 +37,21 @@ var vm =new Vue({
  <!-- 只有修饰符 -->
  <form v-on:submit.prevent></form>
 
- <!-- 添加事件侦听器时使用事件捕获模式 -->
+<!-- 添加事件监听器时使用事件捕获模式 -->
+<!-- 即元素自身触发的事件先在此处处理，然后才交由内部元素进行处理 -->
  <div v-on:click.capture="doThis">...</div>
 
- <!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+ <!-- 只当在 event.target 是当前元素自身时触发处理函数 -->
+<!-- 即事件不是从内部元素触发的 -->
  <div v-on:click.self="doThat">...</div>
 */
 
+
+
 </script>
+使用修饰符时，顺序很重要；相应的代码会以同样的顺序产生。
+因此，用 v-on:click.prevent.self 会阻止所有的点击，
+而 v-on:click.self.prevent 只会阻止对元素自身的点击。
 </body>
 </html>
 

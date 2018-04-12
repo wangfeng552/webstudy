@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+功能：
+直接在一个对象上定义一个或多个新的属性或修改现有属性，并返回该对象。
+语法：Object.defineProperties(obj,props)
+obj:将要被添加属性或修改属性的对象
+props:该对象的一个或多个键值对定义了将要为对象添加或修改的属性的具体配置
+<script>
+    var obj = new Object();
+    Object.defineProperties(obj,{
+        name:{
+            value:'张三',
+            writable:true,
+            enumerable:true,
+            configurable:true
+        },
+        age:{
+            value:45,
+            writable:true,
+            enumerable:true,
+            configurable:true
+        }
+    })
+</script>
+</body>
+</html>
