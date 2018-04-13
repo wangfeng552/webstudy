@@ -6,13 +6,16 @@
 </head>
 <body>
 <script>
-    function wf(callback) {
-        callback(123)
+    function say(value) {
+        alert(value)
     }
-    wf(function (a) {
-        console.log(a)
-    })
+    alert(say);
+    alert(say('hi js'))
+//    只写变量名  say   返回的将会是 say方法本身，以字符串的形式表现出来。
+//    而在变量名后加()如say()返回的就会使say方法调用后的结果，这里是弹出value的值。
+</script>
 
+<script>
     var activity={
         isshow:function (callback) {
             ajaxUtil.loadData({
