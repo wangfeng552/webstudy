@@ -108,5 +108,31 @@
         return arr.indexOf(v)===i
     })
 </script>
+
+<script>
+//    第5种
+    //很好理解, Set 具有值唯一性(但不是所有值,等会我抛出我的另外一篇文章)
+    // 结合...解构,可以把可迭代(比如 arguments/nodelist 等)的转为数组
+    // sort 里面传入 两个值比较,返回-1和1是因为1代表这个数大排后(相对),-1代表小(相对),0为相等
+
+    var arr=[1,3,2,3,2,1,'大师傅','asdf','大师傅']
+    let isArr = [...new Set(arr)].sort(function (a,b) {
+        return a<b ?-1:1
+    })
+</script>
+
+<script>
+    //去重返回重复的字符
+    var testArr = [1,3,'asdf','阿萨德发挥',4,3,2,1,2,1,'sdf','asdf'];
+    Array.prototype.extraChar=function () {
+        var cacheExtraChar =[];//缓存重复出现的字符
+        var that = this;
+        this.map(function (v,i) {
+            (that.indexOf(i)!==that.lastIndexOf(i)) && cacheExtraChar.indexOf(i)===-1 ?cacheExtraChar.push(i):-1
+        });
+        return cacheExtraChar;
+    }
+    testArr.extraChar();
+</script>
 </body>
 </html>
