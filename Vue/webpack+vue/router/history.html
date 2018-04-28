@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    当你使用 history 模式时，URL 就像正常的 url，例如 http://yoursite.com/user/id，也好看！
+</div>
+<script>
+    const router = new VueRouter({
+        mode: 'history',
+        routes: [
+            { path: '*', component: NotFoundComponent }
+        ]
+    })
+</script>
+</body>
+</html>

@@ -6,54 +6,15 @@
 	<script src="../../js/vue.js"></script>
 </head>
 <body>
-<!--单个slot-->
-<div id="app">
-	<h2>这里是父标题</h2>
-	<wf-text>
-		<!--备用内容在子组件的作用域内编译，并且只有在宿主元素为空，且没有要插入的内容时才显示备用内容。-->
-		<!--message应该绑定到父组件的数据-->
-		<p>{{message}}</p>
-	</wf-text>
-</div>
-<script>
-	Vue.component("wf-text",{
-	    template:"<ul>\
-        <li>这里是内容</li>\
-        <slot>备用内容</slot>\
-        </ul>"
-	})
-	//至少要有一个slot，否则父组件的内容将会丢弃
-	//子组件模板只有一个没有属性的slot时，父组件整个内容片段将插入到slot所在的DOM位置，并替换掉slot标签本身
-	var vm= new Vue({
-	    el:"#app",
-		data:{
-	        message:"这里是一段新内容" // 应该绑定到父组件的数据
-		}
-	})
-</script>
+<!--父组件-->
+<child>
+	<div slot="header" slot-scope="props">{{props.text}}</div>
+	<!--ES6解构 2.5 以上不再局限于template-->
+	<!--<div slot="header" slot-scope="{text}">{{text}}</div>-->
+</child>
 
-<!--多个slot-->
-<div id="moreSlot">
-	<h2>这里是标题</h2>
-	<wf-header>
-		<!--具名 slot 将匹配内容片段中有对应 slot 特性的元素。-->
-		<p slot="header">这里是头部</p>
-	</wf-header>
-	<wf-footer>
-		<h1 slot="footer">这里是页脚</h1>
-	</wf-footer>
-</div>
-<script>
-	Vue.component("wf-header",{
-	    template:"<div><h3>这里是header</h3><slot name='header'></slot></div>"  //name 来配置如何分发内容，
-	})
-    Vue.component("wf-footer",{
-        template:"<div><h3>这里是footer</h3><slot name='footer'></slot></div>" //多个 slot 可以有不同的名字
-    })
-	var vmmore=new Vue({
-	    el:"#moreSlot",
-	})
-</script>
+<!--子组件-->
+<slot name="header" text="这里是haeder内容111!"></slot>
 </body>
 </html>
 

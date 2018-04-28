@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    重定向
+    const router = new VueRouter({
+        routes: [
+          // 从 /a 重定向到 /b：
+            { path: '/a', redirect: '/b' },
+          //命名的路由
+            { path: '/a', redirect: { name: 'foo' }},
+          // 方法
+            { path: '/a', redirect: to => {
+                // 方法接收 目标路由 作为参数
+                // return 重定向的 字符串路径/路径对象
+            }}
+
+        ]
+    })
+
+//    别名
+//      /a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。
+const router = new VueRouter({
+    routes: [
+        { path: '/a', component: A, alias: '/b' },
+        { path: '/a/:id', component: A, alias: '/b/:id' },
+    ]
+})
+</script>
+</body>
+</html>

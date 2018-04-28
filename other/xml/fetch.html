@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+fetch(input, init)
+input
+定义要获取的资源。可以是一个 USVString 字符串，包含要获取资源的 URL。 也可以是一个 Request 对象。
+init
+这个参数是可选的，它传入一个配置项对象，可以用它来包括所对请求进行设置。
+    method: 请求使用的方法，如 GET、POST。
+    headers: 请求的头信息，形式为 Headers 对象或 ByteString。
+    body: 请求的 body 信息，可能是一个 Blob、BufferSource、FormData、URLSearchParams 或者 USVString 对象。（如果是 GET 或 HEAD 方法，则不能包含 body 信息）
+    mode: 请求的模式，如 cors、 no-cors 或者 same-origin。
+    credentials: 请求的 credentials，如 omit、same-origin 或者 include。
+    cache: 请求的 cache 模式: default, no-store, reload, no-cache, force-cache, or only-if-cached。
+
+fetch(input, init).then(function(response) { /*请求成功回调*/ });`
+</body>
+</html>
