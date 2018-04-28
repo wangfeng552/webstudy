@@ -54,7 +54,9 @@ export default async(url = '', data = {}, type = 'GET', method = 'fetch') => {
 		}
 
 		try {
-			const response = await fetch(url, requestConfig);
+      // async 用于声明一个异步函数, 该函数需返回一个 Promise 对象.
+      //   而 await 同步 通常后接一个 Promise对象, 需等待该 Promise 对象的 resolve() 方法执行并且返回值后才能继续执行.
+			const response = await fetch(url, requestConfig);  //等待fetch被resolve()后才能继续执行
 			const responseJson = await response.json();
 			return responseJson
 		} catch (error) {
