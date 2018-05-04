@@ -1,8 +1,6 @@
 import Vue from "vue"
 import App from "./app.vue"
-import Vuex from "vuex"
-import store from "./vuex/store"
-Vue.use(Vuex);
+import store from "./store/index"
 
 new Vue({
     store,

@@ -17,44 +17,12 @@
             <li>12313</li>
         </ul>
     </div>
-    <div id="1">
-        <ul>
-            <li>12313</li>
-            <li>12313</li>
-            <li>大幅度发给</li>
-            <li>12313</li>
-        </ul>
-    </div>
-    <div id="4">
-        <ul>
-            <li>12313</li>
-            <li>sdfgadffsg</li>
-            <li>12313</li>
-            <li>12313</li>
-        </ul>
-    </div>
-    <div id="2">
-        <ul>
-            <li>12313</li>
-            <li>dsfgadfg</li>
-            <li>12313</li>
-            <li>12313</li>
-        </ul>
-    </div>
 </div>
 <script>
-  var childArray =  $('.mk').children();
-  childArray.sort(function (a,b) {
-      var firstChildNew =$(a).attr('id')
-      var firstChildOld =$(b).attr('id');
-      if(firstChildNew>firstChildOld) return 1
-      if(firstChildNew<firstChildOld) return -1
-  }).appendTo($('.mk'))
+    (function(e, a, t) {
+      }
+    )(jQuery, window, document);
 </script>
-<script>
-    var pathName = location.pathname;
-    var text = "text:返回活动页&link:" + pathName + '?endTime=1517414400000'
-    $("meta[name='param']").attr('content', text)
-</script>
+
 </body>
 </html>

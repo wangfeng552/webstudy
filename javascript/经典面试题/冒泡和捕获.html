@@ -17,26 +17,26 @@ Jquery的e.stopPropagation会阻止冒泡，意思就是到我为止，我的爹
 </div>
 <script>
 //    case 1
-    document.getElementById('parent').addEventListener("click", function (e) {
+/*    document.getElementById('parent').addEventListener("click", function (e) {
         console.log('parent事件触发' + this.id)
 
     })
     document.getElementById('child').addEventListener("click", function (e) {
         e.stopPropagation() //阻止事件冒泡
         console.log('child事件' + this.id)
-    })
+    })*/
 //    结论：先child，然后parent。事件的触发顺序自内向外，这就是事件冒泡。
 
 </script>
 
 <script>
 //    case 2
-    /*document.getElementById('parent').addEventListener("click", function (e) {
+    document.getElementById('parent').addEventListener("click", function (e) {
         alert('parent事件触发' + this.id)
     },true)
     document.getElementById('child').addEventListener("click", function (e) {
         alert('child事件' + this.id)
-    },true)*/
+    },true)
     //    结论：先parent，然后child。事件触发顺序变更为自外向内，这就是事件捕获。
 </script>
 
