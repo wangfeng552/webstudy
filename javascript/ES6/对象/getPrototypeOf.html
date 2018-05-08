@@ -24,12 +24,25 @@
 	var dog=new Animal();
 
 //	Object.getPrototypeOf()函数对对象的prototype查看方法和属性
-	console.log(F)
 
 //Object.setPrototypeOf()函数对对象的prototype属性进行了修改
 	Object.setPrototypeOf(dog,{name:"lisi"})
 
 	console.log(dog.name)
+</script>
+
+<script>
+//	函数的原型和它的prototype属性无关，
+	function wf() {
+
+  }
+  var a=wf.prototype;
+	/*a是使用new创建的wf实例的原型，即a= Object.getPrototypeOf(new wf())
+	所以 wf.prototype === Object.getPrototypeOf(new wf())  true*/
+
+	/*b=Object.getPrototypeOf(wf),b是函数的原型(并不涉及wf的new实例化)
+	* 即b = Function.prototype ,
+	* 所以 Object.getPrototypeOf(wf) === Function.prototype*/
 </script>
 </body>
 </html>

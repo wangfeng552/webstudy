@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .mtl{
+        width: 800px;
+        height: 800px;
+        animation:df 1000s;
+        position: relative;
+    }
+    .pic1{
+        position: absolute;
+        top:50px;
+        left:50px;
+        -webkit-animation: zd 1000s;
+        -o-animation: zd 1000s;
+        animation: zd 1000s;
+    }
+    @keyframes df {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(36000deg);
+        }
+    }
+    @keyframes zd {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-36000deg);
+        }
+    }
+</style>
+<div class="mtl">
+    <img src="images/fsw.png" alt="">
+    <img src="images/girl.png" alt="" class="pic1">
+</div>
+
+
+</body>
+</html>

@@ -36,5 +36,26 @@
     //    匿名函数也有变量，导致变量提升
 </script>
 
+<script>
+    function foo(a) {
+        var a;
+        return a;
+    }
+    function bar(a) {
+        var a= 'bye';
+        return a;
+    }
+    [foo('hello'),bar('hello')] //=> hello ,bye
+    /*解释*/
+//    带有初始化表达式的变量声明即是声明也是定义
+    function foo(a) {
+        return a
+    }
+    function bar(a) {
+        a = 'bye'
+        return a;
+    }
+</script>
+
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a={
+        value:2,
+        toString:function () {
+            return ++this.value;
+        }
+    }
+    if(a==3 && a==4){  // 右边是数字，左边是对象 进行类型转换
+
+        console.log('amazing')
+    }else{
+        console.log('nothing')
+    }
+
+//    对于左边对象a来说，就是调用其自有的toString()方法，将自身转化为字符类型， this.value=3
+//    然后分析a==4 ，同上运行tostring() 结果为4
+
+
+</script>
+</body>
+</html>
