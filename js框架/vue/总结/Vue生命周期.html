@@ -16,12 +16,15 @@
 	 data:{
 	     name:123
 	 },
+
+
 	//数据观察和事件配置都没好准备好
 	 /*beforeCreate(){
 	 console.log("123");			//=>123
 	 console.log(this.$data)		//undefined
 	 console.log(this.$el)			//undefined
 	 },*/
+
 
 	 //创建完毕
 	 /*created(){
@@ -30,12 +33,14 @@
 	 console.log(this.$el)			//undefined
 	 },*/
 
+
 	 //即将挂载
 	 /*beforeMount(){
          console.log("123");		//123
          console.log(this.$data)	//Object
          console.log(this.$el)		//<div class="mk"> {{name}} </div>
 	 },*/
+
 
 	//mounted也就是挂载完毕阶段,数据就会被成功渲染出来
 	 /*mounted(){
@@ -44,28 +49,51 @@
          console.log(this.$el)		//<div class="mk"> 123 </div>
 	 },*/
 
+
 	 //视图并未重新渲染更新。
+   //数据更新时调用，发生在虚拟 DOM 打补丁之前。这里适合在更新之前访问现有的 DOM，比如手动移除已添加的事件监听器。
 	 /*beforeUpdate(){
 	     console.log("即将更新");				//执行vm.name=1;改变数据
 		let name=this.$refs.app.innerHTML;
 	     console.log("name:"+name);
 	 },*/
 
+
 	//视图已经更新
 	 /*updated(){
 		console.log("--更新成功--");
 		let name=this.$refs.app.innerHTML;
 		console.log(name)
+		this.$nextTick(function () {
+			// Code that will run only after the
+			// entire view has been re-rendered
+		})
 	 },*/
+
+
+	 //keep-alive 组件激活时调用
+		 activated(){},
+
+
+		 //keep-alive 组件停用时调用
+		 deactivated(){},
+
 
 	 //调用实例的vm.$destroy( )方法可以销毁当前的组件，在销毁前，会触发beforeDestroy钩子。
 	 beforeDestory(){
 	     console.log("销毁之前")
 	 },
 
+
 	 //成功销毁
      destroyed(){
-		console.log("销毁之后")  //vm.$destroy( );实例与视图的关系解绑 之后再改vm.name='klusd'已于事无补
+			console.log("销毁之后")  //vm.$destroy( );实例与视图的关系解绑 之后再改vm.name='klusd'已于事无补
+				 //Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。
+	 },
+
+	 errorCaptured(){
+		// 当捕获一个来自子孙组件的错误时被调用。此钩子会收到三个参数：错误对象、发生错误的组件实例以及一个包含错误来源信息的字符串。
+	  // 此钩子可以返回 false 以阻止该错误继续向上传播。
 	 }
 
  })

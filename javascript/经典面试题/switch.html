@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+switch 语句比较的时候没有做类型转换，相当于 ====，new String('A') 返回的是一个对象
+
+<script>
+    function showCase(value) {
+        switch(value) {
+            case 'A':
+                console.log('Case A');
+                break;
+            case 'B':
+                console.log('Case B');
+                break;
+            case undefined:
+                console.log('undefined');
+                break;
+            default:
+                console.log('Do not know!');
+        }
+    }
+    showCase(new String('A'));
+
+    new String('A') === 'A' // false
+    new String('A') == 'A'  // true
+    new String('A') ==String('A') // true
+</script>
+
+</body>
+</html>

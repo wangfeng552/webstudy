@@ -4,24 +4,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <meta http-equiv="X-UA-Compatible" content="edge">
     <script src="jquery-1.11.2.js"></script>
-    <meta name="param" content="text:返回活动页&link:/event/2018/0104jsyd/index.html?endTime=1517414400000"/>
 </head>
 
 <body>
 <div class="mk">
-    <div id="3">
-        <ul>
-            <li>12313</li>
-            <li>撒打发士大夫</li>
-            <li>12313</li>
-            <li>12313</li>
-        </ul>
-    </div>
+    <div class="topbanner">banner</div>
+    <div class="login">login</div>
+    <div class="tuijian">tuijian</div>
+    <div class="sp">商品</div>
+    <div class="footer">footer</div>
 </div>
 <script>
-    (function(e, a, t) {
-      }
-    )(jQuery, window, document);
+    setTimeout(function () {
+        $('.topbanner').attr('id','1')
+        $('.login').attr('id','2')
+        $('.footer').attr('id','3')
+        $('.tuijian').attr('id','4')
+        $('.sp').attr('id','5')
+        var $trs = $('.mk>div');
+        $trs.sort(function (a,b) {
+            var a=$(a).attr('id')
+            var b=$(b).attr('id')
+            /*if(parseInt(a) < parseInt(b)) return -1;
+            else return 1;*/
+            return a-b
+        })
+        $trs.detach().appendTo('.mk');
+        $('.cj').text('那还得发送')
+    },2000)
+
+
 </script>
 
 </body>
