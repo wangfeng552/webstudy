@@ -12,6 +12,8 @@
 	若指定，则当作最初使用的previous值；
 	如果缺省，则使用数组的第一个元素作为previous初始值，同时current往后排一位，相比有initialValue值少一次迭代
 	index的位置就是current的位置
+
+	第1个参数 是目前为止的化简操作累积的结果
 	*/
 
 //	案例1 数组求和
@@ -19,7 +21,7 @@
 	var sum = arr.reduce(function (previous,current,i,arr) {
 	  console.log(i+'---'+current)
 	  return previous+current		// => 12
-    },'dfault')
+    },'default')
 
 //	案例2 二维数组的扁平化
 	var arrAll=[['a','b'],['c','d'],['ee','ff']]

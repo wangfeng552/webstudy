@@ -8,16 +8,26 @@
 <script>
 //	indexOf 方法返回在该数组中第一个找到的元素位置，如果它不存在则返回-1
 var arr=[1,2,3,4 ];
+arr.indexOf(2)!=-1
+</script>
 
-/*found=false;
-	for(var i= 0,l=arr.length;i<l;i++){
-		if(arr[i]===2){
-			found=true
-		}
-	}
-console.log("found",found)*/
+<script>
+	// 在一个数组中搜索指定的值并返回包含所有匹配的数组索引的一个数组
+//	展示了如何运用indexOf()的第2个参数来查找出了第一个以为匹配的值
+    function findall(a,x) {
+        var results=[],
+          len=a.length,
+          pos=0;
+        while(pos<len){
+            pos=a.indexOf(x,pos);
+            if(pos === -1) break;
+            results.push(pos);
+            pos=pos+1
+        }
+        return results;
+    }
 
-console.log("found",arr.indexOf(2)!=-1)
+    findall([1,2,1,2,3,1],1)
 </script>
 </body>
 </html>
