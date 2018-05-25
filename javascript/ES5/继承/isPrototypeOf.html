@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+语法：  prototypeObj.isPrototypeOf(object)
+参数：  object  在该对象的原型链上搜寻
+返回值：  Boolean，表示调用对象是否在另一个对象的原型链上。
+
+描述：isPrototypeOf 方法允许你检查一个对象是否存在于另一个对象的原型链上。
+
+<script>
+ function Fa() {
+
+ }
+ function Fb() {
+
+ }
+ function Fc() {
+
+ }
+ function Fd() {
+     
+ }
+ Fb.prototype=new Fa();
+ Fc.prototype = new Fb();
+var mk=new Fc()
+
+    Fb.prototype.isPrototypeOf(mk)  // true
+</script>
+
+<script>
+    var p={x:1} //定义一个原型对象
+    var o=Object.create(p) //使用这个原型在创建一个对象
+    p.isPrototypeOf(o) //true o继承自P
+    Object.prototype.isPrototypeOf(o) //true p继承自Object.prototype
+</script>
+</body>
+</html>
