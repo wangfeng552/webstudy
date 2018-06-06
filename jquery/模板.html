@@ -8,31 +8,11 @@
 
 <body>
 <div class="mk">
-    <div class="topbanner">banner</div>
-    <div class="login">login</div>
-    <div class="tuijian">tuijian</div>
-    <div class="sp">商品</div>
-    <div class="footer">footer</div>
+
 </div>
 <script>
-    setTimeout(function () {
-        $('.topbanner').attr('id','1')
-        $('.login').attr('id','2')
-        $('.footer').attr('id','3')
-        $('.tuijian').attr('id','4')
-        $('.sp').attr('id','5')
-        var $trs = $('.mk>div');
-        $trs.sort(function (a,b) {
-            var a=$(a).attr('id')
-            var b=$(b).attr('id')
-            /*if(parseInt(a) < parseInt(b)) return -1;
-            else return 1;*/
-            return a-b
-        })
-        $trs.detach().appendTo('.mk');
-        $('.cj').text('那还得发送')
-    },2000)
-
+   var str='<li>啊速度快解放后</li>'
+$('.mk').text(str)
 
 </script>
 

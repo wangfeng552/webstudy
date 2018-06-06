@@ -40,5 +40,26 @@
 
 //    在执行 sayHello() 的时候，当访问到 this._name 时，此时的this已经不再是 person  对象，而是全局窗口对象，也就是 widnow 对象。
 </script>
+
+<script>
+    var name='global';
+    var obj={
+        name:'第一层',
+        age:{
+            name:'张三',
+            showName:function () {
+                setTimeout(()=>{
+                    console.log(this.name)
+                },1000)
+            }
+        }
+    }
+    obj.age.showName()
+    /*this 永远指向函数运行时所在的对象，而不是函数创建时所在的对象
+    ()=>{}箭头函数，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象
+    匿名函数和不处于任何对象中的函数，This指向window
+    call, apply, with指的This是谁就是谁。
+普通函数调用，函数被谁调用，This就指向谁*/
+</script>
 </body>
 </html>
