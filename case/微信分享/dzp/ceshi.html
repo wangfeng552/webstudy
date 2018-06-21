@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="content">
+    <div class="wheel">
+        <canvas class="item" id="wheelCanvas" width="422px" height="422px"></canvas>
+    </div>
+</div>
+<script>
+    var canvas = document.getElementById('wheelCanvas');
+    var ctx=canvas.getContext("2d");
+    var baseAngle = Math.PI *2/8;
+    var canvasW = canvas.width; // 画板的高度
+    var canvasH = canvas.height; // 画板的宽度
+    ctx.clearRect(0,0,canvasW,canvasH)
+    ctx.strokeStyle = "#FFBE04";
+    ctx.font = '16px Microsoft YaHei';
+</script>
+</body>
+</html>
