@@ -5,19 +5,49 @@
     <title>Title</title>
 </head>
 <body>
+https://www.cnblogs.com/lishuxue/p/5999682.html
+回调函数就是一个参数，将这个函数作为参数传到另一个函数里面，当那个函数执行完之后，再执行传进去的这个函数。这个过程就叫做回调。
+
 <script>
-    function say(value) {
-        alert(value)
+    //定义主函数，回调函数作为参数
+    function A(callback) {
+        callback();
+        console.log('我是主函数');
     }
-    alert(say);
-    alert(say('hi js'))
-//    只写变量名  say   返回的将会是 say方法本身，以字符串的形式表现出来。
-//    而在变量名后加()如say()返回的就会使say方法调用后的结果，这里是弹出value的值。
+
+    //定义回调函数
+    function B() {
+        setTimeout("console.log('我是回调函数')", 3000);//模仿耗时操作
+    }
+
+    //调用主函数，将函数B传进去
+    A(B);
+
+    //输出结果
+//    我是主函数
+//    我是回调函数
+
+    /*上面的代码中，我们先定义了主函数和回调函数，然后再去调用主函数，将回调函数传进去。
+    　 定义主函数的时候，我们让代码先去执行callback()回调函数，但输出结果却是后输出回调函数的内容。这就说明了主函数不用等待回调函数执行完，
+      可以接着执行自己的代码。所以一般回调函数都用在耗时操作上面。比如ajax请求，比如处理文件等。*/
 </script>
 
 <script>
-    var activity={
-        isshow:function (callback) {
+    //定义主函数，回调函数作为参数
+    function fn(a1, b1, cb) {
+        var na = a1 + b1;
+        (cb && typeof(cb) === 'function') && cb(na) // 最好保证回调存在且必须是函数引用或者函数表达式：
+    }
+
+    //调用主函数，将函数传进去
+    fn(2, 4, function (a) {
+        alert(a)
+    })
+</script>
+
+<script>
+    var activity = {
+        isshow: function (callback) {
             ajaxUtil.loadData({
                 url: '/zjmdlist',
                 type: 'post',
@@ -28,8 +58,8 @@
                 }
             })
         },
-        btnStart:function () {
-            var m=this;
+        btnStart: function () {
+            var m = this;
             m.isshow(function (data) {
                 console.log(data)
             })

@@ -1,24 +1,19 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <meta http-equiv="X-UA-Compatible" content="edge">
-    <script src="jquery-1.11.2.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-<style>
-   /* .mk{ color: red; font-size: 22px;}
-    .mk li{ background-color: #ccc; padding: 8px;}*/
-</style>
 <body>
 <div class="mk"></div>
-<button class="dj">点击</button>
+<button class="dj">鐐瑰嚮</button>
 <script>
     var str='<ul>\n' +
       '        <li>123</li>\n' +
       '        <li>123</li>\n' +
       '        <li>123</li>\n' +
       '    </ul>'
-document.querySelector('.mk').innerHTML =str
+    document.querySelector('.mk').innerHTML =str
 
     document.querySelector('.dj').onclick=function () {
         document.querySelector('.mk').outerHTML=''
@@ -28,6 +23,5 @@ document.querySelector('.mk').innerHTML =str
     style.innerHTML=['.mk{ color: red; font-size: 22px;}','.mk li{ background-color: #ccc; padding: 8px;}'].join('');
     document.head.appendChild(style)
 </script>
-
 </body>
 </html>
