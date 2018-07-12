@@ -85,6 +85,16 @@
         if(!obj[arr[i]]){
             newArr.push(arr[i]);
             obj[arr[i]]=1;
+        }else{
+        obj[arr[i]]++
+        }
+    }
+    var iMax=0; //  最大出现的次数
+    var iInex='';  // 哪个值
+    for(var i in obj){
+        if(obj[i]>iMax){
+            iMax=obj[i];
+            iIndex=i
         }
     }
 
