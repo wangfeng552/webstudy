@@ -30,5 +30,27 @@
 //还有就是，如果我们在绑定事件完成后，页面又动态的加载了一些元素……
     $('<li>第三发沙发斯蒂芬</li>').appendTo('ul')
 </script>
+<script>
+    var myAll=document.querySelector('ul')
+	myAll.addEventListener('click',function(ev){
+		var list=document.querySelectorAll('ul li')
+		var ev= ev || window.event;
+		var target = ev.target || ev.srcElemnt;
+		for(var i=0;i<list.length;i++){
+			if(list[i]==target){
+				alert(i+'---'+target.innerHTML)
+			}
+		}
+	})
+
+
+document.querySelector('#add').addEventListener('click',function(){
+	var d=document;
+    var node = d.createElement('li')
+    var textNode = d.createTextNode('你好')
+    node.appendChild(textNode);
+    myAll.appendChild(node)
+})
+</script>
 </body>
 </html>
