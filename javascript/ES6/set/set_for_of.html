@@ -23,7 +23,8 @@
 //	去重
     var arr=[1,2,3,1,2,3,4,5,6,3,3,3];
     var k = new Set(arr);			//=>Set {1, 2, 3, 4, 5…}
-    var newArr=Array.from(k)		//=>[1,2,3,4,5,6]
+    var newArr=Array.from(k)		//=>[1,2,3,4,5,6]\
+    [...new Set(arr)]
 </script>
 
 </body>
