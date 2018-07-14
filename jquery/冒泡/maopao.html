@@ -35,7 +35,7 @@
 	myAll.addEventListener('click',function(ev){
 		var list=document.querySelectorAll('ul li')
 		var ev= ev || window.event;
-		var target = ev.target || ev.srcElemnt;
+		var target = ev.target || ev.srcElement;
 		for(var i=0;i<list.length;i++){
 			if(list[i]==target){
 				alert(i+'---'+target.innerHTML)
