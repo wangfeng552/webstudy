@@ -68,7 +68,9 @@ git remote -v
 git remote rm origin
 git remote add origin [url]
 
-
+git fetch origin 丢弃本地改动，服务器上获取最新分支
+git checkout -b dev orgin/dev  从远程啦dev分支
+ 
 
 
 
