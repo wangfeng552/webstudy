@@ -26,3 +26,5 @@ ctrl + shift + ]/[: 	选中块代码<table>....</table>
 alt + left/right:	标签切换
 ctrl+tab		切换代码选项卡（还要进行此选择，效率差些）
 alt+←/→		切换代码选项卡
+
+ctrl+shift+N		快速查找文件名
