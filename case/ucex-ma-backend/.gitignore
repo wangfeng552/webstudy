@@ -1,5 +1,12 @@
+.DS_Store
+.vscode
 # dependencies
 node_modules
+/history
+.history
+
+.history/*
+history/*
 
 # logs
 npm-debug.log
@@ -9,3 +16,7 @@ npm-debug.log
 
 # Nuxt generate
 dist
+dist/
+
+build
+build/*

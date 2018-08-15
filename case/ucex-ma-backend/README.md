@@ -1,22 +1,35 @@
 # backend
 
+
+> git config  
+## Git workflow
+``` bash
+git config core.ignorecase false
+git checkout -b branchname dev
+git checkout dev
+git pull --rebase dev
+git checkout -
+git rebase dev  
+git checkout - 
+git merge --no-commit dev
+```
 > Nuxt.js project
 
 ## Build Setup
 
 ``` bash
 # install dependencies
-$ npm install # Or yarn install*[see note below]
+$ yarn
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn run dev
 
 # build for production and launch server
-$ npm run build
-$ npm start
+$ yarn  run build
+$ yarn start
 
 # generate static project
-$ npm run generate
+$ yarn run generate
 ```
 
 *Note: Due to a bug in yarn's engine version detection code if you are

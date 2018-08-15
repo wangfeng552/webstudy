@@ -18,7 +18,19 @@
   justify-content: space-around;
 }
 
-
+.plr8{ padding: 0 8px;}
+.mb15{ margin-bottom: 15px;}
+.mb5{ margin-bottom: 5px;}
+.mb20{ margin-bottom: 20px;}
+.mb10{ margin-bottom: 10px;}
+.mb40{ margin-bottom: 40px;}
+.mr10{ margin-right: 10px;}
+.mr20{ margin-right: 20px;}
+.bgfff{ background-color: #fff; padding: 25px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;}
+.fcad{ color: #ADADAD}
 .f1{
   flex:1;
 }
@@ -133,3 +145,7 @@ input:disabled{
 a[disabled]{
   opacity: 0.5;
 }
+.ivu-page-item-active{
+  background-color: #2d8cf0;
+}
+.ivu-page-item-active a, .ivu-page-item-active:hover a{ color: #fff;}

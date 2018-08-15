@@ -2,9 +2,10 @@
   <div>
     <div class="showico">
       <ul>
+        filterClass 被定义为接收2个参数的过滤器函数。其中 v 的值作为第一个参数，i 作为第二个参数。
         <li v-for="(v,i) in name">
           <span v-if="v.message=='leader'">
-            <div :class="v | filterClass">{{v.val}}</div>
+            <div :class="v | filterClass(i)">{{v.val}}</div>
           </span>
           <span v-else>
              <div :class="v | filterClass">{{v.val}}</div>

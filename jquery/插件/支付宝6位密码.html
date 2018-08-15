@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>仿支付宝数字密码输入框</title>
+    <style>
+        .ipt-box-nick {
+            width:300px;
+            height: 40px !important;
+            line-height: 40px !important;
+            position: relative !important; }
+        .ipt-box-nick .ipt-real-nick {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100%;
+            height: 40px !important;
+            line-height: 40px !important;
+            opacity: 0 !important;
+            z-index: 3 !important; }
+        .ipt-box-nick .ipts-box-nick {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            z-index: 1 !important;
+            width: 100%;
+            height: 40px !important;
+            line-height: 40px !important;
+            overflow: hidden; }
+        .ipt-box-nick .ipts-box-nick .ipt-fake-box {
+            height: 40px !important;
+            line-height: 40px !important;
+            display: flex !important;
+            justify-content: space-between !important; }
+        .ipt-box-nick .ipts-box-nick .ipt-fake-box input {
+            width: 40px !important;
+            height: 38px !important;
+            border: 1px solid #D7D7D7 !important;
+            color: #810213 !important;
+            font-weight: bold !important;
+            font-size: 18px !important;
+            text-align: center !important;
+            padding: 0 !important;
+            border-radius:2px;}
+        .ipt-box-nick .ipt-active-nick {
+            width: 40px !important;
+            height: 40px !important;
+            line-height: 40px !important;
+            text-align: center;
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            z-index: 2; }
+        .ipt-box-nick .ipt-active-nick img {
+            vertical-align: middle; }
+    </style>
+</head>
+<body>
+<div>
+    <div class="lh40-nick h40-nick fwb-nick">请在下方输入6位数字</div>
+    <div class="ipt-box-nick mb15-nick">
+        <input type="tel" maxlength="6" class="ipt-real-nick"/>
+        <div class="ipts-box-nick">
+            <div class="ipt-fake-box">
+                <input type="text" >
+                <input type="text" >
+                <input type="text" >
+                <input type="text" >
+                <input type="text" >
+                <input type="text" >
+            </div>
+        </div>
+        <div class="ipt-active-nick"><img src="https://t.alipayobjects.com/images/rmsweb/T1nYJhXalXXXXXXXXX.gif"></div>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(".ipt-real-nick").on("input", function() {
+        //console.log($(this).val());
+        var $input = $(".ipt-fake-box input");
+        if(!$(this).val()){//无值光标顶置
+            $('.ipt-active-nick').css('left',$input.eq(0).offset().left-parseInt($('.ipt-box-nick').parent().css('padding-left'))+'px');
+        }
+        if(/^[0-9]*$/g.test($(this).val())){//有值只能是数字
+                                            //console.log($(this).val());
+            var pwd = $(this).val().trim();
+            for (var i = 0, len = pwd.length; i < len; i++) {
+                $input.eq(i).val(pwd[i]);
+                if($input.eq(i).next().length){//模拟光标，先将图片容器定位，控制left值而已
+                    $('.ipt-active-nick').css('left',$input.eq(i+1).offset().left-parseInt($('.ipt-box-nick').parent().css('padding-left'))+'px');
+                }
+            }
+            $input.each(function() {//将有值的当前input后的所有input清空
+                var index = $(this).index();
+                if (index >= len) {
+                    $(this).val("");
+                }
+            });
+            if (len == 6) {
+                //执行其他操作
+                console.log('输入完整，执行操作');
+            }
+        }else{//清除val中的非数字，返回纯number的value
+            var arr=$(this).val().match(/\d/g);
+            $(this).val($(this).val().slice(0,$(this).val().lastIndexOf(arr[arr.length-1])+1));
+            //console.log($(this).val());
+        }
+    });
+</script>
+</body>
+</html>

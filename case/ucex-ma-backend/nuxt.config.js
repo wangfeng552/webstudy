@@ -33,12 +33,25 @@ module.exports = {
         ]
       ]
     },
+    rules: {
+      images: [
+        {
+          test: /\.(png|jpe?g|gif|svg)$/,
+          loader: "url-loader",
+          exclude: /(assets\/svg)/,
+          query: {
+            limit: 100001, // 1KO
+            name: "img/[name].[hash:7].[ext]"
+          }
+        }
+      ]
+    },
     loaders: [
       {
         test: /\.(png|jpe?g|gif|svg)$/,
         loader: "url-loader",
         query: {
-          limit: 10000,
+          limit: 100002,
           name: "img/[name].[hash].[ext]"
         }
       }
@@ -67,13 +80,42 @@ module.exports = {
         Static: path.resolve(__dirname, "static"),
         Api: path.resolve(__dirname, "api")
       })
-      if (0 && isDev && isClient) {
-        config.module.rules.push({
-          enforce: "pre",
-          test: /\.(js|vue)$/,
-          loader: "eslint-loader",
-          exclude: /(node_modules)/
-        })
+      if (isDev && isClient) {
+        console.log(config.module.rules)
+        for (let i = 0; i < config.module.rules.length; i++) {
+          const obj = config.module.rules[i]
+          console.log(obj.test.toString())
+          if (obj.test.toString().indexOf("gif|svg") >= 0) {
+            // config.module.rules.splice(i, 1)
+          }
+        }
+        config.module.rules.push(
+          ...[
+            // {
+            //   enforce: "pre",
+            //   test: /\.(js|vue)$/,
+            //   loader: "eslint-loader",
+            //   exclude: /(node_modules)/
+            // },
+            // {
+            //   test: /\.(gif|png|jpe?g|svg)$/i,
+            //   loader: "url-loader",
+            //   options: {
+            //     limit: 10000,
+            //     name: "img/[name].[hash].[ext]"
+            //   }
+            // }
+            // {
+            //   test: /\.(png|jpe?g|gif|svg)$/,
+            //   loader: "url-loader",
+            //   options: {
+            //     limit: 10000, // 1KO
+            //     name: "img/[name].[hash:7].[ext]"
+            //   }
+            // }
+          ]
+        )
+        console.log(config.module.rules)
       }
     }
   },
@@ -91,6 +133,27 @@ module.exports = {
     { src: "~/plugins/iview.js", ssr: true },
     { src: "~/plugins/echart.js", ssr: true }
   ],
-  modules: ["@nuxtjs/proxy"],
+  modules: [
+    "@nuxtjs/proxy",
+    [
+      "nuxt-i18n",
+      {
+        seo: false,
+        defaultLocale: "zh-cn",
+        locales: [
+          {
+            code: "en",
+            file: "en.js"
+          },
+          {
+            code: "zh-cn",
+            file: "zh-cn.js"
+          }
+        ],
+        lazy: true,
+        langDir: "lang/"
+      }
+    ]
+  ],
   proxy: [["/app", { target: "http://www.biger.in" }]]
 }

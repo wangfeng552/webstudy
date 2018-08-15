@@ -1,95 +1,152 @@
 <template>
-  <div class="layout-default">
-    <i-layout :style="{minHeight: '100vh'}">
-      <i-sider :collapsed-width="0" v-model="isCollapsed" collapsible hide-trigger>
-        <div class="logo"><u-image type="pic-logo"/></div>
-        <i-menu :open-names="['1']" active-name="1-2" theme="dark" width="auto">
-          <i-submenu name="1">
-            <template slot="title">
-              <i-icon type="ios-home"/>
-              首页
-            </template>
-            <i-menuItem name="1-1" to="/">Dashboard</i-menuItem>
-          </i-submenu>
-          <i-submenu name="2">
-            <template slot="title">
-              <i-icon type="md-person"/>
-              账户管理
-            </template>
-            <i-menuItem :to="'/user/info'" name="2-1">用户列表</i-menuItem>
-          </i-submenu>
-          <i-submenu name="3">
-            <template slot="title">
-              <i-icon type="logo-yen"/>
-              资金管理
-            </template>
-            <i-menuItem name="3-1">配资管理</i-menuItem>
-          </i-submenu>
-          <i-submenu name="4">
-            <template slot="title">
-              <i-icon type="md-speedometer"/>
-              风控管理
-            </template>
-            <i-menuItem name="4-1">预警设置</i-menuItem>
-          </i-submenu>
-        </i-menu>
-      </i-sider>
-      <i-layout>
+<div class="layout-default">
+  <i-layout :style="{minHeight: '100vh'}">
+    <i-sider :collapsed-width="0" v-model="isCollapsed" collapsible hide-trigger>
+      <div class="logo">
+        <u-image type="pic-logo"/>
+      </div>
+      <i-menu :open-names="['1']" active-name="1-2" theme="dark" width="auto">
+        <i-submenu name="1">
+          <template slot="title">
+            <i-icon type="ios-home"/>
+            首页
+          </template>
+          <i-menuItem name="1-1" to="/">Dashboard</i-menuItem>
+          <i-menuItem name="1-2" to="/means">我的资产</i-menuItem>
+        </i-submenu>
+        <i-submenu name="2">
+          <template slot="title">
+            <i-icon type="md-person"/>
+            账户管理
+          </template>
+          <i-menuItem to="/user" name="2-1">用户列表</i-menuItem>
+        </i-submenu>
+        <i-submenu name="3">
+          <template slot="title">
+            <i-icon type="logo-yen"/>
+            资金管理
+          </template>
+          <i-menuItem to="/capital" name="3-1">配资管理</i-menuItem>
+        </i-submenu>
+        <i-submenu name="4">
+          <template slot="title">
+            <i-icon type="md-speedometer"/>
+            风控管理
+          </template>
+          <i-menuItem name="4-1" to="/risk/putup">挂单预览</i-menuItem>
+        </i-submenu>
+      </i-menu>
+    </i-sider>
+    <i-layout>
 
-        <div class="g-header">
-          <div class="slidemenu"@click="shouqi">
-            <a class="tgmenu"><u-image type="pic-abbrev"/></a>
-          </div>
-
-          <div class="admin">
-            <ul>
-              <li class="wuser msg"><u-image type="pic-msg"/></li>
-              <li class="wuser"><i-dropdown trigger="click" class="loginout">
-                <a href="javascript:void(0)">admin<i-icon type="ios-arrow-down"/></a>
-                <i-dropdownMenu slot="list">
-                  <i-dropdownItem ><span @click="loginOut">退出</span></i-dropdownItem>
-                </i-dropdownMenu>
-              </i-dropdown></li>
-              <li class="wuser"><u-image type="pic-photo" class="photo"/></li>
-            </ul>
-            <span class="msg"/>
-          </div>
+      <div class="g-header">
+        <div class="slidemenu" @click="shouqi">
+          <a class="tgmenu">
+            <u-image type="pic-abbrev"/>
+          </a>
         </div>
-        <nuxt/>
+        <div class="admin">
+          <ul>
+            <li class="wuser msg">
+              <u-image type="pic-msg"/>
+            </li>
+            <li class="wuser pt5">
+              <i-dropdown trigger="click" class="loginout">
+                <a href="javascript:void(0)">admin
+                  <i-icon type="ios-arrow-down"/>
+                </a>
+                <i-dropdownMenu slot="list">
+                  <i-dropdownItem><span @click="loginOut">退出</span></i-dropdownItem>
+                </i-dropdownMenu>
+              </i-dropdown>
+            </li>
+            <li class="wuser">
+              <u-image type="pic-photo" class="photo"/>
+            </li>
+          </ul>
+          <span class="msg"/>
+        </div>
+      </div>
 
+      <div class="g-breadcrumb" v-if="isShowbreadcrumb">
+        <i-breadcrumb :style="{padding: '16px 0 16px 32px',background: '#fff','border-top':'1px solid #E9EDF1'}">
+          <i-breadcrumbItem>{{firstNavTitle.first}}</i-breadcrumbItem>
+          <!--<i-breadcrumbItem :to="urlPath.prev">Components</i-breadcrumbItem>-->
+          <i-breadcrumbItem>{{firstNavTitle.second}}</i-breadcrumbItem>
+        </i-breadcrumb>
+        <div class="breadtitle">{{firstNavTitle.second}}</div>
+      </div>
 
-
-        <!--<Content :style="{padding: '0 16px 16px'}">
-          <Card>
-
-          </Card>
-        </Content>-->
-      </i-layout>
+      <div class="g-main">
+        <nuxt ref="indexlayout"/>
+      </div>
     </i-layout>
-  </div>
+  </i-layout>
+</div>
 </template>
 <script>
 import UHeader from "~/components/layout/UHeader"
 import UNav from "~/components/layout/UNav"
+
 export default {
+  meta: "test",
   components: {
     UHeader,
     UNav
   },
   data() {
     return {
-      isCollapsed: false
+      isCollapsed: false,
     }
   },
+  mounted() {
+    console.log(2)
+  },
   computed: {
-    urlPath() {
+    isShowbreadcrumb(){
+      return this.$route.path !='/'
+    },
+    firstNavTitle() {
+      var pathName = this.$route.name
+
+      if (pathName == 'means') {
+        return {
+          first: '首页',
+          second: '我的资产'
+        }
+      } else if (pathName == 'user') {
+        return {
+          first: '账户管理',
+          second: '用户列表'
+        }
+      } else if (pathName == 'capital') {
+        return {
+          first: '资金管理',
+          second: '配资管理'
+        }
+      } else if (pathName == 'risk') {
+        return {
+          first: '风控管理',
+          second: '风控管理'
+        }
+      } else if (pathName == 'risk-putup') {
+        return {
+          first: '风控管理',
+          second: '挂单预览'
+        }
+      }
+    },
+    /*urlPath() {
       const matched = this.$route.matched
-      const index = matched.map(({ path }) => path).indexOf(this.$route.path)
+      const index = matched.map(({path}) => path).indexOf(this.$route.path)
 
       return {
         prev: matched[index - 1].path
       }
-    }
+    },*/
+
+  },
+  created() {
   },
   methods: {
     shouqi() {
@@ -103,11 +160,16 @@ export default {
   }
 }
 </script>
-<style lang="less" >
+<style lang="less">
+.g-main {
+  padding: 0 15px 15px 15px;
+}
+
 .layout-con {
   height: 100%;
   width: 100%;
 }
+
 .menu-item span {
   display: inline-block;
   overflow: hidden;
@@ -117,82 +179,31 @@ export default {
   vertical-align: bottom;
   transition: width 0.2s ease 0.2s;
 }
+
 .menu-item i {
   transform: translateX(0px);
   transition: font-size 0.2s ease, transform 0.2s ease;
   vertical-align: middle;
   font-size: 16px;
 }
+
 .collapsed-menu span {
   width: 0px;
   transition: width 0.2s ease;
 }
+
 .collapsed-menu i {
   transform: translateX(5px);
   transition: font-size 0.2s ease 0.2s, transform 0.2s ease 0.2s;
   vertical-align: middle;
   font-size: 22px;
 }
+
 .breadtitle {
   font-size: 20px;
   background-color: #fff;
   padding: 0 0 16px 32px;
   margin-bottom: 15px;
-}
-html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-li {
-  list-style: none;
-}
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-.layout-default {
-  display: flex;
-  > .nav {
-    width: 200px;
-  }
 }
 
 .g-header {
@@ -217,8 +228,9 @@ li {
           font-size: 14px;
         }
       }
+      .pt5{ padding-top: 5px;}
       .msg {
-        padding-top: 3px;
+        padding-top: 5px;
         margin-right: 10px;
       }
     }
@@ -231,6 +243,7 @@ li {
     }
   }
 }
+
 .logo {
   width: 128px;
   height: 60px;
