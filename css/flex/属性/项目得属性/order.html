@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .mk{ display: flex}
+    .mk .fl{ order: 1; background-color: #ccc; flex: 1; margin:10px;}
+    .mk .fl:nth-child(4){ order:5}
+</style>
+<div class="mk">
+    <div class="fl">123</div>
+    <div class="fl">123</div>
+    <div class="fl">123</div>
+    <div class="fl">4444444</div>
+    <div class="fl">123</div>
+    <div class="fl">123</div>
+    <div class="fl">123</div>
+    <div class="fl">123</div>
+</div>
+<!--order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。-->
+</body>
+</html>
