@@ -133,27 +133,6 @@ module.exports = {
     { src: "~/plugins/iview.js", ssr: true },
     { src: "~/plugins/echart.js", ssr: true }
   ],
-  modules: [
-    "@nuxtjs/proxy",
-    [
-      "nuxt-i18n",
-      {
-        seo: false,
-        defaultLocale: "zh-cn",
-        locales: [
-          {
-            code: "en",
-            file: "en.js"
-          },
-          {
-            code: "zh-cn",
-            file: "zh-cn.js"
-          }
-        ],
-        lazy: true,
-        langDir: "lang/"
-      }
-    ]
-  ],
+  modules: ["@nuxtjs/proxy"],
   proxy: [["/app", { target: "http://www.biger.in" }]]
 }

@@ -28,7 +28,6 @@
     "less": "^3.8.0",
     "less-loader": "^4.1.0",
     "nuxt": "^1.0.0",
-    "nuxt-i18n": "^5.0.2",
     "prettier": "^1.14.0",
     "source-map-support": "^0.4.15",
     "vue-echarts": "^3.0.9",

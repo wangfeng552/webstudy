@@ -1,10 +1,10 @@
 <template>
-  <div class="theme-dark">
+  <div class="login">
     <nuxt/>
   </div>
 </template>
 <style>
-.theme-dark {
+.login {
   background-color: black;
 }
 </style>
