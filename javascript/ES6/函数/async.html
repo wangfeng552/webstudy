@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 函数声明:
+    async function foo() {}
+
+    //函数表达式
+    const foo = async function f() {}
+
+    //对象的方式
+    let obj={
+        async foo(){}
+    }
+
+    // 箭头函数
+     const foo = async ()=>{}
+
+
+     async function getName() {
+         const result = await  otherAsyncFunc();
+         console.log(result)
+         const result2 = await otherAsyncFunc2()
+         console.log(result2)
+     }
+
+//     并行处理多个异步结果
+    async function othall() {
+        const [result1,result2] =await Promise.all([
+            oth1(),
+            oth2()
+        ])
+        console.log(result1,result2)
+    }
+
+    // 处理错误
+    async function error() {
+        try{
+            await otherAsync();
+        } catch(err){
+            console.log(err)
+        }
+    }
+</script>
+</body>
+</html>

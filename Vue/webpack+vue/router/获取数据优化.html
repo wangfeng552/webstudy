@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<template>
+    <div class="post">
+        <div class="loading" v-if="loading">
+            Loading...
+        </div>
+
+        <div v-if="error" class="error">
+            {{ error }}
+        </div>
+
+        <div v-if="post" class="content">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.body }}</p>
+        </div>
+    </div>
+</template>
+<script>
+    export default {
+        watch: {
+            '$route': {
+                immediate: true, // 代表在wacth里声明了$route这个方法之后立即先去执行handler方法
+                handler({ path }){
+                    if (path != this.routePath.Info){
+                        return
+                    }
+                    this.getAuthenticationState()
+                }
+            }
+        },
+    }
+</script>
+</body>
+</html>
