@@ -1,0 +1,127 @@
+{
+	"code": 200,
+	"msg": "请求成功",
+	"extraMessage": "",
+	"result": "Success",
+	"data": [{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 10000,
+		"name": "万倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "ASSIGNED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 1000,
+		"name": "万倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "ASSIGNED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 100,
+		"name": "百倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "ASSIGNED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 100,
+		"name": "百倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "ASSIGNED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 100,
+		"name": "千倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "ASSIGNED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 100,
+		"name": "千倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "RECEIVED"
+	}, 
+	{
+		"id": "eead1a4f-d806-4693-9cfb-e29db442c259",
+		"userId": "6821",
+		"currency": "BG",
+		"quality": 100,
+		"name": "十倍券",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "CHIVES_REWARD",
+		"rewardRecordStatus": "RECEIVED"
+	}, 
+	{
+		"id": "559de59d-635a-48a8-8b5c-023ae6f135e7",
+		"userId": "6821",
+		"currency": "BTC",
+		"quality": 10,
+		"name": "安慰红包",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "RED_PACKET",
+		"rewardRecordStatus": "ASSIGNED"
+	},
+{
+		"id": "559de59d-635a-48a8-8b5c-023ae6f135e7",
+		"userId": "6821",
+		"currency": "BTC",
+		"quality": 10,
+		"name": "安慰红包",
+		"activityType": null,
+		"refActivity": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+		"accountType": "AVAILABLE",
+		"createTime": null,
+		"rewardRecordType": "RED_PACKET",
+		"rewardRecordStatus": "ASSIGNED"
+	}],
+	"count": null
+}
+
+
+

@@ -1,0 +1,24 @@
+{
+  "code": 200,
+  "msg": "请求成功",
+  "extraMessage": "",
+  "result": "Success",
+  "data": {
+    "activityId": "cac89839-a75d-4d79-b8ae-c3cac88b0f38",
+    "activityName": "国庆七天乐",
+    "userCount": 10000,
+    "rewards": [{
+      "name": "一倍券",
+      "label": "1x1",
+      "num": 1
+    }],
+    "rewardTotalValue": 10,
+    "totalPeriod": 48,
+    "currentPeriod": 45,
+    "remainderPeriod": 5,
+    "start": 1535508771247,
+    "end": 1535512881247,
+    "current": 1535512371247
+  },
+  "count": null
+}

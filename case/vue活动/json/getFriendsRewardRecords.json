@@ -1,0 +1,23 @@
+{
+  "code": 200,
+  "count": 0,
+  "data": [{
+      "accountType": "string",
+      "activityType": "string",
+      "code": "string",
+      "createTime": "2018-08-30T02:45:19.915Z",
+      "currency": "string",
+      "id": "string",
+      "name": "1234",
+      "periodNumber": 0,
+      "quality": 0,
+      "refActivity": "string",
+      "rewardRecordStatus": "string",
+      "rewardRecordType": "string",
+      "userId": "string",
+      "userPhone":"13761401502"
+    }],
+  "extraMessage": "string",
+  "msg": "string",
+  "result": "string"
+}

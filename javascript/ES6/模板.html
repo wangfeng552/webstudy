@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="google" value="notranslate">
-	<title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google" value="notranslate">
+    <title></title>
 </head>
 <body>
 <script>
-   function wf(a,cb) {
-	   cb()
-   }
+    var arr = [
+        {"quality": 10000, "name": "万倍券"},
+        {"quality": 1000, "name": "万倍券"},
+        {"quality": 1000, "name": "十倍券"},
+        {"quality": 1000, "name": "十倍券"}
+    ]
+    var newArr = []
+    var obj = {}
 
-   function cb() {
-	   console.log('callback')
-   }
-
+    for (var i = 0, l = arr.length; i < l; i++) {
+        if (!obj[arr[i]['name']]) {
+            newArr.push(arr[i])
+            obj[arr[i]['name']] = 1
+        }
+    }
 </script>
 </body>
 </html>
