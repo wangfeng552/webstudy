@@ -8,21 +8,12 @@
 </head>
 <body>
 <script>
-    var arr = [
-        {"quality": 10000, "name": "万倍券"},
-        {"quality": 1000, "name": "万倍券"},
-        {"quality": 1000, "name": "十倍券"},
-        {"quality": 1000, "name": "十倍券"}
-    ]
-    var newArr = []
-    var obj = {}
-
-    for (var i = 0, l = arr.length; i < l; i++) {
-        if (!obj[arr[i]['name']]) {
-            newArr.push(arr[i])
-            obj[arr[i]['name']] = 1
-        }
-    }
+  let a = new Promise((resolve)=>{
+    resolve({a:123})
+  })
+    a.then(res=>{
+      console.log(res)
+    })
 </script>
 </body>
 </html>

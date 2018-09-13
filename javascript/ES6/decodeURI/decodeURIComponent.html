@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var string = "Hello, 中国！";
+  //"SGVsbG8lMkMlMjAlRTQlQjglQUQlRTUlOUIlQkQlRUYlQkMlODE="
+  var encodedString = btoa(encodeURIComponent(string));
+  var decodedString = decodeURIComponent(atob(encodedString));
+  console.log(decodedString); //"Hello, 中国！"
+</script>
+
+注意，编码的过程是先encodeURI，再编码，那么解码的过程应该是先解码，再decodeURI。
+另外，在使用atob和btoa这两个函数时需要注意的是，IE9是不支持的，在IE11中，用仿真工具切换到IE9模式，然后直接在控制台调用btoa方法：
+</body>
+</html>

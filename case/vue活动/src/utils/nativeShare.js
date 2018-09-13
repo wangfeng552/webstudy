@@ -2,7 +2,6 @@ export default function(elementNode, config) {
   if (!document.getElementById(elementNode)) {
     return false;
   }
-
   var qApiSrc = {
     lower: "//3gimg.qq.com/html5/js/qb.js",
     higher: "//jsapi.qq.com/get?api=app.share"
@@ -11,7 +10,8 @@ export default function(elementNode, config) {
     qq: { forbid: 0, lower: 1, higher: 2 },
     uc: { forbid: 0, allow: 1 }
   };
-  var ua, platform_os;
+  var ua = navigator.userAgent;
+  var platform_os, isAndroid, isIos;
   var UA = navigator.appVersion;
   var isqqBrowser =
     UA.split("MQQBrowser/").length > 1 ? bLevel.qq.higher : bLevel.qq.forbid;
@@ -23,7 +23,35 @@ export default function(elementNode, config) {
   };
   var isWeixin = false;
   var isInnerQQ = false;
-
+  var jsBridge = (function() {
+    function connectWebViewJavascriptBridge(callback) {
+      if (window.WebViewJavascriptBridge) {
+        callback(WebViewJavascriptBridge);
+      } else {
+        document.addEventListener(
+          "WebViewJavascriptBridgeReady",
+          function() {
+            callback(WebViewJavascriptBridge);
+          },
+          false
+        );
+      }
+    }
+    return {
+      init: function(fn) {
+        connectWebViewJavascriptBridge(function(WebViewJavascriptBridge) {
+          WebViewJavascriptBridge.init(function(message, responseCallback) {});
+          fn && fn();
+        });
+      },
+      share: function(obj) {
+        WebViewJavascriptBridge.callHandler("share", obj, function(
+          response
+        ) {});
+        return false;
+      }
+    };
+  })();
   config = config || {};
   this.elementNode = elementNode;
   this.url = config.url || document.location.href || "";
@@ -43,7 +71,6 @@ export default function(elementNode, config) {
     QQ: ["kQQ", "QQ", "4", "QQ好友"],
     QZone: ["kQZone", "QZone", "3", "QQ空间"]
   };
-
   this.share = function(to_app) {
     var title = this.title,
       url = this.url,
@@ -130,7 +157,6 @@ export default function(elementNode, config) {
       }
     }
   };
-
   this.html = function(type) {
     /* type: 1:调用原生分享功能, type: 2:调用qrcode填充, type: 3:对微信浏览器填充背景 */
     var position = document.getElementsByTagName("body")[0];
@@ -168,7 +194,6 @@ export default function(elementNode, config) {
     position.appendChild(wrapper);
     this.bindEvents();
   };
-
   this.bindEvents = function() {
     var close = document.querySelector(
       "#nativeShare .close, #nativeShareBox .closewx"
@@ -180,7 +205,6 @@ export default function(elementNode, config) {
       document.getElementById("nativeShareBox").style.display = "block";
     });
   };
-
   this.isloadqqApi = function() {
     if (isqqBrowser) {
       var b = version.qq < 5.4 ? qApiSrc.lower : qApiSrc.higher;
@@ -190,15 +214,12 @@ export default function(elementNode, config) {
       a.appendChild(d);
     }
   };
-
   this.getPlantform = function() {
-    ua = navigator.userAgent;
     if (ua.indexOf("iPhone") > -1 || ua.indexOf("iPod") > -1) {
       return "iPhone";
     }
     return "Android";
   };
-
   this.is_weixin = function() {
     var a = UA.toLowerCase();
     if (a.match(/MicroMessenger/i) == "micromessenger") {
@@ -213,6 +234,22 @@ export default function(elementNode, config) {
       if (/(baidu|chrome)/i.test(a)) {
         return false;
       }
+      return true;
+    } else {
+      return false;
+    }
+  };
+  this.bigerIos = function() {
+    var a = ua.toLowerCase();
+    if (a.indexOf("--biger.in--ios") > -1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  this.bigerAndroid = function() {
+    var a = ua.toLowerCase();
+    if (a.indexOf("--biger.in--android") > -1) {
       return true;
     } else {
       return false;
@@ -236,6 +273,8 @@ export default function(elementNode, config) {
     version.uc = isucBrowser ? this.getVersion(UA.split("UCBrowser/")[1]) : 0;
     isWeixin = this.is_weixin();
     isInnerQQ = this.is_innerQQ();
+    isIos = this.bigerIos();
+    isAndroid = this.bigerAndroid();
     if (
       (isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") ||
       (isqqBrowser && version.qq < 5.3 && platform_os == "Android")
@@ -255,19 +294,17 @@ export default function(elementNode, config) {
       }
     }
     this.isloadqqApi();
-    if ((isqqBrowser || isucBrowser || this.is_huawei_default()) && !isWeixin) {
-      this.html(1);
-    } else if (isWeixin) {
-      this.html(3);
-    } else if (isInnerQQ) {
-      this.html(2);
+    if (isWeixin) {
+      // this.html(3);
+    } else if (isAndroid) {
+      jsBridge.share();
+    } else if (isIos) {
+      console.log("123");
     } else {
       this.html(2);
     }
   };
-
   this.init();
-
   var share = this;
   var items = document.getElementsByClassName("nativeShare");
   for (var i = 0; i < items.length; i++) {
@@ -275,6 +312,5 @@ export default function(elementNode, config) {
       share.share(this.getAttribute("data-app"));
     };
   }
-
   return this;
 }

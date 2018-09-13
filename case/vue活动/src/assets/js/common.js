@@ -91,25 +91,15 @@ export var stringUtil = {
 export var browserUtil = function() {
   var u = navigator.userAgent;
   return {
-    trident: u.indexOf("Trident") > -1, //IE内核
-    presto: u.indexOf("Presto") > -1, //opera内核
-    webKit: u.indexOf("AppleWebKit") > -1, //苹果、谷歌内核
-    gecko: u.indexOf("Gecko") > -1 && u.indexOf("KHTML") == -1, //火狐内核
+    bigerIos: u.indexOf("--biger.in--ios") > -1, //iosApp
+    bigerAndroid: u.indexOf("--biger.in--android") > -1, //安卓App
     mobile: u.indexOf("Mobile") > -1, //是否为移动终端
     ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
     android: u.indexOf("Android") > -1 || u.indexOf("Linux") > -1, //android终端
     iPhone: u.indexOf("iPhone") > -1, //是否为iPhone或者QQHD浏览器
     iPad: u.indexOf("iPad") > -1, //是否iPad
     webApp: u.indexOf("Safari") == -1, //是否web应该程序，没有头部与底部
-    weixin: u.indexOf("MicroMessenger") > -1, //是否微信
-    qq: u.indexOf("QQBrowser") > -1, //是否QQ浏览器
-    mobile_qq: u.indexOf("MQQBrowser") > -1, //是否是手机QQ浏览器
-    uc: u.indexOf("UCBrowser") > -1, //是否是uc浏览器
-    baidu: u.indexOf("Baidu") > -1, //是否是百度浏览器
-    firefox: u.indexOf("Firefox") > -1, //是否是火狐浏览器
-    lieBao: u.indexOf("LieBao") > -1, //是否是猎豹浏览器
-    sogou: u.indexOf("SogouMobile") > -1, //是否是搜狗手机浏览器
-    bjhb: u.indexOf("BJQD") > -1
+    weixin: u.indexOf("MicroMessenger") > -1 //是否微信
   };
 };
 
@@ -144,43 +134,14 @@ export var jsBridge = (function() {
     close: function() {
       WebViewJavascriptBridge.callHandler("close", {}, function(response) {});
     },
-    showAppPage: function(obj) {
-      WebViewJavascriptBridge.callHandler(
-        "showAppPage",
-        { pageID: obj.pageID },
-        function(response) {}
-      );
+    recharge: function() {
+      WebViewJavascriptBridge.callHandler("recharge", {}, function(
+        response
+      ) {});
     },
-    showWebPage: function(obj) {
-      WebViewJavascriptBridge.callHandler(
-        "showWebPage",
-        { title: obj.title, pageUrl: obj.pageUrl },
-        function(response) {}
-      );
-    },
-    callClipboard: function(obj) {
-      WebViewJavascriptBridge.callHandler(
-        "callClipboard",
-        { data: obj.data },
-        function(response) {}
-      );
-    },
-    phoneCall: function(obj) {
-      WebViewJavascriptBridge.callHandler(
-        "phoneCall",
-        { phone: obj.phone },
-        function(response) {}
-      );
-    },
-    getSysInfo: function(obj) {
-      WebViewJavascriptBridge.callHandler("getSysInfo", {}, function(response) {
-        // response { clientType 手机类型  systemVersion 系统版本  appVersion APP版本}
-        if (response) {
-          obj.done(dataUtil.stringToJson(response));
-        } else {
-          obj.error();
-        }
-      });
+    share: function(obj) {
+      WebViewJavascriptBridge.callHandler("share", obj, function(response) {});
+      return false;
     }
   };
 })();
@@ -280,54 +241,33 @@ export let Share = {
   },
   Ios(action, params, callback) {
     //ios 分享
-    this.check(function() {
-      if (!window.WebViewJavascriptBridge) {
-        alert("您的APP版本过低，请升级APP。");
-        return false;
+    window.WebViewJavascriptBridge.callHandler(
+      "share",
+      {
+        action: action,
+        params: params
+      },
+      function(response) {
+        callback && callback(response);
       }
-      window.WebViewJavascriptBridge.callHandler(
-        "jsCallNative",
-        {
-          action: action,
-          params: params
-        },
-        function(response) {
-          callback && callback(response);
-        }
-      );
-    });
+    );
   },
   Android(host, action, data, callback) {
     //安卓分享
     //exam native://{host}?action={action}[&data={data}][&callback={callback}]
-    var url = "native://" + host + "?action=" + action;
+    /* var url = "native://" + host + "?action=" + action;
     if (data) {
       url += "&data=" + encodeURIComponent(JSON.stringify(data));
     }
     if (callback) {
       url += "&callback=" + callback;
     }
-    this.loadUrl(url);
-  },
-  bridgeCall(event, params) {
-    if (ios) {
-      window.WebViewJavascriptBridge.callHandler(
-        "jsCallNative",
-        {
-          action: action,
-          params: params
-        },
-        function(response) {
-          callback && callback(response);
-        }
-      );
-    } else {
-      document.addEventListener("DOMContentLoaded", function() {
-        var a = document.createElement("a");
-        a.setAttribute("href", "js://?event=appShare");
-        document.body.appendChild(a);
-        a.click();
-      });
-    }
+    this.loadUrl(url);*/
+    document.addEventListener("DOMContentLoaded", function() {
+      var a = document.createElement("a");
+      a.setAttribute("href", "js://?event=appShare");
+      document.body.appendChild(a);
+      a.click();
+    });
   }
 };

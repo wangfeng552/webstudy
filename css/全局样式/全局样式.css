@@ -18,7 +18,17 @@ a:hover { color: #c10000; text-decoration: underline; }
 .pr10{ padding-right:10px;}
 .pb10{ padding-bottom:10px;}
 .pl10{ padding-left:10px;}
-img { border: 0; vertical-align: top; }
+img { border: 0; vertical-align: top;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    /*手机上不能选择*/
+}
+input{
+    caret-color:red /* 光标颜色*/
+}
 .clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
 .clearfix:after {content: "";clear: both; display: table;}/*第二种方法*/
 

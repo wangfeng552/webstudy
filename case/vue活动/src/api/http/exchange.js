@@ -16,6 +16,10 @@ export async function getUserRewardRecords() {
 export async function getShareConfigList() {
   return request("/ucex-controller/share/web/getShareConfigList");
 }
+//APP获取分享地址
+export async function getShareConfigListApp() {
+  return request("/ucex-controller/share/getShareConfigList");
+}
 
 // 获取用户中奖统计
 export async function getUserRewardRecordCount() {
@@ -42,10 +46,21 @@ export async function buyTicket(data) {
   const { activityId, num } = data;
   return request(`/activity/activity/buyTicket`, {
     method: "POST",
-    showError: true,
+    showError: false,
     data: {
       activityId,
       num
+    }
+  });
+}
+
+//区块高度
+export async function getActivityPeriodList(data) {
+  const { activityId } = data;
+  return request(`/activity/activity/getActivityPeriodList`, {
+    params: {
+      activityId,
+      status: "OPENED"
     }
   });
 }
@@ -61,13 +76,18 @@ export async function createDeposit(data) {
   });
 }
 
+//选择币种
+export async function getAllCoins() {
+  return request(`/exchange/coins/query/all`, {});
+}
+
 //注册
 export async function userRegisterPhone(payload) {
   const { phonecode, cellphone, password, sourceParam } = payload;
   return request(`/exchange/users/register/phone`, {
     method: "post",
     headers: {
-      "request-client-type": "web"
+      "request-client-type": "H5"
     },
     params: {
       phonecode
@@ -86,7 +106,7 @@ export async function userLogin(payload) {
   return request("/exchange/users/api/login", {
     method: "POST",
     headers: {
-      "request-client-type": "web"
+      "request-client-type": "H5"
     },
     data: { ...payload, email, password }
   });

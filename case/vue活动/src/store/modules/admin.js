@@ -1,7 +1,8 @@
 const admin = {
   state: {
     userInfo: "",
-    sourceParam: ""
+    sourceParam: "",
+    activityId: ""
   },
   mutations: {
     LOGIN(state, val) {
@@ -13,10 +14,16 @@ const admin = {
     },
     GETSOURCEPARAM(state, val) {
       state.sourceParam = val;
+    },
+    GETAPPTOKEN(state, val) {
+      state.userInfo = val;
+    },
+    GETACTIVITYID(state, val) {
+      state.activityId = val;
     }
   },
   actions: {
-    login({ commit, state }, val) {
+    /*login({ commit, state }, val) {
       return new Promise((resolve, reject) => {
         const { token, ...userInfo } = val;
         if (!token || !Object.keys(userInfo).length) {
@@ -26,6 +33,9 @@ const admin = {
         commit("LOGIN", val);
         resolve();
       });
+    },*/
+    login({ commit }, val) {
+      commit("LOGIN", val);
     },
     logout({ commit }) {
       commit("LOGOUT");
@@ -35,6 +45,12 @@ const admin = {
     },
     getSourceParam({ commit }, val) {
       commit("GETSOURCEPARAM", val);
+    },
+    getAppToken({ commit }, val) {
+      commit("GETAPPTOKEN", val);
+    },
+    getActivityId({ commit }, val) {
+      commit("GETACTIVITYID", val);
     }
   }
 };

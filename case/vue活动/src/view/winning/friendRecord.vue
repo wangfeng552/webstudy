@@ -4,10 +4,9 @@
     <div class="top184"><img src="@/assets/images/w_6.png" alt=""></div>
     <div class="w-jushu bgfef">
       <div class="inv-list clear">
+        <li><span class="pr20">我的返佣</span> <span class="f2">{{parseInt(rewardTotalQuality*0.2)}}</span> BG</li>
         <li><span class="pr20">好友人数</span>{{friendCount}}</li>
-        <li><span class="pr20">参与次数</span>{{participateCount}}</li>
-        <li><span class="pr20">中奖金额</span>{{rewardTotalQuality}}</li>
-        <li><span class="pr20">我的返佣</span> <span class="f2">{{rakeBackQuality}}</span> BG</li>
+        <li style="width: 100%"><span class="pr20">好友中奖金额</span><span class="f2">{{rewardTotalQuality}}</span> BG</li>
       </div>
     </div>
     <div class="w-jushu">
@@ -32,7 +31,6 @@ export default {
     return {
       friendCount: 0,
       participateCount: 0,
-      rakeBackQuality: 0,
       rewardTotalQuality: 0,
       friendVal: []
     };
@@ -46,7 +44,6 @@ export default {
       getUserRewardRecordCount().then(res => {
         this.friendCount = res.friendCount;
         this.participateCount = res.participateCount;
-        this.rakeBackQuality = res.rakeBackQuality;
         this.rewardTotalQuality = res.rewardTotalQuality;
       });
     },
@@ -121,8 +118,6 @@ export default {
       padding: 0.3rem 0.48rem;
       font-size: 0.28rem;
       li {
-        float: left;
-        width: 50%;
         line-height: 0.5rem;
         .pr20 {
           padding-right: 0.2rem;
@@ -131,6 +126,9 @@ export default {
           color: #f76d02;
           font-size: 0.36rem;
         }
+      }
+      li:last-child {
+        margin-bottom: 0;
       }
     }
     .hy-title {

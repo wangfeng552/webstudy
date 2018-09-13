@@ -1,18 +1,28 @@
 <template>
-  <div class="money">
+  <div class="chargemoney">
     <div class="title">充币大约需要3-5分钟到账</div>
+    <div class="secoin" @click="showPick">{{newCoin}}<i class="jt"></i></div>
     <div class="qrcodew">
-      <vue-qr :text="walletAddress" :size="480" :margin="0"></vue-qr>
+      <vue-qr :text="walletAddress" :size="240" :margin="0"></vue-qr>
     </div>
-    <div class="fblue mb66">长按保存图片</div>
-    <div class="address mb66" id="target">
+    <div class="fhei mb66">长按保存二维码</div>
+    <div class="address mb20" id="target">
       {{walletAddress}}
     </div>
     <div class="fblue mb67" id="copyBtn" data-clipboard-action="copy" data-clipboard-target="#target"
          @click="copyPolicyNo">复制地址
     </div>
-    <div class="fhei">如XMX不足可下载App购买BG</div>
-    <div class="btn-down"><a class="down" href="http://static.biger168.com/load/index.html#/">下载biger</a></div>
+    <div class="moneypic">
+      <div class="t">每种数字货币参与一局游戏所需数量：</div>
+      <img src="@/assets/images/money.png" alt="">
+    </div>
+    <div><a href="http://static.biger168.com/load/index.html#/" class="show"><img class="show" src="@/assets/images/home/sy_10.png" alt=""></a></div>
+    
+    <mt-popup v-model="popupVisible" position="bottom">
+        <mt-picker ref="picker" style="width: 7.5rem;background: #fff;" :showToolbar="true" :slots="slots" valueKey="coinName">
+          <a @click="handleConfirm" class="sure">确认</a>
+        </mt-picker>
+    </mt-popup>
   </div>
 </template>
 
@@ -20,57 +30,130 @@
 import { createDeposit } from "@/api/http";
 import VueQr from "vue-qr";
 import Clipboard from "clipboard";
+import { Toast } from "mint-ui";
 export default {
   name: "money",
   data() {
     return {
-      walletAddress: ""
+      walletAddress: "",
+      newCoin: "XMX",
+      popupVisible: false,
+      slots: [
+        {
+          values: [
+            { coinCode: 106, coinName: "USDT" },
+            { coinCode: 104, coinName: "ETH" },
+            { coinCode: 209, coinName: "WFEE" },
+            { coinCode: 204, coinName: "XMX" },
+            { coinCode: 205, coinName: "FT" },
+            { coinCode: 207, coinName: "ZJLT" },
+            { coinCode: 210, coinName: "SDA" },
+            { coinCode: 206, coinName: "QOS" }
+          ]
+        }
+      ]
     };
   },
   created() {
-    var data = { coinCode: 101 };
-    createDeposit(data).then(res => {
-      this.walletAddress = res.walletAddress;
-    });
+    this.createDeposit({ coinCode: 204 });
   },
   components: { VueQr },
   methods: {
+    createDeposit(data) {
+      createDeposit(data).then(res => {
+        this.walletAddress = res.walletAddress;
+      });
+    },
+    handleConfirm() {
+      var coin = this.$refs.picker.getValues()[0];
+      this.newCoin = coin.coinName;
+      this.popupVisible = false;
+      this.createDeposit({ coinCode: coin.coinCode });
+    },
     copyPolicyNo() {
       var clipboard = new Clipboard("#copyBtn");
       clipboard.on("success", function(e) {
         e.clearSelection();
+        Toast({
+          message: "复制成功",
+          position: "bottom",
+          duration: 5000
+        });
       });
+    },
+    showPick() {
+      this.popupVisible = true;
     }
   }
 };
 </script>
 
-<style lang="less" scoped>
-.money {
-  background-color: #f0f2f5;
-  height: 100vh;
+<style lang="less">
+.picker-slot {
+  width: 7.5rem;
+}
+.chargemoney {
+  padding-bottom: 1rem;
+  .sure {
+    float: right;
+    font-size: 0.28rem;
+    display: block;
+    width: 1rem;
+    text-align: center;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    color: #3092fc;
+  }
+  .secoin {
+    width: 2.93rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    margin: 0 auto 0.36rem;
+    border: 0.01rem solid #d8d8d8;
+    position: relative;
+    font-size: 0.3rem;
+    color: #fff;
+    padding-left: 1rem;
+    border-radius: 0.08rem;
+    .jt {
+      position: absolute;
+      top: 0.3rem;
+      right: 0.2rem;
+      width: 0.18rem;
+      height: 0.14rem;
+      background: url("~@/assets/images/jt_icon1.png") 0 0 no-repeat;
+      background-size: 100%;
+      display: block;
+    }
+  }
   .mb66 {
     margin-bottom: 0.4rem;
+  }
+  .mb20 {
+    margin-bottom: 0.2rem;
   }
   .mb67 {
     margin-bottom: 0.8rem;
   }
   .title {
     font-size: 0.24rem;
-    color: #aebbc7;
+    color: #fff;
     text-align: center;
     height: 0.82rem;
     line-height: 0.82rem;
   }
   .qrcodew {
-    width: 4.8rem;
-    height: 4.8rem;
-    margin: 0 auto;
+    width: 2.94rem;
+    height: 2.94rem;
+    margin: 0 auto 0.14rem;
     border-radius: 0.12rem;
     background-color: #fff;
-    padding: 0.58rem;
+    padding: 0.26rem;
     box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.09);
-    margin-bottom: 0.48rem;
+    img {
+      display: block;
+      margin-bottom: 0.1rem;
+    }
   }
   .fblue {
     text-align: center;
@@ -80,28 +163,22 @@ export default {
   .address {
     padding: 0 0.4rem;
     font-size: 0.22rem;
-    color: #0f3652;
+    color: #fff;
     word-wrap: break-word;
     text-align: center;
   }
   .fhei {
+    color: #fff;
     font-size: 0.28rem;
     text-align: center;
-    margin-bottom: 0.2rem;
   }
-  .btn-down {
-    height: 0.88rem;
-    .down {
-      width: 4.4rem;
-      height: 0.88rem;
-      line-height: 0.88rem;
-      text-align: center;
+  .moneypic {
+    width: 5.58rem;
+    margin: 0 auto 0.2rem;
+    .t {
       color: #fff;
-      font-size: 0.4rem;
-      background-color: #3092fc;
-      border-radius: 0.44rem;
-      display: block;
-      margin-left: 0.78 * 2rem;
+      font-size: 0.28rem;
+      margin-bottom: 0.2rem;
     }
   }
 }

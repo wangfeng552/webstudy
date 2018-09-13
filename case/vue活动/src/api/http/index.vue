@@ -2,6 +2,7 @@
   <div id="http" style="opacity:0;display:none"></div>
 </template>
 <script>
+import { browserUtil } from "@/assets/js/common";
 import store from "@/store";
 import { Toast } from "mint-ui";
 import request from "@/utils/request";
@@ -15,7 +16,8 @@ const ServiceCustomeCode = {
 };
 
 const debug = false;
-const tokenHeader = "ucex-web-api-token";
+const appHeader = "ucex-api-token";
+const tokenHeader = "ucex-h5-api-token";
 const defaultTimeout = 20000;
 const showToast = msg => {
   setTimeout(() => {
@@ -29,12 +31,17 @@ const showToast = msg => {
 request.interceptors.request.use(
   config => {
     let token = store.getters.token;
+
     if (token) {
-      config.headers[tokenHeader] = token;
+      if (browserUtil().bigerAndroid || browserUtil().bigerIos) {
+        config.headers[appHeader] = token;
+      } else {
+        config.headers[tokenHeader] = token;
+      }
     }
     const params = config.params;
     config.params = {
-      // t: +new Date(),
+      t: +new Date(),
       ...params
     };
     config.timeout =
@@ -58,13 +65,24 @@ request.interceptors.response.use(
     if (typeof data === "undefined") {
       rdata = result;
     }
-    if (headers[tokenHeader]) {
-      localStorage.setItem("userToken", headers[tokenHeader]);
-      rdata.token = headers[tokenHeader];
-      // vInstance.$store && vInstance.$store.dispatch('updateUserToken', headers[tokenHeader])
+    if (browserUtil().bigerAndroid || browserUtil().bigerIos) {
+      if (headers[appHeader]) {
+        localStorage.setItem("userToken", headers[appHeader]);
+        rdata.token = headers[appHeader];
+      }
+    } else {
+      if (headers[tokenHeader]) {
+        localStorage.setItem("userToken", headers[tokenHeader]);
+        rdata.token = headers[tokenHeader];
+        // vInstance.$store && vInstance.$store.dispatch('updateUserToken', headers[tokenHeader])
+      }
     }
+    if (headers[appHeader]) {
+      localStorage.setItem("userToken", headers[appHeader]);
+      rdata.token = headers[appHeader];
+    }
+
     if (headers["ucex-captcha"]) {
-      console.log("123");
       localStorage.setItem("ucex-captcha", headers["ucex-captcha"]);
     }
     if (handleCustomHeader(response.data)) {
@@ -98,6 +116,12 @@ request.interceptors.response.use(
       status,
       data
     } = res;
+    if (status >= 500 && status < 600) {
+      return Promise.reject({
+        data: res
+      });
+    }
+
     if (callback) {
       callback.call(vInstance, data);
     }
@@ -125,7 +149,6 @@ request.interceptors.response.use(
       vInstance.$store.dispatch("logout");
 
       if (silent401) {
-        console.log("silent401");
         return Promise.reject({ data });
       }
       setTimeout(() => vInstance.$router.push({ name: "signIn" }), 0);

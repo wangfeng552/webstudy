@@ -12,22 +12,75 @@
   <!--<link rel="stylesheet" href="./static/css/nativeShare.css">-->
   <!--<script src="./static/js/nativeShare.js"></script>-->
   <title></title>
-  <script src="https://js.fundebug.cn/fundebug.1.2.1.min.js" apikey="d9dfbf0eccb3a7a12be47c3f6850b2e6433d07205f96e1b36099404efcea7a9c"></script>
+  <!-- <script src="https://js.fundebug.cn/fundebug.1.2.1.min.js" apikey="d9dfbf0eccb3a7a12be47c3f6850b2e6433d07205f96e1b36099404efcea7a9c"></script> -->
   <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
   <script>
-    var _hmt = _hmt || [];
     (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?8af143ec4af21bb908179b8efe73a5b8";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
+      if (typeof window.CustomEvent === "function") return false; //If not IE
+
+      function CustomEvent(event, params) {
+        params = params || { bubbles: false, cancelable: false, detail: undefined };
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+        return evt;
+      }
+
+      CustomEvent.prototype = window.Event.prototype;
+
+      window.CustomEvent = CustomEvent;
+    })();
+
+    //  bug report
+    var test_report_api = ''//'http://192.168.190.24'
+    window.addEventListener('error', function (e) {
+      var error = (e.error && e.error.stack) || e.message || ''
+      new Image().src = test_report_api + "/report?e=" + encodeURIComponent(error)
+    })
+    // add baidu google analyse
+    var _hmt = _hmt || []
+    var dataLayer = window.dataLayer || [];
+    (function () {
+      if(/^\d/.test(location.hostname)){
+        return 
+      }
+      if (/(dev|localhost|qa)/i.test(location.href)) {
+        return
+      }
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://www.googletagmanager.com/gtag/js?id=UA-125167328-1";
+        var s = document.getElementsByTagName("script")[0];
+        s.async = true
+        s.parentNode.insertBefore(hm, s);
+      })();
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?dc692324350d7f70774378b34518d5fe";
+        var s = document.getElementsByTagName("script")[0];
+        s.async = true
+        s.parentNode.insertBefore(hm, s);
+      })();
+      function gtag() { dataLayer.push(arguments) }
+      gtag('js', new Date())
+
+      gtag('config', 'UA-125167328-1')
+      var originPushState = Object.getPrototypeOf(history).pushState
+      window.history.pushState = function () {
+        setTimeout(function () {
+          var url = location.pathname + location.search
+          gtag('config', 'UA-125167328-1', { 'page_path': url })
+          _hmt.push(['_trackPageview', url])
+        }, 0)
+        return originPushState.apply(window.history, arguments)
+      }
     })();
   </script>
 </head>
 
 <body>
   <div id="app"></div>
-    <!-- built files will be auto injected -->
+  <!-- built files will be auto injected -->
   <script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-  </body>
+</body>
+
 </html>

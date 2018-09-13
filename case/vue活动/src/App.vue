@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <share-post />
+     <http></http>
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
@@ -7,24 +9,28 @@
 </template>
 
 <script>
+import SharePost from "@/plugins/SharePost";
+import http from "@/api/http";
 export default {
-  name: 'App'
+  name: "App",
+  components: {
+    http,
+    SharePost
+  }
 };
 </script>
 
 <style>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s
+#app {
+  position: relative;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
 }
 
-.fade-enter, .fade-leave-active {
-  opacity: 0
-}
-html{
-  background-color:#30005f
-}
-body{
-  max-width: 640px;
-  margin:0 auto;
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

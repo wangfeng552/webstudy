@@ -14,7 +14,7 @@
         <div class="text-content">
           <div class="quhao">+86
           </div>
-          <div class="tel"><input class="text" v-model="phone" placeholder="请输入手机号" type="number"></div>
+          <div class="tel"><input class="text" @focus="scrollTop" v-model="phone" placeholder="请输入手机号" type="number"></div>
         </div>
       </div>
       <div class="line">
@@ -32,6 +32,7 @@
       </div>
       <div class="ft3">已有账号？<router-link class="register" :to="{name:'signIn'}">登录</router-link></div>
       <div class="btn-reg"><a class="register" @click="goRegister">注册</a></div>
+      <div class="bk" style="height: 3rem"></div>
     </div>
     <div class="down-fix" v-if="isShowDownFix">
       <img class="logo" src="@/assets/images/login/logo.png" alt="">
@@ -83,36 +84,73 @@ export default {
       popupVisiblePic: false,
       isShowDownFix: true,
       items: [
-        { name: "恭喜138****7066刚刚领到99个BG" },
-        { name: "恭喜137****7025刚刚领到99个BG" },
-        { name: "恭喜152****5698刚刚领到99个BG" },
-        { name: "恭喜136****4526刚刚领到99个BG" },
-        { name: "恭喜137****4152刚刚领到99个BG" },
-        { name: "恭喜188****5266刚刚领到99个BG" },
-        { name: "恭喜152****7866刚刚领到99个BG" },
-        { name: "恭喜137****7696刚刚领到99个BG" },
-        { name: "恭喜150****4526刚刚领到99个BG" },
-        { name: "恭喜138****7066刚刚领到99个BG" },
-        { name: "恭喜137****7025刚刚领到99个BG" },
-        { name: "恭喜152****5648刚刚领到99个BG" },
-        { name: "恭喜136****4966刚刚领到99个BG" },
-        { name: "恭喜137****4622刚刚领到99个BG" },
-        { name: "恭喜188****5786刚刚领到99个BG" },
-        { name: "恭喜156****1256刚刚领到99个BG" },
-        { name: "恭喜136****7856刚刚领到99个BG" },
-        { name: "恭喜134****4776刚刚领到99个BG" },
-        { name: "恭喜135****7876刚刚领到99个BG" }
+        { name: "恭喜138****7066刚刚领到1000个BG" },
+        { name: "恭喜137****7025刚刚领到1000个BG" },
+        { name: "恭喜152****5698刚刚领到1000个BG" },
+        { name: "恭喜136****4526刚刚领到1000个BG" },
+        { name: "恭喜137****4152刚刚领到1000个BG" },
+        { name: "恭喜188****5266刚刚领到1000个BG" },
+        { name: "恭喜152****7866刚刚领到1000个BG" },
+        { name: "恭喜137****7696刚刚领到1000个BG" },
+        { name: "恭喜150****4526刚刚领到1000个BG" },
+        { name: "恭喜138****7066刚刚领到1000个BG" },
+        { name: "恭喜137****7025刚刚领到1000个BG" },
+        { name: "恭喜152****5648刚刚领到1000个BG" },
+        { name: "恭喜136****4966刚刚领到1000个BG" },
+        { name: "恭喜137****4622刚刚领到1000个BG" },
+        { name: "恭喜188****5786刚刚领到1000个BG" },
+        { name: "恭喜156****1256刚刚领到1000个BG" },
+        { name: "恭喜136****7856刚刚领到1000个BG" },
+        { name: "恭喜134****4776刚刚领到1000个BG" },
+        { name: "恭喜135****7876刚刚领到1000个BG" },
+        { name: "恭喜136****7066刚刚领到1000个BG" },
+        { name: "恭喜137****7025刚刚领到1000个BG" },
+        { name: "恭喜155****5698刚刚领到1000个BG" },
+        { name: "恭喜136****4526刚刚领到1000个BG" },
+        { name: "恭喜181****4152刚刚领到1000个BG" },
+        { name: "恭喜180****5266刚刚领到1000个BG" },
+        { name: "恭喜152****7866刚刚领到1000个BG" },
+        { name: "恭喜137****7626刚刚领到1000个BG" },
+        { name: "恭喜177****4516刚刚领到1000个BG" },
+        { name: "恭喜138****7106刚刚领到1000个BG" },
+        { name: "恭喜189****7925刚刚领到1000个BG" },
+        { name: "恭喜152****5848刚刚领到1000个BG" },
+        { name: "恭喜136****4976刚刚领到1000个BG" },
+        { name: "恭喜137****4662刚刚领到1000个BG" },
+        { name: "恭喜173****5586刚刚领到1000个BG" },
+        { name: "恭喜135****1246刚刚领到1000个BG" },
+        { name: "恭喜134****7836刚刚领到1000个BG" },
+        { name: "恭喜178****4726刚刚领到1000个BG" },
+        { name: "恭喜150****7176刚刚领到1000个BG" },
+        { name: "恭喜137****7696刚刚领到1000个BG" },
+        { name: "恭喜150****4526刚刚领到1000个BG" },
+        { name: "恭喜138****7066刚刚领到1000个BG" },
+        { name: "恭喜137****1025刚刚领到1000个BG" },
+        { name: "恭喜152****2648刚刚领到1000个BG" },
+        { name: "恭喜136****3966刚刚领到1000个BG" },
+        { name: "恭喜137****4622刚刚领到1000个BG" },
+        { name: "恭喜188****5786刚刚领到1000个BG" },
+        { name: "恭喜156****1556刚刚领到1000个BG" },
+        { name: "恭喜136****7456刚刚领到1000个BG" },
+        { name: "恭喜134****4376刚刚领到1000个BG" },
+        { name: "恭喜135****7276刚刚领到1000个BG" },
+        { name: "恭喜136****7166刚刚领到1000个BG" },
+        { name: "恭喜137****7025刚刚领到1000个BG" },
+        { name: "恭喜155****5898刚刚领到1000个BG" },
+        { name: "恭喜136****4926刚刚领到1000个BG" }
       ]
     };
   },
   created() {
     setInterval(this.scroll, 2500);
-    console.log(this.sourceParam);
   },
   computed: {
     ...mapGetters(["sourceParam"])
   },
   methods: {
+    scrollTop() {
+      window.scrollTo(0, 150);
+    },
     //是否手机号
     isMobile(v) {
       return new RegExp(/^1\d{10}$/).test(v);
@@ -359,7 +397,8 @@ export default {
     background-color: #fff;
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    margin-left: -3.75rem;
     z-index: 1;
     .logo {
       position: absolute;
