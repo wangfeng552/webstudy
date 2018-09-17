@@ -49,7 +49,7 @@ export default {
       const height = window.innerHeight;
       const cWidth = width * time;
       const cHeight = ((width * 1334) / 750).toFixed(0) * time;
-      this.qrCode = await QRCode.toDataURL(url);
+      this.qrCode = await QRCode.toDataURL(url); // QRCode 转为二维码
       const $canvas = document.getElementById("sp-canvas");
       const $img = document.getElementById("sp-img");
       $canvas.setAttribute("width", cWidth * 2);
@@ -61,7 +61,8 @@ export default {
       ctx.scale(2, 2);
 
       const that = this;
-      img.onload = function() {
+      // 必须要在img图像加载完毕之后使用 
+      img.onload = function() {  
         ctx.drawImage(
           this,
           0,
@@ -88,13 +89,13 @@ export default {
           );
           $canvas.style.width = cWidth + "px";
           $canvas.style.height = cHeight + "px";
-          that.cSrc = $canvas.toDataURL("image/jpeg", 1);
+          that.cSrc = $canvas.toDataURL("image/jpeg", 1); // 转为jpeg格式, 1为质量等级
         };
         img2.src = that.qrCode;
       };
       img.style.width = cWidth + "px";
       img.style.height = cHeight + "px";
-      img.src = require("@/assets/images/poster.png");
+      img.src = require("@/assets/images/poster.png"); // 可以保证先注册onload事件,后加载图片。  
     }
   }
 };
