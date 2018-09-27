@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="wp"></div>
+        <script id="tpl" type="text/html">
+            <ul>
+                <%for(var i=0;i<list.length;i++){%>
+                <li><%:h=list[i].name%></li>
+                <%}%>
+            </ul>
+        </script>
+        <script src="../jquery-1.11.2.js"></script>
+        <script src="template.js"></script>
+        <script>
+                var tpl = document.getElementById('tpl').innerHTML;
+        var htmlzh = template(tpl, {list: {name: "眼睛",age:"45"}});
+        var htmlen = template(tpl, {list: [{name: "yan"},{name:'sdf'}]});
+        if(false){
+            $("#wp").html(htmlzh)
+        }else{
+            $("#wp").html(htmlen)
+        }
+        </script>
+</body>
+</html>

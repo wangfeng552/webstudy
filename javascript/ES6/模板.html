@@ -8,12 +8,15 @@
 </head>
 <body>
 <script>
-  let a = new Promise((resolve)=>{
-    resolve({a:123})
-  })
-    a.then(res=>{
-      console.log(res)
-    })
+const promise = new Promise((resolve,reject)=>{
+  resolve({name:'的说法'})
+})
+
+promise.then().catch().finally(()=>{
+  console.log('123')
+
+})
+
 </script>
 </body>
 </html>

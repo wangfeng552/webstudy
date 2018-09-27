@@ -7,7 +7,7 @@
   <i18n>
 <template>
   <div>
-    <div v-t="edit">{{$t('edit')}}</div>
+    <div v-t="'edit'">{{$t('edit')}}</div>
     <el-tab-pane :label="$t('edit')" name="first"></el-tab-pane>
   </div>
 </template>
@@ -26,6 +26,9 @@
         }
       }
     },
+    created(){
+      this.$t('play')
+    }
   }
 </script>
   
