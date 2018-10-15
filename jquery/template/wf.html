@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="" id="text"></div>
+    <script id="tpl" type="text/html">
+        <ul>
+            <li><%:h=name%></li>
+            <input type="text" placeholder="<%:h=name%>">
+        </ul>
+    </script>
+    <script src="../jquery-1.11.2.js"></script>
+    <script src="template.js"></script>
+
+    <script>
+        var tpl = document.getElementById('tpl').innerHTML;
+        var htmlzh=template(tpl,{name:'place holde'})
+$("#text").html(htmlzh)
+
+
+
+    </script>
+</body>
+
+</html>

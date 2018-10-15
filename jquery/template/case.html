@@ -11,21 +11,27 @@
         <script id="tpl" type="text/html">
             <ul>
                 <%for(var i=0;i<list.length;i++){%>
-                <li><%:h=list[i].name%></li>
+                <li><%:=list[i].name%></li>
                 <%}%>
+                <input type="text" class="tel">
+                <button class="btn">点击</button>
             </ul>
         </script>
         <script src="../jquery-1.11.2.js"></script>
         <script src="template.js"></script>
         <script>
                 var tpl = document.getElementById('tpl').innerHTML;
-        var htmlzh = template(tpl, {list: {name: "眼睛",age:"45"}});
+        var htmlzh = template(tpl, {list: [{name: "<i>收到付款后</i>"},{name:'考虑到'}]});
         var htmlen = template(tpl, {list: [{name: "yan"},{name:'sdf'}]});
-        if(false){
+        if(true){
             $("#wp").html(htmlzh)
         }else{
             $("#wp").html(htmlen)
         }
+
+        $(".btn").on('click',function(params) {
+            alert($('.tel').val())
+        })
         </script>
 </body>
 </html>

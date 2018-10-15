@@ -1,4 +1,5 @@
 Shift+Alt + ↓ / ↑	向上/向下复制行 
+Alt+Up 或 Alt+Down	上下移动一行
 Ctrl+Shift+K		删除行
 Ctrl + I		选择当前行  
 Ctrl + Shift + L	选择当前选择的所有
@@ -22,3 +23,6 @@ Ctrl+B			切换侧栏可见性
 Ctrl+k ctrl+t 		主题切换
 
 ctrl+`			
+
+文件”——“首选项”——“用户设置
+workbench.sideBar.location 菜单栏左右设置

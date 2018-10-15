@@ -7,8 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-     document.referrer // 获取上一个页面的链接    
-    </script>
+    只能输入整数
+    <input type="number" onkeypress='return( /[\d]/.test(String.fromCharCode(event.keyCode) ) )'>
 </body>
 </html>

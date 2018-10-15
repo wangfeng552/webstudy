@@ -21,6 +21,13 @@ const user={
         },
         action2({commit},val){
             commit("CHANGE_TEXT",val)
+        },
+        async checkName({commit}){
+            commit('ADD_INPUT',await getUserName())
+        },
+        async checkPeople({dispatch,commit}){
+            await dispatch("checkName")
+            commit("CHANGE_TEXT",await getOtherUserName())
         }
     }
 }
