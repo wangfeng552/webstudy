@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    var str = "I Love English";
+    var reg = /Love/i;
+    str.match(reg)  // =>["Love", index: 2, input: "I Love English", groups: undefined]
+
+    // 使用小括号可以提取一部分
+   var reg2=/(Love)/i;
+   str.match(reg2) //  ["Love", "Love", index: 2, input: "I Love English", groups: undefined]
+
+
+    </script>
+</body>
+</html>

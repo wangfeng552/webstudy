@@ -88,6 +88,16 @@ git merge --no-commit dev
 
 
 
+打标签
+git tag  		查看标签
+git tag v1.2 		打标签
+git tag v1.2 f536525 	对commit id打标签
+git tag -a v0.1 -m "version 0.1 released" 1094adb 说明的标签
+git show v1.2 	 	查看说明
+git tag -d v1.2 	删除标签
+git push origin v1.2    推送标签到远程
+git push origin --tags  所有标签推送到远程
+
  
 
 

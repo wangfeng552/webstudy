@@ -48,10 +48,10 @@ module.exports = {
   },
 
   build: {
-    // Template for index.html
+     // 下面是相对路径的拼接，假如当前跟目录是config，那么下面配置的index属性的属性值就是dist/index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 
-    // Paths
+    // 下面定义的是静态资源的根目录 也就是dist目录
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -68,6 +68,7 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
+    // 下面是是否在生产环境中压缩代码，如果要压缩必须安装compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
 
@@ -75,6 +76,8 @@ module.exports = {
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
+    // 下面是用来开启编译完成后的报告，可以通过设置值为true和false来开启或关闭
+    // 下面的process.env.npm_config_report表示定义的一个npm_config_report环境变量，可以自行设置
     bundleAnalyzerReport: process.env.npm_config_report
   }
 }
