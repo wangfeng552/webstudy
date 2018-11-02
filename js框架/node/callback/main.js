@@ -1,11 +1,16 @@
-//阻塞代码示例
 var fs = require("fs");
-var data = fs.readFileSync('input.txt');
-console.log(data.toString());
-console.log('程序执行结束!')
 
-//在文件读取完成后才执行完程序。
+// 阻塞
+// var data = fs.readFileSync('input.txt');
+// console.log(data.toString());
 
-//总结 阻塞是按顺序执行的，而非阻塞是不需要按顺序的，所以如果需要处理回调函数的参数，我们就需要写在回调函数内。
-// 同步 阻塞
-// 异步 非阻塞
+// 非阻塞
+fs.readFile('input.txt',function(err,data){
+    if(err) return console.log(err);
+    console.log(data.toString())
+})
+
+
+
+console.log('程序执行结束')
+

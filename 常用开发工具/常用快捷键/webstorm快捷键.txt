@@ -5,6 +5,7 @@ ctrl+shift+J	合并行
 shift+enter	重新开始一行
 shift+F6	修改html标签
 alt+F3		高亮显示文本
+Ctrl+Alt+L 	格式化代码
 
 
 alt+shift+up/Down 代码向上向下移动

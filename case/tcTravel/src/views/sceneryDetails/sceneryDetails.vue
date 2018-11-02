@@ -313,7 +313,8 @@
 			}).then((res) => {
 				if(res.respCode == "0000") {
 						//微信分享
-						window._shareData = {
+						
+							 window._shareData = {
 								title: {
 									wechat: res.data.sceneryName,
 									othTitle: res.data.sceneryName
@@ -321,7 +322,7 @@
 								content: res.data.scenerySummary,
 								imageurl: res.data.pictureListInfo[0].sceneryImgPath,
 								shareurl: location.href
-							};
+              };
 						if(that.$root.browser.weixin){
 							Share.Weixin()
 						}else if(that.$root.browser.jfmore){
