@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 数组 深拷贝
+        var arr = [1,2,3,4]
+        var newArr = [...arr]
+
+        // 对象深拷贝
+        var obj={name:'周大福',age:'45'};
+        var newObj ={...obj}
+
+
+        // 方法2 深拷贝通用
+        var sArr = JSON.parse(JSON.stringify(arr))
+        arr[0].name = '修改了'
+
+    </script>
+
+    <script>
+        // 下面是浅拷贝一个通用方法，实现思路：遍历对象，把属性和属性值都放在一个新的对象里
+        var shallowCopy = function (obj) {
+            // 只拷贝对象
+            if (typeof obj !== 'object') return;
+            // 根据obj的类型判断是新建一个数组还是一个对象
+            var newObj = obj instanceof Array ? [] : {};
+            // 遍历obj,并且判断是obj的属性才拷贝
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    newObj[key] = obj[key];
+                }
+            }
+            return newObj;
+        }
+
+    </script>
+
+    <script>
+        // 下面是深拷贝一个通用方法，实现思路：拷贝的时候判断属性值的类型，如果是对象，继续递归调用深拷贝函数
+        var deepCopy = function (obj) {
+            // 只拷贝对象
+            if (typeof obj !== 'object') return;
+            // 根据obj的类型判断是新建一个数组还是一个对象
+            var newObj = obj instanceof Array ? [] : {};
+            for (var key in obj) {
+                // 遍历obj,并且判断是obj的属性才拷贝
+                if (obj.hasOwnProperty(key)) {
+                    // 判断属性值的类型，如果是对象递归调用深拷贝
+                    newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+                }
+            }
+            return newObj;
+        }
+    </script>
+</body>
+
+</html>
