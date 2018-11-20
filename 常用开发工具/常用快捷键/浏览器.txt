@@ -1,0 +1,5 @@
+c+s+T  		恢复关闭的网页
+c+s+n  		开启无痕模式
+Win+M   	最小化窗口
+Win+Shift+M 	还原窗口
+Ctrl+W 		关闭网页

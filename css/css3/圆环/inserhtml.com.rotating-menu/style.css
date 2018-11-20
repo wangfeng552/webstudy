@@ -1,0 +1,437 @@
+body {
+	font-size: 62.5%;
+	padding: 0;
+	margin: 0;
+}
+
+/* Just for positioning the menu correctly */
+#menu {
+	position: relative;
+	width: 230px;
+	margin: 0px auto;
+	top: 100px;
+	left: 37px;
+}
+
+/* We're using overflow: hidden; so we need to create a fake shadow */
+.faux-shadow {
+	position: absolute;
+	content:  " ";
+	width: 150px;
+	height: 150px;
+	top: 0px;
+	left: 0px;
+	box-shadow: 0 0 50px rgba(0,0,0,0.3);
+	border-radius: 300px;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-ms-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+	z-index: -9999;
+}
+
+/* The button in the middle the user will press to activate the menu */
+#on-button {
+	border-radius: 100px;
+	width: 150px;
+	height: 150px;
+	color: #fff;
+	float: left;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	cursor: pointer;
+	background-color: #313b3d;
+	pointer-events: none;
+	font-size: 5em;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	box-shadow: inset 0 -125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* On hover */
+#on-button:hover {
+	box-shadow: inset 0 125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2);	
+}
+
+/* On click */
+#on-button:active {
+	box-shadow: inset 0 125px 100px -100px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0,0,0,0.2),
+	inset 0 0 30px rgba(0,0,0,0.3);
+}
+
+/* The spans inside the on button will rotate */
+#on-button > span {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;	
+	-ms-backface-visibility: hidden;	
+	-o-backface-visibility: hidden;	
+	-webkit-transition: -webkit-transform 0.2s linear;
+	-moz-transition: -moz-transform 0.2s linear;
+	-ms-transition: -moz-transform 0.2s linear;
+	-o-transition: -moz-transform 0.2s linear;
+	transition: -moz-transform 0.2s linear;
+	display: block;
+	width: 122px;
+	height: 122px;
+	background: #313b3d;
+	border-radius: 120px;
+	pointer-events: auto;
+	position: absolute;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 34px;
+	margin: 14px;
+	box-shadow: inset 0 -112px 100px -100px rgba(0, 0, 0, 0.5);
+}
+
+/* Change shadow o hover so it matches the container's shadow */
+#on-button:hover > span {
+	box-shadow: inset 0 112px 100px -100px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Rotate the last span around so it is the backface of the span */
+#on-button > span:last-of-type {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+/* Append a pseudo element with a white background which will 
+   create the illusion that the on button has a hole in it */
+#on-button:after {
+	position: absolute;
+	content: " ";
+	top: 0;
+	left: 0;
+	width:  120px;
+	height: 120px;
+	margin: 15px;
+	border-radius: 120px;
+	background: #fff;
+	z-index: 2;
+}
+
+/* When the on input is checked, rotate the spans around 180 degrees */
+#on-check:checked + #on-button > span:first-of-type {
+	-webkit-transform: rotateY(180deg);	
+	-moz-transform: rotateY(180deg);	
+	-o-transform: rotateY(180deg);	
+	-ms-transform: rotateY(180deg);	
+	transform: rotateY(180deg);	
+}
+#on-check:checked + #on-button > span:last-of-type {
+	-webkit-transform: rotateY(0deg);	
+	-moz-transform: rotateY(0deg);	
+	-ms-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	transform: rotateY(0deg);	
+}
+
+/* Also change the width and height of the faux shadow */
+#on-check:checked ~ .faux-shadow {
+	width: 300px;
+	height: 300px;
+	top: -75px;
+	left: -75px;	
+}
+
+/* So the info divs wont appear should the button be unchecked */
+#menu #on-check:not(:checked) ~ .info {
+	opacity: 0;
+}
+
+/* Show info sections with a delay of 0.4s to give the menu time to finish the inital
+   sprawling out animation */
+#menu #on-check:checked ~ .info {
+	-webkit-transition: all 0.2s linear 0.4s;
+	-moz-transition: all 0.2s linear 0.4s;
+	-ms-transition: all 0.2s linear 0.4s;
+	-o-transition: all 0.2s linear 0.4s;
+	transition: all 0.2s linear 0.4s;
+}
+
+
+/* Sprawl out the menu items when the on button is checked */
+#on-check:checked ~ #menu-items {
+	width: 300px;
+	height: 300px;
+	left: -75px;
+	top: -75px;
+}
+
+/* The styling of the menu items container div */
+#menu-items {
+	width: 150px;
+	height: 150px;
+	border-radius: 250px;
+	background: #aaa;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -99;
+	overflow: hidden;
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-ms-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+}
+
+/* I separated the pieces of the menu into two divs, top and bottom. */
+#menu-items .top, #menu-items .bottom {
+	width: 100%;
+	float: left;
+	z-index: 1;
+	height: 50%;
+} 
+
+#menu-items .bottom {
+	top: 50%;
+}
+
+/* The middle div is largely to fix a bug where the content would exceed the 
+   border radius when overflow: hidden; was set */
+   
+#menu-items .middle {
+	height: 100%;
+	white-space: nowrap;
+}
+
+/* Styling the background pieces. These containers don't do anything, they are 
+   just for design */
+   
+#menu-items .middle .bg-piece {
+	width: 33.3%;
+	height: 100%;
+	text-align: center;
+	display: inline-block !important;
+	background: #eee;
+	font-size: 2.5em;
+	position: absolute;
+	display: block;
+}
+
+/* It was important to make sure all the background pieces were in the correct
+   position and this required a little bit of experimenting. The code below 
+   makes sure everything is positioned in the correct order */
+   
+#menu-items .middle > div .bg-piece:nth-of-type(2) {
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+#menu-items .middle .bottom .bg-piece:nth-of-type(2):after, #menu-items .middle .top .bg-piece:nth-of-type(2):after {  
+	content: " ";
+	position: absolute;
+	border-color: transparent transparent #eee transparent;
+	border-width: 148px;
+	border-style: solid;
+	top: -142px;
+	left: 0px;
+	z-index: 999;
+}
+
+#menu-items .middle .top .bg-piece:nth-of-type(2):after {
+	border-color: #eee transparent transparent transparent;
+	top: -5px;
+	left: 0;
+}
+
+#menu-items .middle .top .bg-piece:nth-of-type(1) { 
+	box-shadow: inset -125px 0 36px -35px rgba(0, 0, 0, 0.1), inset -7px -161px 72px rgba(0, 0, 0, 0.1);
+}
+
+#menu-items .middle .top .bg-piece:nth-of-type(3) { 
+	box-shadow: inset 125px 0 36px -35px rgba(0, 0, 0, 0.1), inset -7px -161px 72px rgba(0, 0, 0, 0.1);
+}
+
+#menu-items .middle > div .bg-piece:nth-of-type(1) {
+	width: 50%;
+	box-shadow: inset -125px 0 36px -35px rgba(0, 0, 0, 0.1);
+}
+
+#menu-items .middle > div .bg-piece:nth-of-type(3) {
+	width: 50%;
+	right: 0;
+	box-shadow: inset 125px 0 36px -35px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------------------------------------------------ */
+
+/* The labels are what contain the icons */
+#menu-items label {
+	position: absolute;
+	z-index: 9999999;
+	font-size: 2em;
+	border-radius: 5px;
+	cursor: pointer;
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.1);
+}
+
+/* On hover I thought they looked nice with a little blue glow! */
+#menu-items label:hover {
+	text-shadow: 0 0 15px #a6d8f4;
+}
+
+/* The is the info boxes, these appear when the menu item is selected */
+#menu .info {
+	opacity: 0;
+	position: absolute;
+	left: 55px;
+	top: -136px;
+	display: inline-block;
+	background-color: #d2d2d2;
+	padding: 10px;
+	color: #343434;
+	z-index: 9999999;
+	font: normal normal 1.5em Arial, sans-serif;
+	background: #eee;
+	border: 1px solid #ddd;
+	font-weight: bold;
+	border-radius: 8px;
+	box-shadow: inset 0px 40px 200px -30px rgba(255, 255, 255, 1), 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* A little arrow for the menu boxes */
+#menu .info:after {
+	position: absolute;
+	content: " ";
+	top: 37px;
+	left: 8px;
+	border-color: #f3f3f3 transparent transparent transparent;
+	border-width: 10px;
+	border-style: solid;
+	
+}
+
+/* A border for the arrow! */
+#menu .info:before {
+	position: absolute;
+	content: " ";
+	top: 38px;
+	left: 8px;
+	border-color: #ddd transparent transparent transparent;
+	border-width: 10px;
+	border-style: solid;	
+}
+
+/* Hide the radio and checkboxes */
+#menu input[type='checkbox'], input[type='radio'] { display: none; }
+
+/* Position the icons correctly */
+#menu-items .top .ss-home { top: 90px; left: 34px; }
+#menu-items .top .ss-heart {  top: 90px; left: 241px; }
+#menu-items .top .ss-compass { top: 21px; left: 137px; }
+#menu-items .bottom .ss-rss {  top: 181px; left: 35px; }
+#menu-items .bottom .ss-star {  top: 181px; left: 243px; }
+#menu-items .bottom .ss-refresh { top: 249px; left: 139px; }
+
+/* The below code rotates the menu items to the correct position
+   when each is clicked. */
+#info-home:checked ~ #menu-items, #menu-items .top .ss-heart { 
+	-webkit-transform: rotateZ(66deg); 
+	-moz-transform: rotateZ(66deg); 
+	-ms-transform: rotateZ(66deg); 
+	-o-transform: rotateZ(66deg); 
+	transform: rotateZ(66deg); 
+}
+
+
+#info-heart:checked ~ #menu-items, #menu-items .top .ss-home { 
+	-webkit-transform: rotateZ(-66deg); 
+	-moz-transform: rotateZ(-66deg); 
+	-ms-transform: rotateZ(-66deg); 
+	-o-transform: rotateZ(-66deg); 
+	transform: rotateZ(-66deg); 
+}
+
+#info-rss:checked ~ #menu-items, #menu-items .bottom .ss-star { 
+	-webkit-transform: rotateZ(114deg); 
+	-moz-transform: rotateZ(114deg); 
+	-ms-transform: rotateZ(114deg); 
+	-o-transform: rotateZ(114deg);	 
+	transform: rotateZ(114deg); 
+}
+
+#info-star:checked ~ #menu-items, #menu-items .bottom .ss-rss { 
+	-webkit-transform: rotateZ(-114deg); 
+	-moz-transform: rotateZ(-114deg); 
+	-ms-transform: rotateZ(-114deg); 
+	-o-transform: rotateZ(-114deg); 
+	transform: rotateZ(-114deg); 
+}
+
+#info-refresh:checked ~ #menu-items, #menu-items .bottom .ss-refresh { 
+	-webkit-transform: rotateZ(180deg); 
+	-moz-transform: rotateZ(180deg); 
+	-ms-transform: rotateZ(180deg); 
+	-o-transform: rotateZ(180deg); 
+	transform: rotateZ(180deg); 
+}
+
+/* --------------------------------------------------------------- */
+
+/* Highlight the selected item */
+#info-home:checked ~ #menu-items .ss-home,
+#info-heart:checked ~ #menu-items .ss-heart,
+#info-rss:checked ~ #menu-items .ss-rss,
+#info-star:checked ~ #menu-items .ss-star,
+#info-refresh:checked ~ #menu-items .ss-refresh,
+#info-compass:checked ~ #menu-items .ss-compass { 
+	text-shadow: 0 0 15px #3facf2;
+	color: #24434f;
+}
+
+/* Make opacity of the info boxes 1 when they are clicked on */
+#info-home:checked ~ .home-info,
+#info-heart:checked ~ .heart-info,
+#info-rss:checked ~ .rss-info,
+#info-star:checked ~ .star-info,
+#info-refresh:checked ~ .refresh-info,
+#info-compass:checked ~ .compass-info {
+	opacity: 1;
+}
+
+
+/* ================ IGNORE ================ */
+
+#header {
+	width: 100%;
+	line-height: 30px;
+	margin: 50px auto;
+	text-align: center;
+}
+
+#header h1 {
+	color: #ea664c;
+	font-weight: bold;
+	font-size: 4em;
+}
+
+#header p {
+	font-size: 2em;
+}
+
+#travel {
+	padding: 10px;
+	background: rgba(0,0,0,0.6);
+	border-bottom: 2px solid rgba(0,0,0,0.2);
+	font-variant: normal;
+	text-decoration: none;
+	font-size: 1.5em;
+}
+
+#travel a {
+	font-family: 'Georgia', serif;
+	text-decoration: none;
+	border-bottom: 1px solid #f9f9f9;
+	color: #f9f9f9;
+}

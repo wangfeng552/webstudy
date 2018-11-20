@@ -58,6 +58,25 @@ outer_radius	外部渐变结束圆的半径
 filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ff0000')"; /* IE8 */
 } 
 </style>
+
+<style>
+  /* 边框渐变 */
+.box{
+    width: 200px;
+height: 100px;
+border: 10px solid;
+border-image: -webkit-linear-gradient(0deg, red, blue) 30 30;
+border-image: -moz-linear-gradient(0deg, red, blue) 30 30;
+border-image: linear-gradient(90deg, red, blue) 30 30;
+}
+
+.wangzuo{
+  background: -webkit-linear-gradient(left, #6B4CCB , #E4649B); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(right, #6B4CCB, #E4649B); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(right, #6B4CCB, #E4649B); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, #6B4CCB , #E4649B); /* 标准的语法（必须放在最后） */
+}
+</style>
 </head>
 
 
