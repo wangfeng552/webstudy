@@ -1,7 +1,9 @@
 <template>
 <div>
   <button @click="onSureAddress">确定</button>
-  <mt-picker ref='addresPick' :slots="slots" value-key="name" @change="onValuesChange"></mt-picker>
+  <mt-popup v-model="isShow" position="bottom">
+  <mt-picker ref='addresPick' style="width:100vw; background:#fff" :slots="slots" value-key="name" :visible-item-count="7" @change="onValuesChange"></mt-picker>
+  </mt-popup>
 </div>
 </template>
 
@@ -104,6 +106,7 @@ export default {
   name: 'app',
   data() {
     return {
+      isShow:true,
       myAdress: null,
       slots: [{
         flex: 1,
