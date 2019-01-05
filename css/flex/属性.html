@@ -48,9 +48,11 @@ align-content   多根轴线的对齐方式。如果项目只有一根轴线，�
 order           项目的排列顺序。数值越小，排列越靠前，默认为0。
 flex-grow       项目的放大比例，默认为0
 flex-shrink     项目的缩小比例,默认为1，即如果空间不足，该项目将缩小。
-flex-basis
-flex
-align-self
+flex-basis      属性定义了在分配多余空间之前
+flex            0 0 200px
+align-self      auto | flex-start | flex-end | center | baseline | stretch;
+                允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，
+                表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
 
 
 
