@@ -1,0 +1,14 @@
+https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=7_7&index=6
+et_brand_wcpay_request:ok	支付成功
+get_brand_wcpay_request:cancel	支付过程中用户取消
+get_brand_wcpay_request:fail	支付失败
+调用支付JSAPI缺少参数：total_fee	
+1、请检查预支付会话标识prepay_id是否已失效
+
+2、请求的appid与下单接口的appid是否一致
+
+http://bbs.315che.com/inc/dealerwxback.aspx?tk=10028808&amp;
+
+url http://api.qmsj.online/wx
+
+https://open.weixin.qq.com/connect/oauth2/authorize?scope=snsapi_userinfo&redirect_uri=http://
