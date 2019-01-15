@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
+
 <body>
   <script>
-    var first_service_list=[1,2,3,4]
-    var item=[{id:1,name:'ss'},{id:5,name:'ss'},{id:4,name:'ss'}]
-    first_service_list.forEach((v,i)=>{
-      let isTrue = false;
-      item.forEach((x,y)=>{
-        if(v == x.id){
-          isTrue = true;
-        }
-      })
-      if (isTrue){
-        new_item = new Array();
-        item.forEach((service_item,i)=>{
-          if (service_item.id != v){
-            new_item.push(service_item)
-          }
-        })
-        console.log(new_item)
+    let newArr = [];
+    let arr = [{ status: 1, name: '论坛' }, { status: 2, name: '基督教阿是否会' }, { status: 0, name: 'ksdf' }]
+
+    arr.forEach((v) => {
+      let arr1 = []
+
+      switch (v.status) {
+        case 0:
+          arr1.push(v)
+          arr1.push({ status: -1, name: '论坛' })
+          arr1.push({ status: -1, name: '论坛' })
+          break
+        case 1:
+          arr1.push({ status: -1, name: '论坛' })
+          arr1.push(v)
+          arr1.push({ status: -1, name: '论坛' })
+          break;
+        case 2:
+          arr1.push({ status: -1, name: '论坛' })
+          arr1.push({ status: -1, name: '论坛' })
+          arr1.push(v)
+          break
       }
+      newArr.push({ list: arr1 })
     })
-    </script>
+
+  </script>
 </body>
+
 </html>
