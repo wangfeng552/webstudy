@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007</title>
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+	<link rel="stylesheet" href="007.css">
+	<script type="text/javascript">
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        window.clientWidth = docEl.clientWidth;
+                        if (!window.clientWidth) return;
+                        docEl.style.fontSize = 40 * (window.clientWidth / 640) + 'px';
+                        window.base = 40 * (window.clientWidth / 640);
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+
+</head>
+<body>
+	<audio id='audio1' src="audio.mp3" loop='loop' preload='preload' autoplay='autoplay' style="position: absolute;opacity: 0;left: 0;top: 0;"></audio>
+	<audio id='audio2' src="" preload='preload' autoplay='autoplay' style="position: absolute;opacity: 0;left: 0;top: 0;"></audio>
+	<div id="container">
+		<div class="page load">
+			<div class="inner">
+				<span class='loading'>Loading
+					<span class="per">0%</span>
+				</span>
+			</div>
+		</div>
+		<div class="page page1">
+			<div class="inner">
+				<div class="voice on"></div>
+				<div class="voice off"></div>
+				<div class="btn btn1">立即追击</div>
+				<div class="btn btn2">分享好友</div>
+			</div>
+		</div>
+		<!-- 开始 -->
+		<div class="page page2">
+			<div class="inner">
+				<div class="voice on"></div>
+				<div class="voice off"></div>
+				<div class="red"></div>
+				<div class="move"></div>
+				<div class="btn btn3">开始游戏</div>
+			</div>
+		</div>
+		<!-- 追 -->
+		<div class="page page3">
+			<div class="inner">
+				<div class="sudu"></div>
+				<div class="voice on"></div>
+				<div class="voice off"></div>
+				<div class="carBox oneCar"></div>
+				<div class="carBox twoCar"></div>
+				<div class="car car1"></div>
+				<div class="car car2"></div>
+				<span class="score">0</span>
+				<div class="go1">3</div>
+				<div class="go2"></div>
+			</div>
+		</div>
+		<!-- 失败 -->
+		<div class="page page4">
+			<div class="voice on"></div>
+			<div class="voice off"></div>
+			<div class="btn btn4">再次追击</div>
+			<div class="btn btn5">了解详情</div>
+			<div class="btn btn6">分享好友</div>
+		</div>
+		<!-- 成功、没抽到 -->
+		<div class="page page5">
+			<div class="voice on"></div>
+			<div class="voice off"></div>
+			<div class="btn btn4">再次追击</div>
+			<div class="btn btn5">了解详情</div>
+		</div>
+		<!-- 成功、抽到 -->
+		<div class="page page6">
+			<div class="voice on"></div>
+			<div class="voice off"></div>
+			<div class="btn btn7">领取奖励</div>
+			<div class="btn btn5">了解详情</div>
+		</div>
+		<!-- 提交验证信息 -->
+		<div class="page page7">
+			<div class="close">X</div>
+			<span>请完善你的个人信息，以便领取电影票</span>
+			<div class="name">姓名:<input type="text" value="222" id='user'/></div>
+			<div class="num">电话:<input type="text"value="ssss" id="phone"/></div>
+			<div class="yuyue">是否预约试驾
+				<div class="choose">是</div>
+				<div class="yes">是</div>
+				<div class="no">否</div>
+			</div>
+			<div class="btn btn8">确认提交</div>
+			<div class="btn btn5">了解详情</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="007.js"></script> 
+</body>
+</html>

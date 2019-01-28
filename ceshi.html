@@ -10,31 +10,17 @@
 
 <body>
   <script>
-    let newArr = [];
-    let arr = [{ status: 1, name: '论坛' }, { status: 2, name: '基督教阿是否会' }, { status: 0, name: 'ksdf' }]
+  function cat(){
+    this.name = '猫'
+    this.eat=function(a){
+      console.log(a)
+    }
+  }
 
-    arr.forEach((v) => {
-      let arr1 = []
-
-      switch (v.status) {
-        case 0:
-          arr1.push(v)
-          arr1.push({ status: -1, name: '论坛' })
-          arr1.push({ status: -1, name: '论坛' })
-          break
-        case 1:
-          arr1.push({ status: -1, name: '论坛' })
-          arr1.push(v)
-          arr1.push({ status: -1, name: '论坛' })
-          break;
-        case 2:
-          arr1.push({ status: -1, name: '论坛' })
-          arr1.push({ status: -1, name: '论坛' })
-          arr1.push(v)
-          break
-      }
-      newArr.push({ list: arr1 })
-    })
+  function dog(){
+    cat.call(this)
+    this.eat('你好')
+  }
 
   </script>
 </body>
