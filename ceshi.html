@@ -10,18 +10,17 @@
 
 <body>
   <script>
-  function cat(){
-    this.name = '猫'
-    this.eat=function(a){
-      console.log(a)
-    }
+var person = {
+  name:'Brend Eick',
+  hello:function(thing){
+    console.log(this.name + 'syas hello' + thing)
   }
+}
 
-  function dog(){
-    cat.call(this)
-    this.eat('你好')
-  }
-
+var boundHello = function(thing){
+  return person.hello.call(person,thing)
+}
+boundHello('world')
   </script>
 </body>
 

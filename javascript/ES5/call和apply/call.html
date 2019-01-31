@@ -13,6 +13,18 @@ call方法:
 
 3. 第二个参数开始，可以接收任意个参数。每个参数会映射到相应位置的 Function 的参数上。但是如果将所有的参数作为数组传入，它们会作为一个整体映射到 Function 对应的第一个参数上，之后参数都为空。
 
+<!--
+	1.把从第二个起的所有参数放进一个参数列表，如argList中
+	2.把第一个参数定为thisValue
+	3.执行function,把this指向thisValue，argList作为参数列表
+
+	function hello(sex){
+		console.log(this + 'is a ' + sex)
+	}
+	hello.call('zhangsan','boy')
+  -->
+
+
 
 <!--案例一-->
 <script>
@@ -40,7 +52,8 @@ call方法:
 	var animal=new Animal();
 	var cat=new Cat();
 	animal.showName.call(cat)
-//	call 的意思是把 animal 的方法放到cat上执行，原来cat是没有showName() 方法，现在是把animal 的showName()方法放到 cat上来执行，所以this.name 应该是 Cat
+// 执行animal.showName方法，把第一个参数定为thisValue
+// 执行函数 把this指向thisValue
 </script>
 
 <!--案例三 实现继承-->
