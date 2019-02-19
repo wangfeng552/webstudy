@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  =         等于
+  <> | !=   不等于
+  >         大于
+  <         小于
+  >=        大于等于
+  <=        小于等于
+  BETWEEN   在某个范围内
+  LIKE      搜索某种模式
+  IN        指定针对某个列的多个可能值
+
+  逻辑运算符
+  sal>50 and price<0  
+  sal>50 or price<0
+  not sal > 50  sal小于等于50的值
+  () not and or 优先级
+  
+  price is null  空值判断
+  price between 100 and 200   100~200
+  price in (100,500,1000)  price等于100,500,1000的值
+  Ename like 'M%'
+  <!-- 查询 EMP 表中 Ename 列中有 M 的值，M 为要查询内容中的模糊信息。
+
+ % 表示多个字值，_ 下划线表示一个字符；
+ M% : 为能配符，正则表达式，表示的意思为模糊查询信息为 M 开头的。
+ %M% : 表示查询包含M的所有内容。
+ %M_ : 表示查询以M在倒数第二位的所有内容。 -->
+
+ ORDER BY id DESC 降序排列
+ ORDER BY title, id DESC  多列排序
+</body>
+</html>
