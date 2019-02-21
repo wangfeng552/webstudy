@@ -7,13 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-  function add(){
-    var _args = [].slice.call(arguments)
-   console.log(_args)
-  }
 
-    </script>
-   
+  SELECT name FROM table  // name列
+  SELECT * FROM table     // 所有列
+
+  SELECT DISTINCT name FROM table  // name列唯一不同值
+  SELECT * FROM table LIMIT 5 //  列出前5行
+
+
+
 </body>
 </html>

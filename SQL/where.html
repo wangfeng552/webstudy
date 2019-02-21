@@ -7,6 +7,11 @@
   <title>Document</title>
 </head>
 <body>
+SELECT * FROM table WHERE id = 1   // 查找表中id=1的值
+SELECT * FROM table WHERE name = '张三'   // 查找表中name='张三'的值 字符串用引号
+
+
+WHERE 字句中的运算符
   =         等于
   <> | !=   不等于
   >         大于
@@ -28,13 +33,13 @@
   price in (100,500,1000)  price等于100,500,1000的值
   Ename like 'M%'
   <!-- 查询 EMP 表中 Ename 列中有 M 的值，M 为要查询内容中的模糊信息。
-
  % 表示多个字值，_ 下划线表示一个字符；
  M% : 为能配符，正则表达式，表示的意思为模糊查询信息为 M 开头的。
  %M% : 表示查询包含M的所有内容。
  %M_ : 表示查询以M在倒数第二位的所有内容。 -->
 
- ORDER BY id DESC 降序排列
- ORDER BY title, id DESC  多列排序
+ price >15 AND (country='CN' OR country='USA')
+
+
 </body>
 </html>

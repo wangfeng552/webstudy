@@ -9,15 +9,12 @@
 
 </div>
 <script>
-    function animal() {
-
-    }
-    animal.prototype={
-        showName:function () {
-            console.log('123')
-        }
-    }
-    var a=new animal()
+function Car(){
+    this.color = 'red'
+}
+var cat =new Car()
+console.log(cat.__proto__)
+console.log(Car.prototype === cat.__proto__)
 </script>
 </body>
 </html>

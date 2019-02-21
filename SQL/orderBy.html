@@ -7,13 +7,13 @@
   <title>Document</title>
 </head>
 <body>
-  <script>
-  function add(){
-    var _args = [].slice.call(arguments)
-   console.log(_args)
-  }
+  SELECT * FROM table ORDER BY id,name DESC|ASC 降序排列|升序 
+  多列的时候先按照第一个id排序，在按照name排序
 
-    </script>
-   
+  ORDER BY A DESC,B  // A降序 B升序
+  ORDER BY A ,B DESC
+
+  ORDER BY A DESC,B ASC,C DESC // 多列排序
+
 </body>
 </html>
