@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-
 <body>
   <script>
-    var arr=[1,2,3,4]
-    arr = arr.map(function(v,i){
-      return v+2
-    })
+    let array = [1, 2, 3, 4, 5]
+array.map(x => [x, x * 2])
+array.flatMap(v => [v, v * 2])
+// => [1, 2, 2, 4, 3, 6, 4, 8, 5, 10]
   </script>
+  
 </body>
-
 </html>

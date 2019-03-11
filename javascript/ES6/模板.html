@@ -10,10 +10,16 @@
 
 <body>
     <script>
-      let obj= {name:'123',age:45}
-     for(let v in obj){
-         console.log(v)
-     }
+        let obj = [{ name: '123', age: 45 }, { name: '123', age: 46 }]
+        function wf() {
+            for (let v of obj) {
+                if(v.age == 46){
+                    console.log('yes')
+                    break
+                }
+            }
+            console.log('nnnnnnnnn')
+        }
     </script>
 </body>
 

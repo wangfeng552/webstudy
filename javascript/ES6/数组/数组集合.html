@@ -51,10 +51,13 @@
 	var arr2=[for(i of arr) i*2];		 //=>
 
 	//ES7
-    [1, 2, 3].includes(2 , 2);     // true 某个数组是否包含给定的值 第二个参数表示搜索的起始位置，默认为0
-</script>
+	[1, 2, 3].includes(2 , 2);     // true 某个数组是否包含给定的值 第二个参数表示搜索的起始位置，默认为0
+	
+	//ES10
+	let multi = [1,2,3[4,5,6,[7,8]]]
+	multi.flat(Infinity)   // 扁平化数组
+	flatMap((v)=>{v,v*2}) // 再次扁平化数组
 
-<script>
 //	数组数字相加
 var arr=[1,2,3,4];
 eval(arr.join("+"))
