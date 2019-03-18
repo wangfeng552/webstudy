@@ -1,6 +1,7 @@
 <template>
     <div>
         <button @click="say('name',$event)">dianji</button>
+        <input type="number" @mousewheel.prevent>
     </div>
 </template>
 
