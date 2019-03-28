@@ -25,6 +25,8 @@
       },
       addDot(){
         this.$emit('isDot',25,46,28) // 监听父组件方法 可以传多个值
+        // 方法二
+        this.$parent.isDot(2,3,4)
       }
     }
   }
