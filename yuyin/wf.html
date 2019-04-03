@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="js/recorder.js"> </script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <title>Document</title>
+</head>
+<body>
+    <audio controls autoplay></audio>
+        
+    <input type="button" id="record" value="Record">
+    <input type="button" id="export" value="Export">
+    <div id="message"></div>
+    <script type='text/javascript'>
+      var onFail = function(e) {
+          console.log('Rejected!', e);
+      };
+   
+      var onSuccess = function(s) {
+          var context = new webkitAudioContext();
+          var mediaStreamSource = context.createMediaStreamSource(s);
+          rec = new Recorder(mediaStreamSource);
+          //rec.record();
+   
+          // audio loopback
+          // mediaStreamSource.connect(context.destination);
+      }
+   
+      //window.URL = URL || window.URL || window.webkitURL;
+      navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+   
+      var rec;
+      var audio = document.querySelector('#audio');
+   
+      function startRecording() {
+          if (navigator.getUserMedia) {
+              navigator.getUserMedia({audio: true}, onSuccess, onFail);
+          } else {
+              console.log('navigator.getUserMedia not present');
+          }
+      }
+      startRecording();
+      //--------------------      
+      $('#record').click(function() {
+          rec.record();
+         var dd = ws.send("start");
+          $("#message").text("Click export to stop recording");
+
+          // export a wav every second, so we can send it using websockets
+          intervalKey = setInterval(function() {
+              rec.exportWAV(function(blob) {
+                   
+                  rec.clear();
+                  ws.send(blob);
+                  //audio.src = URL.createObjectURL(blob);
+              });
+          }, 3000);
+      });
+       
+      $('#export').click(function() {
+          // first send the stop command
+          rec.stop();
+          ws.send("stop");
+          clearInterval(intervalKey);
+           
+          ws.send("analyze");
+          $("#message").text("");
+      });
+       
+      var ws = new WebSocket("ws://127.0.0.1:8088/websocket/servlet/record");
+      ws.onopen = function () {
+          console.log("Openened connection to websocket");
+      };
+      ws.onclose = function (){
+           console.log("Close connection to websocket");
+      }
+      ws.onmessage = function(e) {
+          audio.src = URL.createObjectURL(e.data);
+      }
+       
+      
+  </script>
+</body>
+</html>
