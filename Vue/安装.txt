@@ -1,0 +1,15 @@
+!!前提：需要vue和webpack
+
+安装全局vue-cli
+
+npm install vue-cli -g
+yarn add vue-cli
+初始化，生成项目模板（my_project是项目名，自己随意）
+
+vue init webpack my_project
+进入生成的项目文件夹
+
+cd my_project
+初始化，安装依赖
+
+npm install
