@@ -1,0 +1,5 @@
+IDE: PyCharm
+1. 
+Python 2.7
+2. 
+Scrapy

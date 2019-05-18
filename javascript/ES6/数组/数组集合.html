@@ -24,7 +24,7 @@
 	some								//确定数组的一些成员是否满足指定的测试。返回true /false
 	filter()						//返回数组中的满足回调函数中指定的条件的元素。
 	arr.forEach((v,i,arr)=>{})	//遍历，循环
-    arr.map((v,i,arr)=>{})		//映射 原数组被“映射”成对应新数组 基本用法跟forEach方法类似：
+	arr.map((v,i,arr)=>{})		//映射 原数组被“映射”成对应新数组 基本用法跟forEach方法类似：
 	indexOf()						//该数组中第一个找到的元素位置，如果它不存在则返回-1
 	lastIndexOf()				//最后出现的位置
 	[1,2,3].reduce(function(prev,next){		// 可以实现一个累加器的功能，将数组的每个值（从左到右）将其降低到一个值
@@ -36,7 +36,7 @@
 	Array.of(1,2,3)				//=>[1,2,3] 	将一组值转换成数组
 	Array.from("Hello")		//=>["H", "e", "l", "l", "o"]可以将类似数组的对象或者可遍历的对象转换成真正的数组。
 
-    var arr=[1,2,3,4,5]
+	var arr=[1,2,3,4,5]
 	arr.find(function (v) {return v>2 })	//=>3	找出数组中符合条件的第一个元素。
 	arr.findIndex(function (v) { return v>2 })//=>2 返回符合条件的第一个数组的位置
 	arr.fill("aa",1,2)			//=>[1,"aa",3,4,5] 用指定的值，填充到数组。从1开始，2前面结束；改变原始数组
@@ -51,10 +51,13 @@
 	var arr2=[for(i of arr) i*2];		 //=>
 
 	//ES7
-    [1, 2, 3].includes(2 , 2);     // true 某个数组是否包含给定的值 第二个参数表示搜索的起始位置，默认为0
-</script>
+	[1, 2, 3].includes(2 , 2);     // true 某个数组是否包含给定的值 第二个参数表示搜索的起始位置，默认为0
+	
+	//ES10
+	let multi = [1,2,3[4,5,6,[7,8]]]
+	multi.flat(Infinity)   // 扁平化数组
+	flatMap((v)=>{v,v*2}) // 再次扁平化数组
 
-<script>
 //	数组数字相加
 var arr=[1,2,3,4];
 eval(arr.join("+"))

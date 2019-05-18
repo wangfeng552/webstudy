@@ -32,6 +32,5 @@
        this.$refs.childwf.addDot() //点击父元素触发子组件方法
      }
    }
-
  }
 </script>

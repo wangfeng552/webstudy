@@ -1,0 +1,383 @@
+*{
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0;
+	padding: 0;
+}
+div{
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+html,body{
+	/*min-height: 1008px;*/
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	user-select: none;
+	-webkit-user-select: none;
+	background-color: #000;
+	font-family: 'MicrosoftYaHei', '微软雅黑', 'STHeitiSC';
+}
+.fl{float: left;}
+.fr{float: right;}
+.clearfix{
+	zoom:1;
+}
+.clearfix:after{
+	display: block;
+	content: '';
+	clear: both;
+	overflow: hidden;
+	height: 0;
+}
+ul,ol,li{list-style-type: none;}
+a{text-decoration: none;}
+img{border: none;outline: none;}
+input{opacity: 1;outline: none;background: none;border: none;font-size: 30px;text-align: center;}
+/*
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 3) {
+  html, body{
+    height: 1138px;
+  }
+}
+@media only screen and (min-device-width: 360px) and (max-device-width: 640px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3) {
+  html, body{
+    height: 1138px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  html, body {
+    height: 1030px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  html, body{
+    height: 1030px;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 3) {
+  html, body{
+    height: 1041px;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 3) {
+  html, body{
+    height: 1041px;
+  }
+}
+
+@media only screen and (device-width: 1080px) and (-webkit-min-device-pixel-ratio: 3) {
+  html, body {
+    height: 1139px;
+  }
+}
+*/
+#container{
+	width: 16rem;
+	height: 100%;
+	/*margin: 0 auto;*/
+	position: relative;
+}
+.page{
+	height: 100%;
+	width: 16rem;
+	top: 0rem;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;	
+}
+.page .inner{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0rem;
+	margin: 0rem;
+	top: 0rem;
+	left: 0rem;
+}
+.load{
+	display: block;
+	background:url("img/load.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.inner .loading{
+	position: absolute;
+	top: 14rem;
+	left: 0;
+	width: 100%;
+	text-align: center; 
+	font-size: 0.8rem;
+	color: #fff;
+	filter:alpha(opacity=50);  
+	-moz-opacity:0.5;  
+	-khtml-opacity: 0.5;  
+	opacity: 0.5;  
+}
+.page1{
+	/*display: block;*/
+	background:url("img/bg.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+	/*用rem注意背景设置background-size*/
+}
+.voice{
+	position: absolute;
+	top: 1.2rem;
+	right: 1.2rem;
+	width: 0.5rem;
+	height: 0.6rem;
+	background: url("img/on.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.off{
+	display: none;
+	right: 1rem;
+	width: 0.7rem;
+	height: 0.6rem;
+	background: url("img/off.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.btn{
+	position: absolute;
+	bottom: 2rem;
+	width: 6rem;
+	height: 1.5rem;
+	border:1px solid #fff;
+	line-height: 1.5rem;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #fff;
+}
+.btn1{
+	left: 1rem;
+}
+.btn2{
+	right:1rem;
+}
+.page2{
+	/*display: block;*/
+	background:url("img/bg-2.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.btn3{
+	left: 5rem;
+}
+.red{
+	position: absolute;
+	left: 9.9rem;
+	bottom: 47.8%;
+	width: 2.3rem;
+	height: 2rem;
+	background: url("img/red.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.move{
+	width: 6.9rem;
+	height: 8rem;
+	position: absolute;
+	left: 6rem;
+	bottom:3.3rem;
+	background: url("img/move.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+body .page3{
+	/*display: block;*/
+	background: url("img/bg-run.png") right 0 repeat-x;
+	background-size: auto 100%;
+}
+.sudu{
+	position: absolute;
+	top:1.25rem;
+	left: 0.75rem;
+	width: 14.5rem;
+	height: 7rem;
+	background: url("img/sudu.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.car1{
+	position: absolute;
+	top: 1.8rem;
+	left:12rem;
+	width: 1.5rem;
+	height: 3rem;
+	background: url("img/bd.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.page3 .car2{
+	position: absolute;
+	top: 2.8rem;
+	left: 12rem;
+	width: 2.3rem;
+	height: 2rem;
+	background: url("img/red.png") 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.score{
+	position: absolute;
+	top: 6.8rem;
+	left: 7rem;
+	color: #fff;
+	font-size: 2rem;
+	font-style: italic;
+}
+.go1{
+	position: absolute;
+	top: 12.2rem;
+	left:4.3rem;
+	width: 7.5rem;
+	height: 2.6rem;
+	color: #fff;
+	font-size: 3rem;
+	font-style: italic;
+	font-weight: bold;
+	text-align: center;
+	/**/
+}
+.go2{
+	display: none;
+	position: absolute;
+	top: 12.2rem;
+	left:4.3rem;
+	width: 7.5rem;
+	height: 2.6rem;
+	background: url('img/go.png') 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+/*page3 两个汽车壳子*/
+.carBox{
+	position: absolute;
+	bottom:1rem;
+	left: 0;
+}
+.oneCar{
+	width: 100%;
+	height: 5rem;
+	background: url('img/car1.png') 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.twoCar{
+	width: 100%;
+	height: 5rem;
+	background: url('img/car2.png') 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+/*失败*/
+.page4{
+	/*display: block;*/
+	background:url("img/false1.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.page4 .btn,.page5 .btn,.page6 .btn{
+	position: absolute;
+	left: 5.1rem;
+	height: 1.7rem;
+	border:1px solid #fff;
+	line-height: 1.7rem;
+}
+.page4 .btn4{
+	bottom: 10.8rem;
+}
+.page4 .btn5{
+	bottom: 8.5rem;
+}
+.page4 .btn6{
+	bottom: 6.25rem;
+}
+.page5{
+	/*display: block;*/
+	background:url("img/false2.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.page5 .btn4{
+	bottom:9.8rem;
+}
+.page5 .btn5{
+	bottom:7.4rem;
+}
+.page6{
+	/*display: block;*/
+	background:url("img/bg-succ.png") 0px 0px no-repeat;
+	background-size: 100% 100%;
+}
+.page6 .btn7{
+	bottom:3.75rem;
+}
+.page6 .btn5{
+	bottom:1.55rem;
+}
+.page7{
+	/*display: block;*/
+}
+.page7 .name,.page7 .num,.page7 .yuyue{
+	position: absolute;
+	top:0;
+	left: 2.25rem;
+	color:orange;
+	font-size: 0.7rem;
+	width: 11.5rem;
+	height: 1.75rem;
+	border:1px solid #fff;
+	line-height: 1.75rem;
+	padding-left: 0.45rem;
+}
+.page7 .close{
+	position: absolute;
+	top:0.7rem;
+	right:0.9rem;
+	color: #fff;
+}
+.page7 span{
+	position: absolute;
+	top:3.6rem;
+	left: 2.25rem;
+	color: #fff;
+	font-size: 0.7rem;
+}
+.page7 .name{
+	top:5.1rem;
+}
+.page7 .num{
+	top:8.1rem;
+}
+.page7 .yuyue{
+	top:11.1rem;
+}
+.page7 input{
+	position: absolute;
+	top:0;
+	left: 2.5rem;
+	width:8.8rem;
+	height:1.6rem;
+	color:#fff;
+	font-size: 0.7rem;
+}
+.yuyue div{
+	position: absolute;
+	top:0;
+	left: 5rem;
+	width: 6rem;
+	height: 1.7rem;
+	text-align: center;
+	line-height: 1.7rem;
+}
+.yuyue .yes{
+	display: none;
+	top:1.7rem;
+}
+.yuyue .no{
+	display: none;
+	top:3.4rem;
+}
+.page7 .btn8{
+	left: 5rem;
+	bottom:5.25rem;
+}
+.page7 .btn5{
+	left: 5rem;
+	bottom:3rem;
+}

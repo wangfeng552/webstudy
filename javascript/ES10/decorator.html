@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  decorator 修饰器
+  <script>
+    function doSometing(name) {
+      console.log('hello' + name)
+    }
+    function myDecorator(fn) {
+      return function () {
+        console.log('start')
+        console.log(arguments)
+        const res = fn.apply(this, arguments)
+        console.log('red')
+        return res
+      }
+    }
+    const wrapped = myDecorator(doSometing)
+    // doSometing('lilili')
+    wrapped('llooo')
+  </script>
+
+  <script>
+  @addSkill
+  class Person {
+
+  }
+  function addSkill(target){
+    target.say = 'hello world'
+  }
+  // console.log(Person['say'])  // => hello world
+//   在Person这个类中，开始定义的时候是什么属性都没有的，在其上面使用@来附着上一个函数，这个函数的功能是给目标对象添加额外的属性say。
+// 这样Person这个类就有了say这个属性了。
+  </script>
+</body>
+
+</html>

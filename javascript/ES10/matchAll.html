@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 旧的
+    let string = 'hello';
+    let matches = string.match('l')
+    let matches2 = string.match(/l/);
+    let matchesg = string.match(/l/g)
+    // matches[0]       //=> l
+    // matches['index'] // =>2
+    // matchesg         // =>  ['l', 'l'];
+    console.log(matchesg)
+    </script>
+
+  <script>
+    // string.prototype.matchAll() 
+    'hello'.matchAll(/[el]/)
+  // [ 'e', index: 1, input: 'hello' ] // Iteration 1
+  // [ 'l', index: 2, input: 'hello' ] // Iteration 2
+  // [ 'l', index: 3, input: 'hello' ] // Iteration 3
+  </script>
+
+</body>
+
+</html>

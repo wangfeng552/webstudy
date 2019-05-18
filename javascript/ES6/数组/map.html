@@ -35,6 +35,25 @@ list=[{title:'张三',nianling:'/45'},{title:'了开始',nianling:'/23'}]
 </script>
 
 
+<script>
+  let arr=[
+            {name:'123',age:45,sex:'girl'},
+            {name:'啥地方',age:15,sex:'boy'},
+            {name:'yij',age:19,sex:'boy'},
+            {name:'leek',age:29,sex:'girl'}
+        ]
+ 
+        let newArr = arr.map(function(v,i){
+            v.age += 10
+            return v
+        })
+ 
+        let count = arr.map(function(v,i){
+          return v.age+10
+        })
+ </script>
+
+
 
 <script>
     //案例3经典面试题
@@ -51,6 +70,8 @@ list=[{title:'张三',nianling:'/45'},{title:'了开始',nianling:'/23'}]
 
 为什么是这个结果，因为第二个参数作为解析的数字的基数。该值介于 2 ~ 36 之间，如果参数为 0，则数字将以 10 为基础来解析。所以第一次遍历得到1，如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。*/
 </script>
+
+
 </body>
 </html>
 

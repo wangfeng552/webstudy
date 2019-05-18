@@ -29,6 +29,7 @@ git diff branch1 branch2 --stat  比较两个分支间所有变更的文件列表
 
 分支管理
 git branch		查看分支
+git branch -a 		查看所有分支
 git branch <name>	创建分支
 git checkout <name>	切换分支
 git checkout -b <name>	创建+切换分支

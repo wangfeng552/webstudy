@@ -1,0 +1,5 @@
+ALT + F11
+‘À––F5
+Sub Pojie()
+ActiveSheet.Protect AllowFiltering:=True: ActiveSheet.Unprotect
+End Sub
