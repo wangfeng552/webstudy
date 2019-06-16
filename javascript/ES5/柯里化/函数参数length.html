@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      ((a, b, c) => {}).length; // 3
+
+      ((a, b, c = 3) => {}).length; // 2
+
+      ((a, b = 2, c) => {}).length; // 1
+
+      ((a = 1, b, c) => {}).length; // 0
+
+      ((...args) => {}).length; // 0
+
+      const fn = (...args) => {
+        console.log(args.length);
+      };
+      fn(1, 2, 3);      // 3
+      // 函数参数 length：获取的是形参的个数，但是形参的数量不包括剩余参数个数，而且仅包括第一个具有默认值之前的参数个数
+    </script> 
+  </body>
+</html>

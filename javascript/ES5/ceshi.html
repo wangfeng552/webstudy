@@ -9,12 +9,8 @@
 
 </div>
 <script>
-function Car(){
-    this.color = 'red'
-}
-var cat =new Car()
-console.log(cat.__proto__)
-console.log(Car.prototype === cat.__proto__)
+const toStr = Function.prototype.call.bind(Object.prototype.toString);
+
 </script>
 </body>
 </html>
