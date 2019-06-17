@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="panel">导航路线</div>
+  <script>
+    var onSearchComplete = function (results) {
+      if (driving.getStatus() !== BMAP_STATUS_SUCCESS) {
+        return
+      }
+      let plan = results.getPlan(0)           // 获取第一条方案
+      let startAddress = results.getStart()   // 返回起点
+      let endAddress = results.getEnd()       // 返回终点
+      let numPlans = results.getNumPlans()    // 返回方案个数
+
+      plan.getDistance(true) // 返回方案距离字符串
+      plan.getDuration(true) // 总时间 | false 返回数字单位为秒
+      plan.getNumRoutes()     // 返回方案包含的线路的个数
+      plan.getRoute(0).getNumSteps() // 返回路线包含的关键点个数
+
+
+    }
+    var driving = new BMap.DrivingRoute('上海市', {
+      renderOptions: {
+        map: map,
+        panel: 'panel'
+      },
+      policy: BMAP_DRIVING_POLICY_AVOID_HIGHWAYS, // BMAP_DRIVING_POLICY_FIRST_HIGHWAYS	优先高速 ||  BMAP_DRIVING_POLICY_AVOID_HIGHWAYS	避开高速 || BMAP_DRIVING_POLICY_AVOID_CONGESTION	避开拥堵
+      
+      onSearchComplete: onSearchComplete,   //检索完成后的回调函数
+      onMarkersSet: onMarkersSet,           // 标注添加完成后的回调函数
+      onInfoHtmlSet: onInfoHtmlSet,         // 标注气泡内容创建后的回调函数
+      onPolylinesSet: onPolylinesSet        // 折线添加完成后的回调函数
+    })   
+
+    driving.search(new BMap.Point(_this.ceshiA.lng,_this.ceshiA.lat),new BMap.Point(_this.ceshiB.lng,_this.ceshiB.lat))
+  </script>
+
+</body>
+
+</html>
