@@ -10,8 +10,8 @@ console.log(wfname.age)
 
 // 默认导出方法
 // 导入这个模块的时候取任意名字均可
-/*import a1 from "./a1"
-console.log(a1.name)*/
+import a1 from "./a1"
+console.log(a1.name)
 
 
 /*注意事项

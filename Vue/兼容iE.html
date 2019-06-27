@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  1。安装
+  npm install babel-polyfill --save
+  npm install es6-promise --save
+
+
+  <script>
+    // 2.在main.js引入
+    import 'babel-polyfill'
+    import Es6Promise from 'es6-promise'
+    require('es6-promise').polyfill()
+    Es6Promise.polyfill()  
+  </script>
+
+
+  <!-- 3.在webpack.base.conf.js中修改entry -->
+  <script>
+    module.exports = {
+      context: path.resolve(__dirname, '../'),
+      entry: {
+        app: ["babel-polyfill", "./src/main.js"]
+      },
+    }
+  </script>
+
+  
+<!-- 4.在html添加 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+</body>
+
+</html>
