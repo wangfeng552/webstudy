@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  https://github.com/electron/electron/releases/download/v2.0.18/electron-v2.0.18-w
+  in32-x64.zip
+  build流程
+
+  vuex 在main文件夹下index.js 引入 import '../renderer/store'
+  vue-devtool 在main文件下index.dev.js
+  <script>
+    import { BrowserWindow } from 'electron';
+    import path from 'path';
+    require('electron').app.on('ready', () => {
+      // let installExtension = require('electron-devtools-installer')
+      // installExtension.default(installExtension.VUEJS_DEVTOOLS)
+      //   .then(() => {})
+      //   .catch(err => {
+      //     console.log('Unable to install `vue-devtools`: \n', err)
+      //   })
+      // 安装vue-devtools
+      BrowserWindow.addDevToolsExtension(path.resolve(__dirname, '../../devTools/vue-devtools'));
+    })
+  </script>
+</body>
+
+</html>
