@@ -1,0 +1,13 @@
+newindex  110ÐÐ
+blfConsume  changeStartScan()
+
+https://github.com/electron/electron/releases/download/v2.0.18/electron-v2.0.18-w
+in32-x64.zip
+
+router		yes
+elementui  	yes
+big.js		yes
+less		yes
+qrcode.vue	yes
+vuex		no
+		
