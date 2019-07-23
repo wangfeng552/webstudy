@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+  var arr = [-2,4,2,4,5,6,7,8,10,2]
+  let newArr = []
+  let obj={}
+  for(let i=0;i<arr.length;i++){
+    if(!obj[arr[i]]){
+      newArr.push(arr[i])
+      obj[arr[i]] = 1
+    }else{
+      obj[arr[i]]++
+    }
+  }
+
+  let maxValue = arr[0]
+  let maxCount = 0
+  for(let v in obj){
+    if( Number(v) > maxValue){
+      maxValue = Number(v)
+    }
+  }
+  console.log(maxValue)
+
+  // june july
+
+    </script>
+</body>
+</html>
