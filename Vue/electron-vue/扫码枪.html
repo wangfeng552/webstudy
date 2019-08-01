@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  思路： 1.注册onkeydown事件，捕获数字键的按下事件
+
+  2.计算按下数字键的时间间隔，若间隔小于30毫秒，则为扫码枪输入
+
+  3.捕获Enter案件的按下事件，判断捕获的扫码枪输入数值是否为空，不为空，对相应的文本框赋值，同时触发按找条形码查找商品的方法
+
+  <script>
+    //demo2
+    window.onload = function (e) {
+      var code = "";
+      var lastTime, nextTime;
+      var lastCode, nextCode,t;
+
+      document.onkeypress = function (e) {
+        nextCode = e.which;
+        nextTime = new Date().getTime();
+
+        if (lastCode != null && lastTime != null && nextTime - lastTime <= 30) {
+          clearTimeout(t)
+          code += String.fromCharCode(lastCode);
+          t = setTimeout(function(){
+            console.log(123)
+            code = ''
+          },500)
+        } else if (lastCode != null && lastTime != null && nextTime - lastTime > 100) {
+          
+          code = "";
+        }
+
+        lastCode = nextCode;
+        lastTime = nextTime;
+      }
+
+      this.onkeypress = function (e) {
+        if (e.which == 13) {
+          console.log(code);
+          code = "";
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

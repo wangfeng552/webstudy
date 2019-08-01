@@ -1,14 +1,8 @@
 <template>
 <div class="newslist">
-  <div class="newstop">
-    <ul>
-      <li v-for="(v,i) in title" :class="{act:i==auctionIndex}" :key="i" @click="changeNavigation(v.val)">{{v.name}}</li>
-    </ul>
-  </div>
-
   <div class="lodermore">
     <ul v-infinite-scroll="loadMore" infinite-scroll-disabled="loading" :infinite-scroll-immediate-check="true" infinite-scroll-distance="10">
-      <li v-for="(v,i) in newsListData" :key="i" @click="goNewsInfo(v.news_id)">
+      <li v-for="(v,i) in newsListData" :key="i">
         <h3 class="title">{{v.title}}
         </h3>
         <div class="piclist">
@@ -40,51 +34,22 @@ import {
 export default {
   data() {
     return {
-      auctionIndex: '0',
       newsListData: [],
       pageVal: 1,
       pageSize: "10",
       loading: true, //为true时不会触发加载更多，false可以触发
       noMore: false, // 是否还有更多
       isLoading: false, // 加载中转菊花
-      title: [{
-          name: '全部',
-          val: '0'
-        },
-        {
-          name: '推荐',
-          val: '1'
-        },
-        {
-          name: '原创',
-          val: '2'
-        }
-      ]
     }
   },
   created() {
     this.getnewsList()
   },
   methods: {
-    changeNavigation(index) { // 切换标签页
-      this.auctionIndex = index
-      this.isMoreLoading = true
-      this.pageVal = 1 // 初始化
-      this.newsListData = []
-      this.noMore = false
-      this.getnewsList()
-    },
     async getnewsList() {
-      let newsCatId;
-      if (this.auctionIndex == 0) {
-        newsCatId = ""
-      } else {
-        newsCatId = this.auctionIndex
-      }
       const data = {
         page: this.pageVal,
         count_per_page: this.pageSize,
-        news_cat_id: newsCatId
       }
       const res = await getNewsList(data)
       let resnewsListLength = res.news_list.length;
@@ -118,14 +83,6 @@ export default {
       this.loading = true;
       this.isLoading = true;
       this.getnewsList();
-    },
-    goNewsInfo(news_id) {
-      this.$router.push({
-        name: "newsInfo",
-        params: {
-          news_id
-        }
-      })
     }
   }
 }
