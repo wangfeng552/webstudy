@@ -13,3 +13,5 @@ cd my_project
 初始化，安装依赖
 
 npm install
+
+npm run build --report  查看文件大小
