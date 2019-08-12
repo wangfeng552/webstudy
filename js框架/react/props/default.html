@@ -11,6 +11,7 @@
 默认 Props
 你可以通过 getDefaultProps() 方法为 props 设置默认值，
 <div id="state"></div>
+<div id="wf"></div>
 
 <script type="text/babel">
    var HelloMessage = React.createClass({
@@ -24,6 +25,26 @@
        }
    })
     ReactDOM.render(<HelloMessage/>,document.querySelector('#state'))
+</script>
+
+<!-- es6 -->
+<script  type="text/babel">
+class Person extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            name:props.name
+        }
+    }
+    render(){
+        return <div>{this.props.name}</div>
+    }
+}
+Person.defaultProps = {
+    name:'default name'
+}
+
+ReactDOM.render(<Person /> , document.querySelector('#wf'))
 </script>
 </body>
 </html>

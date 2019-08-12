@@ -9,6 +9,7 @@
 </head>
 <body>
 <div id="state"></div>
+<div id="wf"></div>
 
 <script type="text/babel">
    var LinkButton = React.createClass({
@@ -29,5 +30,33 @@
    })
     ReactDOM.render(<LinkButton />,document.querySelector('#state'))
 </script>
+
+<!-- es6写法 -->
+<script type="text/babel">
+  class Wf extends React.Component{
+    constructor(props){
+      super(props);
+      this.state = {
+        liked:false
+      }
+    }
+   handleClick=()=>{
+     this.setState({liked:!this.state.liked})
+   }
+ 
+    render(){
+      var text = this.state.liked?'like':'nolike'
+      return (
+        <div>
+         <p>you {text} skdhkh</p>
+         <button onClick={this.handleClick}>保存</button>
+         </div>
+      )
+    }
+   }
+ 
+   ReactDOM.render(<Wf />,document.getElementById('wf'))
+     </script>
+
 </body>
 </html>

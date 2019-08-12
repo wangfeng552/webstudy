@@ -17,8 +17,8 @@ React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有
 <div id="app"></div>
 
 <script type="text/babel">
-    var title = "菜鸟教程";
-//     var title = ['123sadf'];
+    // var title = "菜鸟教程";
+    var title = ['123sadf'];
     var MyTitle = React.createClass({
         propTypes: {
             title: React.PropTypes.string,
@@ -33,5 +33,26 @@ React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有
       document.getElementById('app')
     );
 </script>
+
+<!-- ES6 -->
+<script type="text/babel">
+    class WfType extends React.Component{
+      constructor(props){
+        super(props);
+      }
+      render(){
+        return(<div> wo de biaoti{this.props.title}</div>)
+      }
+    }
+  
+    WfType.propTypes ={
+      title:React.PropTypes.string.isRequired
+    }
+  
+    var title=123
+  
+    ReactDOM.render(<WfType title={title} />,document.getElementById('wf'))
+      </script>
+
 </body>
 </html>
