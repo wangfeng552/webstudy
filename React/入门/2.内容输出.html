@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        /**
+         * ReactDOM.render(要渲染的内容，放置内容的容器)
+         *     ReactDOM：React框架提供的一个对象
+         *     容器不能使body
+         */
+
+        ReactDOM.render(
+            '<h1>Hello React!</h1>',    //这里的内容不会作为html进行解析，只会作为普通的字符串内容
+            // document.body
+            document.getElementById('app')
+        );
+    </script>
+
+</body>
+</html>

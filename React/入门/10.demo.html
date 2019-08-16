@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+    <script src="js/data.js"></script>
+    <style>
+        .panel {
+            border: 1px solid #000;
+            width: 80%;
+        }
+        .title {
+            margin: 0;
+            padding: 10px;
+            background: #ccc;
+        }
+        p.message {
+            color: #aaa;
+        }
+        p.vip {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <!-- <Panel>
+        <Group>
+            <List></List>
+        </Group>
+        <Group>
+            <List></List>
+        </Group>
+        <Group>
+            <List></List>
+        </Group>
+    </Panel> -->
+
+    <script type="text/babel">
+
+        class List extends React.Component {
+
+            render() {
+                return (
+                    <ul>
+                       {
+                           this.props.data.map( (item, index) => {
+                               return (
+                                   <li key={index}>
+                                       <p className={item.vip ? "vip" : ""}>{item.username}</p>
+                                       <p className="message">{item.message}</p>
+                                   </li>
+                               )
+                           } )
+                       }
+                   </ul>
+
+                )
+            }
+
+        }
+
+        class Group extends React.Component {
+
+            render() {
+                return (
+                    <div>
+                        <h2 className="title">{this.props.data.name}</h2>
+                        <List data={this.props.data.list} />
+                    </div>
+                )
+            }
+
+        }
+
+        class Panel extends React.Component {
+
+            render() {
+                return (
+                    <div className="panel">
+                        {
+                            Object.keys(this.props.data).map( (key, index) => {
+                                return <Group key={index} data={this.props.data[key]} />
+                            } )
+                        }
+                    </div>
+                )
+            }
+
+        }
+
+        ReactDOM.render(
+            <Panel data={dataList} />,
+            document.getElementById('app')
+        );
+    </script>
+
+</body>
+</html>
