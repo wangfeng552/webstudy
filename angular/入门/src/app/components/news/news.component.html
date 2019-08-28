@@ -1,0 +1,22 @@
+<app-header [title]="title" [age]="age"></app-header>
+<p>news works!</p>
+<div>{{name}}</div>
+<div>{{age}}</div>
+<div title='12'>{{obj.name}}</div>
+
+<div [title]="obj.name" [class]="act">{{name}}</div>
+
+<div>{{content}}</div>
+
+<div [innerHTML]='content'></div>
+
+<div>{{1+2}}</div>
+
+<div>
+  <ul>
+    <li>配合显示隐藏条件</li>
+    <li *ngFor="let item of arr" [hidden]="item.status == 0">{{item}}</li>
+    <li *ngFor="let item of list">{{item}}</li>
+    <li *ngFor="let item of userList">{{item.userName}}</li>
+  </ul>
+</div>
