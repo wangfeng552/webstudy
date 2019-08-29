@@ -1,0 +1,13 @@
+.active{
+  background: #f60;
+  color: #fff;
+}
+
+.nav-menu{
+  ul{
+    display: flex;
+    >li{
+      flex: 1;
+    }
+  }
+}

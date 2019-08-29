@@ -12,7 +12,13 @@ import { SharedModule } from './common/shared.module';
 import { FormComponent } from './components/form/form.component';
 import { SearchComponent } from './components/search/search.component'
 import { StorageService} from './services/storage.service';
-import { HeaderComponent } from './components/header/header.component'
+import { HeaderComponent } from './components/header/header.component';
+import { ParentComponent } from './components/parent/parent.component';
+import { ChildComponent } from './components/child/child.component';
+import { RxjsdemoComponent } from './components/rxjsdemo/rxjsdemo.component';
+import { LifeComponent } from './components/life/life.component'
+import { ProductsComponent } from './components/products/products.component';
+import { CeshiComponent } from './demo/ceshi/ceshi.component'
 
 @NgModule({
   declarations: [  // 包装组件或指令等
@@ -22,6 +28,12 @@ import { HeaderComponent } from './components/header/header.component'
     FormComponent,
     SearchComponent,
     HeaderComponent,
+    ParentComponent,
+    ChildComponent,
+    RxjsdemoComponent,
+    LifeComponent,
+    ProductsComponent,
+    CeshiComponent
   ],
   imports: [
     BrowserModule,

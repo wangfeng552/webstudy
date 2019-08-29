@@ -1,4 +1,4 @@
-<app-header [title]="title" [age]="age"></app-header>
+
 <p>news works!</p>
 <div>{{name}}</div>
 <div>{{age}}</div>
@@ -20,3 +20,11 @@
     <li *ngFor="let item of userList">{{item.userName}}</li>
   </ul>
 </div>
+
+<li>
+  <a [routerLink]="[ '/news' ]" [queryParams]='{id:12}'>跳转新闻页面</a>
+</li>
+<li>
+  <a [routerLink]="[ '/product', 2 ]">商品详情</a>
+</li>
+

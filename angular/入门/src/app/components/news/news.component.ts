@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService} from '../../services/storage.service'
 import { from } from 'rxjs';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-news',
@@ -40,12 +41,17 @@ export class NewsComponent implements OnInit {
       age: 204
     }
   ]
-  constructor(public storage:StorageService) {
+  constructor(
+    public storage:StorageService,
+    public route:ActivatedRoute) {
     this.name = '李四'
     // this.storage.get()
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(data=>{
+      console.log(data)
+    })
   }
 
 }
