@@ -1,2 +1,2 @@
 let isDone: boolean = false;
-let mk: Number = 34
+let mk: number = 34

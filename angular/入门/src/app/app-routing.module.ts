@@ -7,6 +7,7 @@ import { SearchComponent } from './components/search/search.component'
 import { NewsComponent } from './components/news/news.component';
 import { ProductsComponent } from './components/products/products.component'
 import { CeshiComponent } from './demo/ceshi/ceshi.component'
+import { RequestComponent } from './components/request/request.component'
 
 const routes: Routes = [
   {path:'index',component:HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:'news',component:NewsComponent},
   {path:'product/:id',component:ProductsComponent},
   {path:'ceshi',component:CeshiComponent},
+  {path:'request',component:RequestComponent},
   {
     path:'**',redirectTo:'index' // 匹配不到路由跳转
   }
