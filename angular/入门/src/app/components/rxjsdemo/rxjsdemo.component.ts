@@ -13,51 +13,93 @@ export class RxjsdemoComponent implements OnInit {
 
   ngOnInit() {
 
-    // Rxjs unsubscribe 取消订阅
-    let stream: any = new Observable(observer => {
-      let timeout = setTimeout(() => {
-        clearTimeout(timeout);
-        observer.next('observable timeout')
-      }, 5000)
+    // 回调方法
+    this.getCallBack((data) => {
+      console.log(data)
     })
 
-    let disposable: any = stream.subscribe(value => {
-      console.log(value)
+    // promise
+    var promisData = this.getPromiseData()
+    promisData.then(v => {
+      console.log(v)
+    }).catch(err => {
+      console.log(err)
     })
 
-    setTimeout(() => {
-      disposable.unsubscribe()
-    }, 2000)
-
-
-    // rxjs 订阅后多次执行
-    let streams: any = new Observable(observer => {
-      let count = 0;
-      setInterval(() => {
-        observer.next(count++)
-      }, 2000)
+    // rxjx
+    var rxjsDate = this.getRxjxData()
+    var disableRxjsData = rxjsDate.subscribe((v) => {
+      console.log(v)
     })
 
-    // 不处理直接返回
-    // streams.subscribe(value=>{
-    //   console.log("Observer"+value)
-    // })
+    // 取消订阅
+    setTimeout(()=>{
+      disableRxjsData.unsubscribe()
+    },2000)
 
-    // streams.filter(val =>  val % 2 == 0 ).subscribe(value => console.log("filter>" + value));
-    // streams.map(val => val*2).subscribe(value=>{console.log('map'+value)})
+    // 多次执行
+    var streamMoreData= this.getRxjxMoreData()
+    streamMoreData.subscribe(v=>{
+      console.log(v)
+    })
 
-
-    // 结合管道filter和map一起处理
-    streams.pipe(
-      filter((value: any) => {
-        if (value % 2 == 0) {
+    // 用工具方法对返回数据处理
+    var streamMoreDataNum= this.getRxjxMoreDataNum()
+    streamMoreDataNum.pipe(
+      filter((value:any)=>{
+        if(value%2==0){
           return true
         }
       }),
-      map((value: any) => { return value * 2 })
-    )
-      .subscribe(value => {
-        console.log(value)
+      map((v:any)=>{
+        return v*v
       })
+    ).subscribe(v=>{
+      console.log(v)
+    })
+
+  }
+
+  getCallBack(cb) {
+    setTimeout(() => {
+      var userName = 'nihao'
+      cb(userName)
+    }, 1000)
+  }
+
+  getPromiseData() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let userName: string = "张三"
+        resolve(userName)
+      }, 1000)
+    })
+  }
+
+  getRxjxData() {
+    return new Observable(observer => {
+      setTimeout(() => {
+        observer.next('你好')
+        // observer.error('你好')
+      }, 3000)
+    })
+  }
+
+  getRxjxMoreData() {
+    return new Observable(observer => {
+      let count = 0;
+      setInterval(() => {
+        observer.next(count++)
+      }, 3000)
+    })
+  }
+
+  getRxjxMoreDataNum() {
+    return new Observable(observer => {
+      let count = 0;
+      setInterval(() => {
+        observer.next(count++)
+      }, 3000)
+    })
   }
 }

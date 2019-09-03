@@ -21,7 +21,12 @@ import { CeshiComponent } from './demo/ceshi/ceshi.component';
 import { RequestComponent } from './components/request/request.component'
 
 //  导入http模块
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import { ProductComponent } from './demo/ceshi/product/product.component';
+import { ShopComponent } from './demo/ceshi/shop/shop.component';
+
+import {UserModule} from'./module/user/user.module'
+
 
 @NgModule({
   declarations: [  // 包装组件,指令,管道等
@@ -37,14 +42,17 @@ import { HttpClientModule} from '@angular/common/http'
     LifeComponent,
     ProductsComponent,
     CeshiComponent,
-    RequestComponent
+    RequestComponent,
+    ProductComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule
   ],
   providers: [StorageService], // 依赖注入
   bootstrap: [AppComponent] // 设置根组件

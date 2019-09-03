@@ -15,11 +15,22 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // this.route.firstChild.subscribe(v=>{  // 获取get参数
+    //   console.log(v)
+    // })
+
+
+    
+    
     this.route.queryParamMap.subscribe(v=>{  // 获取get参数
       console.log(v)
     })
 
     this.route.paramMap.subscribe(v=>{ // 活动动态绑定的值
+      console.log(v)
+    })
+
+    this.route.data.subscribe(v=>{ // 获取自定义的data数据
       console.log(v)
     })
   }
