@@ -1,25 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-
 <body>
+
   <script>
-  </script>
-  2019-5-8
-  上证
-  合计 77827
-
-
-
-  深圳
-
-  合计 37400
+    var head = document.head || document.getElementsByTagName('head')[0];
+    var script = document.createElement('script');
+    script.innerHTML ='alert(123)'
+    head.append('<!--123-->')
+    head.append(script)
+    
+    </script>
+  
 </body>
-
 </html>

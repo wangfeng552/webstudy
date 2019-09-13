@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  ionic g module module/title
+  ionic g component module/title  
+
+  在title.module里exports :[TitleComponent] //导出这个组件
+
+  在需要使用的module地方 import { TitleModule} from ''
+  imports:[TitleModule]
+
+
+  在html使用 <app-title></app-title>
+  
+</body>
+</html>
