@@ -9,11 +9,13 @@
 <body>
 
   <script>
-    var head = document.head || document.getElementsByTagName('head')[0];
-    var script = document.createElement('script');
-    script.innerHTML ='alert(123)'
-    head.append('<!--123-->')
-    head.append(script)
+ var money = 100000
+ var year = 10
+
+ for(let i=0;i<year;i++){
+   money=money*1.2
+   console.log(money)
+ }
     
     </script>
   
