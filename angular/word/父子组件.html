@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 1.父组件把值传给子组件 -->
+  <app-main [name]="name" (outer)='getName($event)'></app-main>
+  <script>
+    import { Input } from '@?angular'
+    @Input() name: string
+  </script>
+
+
+  <!-- 2.子组件通过@Output出发父组件的方法 -->
+  <script>
+    import { Output, EventEmitter } from '@/angular'
+    @Output() outer = new EventEmitter()
+    show(){
+      this.outer.emit('nihao')
+    }
+  </script>
+
+
+  <!-- 3父组件通过@ViewChild主动获取子组件的数据和方法 -->
+  <app-header #headerref></app-header>
+  <script>
+    import { ViewChild } from '@/angular'
+    @ViewChild('headerref', { static: false }) headerref: any
+    run(){
+      // 调用子组件的方法
+      this.headerref.headerRun()
+    }
+  </script>
+</body>
+
+</html>
