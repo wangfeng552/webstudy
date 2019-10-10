@@ -1,0 +1,36 @@
+body {
+  font-family: \5b8b\4f53, Arial Narrow, arial, serif;
+  margin: 0;
+  padding: 0;
+}
+
+.yeartable {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+tr,
+th,
+td {
+  border: 1px solid #000;
+  padding: 5px;
+  text-align: center;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+  color: red;
+  background: #ccc;
+  font-weight: 700;
+}
