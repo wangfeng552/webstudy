@@ -1,41 +1,32 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-    <meta http-equiv="X-UA-Compatible" content="edge">
-    <title>sticky-footers </title>
-    <!--<script src="jquery-1.11.2.js"></script>-->
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='jquery-1.1.2.js'></script>
 </head>
-
 <body>
-<style>
-    * {
-        margin: 0;
-    }
-    html, body {
-        height: 100%;
-    }
-    .wrapper {
-        min-height: 100%;
-        height: auto !important; /* 如果你不需要考虑IE6，则可以把这行与下一行代码删除 */
-        height: 100%;
-        margin: 0 auto -4em;
-    }
-    .footer, .push {
-        height: 4em;
-    }
-</style>
-<div class="wrapper">
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
-    <p>Your website content here.</p>
+    <form action="">
+        <input type="text" class='name'>
+        <input type="file" id='wf'>
+        <button class="tijiao">提交</button>
+    </form>
 
-
-    <div class="push"></div>
-</div>
-<div class="footer">
-    <p>Copyright (c) 2008</p>
-</div>
+    <script>
+$('.tijiao').on("click",function(){
+    var name =$(".name").val();
+    var pic = $('#wf').files[0];
+    $.ajax({
+        url:'',
+        data:{
+            name:name,
+            pic:pic
+        },
+        success:function(){
+            
+        }
+    })
+})
+    </script>
 </body>
 </html>
