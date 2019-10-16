@@ -1,0 +1,54 @@
+@import "config";
+/*预设*/
+.fs23{font-size:23px}
+.fs15{font-size:15px}
+
+
+/*主要内容*/
+.mainpart-index {
+  background: #FFFFFF;
+  .mainpart-box {
+    @include fix-width;
+  }
+  overflow: hidden;
+  .main-content {
+    padding: 85px 0 110px 0;
+    background: #fff;
+    font-size: 16px;
+    line-height: 34px;
+    h2, p {
+      text-align: center;
+    }
+    h2 {
+      font-weight: bold;
+      margin-bottom: 48px;
+    }
+  }
+  .contract {
+    background: #fff;
+    @include fix-width;
+    overflow: hidden;
+
+  }
+
+  .contract-us {
+    background: #0c4182;
+    padding-top: 58px;
+    padding-left: 59px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 34px;
+    height: 337px;
+    width: 600px;
+    .underline {
+      height: 2px;
+      background: #ffffff;
+      width: 40px;
+      margin: 15px 0 40px 0;
+    }
+  }
+}
+
+
+
+

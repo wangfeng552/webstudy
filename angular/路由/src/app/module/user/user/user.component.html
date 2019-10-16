@@ -1,0 +1,14 @@
+<div class="user">
+  <div class="fl">
+    <ul>
+      <li>
+        <a [routerLink]="[ '/user/info' ]" routerLinkActive="active">账户信息</a>
+      </li>
+      
+      <li><a [routerLink]="[ '/user/passworld' ]" routerLinkActive="active">修改密码</a></li>
+    </ul>
+  </div>
+  <div class="fr">
+    <router-outlet></router-outlet>
+  </div>
+</div>

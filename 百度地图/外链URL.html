@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 浏览器打开百度APP
+    // window.location = 'baidumap://map/direction?origin=name:西渡|30.902414,121.392477&destination=name:南桥|30.995846,121.43555&mode=driving'
+    
+    // 微信浏览器
+    window.location = 'http://api.map.baidu.com/marker?location=' + this.startPoint.lat + ',' + this.startPoint.lng + '&title=' + this.currentOrderInfo.start_location + '&content=' + this.currentOrderInfo.start_location + '&output=html'
+    </script>
+</body>
+</html>

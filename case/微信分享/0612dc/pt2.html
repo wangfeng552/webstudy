@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>为冠军打call</title>
+    <script src="/static/js/common/rem.js?v=2017112801"></script>
+    <script src="/static/js/common/fmOpt.js?v=2017112801"></script>
+    <script src="/static/js/common/tfd.js"></script>
+    <link rel="stylesheet" href="/static/css/libs/mui/mui.min.css?v=2017112801"/>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        /*拼团*/
+        .mb30{ margin-bottom: .3rem;}
+        .pt-main{ background-color: #fff; padding: .3rem;}
+        .pt-main .t{ width: 3.09rem; height: .42rem; background: url("img/pt_02.jpg") 0 0 no-repeat; background-size: 100%; margin: .3rem auto;}
+        .pt-main .jbpd{ background: url("img/pt_01.jpg") 0 0 no-repeat; background-size: 100%; width: 3.07rem; height: .49rem;}
+        .pt-main .sp li{ width: 2.2rem; height: 3.68rem;float: left; margin-right: .15rem;}
+        .pt-main .sp li:nth-of-type(3n){ margin-right: 0;}
+
+        .pt-main .s-list li{ height: 1.85rem; margin-bottom: .2rem;}
+    </style>
+</head>
+<!--pintuan1  pintuan2  pintuan3-->
+<body data-sharemode="true" data-spm="" style="background-color: #f3f3f3;">
+<div class="mui-content bgfff">
+    <div class="topbanner">
+        <img src="img/p_banner.jpg" alt="为冠军打call">
+        <a href="/event/2018/0615/index.html" class="goinedx">返回首页></a>
+    </div>
+    <div class="pt-main">
+        <h2 class="t"></h2>
+        <div class="sp clearfix">
+            <ul>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+
+            </ul>
+        </div>
+        <h2 class="t jbpd"></h2>
+        <div class="sp clearfix mb30">
+            <ul>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a1_03.jpg" alt=""></a></li>
+            </ul>
+        </div>
+
+        <div class="s-list clearfix">
+            <ul>
+                <li><a href=""><img src="img/a2_07.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a2_07.jpg" alt=""></a></li>
+                <li><a href=""><img src="img/a2_07.jpg" alt=""></a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="wrapper-toast">
+    <p>活动已结束</p>
+</div>
+
+<script src="/static/js/common/template.js"></script>
+<script src="/static/js/libs/mui/mui.min.js?v=2017112301"></script>
+<script src="//res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="/static/js/common/allowShare.js"></script>
+<script src="/static/js/common/qqShare.js"></script>
+<script src="/static/js/libs/CryptoJS/md5.js?v=2017112301"></script>
+<script src="/static/js/common/spm.js?v=2017112301"></script>
+<script>
+    window.onload = function () {
+        spm.push(['_trackPageview']);
+        ajaxUtil.loadComImages('LK_0419_4', function (goods) {
+            $('.ggw ul').template(goods);
+            if(true){
+                $('.adv-islogin').attr('data-needlogin','true')
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

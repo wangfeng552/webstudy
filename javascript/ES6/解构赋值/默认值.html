@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>默认值</title>
+</head>
+<body>
+<script>
+	let [foo=true]=[];		// foo = true
+    let [x, y = 'b'] = ['a']; // x='a', y='b'
+    let [x, y = 'b'] = ['a', undefined]; // x='a', y='b'
+
+	// 注意，ES6 内部使用严格相等运算符（===），判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。
+    let [x = 1] = [undefined];		//	x = 1
+    let [x = 1] = [null];			//	x = null
+
+	// 默认值是一个表达式
+	function f() { return 'aa' }
+    let [m=f()]=[];  //	m = aa
+
+	// 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。
+	let [j=1,k=j]=[]	// j=1;k=1
+    let [x = 1, y = x] = [2];    // x=2; y=2
+    let [x = 1, y = x] = [1, 2]; // x=1; y=2
+    let [x = y, y = 1] = [];     // ReferenceError 是因为x用到默认值y时，y还没有声明
+
+</script>
+</body>
+</html>

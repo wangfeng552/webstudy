@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<style>
+	.mk1{ background-color: #f60;}
+	.mk2{ background-color: #ff0;}
+	.mk3{ background-color: #f88;}
+
+</style>
+<script type="text/javascript">
+  function allowDrop(ev)
+  {
+    ev.preventDefault();
+  }
+
+  var srcdiv = null;
+  function drag(ev,divdom)
+  {
+    srcdiv=divdom;
+    ev.dataTransfer.setData("text/html",divdom.innerHTML);
+  }
+
+  function drop(ev,divdom)
+  {
+    ev.preventDefault();
+    if(srcdiv != divdom){
+      srcdiv.innerHTML = divdom.innerHTML;
+      divdom.innerHTML=ev.dataTransfer.getData("text/html");
+    }
+  }
+</script>
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+	<div class="mk1">
+		<div>1</div>
+		<div>1</div>
+		<div>1</div>
+		<div>1</div>
+		<div>1</div>
+		<div>1</div>
+	</div>
+</div>
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+	<div class="mk2">
+		<div>2</div>
+		<div>2</div>
+		<div>2</div>
+	</div>
+</div>
+<div ondrop="drop(event,this)" ondragover="allowDrop(event)" draggable="true" ondragstart="drag(event, this)">
+	<div class="mk3">
+		<div>3</div>
+		<div>3</div>
+		<div>3</div>
+	</div>
+</div>
+</body>
+</html>

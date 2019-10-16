@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+
+<a href="http://mp.weixin.qq.com/s?__biz=MzA3MDg1NzQyNA==&mid=2649654045&idx=1&sn=b0eeb0f4037586eb0b582a4caa898827&scene=21#wechat_redirect">参考文档</a>
+
+<script>
+	//const也用来声明变量，但是声明的是常量。一旦声明，常量的值就不能改变。
+   const a="123"
+
+//	只在块级作用域起作用，这点与let关键字一样。
+	if(1){
+		const name="张三"
+	}
+	alert(name)//错误，在代码块{ }外，Name失效
+</script>
+
+<script>
+    //传址赋值
+    //张师傅把你家的门改成红色
+    var Zhang = {"door":"red"};
+
+    //次日，你把地址也告诉了王师傅
+    var Wang = Zhang;
+
+    //王师傅按照地址，去到后把门改成绿色
+    Wang.door = "green";
+
+    //最后不管是张师傅还是王师傅来到你家，看到门都是绿色的
+    console.log(Wang); //结果：输出 {door: "green"}
+    console.log(Zhang); //结果：输出 {door: "green"}
+
+    const Person = {"name":"张三"};
+    Person.name = "李四";
+    Person.age = 20;
+    console.log(Person);
+    //结果：正常输出{name: "李四", age: 20}
+</script>
+<!--总结const也是用于声明一个常量，并必须赋值，声明后不可修改，跟let一样，只在块级作用域起作用，不可重复声明同一个变量，不会变量提升，声明引用类型的常量时，要注意是传址赋值。-->
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title></title>
+</head>
+<body>
+
+<script>
+//	getPrototypeOf()获取一个对象的prototype属性
+
+//自定义一个Animal类（函数）
+	function Animal() {
+
+    }
+//  函数都有一个预属性prototype对象
+    Animal.prototype={
+	    name:"张三",
+	    say(){
+	        alert(123)
+		}
+	}
+	var dog=new Animal();
+
+//	Object.getPrototypeOf(dog) 	获取Animal对象的prototype属性
+
+//	Object.setPrototypeOf()				函数作用：设置一个对象的prototype属性
+	Object.setPrototypeOf(dog,{name:"lisi"})
+
+	console.log(dog.name)
+</script>
+
+<script>
+//	函数的原型和它的prototype属性无关，
+	function wf() {
+
+  }
+  var a=wf.prototype;
+	/*a是使用new创建的wf实例的原型，即a= Object.getPrototypeOf(new wf())
+	所以 wf.prototype === Object.getPrototypeOf(new wf())  true*/
+
+	/*b=Object.getPrototypeOf(wf),b是函数的原型(并不涉及wf的new实例化)
+	* 即b = Function.prototype ,
+	* 所以 Object.getPrototypeOf(wf) === Function.prototype*/
+</script>
+</body>
+</html>

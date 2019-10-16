@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 当writable为false（并且configurable为true），[value]可以通过defineproperty修改,但不能直接赋值修改
+ <script>
+     var obj={};
+     Object.defineProperty(obj,'a',{
+         configurable:true,
+         enumerable:false,
+         writable:false,
+         value:1
+     })
+     Object.defineProperty(obj,'a',{
+         configurable:false,
+         enumerable:true,
+         writabel:false,
+         value:2
+     })
+     var d = Object.getOwnPropertyDescriptor(obj,'a')
+     // {
+     //     value: 2,
+     //     writable: false,
+     //     enumerable: true,
+     //     configurable: false
+     // }
+ </script>
+</body>
+</html>

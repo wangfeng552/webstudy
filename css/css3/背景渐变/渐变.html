@@ -1,75 +1,46 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<script type="text/javascript" src="jquery.js">
-</script>
-<script type="text/javascript">
-
-</script>
-<style type="text/css">
-.nav li{background: -moz-linear-gradient(center top,#fff ,#F90) repeat;
-/*从上至下渐变,moz下可以省略center,也可以按角度来分60deg
-	语法：
-	background-image:-moz-linear-gradient(
-  [<point>||<angle>],
-  开始颜色值，
-  结束颜色值，
-  [(停靠颜色值，偏移量百分数),...]
-);
-*/
-background:-webkit-gradient(linear,0 0,0 100%,from(#fff),to(#f60));
-background:-webkit-gradient(linear,0 0,0 100%,from(rgba(0,0,0,0)),to(rgba(0,0,0,0.5)));
-/*
-	webkit内核的浏览器有safai、chrome的linear gradient（线性渐变）的几点说明：
-1）基本语法：
-background-image:-webkit-gradient(
-  type,
-  x1,
-  y1,
-  x2,
-  y2,
-  from(开始颜色值),
-  to(结果颜色值)，
-  [color-stop(偏移量小数，停靠颜色值),...]
-);
--webkit-gradient(
-  type,
-  start_point,
-  end_point,
-  stop...
-)
-参数类型	简要说明
-type	渐变的类型，分为线性渐变（linear）和径向渐变（radial）
-start_point	渐变图片中渐变的起始点
-end_point	渐变图像中渐变的结束点
-stop	color-stop()方法，指定渐变进程中特定的颜色
-inner_center	内部中心点，径向渐变起始圆环
-inner_radius	内部半径，径向渐变起始圆
-outer_center	外部渐变结束圆的中心点
-outer_radius	外部渐变结束圆的半径
-*/
-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ff0000')"; /* IE8 */
-} 
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
-
-
 <body>
-
-<div class="nav">
-<ul>
-	<li><a href="#">一哈哈哈目</a></li>
-	
-</ul>
-</div>
-
-<div class="nav2">
-<ul>
-	<li><a href="#">一哈哈哈目</a></li>
-	
-</ul>
-</div>
+    <style type="text/css">
+      .nav li{background: -moz-linear-gradient(center top,#fff ,#F90) repeat;
+      /*从上至下渐变,moz下可以省略center,也可以按角度来分60deg
+        语法：
+        background-image:-moz-linear-gradient(
+        [<point>||<angle>],
+        开始颜色值，
+        结束颜色值，
+        [(停靠颜色值，偏移量百分数),...]
+      );
+      */
+      
+      
+      
+      /* -webkit-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )//最新发布书写语法 */
+      background: -webkit-linear-gradient(top,#ccc,#000);
+      
+      /*
+      
+      1）基本语法：
+      参数类型	简要说明
+      type	渐变的类型，分为线性渐变（linear）和径向渐变（radial）
+      start_point	渐变图片中渐变的起始点
+      end_point	渐变图像中渐变的结束点
+      stop	color-stop()方法，指定渐变进程中特定的颜色
+      inner_center	内部中心点，径向渐变起始圆环
+      inner_radius	内部半径，径向渐变起始圆
+      outer_center	外部渐变结束圆的中心点
+      outer_radius	外部渐变结束圆的半径
+      */
+      
+      filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ff0000')"; /* IE8 */
+      } 
+      </style>
+  
 </body>
 </html>

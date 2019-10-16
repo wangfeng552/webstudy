@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数参数解构</title>
+</head>
+<body>
+<script>
+	// 参数默认值可以与解构赋值的默认值，结合起来使用。
+  function foo({x, y = 5}) {
+    console.log(x, y);
+  }
+
+  foo({}) // undefined 5
+  foo({x: 1}) // 1 5
+  foo({x: 1, y: 2}) // 1 2
+  foo() // TypeError: Cannot read property 'x' of undefined
+
+	// 如果没有提供参数，函数foo的参数默认为一个空对象。
+	function wf({x=2}={}) {
+	  console.log(x)
+    }
+    wf() // 2
+	
+	function fetch(url,{body='',method='GET',headers={}}) {
+    	console.log(method)
+    }
+    fetch('http://wwww.baidu.com',{}) // "GET"
+    fetch('http://wwww.baidu.com') // 报错
+
+	//函数参数的默认值是空对象，但是设置了对象解构赋值的默认值
+	function wf({x=0,y=0}={}) {
+    	return [x,y]
+    }
+    //函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值
+    function wf2({x,y}={x:0,y:0}) {
+    }
+</script>
+</body>
+</html>

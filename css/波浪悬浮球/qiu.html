@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  .container{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #67c23a;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 5px;
+    overflow: hidden;
+  }
+  .wave{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background-image: linear-gradient(-180deg,#aaff80 13%, #67c23a 91%);
+    border-radius: 50%;
+  }
+  .wave-mask{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 50%;
+    border-radius: 40%;
+    background-color: rgba(255,255,255,0.5);
+    transform: translate(-50%,-70%) rotate(0);
+    animation: toRotate 10s linear -5s infinite;
+    z-index: 20;
+  }
+  @keyframes toRotate{
+    50%{
+      transform: translate(-50%,-70%) rotate(180deg);
+    }
+    100%{
+      tansform:translate(-50%,-70%) rotate(360deg)
+    }
+  }
+  </style>  
+  <div class="container">
+    <div class="wave"></div>
+    <div class="wave-mask"></div>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>replace</title>
+</head>
+<body>
+replace() 方法用于在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。
+stringObject.replace(regexp/substr,replacement)
+replacement 可以是函数
+该函数的第一个参数是匹配模式的字符串。接下来的参数是与模式中的子表达式匹配的字符串，可以有 0 个或多个这样的参数。
+接下来的参数是一个整数，声明了匹配在 stringObject 中出现的位置。最后一个参数是 stringObject 本身。
+<!--案例1-->
+<script>
+	var str = "打防结合的萨芬撒地方";
+	var aa = str.replace("打","huan")
+
+//    执行一个全局替换:
+    var str="Mr Blue has a blue house and a blue car";
+    var n=str.replace(/blue/g,"red");
+
+//    执行一个全局替换, 忽略大小写:
+    var str="Mr Blue has a blue house and a blue car";
+    var n=str.replace(/blue/gi, "red");
+</script>
+
+
+<!--案例2-->
+<div class="wrapper">
+	{{topbar}}
+</div>
+<script>
+	var source=document.getElementsByTagName("body")[0];
+	var topbar=source.innerHTML.replace("{{topbar}}",'<div class="topbar">\
+        <div class="fl">logo</div>\
+        <div class="fr">还在那个的撒反馈</div>\
+        </div>')
+    source.innerHTML=topbar
+</script>
+
+
+<!--案例3-->
+<script>
+  var people='打款发货 撒地方 阿斯蒂芬';
+  people.replace(/[\n\s\t]/g,'') 	//把换行 空格 tab 都替换成空
+</script>
+
+</body>
+</html>

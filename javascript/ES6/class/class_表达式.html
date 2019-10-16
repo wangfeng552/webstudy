@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 需要注意的是，这个类的名字是Me，但是Me只在 Class 的内部可用，指代当前类。在 Class 外部，这个类只能用MyClass引用。
+  const MyClass = class Me{
+    constructor(){
+
+    }
+    showName(){
+      console.log('123')
+    }
+  }  
+  var dog = new MyClass()
+  dog.showName()
+
+  // 立即执行
+  let person = new class {
+    constructor(name){
+      this.name = name
+    }
+    sayName(){
+      console.log(this.name)
+    }
+  }('占山')
+person.sayName()
+// 上面代码中，person是一个立即执行的类的实例。
+  </script>
+</body>
+</html>

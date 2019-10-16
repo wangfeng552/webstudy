@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title></title>
+</head>
+<body>
+
+<script>
+var a="first";
+var b="Name";
+var c="last";
+var d="Age";
+var person={
+    [a+b]:"张三",
+	[c+d](key){
+        alert(key)
+	}
+}
+person.firstName	//=>张三
+person.lastAge(45)
+</script>
+
+
+<script>
+  var obj={
+    name:'123',
+    age:'456',
+    file:'打开'
+  }
+  var obj2={
+    '打开':'123'
+  }
+
+  obj2[obj['file']]  //=>123
+</script>
+</body>
+</html>

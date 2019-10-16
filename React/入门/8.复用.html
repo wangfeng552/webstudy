@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        var users = ['刘伟','莫涛','钟毅'];
+        var users2 = ['张三','李四','王五'];
+
+        /**
+         * 函数复用
+         *     组件：拥有独立功能的一个模块
+         * React还提供组件的另外一种使用的方式：标签化
+         * 标签化：传参，通过标签属性传入的
+         */
+
+        function List(props) {
+
+            /**
+             * props:接受来自标签上的所有属性
+             *     props = {
+             *         data: users,
+             *         a: '1'
+             *     }
+             */
+
+            return props.data.map( ( item, index ) => {
+                return <li key={index}>{item}</li>
+            } )
+        }
+
+        ReactDOM.render(
+            <div>
+                <ul>
+                    {/*List(users)*/}
+                    <List data={users} a="1" />
+                </ul>
+
+                <ul>
+                    {/*List(users2)*/}
+                    <List data={users2} />
+                </ul>
+            </div>,
+            document.getElementById('app')
+        );
+    </script>
+
+</body>
+</html>

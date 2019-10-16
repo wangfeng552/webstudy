@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .mk{ display: flex; height: 300px; background-color: #ccc;}
+    .ch{ flex: auto; margin: 10px; background-color: #f60; align-self: flex-start;}
+</style>
+<div class="mk">
+    <div class="ch">123</div>
+    <div class="ch">123</div>
+    <div class="ch">123</div>
+</div>
+
+align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。
+默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+auto | flex-start | flex-end | center | baseline | stretch;
+</body>
+</html>

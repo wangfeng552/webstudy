@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+所指定对象的所有自身属性的描述符，如果没有任何自身属性，则返回空对象。
+语法:Object.getOwnPropertyDescriptors(obj)
+obj:需要查找的目标对象
+
+<script>
+    var person ={
+        name:"爱上的看法",
+        age:445
+    }
+    var desc =Object.getOwnPropertyDescriptors(person);
+</script>
+</body>
+</html>

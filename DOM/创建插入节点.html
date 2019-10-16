@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="wf">
+
+</div>
+<div class="first"></div>
+<div class="ss">1231</div>
+<script>
+  //	appendChild
+  var d = document;
+  var dbody = d.getElementsByTagName('body')[0]; //带S的都是取得类数组
+  var first = d.getElementsByClassName('first')[0]
+
+  var node = d.createElement('li')
+  var textNode = d.createTextNode('你好')
+
+  node.appendChild(textNode)
+  d.getElementById('wf').appendChild(node)
+
+  //	node.insertBefore(newnode,existingnode)
+  var s = d.createElement('script');
+  s.src = 'wf.js'
+
+  dbody.insertBefore(s, first)
+</script>
+</body>
+</html>

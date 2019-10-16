@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="200" style="border:2px solid #333"></canvas>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d'); // 获得绘图环境对象
+    ctx.moveTo(10,10);  // 落笔起始位置
+    ctx.lineTo(150,50); // 下一个点
+    ctx.lineTo(10,50);  //下一个点
+    ctx.stroke();      // 连起来
+</script>
+</body>
+</html>

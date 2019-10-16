@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--参考地址：https://segmentfault.com/a/1190000011294519-->
+     <!--
+     方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。
+     如果不指定configurable, writable, enumerable ，则这些属性默认值为false，
+     如果不指定value, get, set，则这些属性默认值为undefined
+
+    语法: Object.defineProperty(obj,prop,descriptor)
+    obj: 需要被操作的目标对象
+    prop: 目标对象需要定义或修改的属性的名称
+    descriptor: 将被定义或修改的属性的描述符
+    返回值
+    返回传入函数的对象，即第一个参数Obj
+    对象里面目前存在的属性描述符有2种形式：
+    数据描述符和存取描述符。数据描述符是一个拥有可写或不可写值的属性。
+    存取描述符是由一对getter-setter函数功能来描述的属性。
+    描述符必须是2种形式之一；不能同时两者
+-->
+<script>
+    var o = {};
+    Object.defineProperty(o, 'a', {
+        value: 37,          // 属性对应的值,可以使任意类型的值，默认为undefined
+        writable: true,     // 属性的值是否可以被重写。设置为true可以被重写；设置为false，不能被重写。默认为false。
+        enumerable:true | false, // 此属性是否可以被枚举（使用for...in或Object.keys()）。设置为true可以被枚举；设置为false，不能被枚举。默认为false。
+        configurable:true | false
+        /*  是否可以删除目标属性或是否可以再次修改属性的特性（writable, configurable, enumerable）。
+            设置为true可以被删除或可以重新设置特性；设置为false，不能被可以被删除或不可以重新设置特性。默认为false。
+            这个属性起到2个作用：
+            目标属性是否可以使用delete删除
+            目标属性是否可以再次设置特性*/
+    })
+</script>
+
+
+</body>
+</html>

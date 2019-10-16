@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {
+        0: "我是0",
+        1: "我是1",
+        2: "我是2",
+        length: 3,
+        [Symbol.iterator]: function () {
+            let self = this;
+            let index = 0;
+            return {
+                next: function () {
+                    let value = self[index];
+                    let done = (index >= self.length)
+                    index++;
+                    return {value, done}
+                }
+            }
+        }
+    }
+
+    for (let v of obj) {
+        console.log(v);
+    }
+    //结果："我是0"
+    //      "我是1"
+    //      "我是2"
+
+    // 这就是说，我们可以创建一个可遍历的对象，并且自定义它的遍历行为。
+    // 或者说可以通过添加[Symbol.iterator]()方法，把一个不可遍历的Object对象，变成可遍历的对象。
+</script>
+</body>
+</html>

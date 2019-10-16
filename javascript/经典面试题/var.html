@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+函数的执行依赖于变量作用域，这个作用域是在函数定义时决定的，而不是函数调用时决定的。
+<script>
+    var scope ='global'
+    function wf() {
+        var scope ='function';
+        function f() {
+            return scope
+        }
+        return f
+    }
+    wf()()  //=> function
+</script>
+
+<script>
+    (function () {
+        var a = b =3;
+    })()
+    console.log(typeof a == 'undefined')  //=>true
+    console.log(typeof b == 'undefined')  //=>false
+
+   /* 解释
+    b = 3;  变量b声明是不加关键字var的，也就是说变量b是全局变量（隐式全局变量）。
+    var a = b;
+    在严格模式下（使用 use strict），又会是什么结果？
+    报错:b is not undefined
+    */
+</script>
+
+<script>
+//  带有初始化表达式的变量声明即是声明也是定义
+    function foo(a) {
+        var a;
+        return a;
+    }
+    function bar(a) {
+        var a= 'bye';
+        return a;
+    }
+    [foo('hello'),bar('hello')] //=> hello ,bye
+    /*解释*/
+    function foo(a) {
+        return a
+    }
+    function bar(a) {
+        a = 'bye'
+        return a;
+    }
+</script>
+
+<script>
+    var out = 25,
+      inner = {
+          out: 20,
+          func: function () {
+              var out = 30;
+              return this.out;
+          }
+      };
+
+    inner.func();
+    (inner.func = inner.func)();
+// 函数在哪个空间调用，函数体中的this，就指向谁
+// =等号运算符的逻辑，运算前面的，执行后面
+// 执行等号前面的inner.func()这个方法,返回20
+// 右侧 inner.func, 即转化为(function(){var out =30;return this.out})(),而这个函数调用空间是window,所以this指向window
+</script>
+
+<script>
+//  在作用域内的变量提升，变量只有声明没有复制，则返回undefined
+    if (!("b" in window)) {
+        var b = 1;
+    }
+    alert(b);  //=> undefined
+
+    /* 解释变量提升 */
+    var b;
+    if(!('b' in window)){
+        b=1
+    }
+
+//  同理如下
+    var name = 'World!';
+    (function () {
+        if (typeof name === 'undefined') {
+            var name = 'Jack';
+            console.log('Goodbye ' + name);
+        } else {
+            console.log('Hello ' + name);
+        }
+    })();
+
+    //=> Goodbye Jack  匿名函数也有变量，导致变量提升
+</script>
+
+<script>
+    /*函数声明的优先级高于变量声明*/
+    //声明函数a
+    function a(x) {
+        return x * 2;
+    }
+    // 声明变量a，但没有赋值，按照js从上而下的执行顺序，a变量虽然在a函数之后，但没有赋值，所以没有被覆盖。
+    var a;
+    alert(a); //打印a这个函数
+</script>
+
+</body>
+</html>

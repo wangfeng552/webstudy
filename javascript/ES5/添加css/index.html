@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="mk"></div>
+<button class="dj">点击</button>
+<script>
+    var str='<ul>\n' +
+      '        <li>123</li>\n' +
+      '        <li>123</li>\n' +
+      '        <li>123</li>\n' +
+      '    </ul>'
+    document.querySelector('.mk').innerHTML =str
+
+    document.querySelector('.dj').onclick=function () {
+        document.querySelector('.mk').outerHTML=''
+    }
+
+    var style = document.createElement('style')
+    style.innerHTML=['.mk{ color: red; font-size: 22px;}','.mk li{ background-color: #ccc; padding: 8px;}'].join('');
+    document.head.appendChild(style)
+</script>
+</body>
+</html>

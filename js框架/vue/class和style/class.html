@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(v,i) in name" :class="v | filterClass(i)">{{v.age}}</li>
+    </ul>
+</div>
+<script>
+    var vm =new Vue({
+        el:"#app",
+        data(){
+            return {
+                name:[
+                    {age:12},
+                    {age:14},
+                    {age:15},
+                ]
+            }
+        },
+        filters:{
+            filterClass(v,i){
+                if(v.age==12){
+                    return 'a2'
+                }
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>

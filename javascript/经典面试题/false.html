@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+var a = [0];
+if([0]){
+    console.log(a==true);
+}else{
+    console.log('sut')
+}
+
+//=> false
+    /*
+    将[0]赋值给a;if条件判断：
+    首先判断括号内的条件[0]代表的是true还是false，【Boolean对象用于将非布尔值转换为布尔值，
+    如果布尔对象无初始值或者其值为:0、null、""、false、undefined、NaN那么对象的值为false。否则，其值为 true】，所以if条件为true；
+    因为if条件成立,所以执行console.log(a==true)语句:
+    此处需要进行数据类型比较:
+    首先处理左侧a,a的值为[0],将对象转换为字符串[0].toString()得到"0",再将字符串"0"转换为数字,Number("0")得到0;
+    其次处理右侧true,布尔转换成数字,Number(true)得到1;
+
+    左侧0不等于右侧1,输出的结果就是false.
+*/
+</script>
+
+</body>
+</html>

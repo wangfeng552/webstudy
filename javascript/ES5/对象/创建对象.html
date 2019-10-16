@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//    o1=o2=o3
+    var o1={}
+    var o2=new Object();
+    var o3=Object.create(Object.prototype)
+
+
+//    不能继承任何属性和方法
+    var o4=Object.create(null);
+//    比如
+        o4.toString()
+
+//    Object.Prototype没有原型对象 ，不继承任何属性
+</script>
+
+<script>
+    // 第1个参数是这个对象的原型；第2个参数可选，对对象的属性进行进一步描述
+//    静态函数
+    Object.create(a1,a2)
+    var mk=Object.create({x:1,y:2})  // mk继承了属性x和y
+</script>
+</body>
+</html>

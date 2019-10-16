@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function say(value) {
+        alert(value)
+    }
+    function excute(callback,value) {
+        callback(value)
+    }
+    excute(say,'123')
+
+
+//    与
+    function execute(callback,value) {
+        callback(value);
+    }
+    execute(function (value) {
+        alert(value)
+    },'123')
+
+//    上面第一段代码是将say方法作为参数传递给excute方法
+//    第二段则是直接将匿名函数作为参数传递给execute方法
+</script>
+
+
+<script>
+    function a(callback) {
+        alert('这是parent函数a');
+        var m=1;
+        var n=3;
+        return callback(m,n)
+    }
+    function b(m,n) {
+        alert('这是回调函数B');
+        return m+n;
+    }
+    (function () {
+        var result =a(b);
+        alert(result)
+    })()
+
+    // 函数首先执行了主题函数a，之后调用了回调函数b，最后返回函数a的返回值
+</script>
+</body>
+</html>

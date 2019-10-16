@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>createAttribut</title>
+</head>
+<body>
+<div></div>
+<div>123</div>
+<script>
+  //case 1
+  var att=document.createAttribute("class"); //方法用于创建一个指定名称的属性，并返回Attr 对象属性。
+  att.value="democlass"; // 设置它的值
+  document.getElementsByTagName("div")[0].setAttributeNode(att);
+
+  //case 2
+  document.getElementsByTagName('div')[1].setAttribute('class','demo2')
+
+  //删除属性
+  document.getElementsByClassName('mk')[0].removeAttribute('id')
+</script>
+</body>
+</html>

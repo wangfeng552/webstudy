@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>USPM测试</title>
+<meta name="data-spm" content="1.1" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://unpkg.com/vue@2.4.2/dist/vue.js"></script>
+
+
+</head>
+<body data-spm="666">
+	<div data-spm="123"  data-spm-type="all">
+		<a href="#">#的情况</a> 
+		<a href="javascript:add(0)">javascript的情况</a> 
+		<a data-spm="cccc" href="test_spm.html">test_spm页面</a> 
+		<a href="http://www.google.com/">google</a>
+		<span data-spm="span">span按钮</span> 
+	</div>
+
+	<form action="http://m.changyoyo.com/jfmall/index.htm#member" data-spm="from" method="get">
+		<input name="44">
+		<input type="button" data-spm="22">
+		<input type="button" data-spm="333">
+		<input type="submit">
+	</form>
+
+	<div>
+		<span data-spm="btn">单独按钮测试</span>
+	</div>
+	
+	
+	<div>
+		<h4>活动列表</h4>
+		<div data-spm="list" data-spm-type="all">
+			<div class="item"><a href="baidu.com">ITEM_1</a></div>
+			<div class="item"><a href="baidu.com">ITEM_2</a></div>
+			<div class="item"><a href="baidu.com">ITEM_3</a></div>
+		</div>
+	</div>
+	
+
+	<div data-spm="444">
+		<b data-spm="axc">按钮</b>
+	</div>
+
+	<div>
+		<span id="page1">页面一</span>
+		<span id="page2">页面二</span>
+		<span id="page3">页面三</span>
+	</div>
+
+
+	<script src="spm.js?t=44444fs44tf4S4t44"></script>
+	<script type="text/javascript">
+		function add(){ }
+		spm.install();
+		spm.push(['_trackPageview']);
+		
+		document.getElementById("page1").onclick = function () {
+			spm.setPageCode('147');
+			spm.push(['_trackPageview','http://test-m-stg.ppppoints.com/event/2017/0901/test_spm_1.html?spm=1.1.page1.5545.3.'+spm.getPVID()]);
+		}
+		document.getElementById("page2").onclick = function () {
+			spm.setPageCode('258');
+			spm.push(['_trackPageview','http://test-m-stg.ppppoints.com/event/2017/0901/test_spm_1.html?spm=1.1.page2.2553.3.'+spm.getPVID()]);
+		}
+		document.getElementById("page3").onclick = function () {
+			spm.setPageCode('369');
+			spm.push(['_trackPageview','http://test-m-stg.ppppoints.com/event/2017/0901/test_spm_1.html?spm=1.1.page3.9999.3.'+spm.getPVID()]);
+		}
+		
+		
+		
+		
+	</script>
+</body>
+</html>

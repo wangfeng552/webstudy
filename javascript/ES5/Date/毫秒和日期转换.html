@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+【1】js毫秒时间转换成日期时间
+
+var oldTime = (new Date("2012/12/25 20:11:11")).getTime(); //得到毫秒数
+
+//不是上面格式的时间需要转换
+
+   //starttime ='2012-12-25 20:17:24';
+    starttime = starttime.replace(new RegExp("-","gm"),"/");
+    var starttimeHaoMiao = (new Date(starttime)).getTime(); //得到毫秒数
+
+【2】毫秒数转化为时间
+
+var oldTime = (new Date("2012/12/25 20:11:11")).getTime(); //得到毫秒数
+
++new Date()
+var newTime = new Date(oldTime); //就得到普通的时间了
+-->
+</body>
+</html>

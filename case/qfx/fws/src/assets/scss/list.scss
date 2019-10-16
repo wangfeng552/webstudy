@@ -1,0 +1,100 @@
+.title{
+text-align: center;
+}
+.listContent{
+	width: 800px;
+	margin: 0 0 0 376px;
+	.typeline{
+		margin-top: 20px;
+	}
+}
+.name3{
+	text-align: center;
+	font-size: 28px;
+	font-weight: bold;
+	margin-top: 20px;
+}
+.submitBack{
+	width: 120px;
+    height: 30px;
+    border: 0;
+    display: block;
+    background: #ff6600;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+    margin: 20px auto 0;
+}
+.formContent{
+	margin-top: 10px;
+	width: 714px;
+	margin: 20px auto 50px;
+	padding: 20px;
+	font-size: 14px;
+    border: 1px solid #e2e2e2;
+    .typeline{
+    	margin-top: 20px;
+    	.block{
+    		margin-top: 20px;
+    	}
+    	.beizhu{
+    		font-size: 12px;
+    		color: #999;
+    		margin:5px 0;
+    		text-indent: 20px;
+    	}
+    	.upload-demo{
+			width: 100%;
+			.el-upload{
+				width: 100%;
+			}
+			.el-upload-dragger{
+				width: 59%;
+				height: 130px;
+			}
+	    }
+    }
+}
+.leftshouru{
+	width: 40%;
+	font-size: 14px;
+	margin-right: 10px;
+	display: block;
+}
+.describe2{
+	resize: none;
+    width: 59%;
+    height: 60px;
+    margin-top: 10px;
+    display: block;
+}
+.inputdic{
+	width: 59%;
+	display: inline-block;
+	margin-top:15px;
+}
+label.am-checkbox,label.am-secondary{
+	display: inline-block;
+	vertical-align: bottom;
+}
+.am-g{
+	display: inline-block !important;
+    vertical-align: middle;
+}
+.am-u-sm-6{
+	width: 252px !important;
+}
+.dateRight{
+	float: left !important;
+}
+.dateLeft,.dateRight{
+	padding-left: 0 !important;
+}
+.textkuang{
+	width : 59%;
+	margin-top: 20px;
+	vertical-align: -webkit-baseline-middle;
+}
+.am-ucheck-icons{
+	margin-left: 5px;
+}

@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>畅由平台SPM说明</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--This one seems to work all the time, but really small on ipad-->
+<!--<meta name="viewport" content="initial-scale=0.4">-->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" media="all" href="theme/css/default.css">
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+<base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+<script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+	<slide class="segue dark">
+		<aside class="gdbar"><img src="images/logo.jpg"></aside>
+		<hgroup class="auto-fadein">
+			<h2>畅由平台SPM说明</h2>
+			<h3>网站流量收集/功能使用统计/成交效果引导分析</h3>
+		</hgroup>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>说明提纲</h2>
+		</hgroup>
+		<article>
+			<img src="images/spm/1.jpg" align="right" style="padding-right:50px;" />
+			<ul>
+				<li>
+					应用目的
+					<ul>
+						<li>应用目的</li>
+					</ul>
+				</li>
+				<li>
+					SPM定义
+					<ul>
+						<li>SPM编码规则</li>
+					</ul>
+				</li>
+				<li>
+					SPM应用
+					<ul>
+						<li>页面部署</li>
+						<li>其他方法</li>
+					</ul>
+				</li>
+				<li>
+					SPM统计
+					<ul>
+						<li>浏览记录</li>
+						<li>统计分析</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用目的</h2>
+		</hgroup>
+		<article>
+			<ul>
+				<li>
+					应用目的
+					<p>&nbsp;</p>
+					<ul>
+						<li>网站流量收集</li>
+						<li>功能使用统计</li>
+						<li>成交效果引导分析</li>
+					</ul>
+					<p>&nbsp;</p>
+				</li>
+			</ul>
+		</article>
+	</slide>
+
+	<slide>
+		<hgroup>
+			<h2>SPM定义</h2>
+		</hgroup>
+		<article>
+			<ul>
+				<li>
+					什么是SPM？
+					<ul>
+						<li>
+							<p>SPM是一套包含流量收集和成交效果引导分析的整体解决方案。</p>
+							<p class="gray2">如下例中的链接，其中的spm参数值就是后面所介绍的spm编码：</p>
+							<p><a href="https://m.changyoyo.com/jfmall/index.htm?spm=1.1.888.0.0.930518">https://m.changyoyo.com/jfmall/index.htm?spm=1.1.888.0.0.930518</a></p>
+							<p>&nbsp;</p>
+						</li>
+					</ul>
+				</li>
+				<li>
+					SPM编码组成
+					<ul>
+						<li>完整的SPM编码由6段编码组成： <span class="red">a.b.c.d.e.f</span></li>
+						<li>
+							<p>每一段编码分别用于定义： </p>
+							<p class="red">(站点类型).(站点).(页面).(模块).(位置).(PV码)</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM定义 - SPM编码规则</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>组成</th>
+					<th>用途</th>
+					<th>规格</th>
+					<th>补充说明</th>
+				</tr>
+				<tr>
+					<td nowrap>a (类型)</td>
+					<td nowrap>区分不同的站点类型</td>
+					<td class="blue" nowrap>由字母、数字和下划线组成</td>
+					<td>由SPM后台生成并提供</td>
+				</tr>
+				<tr>
+					<td nowrap>b (站点)</td>
+					<td nowrap>区分不同的站点/项目</td>
+					<td class="blue" nowrap>由字母、数字和下划线组成</td>
+					<td>由SPM后台生成并提供</td>
+				</tr>
+				<tr>
+					<td nowrap>c (页面)</td>
+					<td nowrap>标识站点下不同的页面</td>
+					<td class="blue" nowrap>由字母、数字和下划线组成</td>
+					<td>由SPM后台生成并提供</td>
+				</tr>
+				<tr>
+					<td nowrap>d (模块)</td>
+					<td nowrap>标识页面上的频道/模块</td>
+					<td class="blue" nowrap>由字母、数字和下划线组成</td>
+					<td>由SPM后台生成并提供</td>
+				</tr>
+				<tr>
+					<td nowrap>e (位置)</td>
+					<td nowrap>区分模块中不同链接内容</td>
+					<td class="blue" nowrap>序号(系统生成or由data-spm设置)</td>
+					<td>动态生成的数字序号，1-999自增<br/>有data-spm值时为data-spm值</td>
+				</tr>
+				<tr>
+					<td nowrap>f (PV码)</td>
+					<td nowrap>区分不同时刻打开时的PV</td>
+					<td class="blue" nowrap>随机唯一数字(系统生成)</td>
+					<td>首访H5由0~9随机5位+月+日+时组成<br/>(APP由为APP提供并由H5传承)</td>
+				</tr>
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM定义 - SPM编码规则</h2>
+		</hgroup>
+		<article>
+			<ul style="float:right;">
+				<li>
+					分段编码说明：
+					<ul>
+						<li>不同站点的页面编码可以相同</li>
+						<li>不同页面的模块编码可以相同</li>
+					</ul>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					已设置站点说明：
+					<ul>
+						<li>1.1: H5XXXXXX</li>
+						<li>1.2: IOSXXXXXX</li>
+						<li>1.3: AndroidXXXXXX</li>
+					</ul>
+				</li>
+				<li>
+					合作网站
+					<ul class="smaller">
+						<li>3.31 XXXXXX</li>
+						<li>3.32 XXXXXX</li>
+						<li>3.33 XXXXXX</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 页面部署 - 分段定义</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>分段名称</th>
+					<th>代码中定义</th>
+					<th>补充说明</th>
+				</tr>
+				<tr>
+					<td nowrap>a (类型)</td>
+					<td nowrap>
+						<strong class="red">&lt;meta name="data-spm" content="a.b" /&gt;</strong>
+					</td>
+					<td>定义站点类型和站点的编码值</td>
+				</tr>
+				<tr>
+					<td nowrap>b (站点)</td>
+					<td nowrap colspan="2">和a段一起定义在&lt;meta&gt;中。 a段和b段必须一起定义区分不同的站点/项目</td>
+				</tr>
+				<tr>
+					<td nowrap>c (页面)</td>
+					<td nowrap>
+						<strong class="red">&lt;body <u>data-spm="c"</u>&gt;</strong><br/>
+						
+					</td>
+					<td>
+						如果定义了a.b.c，可以冲掉meta里定义的ab项，如<br/>
+						<span>&lt;body data-spm="a.b.c"&gt;</span>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap>d (模块)</td>
+					<td nowrap>
+						<strong class="red">&lt;ul <u>data-spm="d"</u>&gt;</strong><br/>
+						<strong class="red">&lt;div <u>data-spm="d" data-spm-type="all"</u>&gt;</strong><br/>
+						<strong class="red">&lt;form <u>data-spm-form="d"</u>&gt;</strong><br/>
+					</td>
+					<td>
+						模块的spm值，默认添加列表容器(如ul)中<br/>
+						如果定义了c.d，则会冲掉相应body中定义的c项，如：<br/>
+						<span>&lt;div <u>data-spm="c.d"</u>&gt;</span>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap>e (位置)</td>
+					<td nowrap>
+						默认时： 自动生成序号<br/>
+						自定义： <strong class="red">&lt;a <u>data-spm="d1"</u>&gt;</strong><br/>
+						不定义： <strong class="red">&lt;a <u>data-spm="no"</u>&gt;</strong>
+					</td>
+					<td>
+						
+						没有添加data-spm属性时，默认为自动生成序号<br/>
+						自定义的部分，会替换自动生成的序号
+					</td>
+				</tr>
+				<tr>
+					<td nowrap>f (PV码)</td>
+					<td nowrap colspan="2">JS生成相应的11数值，作为PVID</td>
+				</tr>
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 页面部署 - 相关属性</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>属性名称</th>
+					<th>代码中使用</th>
+				</tr>
+				<tr>
+					<td nowrap>data-spm</td>
+					<td nowrap>
+						<strong class="red">&lt;body data-spm="c"&gt;</strong><br/>
+						<strong class="red">&lt;div data-spm="d"&gt;</strong><br/>
+						<strong class="red">&lt;a data-spm="d1"&gt;</strong><br/>
+						<strong class="red">&lt;a data-spm="no"&gt;</strong>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap>data-spm-type</td>
+					<td nowrap>
+						<p><strong class="red">&lt;div data-spm="d" data-spm-type="all"&gt;</strong></p>
+						<p>data-spm-type属性用于模块中，作为模块data-spm的补充。相应的属性值有两种：</p>
+						<ul>
+							<li>child，属性默认值，按DOM元素.children.forEach()来编排其下的链接序号</li>
+							<li>all，设置此属性时，按DOM元素.querySelectorAll('a,area').forEach()来给容器内所有链接自动排序</li>
+						</ul>
+						<p>data-spm-type属性为空或不存在时，默认值为child</p>
+					</td>
+				</tr>
+				<tr>
+					<td nowrap>data-spm-form</td>
+					<td nowrap>
+						<p><strong class="red">&lt;form data-spm-form="d" method="post"&gt;</strong></p>
+						<p>
+							data-spm用于form表单时。<br/>
+							1、JS会自动计算出相应的spm编码值，然后添加到表单的action地址里。<br/>
+							2、添加名字为spm的隐藏域，并设置相应的spm编码值。
+						</p>
+					</td>
+				</tr>
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 页面部署 - 添加过程</h2>
+		</hgroup>
+		<article>
+			<ul class="build fade">
+				<li>
+					<p class="mb15">在页头head中，使用meta来添加a.b(站点)段编码信息</p>
+					<p class="gray2 smaller">通常这个定义在各站点页面所使用的通用headcode中</p>
+				</li>
+				<li>
+					<p class="mb15">在当前页面body中，添加c(页面)段编码信息</p>
+					<p class="gray2 smaller">特殊情况下，可以在body中定义a.b.c三段，用于覆盖meta中的定义</p>
+				</li>
+				<li>
+					<p class="mb15">给页面上相应的模块或表单添加d(模块)编码信息</p>
+					<ul>
+						<li>对于内容模块<span class="gray2">（详细说明见下一页）	</span></li>
+						<li>对于表单模块<span class="gray2">（详细说明见下一页）	</span></li>
+					</ul>
+				</li>
+				<li>
+					<p class="mb15">给相应的链接和按钮添加自定义的e(位置)段编码信息</p>
+					<p class="gray2 smaller">
+						当模块中的链接没有定义data-spm属性时，JS会根据模块data-spm-type属性，自动计算出相应的链接位置。<br/>
+						当需要用具体的编码值来代替自动序号，作为区分相应的链接内容位置，则可以给链接加上相应的data-spm属性，	如常见的商品列表中用i1和t1来区分是图片链接还是商品名称链接的位置。<br/>
+						当某些链接(如外链)不需要加上相应的spm信息时，则可以给链接内容添加<u>data-spm="no"</u>属性。
+					</p>
+					<p class="red smaller">
+						对于要设置点击量的按钮添加模块data-spm属性并赋值即可（除a,area标签）。
+					</p>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 页面部署 - 添加过程</h2>
+		</hgroup>
+		<article>
+			<ul>
+				<li>
+					<p class="mb15">内容模块添加d(模块)编码信息</p>
+					<p class="gray2 smaller">
+						如一个广告列表或商品列表，可以给相应的容器标签中添加data-spm属性值来定义d段编码。<br/>
+						特殊情况下，也可以在模块的data-spm属性中来定义c.d段，或者a.b.c.d段，用来将此模块内容产生的流量统计合并给其他页面或站点。<br/>
+					</p>
+					<p class="gray2 smaller">
+						默认情况下，模块下面的链接内容的位置值，JS处理时会按DOM元素.children.forEach()来编排相应的序号值（同一个children元素中的a链接会被定义为同样的位置），因而在定义模块的编码信息时，当需要对模块内的每一个链接位置都做区分，还需用到一个辅助属性data-spm-type="all"。
+					</p>
+					<p class="smaller">
+						样例1： <span class="red">&lt;ul class="slide-items" data-spm="100016"&gt;</span><br/>
+						样例2： <span class="red">&lt;div class="channel channel-f05" data-spm="100004" data-spm-type="all"&gt;</span>
+					</p>
+				</li>
+				<li>
+					<p class="mb15">表单模块添加d(模块)编码信息</p>
+					<p class="smaller">
+						样例： 订单列表页中，<br/>
+						<span class="red">&lt;form data-spm-form="209" id="orderList" action="/myorder/buyerOrderView.do" method="post"&gt;</span><br/>
+						在页面加载后，form的action地址会被自动处理为类似的地址：<br/>
+						1、<u class="blue">/myorder/buyerOrderView.do?spm=1.1.310.209.0.123456</u><br/>
+						2、并添加&lt;input name="spm" value="1.1.310.209.0.123456" /&gt;
+					</p>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 页面部署</h2>
+			<h3>完整的页面代码样例<small class="gray2">（省略了所需的CSS/JS引用部分）</small></h3>
+		</hgroup>
+		<article>
+<pre class="prettyprint" data-lang="html">
+&lt;!DOCTYPE html>
+&lt;html>
+&lt;head>
+  &lt;meta name="data-spm" content="1.1" />
+  &lt;title>购物车&lt;/title>
+&lt;/head>
+&lt;body data-spm="201">
+  &lt;ul data-spm="111">
+    &lt;li>&lt;a href="http://wwwm.changyoyo.com/jfmall/index.htm">我的畅由&lt;/a>&lt;/li>
+  &lt;/ul>
+  &lt;form data-spm="2010" name="checkoutform" method="post" action="……">……&lt;/form>
+  &lt;div data-spm="151" data-spm-type="all">
+    &lt;a data-spm="index" href="http://wwwm.changyoyo.com/jfmall/index.htm">畅由首页&lt;/a>
+    &lt;a data-spm="no" href="http://www.baidu.com/">百度首页&lt;/a>
+  &lt;/div>
+</pre>		
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 其他方法一</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>方法</th>
+					<th>描述</th>
+					<th>参数</th>
+				</tr>
+				<tr>
+					<td>push(arr:Array)</td>
+					<td>
+						增加PV，事件统计<br/>
+						例子：spm.push(['_trackPageview', 'm.changyoyo.com']);<br/>
+						例子：spm.push(['_trackEvent', '666','click','']);<br/>
+					</td>
+					<td>
+						后台分别调用
+						_trackPageview(url:String)<br/>
+						_trackEvent(spm:String, action:String, extend:String)<br/>
+					</td>
+				</tr>
+				<tr>
+					<td>refresh(url:String, reload:Boolean)</td>
+					<td>跳转页面</td>
+					<td>
+						url：可为空<br/>
+						reload：true替换页面，不加历史记录
+					</td>
+				</tr>
+				<tr>
+					<td>addSpm(url:String, spm:String)</td>
+					<td></td>
+					<td>url，spm：必填</td>
+				</tr>
+				<tr>
+					<td>setDebugOn(onOff:Boolean)</td>
+					<td>是否开启控制台Debug</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>setSiteCode(code:String)</td>
+					<td>设置站点类型和站点</td>
+					<td>code：必填</td>
+				</tr>
+				<tr>
+					<td>getSiteCode()</td>
+					<td>获得站点类型和站点</td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 其他方法二</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>方法</th>
+					<th>描述</th>
+					<th>参数</th>
+				</tr>
+				<tr>
+					<td>setPageCode(code:String)</td>
+					<td>设置body spm</td>
+					<td>code：必填，定义了a.b.c，则会冲掉相应body中定义的a.b项</td>
+				</tr>
+				<tr>
+					<td>getPageCode()</td>
+					<td>获得body spm</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>setModuleCode(code:String, elem:DOM, type:String)</td>
+					<td>设置模块 spm type:list||form</td>
+					<td>code：必填</td>
+				</tr>
+				<tr>
+					<td>setElemItem(elem:DOM, spm:Array, index:String)</td>
+					<td>设置模块OR元素spm</td>
+					<td>code，spm，index：必填</td>
+				</tr>
+				<tr>
+					<td>arrToSpm(spm:Array)</td>
+					<td>数组转spm格式</td>
+					<td>spm：必填</td>
+				</tr>
+				<tr>
+					<td>spmToArr(spm:String)</td>
+					<td>spm转数组格式</td>
+					<td>spm：必填</td>
+				</tr>
+				
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM应用 - 其他方法三</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>方法</th>
+					<th>描述</th>
+					<th>参数</th>
+				</tr>
+				<tr>
+					<td>sliceBefore(url:String, name:String)</td>
+					<td>截取分隔符前部分</td>
+					<td>url，name：必填</td>
+				</tr>
+				<tr>
+					<td>sliceAfter(url:String, param:String)</td>
+					<td>截取分隔符后部分</td>
+					<td>url，name：必填</td>
+				</tr>
+				<tr>
+					<td>getQueryValue(url:String, name:String)</td>
+					<td>获取参数</td>
+					<td>url为空时URL为当前URL，name：必填</td>
+				</tr>
+				
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM统计</h2>
+		</hgroup>
+		<article>
+			<ul>
+				<li>
+					浏览记录
+					<ul>
+						<li>链接跟踪</li>
+						<li>
+							<p class="mb15">事件跟踪</p>
+						</li>
+					</ul>
+					<p>&nbsp;</p>
+				</li>
+				<li>
+					统计分析
+					<ul>
+						<li>统计类型</li>
+						<li>走向分析</li>
+						<li>参考指标</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM统计 - 统计类型</h2>
+		</hgroup>
+		<article>
+			<table class="smaller">
+				<tr>
+					<th>类别</th>
+					<th>统计类型</th>
+					<th>可统计项目</th>
+				</tr>
+				<tr>
+					<td>类型</td>
+					<td>a 指定站组</td>
+					<td>访问/点击/后续引导/成交</td>
+				</tr>
+				<tr>
+					<td>站点</td>
+					<td>b 指定站点</td>
+					<td>访问/点击/后续引导/成交</td>
+				</tr>
+				<tr>
+					<td>页面</td>
+					<td>
+						c 所有指定页面<br/>
+						b.c 指定站点的指定页面<br/>
+						a.c 指定站组的指定页面
+					</td>
+					<td>访问/点击/后续引导/成交</td>
+				</tr>
+				<tr>
+					<td>模块</td>
+					<td>
+						d 所有指定模块<br/>
+						c.d 指定页面的指定模块<br/>
+						b.c.d<br/>
+						a.c.d
+					</td>
+					<td>点击/后续引导/成交</td>
+				</tr>
+				<tr>
+					<td>位置</td>
+					<td>
+						d.e<br/>
+						c.d.e<br/>
+						b.c.d.e<br/>
+						a.c.d.e						
+					</td>
+					<td>点击/后续引导/成交</td>
+				</tr>
+			</table>
+		</article>
+	</slide>
+	<slide>
+		<hgroup>
+			<h2>SPM统计 - 走向分析/参考指标</h2>
+		</hgroup>
+		<article>
+			<ul>
+				<li>
+					走向分析
+					<ul class="smaller">
+						<li>
+							每个页面统计两个spm：<br/>
+							<span class="blue">当前页(从body判断): a.b.c.0.0.f</span><br/>
+							<span class="blue">来源页(从url判断): a.b.c.d.e.f</span>
+						</li>
+						<li>根据两个spm值的匹配，可以整理出相应的访问路径走向</li>
+						<li>可以根据添加到购物车时记录的spm值来推理用户的访问情况</li>
+					</ul>
+					<p>&nbsp;</p>
+				</li>
+				<li>
+					参考指标<span class="gray2">(参考自淘宝SPM说明)</span>
+					<ul class="smaller">
+						<li>PV：通过指定spm编码引导到宝贝详情页面的PV</li>
+						<li>UV：通过指定spm编码引导到宝贝详情页面的UV</li>
+						<li>成交人数：通过指定spm编码引导到宝贝详情页面的用户当天对同店商品的成交人数</li>
+						<li>成交笔数：通过指定spm编码引导到宝贝详情页面的用户当天对同店商品的成交笔数</li>
+						<li>成交金额：通过指定spm编码引导到宝贝详情页面的用户当天对同店商品的成交金额</li>
+						<li>客单价=成交金额/成交人数，代表通过指定spm编码引导过来的购买用户的消费能力</li>
+						<li>转化率=成交人数/UV，代表通过指定spm编码引导的用户最终转化为购买用户的比率</li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+	</slide>
+	<slide class="thank-you-slide segue nobackground">
+		<aside class="gdbar right"><img src="images/logo.jpg"></aside>
+		<article class="flexbox vleft auto-fadein">
+			<h2>&lt;Thank You!&gt;</h2>
+			<p>
+				文档更新： 前端开发小组<br/>
+				　　　　　 2017-10
+			</p>
+		</article>
+	</slide>
+	<slide class="backdrop"></slide>
+</slides>
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+<script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>

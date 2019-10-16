@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>apply</title>
+</head>
+<body>
+语法：apply(thisObj,[arrArray])
+定义：应用某一个对象的一个方法，用另一个对象替换当前对象。
+说明：
+如果argArray 不是一个有效的数组或者不是arguments对象，那么将导致一个TypeError
+如果没有提供argArray和thisObj任何一个参数，那么Global对象将被用作thisObj，并且无法被传递任何参数
+
+<script>
+  function add(a,b){
+    return a+b
+  }
+  function jian(a,b){
+    return a-b
+  }
+  add.apply(jian,[1,2])  //=>3
+
+ /*
+  啥时候用call和apply
+  某个函数的参数数量是不固定的，因此要说适用条件的话，当你的参数是明确知道数量时，用 call，
+  而不确定的时候，用 apply，然后把参数 push 进数组传递进去。
+  当参数数量不确定时，函数内部也可以通过 arguments 这个数组来便利所有的参数。
+  */
+
+</script>
+</body>
+</html>

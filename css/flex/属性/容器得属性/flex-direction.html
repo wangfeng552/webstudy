@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .main ul{ display: flex; flex-direction: row-reverse;}
+    .main ul li { flex: 1;}
+    .main ul li:nth-child(2){ flex: 0 0 300px; width: 300px; background: #ccc;}
+</style>
+<div class="main">
+    <ul>
+        <li>aaa</li>
+        <li>bbb</li>
+        <li>ccc</li>
+        <li>ddd</li>
+    </ul>
+</div>
+
+<!--
+flex-direction:
+row（默认值）：主轴为水平方向，起点在左端。
+row-reverse：主轴为水平方向，起点在右端。
+column：主轴为垂直方向，起点在上沿。
+column-reverse：主轴为垂直方向，起点在下沿。
+-->
+</body>
+</html>

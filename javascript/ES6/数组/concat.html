@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 方案1 -->
+  <script>
+    var arr = [
+      { name: '123', value: [1, 2] },
+      { name: '123', value: [3, 4] },
+      { name: '123', value: [5, 6] },
+    ]
+    var newArr = []
+    arr.forEach(function (v, i) {
+      newArr = newArr.concat(v.value)
+    })
+    console.log(newArr)
+  </script>
+
+  <!-- 方案2 -->
+  <script>
+    var arr = [
+      { name: '123', value: [1, 2] },
+      { name: '123', value: [3, 4] },
+      { name: '123', value: [5, 6] },
+    ]
+    var mk = arr.map(function (v) {
+      return v.value
+    })
+
+    var newARR = mk.reduce(function (pre, cur) {
+      return pre.concat(cur)
+    })
+  </script>
+</body>
+
+</html>

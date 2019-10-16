@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  BigInt 任意精度整数
+  <script>
+  const limit = Number.MAX_SAFE_INTEGER;
+  console.log(limit+1)
+
+  const larger = 9007199254740991n;
+  console.log(larger)
+
+  const integer = BigInt(9007199254740991)
+  console.log(integer)
+
+  typeof 10n  //=> 'bigint'
+
+  10n === BigInt(10)  // => true
+  10n == 10           // => true
+
+  // 数学运算符只能在自己的类型中工作
+  200n / 10n  // =>  20n
+  -10n
+  +10n // 报错
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        /**
+         * React没有模板语法，插值表达式中只支持表达式，不支持语句：for，if
+         *
+         */
+
+        var users = ['刘伟','莫涛','钟毅'];
+        var obj = {left: 100, top: 200};
+
+        ReactDOM.render(
+            <div>
+                <ul>
+                    {
+                        /*
+                        根据数组中的内容生成一个包含有结构的新数组
+                        通过数组生成的结构，每一个元素必须包含有一个key属性，同时这个key属性的值必须是唯一的
+                         */
+                        users.map( (user, index) => {
+                            return <li key={index}>{user}</li>
+                        } )
+                    }
+                </ul>
+
+                <ul>
+                    {
+                        /*['left', 'top']*/
+                        Object.keys(obj).map( key => {
+                            return <li key={key}>{key} - {obj[key]}</li>
+                        } )
+                    }
+                </ul>
+            </div>,
+            document.getElementById('app')
+        );
+    </script>
+
+</body>
+</html>

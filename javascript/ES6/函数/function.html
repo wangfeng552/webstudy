@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>let</title>
+</head>
+<body>
+<div>
+	a=>a
+	第一个a代表传进去的参数；
+	箭头=>后面的a表示函数体
+
+	var sum = (a,b) => {return a+b}
+	如果参数超过1个的话，需要用小括号（）括起来，
+	函数体语句超过1条的时候，需要用大括号{ }括起来,并使用return语句返回。
+
+	使用箭头函数注意几点：
+	1、函数体内的this对象就是定义时所在的对象，而不是使用时所在对象；  [this对象的指向是可变的，但是在箭头函数中，它是固定的。]
+	2、不可以当作构造函数使用，也就是不能用new命令实例化一个对象，否则会抛出一个错误；
+	3、不可以使用arguments对象，该对象在函数体内不存在，如果要用的话，可以用rest参数代替；
+	4、不可以使用yield命令，箭头函数不能用作Generator函数；
+</div>
+<script>
+	//ES6中允许使用“箭头”(=>)定义函数
+	(a)=>a
+	(function(a){ return a })
+
+    //有参数的箭头函数
+    (a)=>a+2
+    (function (a) { return a+2 })
+
+	var fc=(a)=>a+2
+	var fc=function fc(a) {
+		return a+2
+    }
+</script>
+
+<script>
+	//有的函数体内的语句大于一条的话，它的写法如下使用一个大括号将其括起来，并使用return语句返回
+    (response)=>{ return response}
+    (function (response) { return response});
+
+    var fc=(b)=>{return b}
+    var fc = function fc(b) {
+        return b;
+    }
+</script>
+
+<script>
+	(x,y)=>{x++;y--;return x+y}
+	(function (x,y) {
+		x++;
+		y--;
+		return x+y
+    })
+
+//由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象时，必须在对象外面加一个大括号
+    var getFunction = id => ({id: id, name: "Temp"});
+//	另一种写法
+    var fun=()=>{return {name:"沾上干",age:"66"}}
+	function getFunction(id){
+	    return {id: id, anme: "Temp"}
+	}
+
+//箭头函数也可以与变量解构结合使用：
+    var obj={ first: "张三", last: "李四"}
+    var full=({first,last})=>first+""+last
+
+    full = function full(_ref2) {
+        var first = _ref2.first,
+            last = _ref2.last;
+        return first + "  " + last;
+    };
+    full(obj)
+
+//箭头函数的一个用处是简化回调函数
+	[1,2,3].map(x => x*x);
+    [1,2,3].map(function(x){
+        return x*x;
+    });
+
+    [10,-5,23,2,13].sort((a,b)=>b-a)
+	[10,-5,23,2,13].sort(function (a,b) {
+		return b-a
+    })
+
+//下面是rest参数与箭头函数结合的例子。
+	var showName=(...arr)=>arr;
+    showName(1,2,3,4,5)
+	//[1, 2, 3, 4, 5]
+
+	var show2=(h,...a1)=>[h,a1];
+    show2("a","b","c","d")
+	//["a", ["b","c","d"]]
+
+</script>
+</body>
+</html>

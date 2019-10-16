@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .mk{ display: flex;}
+    .ch{ flex: auto; background-color: #f60; margin:10px;}
+</style>
+<div class="mk">
+    <div class="ch">1</div>
+    <div class="ch">2</div>
+    <div class="ch">3</div>
+    <div class="ch">4</div>
+</div>
+flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+
+建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+
+auto
+none
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+runoo+b，可以匹配 runoob、runooob、runoooooob 等，+ 号代表前面的字符必须至少出现一次（1次或多次）。
+runoo*b，可以匹配 runob、runoob、runoooooob 等，* 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。
+colou?r 可以匹配 color 或者 colour，? 问号代表前面的字符最多只可以出现一次（0次、或1次）。
+	<!--
+
+是等同于的意思，表示同样的功能，用不同符号来书写。
+	*	重复零次或更多次{0,}
+	+	重复一次或更多次{1，}
+	?	重复零次或一次{0,1}
+	{n}	重复n次
+	{n,}	重复n次或更多次
+	{n,m}	重复n到m次
+	-->
+
+	<script>
+		var str= '12asdf23423asdfsa1122';
+		var reg =new RegExp('[0-9]','g');  //[0-9] 匹配单个数字
+		var reg1 = new RegExp('[0-9]+','g') //+ 匹配一个或者多个
+		var reg2 = new RegExp('[0-9]*','g') //* 匹配0个或者多个
+		var reg3 = new RegExp('[0-9]?','g') //? 匹配0个或者1次
+		str.match(reg) 		//=>   ["1", "2", "2", "3", "4", "2", "3", "1", "1", "2", "2"]
+		str.match(reg1) 	//=>	 ["12", "23423", "1122"]
+		str.match(reg2) 	//=>	 ["12", "", "", "", "", "23423", "", "", "", "", "", "", "1122", ""]
+		str.match(reg3) 	//=>	 ["1", "2", "", "", "", "", "2", "3", "4", "2", "3", "", "", "", "", "", "", "1", "1", "2", "2", ""]
+	</script>
+
+<script>
+	//*、+限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个?就可以实现非贪婪或最小匹配。
+	var test='<h2>阿斯顿发链接</h2>'
+	var testReg=new RegExp('<.*>')   //=><h2>阿斯顿发链接</h2>
+	var testReg1=new RegExp('<.*?>') //=><h2>,</h2>
+	var testReg2=new RegExp('<\\w+?>') //=><h2>
+</script>
+</body>
+</html>

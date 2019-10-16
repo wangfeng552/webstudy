@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	<script src="../jquery-1.11.2.js"></script>
+</head>
+<body>
+<div class="vl"></div>
+<div class="mk">
+	<ul class="mk">
+		<li class="wfs">222</li>
+		<li class="wf">wqer</li>
+		<li class="wf">wqer</li>
+		<li class="lk">wqer</li>
+		<li class="wfs">wqer</li>
+		<li class="wfe">11</li>
+	</ul>
+</div>
+<script>
+//  .map(callback(index,domElement))
+//由于返回值是 jQuery 封装的数组，使用 get() 来处理返回的对象以得到基础的数组。
+	var a = $("li").map(function (i,e) {
+		return $(this).text()
+  }).get().join("-")
+	$(".vl").append(a)
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,9 @@
+http://mikemcl.github.io/big.js/#eq
+
++ 	plus
+- 	minus
+* 	times
+/ 	div
+%	mod
+
+Big(0.00001).times(Big(0.000002)).toFixed()

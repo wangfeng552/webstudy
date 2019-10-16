@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var _data={name:'张三',age:45,sex:'girl'}
+    function wf({name,age,sex}) {
+        console.log({name,age,sex})
+        console.log(name)
+    }
+
+    wf(_data)
+    wf({..._data})
+    wf.apply(null,[_data])
+</script>
+</body>
+</html>

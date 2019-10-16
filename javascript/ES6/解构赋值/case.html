@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const _data = {
+        otcOrderId: 1,
+        name:'的萨芬和'
+    }
+    // {_data}     //  =>  {_data:{otcOrderId: 1,name:'的萨芬和'}}
+    // {..._data}  // =>   {otcOrderId: 1,name:'的萨芬和'}
+
+    OtcCreate({
+        ..._data
+    })
+
+    // OtcCreate(_data)
+
+    function OtcCreate({otcOrderId}){
+        console.log(otcOrderId)  //1
+        console.log({otcOrderId})   //=>otcOrderId: 1,
+    }
+</script>
+</body>
+</html>

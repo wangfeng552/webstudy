@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    Reflect.ownKeys()函数, 一次性获取所有类型的属性
+    let person={
+        [Symbol('name')]:'好难受兑分',
+        'age':76
+    }
+    Reflect.ownKeys(person)
+    //结果：["age",Symbol(name)]
+</script>
+</body>
+</html>

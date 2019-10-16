@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>filter</title>
+</head>
+<body>
+<script>
+//	map()对数组的每个元素进行一定操作（映射）后，会返回一个新的数组，
+//  map()是处理服务器返回数据时是一个非常实用的函数。
+
+//案例1
+var arr3=[15,25,-26,1520,-9562]
+function getMap1(){
+  return arr3.map((v,i,arr)=>{
+    return v-10
+  })
+}
+getMap1()
+
+//案例2
+var arr=[{nameA:'张三',age:45},{nameA:'了开始',age:23}];
+function bian(){
+  var list = [];
+  arr.map(function(v){
+    var newItem={
+      title:v.nameA,
+      nianling:'/'+v.age
+    }
+    list.push(newItem)
+  })
+  return list
+}
+list=[{title:'张三',nianling:'/45'},{title:'了开始',nianling:'/23'}]
+</script>
+
+
+<script>
+  let arr=[
+            {name:'123',age:45,sex:'girl'},
+            {name:'啥地方',age:15,sex:'boy'},
+            {name:'yij',age:19,sex:'boy'},
+            {name:'leek',age:29,sex:'girl'}
+        ]
+ 
+        let newArr = arr.map(function(v,i){
+            v.age += 10
+            return v
+        })
+ 
+        let count = arr.map(function(v,i){
+          return v.age+10
+        })
+ </script>
+
+
+
+<script>
+    //案例3经典面试题
+    ["1", "2", "3"].map(parseInt); // =>[1,NaN,NaN]
+    /*首先，我们了解了数组中map的作用，map()方法返回一个新数组，数组中的元素为原始数组元素调用函数处理的后值。也就是map会把数组["1", "2", "3"]遍历一遍，并传入parseInt函数中去进行处理。
+
+那么很多人就觉得，把数组中的"1","2","3"进行parseInt处理之后，不就是得到数字1,2,3了吗？
+
+但我们忽略了，map给处理函数传的参数不是简单地把数组的每个元素传进去，实际上它会传3个参数(value,index,array)。分别是数组的元素，索引和整个数组。如果忽略了这一点，就很容易答错这道题。
+
+了解了上面这点，那下面的问题是parseInt函数返回的结果是什么了？需要注意的是：在这里，parseInt(value,index,array)接收了三个参数，实际起作用的只有前2个。
+
+实际上是parseInt('1',0)和parseInt('2',1)和parseInt('3',2);得到的结果是[1,NaN,NaN]。
+
+为什么是这个结果，因为第二个参数作为解析的数字的基数。该值介于 2 ~ 36 之间，如果参数为 0，则数字将以 10 为基础来解析。所以第一次遍历得到1，如果该参数小于 2 或者大于 36，则 parseInt() 将返回 NaN。*/
+</script>
+
+
+</body>
+</html>
+

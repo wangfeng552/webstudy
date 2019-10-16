@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+接受参数的方式不同
+apply(fn,[])
+call(fn,a1,a2,a3,...)
+
+<script>
+//    示例1
+function add(c,d) {
+    return this.a + this.b + c + d
+}
+var s = {a:1, b:2};
+console.log(add.call(s,3,4))  // 1+2+3+4 =10
+    add.apply(s,[5,6])  // 1+2+5+6 = 14
+</script>
+
+<script>
+//示例2
+    window.firstName = 'Cynthia';
+    window.lastName = '_xie';
+    var myObject = {firstName:'my',lastName:'Object'};
+
+    function getName() {
+        console.log(this.firstName + this.lastName)
+    }
+    function getMessage(sex,age) {
+        console.log(this.firstName + this.lastName + sex + age)
+    }
+    getName.call(window)        // Cynthia_xie
+    getName.call(myObject)      // myObject
+
+    getName.apply(window); // Cynthia_xie
+    getName.apply(myObject);// myObject
+
+    getMessage.call(window,'女',45)      //Cynthia_xie女45
+    getMessage.apply(window,['男',25])   //Cynthia_xie男25
+
+    getMessage.call(myObject,'女',32)    //myObject女32
+    getMessage.apply(myObject,['男',45]) //myObject男45
+</script>
+</body>
+</html>

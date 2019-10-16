@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--http://web.jobbole.com/91161/-->
+fetch(input, init)
+input
+定义要获取的资源。可以是一个 USVString 字符串，包含要获取资源的 URL。 也可以是一个 Request 对象。
+init
+这个参数是可选的，它传入一个配置项对象，可以用它来包括所对请求进行设置。
+    method: 请求使用的方法，如 GET、POST。
+    headers: 请求的头信息，形式为 Headers 对象或 ByteString。
+    body: 请求的 body 信息，可能是一个 Blob、BufferSource、FormData、URLSearchParams 或者 USVString 对象。（如果是 GET 或 HEAD 方法，则不能包含 body 信息）
+    mode: 用来决定是否允许跨域请求，如 cors、 no-cors 或者 same-origin。
+    credentials: 请求的 credentials，如 omit、same-origin 或者 include。
+        跨域请求中需要带有cookie时, 可在fetch方法的第二个参数对象中添加credentials属性, 并将值设置为”include”.
+
+    cache: 如何处理缓存 请求的 cache 模式: default, no-store, reload, no-cache, force-cache, or only-if-cached。
+        default: 表示fetch请求之前将检查下http的缓存.
+        no-store: 表示fetch请求将完全忽略http缓存的存在. 这意味着请求之前将不再检查下http的缓存, 拿到响应后, 它也不会更新http缓存.
+        no-cache: 如果存在缓存, 那么fetch将发送一个条件查询request和一个正常的request, 拿到响应后, 它会更新http缓存.
+        reload: 表示fetch请求之前将忽略http缓存的存在, 但是请求拿到响应后, 它将主动更新http缓存.
+        force-cache: 表示fetch请求不顾一切的依赖缓存, 即使缓存过期了, 它依然从缓存中读取. 除非没有任何缓存, 那么它将发送一个正常的request.
+        only-if-cached: 表示fetch请求不顾一切的依赖缓存, 即使缓存过期了, 它依然从缓存中读取. 如果没有缓存, 它将抛出网络错误(该设置只在mode为”same-origin”时有效).
+
+fetch(input, init).then(function(response) { /*请求成功回调*/ });`
+</body>
+</html>

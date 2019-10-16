@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+函数声明： async function foo() {}
+函数表达式： const foo = async function() {}
+对象的方式： let obj = { async foo() {} }
+箭头函数： const foo = async () => {}
+
+<body>
+    <script>
+        // 处理单个
+        async function asyncFunc(params) {
+            const result1 = await this.login()
+            const result2 = await this.getInfo()
+        }
+
+        // 处理多个
+        async function asyncFunc() {
+            const result1 = await otherAsyncFunc1();
+            console.log(result1);
+            const result2 = await otherAsyncFunc2();
+            console.log(result2);
+        }
+
+        // 并行处理多个
+        async function asyncFunc() {
+            const [result1, result2] = await Promise.all([
+                otherAsyncFunc1(),
+                otherAsyncFunc2()
+            ]);
+            console.log(result1, result2);
+        }
+
+        // 处理错误
+        async function asyncFunc() {
+            try {
+                await otherAsyncFunc();
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+
+</html>

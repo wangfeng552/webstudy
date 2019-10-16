@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //当function里嵌套function时，内部的function可以访问外部function里的变量。
+    function foo(x) {
+        var tmp = 3;
+        function bar(y) {
+            alert(x+y+(++tmp))
+        }
+        bar(10)
+    }
+    foo(2)
+//    不管执行多少次，都会alert 16，因为bar能访问foo的参数x，也能访问foo的变量tmp。
+//　　但，这还不是闭包。当你return的是内部function时，就是一个闭包。内部function会close-over外部function的变量直到内部function结束。
+    function fo(x) {
+        var tmp=3;
+        return function (y) {
+
+            alert(x+y+(++tmp));
+        }
+    }
+    var bar=fo(2); //bar 现在是一个闭包
+    bar(10)
+</script>
+
+<script>
+//    面向对象方法
+var obj = (function () {
+    var activity={
+        init:function () {
+
+        },
+        getName:function () {
+            return function (x) {  //闭包
+                console.log('123')
+            }
+        }
+    };
+    activity.init();
+    return activity
+})()
+
+var s=obj.getName();
+s()     //   =>123
+</script>
+
+</body>
+</html>

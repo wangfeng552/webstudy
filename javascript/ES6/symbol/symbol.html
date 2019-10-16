@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>Symbol</title>
+</head>
+<body>
+Symbol的初衷：解决对象的属性名冲突
+<script>
+	//定义一个symbol类型的变量
+	let sm=Symbol();
+	console.log(sm);	//=>Symbol();
+
+	// Symbol函数接收参数，用于对实例值得描述
+	let people = Symbol('zhangsan')
+	console.log(people) //=> Symbol(zhangsan)
+	//即使参数一样，描述一样，得到的两个值也是不相等的
+
+</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/react.development.js"></script>
+    <script src="js/react-dom.development.js"></script>
+    <script src="js/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <!-- <Panel>
+        <Group>
+            <List></List>
+        </Group>
+        <Group>
+            <List></List>
+        </Group>
+        <Group>
+            <List></List>
+        </Group>
+    </Panel> -->
+
+    <script type="text/babel">
+
+        var users = ['刘伟','莫涛','钟毅'];
+        var users2 = ['张三','李四','王五'];
+
+        /**
+         * 如果一个函数或类作为一个组件去使用的话，那么名称必须首字母大写
+         * 如果使用类实现组件，那么需要继承一个父类：React.Component
+         * 组件类必须实现一个render()的方法
+         * props：传入的参数必须是用对象下的一个属性props来接收
+         */
+
+        class List extends React.Component {
+
+            render() {
+                return this.props.data.map( (item, index) => {
+                    return <li key={index}>{item}</li>
+                } )
+            }
+
+        }
+
+        ReactDOM.render(
+            <div>
+                <ul>
+                    <List data={users} />
+                </ul>
+
+                <ul>
+                    <List data={users2} />
+                </ul>
+            </div>,
+            document.getElementById('app')
+        );
+    </script>
+
+</body>
+</html>

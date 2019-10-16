@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  .case{
+    width: 200px;
+    height: 200px;
+    background: #58a;
+    background: linear-gradient(135deg,transparent 15px,#58a 0) top left, 
+                linear-gradient(-135deg,transparent 15px,#655 0) top right,
+                linear-gradient(-45deg,transparent 15px,#58a 0) bottom right,
+                linear-gradient(45deg,transparent 15px,#655 0) bottom left;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+  }
+  </style>
+  <div class="case">1231qweqweqwe23</div>
+  
+
+  <!-- clip-path 不兼容IE -->
+  <style lang="less">
+  .corner(@radius){
+    @ca: e("calc(100% - @{radius})");
+    <!--@ca: calc(~"100% - @{radius}");-->
+    clip-path: polygon(@radius 0,@ca 0,100% @radius,100% @ca,@ca 100%,@radius 100%,0 @ca,0 @radius);
+}
+.box{
+    width:200px;
+    height:200px;
+    background: #FFc727;
+    .corner(20px);
+}
+  </style>
+</body>
+</html>

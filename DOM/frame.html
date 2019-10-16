@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>子页面</title>
+	</head>
+	<body>
+		<button id="close" onclick="closeParentWindow()">关闭按钮</button>
+		<p id="canshu">父页面传过来的参数显示</p>
+		<script type="text/javascript">
+			function update(canshujuti){
+				document.getElementById("canshu").innerHTML = canshujuti;
+			}
+			function closeParentWindow(){
+				window.parent.closeParentWindow();
+			}
+		</script>
+	</body>
+</html>

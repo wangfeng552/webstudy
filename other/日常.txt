@@ -1,0 +1,50 @@
+1.npm install -g vue-cli
+2.vue init webpack-simple my-project-name
+3.cd my-project
+4.npm install
+5.npm run dev
+
+npm install --registry=https://registry.npm.taobao.org  淘宝镜像
+
+npm install vue-froala-wysiwyg --save --registry=https://registry.npm.taobao.org
+
+&ensp;半个字符
+&emsp; 占1个字符
+&nbsp;  空格
+&amp;   &
+&lt;       <
+&gt;      >
+
+
+
+scss
+跳出嵌套
+@at-root {
+    .child1 {width:300px;}
+    .child2 {width:400px;}
+  }
+
+&表示父元素选择器
+&:hover{color: blue}
+
+
+javascript:
+false =》 undefined null 0 -0 NaN ""空字符串
+
+\转义
+
+parse用于从一个字符串中解析出json对象,如
+var str = '{"name":"huangxiaojian","age":"23"}'
+结果：JSON.parse(str)
+
+stringify()用于从一个对象解析出字符串，如
+var a = {a:1,b:2}
+结果：JSON.stringify(a)
+"{"a":1,"b":2}"
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+this.$route 获取路由参数
+this.$router.push 路由跳转
+
+RabbiT_YoonJae

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="wf"></div>
+  <script type="text/babel">
+ class Wf extends React.Component{
+  handleClick=()=>{
+    this.refs.myTextInput.focus();
+  }
+
+   render(){
+     return (
+       <div>
+        <input type="text" ref="myTextInput"/> 
+        <button onClick={this.handleClick}>保存</button>
+        </div>
+     )
+   }
+  }
+
+  ReactDOM.render(<Wf />,document.getElementById('wf'))
+    </script>
+
+</body>
+
+</html>

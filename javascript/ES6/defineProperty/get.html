@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+在对象中添加存取描述符属性
+<script>
+    var obj={};
+    var aValue,b;//如果不初始化变量, 不给下面的a属性设置值,直接读取会报错aValue is not defined
+    Object.defineProperty(obj,'a',{
+        configurable:true,
+        enumerable:true,
+        get:function () {
+            return aValue
+        },
+        set:function (newValue) {
+            aValue = newValue;
+            b =aValue+1
+        }
+    })
+    console.log(b) //undefined
+    console.log(obj.a) //undefined,当读取属性值时，调用get方法，返回undefined
+    obj.a =2 ;//当设置属性值时，调用set方法, aValue为2；
+
+    console.log(obj.a)//2 读取属性值，调用get方法,此时aValue为2
+    console.log(b) // 3 再给obj.a赋值时,执行set方法,b的值被修改为2,,额外说一句,vue中的计算属性就是利用setter实现的
+</script>
+
+注意：
+1.getter和setter可以不同时使用，但在严格模式下只有其中一个，会抛出错误
+2.数据描述符与存取描述符不可混用，会抛出错误
+</body>
+</html>

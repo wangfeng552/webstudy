@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+RegExp 对象用于规定在文本中检索的内容
+
+直接量语法:	/pattern/attributes
+
+创建 RegExp 对象的语法：
+new RegExp(pattern, attributes);
+
+参数 pattern 是一个字符串，指定了正则表达式的模式或其他正则表达式。
+参数 attributes 是一个可选的字符串，包含属性 "g"、"i" 和 "m"
+
+i	执行对大小写不敏感的匹配。
+g	执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）。
+m	执行多行匹配。
+
+
+字符	替换文本
+$1、$2、...、$99	与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。
+$&	与 regexp 相匹配的子串。
+$`	位于匹配子串左侧的文本。
+$'	位于匹配子串右侧的文本。
+$$	直接量符号。
+<script>
+    var r1=new RegExp('你好','g');
+    var reg2 = new RegExp('a','')
+    var reg1 =new RegExp(/a/);
+    var reg=new RegExp(/看法/g);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+</head>
+<body>
+gradient.addColorStop(stop,color);
+stop	介于 0.0 与 1.0 之间的值，表示渐变中开始与结束之间的位置。
+color	在结束位置显示的 CSS 颜色值
+
+context.createLinearGradient(x0,y0,x1,y1);
+
+<canvas id="myCanvas" width="200" height="200" style="border:2px solid #333"></canvas>
+<script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var grd = ctx.createLinearGradient(0,0,0,50); //创建线性渐变（用在画布内容上）
+    grd.addColorStop(0,'#000')  // 0开始得颜色
+    grd.addColorStop(1,'#f60')  // 1 结束得颜色
+    ctx.fillStyle = grd
+    ctx.fillRect(0,0,175,50)
+</script>
+</body>
+</html>

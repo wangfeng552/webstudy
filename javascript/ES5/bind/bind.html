@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>bind</title>
+</head>
+<body>
+<script>
+  //  bind() 将函数绑定至某个对象
+  //  当在函数f()上调用bind()方法并传入一个对象obj作为参数，这个方法将返回一个新函数
+  //  （以函数调用的方式）调用新的函数将会把原始函数f()当做obj的方法来调用
+  //  传入新函数的实参都将传入原始函数
+
+  var obj = {x: 2} //将要绑定的对象
+  function f(y) { // 待绑定的函数
+    return this.x + y  // this指代obj
+  }
+  var g = f.bind(obj) // 调用g(v)来调用obj.f(v)
+
+  g(2)  //=>4
+</script>
+
+<script>
+  this.num = 9;
+  var module={
+      num:81,
+      getNum:function () {
+          return this.num
+      }
+  }
+  module.getNum();
+  var getNum = module.getNum;
+  getNum()  //=>9   因为在这个例子中，"this"指向全局对象
+
+//  创建一个'this'绑定到module的函数
+  var boundGetNum = getNum.bind(module)
+  boundGetNum() //=>81
+</script>
+</body>
+</html>

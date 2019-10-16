@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a={
+        value:2,
+        toString:function () {
+            return ++this.value;
+        }
+    }
+    if(a==3 && a==4){  // 右边是数字，左边是对象 进行类型转换
+
+        console.log('amazing')
+    }else{
+        console.log('nothing')
+    }
+
+//    对于左边对象a来说，就是调用其自有的toString()方法，将自身转化为字符类型， this.value=3
+//    然后分析a==4 ，同上运行tostring() 结果为4
+
+    
+
+</script>
+
+<script>
+    Object.prototype.toString.call([])
+    Object.prototype.toString.call({})
+
+const toStr = Function.prototype.call.bind(Object.prototype.toString);
+toStr({})
+
+// 上面例子首先使用 Function.prototype.call 函数指定一个 this 值，然后 .bind 返回一个新的函数，始终将 Object.prototype.toString 设置为传入参数，其实等价于 Object.prototype.toString.call() 。
+
+
+
+</script>
+</body>
+</html>

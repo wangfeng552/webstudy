@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .mk{ display: flex; width: 300px;}
+    .gl{ background-color: #f60; margin: 10px;}
+    .gl:nth-child(2){ flex-shrink: 0;}
+</style>
+<div class="mk">
+    <div class="gl">123123</div>
+    <div class="gl">12</div>
+    <div class="gl">22</div>
+    <div class="gl">123123</div>
+    <div class="gl">123123</div>
+    <div class="gl">123123</div>
+</div>
+<!--flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。-->
+</body>
+</html>

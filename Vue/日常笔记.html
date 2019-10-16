@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <script>
+    export default {
+      methods: {
+        wf: async function () {
+          // 异步函数也就意味着该函数的执行不会阻塞后面代码的执行
+          // 注意await 关键字只能放到async 函数里面
+
+
+          /*async的用法，它作为一个关键字放到函数前面，用于表示函数是一个异步函数，
+          因为async就是异步的意思， 异步函数也就意味着该函数的执行不会阻塞后面代码的执行，
+          async 函数返回的是一个promise 对象。*/
+
+          /*await的含义为等待。
+          意思就是代码需要等待await后面的函数运行完并且有了返回结果之后，才继续执行下面的代码。这正是同步的效果*/
+
+          try {
+            let location = await this.getLocation(this.phoneNum);
+            if (location.data.success) {
+              let province = location.data.obj.province;
+              let city = location.data.obj.city;
+              let result = await this.getFaceList(province, city);
+              if (result.data.success) {
+                this.faceList = result.data.obj;
+              }
+            }
+          } catch (err) {
+            console.log(err);
+          }
+        },
+        foo: async () => {
+          try {
+            await fn();
+
+          } catch (e) {
+            console.log(e);  // some error
+          }
+        }
+      },
+      watch: {
+        // 如果路由有变化，会再次执行该方法
+        '$route': {
+          immediate: true, // 确认是否以当前的初始值执行handler的函数
+          handler({ path }) {
+            console.log(path)
+            if (path != this.routePath.BuyDetail) {
+              return
+            }
+            this.getPaymentsList()
+          }
+        }
+
+      },
+    }
+  </script>
+</body>
+
+</html>

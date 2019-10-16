@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="mk">
+  <ul>
+    <li>12312313</li>
+    <li>12312313</li>
+    <li>12312313</li>
+    <li>12312313 <span class="wf"> 123123</span></li>
+    <li>12312313 <span class="wf"> 123123</span></li>
+  </ul>
+</div>
+<script>
+
+//  addEventListener() 方法用于向指定元素添加事件句柄。
+  window.addEventListener('load',function () {
+    var d =document;
+    d.querySelector('.wf').style.color = 'red' //返回第一个元素
+  })
+
+//  querySelectorAll返回所有元素; 需遍历
+  for(var i=0;i<document.querySelectorAll('.wf').length;i++){
+    document.querySelectorAll('.wf')[i].style.color = 'blue'
+  }
+</script>
+
+<script>
+  //精简版
+    var a = document,
+      b = 'querySelector'
+    a[b]('.mk')
+</script>
+</body>
+</html>

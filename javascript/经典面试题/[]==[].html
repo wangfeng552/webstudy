@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a=[1,2,3]
+    var b=[1,2,3]
+    var c=[1,2,4]
+
+    /*
+    * 应为a和b都是数组，是Object类型，Object类型在进行=比较的时候，比较的对象的引用地址是否相同，很明显，a和b不是同一个对象，所以引用地址不同，故返回false*/
+</script>
+<script>
+//    从左往右运算
+    var arr=[1<2<3,3<2<1]
+   /* true 1;
+    false 0*/
+</script>
+
+<script>
+    var val = 'c';
+    var str = 'Value is' + (val === 'c') ? 'a':'b';
+    console.log(str); //=>'a'
+
+    /*str="Value is" + true ? 'a':'b'
+    +的优先级高于其他运算符
+    "Value istrue" ? 'a':'b'
+    a
+    * */
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var str;
+    var GLOBAL = {};
+</script>
+<script type="text/javascript">
+    (function(){
+        //匿名函数去对脚本进行包裹,让变量的作用域控制于匿名函数中.
+        var a = "li";
+        str = b = "peng";
+        console.log(b)
+    })();
+</script>
+<script type="text/javascript">
+    (function(){
+        var a = "li";
+//        var b = str;
+
+        console.log(b+'123123')
+    })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+in ，hasOwnPreperty()  和propertyIsEnumerable()
+<script>
+    var o={x:1};
+    'x' in o; //true 'x'是o的属性
+    'y' in o; //false 'y'不是o的属性
+    'toString' in o // true o继承toString属性
+</script>
+
+<script>
+    // hasOwnProperty()检测给定的名字是否是对象的自由属性，对于继承属性返回false
+    var m={x:1}
+    m.hasOwnProperty('x')  //true m有一个自由属性x
+    m.hasOwnProperty('y')  //false m中不存在属性y
+    m.hasOwnProperty('toString')// false toString是继承属性
+</script>
+
+<script>
+    // propertyIsEnumerable()是hasOwnProperty增强版，只有检测到自由属性且这个属性可枚举为true时才返回true
+    var m={x:1}
+    m.propertyIsEnumerable('x')
+    m.propertyIsEnumerable('y')
+    Object.property.propertyIsEnumerable('toString') // false  不可枚举
+</script>
+
+<script>
+//    !==判断一个属性是否是undefined
+    var o={x:1}
+    o.x!==undefined
+</script>
+
+<script>
+    for(p in obj){
+        if(!obj.hasOwnProperty(p)) continue; //跳过继承的属性
+        if(typeof obj[p] === 'function') continue; //跳过方法
+    }
+</script>
+</body>
+</html>

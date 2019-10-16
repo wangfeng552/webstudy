@@ -1,0 +1,42 @@
+ls -echo 文件内容>文件名		创建带有内容的文件
+
+pwd 		显示当前目录
+clear		清屏
+ls 		显示文件或目录
+  -l 		列出文件详细信息
+  -a		列出当前目录下所有文件目录，包括隐藏的a（all）
+mkdir		创建目录
+cd 		切换目录
+cd /		返回主目录
+cd .. 		返回上一级
+touch name.txt	创建空文件
+cat name.txt	查看文件内容
+rm		删除文件
+  -r		递归删除
+  -f 		强制删除
+cp{源文件}{目标目录}拷贝文件
+
+mv		改名和移动文件
+mv test.log test1.txt
+mv test1.txt test3
+
+vi name.txt	创建name.txt文件 i编辑
+按esc
+:wq		保存并退出
+:q		退出
+:q!		强制退出
+:set number	显示行号
+:set nonumber	隐藏行号
+/apache		在文档中查找apache 按n跳到下一个，shift+n上一个
+yyp		复制光标所在行，并粘贴
+
+
+.bashrc		用户环境变量
+
+
+
+
+		
+
+
+

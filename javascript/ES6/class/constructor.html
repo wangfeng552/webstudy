@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!-- constructor方法是类的默认方法，通过new生成对象实例，自动调用该方法。一个类必须有constructor方法，如果没有显示定义，一个空的constructor方法会被默认添加 -->
+<script>
+class Map{
+  constructor(){
+    // 默认返回实例对象（既this），完全可以指定返回另外一个对象
+    return Object.create(null);
+  }
+}
+new Map() instanceof Map //=>false  constructor函数返回一个全新的对象，结果导致实例对象不是Map类的实例。
+</script>
+</body>
+</html>

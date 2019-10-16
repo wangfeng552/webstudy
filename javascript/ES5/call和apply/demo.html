@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var name = '小汪';
+    var obj = {
+      age: 21,
+      name: '小张',
+      objAge: this.age,
+      myFun: function (fm, t) {
+        console.log(this.name + '年龄' + this.age, '来自' + fm + '去往' + t)
+      }
+    }
+    var db = {
+      name: '德玛',
+      age: 99
+    }
+    // obj.myFun.call(db)  // obj.myFun 里的this指向db
+    // obj.myFun.apply(db)
+    // obj.myFun.bind(db)()
+    // 以上除了 bind 方法后面多了个 () 外 ，结果返回都一致！
+    // 由此得出结论，bind 返回的是一个新的函数，你必须调用它才会被执行。
+
+    // 对比传参
+    obj.myFun.call(db, '成都', '上海');　　　　 // 德玛 年龄 99  来自 成都去往上海
+    obj.myFun.apply(db, ['成都', '上海']);      // 德玛 年龄 99  来自 成都去往上海  
+    obj.myFun.bind(db, '成都', '上海')();       // 德玛 年龄 99  来自 成都去往上海
+    obj.myFun.bind(db, ['成都', '上海'])();　　 // 德玛 年龄 99  来自 成都, 上海去往 undefined
+
+    // call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：
+
+    // call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,'成都', ... ,'string' )。
+
+    // apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,['成都', ..., 'string' ])。
+
+    // bind 除了返回是函数以外，它 的参数和 call 一样。
+
+    // 当然，三者的参数不限定是 string 类型，允许是各种类型，包括函数 、 object 等等！
+  </script>
+
+</body>
+
+</html>

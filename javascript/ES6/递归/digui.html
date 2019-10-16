@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // 方法一是在尾递归函数之外，再提供一个正常形式的函数。
+      function tailFactorial(n, total) {
+        if (n === 1) return total;
+        return tailFactorial(n - 1, n * total);
+      }
+      function factorial(n) {
+        return tailFactorial(n, 1);
+      }
+      factorial(5); // =>120
+
+      // tailFactorial(5, 1)  tailFactorial(4,5)
+      // tailFactorial(4, 5)  tailFactorial(3,20)
+      // tailFactorial(3, 20)  tailFactorial(2,60)
+      // tailFactorial(2, 1)  tailFactorial(1,120)
+      // tailFactorial(1, 120)
+    </script>
+  </body>
+</html>

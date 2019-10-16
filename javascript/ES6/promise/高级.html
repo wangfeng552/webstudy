@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  //	循环
+  db.allDocs({include_docs: true}).then(function (result) {
+    return Promise.all(result.rows.map(function (row) {
+      return db.remove(row.doc);
+    }));
+  }).then(function (arrayObject) {
+    // All docs have really been removed() now!
+  })
+</script>
+</body>
+</html>

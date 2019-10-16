@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组
+    var obj={0:'sdf',1:'霓虹',2:'hello',length:3};
+    Array.prototype.slice.call(obj)  // => ["sdf", "霓虹", "hello"]
+</script>
+
+<script>
+//    合并数组
+    var arr=[1,2,3,'上岛咖啡'];
+    var arr1=[2,'asdad']
+    Array.prototype.push.apply(arr,arr1)  //=> arr  [1, 2, 3, "上岛咖啡", 2, "asdad"]
+</script>
+</body>
+</html>

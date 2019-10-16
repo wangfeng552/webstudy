@@ -1,0 +1,14 @@
+.content{
+  display: flex;
+  .active{
+    background-color: #f60;
+    color: #fff;
+  }
+  .fl{
+    flex: 0 0 200px;
+    border-right: 3px solid #f60;
+  }
+  .fr{
+    flex: 1;
+  }
+}

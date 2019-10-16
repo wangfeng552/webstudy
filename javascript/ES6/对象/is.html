@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title></title>
+</head>
+<body>
+
+<script>
+//	Object.is()比较两个值是否严格相等，或者说全等
+var a=123;
+var b="123";
+var c=100+23;
+console.log(a==b)		//true
+console.log(a===b)		//false		类型不等
+
+Object.is(a,b);			//false
+Object.is(a,c)			//true
+</script>
+</body>
+</html>

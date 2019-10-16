@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<script>
+  // 是一个浏览器接口，使得Javascript可以进行HTTP(S)通信
+	var xml = new XMLHttpRequest()
+  //初始化 HTTP 请求参数，例如 URL \ HTTP 方法 \ false 同步执行,但是并不发送请求。
+  //语法：open(method, url, async, username, password)
+	xml.open('post',url,false)
+  //setRequestHeader()向一个打开但未发送的请求设置或添加一个 HTTP 请求。
+	xml.setRequestHeader('Acess-Token',token);
+  //发送一个 HTTP 请求
+  //语法：send(body) body 参数指定了请求体，作为一个字符串或者 Document 对象
+	xml.send(JSON.stringify({
+	  name:'张三',
+	  password:"123456"
+	}));
+	//请求返回的数据
+	var res = JSON.parse(xml.responseText);
+</script>
+</body>
+</html>

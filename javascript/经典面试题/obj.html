@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a={},
+      b={key:'b'},
+      c={key:'c'};
+    a[b]=123;
+    a[c]=456
+
+    console.log(a[b]) //=>456
+
+//    JavaScript在设置对象的属性的时候，会暗中字符串化参数值。
+//    在这里例子中，由于 b 和 c都是对象，把它们设置为对象a的参数，它们都将被转换为 "[object Object]"  。
+//    结果就是， a[b] 和 a[c] 都相当 "[object Object]"  ，而后者会将前者的值覆盖。
+</script>
+</body>
+</html>

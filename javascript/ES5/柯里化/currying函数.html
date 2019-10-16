@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function currying(fn, length) {
+        length = length || fn.length; // 注释1
+        return function(...args) {// 注释2
+          return args.length >= length // 注释3
+            ? fn.apply(this, args) // 注释4
+            : currying(fn.bind(this, ...args), length - args.length); // 注释5
+        };
+      }
+      // case
+      const fn = currying(function(a, b, c) {
+        console.log([a, b, c]);
+      });
+
+      fn("a", "b", "c"); // ["a", "b", "c"]
+      fn("a", "b")("c"); // ["a", "b", "c"]
+      fn("a")("b")("c"); // ["a", "b", "c"]
+      fn("a")("b", "c"); // ["a", "b", "c"]
+
+      // 1 第一次调用获取函数fn参数的长度，后续调用获取fn剩余参数的长度
+      // 2 currying包裹之后返回一个新函数，接收参数为...args
+      // 3 新函数接收的参数长度是否大于等于 fn 剩余参数需要接收的长度
+      // 4 满足要求，执行fn函数，传入新函数的参数
+      // 5 不满足，递归currying函数，新的fn为bind返回的新函数（bind绑定了...args参数,未执行）,新的length未fn剩余参数的长度
+      
+
+    </script>
+  </body>
+</html>

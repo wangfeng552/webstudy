@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+相同点:
+
+在 if判断语句中,值都默认为 false
+大体上两者都是代表无,具体看差异
+
+差异:
+
+null转为数字类型值为0,而undefined转为数字类型为 NaN(Not a Number)
+undefined是代表调用一个值而该值却没有赋值,这时候默认则为undefined
+null是一个很特殊的对象,最为常见的一个用法就是作为参数传入(说明该参数不是对象)
+设置为null的变量或者对象会被内存收集器回收
+
+
+Object.create(null) // 没有继承任何原型方法，也就是说它的原型链没有上一层。
+
+<script>
+    var n=Object.create(null)
+</script>
+
+</body>
+</html>

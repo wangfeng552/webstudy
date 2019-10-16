@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>filter</title>
+</head>
+<body>
+<script>
+//	forEach是用来替换for循环的
+//	forEach为每个元素执行对应的方法
+
+var arr=[1,2,"第三方",4,5];
+var newArr=[]
+
+/*for(var i= 0,l=arr.length;i<l;i++){
+	console.log(arr[i])
+}*/
+
+arr.forEach(function(v,i,arr){
+	if(i%2==0){
+      newArr.push(v)	//取奇数的值
+	}
+})
+</script>
+
+<script>
+//  forEach除了接受一个必须的回调函数参数，还可以接受一个可选的上下文参数（改变回调函数里面的this指向）（第2个参数）
+//	array.forEach(callback,[ thisObject])
+var database = {
+  users: ["张含韵", "江一燕", "李小璐"],
+  sendEmail: function (user) {
+    if (this.isValidUser(user)) {
+      console.log("你好，" + user);
+    } else {
+      console.log("抱歉，"+ user +"，你不是本家人");
+    }
+  },
+  isValidUser: function (user) {
+    return /^张/.test(user);
+  }
+};
+
+// 给每个人法邮件
+database.users.forEach(  // database.users中人遍历
+  database.sendEmail,    // 发送邮件
+  database               // 使用database代替上面标红的this
+);
+
+// 结果：
+// 你好，张含韵
+// 抱歉，江一燕，你不是本家人
+// 抱歉，李小璐，你不是本家
+</script>
+
+<script>
+  var arr=[
+    {status:'pass',name:'啥地方看'},
+    {status:'pass',name:'dsfg'},  //获取这个值
+    {status:'processing',name:'ghfhj'},
+    {status:'proce3ssing',name:'222'},
+    {status:'wait',name:'ghfhj'},
+  ]
+  var newArr=[];
+
+  arr.forEach((v,i,arr)=>{
+    if(v.status=='processing' && arr[i-1]['status']=='pass'){
+      newArr.push(arr[i-1])
+    }
+  })
+
+	//如果没有forEach添加功能
+  if ( !Array.prototype.forEach) {
+      Array.prototype.forEach = function forEach(callback) {
+          var len = this.length;
+          if(typeof callback != "function") {
+              throw new TypeError();
+          }
+          var thisArg = arguments[1];
+          for(var i = 0; i < len; i++) {
+              if(i in this) {
+                  callback.call(thisArg, this[i], i, this);
+              }
+          }
+      }
+  }
+</script>
+</body>
+</html>
+

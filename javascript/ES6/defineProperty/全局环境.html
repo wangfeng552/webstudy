@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+全局环境下
+<script>
+    var a=1; //a属于window,相当于window.a
+
+//    让我们来看看a的描述符属性
+
+    var d = Object.getOwnPropertyDescriptor(window,'a')
+    console.log(d)
+    // {
+    //     configurable: false,
+    //     value: 1,
+    //     writable: true,
+    //     enumerable: true
+    // }
+
+//    不用var声明方式初始化b变量
+    b=1;
+    var c=Object.getOwnPropertyDescriptor(window,'b')
+
+    // {
+    //     configurable: true,   // 此时configurable属性值为true
+    //     value: 1,
+    //     writable: true,
+    //     enumerable: true
+    // }
+
+</script>
+注意:
+只有使用var,let等操作符才是定义变量,而不使用var,直接b=1;这样b的含义为window的一个属性，并不是我们所说的变量的概念。
+使用var定义的任何变量，其configurable属性都为false，定义对象也是一样
+
+<script>
+//    但是这里需要说明的一点是,使用字面量定义的对象,该对象内部的属性的数据描述符属性都为true
+    var bb={name:'大师傅'};
+    var sd = Object.getOwnPropertyDescriptor(bb,'name');
+    console.log(sd)
+
+    // {
+    //     configurable: true
+    //     writable: true,
+    //     enumerable: true
+    //     value: '大师傅'
+    // }
+</script>
+</body>
+</html>

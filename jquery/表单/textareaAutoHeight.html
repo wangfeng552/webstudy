@@ -1,0 +1,43 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>文本框高度自适应</title>
+  <style type="text/css">
+    .wfarea,
+    .wfarea-shadow {
+      font: 12px/16px Arial;
+      width: 200px;
+      overflow: hidden;
+      height: 16px;
+      resize: none;
+    }
+
+    .wfarea-shadow {
+      position: absolute;
+      border-width: 0px;
+      padding: 0px;
+      visibility: hidden;
+    }
+  </style>
+  <script type="text/javascript">
+    window.onload = function () {
+      var wfarea = document.getElementById("wfarea"); //用户看到的文本框
+      var shadow = document.getElementById("shadow"); //隐藏的文本框
+      wfarea.oninput = wfarea.onpropertychange = onchange;
+      function onchange() {
+        shadow.value = wfarea.value;
+        setHeight();
+      }
+      function setHeight() { wfarea.style.height = shadow.scrollHeight + "px"; }
+    };
+  </script>
+</head>
+
+<body>
+  <textarea id="wfarea" class="wfarea"></textarea>
+  <textarea id="shadow" class="wfarea-shadow"></textarea>
+</body>
+
+</html>

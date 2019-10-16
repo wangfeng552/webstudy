@@ -1,4 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
@@ -11,52 +12,49 @@
 	<h2>{{name | uppercase}}</h2>
 	<h2>{{people | lowercase}}</h2>
 	<h2>{{price | currency}}</h2>
+	<div class="time">
+		{{rating.rateTime | formatDate}}
+	</div>
 </div>
 <script>
-	var vm=new Vue({
-	    el:"#case",
-		data:{
-	        name:"who is a boy?",
-			people:"THIS is A nEw",
-			price:"-20052650010.2"
-		},
-		filters:{
-	        //'abc' => 'Abc'
-            capitalize:function (v) {
-                if(!v) return "";
-                v=v.toString();
-                return v.charAt(0).toUpperCase()+v.slice(1)
-            },
-			//'abc' => 'ABC'
-            uppercase:function (v) {
-                if(!v) return "";
-                v=v.toString();
-                return v.toUpperCase();
-            },
-            //'AbC' => 'abc'
-            lowercase:function (v) {
-				if(!v) return;
-				v=v.toString();
-				return v.toLowerCase()
-            },
-			// '10.2' => '$1,000.20'
-			currency:function (v,c,d) {
-				v=parseFloat(v);
-                if (!isFinite(v) || !v && v !== 0) return '';
-                c = c != null ? c : '$';
-                d = d != null ? d : 2;
-                var digitsRE = /(\d{3})(?=\d)/g;  //\d =[0~9],{3}匹配3次，
-                var stringified = Math.abs(v).toFixed(d);//保留2位小数
-                var _int = d ? stringified.slice(0, -1 - d) : stringified;//取整
-                var i = _int.length % 3; //=>1
-                var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? ',' : '') : ''; //2,
-                var _float = d ? stringified.slice(-1 - d) : ''; //.20
-                var sign = v < 0 ? '-' : '';
-                console.log(_int.slice(i).replace(digitsRE, '$1,'))
-                return sign + c + head + _int.slice(i).replace(digitsRE, '$1,') + _float;
-            }
-        }
-	})
+  import {formatDate} from 'common/js/date';
+  var vm = new Vue({
+    el: "#case",
+    data: {
+      name: "who is a boy?",
+      people: "THIS is A nEw",
+      price: "10000"
+    },
+    filters: {
+      //'abc' => 'Abc'
+      capitalize: function (v) {
+        if (!v) return "";
+        v = v.toString();
+        return v.charAt(0).toUpperCase() + v.slice(1)
+      },
+      //'abc' => 'ABC'
+      uppercase: function (v) {
+        if (!v) return "";
+        v = v.toString();
+        return v.toUpperCase();
+      },
+      //'AbC' => 'abc'
+      lowercase: function (v) {
+        if (!v) return;
+        v = v.toString();
+        return v.toLowerCase()
+      },
+      // '1000.2' => '$1,000.20'
+      currency(v){
+        return currency(v)
+      },
+      // 2016-10-06 20:16
+      formatDate(time) {
+        let date = new Date(time);
+        return formatDate(date, 'yyyy-MM-dd hh:mm');
+      }
+    }
+  })
 </script>
 </body>
 </html>
