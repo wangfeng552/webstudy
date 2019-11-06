@@ -10,13 +10,16 @@
 
 <body>
   <script>
-function tailFactorial(n,total){
-    if(n === 1) return total;
-    return tailFactorial(n-1,n*total)
+const cat = {
+  lives: 9,
+  jumps: () => {
+      console.log(this)
+    this.lives--;
+  }
 }
-function factorial(n){
-    return tailFactorial(n,1)
-}
+
+
+
 
 </script>
 </body>
