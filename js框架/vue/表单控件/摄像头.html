@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+
+  <div class="detail">
+    <video ref="video" width="320" height="240" controls></video>
+
+    <canvas ref="canvas" width="320px" height="240px"></canvas>
+
+    <button type="button" class="btn btn-info" @click="camera('environment')">Back Camera</button>
+
+    <button type="button" class="btn btn-info" @click="camera('user')">front Camera</button>
+
+  </div>
+  <script>
+    var vm = new Vue({
+      el: ".detail",
+      data: {
+        video: {},
+        localstream: undefined
+      },
+      methods: {
+        camera(face) {
+          this.stop();
+          this.gum(face);
+        },
+        stop() {
+          return this.video.srcObject && this.video.srcObject.getTracks().map(t => t.stop());
+        },
+        gum(face) {
+          const fa = face === 'user' ? {
+            facingMode: 'user'
+          } : {
+              facingMode: {
+                exact: 'environment'
+              }
+            };
+          return navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: fa
+          })
+            .then(stream => {
+              this.$refs.video.srcObject = stream;
+              this.$refs.video.play();
+            }).catch(() => {
+              navigator.mediaDevices.getUserMedia({
+                audio: false,
+                video: true
+              })
+                .then(stream => {
+                  this.$refs.video.srcObject = stream;
+                  this.$refs.video.play();
+                });
+            });
+        }
+      },
+      mounted() {
+        this.camera('environment');
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -29,6 +29,7 @@ img { border: 0; vertical-align: top;
 input{
     caret-color:red /* 光标颜色*/
 }
+input:-webkit-autofill { box-shadow: 0 0 0px 1000px white inset !important;} /*自动填充黄色背景修改*/
 .clearfix:after {content: ".";display: block;clear: both;visibility: hidden;height: 0;}/*第一种方法*/
 .clearfix:after {content: "";clear: both; display: table;}/*第二种方法*/
 
