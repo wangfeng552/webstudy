@@ -2,21 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 
 <body>
   <input type="text" id="wf" class="ww">
   <script>
-// document.getElementById('wf').focus()
-document.querySelector('.ww').focus()
+    // 复制数组
+
+    let wf=[1,2,3,4,5]
+
+    let copyArray = function (obj) {
+      if (typeof obj != 'object') return
+
+     let newArray = obj instanceof Array ? [] : {}
+
+     for(let v in obj){
+       if(obj.hasOwnProperty(obj[v])){
+        newArray[v] = obj[v]
+       }
+     }
+     return newArray
+    }
 
 
 
 
-</script>
+  </script>
 </body>
+
 </html>

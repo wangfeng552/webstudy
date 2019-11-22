@@ -12,6 +12,9 @@ git init
 从远程库克隆
 git clone git@github.com:michaelliao/gitskills.git
 git clone http://192.168.1.168/qfx/docs.git
+git clone -b fenzhi http:///  linux拉去分支项目
+
+
 git pull 更新内容
 git pull --no-commit  没提交拉取
 git push 推送内容到库
