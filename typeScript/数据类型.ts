@@ -19,6 +19,8 @@ var arr2:Array<number>=[1,2,3]
 var arr3:Array<any>=[1,2,3,'213',true]
 
 
+
+
 // 元祖类型(tuple)  属于数组的一种
 
 // var arr2:Array<number>=[1,2,3]
