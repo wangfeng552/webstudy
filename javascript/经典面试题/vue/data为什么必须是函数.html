@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  因为组件是可以复用的，js里对象是引用关系，如果组件data是一个对象，那么子组件中的data属性值会互相污染，产生副作用
+  所以一个组件的data必须是一个函数，因此每个实例可以维护一份被返回对象的独立的拷贝。new vue的实例是不会被复用的。
+  
+</body>
+</html>
