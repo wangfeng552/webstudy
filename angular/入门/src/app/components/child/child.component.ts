@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -7,20 +7,20 @@ import { Component, OnInit ,Input} from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  @Input('title') title:string
-  @Input('changTitle') changTitle:any
+  @Input('title') title: string
+  @Input('changTitle') changTitle: any
 
-  public childTitle:any='我是子组件的title'
+  public childTitle: any = '我是子组件的title'
   constructor() { }
 
   ngOnInit() {
   }
 
-  visitParentMethod(){
+  visitParentMethod() {
     this.changTitle()
   }
 
-  showName(){
+  showName() {
     console.log('我是子组件的name')
   }
 
