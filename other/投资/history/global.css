@@ -26,6 +26,10 @@ td {
 .green {
   color: green;
 }
+.error {
+  color: green;
+  font-weight: 700;
+}
 
 .title {
   text-align: center;
