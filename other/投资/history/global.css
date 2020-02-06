@@ -30,7 +30,10 @@ td {
   color: green;
   font-weight: 700;
 }
-
+.jsng{
+  color: blue;
+  font-weight: 700;
+}
 .title {
   text-align: center;
   font-size: 30px;
