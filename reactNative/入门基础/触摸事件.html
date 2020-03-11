@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  TouchableHighlight来制作按钮或者链接。注意此组件的背景会在用户手指按下时变暗。
+  TouchableNativeFeedback在 Android 上使用，它会在用户手指按下时形成类似墨水涟漪的视觉效果。
+  TouchableOpacity会在用户手指按下时降低按钮的透明度，而不会改变背景的颜色。
+  TouchableWithoutFeedback点击事件的同时不显示任何视觉反馈
+  <script>
+    export default class Touchable extends Component {
+      _onPressButton() { }
+      render() {
+        return (
+          <View>
+            <TouchableHighlight onPress={this._onPressButton}></TouchableHighlight>
+            <TouchableOpacity onLongPress={this._onPressButton}></TouchableOpacity>
+            <TouchableNativeFeedback
+              onPress={this._onPressButton}
+              background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+              <View style={styles.button}>
+                <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
+              </View>
+            </TouchableNativeFeedback>
+
+          </View>
+        )
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>state</title>
+</head>
+
+<body>
+  一般来说，你需要在class中声明一个state对象，然后在需要修改时调用setState方法。
+
+
+  <script>
+    import React, { Component } from 'react';
+    import { Text, View } from 'react-native';
+
+    class Blink extends Component {
+      // 声明state对象
+      state = { isShowingText: true };
+
+      componentDidMount() {
+        // 每1000毫秒对showText状态做一次取反操作
+        setInterval(() => {
+          this.setState({
+            isShowingText: !this.state.isShowingText
+          });
+        }, 1000);
+      }
+
+      render() {
+        // 根据当前showText的值决定是否显示text内容
+        if (!this.state.isShowingText) {
+          return null;
+        }
+
+        return (
+          <Text>{this.props.text}</Text>
+        );
+      }
+    }
+
+    export default class BlinkApp extends Component {
+      render() {
+        return (
+          <View>
+            <Blink text='I love to blink' />
+            <Blink text='Yes blinking is so great' />
+            <Blink text='Why did they ever take this out of HTML' />
+            <Blink text='Look at me look at me look at me' />
+          </View>
+        );
+      }
+    }
+
+  </script>
+
+一切界面变化都是状态state变化
+state的修改必须通过setState()方法
+this.state.likes = 100; // 这样的直接赋值修改无效！
+setState 是一个 merge 合并操作，只修改指定属性，不影响其他属性
+setState 是异步操作，修改不会马上生效
+</body>
+
+</html>

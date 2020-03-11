@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>props</title>
+</head>
+
+<body>
+  props 是在父组件中定义 一经指定，不在改变，对于需要改变的数据，我们需要使用state
+
+  <script>
+    import React, { Component } from 'react';
+    import { Text, View } from 'react-native';
+
+    class Greeting extends Component {
+      render() {
+        return (
+          <View style={{ alignItems: 'center', marginTop: 50 }}>
+            <Text>Hello {this.props.name}!</Text>
+          </View>
+        );
+      }
+    }
+
+    export default class LotsOfGreetings extends Component {
+      render() {
+        return (
+          <View style={{ alignItems: 'center' }}>
+            <Greeting name='Rexxar' />
+            <Greeting name='Jaina' />
+            <Greeting name='Valeera' />
+          </View>
+        );
+      }
+    }
+
+
+    class Greeting extends Component {
+      render() {
+        return (
+          <View style={{ alignItems: 'center', marginTop: 50 }}>
+            <Text>Hello {this.props.name}!</Text>
+          </View>
+        );
+      }
+    }
+
+    export default class LotsOfGreetings extends Component {
+      render() {
+        return (
+          <View style={{ alignItems: 'center' }}>
+            <Greeting name='Rexxar' />
+            <Greeting name='Jaina' />
+            <Greeting name='Valeera' />
+          </View>
+        );
+      }
+    }
+
+  </script>
+</body>
+
+</html>

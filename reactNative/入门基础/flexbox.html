@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  Web CSS 不同之处
+  flexDirection: React Native 中默认为 flexDirection:'column'，在 Web CSS 中默认为 flex-direction:'row'
+
+  alignItems: React Native 中默认为 alignItems:'stretch'，在 Web CSS 中默认 align-items:'flex-start'
+
+  flex: 相比 Web CSS 的 flex 接受多参数，如:flex: 2 2 10%;，但在 React Native 中 flex 只接受一个参数
+
+  不支持属性：align-content，order，flex-flow
+
+  <script>
+
+const styles = {
+    container: {
+        flex: 1,
+        flexDirection: 'row',  //  主轴为水平方向
+        flexWrap: 'nowrap',
+        justifyContent: 'flex-start',  // 项目在主轴上左对齐
+        alignItems: 'flex-start',     // 项目在交叉轴上顶对齐
+    },
+    red: {
+        backgroundColor: 'red',
+        height: 50,
+        width: 100,
+        alignSelf: 'baseline',
+    },
+    yellow: {
+        backgroundColor: 'yellow',
+        height: 100,
+        width: 100,
+        alignSelf: 'baseline',
+    },
+    blue: {
+        backgroundColor: 'blue',
+        height: 180,
+        width: 100,
+        alignSelf: 'baseline',
+    },
+};
+  </script>
+
+
+</body>
+
+</html>
