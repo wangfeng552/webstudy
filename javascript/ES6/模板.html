@@ -11,23 +11,27 @@
 <body>
   <input type="text" id="wf" class="ww">
   <script>
-    // 复制数组
-
-    let wf=[1,2,3,4,5]
-
-    let copyArray = function (obj) {
-      if (typeof obj != 'object') return
-
-     let newArray = obj instanceof Array ? [] : {}
-
-     for(let v in obj){
-       if(obj.hasOwnProperty(obj[v])){
-        newArray[v] = obj[v]
-       }
+   class Animal {
+     constructor(name,age){
+       this.name = name
+       this.age = age
      }
-     return newArray
-    }
+     say(){
+       alert(this.name +  this.age)
+     }
+   }
 
+   class Dog extends Animal {
+     constructor(name,age,color){
+       super(name,age)  // super相当于父类中的this
+       this.color = color
+     }
+     show(){
+       alert('123')
+     }
+   }
+
+   let ww=new Dog('zhansgan','45','red')
 
 
 

@@ -22,9 +22,13 @@
       componentDidMount() {
         // 每1000毫秒对showText状态做一次取反操作
         setInterval(() => {
+          // 传入对象
           this.setState({
             isShowingText: !this.state.isShowingText
           });
+
+          // 计算需要传入函数
+          this.setState((states,props)=>({counter: state.counter + props.increment}))
         }, 1000);
       }
 
