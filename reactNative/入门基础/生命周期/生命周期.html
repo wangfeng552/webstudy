@@ -30,23 +30,27 @@ componentWillUnmount（）//组件已被卸载
           detailContent: true
         }
       }
-      componentWillUpdate() {
-        console.log("componentWillUpdate1111---组件将要更新");
-      }
-
-      componentDidUpdate() {
-        console.log("componentDidUpdate1111---组件更新完毕");
+     
+      componentWillMount(){
+        console.log('即将加载')
       }
 
       componentDidMount() {
-        console.log("componentDidMount1111");
+        console.log("加载完成");
+      }
+
+      componentWillUpdate() {
+        console.log("组件将要更新");
+      }
+
+      componentDidUpdate() {
+        console.log("组件更新完毕");
       }
 
       componentWillUnmount() {
-        console.log("componentWillUnmount1111");
+        console.log("销毁");
       }
     }
-
   </script>
 </body>
 

@@ -19,6 +19,7 @@
         return (
           <View>
             <TouchableHighlight onPress={this._onPressButton}></TouchableHighlight>
+            <TouchableHighlight onPress={()=>{this._onPressButton(params)}}></TouchableHighlight>
             <TouchableOpacity onLongPress={this._onPressButton}></TouchableOpacity>
             <TouchableNativeFeedback
               onPress={this._onPressButton}

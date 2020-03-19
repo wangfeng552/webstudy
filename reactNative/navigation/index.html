@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    this.props.navigation.push('Home')
+    this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('Home',{itemId: 86})  // params
+
+    this.props.navigation.state.params  // 直接访问params对象
+    JSON.stringify(navigation.getParam('itemId', 'NO-ID'))
+
+
+    this.props.navigation.goBack()
+    this.props.navigation.popToTop()  //它可以返回到堆栈中的第一个屏幕。
+  </script>
+  
+</body>
+</html>
