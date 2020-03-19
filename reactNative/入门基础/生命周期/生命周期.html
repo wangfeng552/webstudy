@@ -52,6 +52,36 @@ componentWillUnmount（）//组件已被卸载
       }
     }
   </script>
+
+安装周期
+constructor(object props)
+组件类被实例化。构造函数的参数props是父元素指定的元素的initial 。您可以通过将对象分配给来指定元素的初始状态this.state。此时，尚未为该元素呈现任何本机UI。
+
+componentWillMount()
+在第一次进行渲染之前，仅调用一次此方法。此时，仍没有为此元素呈现本机UI。
+
+render() -> React Element
+render方法必须返回一个React Element进行渲染（或为null，则不渲染任何内容）。
+
+componentDidMount()
+第一次进行渲染后，仅调用一次此方法。至此，此元素的本机UI已完成渲染，可以直接访问以this.refs进行直接操作。如果您需要使用进行API异步调用或执行延迟的代码setTimeout，通常应使用此方法。
+
+----------------------------------------------------
+更新周期
+componentWillReceiveProps(object nextProps)
+此组件的父级传递了一组新的props。该组件将重新渲染。在调用方法this.setState()之前，可以选择调用来更新此组件的内部状态render。
+
+shouldComponentUpdate(object nextProps, object nextState) -> boolean
+根据下一个值props和state，组件可以决定重新呈现不重新渲染。此方法的基类实现始终返回true（组件应重新呈现）。为了优化，覆盖此方法，并检查是否任一props或state已被修饰，例如运行在这些对象中的每个键/值的相等测试。返回false将阻止render调用该方法。
+
+componentWillUpdate(object nextProps, object nextState)
+在决定重新渲染之后，将调用此方法。您可能无法this.setState()在此处致电，因为更新正在进行中。
+
+render() -> React Element
+假设已shouldComponentUpdate返回，则调用此方法true。render方法必须返回一个React Element进行渲染（或为null，则不渲染任何内容）。
+
+componentDidUpdate(object prevProps, object prevState)
+重新渲染发生后，将调用此方法。此时，此组件的本机UI已更新，以反映从render()方法返回的React Element 。
 </body>
 
 </html>
