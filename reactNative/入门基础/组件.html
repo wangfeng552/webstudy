@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+// 1.函数定义组件
+    function UselessTextInput(props) {
+      return (
+        <TextInput
+          {...props}
+          keyboardType='numeric'
+          autoFocus={true}
+          editable
+          maxLength={10}
+        />
+      )
+    }
+
+    export default class Ceshi extends React.Component {
+
+      state = {
+        text: ''
+      }
+
+      changText = (v) => {
+        this.setState({
+          text: v
+        })
+      }
+
+      // 2.函数方法定义组件
+      _textrender = () => {
+        return (
+          <Text>子组件{this.state.text}</Text>
+        )
+      }
+
+
+      render() {
+        return (
+          <View style={styles.layout}>
+            
+            <UselessTextInput
+              value={this.state.text}
+              onChangeText={this.changText}
+            />
+
+            {this._textrender()}
+
+          </View>
+        )
+      }
+    }
+  </script>
+
+</body>
+
+</html>

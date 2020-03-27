@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    // Animal继承react组件
+    class Animal extends React.component {
+      // 定义构造函数接收props参数
+      constructor(props) {
+        // super，它相当于是父类中的this。
+        super(props) // 
+      }
+      render() {
+        return (
+          <View>
+            {/* 点击事件传参数 */}
+            <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+            <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+          </View>
+        )
+      }
+    }
+  </script>
+
+</body>
+
+</html>
