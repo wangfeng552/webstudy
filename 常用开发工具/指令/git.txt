@@ -102,6 +102,8 @@ git tag -d v1.2 	删除标签
 git push origin v1.2    推送标签到远程
 git push origin --tags  所有标签推送到远程
 
+
+gitk --all		查看提交
  
 
 
