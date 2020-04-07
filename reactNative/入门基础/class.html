@@ -12,6 +12,10 @@
   <script>
     // Animal继承react组件
     class Animal extends React.component {
+      // 设置默认属性
+      static defaultProps = {
+        name: "小红",
+      }
       // 定义构造函数接收props参数
       constructor(props) {
         // super，它相当于是父类中的this。
