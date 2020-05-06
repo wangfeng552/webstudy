@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <view bindtap="tapName"> Click me! </view>
+<script>
+
+  Page({
+    data:{
+      motto:'old'
+    },
+    tapName(event){
+      this.setData({
+      motto:'new'
+    })
+
+    }
+  })
+</script>
+</body>
+</html>

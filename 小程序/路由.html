@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- https://www.jianshu.com/p/6adf511a1d47 -->
+  <script>
+
+    //  上一个页面
+    Page({
+      toNext(){
+        wx.navigateTo({
+          url:'/pages/logs/logs?text='+123
+        })
+      }
+    })
+  </script>
+
+  <script>
+    // 获取页面上的参数
+    Page({
+      onLoad(options){
+        console.log(options) // {text:123}
+      }
+    })
+  </script>
+
+  <script>
+wx.navigateTo   // 打开新页面
+wx.redirectTo   // 页面重定向
+wx.navigateBack // 页面返回
+wx.switchTab    // Tab
+wx.reLaunch     // 重启动
+  </script>
+  
+</body>
+</html>

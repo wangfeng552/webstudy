@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button open-type="share"></button>
+
+  <script>
+    {
+      onShareAppMessage: function(res) {
+        let that = this;
+        // console.log('主图------------->',that.data.goodsObj.MainImages)
+        return {
+          title: "发送给好友",
+          imageUrl: that.data.goodsObj.MainImages,
+          success: function (res) {
+            console.log(res, "转发成功")
+          },
+          fail: function (res) {
+            console.log(res, "转发失败")
+          }
+        }
+      },
+
+      // 隐藏右上角分享
+      onLoad: function(options) {
+        wx.hideShareMenu()
+      },
+
+      // 用户点击右上角分享
+      onShareAppMessage: function(res) {
+        if (res.from === "button") {
+          console.log(res)
+          let that = this;
+          let v = that.data.OrderNumber;
+          that.setData({
+            flag: false,
+            v: v
+          })
+          console.log(v, 'v===========')
+          return {
+            title: that.data.BrandName,
+            path: 'pages/index/index?t=' + 50 + '&v=' + v,
+            success: function (res) {
+              console.log(res, "转发成功")
+
+            },
+            fail: function (res) {
+              console.log(res, "转发失败")
+            }
+          }
+        } else {
+          console.log(res)
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>

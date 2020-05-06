@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+// moduleA.js
+module.exports = function( value ){
+  return value * 2;
+}
+
+
+// 在B.js中引用模块A
+var multiplyBy2 = require('./moduleA')
+var result = multiplyBy2(4)
+
+
+var common = require('common.js')
+Page({
+  helloMINA: function() {
+    common.sayHello('MINA')
+  },
+  goodbyeMINA: function() {
+    common.sayGoodbye('MINA')
+  }
+})
+  </script>
+  
+</body>
+</html>

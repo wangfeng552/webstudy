@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 共同属性： 
+    id            整个页面唯一
+    class         在对应的WXSS中定义的样式类
+    style         动态设置的内联样式
+    hidden        所有组件默认显示
+    data-*        自定义属性
+    bind*/catch*  组件的事件
+    -->
+
+
+  <view></view>
+  <text></text>
+  <image>{{text}}</image>
+  <text data-test="{{test}}"> hello world</text>
+
+  <!-- 条件逻辑 -->
+  <view wx:if="{{condition}}"> True </view>
+  <view wx:elif="{{length > 2}}"> 2 </view>
+  <view wx:else> 3 </view>
+  <block wx:if="{{true}}">
+    <view> view1 </view>
+    <view> view2 </view>
+  </block>
+
+  <!-- 列表渲染 -->
+  <!-- array: [{message: 'foo',}, {message: 'bar'}]  
+    index 下标 || item 变量名
+  -->
+  <view wx:for="{{array}}">
+    {{index}}: {{item.message}}
+  </view>
+
+  <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+    {{idx}}: {{itemName.message}}
+  </view>
+</body>
+
+</html>

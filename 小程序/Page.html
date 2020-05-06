@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    Page({
+      data: { text: "This is page data." },  //页面的初始数据
+      onLoad: function (options) { },   //生命周期函数--监听页面加载，触发时机早于onShow和onReady
+      onShow: function () { },  //生命周期函数--监听页面显示，触发事件早于onReady--一般从别的页面返回到当前页面时，当前页的onShow方法都会被调用。
+      onReady: function () { },  //生命周期函数--监听页面初次渲染完成只会触发1次
+      onHide: function () { },  //生命周期函数--监听页面隐藏--在使用wx.navigateTo切换到其他页面、底部tab切换时触发。
+      onUnload: function () { }, // 生命周期函数--监听页面卸载
+      
+      onPullDownRefresh: function () { },  // 页面相关事件处理函数--监听用户下拉动作
+      onReachBottom: function () { }, // 页面上拉触底事件的处理函数
+      onShareAppMessage: function () { }, // 用户点击右上角转发
+      onPageScroll: function () { },  // 页面滚动触发事件的处理函数
+ 
+      anyFun:function(){}  // 任意函数，在Page实例的其他函数中用 this 可以访问
+    })
+  </script>
+
+</body>
+
+</html>

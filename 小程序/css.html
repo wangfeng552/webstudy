@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  1. 在CSS中，开发者可以这样引用另一个样式文件：@import url('./test_0.css')
+  1rpx = 0.5px
+  10rpx = 5px
+  20rpx = 10px
+  24rpx = 12px
+  <view style="color: red; font-size: 24rpx"></view>
+
+  <!--
+    动态变化 
+{
+  eleColor: 'red',
+  eleFontsize: '48rpx'
+}
+-->
+  <view style="color: {{eleColor}}; font-size: {{eleFontsize}}"></view>
+
+  <!-- 选择器 -->
+  .class
+  #id
+  element
+  ::after
+  ::before
+  <!-- 权重 -->
+  !important > style="" > #id > .class >element
+  
+</body>
+
+</html>

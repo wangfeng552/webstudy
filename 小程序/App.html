@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+
+// 主程序触发的方法
+    App({
+      onLaunch:function(options){},  // 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
+      onShow:function(options){},  // 当小程序启动，或从后台进入前台显示，会触发 onShow
+      onHide:function(){},  //当小程序从前台进入后台，会触发 onHide
+      onError:function(msg){}, //当小程序发生脚本错误，或者 API 调用失败时，会触发 onError 并带上错误信息
+      globalData:'I am Global'  //可以添加任意的函数或数据到 Object 参数中，在App实例回调用 this 可以访问
+    })
+  </script>
+  
+</body>
+</html>
