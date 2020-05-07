@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 1.在父级页面的logs.js文件中添加 -->
+  <script>
+    Page({
+      /**
+    * 生命周期函数--监听页面初次渲染完成
+    */
+      onReady: function () {
+        this.dialog = this.selectComponent("#dialog");
+      },
+      showDialog() {
+        this.dialog.showDialog();
+      },
+      //取消事件 
+      _cancelEvent() {
+        console.log('你点击了取消');
+        this.dialog.hideDialog();
+      },
+      //确认事件 
+      _confirmEvent() {
+        console.log('你点击了确定');
+        this.dialog.hideDialog();
+      },
+    })
+  </script>
+
+  <!-- 2. logs.json里添加 -->
+  <script>
+    var obj = {
+      "usingComponents": { "pop": "../common/pop/pop" }
+    }
+  </script>
+
+  <!-- 3.在父级页面的.wxml文件中添加-->
+  <view class="pop">
+    <pop id='dialog' title='我是标题' bind:cancelEvent="_cancelEvent" bind:confirmEvent="_confirmEvent">
+    </pop>
+  </view>
+
+  <!-- 4.全局注册再app.json页面挂载 -->
+  <script>
+    var obj = {
+      "usingComponents": { "pop": "../common/pop/pop" }
+    }
+  </script>
+
+</body>
+
+</html>

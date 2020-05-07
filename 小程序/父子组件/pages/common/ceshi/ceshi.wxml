@@ -1,0 +1,3 @@
+<!--pages/ceshi/ceshi.wxml-->
+<view>子组件的内容{{title}}</view>
+<button bindtap="_cancelEvent">子组件按钮</button>

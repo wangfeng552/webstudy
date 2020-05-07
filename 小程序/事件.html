@@ -6,7 +6,9 @@
   <title>Document</title>
 </head>
 <body>
-  <view bindtap="tapName"> Click me! </view>
+  <view bindtap="tapName">事件冒泡</view>
+  <view catchtap="">可以阻止冒泡事件向上冒泡</view>
+  <view bindtap="getData" data-name="123">可以阻止冒泡事件向上冒泡</view>
 <script>
 
   Page({
@@ -16,7 +18,10 @@
     tapName(event){
       this.setData({
       motto:'new'
-    })
+    }),
+    getData(event){
+      let name = event.currentTarget.dataset['name'];
+    }
 
     }
   })

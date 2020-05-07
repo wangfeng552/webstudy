@@ -1,0 +1,5 @@
+<!--logs.wxml-->
+<view class="container log-list">
+  <ceshi id="ceshi" bind:cancelEvent="_cancelEvent" title="我输了"></ceshi>
+  <button bindtap="showDia">点击</button>
+</view>
