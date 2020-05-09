@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- <div>
+    1.直接修改 Page实例的this.data 而不调用 this.setData 是无法改变页面的状态的，还会造成数据不一致。
+    2.由于setData是需要两个线程的一些通信消耗，为了提高性能，每次设置的数据不应超过1024kB。
+    3.不要把data中的任意一项的value设为undefined，否则可能会有引起一些不可预料的bug。
+  </div> -->
+  <view bindtap="tapName">事件冒泡</view>
+  <view catchtap="">可以阻止冒泡事件向上冒泡</view>
+  <view bindtap="getData" data-name="123">可以阻止冒泡事件向上冒泡</view>
+  <script>
+
+    Page({
+      data: {
+        motto: 'old',
+        user: {
+          name: '智囊',
+          age: 45
+        },
+        family: [{
+          name: '大头爸爸',
+          age: '46'
+        }, {
+          name: '美丽妈妈',
+          age: '45'
+        }]
+      },
+      tapName(event) {
+        this.setData({
+          motto: 'new'
+        })
+      },
+      getData(event) {
+        let name = event.currentTarget.dataset['name'];
+      },
+      changeData() {
+        this.setData({
+          'user.name': "45"
+        })
+      },
+      changeArr() {
+        // 假设某种情况要根据条件改变某个特定值的某个属性，那么就需要先将要改变的属性转换成字符串，再用中括号括起来就可以了。
+        // 此例假设改变对应index的某个属性值
+        var temp_str = 'family[' + index + '].age';
+        this.setData({
+          [temp_str]: 44
+        });
+      }
+    })
+  </script>
+</body>
+
+</html>
