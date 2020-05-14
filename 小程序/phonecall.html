@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+     wx.makePhoneCall({
+      phoneNumber: '4007755001',
+      success: function () {
+        console.log('拨打成功')
+      },
+      fail: function () {
+        console.log('拨打失败')
+      }
+    })
+  </script>
+  
+</body>
+</html>
