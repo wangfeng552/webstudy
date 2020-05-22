@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Component({
+      attached: function () {
+        this.setData({
+          numberA: 1,
+          numberB: 2,
+        })
+      },
+      observers: {
+        'numberA, numberB': function (numberA, numberB) {
+          // 在 numberA 或者 numberB 被设置时，执行这个函数
+          this.setData({
+            sum: numberA + numberB
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
