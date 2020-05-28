@@ -11,30 +11,17 @@
 <body>
   <input type="text" id="wf" class="ww">
   <script>
-   class Animal {
-     constructor(name,age){
-       this.name = name
-       this.age = age
-     }
-     say(){
-       alert(this.name +  this.age)
-     }
-   }
-
-   class Dog extends Animal {
-     constructor(name,age,color){
-       super(name,age)  // super相当于父类中的this
-       this.color = color
-     }
-     show(){
-       alert('123')
+   var arr = [12,23,33,22,32,12,2,1,23,]
+   var newObj = {}
+   var newArr = []
+   for(let v in arr){
+     if(newObj[arr[v]] == undefined){
+      newObj[arr[v]] = 1
+      newArr.push(arr[v])
+     }else{
+      newObj[arr[v]] += 1
      }
    }
-
-   let ww=new Dog('zhansgan','45','red')
-
-
-
   </script>
 </body>
 
