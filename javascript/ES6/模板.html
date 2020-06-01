@@ -11,18 +11,21 @@
 <body>
   <input type="text" id="wf" class="ww">
   <script>
-   var arr = [12,23,33,22,32,12,2,1,23,]
-   var newObj = {}
-   var newArr = []
-   for(let v in arr){
-     if(newObj[arr[v]] == undefined){
-      newObj[arr[v]] = 1
-      newArr.push(arr[v])
-     }else{
-      newObj[arr[v]] += 1
-     }
-   }
+    var person = [
+      {
+        name: '张三'
+      },
+      {
+        name: '张三'
+      },
+      {
+        name: '李四'
+      },
+    ]
+
+    for (let v in person) {
+      console.log(person[v])
+    }
   </script>
 </body>
-
 </html>
