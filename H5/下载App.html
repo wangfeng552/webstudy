@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    function clickDownload() {
+                if (navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)) {
+                    var loadDateTime = new Date();
+                    window.location = "weixin://";//schema链接或者universal link
+                    window.setTimeout(function() { //如果没有安装app,便会执行setTimeout跳转下载页
+                        var timeOutDateTime = new Date();
+                        if (timeOutDateTime - loadDateTime < 5000) {
+                            window.location = "..."; //ios下载地址  
+                        } else {
+                            window.close();
+                        }
+                    }, 500);
+                    
+                } else if (navigator.userAgent.match(/android/i)) {
+                    var state = null;
+                    try {
+                        window.location = '...'; //schema链接或者universal link
+                        window.setTimeout(function() {
+                            window.location = "..."; //android下载地址  
+                        }, 500);
+                    } catch (e) {}
+                }
+            },
+  </script>
+  
+</body>
+</html>
