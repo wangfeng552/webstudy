@@ -1,0 +1,178 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <title>上海移动</title>
+  <link href="css/style.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/nativeinterface.js"></script>
+</head>
+
+<body onload="getNowDate()">
+  <div class="Ez-container">
+
+    <div class="Ez-openWx" style="display: none">
+      <img src="images/fx_hn.png" width="100%" />
+    </div>
+
+    <img src="images/img_sign.jpg" alt="" style="font-size:0;">
+    <div class="Ez-signBtn">
+
+    </div>
+  </div>
+  <script type="text/javascript">
+    // 获取当前日期开始
+    function getNowDate() {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      var weekArr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+      var week = weekArr[date.getDay()];
+      // 给一位数天数前面加 “0”
+      if (month >= 1 && month <= 9) {
+        month = month;
+      }
+      if (day >= 0 && day <= 9) {
+        day = "0" + day;
+      }
+      document.getElementById("Ez-dates").innerHTML = year + "-" + month + "-" + day + "" + " " + week;
+      document.getElementById("Ez-day").innerHTML = day + "日";
+      document.getElementById("Ez-month").innerHTML = month + "月";
+    }
+  </script>
+  <script>
+    // 签到触点跳转开始
+    $(function () {
+
+      function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      $('.Ez-signBtn').click(function () {
+        Webtrends.multiTrack({ args: { "WT.nv": "点击启动/下载APP_H5", "WT.event": "点击启动/下载" }, delayTime: 200 })
+        if (isWeiXin()) {
+          $(".Ez-openWx").css('display', 'block');
+        } else {
+          openApp()
+        }
+      });
+      $(".Ez-openWx").click(function () {
+        $(".Ez-openWx").css('display', 'none');
+      })
+      function openApp() {
+        var phoneType = navigator.userAgent;
+        var isIos = !!phoneType.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        if (isIos) {
+          window.alert = function () {
+            return false;
+          }
+          var action = encodeURIComponent('{"controller":"8002","webUrl":"http://www.sh.10086.cn/h5/server/servlet/autoTokenServlet?busicode=190101&forwardapp=shydhn&ssoFlag=ssl","needLogin":"2","title":"签到享好礼"}');
+          var url = 'SHYDHNClient://?callApp=' + action;
+          window.location.href = url;
+          var i = true;
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden == true) {
+              return i = false;
+            }
+          })
+          setTimeout(function () {
+            if (i != false) {
+              window.location.href = 'https://itunes.apple.com/cn/app/id1434024920';
+            }
+          }, 5000)
+        } else {
+          var action = encodeURIComponent('{"controller":"8002","webUrl":"http://www.sh.10086.cn/h5/server/servlet/autoTokenServlet?busicode=190101&forwardapp=shydhn&ssoFlag=ssl","needLogin":"2","title":"签到享好礼"}');
+          var url = 'shydhnclient://jp.app/openwith?callApp=' + action;
+          window.location.href = url;
+          var i = true;
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden == true) {
+              return i = false;
+            }
+          });
+          setTimeout(function () {
+            if (i != false) {
+              window.location.href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.sh.cm.shydhn';
+            }
+          }, 3000)
+        }
+      }
+    })
+  </script>
+  <script>
+
+    $(function () {
+      var date = new Date();
+      var year = date.getFullYear();
+      var month = date.getMonth() + 1;
+      var day = date.getDate();
+      // 给一位数天数前面加 “0”
+      if (month >= 1 && month <= 9) {
+        month = "0" + month;
+      }
+      if (day >= 0 && day <= 9) {
+        day = "0" + day;
+      }
+      var dayNum = year + month + day;
+      $(".Ez-above .Ez-tit").html(proverbs[dayNum].tit);
+      $(".Ez-blow .Ez-quote").html(proverbs[dayNum].quote);
+      $(".Ez-blow #Ez-author").html(proverbs[dayNum].author);
+    })
+  </script>
+  <!--微信 分享 -->
+  <script type="text/javascript" src="/sh/zthd/js/weixinshare.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      weixinclient.init({
+        share: {
+          title: '签到每月赢最高710MB流量+100积分，还有宽带、全球通等权益免费领！',
+          desc: '签到享好礼，赢每月最高710MB流量+100积分，还有海量权益等你领！',
+          link: 'https://www.sh.10086.cn/sh/zthd/wap/qdShare/', //分享首页
+          imgUrl: 'https://www.sh.10086.cn/sh/zthd/wap/qdShare/images/fx.jpg',
+          success: function (res) {
+            H5WY.hdaction({
+              act: "add_shareactivity",
+              fromId: "20190202xw",
+              share_to: "和你APP每日签到",
+              openid: 'qdShare'
+            }, function (error, data) {
+            });
+          }
+        }
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      var timecontrl = function () {
+        var nowtime = new Date();
+        var time_now = nowtime.getTime();
+        console.log(time_now);
+        var over_2018 = "2019/04/23 00:00:00";
+        var time_2018 = Date.parse(new Date(over_2018));
+        console.log(time_2018);
+        if (time_now > time_2018) {
+          $(".Ez-old").hide();
+        } else {
+          $(".Ez-old").show();
+        }
+      };
+      timecontrl();
+      $("body").click(function () {
+        timecontrl()
+      })
+    })
+  </script>
+  <script type="text/javascript" src="/sh/zthd/wap/js/webtrends.load.js"></script>
+</body>
+
+</html>
