@@ -77,9 +77,16 @@ Component({
       //触发取消回调
       this.triggerEvent("cancelEvent");
     },
-    _confirmEvent() {
+    _confirmEvent(e) {
+      var dataName = e.currentTarget.dataset.name
+      var myEventDetail={} //参数
+      var myEventOption ={ bubbles: true } // 触发事件的选项包括：bubbles | composed | capturePhase
       //触发成功回调
-      this.triggerEvent("confirmEvent");
+      this.triggerEvent("confirmEvent",myEventDetail, myEventOption);
+
+      this.triggerEvent('customevent', {}, { bubbles: true }) // 会依次触发 pageEventListener2 、 pageEventListener,冒泡
+      this.triggerEvent('customevent', {}, { bubbles: true, composed: true }) // 会依次触发 pageEventListener2 、 anotherEventListener 、 pageEventListener1
     },
+    
   },
 });

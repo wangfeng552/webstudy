@@ -20,6 +20,7 @@
 
     Page({
       data: {
+        fileList:[],
         motto: 'old',
         user: {
           name: '智囊',
@@ -45,6 +46,11 @@
         this.setData({
           'user.name': "45"
         })
+      },
+      delete(){
+        var index = e.detail.index
+        var fileList = this.data.fileList
+        fileList.splice(index,1)
       },
       changeArr() {
         // 假设某种情况要根据条件改变某个特定值的某个属性，那么就需要先将要改变的属性转换成字符串，再用中括号括起来就可以了。

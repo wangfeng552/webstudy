@@ -1,6 +1,6 @@
 <!--pages/ceshi/ceshi.wxml-->
 <view>子组件的内容{{title}}</view>
-<button bindtap="_cancelEvent">子组件按钮</button>
+<button bindtap="_cancelEvent" data-name="{{item}}">子组件按钮</button>
 <view class="~parentcss">使用~ 可以使用父级样式
   
 </view>
