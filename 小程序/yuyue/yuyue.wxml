@@ -1,0 +1,208 @@
+<!--pages/yuyue/yuyue.wxml-->
+<view class="yuyue">
+	<view class="air-wrap">
+		<view class="top-title">
+			<text class="{{index == titleIndex?'hui':''}}" wx:for="{{titleName}}" data-titleindex="{{index}}" wx:key="index" bindtap="changeTitleName">{{item.name}}</text>
+		</view>
+		<view class="info-main">
+			<text class="tishi">* 请填写实际乘坐人姓名及手机</text>
+			<view class="info-list">
+				<view class="name">姓名</view>
+				<view class="answer">
+					<input type="text" value="{{user.client_name}}" bindinput="bindClientName" class="wf-text" placeholder="请输入姓名" /> </view>
+			</view>
+
+			<view class="info-list personheight">
+				<view class="name">人数</view>
+				<view class="answer jishu">
+					<view class="jian" bindtap="jianCount">-</view>
+					<view class="count">{{user.client_number}}</view>
+					<view class="add" bindtap="addCount">+</view>
+					<view class="f01" wx:if="{{user.client_number==3}}">最多可乘坐3人</view>
+				</view>
+			</view>
+
+			<view class="info-list">
+				<view class="name">手机号</view>
+				<view class="answer">
+					<input type="number" value="{{user.mobile}}" bindinput="bindMobile" class="wf-text" placeholder="请输入手机号" maxlength="11" /> </view>
+			</view>
+
+			<view class="info-list" wx:if="{{captcha_flag==1}}">
+				<view class="name">验证码</view>
+				<view class="answer">
+					<view class="yzm">
+						<input model:value="{{picCode}}" type="text" class="wf-text yzm-text" placeholder="请输入图形验证码" maxlength="6" />
+					</view>
+					<view class="btn-code">
+						<image class="piccode" bindtap="getLoginByCaptcha" src="{{picCodeURL}}"></image>
+					</view>
+				</view>
+			</view>
+
+			<view class="info-list">
+				<view class="name">验证码</view>
+				<view class="answer">
+					<input type="text" value="{{user.sms_code}}" bindinput="bindSmsCode" class="wf-text" placeholder="请输入短信验证码" maxlength="6" />
+					<view class="btn-code">
+						<button disabled="{{msgDisable}}" class="smscode" bindtap="getMsgCode">{{codename}}</button>
+					</view>
+				</view>
+			</view>
+
+			<view class="info-list">
+				<view class="name">机场</view>
+				<view class="answer">
+					<picker class="airlistname" bindchange="getAirport" value="{{airportListIndex}}" range="{{airportList}}" range-key="qmsj_store_name">
+						<view class="text" wx:if="{{airportListIndex==''}}">请选择</view>
+						<view class="text" wx:else>{{airportList[airportListIndex]['qmsj_store_name']}}</view>
+					</picker>
+				</view>
+			</view>
+
+			<!-- 飞机起飞时间 -->
+			<view class="air-list">
+				<view class="air-icon">
+					<image src="../../images/icon1.png" class="airimg"></image>
+				</view>
+				<view class="air-value">
+					<picker class="airlistname" mode="multiSelector" bindchange="bindMultiPickerChangeAir" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+						<text wx:if="{{!timeAir}}">请选择航班起飞时间</text>
+						<text wx:else>{{timeAir}}</text>
+					</picker>
+				</view>
+			</view>
+			<!-- 汽车出发时间 -->
+			<view class="air-list">
+				<view class="air-icon">
+					<image src="../../images/icon2.png" class="airimg"></image>
+				</view>
+				<view class="air-value">
+					<picker mode="multiSelector" bindchange="bindMultiPickerChangeCar" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+						<text wx:if="{{!timeCar}}">用车时间根据航班降落时间安排</text>
+						<text wx:else>{{timeCar}}</text>
+					</picker>
+				</view>
+			</view>
+
+			<!-- 接机开始点 -->
+			<block wx:if="{{titleIndex == 0}}">
+				<view class="air-list">
+					<view class="air-icon">
+						<image src="../../images/icon3.png" class="airimg"></image>
+					</view>
+					<view class="air-value">
+						<picker class="airlistname" bindchange="getAirport" value="{{airportListIndex}}" range="{{airportList}}" range-key="qmsj_store_name">
+							<view class="text" wx:if="{{airportListIndex==''}}">请选择</view>
+							<view class="text" wx:else>{{airportList[airportListIndex]['qmsj_store_name']}}</view>
+						</picker>
+					</view>
+				</view>
+				<view class="air-list">
+					<view class="air-icon">
+						<image src="../../images/icon4.png" class="airimg"></image>
+					</view>
+					<view class="air-value" wx:if="{{jiejiEndAddress}}" bindtap="showMpSearch">{{jiejiEndAddress}}</view>
+					<view class="air-value" bindtap="showMpSearch" wx:else>请输入目的地</view>
+				</view>
+			</block>
+			<!-- 送机起始点 -->
+			<block wx:else>
+				<view class="air-list">
+					<view class="air-icon">
+						<image src="../../images/icon3.png" class="airimg"></image>
+					</view>
+					<view class="air-value" bindtap="showMpSearch" wx:if="{{songjiStartAddress}}">{{songjiStartAddress}}</view>
+					<view class="air-value" bindtap="showMpSearch" wx:else>请输入起点</view>
+				</view>
+				<view class="air-list">
+					<view class="air-icon">
+						<image src="../../images/icon4.png" class="airimg"></image>
+					</view>
+					<view class="air-value">
+						<picker class="airlistname" bindchange="getAirport" value="{{airportListIndex}}" range="{{airportList}}" range-key="qmsj_store_name">
+							<view class="text" wx:if="{{airportListIndex==''}}">请选择</view>
+							<view class="text" wx:else>{{airportList[airportListIndex]['qmsj_store_name']}}</view>
+						</picker>
+					</view>
+				</view>
+			</block>
+			<view class="xuzhi" bindtap="showXuzhi">《乘车须知》</view>
+			<button class="btn-blue" bindtap="goyuyue">即刻预约</button>
+		</view>
+	</view>
+</view>
+
+<van-dialog
+  title="《上汽大众辉昂尊享接送机服务协议》"
+  show="{{ isShowXuzhi }}"
+  bind:confirm="tapDialogXuzhi"
+  message="尊敬的用户，为了维护您的合法权益，在使用我们提供的接送机预约服务前，请您认真阅读本服务协议，充分了解您的权利义务。\r\n 阿斯蒂芬看机会"
+  messageAlign="left"
+>
+</van-dialog>
+
+<van-dialog
+  title="《上汽大众辉昂尊享接送机服务协议》"
+  show="{{ isShowXieyi }}"
+  bind:confirm="tapDialogXieyi"
+  message="尊敬的用户，为了维护您的合法权益，在使用我们提供的接送机预约服务前，请您认真阅读本服务协议，充分了解您的权利义务。\r\n 阿斯蒂芬看机会"
+  messageAlign="left"
+>
+</van-dialog>
+
+<mp-search id="searchMap" bind:selectLogEvent="_selectLogEvent" city="{{city}}"></mp-search>
+
+<!-- 确认订单 -->
+<view class="surefixed" wx:if="{{isShowSureOrder}}">
+	<view class="sureorder">
+		<view class="order-wrap">
+			<view class="order-list">
+				<view class="time">
+					<view class="flexfl">
+						<image src="../../images/icon6.png" class="timeicon"></image>
+						<text>{{user.format_start_time}}</text>
+					</view>
+				</view>
+				<view class="info-mainsure">
+					<view class="start">
+						<image class="starticon" src="../../images/icon3.png"></image>
+						<text>{{sureStartAddress}}</text>
+					</view>
+					<view class="start">
+						<image class="starticon" src="../../images/icon4.png"></image>
+						<text>{{sureEndAddress}}</text>
+					</view>
+				</view>
+			</view>
+			<view class="userlist">
+				<text class="u-name">乘客姓名</text>
+				<text class="u-value">{{user.client_name}}</text>
+			</view>
+			<view class="userlist">
+				<text class="u-name">联系号码</text>
+				<text class="u-value">{{user.mobile}}</text>
+			</view>
+			<view class="userlist">
+				<text class="u-name">起飞时间</text>
+				<text class="u-value">{{user.flight_time}}</text>
+			</view>
+			<button class="btn-blue" style="width:100%" bindtap="sureOrder">确认订单</button>
+			<button style="width:100%" bindtap="goBackEditOrder">返回</button>
+		</view>
+	</view>
+</view>
+<!-- <mp-dialog title="报名成功" show="{{isShowSuccess}}" bindbuttontap="tapDialogSuccess" buttons="{{[{text: '确认'}]}}">
+	<view class="textalignleft">
+		<view class="bmcg">
+			<view class="spic-center">
+				<image src="../../images/yes.png" class="sucpic"></image>
+			</view>
+			<view class="des">我们将在24小时内以短信的形式告知您预约结果</view>
+			<view class="xuzhi">乘坐须知：</view>
+			<text class="textblock">*本次服务车管家最多等待时间为60分钟</text>
+			<text class="textblock">*为了更好的服务体验，请您留意短信通知以及接听服务人员的电话</text>
+			<text class="textblock">*每日服务额度有限，预约成功信息将以短信为准，感谢您的参与</text>
+		</view>
+	</view>
+</mp-dialog> -->

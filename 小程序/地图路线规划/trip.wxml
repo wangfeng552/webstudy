@@ -1,0 +1,159 @@
+<!--pages/trip/trip.wxml-->
+<view class="trip">
+	<view class="map">
+		<map id="myMap" style="width: 100%; height: 300px;" longitude="{{longitude}}" latitude="{{latitude}}" scale='11' polyline="{{polyline}}" markers="{{markers}}" show-location>
+		</map>
+	</view>
+	<view class="userinfo">
+		<view class="unstart" wx:if="{{currentOrderInfo.status == 1}}">
+			<view class="title clear">
+				<view class="t-l">
+					<text class="t01">您的行程未开始</text>
+				</view>
+				<view class="t-r">
+					<text class="btn-plue" bindtap="cancelAirOrder">取消订单</text>
+				</view>
+			</view>
+			<view class="address">
+				<view class="addlist">
+					<image src="../../images/icon6.png" class="pic"></image>
+					<text class="time">{{currentOrderInfo.format_start_time}} 出发</text>
+				</view>
+				<view class="addlist">
+					<image src="../../images/icon3.png" class="pic"></image>
+					<text class="time">{{currentOrderInfo.start_location}}</text>
+				</view>
+				<view class="addlist">
+					<image src="../../images/icon4.png" class="pic"></image>
+					<text class="time">{{currentOrderInfo.end_location}}</text>
+				</view>
+			</view>
+		</view>
+		<!-- 等待 -->
+		<view class="waiting" wx:if="{{currentOrderInfo.status == 2 && currentOrderInfo.cancel_role == 0}}">
+			<view class="title clear" wx:if="{{currentOrderInfo.is_time_out == 0}}">
+				<view class="t-l">
+					<view class="wait">
+						<text class="t01"  wx:if="{{driverInfo.status==1 || driverInfo.status==2}}">您的车管家正在赶往中</text>
+						<text class="t01" wx:else>您的车管家已到达起点等候</text>
+						<text class="t02">请尽快赶往起点，若已上车请及时确认</text>
+					</view>
+				</view>
+				<view class="t-r">
+					<!-- <text class="btn-plue" bindtap="cancelAirOrder()">取消订单</text> -->
+				</view>
+			</view>
+			<view class="title clear" wx:else>
+				<view class="t-l t-l-w200">
+					<view class="wait">
+						<text class="t01">车辆已等待超过60分钟，您已超时</text>
+						<text class="t02">请您主动与车管家联系告知情况，否则我们将随时无责取消本次服务</text>
+					</view>
+				</view>
+				<view class="t-r">
+					<!-- <text class="btn-plue" bindtap="cancelAirOrder()">取消订单</text> -->
+				</view>
+			</view>
+			<view class="car">
+				<image src="../../images/icon2.png" class="carimg"></image>
+				<view class="license">{{driverInfo.license_number}}</view>
+				<view class="brand">{{driverInfo.car_name}}</view>
+				<view class="cgj_01">金牌车管家</view>
+				<view class="cgj_02">{{driverInfo.qmsj_driver_name}}</view>
+				<image class="tel" src="../../images/tel.png" bindtap="makePhoneCallDriver"></image>
+			</view>
+			<button class="btn-blue" style="width:100%" bindtap="submitUpCar">确认上车</button>
+		</view>
+
+
+		<!-- 超时 -->
+		<view class="timeout" wx:if="{{currentOrderInfo.status == 2 && driverInfo.status == 6 && currentOrderInfo.cancel_role == 2}}">
+			<view class="title clear">
+				<view class="t-l">
+					<view class="wait">
+						<text class="t01">订单已超时，我们已无责取消</text>
+						<text class="t02">感谢您的预约报名，期待下次为您服务</text>
+					</view>
+				</view>
+			</view>
+			<button class="btn-blue" bindtap="goYuyue">重新预约</button>
+		</view>
+
+		<!-- 进行中 -->
+		<view class="starting" wx:if="{{currentOrderInfo.status == 3}}">
+			<view class="title clear">
+				<view class="t-l">
+					<text class="t01">您正在前往目的地</text>
+					<text class="t02">请系好安全带，保管好您的贵重物品</text>
+				</view>
+			</view>
+			<view class="car">
+				<image src="../../images/icon2.png" class="carimg"></image>
+				<view class="license">{{driverInfo.license_number}}</view>
+				<view class="brand">{{driverInfo.car_name}}</view>
+				<view class="cgj_01">金牌车管家</view>
+				<view class="cgj_02">{{driverInfo.qmsj_driver_name}}</view>
+				<image class="tel" src="../../images/tel.png" bindtap="makePhoneCallDriver"></image>
+			</view>
+			<button class="btn-blue" style="width:100%" bindtap="submitDownCar">确认到达目的地</button>
+		</view>
+		<!-- 去评价 -->
+		<view class="evaluate" wx:if="{{currentOrderInfo.status == 4}}">
+			<view class="title clear">
+				<view class="t-l">
+					<view class="wait">
+						<text class="t01">您对本次行程的评价</text>
+					</view>
+				</view>
+			</view>
+			<view class="car evat-car">
+				<image src="../../images/icon2.png" class="carimg"></image>
+				<view class="license">{{driverInfo.license_number}}</view>
+				<view class="brand">{{driverInfo.car_name}}</view>
+			</view>
+			<button class="btn-blue" style="width:100%" bindtap="goWenquan">去评价</button>
+		</view>
+		<view class="timeout" wx:if="{{currentOrderInfo.status == 5}}">
+			<view class="title clear">
+				<view class="t-l">
+					<view class="wait">
+						<text class="t01">您已经取消订单</text>
+						<text class="t02">您的订单取消成功，期待下次您的预约</text>
+					</view>
+				</view>
+			</view>
+			<button class="btn-blue" bindtap="goYuyue">重新预约</button>
+		</view>
+
+		<!-- 已完成 -->
+		<view class="evaluate" wx:if="{{currentOrderInfo.status == 6}}">
+			<view class="title clear">
+				<view class="t-l">
+					<view class="wait">
+						<text class="t01">本次服务已结束，感谢您的评价</text>
+						<text class="t02">您的评价已匿名提交给车管家</text>
+					</view>
+				</view>
+			</view>
+			<view class="car">
+				<image src="../../images/icon2.png" class="carimg"></image>
+				<view class="license">{{driverInfo.license_number}} <span class="t05">{{driverInfo.car_name}}</span></view>
+				<view class="hpl">车管家{{driverInfo.qmsj_driver_name}}，好评率{{driverInfo.qmsj_driver_feedback_rate}}%</view>
+			</view>
+			<view class="text03">期待下次与您的见面</view>
+
+			<button class="btn-blue" style="width:100%" bindtap="goWenquan" wx:if="{{driverInfo.is_feedback_ex==0}}">试乘服务调查表</button>
+			<button class="btn-plue" style="width:100%" bindtap="goYuyue">再次预约</button>
+		</view>
+
+
+		<view class="kefu">
+			<text class="ft03" bindtap="makePhoneCall">联系客服</text>
+		</view>
+
+	</view>
+</view>
+
+<mp-dialog title="您取消订单的原因" show="{{showCancelDialog}}" bindbuttontap="tapCancelButton" buttons="{{[{text: '取消'}, {text: '确定'}]}}">
+	<input class="wf-input-dialog" model:value="{{cancelReason}}" placeholder="请输入您取消订单的原因"></input>
+</mp-dialog>

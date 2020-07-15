@@ -1,0 +1,223 @@
+/* pages/trip/trip.wxss */
+.mr10 {
+  margin-right: 10px;
+}
+
+.userinfo {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: #fff;
+  padding: 10px;
+  display: block;
+}
+
+.userinfo .title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9f0f3;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.userinfo .title .tcenter {
+  font-size: 15px;
+  color: #33434c;
+  text-align: center;
+}
+
+.userinfo .title .t-l {
+  float: left;
+}
+
+.userinfo .title .t-l-w200 {
+  width: 260px;
+}
+
+.userinfo .title .t-r {
+  float: right;
+}
+
+.userinfo .title .userinfo .title .t01 {
+  font-size: 15px;
+  color: #33434c;
+  display: block;
+}
+
+.userinfo .title .t02 {
+  font-size: 12px;
+  color: #8994a0;
+  display: block;
+}
+
+.starting .title .t-l {
+  float: none;
+  text-align: center;
+}
+
+.timeout .title {
+  border-bottom: none;
+}
+
+.timeout .title .t-l {
+  float: none;
+  text-align: center;
+}
+
+.cancelorder .resonarea {
+  border: 1px solid #efefef;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.evaluate .title .t-l {
+  float: none;
+  text-align: center;
+}
+
+
+.evaluate .evat-car .tel {
+  bottom: 20px;
+}
+
+.address {
+  font-size: 14px;
+  color: #33434c;
+  border-bottom: 1px solid #e9f0f3;
+  margin-bottom: 10px;
+}
+
+.address .addlist{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.address .pic{
+width: 20px;
+height: 20px;
+margin-right: 10px;
+}
+
+.car {
+  border-bottom: 1px solid #e9f0f3;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.car .carimg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.car .license {
+  font-size: 18px;
+  height: 22px;
+  line-height: 22px;
+  color: #2274ac;
+  font-weight: 700;
+}
+
+.car .license .t05 {
+  font-size: 12px;
+  color: #33434c;
+}
+
+.car .hpl {
+  color: #8994a0;
+  font-size: 12px;
+}
+
+.car .brand {
+  font-size: 12px;
+  height: 24px;
+  line-height: 24px;
+  color: #33434c;
+  margin-bottom: 6px;
+}
+
+.car .cgj_01 {
+  font-size: 15px;
+  height: 20px;
+  line-height: 20px;
+  color: #2274ac;
+}
+
+.car .cgj_02 {
+  font-size: 18px;
+  height: 22px;
+  line-height: 22px;
+  color: #2274ac;
+  font-weight: 700;
+}
+
+.car .tel {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  z-index: 2;
+}
+
+.text03 {
+  font-size: 20px;
+  color: #2274ac;
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+
+.btn-blue {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.btn-blue .share {
+  background: url('../../images/share.png') 0 0 no-repeat;
+  background-size: 48px/2 39px/2;
+  width: 48px/2;
+  height: 39px/2;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 2;
+  display: block;
+}
+
+.btn-next {
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.kefu .ft03 {
+  font-size: 12px;
+  color: #33434c;
+}
+
+.btn-plue{
+  font-size: 12px;
+  border: 1px solid #2274ac;
+  border-radius: 3px;
+  color: #2274ac;
+  background-color: #fff;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.wf-input-dialog{
+  border: 1px solid #efefef;
+  font-size: 14px;
+  padding: 5px;
+  text-align: left;
+}

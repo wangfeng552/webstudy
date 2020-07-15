@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <view class="tableHeader">
+
+  </view>
+  <scroll-view scroll-x="true" scroll-y="true" style='height:{{tbodyHeight}}px' bindscrolltolower='scrollHandler'
+    class='tbody_scroll'>
+
+  </scroll-view>
+  <script>
+
+    Page({
+      /**
+       * 页面的初始数据
+       */
+      data: {
+        dataArr: [],
+        tbodyHeight: 500
+      },
+      onLoad: function (options) {
+        /**关键是 找到当前窗口的高度 和表头的高度 窗口高度-表头高度 就是scroll_view 的滚动高度 使用竖向滚动时，需要给<scroll-view/>一个固定高度，通过 WXSS 设置 height。 */
+        wx.getSystemInfo({
+          success: (res) => {
+            let rs = res;//
+            wx.createSelectorQuery()
+              .selectAll('.tableHeader')
+              .boundingClientRect((rects) => {
+                let rect = rects[0];
+                let height = rs.windowHeight - rect.height;//窗口高度-表头高度 
+                this.setData({
+                  tbodyHeight: height.toFixed(0),
+                })
+              }).exec();
+          }
+        });
+      },
+      scrollHandler: function () {
+        // 显示顶部刷新图标
+        wx.showNavigationBarLoading();
+        this.search();
+      }
+    })
+  </script>
+</body>
+
+</html>

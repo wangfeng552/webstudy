@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": { 
+    "mp-search":"../common/mapsearch/mapsearch",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationBarTitleText": "即刻预约"
+}

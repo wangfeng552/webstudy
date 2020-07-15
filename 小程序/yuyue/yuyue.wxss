@@ -1,0 +1,286 @@
+/* pages/yuyue/yuyue.wxss */
+.yuyue {
+  display: block;
+  background: #fff;
+  background-size: 100%;
+  padding-top: 50rpx;
+  padding-bottom: 40rpx;
+}
+
+.air-wrap {
+  display: block;
+  background-color: #fff;
+  margin: 0 40rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.top-title {
+  display: flex;
+}
+
+.top-title>text {
+  height: 50px;
+  line-height: 50px;
+  flex: 1;
+  font-size: 18px;
+  text-align: center;
+  color: #036ab8;
+  background-color: #e9f0f3;
+  color: #8994a0;
+  box-shadow: inset 0 0 10px rgba(0, 104, 183, 0.3)
+}
+
+.top-title .hui {
+  color: #036ab8;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.info-main {
+  padding: 20px 20px 50px;
+}
+
+.info-main .tishi {
+  color: #999;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+}
+
+.wf-text {
+  height: 40px;
+  padding: 8px 8px 8px 0;
+  box-sizing: border-box;
+  font-size: 14px;
+  width: 100%;
+}
+
+.info-list {
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid #e9f0f3;
+  display: flex;
+}
+
+.info-list .name {
+  font-size: 14px;
+  flex: 0 0 70px;
+}
+
+.info-list .text {
+  font-size: 13px;
+  color: #333;
+}
+
+.info-list .airlistname {
+  width: 100%;
+}
+
+.info-list .answer {
+  font-size: 0;
+  flex: 0 0 245px;
+  display: flex;
+}
+.info-list .answer .yzm{
+  flex: 1;
+}
+.info-list .answer .btn-code{
+  flex: 1;
+}
+.info-list .answer .btn-code .piccode {
+  width: 80px;
+  height: 30px;
+  border: 1px solid #f60;
+}
+.personheight {
+  height: 60px;
+  line-height: 60px;
+}
+
+.jishu {
+  display: flex;
+  align-items: center;
+}
+
+.jishu .f01 {
+  color: #00a0e9;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.jian {
+  font-size: 14px;
+  width: 40px;
+  border: 1px solid #e5e5e5;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #ccc;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.count {
+  font-size: 14px;
+  width: 60px;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #2274ac;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.add {
+  font-size: 14px;
+  width: 40px;
+  border: 1px solid #e5e5e5;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  color: #ccc;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.btn-code {}
+
+.btn-code .bk {
+  border-left: 1px solid #e9f0f3;
+  display: inline-block;
+  height: 100%;
+  padding-left: 10px;
+}
+
+.btn-code .smscode {
+  width: 250rpx;
+  font-size: 28rpx;
+  color: #00a0e9;
+  background-color: transparent;
+}
+
+.air-list {
+  height: 48px;
+  display: flex;
+}
+
+.air-list .air-icon {
+  flex: 0 0 40px;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+}
+
+.air-list .airimg {
+  width: 24px;
+  height: 24px;
+}
+
+.air-list .air-value {
+  height: 48px;
+  line-height: 48px;
+  flex: 1;
+  font-size: 13px;
+  border-bottom: 1px solid #e9f0f3;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.air-list .hui {
+  color: #cfd7da;
+}
+
+.xuzhi {
+  color: #00a0e9;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+/* 确认订单 */
+.surefixed{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: block;
+  width: 100%;
+}
+.sureorder {
+  padding:  15px;
+  height: 100vh;
+  background-color: #e9f0f3;
+}
+
+.sureorder .order-list {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 14px;
+  color: #33434c;
+  font-size: 14px;
+}
+
+ .sureorder .time {
+  height: 24px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sureorder .time .flexfl {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.sureorder .timeicon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.sureorder .info-mainsure .start {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.sureorder .info-mainsure .start .starticon {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 20rpx;
+}
+
+.sureorder .userlist{
+  display: block;
+  margin-bottom: 20rpx;
+}
+.sureorder .u-name{
+  margin-right: 40rpx;
+  color: #999;
+}
+.bmcg{
+  font-size: 14px;
+}
+.bmcg .sucpic{
+  width: 50px;
+  height: 50px;
+}
+.bmcg .spic-center{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.bmcg .textblock{
+  display: block;
+}
