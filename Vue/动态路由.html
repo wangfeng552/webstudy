@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  vue中 做权限管理 使用router.addRoutes()动态添加路由以及解决刷新失效，跳转后刷新失效问题
+
+
+  三、思路与实现
+（1）当用户点击登录的时候，验证成功后，可以获取当前用户的id（token）存储到sessionStorage中。
+
+（2）根据 '后台返回的权限列表（getList）'，去比对 '我们提前定义好的权限列表（powerList）'，然后得出 '应该动态添加的权限列表（list）' ，并存放到vuex中，最后执行addRoutes把比对出来的权限路由列表动态添加到路由中即可。
+
+（3）进入home页面，渲染侧边栏。
+
+
+四、问题
+（1）vuex中数据存储在内存中，刷新后失效需要重新获取。因此会出现动态页面失效问题。我们需要根据是否为刷新页面来重新加载即可。
+
+（2）进入动态加载的页面，然后再刷新，也会出现上面的情况
+
+五、解决方法
+在router的全局导航守卫beforeEach中设置，根据vuex中是否有list 来判断是否为刷新页面，如果有那么是第一次登陆， 如果没有，那么就为刷新页面，需要重新执行即可。
+
+</body>
+</html>
