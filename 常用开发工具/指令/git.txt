@@ -45,6 +45,7 @@ git checkout -t origin/home
 
 
 
+
 git cherry-pick 62ecb3  合并某个分支上的单个commit 
 多个commit-hash使用空格分割, commit-hash最好按提交时间先后排列, 即最先提交的commit放在前面.
 
