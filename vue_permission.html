@@ -13,17 +13,17 @@
 
     const asyncRouterMap = [
       {
-        path: "/detail",
-        name: "detail",
-        meta: { permission: '' }
-      },
-      {
         path: "",
         name: "news",
         children: [
           {
-            path: "dog",
-            name: 'dog',
+            path: "/dog",
+            name: '/dog',
+            meta: { permission: '' }
+          },
+          {
+            path: "/name",
+            name: '/name',
             meta: { permission: '' }
           }
 
@@ -41,11 +41,6 @@
 
         ]
       },
-      {
-        path: "/people",
-        name: "people",
-        meta: { permission: '' }
-      }
     ];
 
     const permission = [
@@ -53,14 +48,10 @@
         path: "/news",
         children: [
           {
-            path: 'dog',
+            path: '/dog',
             permission: 3,
           }
         ]
-      },
-      {
-        path: "/people",
-        permission: 2
       },
       {
         path: "/gongyuan",
@@ -106,6 +97,10 @@
         resolve([routers]);
       });
     }
+
+    routerMatch(permission, asyncRouterMap).then((res) => {
+      console.log(res);
+    });
 
   </script>
 
