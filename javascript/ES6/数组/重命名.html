@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let newResults = [{
+            电话号码1: '13761401502',
+            客户姓名: '张三'
+        }]
+        let keyMap = {
+            电话号码1: "mobile",
+            客户姓名: "name",
+        };
+        for (let i = 0; i < newResults.length; i++) {
+            let obj = newResults[i];
+            for (let key in obj) {
+                let newKey = keyMap[key];
+                if (newKey) {
+                    obj[newKey] = obj[key];
+                    delete obj[key];
+                }
+            }
+        }
+
+        console.log(newResults);
+    </script>
+</body>
+
+</html>

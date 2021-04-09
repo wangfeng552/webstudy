@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [{ name: '张三', age: '14', mobile: 13761401502 }, { name: '张三', age: '14', }]
+
+        let isTrue = arr.some(v => {
+            return v.mobile == undefined
+        })
+
+        console.log(isTrue);
+    </script>
+</body>
+
+</html>
