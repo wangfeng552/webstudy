@@ -22,6 +22,10 @@ td {
 .red {
   color: red;
 }
+.sred{
+  color: red;
+  font-weight: bold;
+}
 .yellow{
   color: #f60;
 }
