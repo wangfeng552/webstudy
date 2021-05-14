@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    1.如果是基本数据类型，名字和值都会储存在栈内存中
+    2.如果是引用数据类型，名字存在栈内存中，值存在堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值
     <script>
         // 数组 深拷贝
         var arr = [1,2,3,4]
@@ -22,6 +24,7 @@
         // 方法2 深拷贝通用
         var sArr = JSON.parse(JSON.stringify(arr))
         arr[0].name = '修改了'
+        // 能实现一些比较简单的深拷贝，但是缺陷比较明显：当Object或Array中有值为undefined、所有函数及Symbol时，JSON.stringify(obj)将Object序列化时会忽略这些值，JSON.stringify(obj)将Array序列化时会将这些值转换为null。但是该方法足以应对比较简单的不含有上述值的对象。
     </script>
 
     <script>

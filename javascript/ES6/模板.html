@@ -11,34 +11,33 @@
 <body>
   <input type="text" id="wf" class="ww">
   <script>
-    var person = [
-      {
-        name: '张三',
-        dis:100
+
+    let obj ={
+      wf:function(){
+        console.log(123);
       },
-      {
-        name: '张三',
-        dis:200,
-      },
-      {
-        name: '李四',
-        dis:50
-      },
-    ]
-    var arr = [{name: "zlw", age: 24}, {name: "wlz", age: 25},{name:'asdf',age:5},{name:'dd',age:30}];
-    var compare = function (prop) {
-    return function (obj1, obj2) {
-        var val1 = obj1[prop];
-        var val2 = obj2[prop];if (val1 < val2) {
-            return -1;
-        } else if (val1 > val2) {
-            return 1;
-        } else {
-            return 0;
-        }            
-    } 
-}
-arr.sort(compare("age"))
+      age:123
+    }
+var deepCopy = function (obj) {
+            // 只拷贝对象
+            if (typeof obj !== 'object') return;
+            // 根据obj的类型判断是新建一个数组还是一个对象
+            var newObj = obj instanceof Array ? [] : {};
+            for (var key in obj) {
+                // 遍历obj,并且判断是obj的属性才拷贝
+                if (obj.hasOwnProperty(key)) {
+                    // 判断属性值的类型，如果是对象递归调用深拷贝
+                    newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+                }
+            }
+            return newObj;
+        }
+
+
+    for(let key in obj){
+      console.log(key);
+      console.log(obj[key]);
+    }
 
   </script>
 </body>
