@@ -33,8 +33,7 @@ export default {
       mounthTime: '',
       pickerDayDate: null,
       pickerYearDate: null,
-      day31: 31 * 24 * 3600 * 1000,
-      year12: 31 * 24 * 3600 * 1000 * 12,
+      day31: 30 * 24 * 3600 * 1000,
       pickerOptions1: {
         onPick: ({ maxDate, minDate }) => {
           if (minDate && this.pickerDayDate) {
@@ -61,14 +60,18 @@ export default {
             this.pickerYearDate = minDate.getTime()
           }
         },
-        disabledDate: (time) => {
+         disabledDate: (time) => {
           if (this.pickerYearDate) {
             return (
-              time.getTime() > this.pickerYearDate + this.year12 ||
+              time.getTime() >
+                new Date(
+                  new Date(this.pickerYearDate).getFullYear() + 1,
+                  new Date(this.pickerYearDate).getMonth() - 1
+                ) ||
               time.getTime() <
                 new Date(
                   new Date(this.pickerYearDate).getFullYear() - 1,
-                  new Date(this.pickerYearDate).getMonth()
+                  new Date(this.pickerYearDate).getMonth() - 1
                 )
             )
           }

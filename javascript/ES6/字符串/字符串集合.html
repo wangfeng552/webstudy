@@ -9,41 +9,41 @@
 <script>
 	var str="纳士大夫大",str2="12334",str3="";
 	str.charAt(1)							//在指定位置的字符	=>士
-	str.charCodeAt(1)					//在指定的位置的字符的 Unicode 编码	=>22763
-	str.indexOf("大")					//返回某个指定的字符串值首次出现的位置。	=>2
-	str.lastIndexOf("大")			//返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。。	=>2
+	str.charCodeAt(1)						//在指定的位置的字符的 Unicode 编码	=>22763
+	str.indexOf("大")						//返回某个指定的字符串值首次出现的位置。	=>2
+	str.lastIndexOf("大")					//返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。。	=>2
 
-	str.match("大夫")					//在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。 =>["大夫"]
-	str.replace(/大/g,"我")		// 在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。=>"纳士我夫我"
-	str.search("大夫大")				//检索指定的子字符串，总是返回 stringObject 的第一个匹配的位置 =>2
-	str.slice(1,2)						//提取字符串的某个部分，并以新的字符串返回被提取的部分。) =>士
+	str.match("大夫")						//在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。 =>["大夫"]
+	str.replace(/大/g,"我")					// 在字符串中用一些字符替换另一些字符，或替换一个与正则表达式匹配的子串。=>"纳士我夫我"
+	str.search("大夫大")					//检索指定的子字符串，总是返回 stringObject 的第一个匹配的位置 =>2
+	str.slice(1,2)							//提取字符串的某个部分，并以新的字符串返回被提取的部分。) =>士
 	str.split("")							//把一个字符串分割成字符串数组 =>["纳", "士", "大", "夫", "大"]
-	str.substr(3,length)			//在字符串中抽取从 start 下标开始的指定数目的字符	=>夫大
-	str.substring(1,3)				//方法用于提取字符串中介于两个指定下标之间的字符。=>士大
+	str.substr(3,length)					//在字符串中抽取从 start 下标开始的指定数目的字符	=>夫大
+	str.substring(1,3)						//方法用于提取字符串中介于两个指定下标之间的字符。=>士大
 
-	str.toLowerCase()					//把字符串转换为小写
-	str.toUpperCase()					//把字符串转换为大写
+	str.toLowerCase()						//把字符串转换为小写
+	str.toUpperCase()						//把字符串转换为大写
 
-	str.localeCompare()				//用本地特定的顺序来比较两个字符串。
+	str.localeCompare()						//用本地特定的顺序来比较两个字符串。
 	str.strike()							//删除线的字符串
-	str.link("http://www.baidu.com/")//把字符串显示为超链接。
-	str.sub()									//显示为下标
-	str.sup()									//显示为商上标
-	String.fromCharCode("22763")	//可接受一个指定的 Unicode 值，然后返回一个字符串。 =>士
+	str.link("http://www.baidu.com/")		//把字符串显示为超链接。
+	str.sub()								//显示为下标
+	str.sup()								//显示为商上标
+	String.fromCharCode("22763")			//可接受一个指定的 Unicode 值，然后返回一个字符串。 =>士
 
   //ES5
-  at(1)											//返回字符串给定位置的字符 需要垫片库 https://github.com/es-shims/String.prototype.at
+  at(1)										//返回字符串给定位置的字符 需要垫片库 https://github.com/es-shims/String.prototype.at
 
 	//ES6新增
 	var str4=`上面的str内容是${str+str2+str3}`;//``链接字符串 ${}内放变量  ${}中可以是运算表达式
 	str.repeat(2)							//重复几次
-	str.includes("大")					//是否包含大		=>true
-	str.startsWith("纳")				//第一个是否是纳 =>true
-	str.endsWith("2")					//最后一个是否是2 =>false
+	str.includes("大")						//是否包含大		=>true
+	str.startsWith("纳")					//第一个是否是纳 =>true
+	str.endsWith("2")						//最后一个是否是2 =>false
 	var str6 = "𠮷";
-	str6.codePointAt();  			//结果:134071
-	String.fromCodePoint(134071);	//=>𠮷
-	String.raw`hello\nwolrd`;  		//返回字符串最原始的样貌=>：hello\nwolrd
+	str6.codePointAt();  					//结果:134071
+	String.fromCodePoint(134071);			//=>𠮷
+	String.raw`hello\nwolrd`;  				//返回字符串最原始的样貌=>：hello\nwolrd
 
     // decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。
 </script>
