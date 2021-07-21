@@ -13,12 +13,12 @@
     2.如果是引用数据类型，名字存在栈内存中，值存在堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值
     <script>
         // 数组 深拷贝
-        var arr = [1,2,3,4]
+        var arr = [1, 2, 3, 4]
         var newArr = [...arr]
 
         // 对象深拷贝
-        var obj={name:'周大福',age:'45'};
-        var newObj ={...obj}
+        var obj = { name: '周大福', age: '45' };
+        var newObj = { ...obj }
 
 
         // 方法2 深拷贝通用
@@ -61,6 +61,7 @@
             return newObj;
         }
     </script>
+
 </body>
 
 </html>
