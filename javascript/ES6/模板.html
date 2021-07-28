@@ -9,13 +9,22 @@
 </head>
 
 <body>
-  <input type="text" id="wf" class="ww">
+
   <script>
-let arr = [2,4]
-   function wf(x,y){
-     console.log(x);
-     console.log(y);
-   }
+    var arr=[1,2,3,4,5,6,2,'健康的说法',3,4,5]
+
+    var newArr = []
+    var obj = {}
+
+    for(let v of arr){
+      if(!obj[v]){
+        obj[v]=1
+        newArr.push(v)
+      }
+    }
+    console.log(newArr);
+
+
   </script>
 </body>
 </html>
