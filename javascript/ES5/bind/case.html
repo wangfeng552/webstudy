@@ -6,20 +6,30 @@
 </head>
 <body>
 <script>
-    // bind 方法会创建一个新函数，新函数的 this 会永久的指向 bind 传入的第一个参数。我们来看下面的列子。
- var x =1;
- var obj_1={
-     x:2
- }
- var obj_2 ={
-     x:3
- }
+// var a={
+//     b:function(){
+//         var self = this
+//         var fun=function(){
+//             console.log(self.c)
+//         }
+//         fun()
+//     },
+//     c:'你好'
+// }
+</script>
+<script>
+    // bind 方法
 
- function getX(){
-     console.log(this.x)
- }
- var a = getX.bind(obj_1)   // 2
- var b= a.bind(obj_2)       // 2
+var wf={
+    show:function(){
+        var func= function(){
+            console.log(this.c)
+        }.bind(this)
+        func();
+       
+    },
+    c:'wf'
+}
 </script>
 </body>
 </html>
