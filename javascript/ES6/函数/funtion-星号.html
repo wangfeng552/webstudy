@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    funtion*会定义一个生成器函数 它返回一个Generator对象
+
+    <script>
+        function* generator(i) {
+            yield i;
+            yield i + 10
+        }
+
+        const gen = generator(10)
+
+        console.log(gen.next().value);
+        console.log(gen.next().value);
+        console.log(gen.next().value);
+
+    </script>
+
+
+</body>
+
+</html>

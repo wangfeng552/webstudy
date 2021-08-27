@@ -1,49 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<meta content="telephone=no,email=no" name="format-detection"/>
+	<meta content="telephone=no,email=no" name="format-detection" />
 	<title>let</title>
 </head>
+
 <body>
-<div class="mk"></div>
+	<div class="mk"></div>
+	普通函数下的this：
+	在普通函数中的this总是代表它的直接调用者，在默认情况下，this指window
+	在严格模式下，没有直接调用者的函数中的this是undefined使用
+	call，apply，bind绑定的this指的是绑定的对象
 
-<script>
-	class Animals{
-	    constructor(){
-	        this.name="dog";
-	        this.showMessage=function (a) {
-				alert(a)
-            }
-		}
-		says(say){
-	        setTimeout(function () {		//setTimeout( )是window对象的方法
-				console.log(this.name)		//=>undefined 	this指代的是window对象；
-            },1000)
-		}
-		//第一种是将this传给self,再用self来指代this
-		/*says(say){
-            var self=this;
-	        setTimeout(function () {
-				console.log(self.name)
-            },1000)
-		}*/
+	箭头函数中的this：
+	箭头函数没有自己的this，它的this是继承而来，默认指向在定义它时所处的宿主对象
+	而不是执行时的对象，定义它的时候，可能环境是window，也有可能是其他的
 
-		//第二种用bind(this)
-		says(say){
-		    setTimeout(function () {
-				console.log(this.name)
-            }.bind(this),1000)
+	<script>
+		function a() {
+			console.log(this); // window
 		}
+		a()
+		// 因为a是一个全局函数，也就是挂载在window对象下的，所以a()等价于window.a()
+	</script>
 
-		//第三种用()=>
-		//当我们使用箭头函数时，函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
-		/*says(say){
-	        setTimeout(()=>{console.log(this.name)},1000)
-		}*/
-	}
-	let animal=new Animals()
-	animal.says("50kg")
-</script>
+
+	<script>
+		var obj = {
+			say: function () {
+				setTimeout(function () {
+					console.log(this); // window
+				}, 500)
+			}
+		}
+		// 定时器中的函数，由于没有默认的宿主对象，所以this指向window
+	</script>
+
+	<script>
+		var obj2 = {
+			func: function () { },
+			show: function () {
+				console.log(this); //obj2,此时的this是obj2对象    
+				setTimeout(function () {
+					console.log(this); // window
+					this.func()
+				}, 100)
+			}
+		}
+		// 此时show的宿主环境是obj2，所以show里面的this是obj2，定时器中的函数，由于没有默认的宿主对象，所以默认this指向window
+	</script>
+
+	<script>
+		function test() {
+			'use strict';
+			console.log(this);
+		}
+		// 在严格模式下，没有直接调用者的函数中的this是undefined
+	</script>
+
+	<script>
+		var jiantou = {
+			say: function () {
+				setTimeout(() => {
+					console.log(this); //jiantou
+				}, 100)
+			}
+		}
+// 此时的this继承自jiantou，指的是定义它的对象jiantou，而不是window！
+	</script>
+
+	<script>
+		var person = {
+			say:function(){
+				var f1=()=>{
+					console.log(this); // person
+					setTimeout(()=>{
+						console.log(this); //person
+					})
+				}
+				f1();
+			}
+		}
+		// 因为f1定义时所处的函数中的this是指person，setTimeout中的箭头函数this继承自f1，所以不管有多层嵌套，都是person
+	</script>
+
+	<script>
+		var dog={
+			name:function(){
+				var f1 = function(){
+					console.log(this); // window,f1调用时，没有宿主对象，默认window
+					setTimeout(()=>{
+						console.log(this); // window
+					})
+				}
+				f1()
+			}
+		}
+		// 都是window，因为箭头函数在定义的时候它所处的环境相当于window，所以在箭头函数内部的this指向window
+	</script>
 </body>
+
 </html>

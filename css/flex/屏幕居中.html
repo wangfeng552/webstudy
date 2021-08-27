@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    一个div水平垂直居中，其距离屏幕左右两边各10PX；高度是宽度的一半
+    calc 函数用于动态计算长度值。
+    <style>
+        .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .mk {
+            background: #f00;
+            width: calc(100% - 20px);
+            margin: 0 auto;
+            height: calc(100vw/2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <!-- <div class="wrap">
+        <div class="mk">dfsg</div>
+    </div> -->
+
+    <style>
+        .psd {
+            background: #f00;
+            width: calc(100% - 20px);
+            margin: 0 auto;
+            height: calc(100vw/2);
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+    <div class="psd">
+        123
+    </div>
+</body>
+
+</html>
