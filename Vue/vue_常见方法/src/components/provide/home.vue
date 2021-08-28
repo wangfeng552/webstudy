@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
-    提示：provide 和 inject
-    绑定并不是可响应的。这是刻意为之的。然而，如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。
+    provide 和 inject
+    帮助我们解决多层次嵌套嵌套通信问题。在provide中指定要传递给子孙组件的数据，子孙组件通过inject注入祖父组件传递过来的数据。
     <child></child>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
     child
   },
   // 父组件中返回要传给下级的数据
+  // provide：Object | () => Object
   provide() {
     return {
       showText: this.showText,

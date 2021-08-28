@@ -12,6 +12,7 @@ export default {
       name: '123'
     }
   },
+  // inject：Array<string> | { [key: string]: string | Symbol | Object }
   inject: ['showText', 'children'],
   methods: {
     show() {
