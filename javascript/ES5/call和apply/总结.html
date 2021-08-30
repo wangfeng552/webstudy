@@ -1,71 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call、apply、bind三者为改变this指向的方法。</title>
 </head>
+
 <body>
-1.每个函数都包含2个非继承而来的方法:call()方法和apply()方法。
-2.相同点：这2个方法的作用是一样的。
-<script>
-    //    call()方法示例
-    window.color = 'red'
-    document.color = 'yellow'
-    var s1 = {color: 'blue'}
+    共同点：第一个参数都为改变this的指针。若第一参数为null/undefined，this默认指向window
+    call、apply与bind区别：前两个可以自动执行，bind不会自动执行，需要手动调用
+    call、bind与apply区别：前两个都有无数个参数，apply只有两个参数，而且第二个参数为数组
 
-    function changeColor() {
-        console.log(this.color)
-    }
-    changeColor.call();         //red (默认传递参数)
-    changeColor.call(window);   //red
-    changeColor.call(document); //yellow
-    changeColor.call(this);     //red
-    changeColor.call(s1);       //blue
-
-    //例2
-    var Pet ={
-        words:'...',
-        speak:function (say) {
-            console.log(say + '' + this.words)
+    call（无数个参数）
+    第一个参数：改变this指向
+    第二个参数：实参
+    使用之后会自动执行该函数
+    <script>
+        function fn(a, b, c) {
+            console.log(this, a + b + c); // this指向window
         }
-    }
-    Pet.speak('Speak') //Speak...
-    var Dog ={
-        words:'wang'
-    }
-    // 将this的指向改编成了Dog
-    Pet.speak.call(Dog,'Speak')   //调用Pet对象的speak方法，以Dog对象替换Pet对象
-</script>
+        fn();
+        fn.call(document, 1, 2, 3);//call改变之后this指向document  
+    //输出 #document 6   1,2,3是实参 结果相加为6
+    </script>
 
-<script>
-//    apply()方法示例
-    window.number='one';
-    document.number = 'two';
-    var s2={number:'three'};
-    function changeNumber() {
-        console.log(this.number)
-    }
-    changeNumber.apply()    //one (默认传参)
-    changeNumber.apply(window)//one
-    changeNumber.apply(document) //two
-    changeNumber.apply(this) //one
-    changeNumber.apply(s2) //three
 
-//例2
-    function Animal(words) {
-        this.words = words;
-        this.speak2 = function () {
-            console.log(this.words)
+    apply（两个参数）
+    第一个参数：改变this指向
+    第二个参数：数组（里面为实参）
+    使用时候会自动执行函数
+
+    <script>
+        function fn(a, b, c) {
+            console.log(this, a + b + c);
         }
-    }
-    function Cat(words) {
-//        Animal.call(this,words)       //=> liyang
-        Animal.apply(this,arguments)    //=> liyang
-    }
-    var cat =new Cat('liyang')
-    cat.speak2()
+        fn();
+        fn.apply(document, [1, 2, 3]);
+    </script>
 
+    bind（无数个参数）
+    第一个参数：改变this指向
+    第二个参数之后：实参
+    返回值为一个新的函数
+    使用的时候需要手动调用下返回的新函数（不会自动执行）
 
-</script>
+    <script>
+        function fn(a, b, c) {
+            console.log(this, a + b + c); //window
+        }
+        let ff = fn.bind('小明', 1, 2, 3); //手动调用一下
+        ff()
+    </script>
 </body>
+
 </html>

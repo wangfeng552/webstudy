@@ -6,30 +6,31 @@
 </head>
 <body>
 <script>
-// var a={
-//     b:function(){
-//         var self = this
-//         var fun=function(){
-//             console.log(self.c)
-//         }
-//         fun()
-//     },
-//     c:'你好'
-// }
+var a={
+    b:function(){
+        console.log(this);
+        var self = this
+        var fun=function(){
+            console.log(self.c)
+        }
+        fun()
+    },
+    c:'你好'
+}
 </script>
 <script>
     // bind 方法
 
-var wf={
-    show:function(){
-        var func= function(){
-            console.log(this.c)
-        }.bind(this)
-        func();
+// var wf={
+//     show:function(){
+//         var func= function(){
+//             console.log(this.c)
+//         }.bind(this)
+//         func();
        
-    },
-    c:'wf'
-}
+//     },
+//     c:'wf'
+// }
 </script>
 </body>
 </html>
