@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div">我是一个div</div>
+        <div class="div">我是一个很多字div</div>
+        <div class="div">我是一个更多字而且第三个div</div>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .div {
+            border: 1px solid red;
+            flex: 1 1;
+        }
+    </style>
+
+    双值语法: 
+    第1个值必须为一个无单位数，并且它会被当作 <flex-grow> 的值。
+
+    第2个值必须为以下之一：
+    一个无单位数：它会被当作 <flex-shrink> 的值。
+    一个有效的宽度值: 它会被当作 <flex-basis> 的值。
+</body>
+
+</html>

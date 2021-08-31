@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div">我是一个div</div>
+        <div class="div">我是一个很多字div</div>
+        <div class="div">我是一个更多字而且第三个div</div>
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .div {
+            border: 1px solid red;
+            flex: 1 1 auto;
+        }
+    </style>
+
+    加入原来以为正确的完整代码后可以看到三个元素没有均分, 所以可以推出:
+
+    flex: 1; !== flex: 1 1 auto;
+
+    第一个值必须为一个无单位数，并且它会被当作 <flex-grow> 的值。
+    第二个值必须为一个无单位数，并且它会被当作  <flex-shrink> 的值。
+    第三个值必须为一个有效的宽度值， 并且它会被当作 <flex-basis> 的值。
+</body>
+
+</html>

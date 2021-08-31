@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex:1</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div">我是一个div</div>
+        <div class="div">我是一个很多字div</div>
+        <div class="div">我是一个更多字而且第三个div</div>
+    </div>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .div {
+            border: 1px solid red;
+            flex: 1;
+            /* flex: 1 1 0; */
+            /* flex: 1 1; */
+        }
+        
+    </style>
+
+    利用 flex: 1; 确实实现了三个不同内容的 div 平分空间, 所以按我以前的想法来说:
+    flex: 1; === flex: 1 1 0;  
+    flex: 1; === flex: 1 1;
+    flex: 1; !=== flex: 1 1 auto;
+    
+    单值语法
+    一个无单位数(<number>): 它会被当作flex:<number> 1 0; <flex-shrink>的值被假定为1，然后<flex-basis> 的值被假定为0。
+    一个有效的宽度(width)值: 它会被当作 <flex-basis>的值。
+    关键字none，auto或initial.
+
+
+    第一个参数表示: flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
+    第二个参数表示: flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小
+    第三个参数表示: flex-basis给上面两个属性分配多余空间之前, 计算项目是否有多余空间, 默认值为 auto, 即项目本身的大小
+</body>
+
+</html>
