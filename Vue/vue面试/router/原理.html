@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Router 路由实现原理</title>
+</head>
+
+<body>
+    通过改变 URL，在不重新请求页面的情况下，更新页面视图。
+
+    2种方式：
+    1.Hash --- 利用 URL 中的hash("#");
+    2.利用 History interface 在HTML5中新增的方法。
+
+    Vue 中，它是通过 mode 这一参数控制路由的实现模式：
+    const router=new VueRouter({
+    mode:'history',
+    routes:[...]
+    })
+
+
+    在服务端增加一个覆盖所有情况的候选资源：如果 URL 匹配不到任何静态资源，则应该返回同一个 index.html 页面，这个页面就是你 app 依赖的页面。
+</body>
+
+</html>

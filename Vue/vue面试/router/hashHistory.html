@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HashHistory:</title>
+</head>
+
+<body>
+    HashHistory:
+    hash("#") 的作用是加载 URL 中指示网页中的位置。
+    # 本身以及它后面的字符称职位 hash，可通过 window.location.hash 获取
+    特点：
+    1. hash 虽然出现在 url 中，但不会被包括在 http 请求中，它是用来指导浏览器动作的，对服务器端完全无用，因此，改变 hash 不会重新加载页面。
+
+    2. 可以为 hash 的改变添加监听事件：
+
+    window.addEventListener("hashchange",funcRef,false)
+    3. 每一次改变 hash(window.localtion.hash)，都会在浏览器访问历史中增加一个记录。
+
+    利用 hash 的以上特点，就可以来实现前端路由"更新视图但不重新请求页面"的功能了。
+
+
+    HashHistory 拥有2个方法
+    push() //将新路由添加到浏览器访问历史的栈顶
+    replace() //方法与push()方法不同之处在于，它并不是将新路由添加到浏览器访问历史的栈顶，而是替换掉当前的路由
+    <script>
+        $router.push() //1.调用方法
+
+        HashHistory.push() //2.根据hash模式调用,设置hash并添加到浏览器历史记录（添加到栈顶）（window.location.hash= XXX）
+
+        History.transitionTo() //3.监测更新，更新则调用History.updateRoute()
+
+        History.updateRoute() //4.更新路由
+
+        { app._route = route } //5.替换当前app路由
+
+        vm.render() //6.更新视图
+    </script>
+</body>
+
+</html>
