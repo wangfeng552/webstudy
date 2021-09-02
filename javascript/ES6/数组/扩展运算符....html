@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
+
 <body>
-<script>
-  // ...[]将一个数组添加到另一个数组的尾部
-  var arr1 = [0, 1, 2];
-  var arr2 = [3, 4, 5];
-  arr1.push(...arr2);   //=>[0,1,2,3,4,5]
+  <script>
+    // ...[]将一个数组添加到另一个数组的尾部
+    var arr1 = [0, 1, 2];
+    var arr2 = [3, 4, 5];
+    arr1.push(...arr2);   //=>[0,1,2,3,4,5]
 
-  Math.max(...arr2)  //求最大值
+    Math.max(...arr2)  //求最大值
 
-  let newArr2 = [...arr2] //拷贝数组
+    let newArr2 = [...arr2] //拷贝数组
 
-  new Date(...[2018, 9, 18]); // 设置时间
-</script>
+    new Date(...[2018, 9, 18]); // 设置时间
+
+    [...arr1, ...arr2,]// 合并数组 [0,1,2,3,4,5]
+
+    let ab = { ...a, ...b };//合并对象
+  </script>
 </body>
+
 </html>

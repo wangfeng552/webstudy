@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组扁平化</title>
+</head>
+
+<body>
+    <script>
+        // 方法1 reduce
+        // 遍历数组每一项，若值为数组则递归遍历，否则concat。
+        // reduce是数组的一种方法，它接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。
+        // reduce包含两个参数：回调函数，传给total的初始值
+        var arr = [{ name: 'zhangsan' }, [2, 3, [4, 5]]]
+        function wf(arr) {
+            return arr.reduce((prev, current) => {
+                return prev.concat(Array.isArray(current) ? wf(current) : current)
+            }, [])
+        }
+    </script>
+
+    <script>
+        // 方法2 toString & split
+        // 调用数组的toString方法，将数组变为字符串然后再用split分割还原为数组
+        // 因为split分割后形成的数组的每一项值为字符串，所以需要用一个map方法遍历数组将其每一项转换为数值型
+        var arr = [1, [2, 3, [4, 5]]]
+        function flatten(arr) {
+            return arr.toString().split(',').map(function (item) {
+                return Number(item);
+            })
+        }
+    </script>
+
+    <script>
+        // 方法3  join & split
+        function flatten(arr) {
+            return arr.join(',').split(',').map(function (item) {
+                return parseInt(item);
+            })
+        }
+    </script>
+
+    <script>
+        // 4. 递归
+        var arr = [1, [2, 3, [4, 5]]]
+
+        function wf(arr) {
+            var newArr = []
+            arr.map((v, i) => {
+                if (Array.isArray(v)) {
+                    newArr = newArr.concat(wf(v))
+                } else {
+                    newArr.push(v)
+                }
+            })
+            return newArr
+        }
+    </script>
+
+    <script>
+        // 5. 扩展运算符
+        [].concat(...[1, 2, 3, [4, 5]]);  // [1, 2, 3, 4, 5]
+
+        function flatten(arr) {
+            while (arr.some(item => Array.isArray(item))) {
+                arr = [].concat(...arr);
+            }
+            return arr;
+        }
+    </script>
+
+    <script>
+        // 6. es 10 flat
+        var arr = [1, [2, 3, [4, 5]]]
+        arr.flat(Infinity)
+    </script>
+</body>
+
+</html>
