@@ -1,9 +1,15 @@
 <template>
-<div class="layout">
-  <div>{{name}}</div>
-  <button @click="changName()">点击</button>
+  <div class="layout">
+    <p>
+      在下次 DOM
+      更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的
+      DOM。
+    </p>
 
-</div>
+    <p>应用场景：需要在视图更新之后，基于新的视图进行操作。</p>
+    <div>{{ name }}</div>
+    <button @click="changName()">点击</button>
+  </div>
 </template>
 
 <script>
@@ -25,10 +31,10 @@ export default {
       })
     }
   }
-
 }
 </script>
 
 <style lang="less" scoped>
-.layout {}
+.layout {
+}
 </style>
