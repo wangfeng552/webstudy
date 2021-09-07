@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scope</title>
+</head>
+
+<body>
+
+    当 style标签有 scoped 属性时，它的 CSS 只作用于当前组件中的元素。这类似于 Shadow DOM 中的样式封装。它通过使用 PostCSS 来实现以下转换：
+
+    <div class="explame" data-v-fsf3f2>122</div>
+    <style>
+        .explame [data-v-fsf3f2] {
+            color: red;
+        }
+    </style>
+
+    PostCSS 给一个组件中的所有 DOM 添加了一个独一无二的动态属性，然后给 CSS 选择器额外添加一个对应的属性选择器来选择该组件中 DOM，这种做法使得样式只作用于含有该属性的 DOM——组件内部 DOM。
+
+    问题描述：当我们需要修改 element-ui 内部组件的样式时，我们通常将内部组件的样式放在一个 class 作用域下，同时使用全局作用域的样式去修改默认 ui 样式，代码如下：
+
+
+    style-loader: 把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS；
+
+    css-loader：加载 CSS，支持模块化、压缩、文件导入等特性；
+
+    postcss-loader：做浏览器兼容性的；
+
+    sass-loader：将 scss 文件信息解析成 css 信息。
+
+
+</html>
