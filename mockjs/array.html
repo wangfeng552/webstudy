@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+
+<body>
+
+    5. 属性值是数组 Array
+
+    'name|1': array
+    从属性值 array 中随机选取 1 个元素，作为最终值。
+
+    'name|+1': array
+    从属性值 array 中顺序选取 1 个元素，作为最终值。
+
+    'name|min-max': array
+    通过重复属性值 array 生成一个新数组，重复次数大于等于 min，小于等于 max。
+
+    'name|count': array
+    通过重复属性值 array 生成一个新数组，重复次数为 count。
+
+    <script>
+        let arr = {
+            'data|5': [
+                {
+                    "number|1-100.1-10": 1,
+                    "name|2-4": {
+                        name: '张娜',
+                        age: '45',
+                    }
+                }
+            ]
+        }
+    </script>
+
+</body>
+
+</html>

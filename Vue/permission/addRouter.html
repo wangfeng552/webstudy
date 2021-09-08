@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let asyncRouter = [{
+            "type": 'menu',
+            "id": "1",
+            "url": '1',
+            "name": "教务管理",
+            "children": [
+                {
+                    "type": 'page',
+                    "id": "1-1",
+                    "url": '1-1',
+                    "name": "学员中心",
+                    "children": [
+                        {
+                            "type": 'page',
+                            "id": "1-1-1",
+                            "url": '1-1-1',
+                            "name": "学员中心",
+                            "meta": {
+                                "children": [
+                                    {
+                                        "type": 'btn',
+                                        "id": "1-1-1-1",
+                                        "name": "添加",
+                                    },
+                                    {
+                                        "type": 'btn',
+                                        "id": "1-1-1-2",
+                                        "name": "班级管理",
+                                    },
+                                    {
+                                        "type": 'btn',
+                                        "id": "1-1-1-3",
+                                        "name": "管理",
+                                    },
+                                ]
+                            }
+                        }
+                    ],
+
+
+                },
+                {
+                    "type": 'page',
+                    "id": "1-2",
+                    "url": '1-2',
+                    "name": "班级管理",
+                    "meta": {
+                        "children": [
+                            {
+                                "type": 'btn',
+                                "id": "1-2-1",
+                                "name": "删除",
+                            }
+                        ]
+                    }
+
+                },
+                {
+                    "type": 'page',
+                    "id": "1-3",
+                    "url": '1-3',
+                    "name": "管理3",
+                    "meta": {
+                        "children": [
+                            {
+                                "type": 'btn',
+                                "id": "1-3-1",
+                                "name": "删除",
+                            }
+                        ]
+                    }
+
+                },
+            ]
+        }]
+
+        let permisRouter = [{
+            "type": 'menu',
+            "id": "1",
+            "name": "教务管理",
+            "children": [
+                {
+                    "type": 'page',
+                    "id": "1-1",
+                    "name": "学员中心",
+                    "children": [
+                        {
+                            "type": 'page',
+                            "id": "1-1-1",
+                            "name": "学员中心",
+                            "children": [
+                                {
+                                    "type": 'btn',
+                                    "id": "1-1-1-1",
+                                    "name": "添加",
+                                },
+                                {
+                                    "type": 'btn',
+                                    "id": "1-1-1-2",
+                                    "name": "班级管理",
+                                },
+                            ]
+                        }
+                    ],
+
+                },
+                {
+                    "type": 'page',
+                    "id": "1-2",
+                    "name": "班级管理",
+                    "children": [
+                        {
+                            "type": 'btn',
+                            "id": "1-2-1",
+                            "name": "删除",
+                        }
+                    ]
+                },
+            ]
+        }]
+
+
+
+        function filterRoute(asyncRouter, permisRouter) {
+            let res = [];
+            if (asyncRouter != undefined && permisRouter != undefined) {
+                for (let i = 0; i < asyncRouter.length; i++) {
+                    for (let j = 0; j < permisRouter.length; j++) {
+                        if (asyncRouter[i].id == permisRouter[j].id) {
+                            if (typeof asyncRouter[i].meta !== 'undefined') {
+                                asyncRouter[i].meta.children = permisRouter[j].children;
+                            }
+                            let new_children = filterRoute(asyncRouter[i].children, permisRouter[j].children);
+                            asyncRouter[i].children = new_children;
+                            res.push(asyncRouter[i]);
+                            break;
+                        }
+                    }
+                }
+            }
+            console.log(res);
+            return res;
+        }
+        filterRoute(asyncRouter, permisRouter)
+
+    </script>
+</body>
+
+</html>

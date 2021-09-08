@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean</title>
+</head>
+
+<body>
+
+    3. 属性值是布尔型 Boolean
+
+    'name|1': boolean
+    随机生成一个布尔值，值为 true 的概率是 1/2，值为 false 的概率同样是 1/2。
+
+    'name|min-max': value
+    随机生成一个布尔值，值为 value 的概率是 min / (min + max)，值为 !value 的概率是 max / (min + max)。
+
+    <script>
+        let obj = {
+            "isShow|1": true, // => 1,2,3,4,5
+            "hasPerson|1-10": false, // => 1-100随机数
+        }
+    </script>
+
+</body>
+
+</html>

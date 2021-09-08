@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var asyncRouter = [
+            {
+                id: '1-1-1',
+                name: '删除',
+                isShow: false
+            },
+            {
+                id: '1-1-2',
+                name: '查询',
+                isShow: false
+            },
+            {
+                id: '1-1-3',
+                name: '导出',
+                isShow: false
+            }
+        ]
+
+        var permision = [
+            {
+                id: '1',
+                name: '服务订单',
+                children: [
+                    {
+                        id: '1-1',
+                        name: '订单管理',
+                        children: [
+                            {
+                                id: '1-1-1',
+                                name: '删除',
+                                isShow: true
+                            },
+                            {
+                                id: '1-1-2',
+                                name: '查询',
+                                isShow: false
+                            },
+                            {
+                                id: '1-1-3',
+                                name: '导出',
+                                isShow: true
+                            }
+                        ]
+                    },
+                    { id: '1-2', name: '评价管理' }
+                ]
+            }
+        ]
+
+
+        function filterBtn(asyncRouter, permision) {
+            console.log(permision)
+            let self = this
+            for (let i = 0; i < permision.length; i++) {
+                for (let j = 0; j < asyncRouter.length; j++) {
+                    if (permision[i]['id'] === asyncRouter[j]['id']) {
+                        console.log('匹配到' + permision[i]['id'])
+                        asyncRouter[j]['isShow'] = permision[i]['isShow']
+                        break
+                    }
+                }
+                if (permision[i]['children']) {
+                    filterBtn(asyncRouter, permision[i]['children'])
+                }
+            }
+        }
+
+        filterBtn(asyncRouter, permision)
+    </script>
+
+</body>
+
+</html>

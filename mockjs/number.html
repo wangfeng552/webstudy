@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number</title>
+</head>
+
+<body>
+
+    2. 属性值是数字 Number
+
+    'name|+1': number
+    属性值自动加 1，初始值为 number。
+
+    'name|min-max': number
+    生成一个大于等于 min、小于等于 max 的整数，属性值 number 只是用来确定类型。
+
+    'name|min-max.dmin-dmax': number
+    生成一个浮点数，整数部分大于等于 min、小于等于 max，小数部分保留 dmin 到 dmax位。
+
+    <script>
+        let obj = {
+            "number|+1": '1', // => 1,2,3,4,5
+            "number|1-100": "1", // => 1-100随机数
+            "number|1-100.2-10": '1' //=>50.2536
+        }
+    </script>
+
+</body>
+
+</html>

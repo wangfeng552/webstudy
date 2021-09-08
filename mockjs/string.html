@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+</head>
+
+<body>
+
+    1. 属性值是字符串 String
+
+    'name|min-max': string
+    通过重复 string 生成一个字符串，重复次数大于等于 min，小于等于 max。
+
+    'name|count': string
+    通过重复 string 生成一个字符串，重复次数等于 count。
+
+    <script>
+        let obj = {
+            "name|1-10": '★',  // => ★★★★★★
+            "name|3": "★"  // => ★★★
+        }
+    </script>
+
+</body>
+
+</html>
