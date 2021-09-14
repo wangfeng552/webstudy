@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mock语法</title>
+</head>
+
+<body>
+    <!-- 
+        属性名
+        生成规则
+        属性值
+        'name|rule':value
+     -->
+
+    <script>
+        let obj = {
+            name: '@name', //随机英文名
+            cname: '@cname', //随机中文名
+            id: '@id', //随机id
+            city: '@city', //随机城市
+            ctitle: '@ctitle', //随机中文标题
+            color: '@color', //随机颜色，十六进制
+            image: '@image', //随机图片，一个图片地址
+            ip: '@ip', //随机ip地址
+            url: '@url', //随机 url 地址
+            string: '@string', //随机字符串
+            integer: '@integer', // 随机数值
+            datetime: '@datetime', //随机日期
+            title: '@paragraph', //一段英文描述
+            sentence: '@sentence',
+            word: '@word',
+            title: '@title',
+            title: '@cparagraph', //一段中文描述
+
+            full: '@name  @city'
+        }
+    </script>
+</body>
+
+</html>
