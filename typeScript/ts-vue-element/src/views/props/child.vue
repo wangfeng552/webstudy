@@ -11,7 +11,9 @@ import { Component, Vue, Prop, Emit } from 'vue-property-decorator'
 @Component
 export default class App extends Vue {
   count: number = 1
-  @Prop(String) name!: string
+  @Prop(String) name!: string //单类型
+  @Prop([String, Number]) name1!: string | number //多种类型
+  @Prop({ default: '李四' }) name2!: string //默认值
 
   @Emit()
   getChildVal(): number {
