@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import {mapActions, mapState, mapGetters} from 'vuex'
+  import {mapActions, mapState, mapGetters,mapMutations} from 'vuex'
 
   export default {
     data() {
@@ -23,6 +23,10 @@
     },
     methods: {
       ...mapActions(['add']),
+      wf(){
+        this.setUser(resobj.data)
+      },
+      ...mapMutations(['setUser']), // this.$store.dispatch('setUser','1234)
       getCount() {
         this.$store.dispatch('getcount', {age: '士大夫'})
       }
