@@ -1,0 +1,6 @@
+ant-design-vue
+viser-vue		图表
+vue-i18n		国际化
+vuedraggable	拖拽
+axios
+mockjs
