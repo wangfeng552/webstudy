@@ -9,7 +9,7 @@
           Vue2.6以上版本我是主要内容11{{ slotProps.users }}
         </div>
       </template>
-      <template v-slot:footer>
+      <template #footer>
         <div class="header">我是footer</div>
       </template>
       <template v-slot:person>
