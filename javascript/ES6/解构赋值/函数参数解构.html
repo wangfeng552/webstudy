@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8" />
+  <title>Title</title>
 </head>
+
 <body>
+  <script>
+    var data = { name: '张三', age: 25 }
 
-<script>
-    var _data={name:'张三',age:45,sex:'girl'}
-    function wf({name,age,sex}) {
-        console.log({name,age,sex})
-        console.log(name)
+    function showData(data) {
+      console.log(data); // => {name: '张三', age: 25}
     }
+    // showData(data)
 
-    wf(_data)
-    wf({..._data})
-    wf.apply(null,[_data])
-</script>
+
+    function showDataB(data) {
+      console.log({ ...data });  // => {name: '张三', age: 25}
+    }
+    showDataB(data)
+
+    function showDataC(name, age) {
+      console.log({ name, age }); // => {name: '张三', age: 25}
+    }
+    showDataC('张三', 25)
+  </script>
+
 </body>
+
 </html>

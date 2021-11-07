@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    URL后面跟锚点#，指向文档内某个具体的元素。 也就是说，url后面的锚点，指向 某个元素， 那么该元素就会触发 target
+    <style>
+        .wf {
+            height: 500px;
+            background-color: #eee;
+        }
+
+        .wf:nth-child(2n) {
+            background-color: #ccc;
+        }
+
+        #a:target {
+            background-color: aqua;
+        }
+    </style>
+    <a href="#a">AAAAAAA</a>
+    <a href="#b">BBBBBBB</a>
+    <a href="#c">CCCCCCC</a>
+    <div id="a" class="wf"> 1</div>
+    <div id="b" class="wf"> 1</div>
+    <div id="c" class="wf"> 1</div>
+</body>
+
+</html>

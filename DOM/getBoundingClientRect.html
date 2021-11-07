@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <!-- var object=document.getElementById('box');  
+    rectObject = object.getBoundingClientRect();
+     
+        rectObject.top：元素上边到视窗上边的距离;
+        rectObject.right：元素右边到视窗左边的距离;
+        rectObject.bottom：元素下边到视窗上边的距离;
+        rectObject.left：元素左边到视窗左边的距离;
+        rectObject.width：是元素自身的宽
+        rectObject.height是元素自身的高 -->
+    <style>
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav li {
+            width: 80px;
+            float: left;
+            padding: 10px;
+            background-color: #ccc;
+        }
+    </style>
+    <div class="nav">
+        <ul>
+
+            <li id="a1" style="transform: translateX('+underlinePosition+')';">一级</li>
+            <li>耳机</li>
+            <li>三级</li>
+        </ul>
+    </div>
+
+    <script>
+        var underlinePosition
+        var inp_01 = document.getElementById("a1");
+        document.onclick = function (e) {
+
+            console.log(e);
+
+            const rect = e.target.getBoundingClientRect()
+            console.log(rect);
+
+            underlinePosition = e.currentTarget.offsetLeft + rect.width / 2 - 42 / 2
+
+            // （元素宽度-线宽度）/2 就是线定位的中心点
+
+            // console.log(e);
+
+        }
+    </script>
+</body>
+
+</html>

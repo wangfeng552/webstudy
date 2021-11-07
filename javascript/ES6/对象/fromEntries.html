@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const myMap1 = new Map()
+        myMap1.set('name', "张三")
+        myMap1.set(true, { age: 45 })
+        Object.fromEntries(myMap1)  // map数据转对象
+
+        Object.fromEntries(new URLSearchParams('foo=bar&baz=qux'))  // 字符串转对象{foo:'bar',baz:'qux'}
+    </script>
+
+</body>
+
+</html>

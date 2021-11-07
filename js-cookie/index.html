@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cookie</title>
+  </head>
+  <body>
+      <a href="https://blog.csdn.net/qq_20802379/article/details/81436634">参考文档</a>
+      <script>
+          Cookie.set('name','value',{expires:7,path:''})
+          Cookie.get('name')
+          Cookie.remove('name',{path:''})
+      </script>
+
+      json相关
+        js-cookie允许你向cookie中存储json信息。
+
+        如果你通过set方法，传入Array或类似对象，而不是简单的string，那么js-cookie会将你传入的数据用JSON.stringify转换为string保存。
+        如果你用getJSON方法获取cookie，那么js-cookie会用JSON.parse解析string并返回。
+
+      --------------------------------------------------------------------------------------------------
+    set方法支持的属性 
+
+    expires  
+    定义有效期。如果传入Number，那么单位为天，你也可以传入一个Date对象，表示有效期至Date指定时间。默认情况下cookie有效期截止至用户退出浏览器。
+
+    path 
+    string，表示此cookie对哪个地址可见。默认为”/”。
+    
+    domain 
+    string，表示此cookie对哪个域名可见。设置后cookie会对所有子域名可见。默认为对创建此cookie的域名和子域名可见。
+
+    secure
+    true或false，表示cookie传输是否仅支持https。默认为不要求协议必须为https。
+  </body>
+</html>

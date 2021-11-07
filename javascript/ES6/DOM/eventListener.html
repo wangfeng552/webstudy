@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM addEventListener() 方法</title>
+</head>
+<body>
+    
+    定义和用法: 
+    addEventListener() 方法用于向指定元素添加事件句柄。
+    提示： 使用 removeEventListener() 方法来移除 addEventListener() 方法添加的事件句柄。
+
+    语法
+    element.addEventListener(event, function, useCapture)
+    
+    参数值
+    event	    必须。字符串，指定事件名。
+                注意: 不要使用 "on" 前缀。 例如，使用 "click" ,而不是使用 "onclick"。
+                提示： 所有 HTML DOM 事件，可以查看我们完整的 HTML DOM Event 对象参考手册。https://www.runoob.com/jsref/dom-obj-event.html
+    function    必须。指定要事件触发时执行的函数。
+    useCapture  true - 事件句柄在捕获阶段执行
+                false- 默认。事件句柄在冒泡阶段执行
+
+   
+    <script>
+        document.getElementById("myBtn").addEventListener("click", function(){
+            document.getElementById("demo").innerHTML = "Hello World"
+        })
+    </script>
+
+    
+</body>
+</html>l

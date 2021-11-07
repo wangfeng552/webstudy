@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      ConfigProvider = {
+        name: "AConfigProvider",
+        props: {
+          getPopupContainer: PropTypes.func, //弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上
+          prefixCls: PropTypes.string, //class前缀
+          renderEmpty: PropTypes.func, //自定义组件空状态
+          csp: PropTypes.object, //设置 Content Security Policy 配置
+          autoInsertSpaceInButton: PropTypes.bool, //设置为 false 时，移除按钮中 2 个汉字之间的空格
+          locale: PropTypes.object, //语言包配置
+          pageHeader: PropTypes.object, //统一设置 pageHeader 的 ghost
+          transformCellText: PropTypes.func, //Table 数据渲染前可以再次改变，一般用户空数据的默认配置
+        },
+        provide: function provide() {
+          var _self = this;
+          this._proxyVm = new Vue({
+            data: function data() {
+              return _extends({}, _self.$props, {
+                getPrefixCls: _self.getPrefixCls,
+                renderEmpty: _self.renderEmptyComponent,
+              });
+            },
+          });
+          return {
+            configProvider: this._proxyVm._data, //共享configProvider对象给子孙组件
+          };
+        },
+        methods: {},
+      };
+    </script>
+  </body>
+</html>

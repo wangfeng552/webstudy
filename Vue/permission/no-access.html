@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [
+        {
+          name: '首页',
+          path: '/index',
+          meta: {
+            auther: {
+              permision: '*',
+            },
+          },
+          children: [
+            {
+              name: '动物',
+              path: '/animal',
+              meta: {
+                auther: {
+                  permision: '*',
+                },
+              },
+            },
+            {
+              name: '职务',
+              path: '/zhiwu',
+              meta: {
+                auther: {
+                  permision: 'no-acess',
+                },
+              },
+            },
+            {
+              name: '司机',
+              path: '/siji',
+              meta: {
+                auther: {
+                  permision: '*',
+                },
+              },
+            },
+          ],
+        },
+        {
+          name: '地球',
+          path: '/diqiu',
+          meta: {
+            auther: {
+              permision: '*',
+            },
+          },
+          children: [
+            {
+              name: '兖州',
+              path: '/animalzhou',
+              meta: {
+                auther: {
+                  permision: 'no-acess',
+                },
+              },
+            },
+            {
+              name: '欧洲',
+              path: '/zhiwuzhou',
+              meta: {
+                auther: {
+                  permision: 'no-acess',
+                },
+              },
+            },
+            {
+              name: '非洲',
+              path: '/sijizhou',
+              meta: {
+                auther: {
+                  permision: '*',
+                },
+              },
+            },
+          ],
+        },
+      ];
+
+      function filterArr(arr) {
+        return arr.filter((v) => {
+          if (v.meta.auther.permision !== '*') {
+            return false;
+          }
+          if (v.children && v.children.length > 0) {
+            v.children = filterArr(v.children);
+          }
+          return true;
+        });
+      }
+      filterArr(arr);
+      console.log(filterArr(arr));
+    </script>
+  </body>
+</html>

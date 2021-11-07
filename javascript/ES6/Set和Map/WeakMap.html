@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection"/>
+	<title>weakmap</title>
+</head>
+<body>
+WeakMap结构的使用方式和Map结构一样：
+两者都是使用new来创建实例。如果添加键值对的话，我们同样是使用set方法，不过键名的类型必须要求是引用类型的值，我们来看看：
+<script>
+    let wm = new WeakMap();
+
+    //数组类型的键名
+    wm.set([1],2);
+
+    //对象类型的键名
+    wm.set({'name':'Zhangsan'},2);
+
+    //函数类型的键名
+    function fn(){};
+    wm.set(fn,2);
+
+    console.log(wm);
+	/*打印：WeakMap {
+    [1] => 2,
+        Object {name: "Zhangsan"} => 2,
+        function => 2
+    }*/
+</script>
+
+WeakMap和Map的区别
+如果是普通的值类型则不允许。比如：字符串，数字，null，undefined，布尔类型。而Map结构是允许的，这就是两者的不同之处，谨记。
+
+跟Map一样，WeakMap也拥有get、has、delete方法，用法和用途都一样。
+不同地方在于，WeakMap不支持clear方法，不支持遍历，也就没有了keys、values、entries、forEach这4个方法，也没有属性size。
+
+理由跟WeakSet结构一样：键名中的引用类型是弱引用，你永远不知道这个引用对象什么时候会被垃圾回收机制回收了，
+如果这个引用类型的值被垃圾机制回收了，WeakMap实例中的对应键值对也会消失。
+</body>
+</html>

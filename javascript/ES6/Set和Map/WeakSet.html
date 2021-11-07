@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakSet</title>
+</head>
+
+<body>
+    WeakSet 结构与 Set 类似，也是不重复的值的集合。但是，它与 Set 有两个区别。
+
+    首先，WeakSet 的成员只能是对象，而不能是其他类型的值。
+
+    WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员。
+    WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员。
+    WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在
+
+    <script>
+        const ws = new WeakSet();
+    </script>
+</body>
+
+</html>

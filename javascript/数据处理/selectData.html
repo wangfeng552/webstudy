@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>根据最后一级id, 推出每一层的id</p>
+  <p>[10,5,2,-1]</p>
+  <script>
+    var resourceTreeDataOrg = [{
+      "id": "-1",    //唯一标识id
+      "name": "女装/男装/内衣",
+      "parentId": "-2"    //父级id
+    }, {
+      "id": "2",
+      "name": "女装",
+      "parentId": "-1"
+    }, {
+      "id": "3",
+      "name": "男装",
+      "parentId": "-1"
+    }, {
+      "id": "4",
+      "name": "童装",
+      "parentId": "2"
+    }, {
+      "id": "5",
+      "name": "内衣",
+      "parentId": "2"
+    }, {
+      "id": "6",
+      "name": "连衣裙",
+      "parentId": "3"
+    }, {
+      "id": "7",
+      "name": "毛呢外套",
+      "parentId": "3"
+    }, {
+      "id": "8",
+      "name": "休闲裤",
+      "parentId": "4"
+    }, {
+      "id": "9",
+      "name": "牛仔外套",
+      "parentId": "4"
+    }, {
+      "id": "10",
+      "name": "鞋靴/箱包/配件",
+      "parentId": "5"
+    }]
+
+
+    function setCatalogDefValue(catalogId) {
+      let catalogTitles = []
+      catalogTitles = resourceTreeRecursion(catalogId)
+      return catalogTitles.reverse()
+    }
+    function resourceTreeRecursion(catalogId, prve = []) {
+      if (!catalogId || catalogId == -2) {
+        //prve.push(-2)
+        return prve
+      }
+      for (let i = 0; i < this.resourceTreeDataOrg.length; i++) {
+        const item = this.resourceTreeDataOrg[i]
+        if (catalogId == item.id) {
+          prve.push(item.id)
+          return resourceTreeRecursion(item.parentId, prve)
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

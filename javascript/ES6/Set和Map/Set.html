@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set</title>
+</head>
+
+<body>
+
+    <script>
+        // Set类似于数组，但是成员的值都是唯一的，没有重复的值。
+        const s = new Set()
+        let arr = [1, 2, 3, 4, 1, 2, 3, 5, 6]
+        arr.forEach(v => {
+            s.add(v) // 添加值
+        })
+        s.delete(1) // => true      删除值
+        s.has(2) // => true         判断是否有值
+        // s.clear()// => undefined    清除所有
+
+
+        let quchong = [...new Set(arr)]  //= >  [1, 2, 3, 4, 5, 6]
+        Array.from(s) // 转换为数组
+    </script>
+
+    <script>
+        let a = [1, 2, 3]
+        let b = [4, 2, 5]
+
+        // 并集
+        let union = new Set([...a, ...b]);
+        // Set {1, 2, 3, 4}
+
+        // 交集
+        let intersect = new Set([...a].filter(x => b.has(x)));
+        // set {2, 3}
+
+        // （a 相对于 b 的）差集
+        let difference = new Set([...a].filter(x => !b.has(x)));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection" />
+	<title>Map</title>
+</head>
+
+<body>
+
+	<script>
+		var m = new Map();
+
+		//    set()给实例设置一对键值对，返回map实例。
+		//添加一个字符串类型的键名
+		m.set("name", "巷道")
+
+		//添加一个数字类型的键名
+		m.set(1, 2)
+
+		//数组类型的键名
+		m.set([1], 22)
+
+		//对象类型的键名
+		m.set({ "name": "张三" }, "我的名字")
+
+		//	布尔类型的键名
+		m.set(true, "addclass")
+
+		//Symbol类型的键名
+		//    m.set(Symbol('name'),2);
+
+		//null为键名
+		m.set(null, 2);
+
+		//undefined为键名
+		m.set(undefined, 2);
+
+		m.get(true)			//get()方法作用：获取指定键名的键值，返回键值。
+		m.has(Array[1])
+		// m.delete()
+		// m.clear()
+	</script>
+
+	<script>
+
+		// Map转数组  
+		const myMap = new Map().set(true, 7).set({}, 4)
+		let arr = [...myMap]  // => [[{true,7},[{},4]]]
+
+
+		//数组转Map
+		new Map([
+			[true, 7],
+			[{ foo: 3 }, ['abc']]
+		])
+
+
+
+		// Map 转为对象
+
+		function strMapToObj(strMap) {
+			let obj = Object.create(null);
+			for (let [k, v] of strMap) {
+				obj[k] = v;
+			}
+			return obj;  // =>{yes:true,no:false}
+		}
+		const myMap1 = new Map()
+			.set('yes', true)
+			.set('no', false);
+		strMapToObj(myMap1)
+
+		Object.fromEntries(myMap1)  // 方法2 转对象
+
+		Object.fromEntries(new URLSearchParams('foo=bar&baz=qux'))
+
+		// 对象转为 Map
+		let obj = { "a": 1, "b": 2 };
+		let objMap = new Map(Object.entries(obj));
+	</script>
+
+	<script>
+		// Map 转为 JSON
+		function strMapToJson(strMap) {
+			return JSON.stringify(strMapToObj(strMap));
+		}
+
+		let myMap2 = new Map().set('yes', true).set('no', false);
+		strMapToJson(myMap2)
+
+		// 另一种情况是，Map 的键名有非字符串，这时可以选择转为数组 JSON。
+		function mapToArrayJson(map) {
+			return JSON.stringify([...map]);
+		}
+
+		let myMap3 = new Map().set(true, 7).set({ foo: 3 }, ['abc']);
+		mapToArrayJson(myMap3)
+	</script>
+</body>
+
+</html>

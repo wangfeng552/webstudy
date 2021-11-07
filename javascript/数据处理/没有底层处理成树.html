@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function insert(item, node) {
+            const pid = item.parent_id
+            if (pid === node.key) {
+                node.children.push(item)
+                node.children.sort(function (a, b) {
+                    return b.right_value - a.right_value
+                })
+                return true
+            }
+            for (let i = 0; i < node.children.length; i++) {
+                const ptr = node.children[i]
+                if (ptr.type === 'document') continue
+                const result = insert(item, ptr)
+                if (result === true) return true
+            }
+            return false
+        }
+        var filterList = [
+            {
+                "id": 186,
+                "type": "hierarchy",
+                "title": "目录二",
+                "left_value": 198,
+                "right_value": 229,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 247,
+                "type": "hierarchy",
+                "title": "买买买买买",
+                "left_value": 207,
+                "right_value": 228,
+                "parent_id": 186,
+                "update_time": 1631862386
+            },
+            {
+                "id": 267,
+                "type": "document",
+                "title": "request198的222",
+                "left_value": 224,
+                "right_value": 225,
+                "parent_id": 247,
+                "update_time": 1631862386
+            },
+            {
+                "id": 253,
+                "type": "hierarchy",
+                "title": "#$%^&*()(*2435465787",
+                "left_value": 199,
+                "right_value": 206,
+                "parent_id": 186,
+                "update_time": 1631862386
+            },
+            {
+                "id": 67,
+                "type": "hierarchy",
+                "title": "目录一",
+                "left_value": 100,
+                "right_value": 197,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 1559,
+                "type": "document",
+                "title": "Elasticsearch实战篇喵喵喵喵喵喵木木木木木木木木的点点滴滴多多多多多多多多多多多多多多多木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木",
+                "left_value": 82,
+                "right_value": 83,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 1566,
+                "type": "document",
+                "title": "咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过 ffdsfdsfds",
+                "left_value": 74,
+                "right_value": 75,
+                "parent_id": -1,
+                "update_time": 1634019817
+            },
+            {
+                "id": 1567,
+                "type": "document",
+                "title": "咕咕咕咕咕咕dsfdfdsfdsfdsfdsf过过过过过过过appcustomerte过过过过过过过过过过过过过过过咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过ffdsfdsfds",
+                "left_value": 72,
+                "right_value": 73,
+                "parent_id": -1,
+                "update_time": 1634019828
+            },
+            {
+                "id": 1729,
+                "type": "hierarchy",
+                "title": "OO表情皿ooOm口oooooo墓ow",
+                "left_value": 52,
+                "right_value": 59,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 1783,
+                "type": "hierarchy",
+                "title": "pppppppppppppppppppp",
+                "left_value": 34,
+                "right_value": 51,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 1781,
+                "type": "document",
+                "title": "Elasticsearch实战篇111",
+                "left_value": 32,
+                "right_value": 33,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 2014,
+                "type": "document",
+                "title": "粟春兰测试用",
+                "left_value": 28,
+                "right_value": 29,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 2028,
+                "type": "document",
+                "title": "萨芬付付付付付付付付付付付付付付付付付付付付付付付付付沙发发发发王夫人沙发发发魏荣爱我的我问问阿凡达哇打放大按时大声点安大叔阿萨德的撒发更多的是GV是固定飞萨尔飞士大夫发撒第三方过多时啊定位撒的",
+                "left_value": 22,
+                "right_value": 23,
+                "parent_id": -1,
+                "update_time": 1631862386
+            },
+            {
+                "id": 2126,
+                "type": "document",
+                "title": "🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱",
+                "left_value": 14,
+                "right_value": 15,
+                "parent_id": -1,
+                "update_time": 1631862386
+            }
+        ]
+
+        const root = {
+            key: -1,
+            children: [],
+        }
+
+        for (let i = 0; i < filterList.length; i++) {
+            const ptr = filterList[i]
+            let item
+            if (ptr.type === 'document') {
+                item = {
+                    type: 'document',
+                    key: ptr.id,
+                    parent_id: ptr.parent_id,
+                    title: ptr.title,
+                    right_value: ptr.right_value,
+                }
+            } else {
+                item = {
+                    key: ptr.id,
+                    parent_id: ptr.parent_id,
+                    title: ptr.title,
+                    children: [],
+                    right_value: ptr.right_value,
+                }
+            }
+            insert(item, root)
+        }
+
+        console.log(root);
+    </script>
+
+</body>
+
+</html>

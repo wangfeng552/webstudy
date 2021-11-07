@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
+
 <body>
-<script>
-	/*  在实际开发中，我们有时需要知道对象的所有属性，原生js给我们提供了一个很好的方法：
-	 Object.keys()，该方法返回一个数组,传入对象，返回属性名*/
+  <script>
+    /*  在实际开发中，我们有时需要知道对象的所有属性，原生js给我们提供了一个很好的方法：
+     Object.keys()，该方法返回一个数组,传入对象，返回属性名*/
 
     var prople = {
       name: "心寒大概",
@@ -22,7 +24,13 @@
       Object.keys(copy).forEach((key) => (copy[key] == null || copy[key] == '') && delete copy[key])  //delete 对象属性删除
       return copy
     }
-    clearParams({name:'打款发货',age:''})
-</script>
+    clearParams({ name: '打款发货', age: '' })
+  </script>
+
+  <script>
+    const dog = { name: '大师傅', age: 45, color: 'red' }
+    Object.values(dog) // => ['大师傅', 45, 'red']
+  </script>
 </body>
+
 </html>
