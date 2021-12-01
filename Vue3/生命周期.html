@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{name}}
+        <button @click="changeName">改变name</button>
+    </div>
+
+    <script>
+        const TodoList = {
+            data() {
+                return {
+                    name: '张三',
+                    groceryList: [
+                        { id: 0, text: 'Vegetables' },
+                        { id: 1, text: 'Cheese' },
+                        { id: 2, text: 'Whatever else humans are supposed to eat' }
+                    ]
+                }
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+                console.log(this.name); // 访问不到
+            },
+            created() {
+                console.log('created');
+                console.log(this.name);
+            },
+            beforeMount() {
+                console.log('beofreMount');
+                console.log(this.name);
+            },
+            mounted() {
+                console.log('mounted');
+                console.log(this.name);
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                console.log(this.name);
+            },
+            updated() {
+                console.log('updated');
+                console.log(this.name);
+            },
+            beforeUnmount() {
+                console.log('beforeUnmount');
+                console.log(this.name);
+            },
+            unmounted() {
+                console.log('unmounted');
+                console.log(this.name);
+            },
+            methods: {
+                changeName() {
+                    this.name = '111'
+                }
+            }
+        }
+
+        const app = Vue.createApp(TodoList).mount('#app')
+    </script>
+</body>
+
+</html>

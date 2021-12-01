@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 对于带参数的 v-model 绑定，生成的 prop 名称将为 arg + "Modifiers"： -->
+        <my-component v-model:description.capitalize="myText"></my-component>
+        <div>{{myText}}</div>
+    </div>
+
+    <script>
+        const TodoList = {
+            data() {
+                return {
+                    myText: '',
+                }
+            }
+        }
+
+        const app = Vue.createApp(TodoList)
+
+        app.component('my-component', {
+            props: {
+                description: String,
+                descriptionModifiers: {
+                    default: () => { }
+                }
+            },
+            emits: ['update:description'],
+            template: `
+                        <input
+                        type="text"
+                        :value="description"
+                        @input="emitValue"
+                        >
+                    `,
+            created() {
+                console.log(this.descriptionModifiers);
+            },
+            methods: {
+                emitValue(e) {
+                    let value = e.target.value
+                    if (this.descriptionModifiers.capitalize) {
+                        value = value.charAt(0).toUpperCase() + value.slice(1)
+                    }
+                    this.$emit('update:description', value)
+                }
+            }
+        })
+        app.mount('#app')
+
+    </script>
+</body>
+
+</html>

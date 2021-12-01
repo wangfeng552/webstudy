@@ -16,12 +16,12 @@
 export default {
   data() {
     return {
-      name: '张三'
+      name: "张三",
     }
   },
   methods: {
     changName() {
-      this.name = 'changed'
+      this.name = "changed"
       //想要立即使用更新后的DOM。这样不行，因为设置message后DOM还没有更新
       console.log(this.$el.textContent) // 并不会得到'changed'
 
@@ -29,12 +29,7 @@ export default {
       this.$nextTick(() => {
         console.log(this.$el.textContent) //可以得到'changed'
       })
-    }
-  }
+    },
+  },
 }
 </script>
-
-<style lang="less" scoped>
-.layout {
-}
-</style>

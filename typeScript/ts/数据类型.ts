@@ -9,22 +9,28 @@
 //   void类型
 //   never类型
 
-var flag:boolean = true
+let address: string = '123'
+let age: number = 1
+let isShow: boolean = false
+let u: undefined = undefined
+let n: null = null
 
+// 任意值
+let myFavoriteNumber: any = 'seven'
+myFavoriteNumber = 7
 
 // 数组类型有2种方式
-var arr:number[] = [1,2];
-
-var arr2:Array<number>=[1,2,3]
-var arr3:Array<any>=[1,2,3,'213',true]
+let arr: number[] = [1, 2];
+let arr2: Array<number> = [1, 2, 3]
+let arr3: Array<any> = [1, 2, 3, '213', true]
 
 
 
 
 // 元祖类型(tuple)  属于数组的一种
 
-// var arr2:Array<number>=[1,2,3]
-let arr4:[number,string]=[123,'sadf']
+// let arr2:Array<number>=[1,2,3]
+let arr4: [number, string] = [123, 'sadf']
 
 
 
@@ -36,31 +42,31 @@ let arr4:[number,string]=[123,'sadf']
 //   标识符[=整型常熟]
 // }
 
-enum Flag {success = 1,error =2}
+enum Flag { success = 1, error = 2 }
 
-let s:Flag=Flag.success
+let s: Flag = Flag.success
 console.log(s) //=>1
 
 
 
 // null 和 undefined 其他（never类型） 数据类型的子类型
 
-var num:number
+let num: number
 console.log(num)   // => undefined
 
-var num2:undefined
+let num2: undefined
 
-var num3 :number | undefined;
+let num3: number | undefined;
 
 
 
 // void 类型： 表示没有任何类型，一般用于定义方法的时候方法没有返回值
 
-function run():void{
+function run(): void {
   console.log('run')
 }
 
-function run2():number{
+function run2(): number {
   return 123
 }
 

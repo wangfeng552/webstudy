@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 我们可以通过一个新的 ref 函数使任何响应式变量在任何地方起作用
+        // ref 接收参数并将其包裹在一个带有 value property 的对象中返回，然后可以使用该 property 访问或更改响应式变量的值：
+        import { ref, watch, computed } from 'vue';
+
+        const counter = ref(0)
+        console.log(counter); // {value:0}
+        console.log(counter.value); // 0
+
+        counter.value++
+        console.log(counter.value); // 1
+
+        const twiceCounter = computed(() => { counter.value * 2 })
+        console.log(twiceCounter.value); // 2
+
+        watch(counter, (newValue, oldValue) => {
+            console.log('The new counter value is: ' + counter.value)
+        })
+    </script>
+
+</body>
+
+</html>

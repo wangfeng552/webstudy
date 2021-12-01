@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-component v-model.capitalize="myText"></my-component>
+        <div>{{myText}}</div>
+    </div>
+
+    <script>
+        const TodoList = {
+            data() {
+                return {
+                    myText: '',
+                }
+            }
+        }
+
+        const app = Vue.createApp(TodoList)
+
+        app.component('my-component', {
+            props: {
+                modelValue: String,
+                modelModifiers: {
+                    default: () => { }
+                }
+            },
+            emits: ['update:modelValue'],
+            template: `
+                        <input
+                        type="text"
+                        :value="modelValue"
+                        @input="emitValue"
+                        >
+                    `,
+            created() {
+                console.log(this.modelModifiers);
+            },
+            methods: {
+                emitValue(e) {
+                    let value = e.target.value
+                    if (this.modelModifiers.capitalize) {
+                        value = value.charAt(0).toUpperCase() + value.slice(1)
+                    }
+                    this.$emit('update:modelValue', value)
+                }
+            }
+        })
+        app.mount('#app')
+
+    </script>
+</body>
+
+</html>
