@@ -1,0 +1,46 @@
+# https://github.com/wolfeidau/keycloak-docker-compose/blob/master/docker-compose.yml 
+version: '3'
+services: 
+  postgres:
+    restart: always
+    image: postgres
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=keycloak
+      - POSTGRES_USER=keycloak
+      - POSTGRES_PASSWORD=6jhVPaQWhgEMl0sXPnNmkLfS
+      - POSTGRES_ROOT_PASSWORD=qgZqZGdoe5loJ0OrZvq36LBr
+    networks:
+      - keycloak_net
+    volumes:
+      - ./postgresql:/var/lib/postgresql
+
+  keycloak:
+    restart: always
+    image: jboss/keycloak
+    container_name: keycloak
+    ports:
+      - "8443:8443"
+      - "8080:8080"
+      - "9990:9990"
+    environment:
+      - DB_VENDOR=postgres
+      - DB_USER=keycloak
+      - DB_DATABASE=keycloak
+      - DB_PASSWORD=6jhVPaQWhgEMl0sXPnNmkLfS
+      - DB_PORT=5432
+      - DB_ADDR=postgres
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=111111Aa
+      - KEYCLOAK_STATISTICS=all
+    networks:
+      - keycloak_net
+    depends_on:
+      - postgress
+    volumes:
+      - ./jboss:/opt/jboss
+networks:
+  keycloak_net:
+  

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      let res = [{
+        path: "/user",
+        component: "Layout",
+        alwaysShow: true,
+        name: "UserModule",
+        meta: { title: "用户管理", icon: "el-icon-s-tools" },
+        children: [
+          {
+            path: "user",
+            component: "user/user/index",
+            name: "UserModuleUser",
+            meta: { title: "用户列表" },
+          },
+
+          {
+            path: "role",
+            component: "user/role/index",
+            name: "UserModuleRole",
+            meta: { title: "角色列表" },
+          },
+        ],
+      }]
+
+      //   src/store/permission.js
+      const actions = {
+        generateRoutes({ commit }) {
+          return new Promise((resolve) => {
+            // 向后端请求路由数据
+            getInfo().then((res) => {
+              const accessedRoutes = filterAsyncRouter(res.data.menus)
+              accessedRoutes.push({ path: "*", redirect: "/404", hidden: true })
+              commit("SET_ROUTES", accessedRoutes)
+              resolve(accessedRoutes)
+            })
+          })
+        },
+      }
+
+
+       function filterAsyncRouter(asyncRouterMap) {
+        return asyncRouterMap.filter((route) => {
+          if (route.component) {
+            // Layout组件特殊处理
+            if (route.component === "Layout") {
+              route.component = 'Layout'
+            } else {
+              route.component =  () => import(`@/${route.component}.vue`)
+            }
+          }
+          if (
+            route.children != null &&
+            route.children.length != 0 &&
+            route.children &&
+            route.children.length
+          ) {
+            route.children = filterAsyncRouter(route.children)
+          }
+          return true
+        })
+      }
+    </script>
+  </body>
+</html>

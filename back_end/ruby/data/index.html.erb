@@ -1,0 +1,179 @@
+
+<div class="wf-checkwork">
+  <div class="search">
+    <div class="s-wrap">
+      <%= form_with url: "/approve/index" , method: :post do |form| %>
+        <div class="s-line">
+          <%= form.label :work, "Work:" %>
+          <%= select_tag(:work, options_for_select(@work.collect {|w| [w['subject'], w['id']]}, params[:work] ), class:"select") %>
+        </div>
+        <div class="s-line">
+          <%= form.label :start, "开始日期" %>
+          <%= form.date_field  :start, value: params[:start] %>
+        </div>
+        <div class="s-line">
+          <%= form.label :end, "结束日期" %>
+          <%= form.date_field :end, value: params[:end] %>
+        </div>
+        <div class="s-line">
+          <%= form.label :select, "状态" %>
+          <%= select_tag(:state, options_for_select([["未审批","未审批"],["通过","通过"],["拒绝","拒绝"]], params[:state] ), class:"select") %>
+        </div>
+        <div class="s-line search">
+          <%= form.submit "查询" %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="tj-wrap">
+        <% if !@worklabel.isall? %>
+          <span class="tj-main">
+              <span class="tj-label">ID：</span>
+              <span class="tj-title">
+                <%= @worklabel.issue.id %>
+              </span>
+          </span>
+          <span class="tj-main">
+              <span class="tj-label">名称：</span>
+              <span class="tj-title">
+                <%= @worklabel.issue.subject %>
+              </span>
+          </span>
+        <% else %>
+          <span class="tj-label">全部 Work</span>
+        <% end %>
+        <span class="tj-main">
+            <span class="tj-label">申请：</span>
+            <span class="tj-title">
+              <%= @worklabel.total %>
+            </span>
+        </span>
+        <span class="tj-main">
+            <span class="tj-label">承认：</span>
+            <span class="tj-title">
+              <%= @worklabel.approve %>
+            </span>
+        </span>
+        <span class="tj-main">
+            <span class="tj-label">拒绝：</span>
+            <span class="tj-title">
+              <%= @worklabel.deny %>
+            </span>
+        </span>
+        <span class="tj-main">
+            <span class="tj-label">未审批：</span>
+            <span class="tj-title">
+              <%= @worklabel.todo %>
+            </span>
+        </span>
+    </div>
+
+  </div>
+
+  <table class="list mb20">
+    <thead>
+      <tr>
+        <th>项目</th>
+        <th>问题</th>
+        <th>人员</th>
+        <th>工数</th>
+        <th>日期</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @result.each do |e| %>
+        <tr class="hascontextmenu <%= cycle('odd', 'even') %>">
+          <td>
+            <%= e['project_name'] %>
+          </td>
+          <td>
+            <%= e['subject'] %>
+          </td>
+          <td>
+            <%= e['lastname'] %>
+              <%= e['firstname'] %>
+          </td>
+          <td>
+            <%= e['hours'] %>
+          </td>
+          <td>
+            <%= e['created_on'] %>
+          </td>
+          <td>
+            <%= e['value'] %>
+          </td>
+          <td>
+            <%# <div class="wf-button"> %>
+              <%= link_to "审批" , {action: "approve" , id: e['id'], approve: "通过" }, method: :post, class: "approve" %> |
+            <%# </div> %>
+            <%# <div class="wf-button"> %>
+              <%= link_to "拒绝" , {action: "approve" , id: e['id'], approve: "拒绝" }, method: :post, class: "approve" %>
+            <%# </div> %>
+          </td>
+        </tr>
+        <%end%>
+    </tbody>
+  </table>
+  <div class="pagination"><%= pagination_links_full @pages, @count %></div>
+
+</div>
+
+<div id="dialog-confirm" title="审批?" style="display:none">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be
+    permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
+
+<style>
+    .wf-checkwork {
+        padding-top: 10px;
+    }
+
+    .wf-checkwork .s-wrap .s-line {
+        display: inline-block;
+        margin: 0 20px 10px 0;
+    }
+
+    .wf-checkwork .tj-wrap {
+        margin-bottom: 15px;
+        border-top: 1px solid #e4e4e4;
+        padding-top: 15px;
+    }
+
+    .wf-checkwork .tj-wrap .tj-main {
+        margin-right: 20px
+    }
+
+    .wf-checkwork .tj-wrap .tj-main .tj-label {
+        color: #999;
+    }
+
+    .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button-text {
+        display: inline;
+    }
+
+    .wf-checkwork .mb20 {
+        margin-bottom: 20px;
+    }
+
+    .wf-checkwork .search input[type="submit"] {
+        display: inline-block;
+        line-height: 1;
+        white-space: nowrap;
+        cursor: pointer;
+        background-color: #628DB6;
+        border: 1px solid #628DB6;
+        color: #fff;
+        -webkit-appearance: none;
+        text-align: center;
+        box-sizing: border-box;
+        outline: none;
+        margin: 0;
+        transition: .1s;
+        font-weight: 500;
+        padding: 5px 15px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+</style>

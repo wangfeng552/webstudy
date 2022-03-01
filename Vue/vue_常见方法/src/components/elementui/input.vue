@@ -5,6 +5,7 @@
 
     <el-input
       v-model="formData.reduceMoney"
+       @blur="formData.reduceMoney=$event.target.value.trim()"
       class="input200"
       type="number"
       @focus="discountMethodFocus(1)"

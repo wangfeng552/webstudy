@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    2种模式对比：attached模式在前台运行，detached模式在后台运行
+
+   
+
+    <!-- attached模式 -p <port:port> 端口映射 -->
+    <!-- 第1个端口是映射到服务器本机的端口;第2个端口是Docker容器使用的端口。  127.0.0.1：80-->
+    docker container run -p 80:80 nginx  
+
+    <!-- detached模式 -d -->
+    docker container run -d -p 90:80 nginx
+    
+    <!-- detached模式转attached -->
+    docker  attach <ID or Image Name>
+
+
+
+    <!-- detached模式下查看logs  -->
+    <!-- 查看后台日志 logs-->
+    docker container logs <ID or Image Name>
+
+    <!-- 动态一直跟踪日志 -f -->
+    docker container logs -f <ID or Image Name>  // =>  Ctrl+C就可以结束掉了
+</body>
+</html>

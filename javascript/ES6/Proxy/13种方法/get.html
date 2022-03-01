@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    get可以接受三个参数，依次为目标对象、属性名和 proxy 实例本身
+    <script>
+        const obj = new Proxy({}, {
+            get: function (target, propKey, receiver) {
+                if (propKey in target) {
+                    return target[propKey]
+                } else {
+                    throw new TypeError('the age is not an interger')
+                }
+            },
+        })
+    </script>
+
+</body>
+
+</html>

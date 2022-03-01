@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    set可以接受四个参数，依次为目标对象、属性名、属性值和 proxy 实例本身
+    注意，set代理应当返回一个布尔值。严格模式下，set代理如果没有返回true，就会报错。
+    <script>
+        const obj = new Proxy({}, {
+            set: function (target, propKey, value, receiver) {
+                if (propKey === 'age') {
+                    if (!Number.isInteger(value)) {
+                        throw new TypeError('the age is not an interger')
+                    }
+                    if (value > 200) {
+                        throw new TypeError('the age is big')
+                    }
+                }
+
+                target[propKey] = value;
+
+                return true
+            }
+        })
+    </script>
+
+</body>
+
+</html>

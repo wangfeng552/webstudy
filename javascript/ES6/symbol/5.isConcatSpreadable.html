@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>isConcatSpreadable</title>
+</head>
+
+<body>
+    对象的Symbol.isConcatSpreadable属性等于一个布尔值，表示该对象用于Array.prototype.concat()时，是否可以展开。
+
+    <script>
+        let arr1 = ['c', 'd'];
+        ['a', 'b'].concat(arr1, 'e') // ['a', 'b', 'c', 'd', 'e']
+        arr1[Symbol.isConcatSpreadable] // undefined
+
+        let arr2 = ['c', 'd'];
+        arr2[Symbol.isConcatSpreadable] = false;
+        ['a', 'b'].concat(arr2, 'e') // ['a', 'b', ['c','d'], 'e']
+    </script>
+</body>
+
+</html>

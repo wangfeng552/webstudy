@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // var arr1 = [1, 2, 3], arr2 = [4, 5, 6], arr3 = [4, 5, 6];
+        // var result = arr1.map(function (index, item) {
+        //     return index + arr2[item] + arr3[item]
+        // });
+        // console.log(result);
+
+        var arr1 = [1, 2, 3, 4, 5, 6];
+        var arr2 = [11, 12, 13, 14, 15, 16];
+        var arr3 = [10, 21, 31, 41, 51, 61];
+        var sum = { arr1, arr2, arr3 };
+
+        console.log(sum);
+
+
+
+    </script>
+
+    <script>
+        // vue实现方法
+        export default {
+            data() {
+                return {
+                    arr: [
+                        { name: "car", data: [1, 2, 3, 4] },
+                        { name: "dog", data: [2, 4, 1, 40] },
+                    ],
+                };
+            },
+            mounted() {
+                this.add();
+            },
+            methods: {
+                add() {
+                    let arr = this.arr;
+                    let sum = {}; // sum:{ sr1:[1,2,3,4],sr2:[2,4,1,40]}
+                    for (let i = 0; i < arr.length; i++) {
+                        sum["sr" + i] = arr[i]["data"];
+                    }
+                    //保存结果的数组
+                    let result = [];
+                    for (let key in sum) {
+                        console.log(key);
+                        let sumKey = sum[key];
+                        //遍历数组的每一项
+                        sumKey.map((val, index) => {
+                            if (result[index] == null || result[index] == "") {
+                                result[index] = 0;
+                            }
+                            result[index] += val;
+                        });
+                    }
+                    console.log(result);
+                },
+            },
+        };
+    </script>
+
+</body>
+
+</html>

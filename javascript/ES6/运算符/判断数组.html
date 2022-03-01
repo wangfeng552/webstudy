@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const arr = [1, 2, 3, 4]
+        Array.isArray(arr)  // true
+
+        arr instanceof Array // true   instanceof关键字，是用来判断某个元素是否某对象构造函数实例
+
+        Object.prototype.toString.call(arr) === '[Object Array]' // true 对象的toString方式也可以判定数组类型
+
+        arr.constructor === Array  // 构造函数来判定
+
+    </script>
+
+</body>
+
+</html>

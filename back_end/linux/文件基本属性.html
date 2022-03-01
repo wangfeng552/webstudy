@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    chown  修改所属用户与组
+    chmod  修改用户权限
+    <div>
+        <img src="./file-llls.jpg" alt="">
+    </div>
+
+    ls -l  显示一个文件的属性以及文件所属的用户和组
+    drwxr-x--- 2 root1 root2 4096 Feb 15 14:45 cron
+    d:目录
+    rwx -- user  permissions
+    r-x -- group permissions
+    --- -- other permissions
+    root1  属主
+    root2  属组
+
+    <!-- case -->
+    <!-- chown [–R] 属主名 文件名 -->
+    chown bin install.log           <!-- 将install.log的拥有者改为bin这个账号： -->
+    <!-- chown [-R] 属主名：属组名 文件名 -->
+    chown root:root install.log     <!-- 将install.log的拥有者与群组改回为root： -->
+
+    r:4  读
+    w:2  写
+    x:1  执行
+
+
+    sudo chmod -R 777 jenkins   -R 对目前目录下的所有文件与子目录进行相同的权限变更 | 777  读写执行 R W X
+
+</body>
+</html>

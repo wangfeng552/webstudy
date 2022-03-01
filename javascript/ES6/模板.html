@@ -1,20 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>js函数继承</title>
+  </head>
+  <body>
+    <script>
+      //本继承函数p1
+      function p1(opt) {
+        this.name = opt.name;
+        this.age = opt.age;
+      }
+      //p1的函数方法
+      p1.prototype.sayName = function () {
+        console.log(this.name);
+      };
+      /********下面方法是 p2继承p1的变量 ******/
+      function p2(opt) {
+        p1.call(this, opt); //继承p1的属性 如果不需要继承属性可以不写
+        this.sex = opt.sex; //p2自己的属性
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
+      /*********下面方法是 P2继承p1的函数 ******/
+      //方法三 (方法1与2的结合，既不地址相同 也不继承不需要的属性)
+      function c() {} //声明一个第三容器存放prototype
+      c.prototype = p1.prototype; //此时地址相同
+      p2.prototype = new c(); //实例化后地址不同
+      //只能在prototype相等的下面添加p1自己的方法 这样不会被覆盖
+      p2.prototype.sayAge = function () {
+        console.log(this.age);
+      };
+      //实例化p2
+      const o2 = new p2({
+        name: "蜘蛛侠",
+        age: "19",
+        sex: "man",
+      });
+      console.log(o2); //输出p2
 
-<body>
-
-  <script>
-    var arr = ['1', '2']
-
-
-  </script>
-</body>
-
+    
+    </script>
+  </body>
 </html>

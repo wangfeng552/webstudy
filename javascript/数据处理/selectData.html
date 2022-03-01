@@ -54,12 +54,14 @@
       "parentId": "5"
     }]
 
-
+    // 倒叙排列
     function setCatalogDefValue(catalogId) {
       let catalogTitles = []
       catalogTitles = resourceTreeRecursion(catalogId)
       return catalogTitles.reverse()
     }
+
+
     function resourceTreeRecursion(catalogId, prve = []) {
       if (!catalogId || catalogId == -2) {
         //prve.push(-2)
@@ -73,6 +75,8 @@
         }
       }
     }
+
+
   </script>
 </body>
 

@@ -1,0 +1,23 @@
+version: '3.8'
+
+services: #容器
+  servicename: #服务名字，这个名字也是内部 bridge网络可以使用的 DNS name
+    restart: always #容器总是重新启动
+    container_name: docker #容器名
+    image: dockerimg #镜像名字
+    command: 'curl mysql:3306' #覆盖默认镜像里的 CMD命令
+    environment: #添加环境变量
+      - name=lisi
+    volumes: #将主机的数据卷或着文件挂载到容器里
+     - ""./wf:/var/lib/mysql"
+    networks: #配置容器连接的网络，引用顶级 networks 下的条目 
+     - mysql_network
+    ports: #端口映射
+     - "8080:8080"
+    depends_on:  #启动顺序
+     - servicename2
+
+  servicename2:
+
+networks: # 可选，配置容器连接的网络，引用顶级 networks 下的条目 
+  mysql_network:

@@ -5,8 +5,13 @@ function fun(): string {
 
 
 // 匿名函数
-var fun2 = function (): number {
+let fun2 = function (): number {
   return 12
+}
+
+// 在 TypeScript 的类型定义中，=> 用来表示函数的定义，左边是输入类型，需要用括号括起来，右边是输出类型。
+let mySum2: (x: number, y: number) => number = function (x: number, y: number): number {
+  return x + y
 }
 
 
@@ -16,7 +21,7 @@ function getInfo(name: string, age: number): string {
 }
 
 
-// 方法可选参数 必须放在后面
+// 方法可选参数 必须放在后面使用?
 function getInfo2(name: string, age?: number): string {
   return `${name}---${age}`
 }
@@ -26,7 +31,7 @@ function getInfo2(name: string, age?: number): string {
 function getName(name: string = '123') { }
 
 
-// 剩余参数  ...运算符接收新参传过来的值
+// 剩余参数  ...运算符接收新参传过来的值, rest参数只能是最后一个参数
 function sum(...result: number[]): number {
   var sum = 0;
   for (var i = 0; i < result.length; i++) {

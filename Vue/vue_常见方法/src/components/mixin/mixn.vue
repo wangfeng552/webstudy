@@ -1,32 +1,30 @@
 <template>
   <div class="news">
-    值为对象的选项，例如 methods、components 和
-    directives，将被合并为同一个对象。两个对象键名冲突时，取组件对象的键值对。
+    <p>执行顺序:全局混入--->局部混入--->构造器</p>
+    <p>混入的方法和构造器里的方法重名，混入的方法不执行</p>
   </div>
 </template>
 
 <script>
-import wf from './wf'
+import wf from "./wf";
 export default {
   data() {
     return {
-      name: 'com',
-      age: 24
-    }
+      name: "com",
+      age: 24,
+    };
   },
   mixins: [wf],
   created() {
-    console.log(222)
+    console.log(222);
   },
   methods: {
     bar() {
-      console.log('bar')
+      console.log("bar");
     },
     conflicting() {
-      console.log('form self')
-    }
-  }
-}
+      console.log("form self");
+    },
+  },
+};
 </script>
-
-

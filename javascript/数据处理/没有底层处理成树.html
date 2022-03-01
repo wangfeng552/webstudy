@@ -10,29 +10,11 @@
 
 <body>
     <script>
-
-        function insert(item, node) {
-            const pid = item.parent_id
-            if (pid === node.key) {
-                node.children.push(item)
-                node.children.sort(function (a, b) {
-                    return b.right_value - a.right_value
-                })
-                return true
-            }
-            for (let i = 0; i < node.children.length; i++) {
-                const ptr = node.children[i]
-                if (ptr.type === 'document') continue
-                const result = insert(item, ptr)
-                if (result === true) return true
-            }
-            return false
-        }
         var filterList = [
             {
                 "id": 186,
                 "type": "hierarchy",
-                "title": "目录二",
+                "title": "目录一",
                 "left_value": 198,
                 "right_value": 229,
                 "parent_id": -1,
@@ -68,7 +50,7 @@
             {
                 "id": 67,
                 "type": "hierarchy",
-                "title": "目录一",
+                "title": "目录二",
                 "left_value": 100,
                 "right_value": 197,
                 "parent_id": -1,
@@ -77,7 +59,7 @@
             {
                 "id": 1559,
                 "type": "document",
-                "title": "Elasticsearch实战篇喵喵喵喵喵喵木木木木木木木木的点点滴滴多多多多多多多多多多多多多多多木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木木",
+                "title": "目录三",
                 "left_value": 82,
                 "right_value": 83,
                 "parent_id": -1,
@@ -86,7 +68,7 @@
             {
                 "id": 1566,
                 "type": "document",
-                "title": "咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过 ffdsfdsfds",
+                "title": "目录四",
                 "left_value": 74,
                 "right_value": 75,
                 "parent_id": -1,
@@ -95,7 +77,7 @@
             {
                 "id": 1567,
                 "type": "document",
-                "title": "咕咕咕咕咕咕dsfdfdsfdsfdsfdsf过过过过过过过appcustomerte过过过过过过过过过过过过过过过咕咕咕咕咕咕过过过过过过过过过过过过过过过过过过过过过过ffdsfdsfds",
+                "title": "目录五",
                 "left_value": 72,
                 "right_value": 73,
                 "parent_id": -1,
@@ -104,62 +86,36 @@
             {
                 "id": 1729,
                 "type": "hierarchy",
-                "title": "OO表情皿ooOm口oooooo墓ow",
+                "title": "目录六",
                 "left_value": 52,
                 "right_value": 59,
-                "parent_id": -1,
-                "update_time": 1631862386
-            },
-            {
-                "id": 1783,
-                "type": "hierarchy",
-                "title": "pppppppppppppppppppp",
-                "left_value": 34,
-                "right_value": 51,
-                "parent_id": -1,
-                "update_time": 1631862386
-            },
-            {
-                "id": 1781,
-                "type": "document",
-                "title": "Elasticsearch实战篇111",
-                "left_value": 32,
-                "right_value": 33,
-                "parent_id": -1,
-                "update_time": 1631862386
-            },
-            {
-                "id": 2014,
-                "type": "document",
-                "title": "粟春兰测试用",
-                "left_value": 28,
-                "right_value": 29,
-                "parent_id": -1,
-                "update_time": 1631862386
-            },
-            {
-                "id": 2028,
-                "type": "document",
-                "title": "萨芬付付付付付付付付付付付付付付付付付付付付付付付付付沙发发发发王夫人沙发发发魏荣爱我的我问问阿凡达哇打放大按时大声点安大叔阿萨德的撒发更多的是GV是固定飞萨尔飞士大夫发撒第三方过多时啊定位撒的",
-                "left_value": 22,
-                "right_value": 23,
-                "parent_id": -1,
-                "update_time": 1631862386
-            },
-            {
-                "id": 2126,
-                "type": "document",
-                "title": "🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱🧑👸👸👩‍🦱👩‍🦱🧓👱",
-                "left_value": 14,
-                "right_value": 15,
                 "parent_id": -1,
                 "update_time": 1631862386
             }
         ]
 
+        // 设置根节点
         const root = {
             key: -1,
             children: [],
+        }
+
+        function insert(item, node) {
+            const pid = item.parent_id  //item的父ID
+            if (pid === node.key) { // item.父ID 和节点的key相同就往里添加item
+                node.children.push(item)
+                node.children.sort(function (a, b) {
+                    return b.right_value - a.right_value
+                })
+                return true
+            }
+            for (let i = 0; i < node.children.length; i++) {  // 循环node.children
+                const ptr = node.children[i]  // node children 的每一行
+                if (ptr.type === 'document') continue   // 如果是文档就跳过
+                const result = insert(item, ptr)  // 否则递归 传入item 和 node children 的每一行作为节点
+                if (result === true) return true       // 如果找到了返回true
+            }
+            return false  //找不到就返回false
         }
 
         for (let i = 0; i < filterList.length; i++) {
@@ -178,7 +134,7 @@
                     key: ptr.id,
                     parent_id: ptr.parent_id,
                     title: ptr.title,
-                    children: [],
+                    children: [],  // 文件夹就添加一个children字段
                     right_value: ptr.right_value,
                 }
             }

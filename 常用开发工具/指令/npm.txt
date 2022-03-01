@@ -1,5 +1,9 @@
 http://www.cnblogs.com/PeunZhang/p/5553574.html
 
+npm install -g cnpm --registry=https://registry.npmmirror.com  ÌÔ±¦¾µÏñ
+npm config set registry https://registry.npmmirror.com
+cnpm
+
 npm install --save 
 npm install -S
 

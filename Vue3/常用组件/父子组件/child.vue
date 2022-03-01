@@ -2,11 +2,17 @@
   <div>
     <div>child{{ msg }}</div>
     <button @click="changeName">子组件修改父组件数据</button>
+    <input v-model="data" @input="getInputValue" type="text" />
   </div>
 </template>
+
 <script setup>
-import { defineProps, defineEmits, ref, defineExpose } from "vue"
-const childName = ref("childName")
+import { defineProps, defineEmits, reactive, defineExpose } from "vue"
+
+const state = reactive({
+  childName: "李四",
+})
+
 const props = defineProps({
   msg: {
     type: String,
@@ -34,13 +40,23 @@ const props = defineProps({
 
 const emit = defineEmits(["changeName"])
 
+const getName = () => {
+  console.log(111)
+}
+
 const changeName = () => {
   console.log(props.msg)
   emit("changeName", "wf")
 }
 
+const getInputValue = (event) => {
+  event.targte.value
+}
+
 // 暴露出去的属性
 defineExpose({
-  childName,
+  ...state,
+  getName,
+  changeName,
 })
 </script>

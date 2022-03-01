@@ -1,0 +1,179 @@
+<div class="wf-checkwork">
+  <div class="search">
+    <div class="s-wrap">
+      <div class="s-line">
+        work：
+        <select id="car-type">
+          <option>Compact car</option>
+          <option>Midsize car</option>
+          <option>Full size car</option>
+        </select>
+        <%# 
+         <%=select_tag "category" ,"<option value=''>Category</option>" +
+          options_from_collection_for_select(@store_categories, "id", "name",params[:category].to_i)%>
+      </div>
+      <div class="s-line">开始时间: <input type="text"></div>
+      <div class="s-line">结束时间: <input type="text"></div>
+      <div class="s-line">状态: <select id="car-type">
+          <option>Compact car</option>
+          <option>Midsize car</option>
+          <option>Full size car</option>
+        </select></div>
+      <div class="s-line">
+        <div class="wf-button">查询</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="list mb20">
+    <thead>
+      <tr>
+        <th>
+          项目
+        </th>
+        <th>人员</th>
+        <th>工数</th>
+        <th>日期</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="hascontextmenu even">
+        <td>1234</td>
+        <td>123</td>
+        <td>123</td>
+        <td>123</td>
+        <td>123</td>
+        <td>
+          <div class="wf-button">审批</div>
+          <div class="wf-button">拒绝</div>
+        </td>
+      </tr>
+      <tr class="hascontextmenu odd">
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td class="w200">
+          <div class="wf-button">审批</div>
+          <div class="wf-button">拒绝</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <span class="pagination">
+    <ul class="pages">
+      <li class="previous"><span>« 上一页</span></li>
+      <li class="current"><span>1</span></li>
+      <li class="page"><a href="/issues?page=2">2</a></li>
+      <li class="next page"><a accesskey="n" href="/issues?page=2">下一页 »</a></li>
+    </ul>
+    <span>
+      <span class="items">(1-25/27)</span>
+      <span class="per-page">每页显示：<span class="selected">25</span>, <a href="/issues?per_page=50">50</a></span>
+    </span>
+  </span>
+</div>
+
+<div id="dialog-confirm" title="审批?" style="display:none">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>These items will be
+    permanently deleted and cannot be recovered. Are you sure?</p>
+</div>
+
+<div class="wf-message wf-msg-yes">
+  <p class="message-yes">审批成功！</p>
+</div>
+
+<%# <div class="wf-message wf-msg-error">
+  <p class="message-yes">审批失败！</p>
+  </div> %>
+
+  <script>
+    $(".wf-msg-yes").show().delay(5000).fadeOut();
+  </script>
+
+  <style>
+  .w200{
+    width:200px;
+  }
+    .wf-message {
+      min-width: 380px;
+      box-sizing: border-box;
+      border-radius: 4px;
+      border: 1px solid #ebeef5;
+      position: fixed;
+      left: 50%;
+      top: 20px;
+      transform: translateX(-50%);
+      background-color: #edf2fc;
+      transition: opacity .3s, transform .4s, top .4s;
+      overflow: hidden;
+      padding: 15px 15px 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .wf-message p {
+      margin: 0;
+    }
+
+    .wf-msg-yes {
+      background-color: #f0f9eb;
+      border-color: #e1f3d8;
+    }
+
+    .message-yes {
+      color: #67c23a;
+      line-height: 24px;
+    }
+
+    .wf-msg-error {
+      background-color: #fef0f0;
+      border-color: #fde2e2;
+    }
+
+    .wf-msg-error .message-yes {
+      color: #d82929;
+      line-height: 24px;
+    }
+
+    .wf-checkwork {
+      padding-top: 10px;
+    }
+
+    .wf-checkwork .s-wrap .s-line {
+      display: inline-block;
+      margin: 0 20px 20px 0
+    }
+
+    .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button-text {
+      display: inline;
+    }
+
+    .wf-checkwork .mb20 {
+      margin-bottom: 20px;
+    }
+
+    .wf-checkwork .wf-button {
+      display: inline-block;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      background-color: #628DB6;
+      border: 1px solid #628DB6;
+      color: #fff;
+      -webkit-appearance: none;
+      text-align: center;
+      box-sizing: border-box;
+      outline: none;
+      margin: 5px;
+      transition: .1s;
+      font-weight: 500;
+      padding: 5px 15px;
+      font-size: 14px;
+      border-radius: 4px;
+    }
+  </style>

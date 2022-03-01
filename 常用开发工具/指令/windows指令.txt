@@ -8,3 +8,4 @@ cd xiayiji  	进入文件夹
 mkdir mulu	创建目录
 
 rm wenjian	删除文件
+type 1.txt		查看内容

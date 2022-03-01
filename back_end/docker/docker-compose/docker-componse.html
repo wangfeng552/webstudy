@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    docker-compose就是把很多Docker命令写入一个专属的文件docker-compose.yml,然后执行这个文件，就可以直接启动我们想要的容器
+
+    <!-- 后台detached模式运行 -->
+    docker-compose up -d
+
+    <!-- 停止容器 -->
+    docker-compose stop
+
+    <!-- 重启容器 -->
+    docker-compose restart <ID or Image name></ID>
+
+    <!-- 重新编译 -->
+    docker-compose build
+
+    <!-- 查看service运行情况 -->
+    docker-compose ps
+
+    <!-- 删除容器 -->
+    docker-compose rm
+    docker-compose down
+
+
+
+
+
+    <!-- case -->
+    sudo chmod -R 777 jenkins -R 对目前目录下的所有文件与子目录进行相同的权限变更 | 777 读写执行 R W X
+
+    <!--启动jenkins容器-->
+    sudo docker-compose up -d jenkins
+
+    <!-- 用bash脚本的方式执行交互模式 exec执行 -->
+    docker exec -it <ID or Image name> /bin/bash
+        <!-- 目录下文件 -->
+        ls
+        <!-- 计算机名称 -->
+        hostname
+        <!-- 退出 -->
+        exit
+
+    <!-- 查看后台日志 logs-->
+    sudo docker container logs <ID or Image Name>
+
+    <!-- 拷贝容器内容到本地-->
+    docker cp 3b48:/usr/src/redmine ./redmine-data
+
+
+
+
+
+
+
+</body>
+
+</html>

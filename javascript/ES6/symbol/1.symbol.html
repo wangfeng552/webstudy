@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="telephone=no,email=no" name="format-detection" />
+	<title>Symbol独一无二的值</title>
+</head>
+
+<body>
+	Symbol的初衷：解决对象的属性名冲突
+	<script>
+		//定义一个symbol类型的变量
+		let sm = Symbol() //=> Symbol();	
+
+		// Symbol函数接收参数，用于对实例值得描述
+		let people = Symbol('zhangsan') //=> Symbol(zhangsan)
+		people.description  // => 'zhangsan'
+	</script>
+
+	<script>
+		// 如果 Symbol 的参数是一个对象，调用该对象的toString方法，将其转为字符串，然后才生成一个 Symbol 值。
+		const person = {
+			name: '李四',
+			toString() {
+				return 'name';
+			}
+		};
+		const sym = Symbol(person); // => Symbol(name)
+	</script>
+
+	<script>
+		// Symbol函数的返回值是不相等的。
+		let s1 = Symbol();
+		let s2 = Symbol();
+		s1 === s2 // => false
+
+		// 即使参数一样，描述一样，得到的两个值也是不相等的
+		let s1 = Symbol('foo');
+		let s2 = Symbol('foo');
+		s1 === s2 // => false
+	</script>
+
+	<script>
+		// Symbol 值也可以转为布尔值，但是不能转为数值。
+		let sym = Symbol();
+		Boolean(sym) // => true
+		!sym  // => false
+
+		if (sym) {
+			// ...
+		}
+	</script>
+
+
+
+</body>
+
+</html>

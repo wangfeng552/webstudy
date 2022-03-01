@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>docker</title>
+</head>
+
+<body>
+    <!-- 创建nginx 容器 -->
+    docker container run nginx 
+
+    <!-- 查看容器信息状态 -->
+    docker container ls    简写   docker ps
+
+    <!-- 查看所有容器信息状态 -->
+    docker container ls -a  简写  docker ps -a
+
+    <!-- 容器的停止 -->
+    docker container stop <name or ID>  简写 docker stop  <name or ID> 
+
+    <!-- 容器的删除 -->
+    docker container rm <name or ID>  简写 docker rm <name or ID> 
+
+    <!-- 强制删除正在运行的容器 -f  -->
+    docker container rm <ID or Image Name > -f  
+
+    <!-- 查看容器所有信息 -->
+    docker container inspect <Container ID>
+
+    <!-- 查看容器端口 -->
+    docker container inspect --format '{{.Config.ExposedPorts}}' <ContainerID>
+
+
+
+    <!-- 查看现在所有容器的ID -->
+    docker container ps -aq  
+
+    <!-- 停止所有容器 -->
+    docker container stop $(docker container ps -aq)  
+    
+    <!-- 删除多个容器 -->
+    docker container rm $(docker container ps -aq) 
+
+</body>
+
+</html>

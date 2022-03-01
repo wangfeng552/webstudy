@@ -7,7 +7,12 @@
 <script setup>
 // useRoute =  this.$route()
 // useRouter =  this.$router()
-import { useRoute, useRouter } from "vue-router"
+import {
+  useRoute,
+  useRouter,
+  onBeforeRouteLeave,
+  onBeforeRouteUpdate,
+} from "vue-router"
 
 // 获取url上的参数
 const route = useRoute()
@@ -23,4 +28,15 @@ const goRegisterNew = () => {
     },
   })
 }
+
+// 添加一个导航守卫，在当前组件将要离开时触发。
+onBeforeRouteLeave((to, from, next) => {
+  next()
+})
+
+// 添加一个导航守卫，在当前组件更新时触发。
+// 在当前路由改变，但是该组件被复用时调用。
+onBeforeRouteUpdate((to, from, next) => {
+  next()
+})
 </script>

@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
-函数Func(Type a,...)直接或间接调用函数本身，则该函数称为递归函数。递归函数不能定义为内联函数.
+    函数Func(Type a,...)直接或间接调用函数本身，则该函数称为递归函数。递归函数不能定义为内联函数.
 
-<script>
-
-    function digui(a) {
-        if(a<=1){
-            return 1
-        }else{
-            return a*digui(a-1)
-        }
-    }
-    digui(5)
-
-//    使用命名函数表达书
-    var wf=function a(n) {
-        if(n<=1){
-            return 1
-        }else{
-            return n*a(n-1)
-        }
-    }
-
-    function arg(a) {
-        console.log(arguments)
-        if(a<=1){
-            return 1;
-        }else{
-            return a*arguments.callee(a-1)
-        }
-    }
-</script>
-
-<script>
-//    for循环
-    function xunhuan(a) {
-        if(a<=1){
-            return 1
-        } else{
-            var val=1;
-            for(var i=1;i<=a;i++){
-                val=val*i
+    <script>
+        function digui(a) {
+            if (a <= 1) {
+                return 1
+            } else {
+                return a * digui(a - 1)
             }
-            return val
         }
-    }
-</script>
+        digui(5)
 
-<!-- 
+        //    使用命名函数表达书
+        var wf = function a(n) {
+            if (n <= 1) {
+                return 1
+            } else {
+                return n * a(n - 1)
+            }
+        }
+
+        function arg(a) {
+            console.log(arguments)
+            if (a <= 1) {
+                return 1;
+            } else {
+                return a * arguments.callee(a - 1)
+            }
+        }
+    </script>
+
+    <script>
+        //    for循环
+        function xunhuan(a) {
+            if (a <= 1) {
+                return 1
+            } else {
+                var val = 1;
+                for (var i = 1; i <= a; i++) {
+                    val = val * i
+                }
+                return val
+            }
+        }
+    </script>
+
+    <!-- 
 当一个函数被递归调用，在递归没有完成时，函数的计算结果暂时被挂起。为了说明这个 过程，这里展示了以 5 作为参数，调用 factorial() 函数时函数的执行过程：
 
 5 * factorial(4)
@@ -75,4 +76,5 @@
 
  -->
 </body>
+
 </html>

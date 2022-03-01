@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //兼容IE6写法
+      var slice = Array.prototype.slice;
+      function ieBind(ieThis) {
+        var args = slice.call(arguments, 1);
+        // this就是调用bind的函数
+        var fn = this;
+        function fn2() {
+          var args2 = slice.call(arguments, 0);
+          return fn.apply(
+            fn2.prototype.isPrototypeOf(this) ? this : ieThis,
+            args.concat(args2)
+          );
+        }
+        fn2.prototype = fn.prototype;
+        return fn2;
+      }
+
+      //es6写法
+      function _bind(obj, ...arg) {
+        const fn = this; // this就是调用bind的函数
+        function fn2(...arg2) {
+          return fn.call(this instanceof fn2 ? this : obj, ...arg, ...arg2);
+        }
+        fn2.prototype = fn.prototype;
+        return fn2;
+      }
+
+      // module.exports = ieBind;
+      module.exports = _bind;
+
+      if (!Function.prototype.bind) {
+        //polyfill
+        Function.prototype.bind = _bind;
+      }
+    </script>
+  </body>
+</html>

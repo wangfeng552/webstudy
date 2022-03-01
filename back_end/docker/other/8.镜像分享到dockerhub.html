@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 用户ID/镜像名称 -->
+    docker image build -t jspangcom/jspang .
+
+    <!-- 把jspang这个镜像，改为jspangcom/jspang镜像, -->
+    docker image tag jspang jspangcom/jspang
+
+    <!-- 登录Dockerhub账号 -->
+    docker login
+
+    <!-- docker image push Name[:TAG] -->
+    docker image push jspangcom/jspang
+</body>
+</html>

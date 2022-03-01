@@ -1,0 +1,68 @@
+<%= link_to '拒绝', {}, :onclick => "showDialog(); return false;" %>
+
+<div id="dialog-confirm" class="remark-dialog"  title="拒绝原因" style="display:none">
+  <%= form_with url: "/search", method: :post do |form| %>
+    <%= form.text_area :query, :class=>"wf-textarea" , :placeholder=>"请输入原因" %>
+    <div class="btn-center">
+      <%= form.submit "确认", :class=>"wf-btn", :onclick=>"hideDialog();return false;" %>
+    </div>
+  <% end %>
+</div>
+
+<%= javascript_tag do %>
+  function showDialog(params) {
+    $(".wf-textarea").attr("value","")
+    $( "#dialog-confirm" ).dialog({
+      resizable: true,
+      height: "auto",
+      width: 600,
+      modal: true,
+    });
+  }
+  function hideDialog() {
+    let reason = $(".wf-textarea").val()
+    if(!reason){
+      alert('请输入原因再提交')
+      return
+    }
+    console.log(reason);
+    $( "#dialog-confirm" ).dialog( "close" )
+  }
+<% end %>
+
+<%# 弹窗样式 %>
+<style>
+   .remark-dialog .btn-center{
+     text-align: center
+   }
+  .remark-dialog .wf-btn{
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: #628DB6;
+    border: 1px solid #628DB6;
+    color: #fff;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    transition: .1s;
+    font-weight: 500;
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+  .remark-dialog .wf-textarea{
+    width:100%;
+    margin-bottom:20px;
+    min-height:80px;
+  }
+  .remark-dialog .wf-btn:hover{
+    color:#628DB6;
+  }
+  .remark-dialog .remark{
+    width:'100%'
+  }
+  </style>

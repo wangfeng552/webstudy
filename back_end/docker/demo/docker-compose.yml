@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  my-wordpress:
+    container_name: wf
+    image: wordpress:latest
+    ports:
+      - 901:80

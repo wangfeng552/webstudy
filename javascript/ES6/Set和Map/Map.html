@@ -8,11 +8,12 @@
 </head>
 
 <body>
-
+	Map它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+	也就是说，Object 结构提供了“字符串—值”的对应，Map 结构提供了“值—值”的对应，是一种更完善的 Hash结构实现。
 	<script>
 		var m = new Map();
 
-		//    set()给实例设置一对键值对，返回map实例。
+		// set()给实例设置一对键值对，返回map实例。
 		//添加一个字符串类型的键名
 		m.set("name", "巷道")
 
@@ -39,12 +40,30 @@
 
 		m.get(true)			//get()方法作用：获取指定键名的键值，返回键值。
 		m.has(Array[1])
-		// m.delete()
-		// m.clear()
+		m.delete()
+		m.clear()
+		m.size
 	</script>
 
 	<script>
+		const map = new Map()
+		map.set('name', '李四')
+		map.set('age', 24)
+		map.set('adress', '上海')
 
+		map.keys()   // => {'name', 'age', 'adress'}
+		map.keys().next().value // => 'name'
+		map.values() // => {'李四', 24, '上海'}
+
+		for (let item of map.entries()) {
+			console.log(item); // ['name','李四']
+			item[0] // 'name'
+			item[1] // '李四'
+		}
+
+	</script>
+
+	<script>
 		// Map转数组  
 		const myMap = new Map().set(true, 7).set({}, 4)
 		let arr = [...myMap]  // => [[{true,7},[{},4]]]
@@ -55,8 +74,6 @@
 			[true, 7],
 			[{ foo: 3 }, ['abc']]
 		])
-
-
 
 		// Map 转为对象
 

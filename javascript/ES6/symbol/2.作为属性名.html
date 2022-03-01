@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<body>
+	<script>
+		// 作为属性名的Symbol
+		let mySymbol = Symbol();
+
+		// 第一种写法
+		let a = {}
+		a[mySymbol] = 'hello1'
+
+		// 第二种写法
+		let b = {
+			[mySymbol]: 'hello2'
+		}
+		// 第三种写法
+		let c = {}
+		Object.defineProperty(c, mySymbol, { value: 'hello' })
+
+		// 以上写法都得到同样结果
+		a[mySymbol] // "Hello1"
+	</script>
+
+	<script>
+		let name = Symbol();
+		let person = {
+			[name]: '撒地方'  // 使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。
+		}
+		person.name 	//=>undefined
+		person['name'] 	//=>undefined
+		person[name]	//=>撒地方
+
+		// 总结：当symbol值作为对象的属性名的时候，不能用点运算符获取对应的值。
+		// 当symbol类型的值作为属性名的时候，该属性是不会出现在for...in和for...of中的，也不会被Object.keys( )获取到。
+		Object.keys(person) //=>[]
+	</script>
+
+	<script>
+		// 消除魔术字符串
+		const shapType = {
+			triangle: Symbol(),
+			round: Symbol()
+		}
+		function getTree(shap, options) {
+			let area = 0
+			switch (shap) {
+				case shapType.triangle:
+					console.log(11);
+					break;
+				case shapType.round:
+					console.log(22);
+					break;
+				default:
+					console.log(33);
+			}
+		}
+	</script>
+</body>
+
+</html>

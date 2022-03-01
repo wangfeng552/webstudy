@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>https://www.runoob.com/w3cnote/yaml-intro.html</title>
+</head>
+<body>
+    基本语法：
+    大小写敏感
+    使用缩进表示层级关系
+    缩进不允许使用tab，只允许空格
+    缩进的空格数不重要，只要相同层级的元素左对齐即可
+    #表示注释
+
+    数据类型：
+    对象:键值对的集合，又称为映射(mapping) /哈希(hashes) /字典(dictionary)
+    数组:一组按次序排列的值，又称为序列(sequence) /列表(list)
+    纯量：单个的、不可再分的值
+
+
+
+    YAML对象
+    对象键值对使用冒号结构表示 key: value,冒号后面要加一个空格
+    也可以使用 key:{key1: value1,key2: value2,...}
+    还可以使用缩进表示层级关系:
+    key:
+        child-key： value
+        child-key2: value2
+
+    复杂对象
+    ?
+        - complexkey1
+        - complexkey2
+    :
+        - complexvalue1
+        - complexvalue2
+    意思即对象的属性是一个数组[complexkey1,complexkey2],对应得值也是一个数组[complexvalue1,complexvalue2]
+
+
+
+
+    YAML数组
+    以 - 开头的行表示一个数组：
+     - A
+     - B
+     - C
+     
+    YAML支持多维数组，可以使用行内表示：
+    key: [value1,value2,...]
+
+    数据结构的子成员是一个数组，则可以在该项下面缩进一个空格。
+    -
+      - A
+      - B
+      - C
+    
+    相对复杂的列子
+    companies:
+      -
+        id:1
+        name:company1
+        price:200w
+      -
+        id:2
+        name:company2
+        price:300w
+    <!-- companies: [{id: 1,name: company1,price: 200W},{id: 2,name: company2,price: 500W}] -->
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+UBUNTU 20.04 LTX 安装DOCKER
+卸载旧版本
+sudo apt-get remove docker docker-engine docker.io containerd runc
+
+更新 apt 包索引
+sudo apt-get update
+
+安装依赖包
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+阿里云上部署
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+使用阿里云的软件仓库:
+sudo add-apt-repository \
+    "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+
+
+docker-compose
+下载 Docker Compose 的当前稳定版本
+sudo curl -L "https://github.com/docker/compose/releases/download/2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+mkdir build-manage
+cd build-manage
+
+将可执行权限应用于二进制文件
+sudo chmod 777 /user/local/bin/docker-compose
+sudo docker-compose --version
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>bind</title>
+</head>
+
+<body>
+  <script>
+    //  案例一
+    var sum = function (x, y) {
+      return x + y
+    }
+    // 创建一个类似sum的新函数，但this的值绑定到null
+    // 并且第一个参数绑定到1，这个新的函数期望只传入一个实参
+    // 从第二个参数起，会依次传递给原始函数，这里的第二个参数1即是sum函数的x参数；
+    var succ = sum.bind(null, 1)
+    succ(2) //=> 3  x绑定到1，并传入2作为实参y
+
+
+    //  案例二
+    function f(y, z) {
+      return this.x + y + z
+    }
+    var g = f.bind({ x: 1 }, 2)  //绑定this和y
+    g(3)
+  </script>
+
+
+  <script>
+    this.num = 9;
+    var module = {
+      num: 81,
+      getNum: function () {
+        return this.num
+      }
+    }
+    module.getNum();
+    var getNum = module.getNum;
+    getNum()  //=>9   因为在这个例子中，"this"指向全局对象
+
+    //  创建一个'this'绑定到module的函数
+    var boundGetNum = getNum.bind(module)
+    boundGetNum() //=>81
+  </script>
+
+
+<script>
+  var a={
+      b:function(){
+          console.log(this);
+          var self = this  // this 当变量存下来
+          var fun=function(){
+              console.log(self.c)
+          }
+          fun()
+      },
+      c:'你好'
+  }
+  
+   // bind 方法 
+  
+  // var wf={
+  //     show:function(){
+  //         var func= function(){
+  //             console.log(this.c)
+  //         }.bind(this)
+  //         func();
+         
+  //     },
+  //     c:'wf'
+  // }
+  </script>
+
+</body>
+
+</html>

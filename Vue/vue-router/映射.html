@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //  再做一个asyncRouterMap.components的name 和 本地components 做一个映射
+      const map = {
+        login: require("login/index").default, // 同步的方式
+        login: () => import("login/index"), // 异步的方式
+      }
+
+      //你存在服务端的map类似于
+      const serviceMap = [{ path: "/login", component: "login", hidden: true }]
+
+      //之后遍历这个map，动态生成asyncRouterMap
+      //   并将 component 替换为map[component]
+      //   映射这样写
+      //   后台返回的数据结构 res.data.menus
+      var res = {
+        path: "/user",
+        component: "Layout",
+        alwaysShow: true,
+        name: "UserModule",
+        meta: { title: "用户管理", icon: "el-icon-s-tools" },
+        children: [
+          {
+            path: "user",
+            component: "user/user/index",
+            name: "UserModuleUser",
+            meta: { title: "用户列表" },
+          },
+
+          {
+            path: "role",
+            component: "user/role/index",
+            name: "UserModuleRole",
+            meta: { title: "角色列表" },
+          },
+
+          {
+            path: "center",
+            component: "user/center/index",
+            name: "UserModuleCenter",
+            hidden: true,
+            meta: { title: "个人中心" },
+          },
+        ],
+      }
+
+      //   src/store/permission.js
+      const actions = {
+        generateRoutes({ commit }) {
+          return new Promise((resolve) => {
+            // 向后端请求路由数据
+            getInfo().then((res) => {
+              const accessedRoutes = filterAsyncRouter(res.data.menus)
+              accessedRoutes.push({ path: "*", redirect: "/404", hidden: true })
+              commit("SET_ROUTES", accessedRoutes)
+              resolve(accessedRoutes)
+            })
+          })
+        },
+      }
+
+      // 遍历后台传来的路由字符串，转换为组件对象
+      export function filterAsyncRouter(asyncRouterMap) {
+        return asyncRouterMap.filter((route) => {
+          if (route.component) {
+            // Layout组件特殊处理
+            if (route.component === "Layout") {
+              route.component = Layout
+            } else {
+              route.component =  () => import(`@/${route.component}.vue`)
+            }
+          }
+          if (
+            route.children != null &&
+            route.children.length != 0 &&
+            route.children &&
+            route.children.length
+          ) {
+            route.children = filterAsyncRouter(route.children)
+          }
+          return true
+        })
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isNumber(value) {
+        //验证是否为数字
+        let patrn = /^(-)?\d+(\.\d+)?$/;
+        if (patrn.test(value)) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+
+      !/^[1-9]\d*|0$/.test(value); //正整数 + 0
+      !/^[0-9]+(.[0-9]{1,2})?$/.test(value); // 请输入最多2位小数的数字
+    </script>
+  </body>
+</html>

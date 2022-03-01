@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<body>
+	<script>
+		//	Symbol.for()根据参数名，去全局环境中搜索是否有以该参数为名的symbol值，有就返回它，没有就以该参数名来创建一个新的symbol值。
+		let n1 = Symbol.for('name');
+		let n2 = Symbol.for('name')
+		n1 === n2 //=> true
+
+		//比如，如果你调用Symbol.for("cat")30 次，每次都会返回同一个 Symbol 值，但是调用Symbol("cat")30 次，会返回 30 个不同的 Symbol 值。
+		Symbol("bar") === Symbol("bar")  // => false
+	</script>
+
+
+	<script>
+		// Symbol.keyFor()方法返回一个已登记的 Symbol 类型值的key。
+		//  也就是说这个symbol值是被Symbol.for( )创建的，不是被Symbol( )创建的。
+
+		let name = Symbol.for('a1')
+		Symbol.keyFor(name)
+		//=>a1
+
+		let n1 = Symbol('name');
+		Symbol.KeyFor(n1);
+		//结果：undefined
+
+	</script>
+
+
+	<script>
+		// Symbol.for()为 Symbol 值登记的名字，是全局环境的，不管有没有在全局环境运行。
+		let s1 = Symbol.for('foo')
+
+		function wf() {
+			return Symbol.for('foo')
+		}
+
+		let x = wf()
+
+		s1 === x // =>true
+	</script>
+</body>
+
+</html>

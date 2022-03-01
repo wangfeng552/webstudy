@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Proxy.revocable() 方法返回一个可取消的Proxy实例
+
+    Proxy.revocable()的一个使用场景是，目标对象不允许直接访问，必须通过代理访问，一旦访问结束，就收回代理权，不允许再次访问。
+
+    <script>
+        let target = {}
+        let handler = {}
+        let { proxy, revoke } = Proxy.revocable(target, handler)
+
+        proxy.foo = 132
+        proxy.foo // 123
+
+
+        revoke();
+        proxy.foo // TypeError: Revoked
+    </script>
+
+</body>
+
+</html>

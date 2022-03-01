@@ -1,0 +1,5 @@
+ifconfig -a 	查看MAC地址
+reboot 		重启
+poweroff 		立刻关机
+
+ctrl +h 		查看隐藏文件

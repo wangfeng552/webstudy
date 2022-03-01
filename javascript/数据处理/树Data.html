@@ -11,47 +11,47 @@
 
 <script>
   var data = [{
-    "id": "1",    //唯一标识id
+    "id": 1,    //唯一标识id
     "name": "女装/男装/内衣",
-    "parentId": "0"    //父级id
+    "parentId": 0    //父级id
   }, {
-    "id": "2",
+    "id": 2,
     "name": "女装",
-    "parentId": "1"
+    "parentId": 1
   }, {
-    "id": "3",
+    "id": 3,
     "name": "男装",
-    "parentId": "1"
+    "parentId": 1
   }, {
-    "id": "4",
+    "id": 4,
     "name": "童装",
-    "parentId": "1"
+    "parentId": 1
   }, {
-    "id": "5",
+    "id": 5,
     "name": "内衣",
-    "parentId": "1"
+    "parentId": 1
   }, {
-    "id": "6",
+    "id": 6,
     "name": "连衣裙",
-    "parentId": "2"
+    "parentId": 2
   }, {
-    "id": "7",
+    "id": 7,
     "name": "毛呢外套",
-    "parentId": "2"
+    "parentId": 2
   }, {
-    "id": "8",
+    "id": 8,
     "name": "休闲裤",
-    "parentId": "2"
+    "parentId": 2
   }, {
-    "id": "9",
+    "id": 9,
     "name": "牛仔外套",
-    "parentId": "2"
+    "parentId": 2
   }, {
-    "id": "10",
+    "id": 10,
     "name": "鞋靴/箱包/配件",
-    "parentId": "0"
+    "parentId": 0
   }]
-  let data1 = data;//后台初始数据
+
   function setTreeData(arr) {
     // 删除所有的children,以防止多次调用
     arr.forEach(function (item) {
@@ -61,12 +61,10 @@
     arr.forEach(i => {
       map[i.id] = i; //构建以id为键 当前数据为值
     });
-    console.log(map);
     let treeData = [];
-
     arr.forEach(child => {
       const mapItem = map[child.parentId]; //判断当前数据的parentId是否存在map中
-      // console.log(mapItem);
+      console.log(mapItem);
       if (mapItem) {
         //存在则表示当前数据不是最顶层的数据
         //注意： 这里的map中的数据是引用了arr的它的指向还是arr,当mapItem改变时arr也会改变，踩坑点
@@ -79,6 +77,47 @@
 
     return treeData;
   }
+
+  // 方法2性能更优
+  // 主要思路也是先把数据转成Map去存储，之后遍历的同时借助对象的引用，直接从Map找对应的数据做存储。不同点在遍历的时候即做Map存储,又找对应关系。性能会更好。
+  function arrayToTree(items) {
+    const result = [];   // 存放结果集
+    const itemMap = {};  // 
+
+
+    for (const item of items) {
+      const id = item.id;
+      const pid = item.parentId;
+
+      // 每个id里添加children:[]
+      if (!itemMap[id]) {
+        itemMap[id] = {
+          children: [],
+        }
+      }
+
+      itemMap[id] = {
+        ...item,
+        children: itemMap[id]['children']
+      }
+
+      const treeItem = itemMap[id];
+
+      if (pid === 0) {
+        result.push(treeItem);
+      } else {
+        if (!itemMap[pid]) {
+          itemMap[pid] = {
+            children: [],
+          }
+        }
+        itemMap[pid].children.push(treeItem)
+      }
+    }
+    return result;
+  }
+
+
   // 获取当前节点对象
   function findPathByLeafId(id, node) {
     console.log(node);

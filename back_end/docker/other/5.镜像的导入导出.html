@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 导出镜像 save 导出/保存 |  镜像名称+版本号 | -o 输出 | 导出后镜像名字 -->
+    docker image save nginx:latest -o wf.image
+
+
+    <!-- 导入镜像 -->
+    docker image rm wf
+    docker image load -i .\wf.image
+</body>
+</html>

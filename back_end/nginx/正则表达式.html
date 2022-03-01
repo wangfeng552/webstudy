@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rewirte</title>
+</head>
+<body>
+    rewrite ^/wf/(.*)$ /$1 break;
+    语法
+    rewrite regex replacement [flag];
+    flag标记说明：
+
+    last  #本条规则匹配完成后，继续向下匹配新的location URI规则
+
+    break  #本条规则匹配完成即终止，不再匹配后面的任何规则
+
+    redirect  #返回302临时重定向，浏览器地址会显示跳转后的URL地址
+
+    permanent  #返回301永久重定向，浏览器地址栏会显示跳转后的URL地址
+
+
+    .       匹配除换行符以外的任意字符
+    ?       重复0次或1次
+    +       重复1次或更多次
+    *       重复0次或更多次
+    \d      匹配数字
+    ^       匹配字符串开始
+
+    $       匹配字符串结束
+    {n}     重复N次
+    {n,}    重复N次或更多次
+    [c]     匹配单个字符c
+    [z-z]   匹配a-z小写字符的任意一个
+    (pattern) (pattern)之间匹配的内容，可以在后面通过$1来引用，$2表示的是前面第二个()里的内容
+</body>
+</html>

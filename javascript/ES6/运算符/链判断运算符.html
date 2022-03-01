@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    语法：
+    obj?.prop // 对象属性是否存在
+    obj?.[expr] // 同上
+    func?.(...args) // 函数或对象方法是否存在
+
+
+
+    <script>
+        // 可选链操作符( ?. )
+        const adventurer = {
+            name: 'Alice',
+            cat: {
+                name: 'Dinah'
+            }
+        };
+
+        const dogName = adventurer.cat?.name;  // => Dinah 
+        const catName = adventurer.name?.name;  // => undefined 可选链操作符( ?. )
+        console.log(catName);
+
+        if (myForm.checkValidity?.() === false) {
+            console.log('wf');
+            // 表单校验失败
+            return;
+        }
+    </script>
+
+    <script>
+        const firstName = (message
+            && message.body
+            && message.body.user
+            && message.body.user.firstName) || 'default';
+
+        const firstName = message?.body?.user?.firstName || 'default';  // 新写法
+    </script>
+
+    <script>
+        // 跟链判断运算符?.配合使用，为null或undefined的值设置默认值。
+        const animationDuration = response.settings?.animationDuration ?? 300;
+    </script>
+</body>
+
+</html>

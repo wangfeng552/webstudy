@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        Function.prototype.myCall = function (ctx, ...args) {
+            // 简单处理未传ctx上下文，或者传的是null和undefined等场景
+            if (!ctx) {
+                ctx = typeof window !== 'undefined' ? window : global
+            }
+            // 暴力处理 ctx有可能传非对象
+            ctx = Object(ctx)
+            // 用Symbol生成唯一的key
+            const fnName = Symbol()
+            // 这里的this，即要调用的函数
+            ctx[fnName] = this
+            // 将args展开，并且调用fnName函数，此时fnName函数内部的this也就是ctx了
+            const result = ctx[fnName](...args)
+            // 用完之后，将fnName从上下文ctx中删除
+            delete ctx[fnName]
+
+            return result
+        }
+
+        // 测试
+        let fn = function (name, sex) {
+            console.log(this, name, sex)
+        }
+
+        fn.myCall('', '前端胖头鱼')
+        // window 前端胖头鱼 boy
+        fn.myCall({ name: '前端胖头鱼', sex: 'boy' }, '前端胖头鱼')
+        // { name: '前端胖头鱼', sex: 'boy' } 前端胖头鱼 boy
+    </script>
+
+</body>
+
+</html>

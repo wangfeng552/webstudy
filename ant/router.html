@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+        meta.invisible	是否不将此路由项渲染为菜单项，默认false；如设置为 true，则生成菜单时将忽略此路由
+
+        <script>
+            var meta= {
+                invisible:true, // 隐藏菜单
+                highlight: '/list/query', // 菜单高亮对应得路由
+                page: {
+                    title: '自定义标题', // 页面标题
+                    breadcrumb: ['首页', 'Dashboard', '自定义']     // 面包屑
+                }
+            }
+        </script>
+
+        路由国际化
+
+        route.name 作为中文语言，route.path 作为英文语言。
+    </div>
+
+
+    <!-- 
+        registerName: {                             //路由组件注册名称，唯一标识
+        path: 'path',                               //路由path，可缺省，默认取路由注册名称 registerName 的值
+        name: '演示页',                             //路由名称
+        redirect: '/login',                         //路由重定向
+        component: () => import('@/pages/demo'),    //路由视图
+        icon: 'permission',                         //路由的菜单icon，会注入到路由元数据meta中
+        invisible: false,                           //是否隐藏菜单项，true 隐藏，false 不隐藏，会注入到路由元数据meta中。
+        authority: {                                //路由权限配置，会注入到路由元数据meta中。可缺省，默认为 ‘*’, 即无权限限制
+          permission: 'form',                       //路由需要的权限  
+          role: 'admin'                             //路由需要的角色。当permission未设置，通过 role 检查权限
+        },                     
+        page: {                                     //路由的页面数据，会注入到路由元数据meta中
+          title: '演示页',                          //页面标题
+          breadcrumb: ['首页', '演示页']            //页面面包屑
+        }             
+      } 
+    -->
+  </body>
+</html>

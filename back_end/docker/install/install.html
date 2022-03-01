@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+"更新 apt 包索引:
+sudo apt-get update
+
+安装依赖包:
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+
+添加阿里云证书:
+curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-key add -
+
+阿里云的软件仓库:
+sudo add-apt-repository \
+    ""deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable""
+
+安装docker
+ sudo apt install docker-ce -y
+
+Docker-compose安装:
+sudo curl -L ""https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)"" -o /usr/local/bin/docker-compose
+
+可执行权限应用于二进制文件:
+sudo chmod 777 /user/local/bin/docker-compose												
+
+查看是否安装成功
+docker-compose --version
+</body>
+</html>
