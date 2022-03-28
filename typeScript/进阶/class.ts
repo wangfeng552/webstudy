@@ -106,3 +106,18 @@ class Lksdfj {
 const dajiao1 = new Lksdfj(28)
 dajiao1.age = 25
 console.log(dajiao1.age);
+
+
+interface Person2{
+  name:string;
+  age:number;
+  say():string
+}
+
+class Zhangsan implements Person2 {
+  name ='李四'
+  age=25
+  say(){
+    return '123'
+  }
+}
