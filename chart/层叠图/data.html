@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var tableData = [
+            {
+                name: 1,
+                age: 2,
+                ts: '2022-1-1',
+                sex: 12,
+            },
+            {
+                name: 30,
+                age: 20,
+                ts: '2022-1-2',
+                sex: 125,
+            },
+            {
+                name: 15,
+                age: 20,
+                ts: '2022-1-3',
+                sex: 2000000,
+            },
+        ]
+
+        let timeList = tableData.map((t) => {
+            return t.ts
+        })
+
+        let tableDataKeys = Object.keys(tableData[0])
+        // chartKey=> ['name', 'age', 'sex']
+        let chartKey = tableDataKeys.filter((item) => {
+            return item !== 'ts'
+        })
+
+        let chartLength = chartKey.length // 一共几个图表信号
+        let chartHeight = 200 * chartLength // 设置图表高度
+        let baifenbi = parseFloat(100 / chartLength).toFixed(0)
+
+        let visualMap = []
+        let title = []
+        let grid = []
+        let xAxis = []
+        let yAxis = []
+        chartKey.forEach((item, index) => {
+            let visualMapObj = {}
+            let titleObj = {}
+            let gridObj = {}
+            let xAxisObj = {}
+            let yAxisObj = {}
+
+            visualMapObj.show = false
+            visualMapObj.type = 'continuous'
+            visualMapObj.seriesIndex = index
+
+            titleObj.top = `${index * baifenbi}%`
+            titleObj.left = 'left'
+            titleObj.text = item
+
+            gridObj.left = '10%'
+            gridObj.right = '5%'
+            gridObj.top = `${index * baifenbi}%`
+            gridObj.height = `${baifenbi - 2}%`
+            gridObj.width = '85%'
+            if (index === 0) {
+                gridObj.top = `${index * baifenbi + 1}%`
+                gridObj.height = `${baifenbi - 3}%`
+            }
+
+            xAxisObj.gridIndex = index
+            xAxisObj.boundaryGap = false
+            xAxisObj.axisLabel = { show: false }
+            if (index + 1 === chartLength) {
+                xAxisObj.axisLabel = { show: true }
+            }
+            xAxisObj.data = timeList
+
+            yAxisObj.gridIndex = index
+
+            visualMap.push(visualMapObj)
+            title.push(titleObj)
+            grid.push(gridObj)
+            xAxis.push(xAxisObj)
+            yAxis.push(yAxisObj)
+        })
+        // colData=>[{name:[1,2,3,4]]
+        let colData = chartKey.map((item, index) => {
+            let t = tableData.map((value) => {
+                return value[item]
+            })
+            return { [item]: t }
+        })
+
+        let series = chartKey.map((item, index) => {
+            let seriesObj = {}
+            seriesObj.type = 'line'
+            seriesObj.showSymbol = false
+            seriesObj.xAxisIndex = index
+            seriesObj.yAxisIndex = index
+            seriesObj.lineStyle = {
+                normal: {
+                    color: '#768dd1', // 折线线条颜色:红色
+                },
+            }
+            let sdata = colData.filter((objValue, objIndex) => {
+                return objValue[item]
+            })
+            seriesObj.data = sdata[0][item]
+            return seriesObj
+        })
+        console.log(series);
+            // this.chartHeight = chartHeight
+            // this.lineChart.visualMap = visualMap
+            // this.lineChart.title = title
+            // this.lineChart.xAxis = xAxis
+            // this.lineChart.yAxis = yAxis
+            // this.lineChart.grid = grid
+            // this.lineChart.series = series
+
+
+    </script>
+
+</body>
+
+</html>
