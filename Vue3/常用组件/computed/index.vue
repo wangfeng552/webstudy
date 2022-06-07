@@ -8,7 +8,15 @@
 </template>
 
 <script setup>
-import { reactive, computed } from "vue"
+import { reactive, computed, ref } from "vue"
+// 基本数据类型计算
+const shCount = ref(0)
+
+const shCountComputed = computed(() => {
+  return shCount.value + 10
+})
+
+// 引用数据类型计算
 const state = reactive({
   count: 0,
 })
