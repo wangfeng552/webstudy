@@ -23,4 +23,20 @@ const state = reactive({
 const mapcount = computed(() => {
   return state.count + 10
 })
+
+// getter 和 setter
+const firstName = ref("李")
+const lastName = ref("动气")
+const fullName = computed({
+  get() {
+    return firstName.value + lastName.value
+  },
+  set(newValue) {
+    // 注意：我们这里使用的是解构赋值语法
+    ;[firstName.value, lastName.value] = newValue.split(" ")
+  },
+})
+const changeFullName = () => {
+  fullName.value = "李 动气"
+}
 </script>

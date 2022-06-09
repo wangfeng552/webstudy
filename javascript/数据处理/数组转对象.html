@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>数组转对象</h2>
+    <script>
+      //   let arr = [
+      //     { label: "男", value: 0 },
+      //     { label: "女", value: 1 },
+      //   ]
+      // 转换为
+      //   let obj = { 0: "男", 1: "女" }
+
+      let arr = [
+        { label: "男", value: 0 },
+        { label: "女", value: 1 },
+      ]
+
+      function arrToObj(arr) {
+        let obj = {}
+        arr.forEach((item) => {
+          obj[item.value] = item.label
+        })
+        return obj
+      }
+
+      const obj1 = arrToObj(arr)
+      console.log("数组forEach方法", obj1)
+    </script>
+
+    <!-- 对象转数组 -->
+    <script>
+      //   let obj = { 0: "男", 1: "女" }
+      // 转换为
+      //   let arr = [
+      //     { label: "男", value: 0 },
+      //     { label: "女", value: 1 },
+      //   ]
+
+      let obj = { 0: "男", 1: "女" }
+
+      // 使用for...in...循环，拿到对象的键、值
+      // 将其组成新对象，使用数组的push方法追加到数组中
+      function objToArr(obj) {
+        let arr = []
+        for (let key in obj) {
+          arr.push({
+            label: obj[key],
+            value: key,
+          })
+        }
+        return arr
+      }
+
+      const arr2 = objToArr(obj)
+      console.log(arr2)
+    </script>
+  </body>
+</html>

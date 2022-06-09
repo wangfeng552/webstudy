@@ -22,6 +22,12 @@ const state = reactive({
 // 修改
 state.address = "Tom"
 
+const books = reactive([ref("Vue3")])
+console.log(books[0].value)
+
+const map = reactive(new Map([["name", ref(10)]]))
+console.log(map.get("name").value)
+
 // 声明method方法
 const changeValue = () => {
   name.value = "改变了"
