@@ -1,5 +1,9 @@
 <template>
-  <div class="life">生命周期{{ name }}</div>
+  <div>
+    <div ref="refShowName">{{ name }}</div>
+    <div id="showID">{{ name }}</div>
+    <div class="life">生命周期{{ name }}</div>
+  </div>
 </template>
 <script setup>
 import {
@@ -12,17 +16,20 @@ import {
   ref,
 } from "vue"
 const name = ref("李四")
+const refShowName = ref()
 onBeforeMount(() => {
   console.log("onBeforeMount:" + name.value)
 })
 onMounted(() => {
   console.log("onMounted:" + name.value)
+  console.log(refShowName.value)
 })
 onBeforeUpdate(() => {
   console.log("onBeforeUpdate:" + name.value)
 })
 onUpdated(() => {
   console.log("onUpdated:" + name.value)
+  console.log(document.getElementById("showID").textContent)
 })
 onBeforeUnmount(() => {
   console.log("onBeforeUnmount:" + name.value)

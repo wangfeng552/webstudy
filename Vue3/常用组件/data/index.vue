@@ -1,13 +1,13 @@
 <template>
   <div class="layout">
-    <div>{{ name }}</div>
+    <div ref="refName">{{ name }}</div>
     <div>{{ address }}</div>
     <div>{{ sex }}</div>
-    <button @click="changeValue">改变值</button>
+    <button @click="changeValue('1', $event)">改变值</button>
   </div>
 </template>
 <script setup>
-import { reactive, ref, toRefs } from "vue"
+import { reactive, ref, toRefs, onMounted } from "vue"
 
 // ref声明响应式数据，用于声明基本数据类型
 const name = ref("Jerry")
@@ -29,7 +29,7 @@ const map = reactive(new Map([["name", ref(10)]]))
 console.log(map.get("name").value)
 
 // 声明method方法
-const changeValue = () => {
+const changeValue = (id, event) => {
   name.value = "改变了"
   state.address = "上海"
 }
@@ -37,4 +37,10 @@ const changeValue = () => {
 // 使用toRefs解构
 const { address, sex } = toRefs(state)
 // template可直接使用{{address}}、{{sex}}
+
+// ref获取DOM值
+const refName = ref()
+onMounted(() => {
+  console.log(refName.value)
+})
 </script>
