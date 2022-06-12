@@ -8,18 +8,30 @@
   </head>
   <body>
     <script>
+      let value = 2
       function isNumber(value) {
         //验证是否为数字
-        let patrn = /^(-)?\d+(\.\d+)?$/;
+        let patrn = /^(-)?\d+(\.\d+)?$/
         if (patrn.test(value)) {
-          return false;
+          return false
         } else {
-          return true;
+          return true
         }
       }
 
-      !/^[1-9]\d*|0$/.test(value); //正整数 + 0
-      !/^[0-9]+(.[0-9]{1,2})?$/.test(value); // 请输入最多2位小数的数字
+      !/^[1-9]\d*|0$/.test(value) //正整数 + 0
+      !/^[0-9]+(.[0-9]{1,2})?$/.test(value) // 请输入最多2位小数的数字
+
+      // 特殊字符
+      function teshu(str) {
+        var patrn = /[<>]/im
+        // /[`~!@#$%^&*()_\-+=<>?:"{}|,.\/;'\\[\]·~！@#￥%……&*（）——\-+={}|《》？：“”【】、；‘'，。、]/im
+        if (!patrn.test(str))
+          // 如果包含特殊字符返回false
+          return false
+
+        return true
+      }
     </script>
   </body>
 </html>
