@@ -5,9 +5,6 @@
 // E （Element）表示元素类型
 
 function identity<T, M>(arg: T, msg: M): T {
-    console.log(arg);
-    console.log(msg);
-
     return arg
 }
 
@@ -15,17 +12,34 @@ function identity<T, M>(arg: T, msg: M): T {
 identity<number, string>(1, '1')
 
 
-// 类型约束
+function createArray<T>(length: number, value: T): Array<T> {
+    let result: T[] = []
+    for (let i = 0; i < length; i++) {
+        result[i] = value
+    }
+    console.log(result);
+    return result
+}
+createArray<string>(4, 'a')
+
+// 多个类型参数
+function swap<T, U>(tuple: [T, U]): [U, T] {
+    console.log([tuple[1], tuple[0]]);
+    return [tuple[1], tuple[0]]
+}
+swap([7, 'a'])
+
+
+// 类型约束 使用extends 约束了泛型 T 必须符合接口 ILength 的形状，也就是必须包含 length 属性。
 interface ILength {
     length: number
 }
-
 function getLength<T extends ILength>(params: T) {
     console.log(params.length);
-
 }
 getLength([111])
 getLength('12345dsfkjhg')
+
 
 
 // 泛型接口

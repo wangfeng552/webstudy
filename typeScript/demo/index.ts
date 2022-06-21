@@ -1,22 +1,17 @@
-type Direction = 'up' | 'down'
+// function show(length,name){}
 
-function show(direction: Direction) {
-    console.log(direction);
+interface ShowFun<T> {
+    (lentgh: number, age: T): Array<T>
 }
 
-show('up')
-
-interface Config {
-    size: 'small' | 'big';
-    isEanable: true | false;
-    margin: 0 | 2 | 4;
+let showFun: ShowFun<string>
+showFun = function <T>(lentgh: number, age: T): Array<T> {
+    let result: T[] = []
+    for (let i = 0; i < lentgh; i++) {
+        result[i] = age
+    }
+    console.log(result);
+    return result
 }
 
-function setMain(config: Config): void {
-    console.log(config);
-
-}
-
-setMain({ size: 'small', isEanable: true, margin: 2 })
-
-
+showFun(3, '11')
