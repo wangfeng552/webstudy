@@ -1,5 +1,6 @@
 //   布尔   		(boolean)
 //   数字  	    (number)
+//   比Number更大(bigint)
 //   字符串    	(string)
 //   数组      	(array)
 //   元祖  		  (tuple)
@@ -29,9 +30,8 @@ let arr3: Array<any> = [1, 2, 3, '213', true]
 
 // null 和 undefined 其他（never类型） 数据类型的子类型
 let num: number
-console.log(num)   // => undefined
-let num2: undefined
-let num3: number | undefined;
+let num1: undefined
+let num2: number | undefined;
 
 
 // void 类型： 表示没有任何类型，一般用于定义方法的时候方法没有返回值

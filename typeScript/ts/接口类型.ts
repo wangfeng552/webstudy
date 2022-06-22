@@ -4,8 +4,7 @@ interface IPerson {
     name: string;
     age: number;
     isShow?: boolean; //可选属性
-    [propName: string]: string | number; // 联合类型
-    [key: string]: any          // 索引签名 任意属性
+    [propName: string]: any; // 任意属性
 }
 
 
@@ -25,6 +24,7 @@ interface IYazi {
     name: string,
     age: number
 }
+
 // 1.鸭式辨型法
 function raokai(params: IYazi) {
     console.log(params);
