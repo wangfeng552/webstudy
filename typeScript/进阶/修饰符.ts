@@ -1,6 +1,6 @@
 class Animal {
-    public name: string; // 公共
-    private age: string; // 它就不能在声明它的类的外部访问
-    protected address: string; // protected修饰符与 private修饰符的行为很相似，但有一点不同， protected成员在派生类中仍然可以访问
+    public name: string; // 允许在类的内部和外部被调用
+    private age: string; // 只允许再类的内部被调用，外部不允许调用
+    protected address: string; // 允许在类内及继承的子类中使用
     readonly read: string; // 将属性设置为只读的
 }
