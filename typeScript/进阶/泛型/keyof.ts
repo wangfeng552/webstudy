@@ -20,6 +20,8 @@ const todo: Todo = {
     text: "Learn TypeScript keyof",
     done: false
 }
+// 首先定义了 T 类型并使用 extends 关键字约束该类型必须是 object 类型的子类型，
+// 然后使用 keyof 操作符获取 T 类型的所有键，其返回类型是联合类型，最后利用 extends 关键字约束 K 类型必须为 keyof T 联合类型的子类型。
 function prop<T extends object, K extends keyof T>(obj: T, key: K) {
     return obj[key];
 }

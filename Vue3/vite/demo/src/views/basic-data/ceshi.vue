@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Menu></Menu>
+    <a-button>跳转</a-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import Menu from '@/components/Menu/index.vue'
+import { useRouter } from 'vue-router'
 </script>
 
 <style></style>

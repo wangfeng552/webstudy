@@ -52,3 +52,14 @@ function getName(str: any): any {
     return '我的额年龄是' + str
   }
 }
+
+// 使用type定义函数
+type Func = (value: number) => string
+const foo: ReturnType<Func> = '1'
+
+let show: Func = function (value: number): string {
+  let s = value.toString()
+  return s
+}
+
+show(1)

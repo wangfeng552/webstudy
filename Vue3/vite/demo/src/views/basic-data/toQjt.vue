@@ -11,7 +11,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { toRef, reactive, toRefs } from 'vue'
+import { toRef, reactive, toRefs, toRaw } from 'vue'
 
 const obj = {
   foo: 1,

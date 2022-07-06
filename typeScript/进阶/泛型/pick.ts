@@ -1,4 +1,8 @@
-// pick 从某个类型中挑出一些属性出来
+// pick 从某个类型中挑出一些属性出来， 新类型 相当于 T 与 K 的交集
+// type Pick<T, K extends keyof T> = {
+// [P in K]: T[P];
+// };
+
 
 interface Person {
     name: string;
