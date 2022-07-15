@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [
+        { name: "里斯", key: "1" },
+        { name: "角度思考", key: "2" },
+        { name: "sdk", key: "3" },
+        { name: "看到十六分", key: "4" },
+      ]
+
+      var checkArr = ["1", "2", "3"]
+
+      let t = arr.filter((item) => {
+        
+        return checkArr.includes(item.key)
+
+        let result = []
+        for (let i in arr) {
+            if (func(arr[i])) {
+                result.push(arr[i])
+            }
+        }
+        return result;
+    })
+    console.log(t);
+
+
+    // urlTreeData[0].children
+    //                       .filter(item=> record.urlPermissions.includes(item.key))
+    //                       .reduce((us:any[], u)=> {
+    //                         if (us.length == 3) {
+    //                           us.push(<div>...</div>)
+    //                         } else if (us.length < 3) {
+    //                           us.push(<div>{u.title}</div>)
+    //                         }
+    //                         return us
+    //                       }, [])
+ 
+    </script>
+  </body>
+</html>
