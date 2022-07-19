@@ -136,15 +136,20 @@ export default {
                 {
                   path: '/order/shop',
                   name: 'shop',
-                  icon: 'shop',
                   component: './order/shop',
+                },
+              
+                {
+                  path: '/order/animal',
+                  name: 'animal',
+                  component: './order/animal',
                 },
                 {
                   path: '/order/shopDetail/:id',
                   name: 'shopDetail',
-                  icon: 'shop',
+                  hideInMenu:true, // 隐藏菜单栏
                   component: './order/shopDetail',
-                }
+                },
               ]
             },
             {

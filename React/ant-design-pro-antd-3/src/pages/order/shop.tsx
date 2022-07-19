@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import router, { RouteData } from 'umi/router'
 import Link from 'umi/link'
 import Prompt from 'umi/prompt';
+import styles from './style.less'
 
 interface ShopProps {
     location: RouteData;
@@ -50,8 +51,9 @@ class Shop extends Component<ShopProps, ShopState> {
         console.log(location);
 
         return (
-            <div>
-                <h2>标题</h2>
+            <div className='wf'>
+                <h2 className={styles.name}>标题 <span className={styles.fbt}>副标题</span></h2>
+                <div className={styles.footer}>全局样式</div>
                 <Button onClick={this.goWelcome}>跳转到welcome</Button>
                 <Button onClick={this.goShopDetail}>跳转到详情</Button>
                 <Link to="/welcome?name=1"> 声明式跳转</Link>

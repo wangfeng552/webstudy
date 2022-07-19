@@ -52,5 +52,6 @@ export default {
   'menu.order': '订单管理',
   'menu.order.shop': '商品订单',
   'menu.order.shopDetail': '商品订单详情',
+  'menu.order.animal': '动物订单',
 
 };
