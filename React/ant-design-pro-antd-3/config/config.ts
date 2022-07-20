@@ -147,8 +147,33 @@ export default {
                 {
                   path: '/order/shopDetail/:id',
                   name: 'shopDetail',
-                  hideInMenu:true, // 隐藏菜单栏
+                  hideInMenu:true, // 隐藏菜单栏 bpmn
                   component: './order/shopDetail',
+                },
+                {
+                  path: '/order/parent',
+                  name: 'parent',
+                  component: './order/parent',
+                },
+                {
+                  path: '/order/list',
+                  name: 'list',
+                  component: './order/list',
+                },
+                {
+                  path: '/order/stateStudy',
+                  name: 'stateStudy',
+                  component: './order/state',
+                },
+                {
+                  path: '/order/hook',
+                  name: 'hook',
+                  component: './order/hook',
+                },
+                {
+                  path: '/order/hookParent',
+                  name: 'hookParent',
+                  component: './order/hookParent',
                 },
               ]
             },

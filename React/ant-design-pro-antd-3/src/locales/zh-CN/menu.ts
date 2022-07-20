@@ -49,9 +49,14 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
-  'menu.order': '订单管理',
-  'menu.order.shop': '商品订单',
-  'menu.order.shopDetail': '商品订单详情',
-  'menu.order.animal': '动物订单',
+  'menu.order': 'react学习',
+  'menu.order.shop': '路由功能',
+  'menu.order.shopDetail': 'bpmn',
+  'menu.order.animal': '路由跳转',
+  'menu.order.parent': '父子组件',
+  'menu.order.list': '列表&key',
+  'menu.order.stateStudy': 'State状态',
+  'menu.order.hook': 'hook',
+  'menu.order.hookParent': 'hook父子组件',
 
 };
