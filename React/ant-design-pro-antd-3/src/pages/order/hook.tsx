@@ -1,9 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback,useMemo } from 'react'
 import { Button } from 'antd'
 const Example = ()=>{
     const [count, setCount] = useState(0)
+    const [message, setMessage] = useState(0)
+
     const [searchForm, setSearchForm] = useState({ text: 'nihao', age: 0 });
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const addCount = useCallback(()=>{
+        setCount(count+1)
+    },[count])
+
+    const getMessage = useMemo(()=>{
+        return message+1
+    },[message])
 
     const getUser = () => {
         console.log(searchForm);
@@ -28,8 +38,10 @@ const Example = ()=>{
     return (
         <div>
             <div>{count}</div>
-            <Button onClick={() => setCount(count + 1)}>点击count+1</Button>
-            <Button onClick={getUser}>点击count+1</Button>
+            <Button onClick={addCount}>点击count+1</Button>
+            <div>{message}</div>
+            <Button>更新message{getMessage}</Button>
+            <Button onClick={getUser}>获取searchForm</Button>
             <input type="text" value={searchForm.text} onChange={onChangeValue} ref={inputRef} />
             <Button onClick={getInputRef}>通过ref获取值</Button>
         </div>
