@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback,useMemo } from 'react'
-import { Button } from 'antd'
+import { Button ,Input} from 'antd'
 const Example = ()=>{
     const [count, setCount] = useState(0)
     const [message, setMessage] = useState(0)
@@ -32,7 +32,9 @@ const Example = ()=>{
     useEffect(() => {
         document.title = '改变页面标题'
         console.log('useEffect');
-        
+        return (()=>{
+            console.log(1234);
+        })
     },[])
 
     return (
@@ -42,7 +44,8 @@ const Example = ()=>{
             <div>{message}</div>
             <Button>更新message{getMessage}</Button>
             <Button onClick={getUser}>获取searchForm</Button>
-            <input type="text" value={searchForm.text} onChange={onChangeValue} ref={inputRef} />
+            <input type="text"  value={searchForm.text} onChange={onChangeValue} ref={inputRef} />
+            <Input type="text" value={searchForm.text} onChange={onChangeValue}/>
             <Button onClick={getInputRef}>通过ref获取值</Button>
         </div>
     )

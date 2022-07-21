@@ -175,6 +175,16 @@ export default {
                   name: 'hookParent',
                   component: './order/hookParent',
                 },
+                {
+                  path: '/order/dva',
+                  name: 'dva',
+                  component: './order/dva',
+                },
+                {
+                  path: '/order/baseform',
+                  name: 'baseform',
+                  component: './order/baseform',
+                },
               ]
             },
             {

@@ -58,5 +58,7 @@ export default {
   'menu.order.stateStudy': 'State状态',
   'menu.order.hook': 'hook',
   'menu.order.hookParent': 'hook父子组件',
+  'menu.order.dva': 'Dva',
+  'menu.order.baseform': 'baseform',
 
 };
