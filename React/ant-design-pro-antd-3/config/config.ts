@@ -183,7 +183,22 @@ export default {
                 {
                   path: '/order/baseform',
                   name: 'baseform',
-                  component: './order/baseform',
+                  component: './order/baseForm',
+                },
+                {
+                  path: '/order/baseFormDva',
+                  name: 'baseFormDva',
+                  component: './order/baseFormDva',
+                },
+                {
+                  path: '/order/dynamicForm',
+                  name: 'dynamicForm',
+                  component: './order/dynamicForm',
+                },
+                {
+                  path: '/order/dongtaiForm',
+                  name: 'dongtaiForm',
+                  component: './order/dongtaiForm',
                 },
               ]
             },

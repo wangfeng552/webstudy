@@ -60,5 +60,8 @@ export default {
   'menu.order.hookParent': 'hook父子组件',
   'menu.order.dva': 'Dva',
   'menu.order.baseform': 'baseform',
+  'menu.order.baseFormDva': 'baseFormDva',
+  'menu.order.dynamicForm': '动态form',
+  'menu.order.dongtaiForm': '动态form对象',
 
 };
