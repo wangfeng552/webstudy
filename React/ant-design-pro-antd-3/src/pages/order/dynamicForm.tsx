@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from "dva"
 import { Form, Icon, Input, Button } from 'antd'
 import { FormComponentProps } from "antd/es/form";
@@ -13,16 +13,10 @@ let id = 0;
 
 const dynamicForm = (props: dynamicFormProps) => {
 
-    useEffect(()=>{
-        props.form.setFieldsValue({ names: ["手动赋值1", "手动赋值2"],remarks:[10,20] }); 
-        id=2
-        console.log(1);
-        
-    },[])
-
-    const setFormValue = ()=>{
-       
-    }
+    useEffect(() => {
+        props.form.setFieldsValue({ names: ["手动赋值1", "手动赋值2"], remarks: [10, 20] });
+        id = 2
+    }, [])
 
     const remove = k => {
         const { form } = props;
@@ -43,8 +37,6 @@ const dynamicForm = (props: dynamicFormProps) => {
         const { form } = props;
         // can use data-binding to get
         const keys = form.getFieldValue('keys');
-        console.log(keys);
-
         const nextKeys = keys.concat(id++);
         // can use data-binding to set
         // important! notify form to detect changes
@@ -57,20 +49,17 @@ const dynamicForm = (props: dynamicFormProps) => {
         e.preventDefault();
         props.form.validateFields((err, values) => {
             if (!err) {
-                console.log('values',values);
-                
+                console.log('values', values);
                 let names = values.names
                 let remarks = values.remarks
-                let data:any= []
-                names.forEach((item,index)=>{
+                let data: any = []
+                names.forEach((item, index) => {
                     data.push({
-                        name:item,
-                        remark:remarks[index]
+                        name: item,
+                        remark: remarks[index]
                     })
                 })
-
                 console.log(data);
-                
             }
         });
     };
@@ -86,31 +75,22 @@ const dynamicForm = (props: dynamicFormProps) => {
         },
     }
 
-    const formItemLayoutWithOutLabel = {
+    const addItemLayout = {
         wrapperCol: {
-            sm: { span: 20, },
+            sm: { span: 20 ,offset:4},
         },
-        labelCol: {
-            sm: { span: 4 },
-        },
-        
     }
 
-    getFieldDecorator('keys', { initialValue: [0,1] });
-    console.log(2);
-    
+    getFieldDecorator('keys', { initialValue: [0, 1] });
 
     const keys = getFieldValue('keys');
-    console.log('keys', keys);
 
     const formItems = keys.map((k, index) => (
-        <div key={k+index}>
-
+        <div key={k + index}>
             <Form.Item
-                {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
+                {...(formItemLayout)}
                 label='Passengers'
                 required={false}
-                key={`names_${k+index}`}
             >
                 {getFieldDecorator(`names[${k}]`, {
                     validateTrigger: ['onChange', 'onBlur'],
@@ -118,7 +98,7 @@ const dynamicForm = (props: dynamicFormProps) => {
                         {
                             required: true,
                             whitespace: true,
-                            message: "Please input passenger's name or delete this field.",
+                            message: "请输入Passengers",
                         },
                     ],
                 })(<Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />)}
@@ -130,40 +110,37 @@ const dynamicForm = (props: dynamicFormProps) => {
                     />
                 ) : null}
             </Form.Item>
-
             <Form.Item
-              {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                label="名称"
-                key={k+index}>
+                 {...(formItemLayout)}
+                label="名称">
                 {getFieldDecorator(`remarks[${k}]`, {
                     validateTrigger: ['onChange', 'onBlur'],
                     rules: [{
                         required: true,
                         message: '请输入中文名称!',
                     }],
-                })(<Input placeholder="请输入中文名称" style={{ width: '60%', marginRight: 8 }}  />)}
+                })(<Input placeholder="请输入中文名称" style={{ width: '60%', marginRight: 8 }} />)}
             </Form.Item>
-
         </div>
     ));
 
     return (
         <Form onSubmit={handleSubmit}>
             {formItems}
-            <Form.Item {...formItemLayoutWithOutLabel}>
+            <Form.Item {...addItemLayout}>
                 <Button type="dashed" onClick={add} style={{ width: '60%' }}>
                     <Icon type="plus" /> 添加
                 </Button>
             </Form.Item>
-            <Form.Item {...formItemLayoutWithOutLabel}>
+            <Form.Item {...addItemLayout}>
                 <Button type="primary" htmlType="submit">
                     提交
                 </Button>
             </Form.Item>
-            <Button onClick={setFormValue}>设置值</Button>
         </Form>
     )
 }
+
 const WrappeddynamicForm = Form.create({ name: 'base_form' })(dynamicForm);
 export default connect(
     ({ loading, user }: ConnectState) => ({
