@@ -23,11 +23,11 @@ const BaseFormDva = (props: IProps) => {
     isFieldTouched,
     getFieldDecorator,
   } = form;
-  const usernameError = isFieldTouched('name') && getFieldError('name');
-  const ageError = isFieldTouched('age') && getFieldError('age');
+  const usernameError = isFieldTouched('name') && getFieldError('name'); // isFieldTouched 判断一个输入控件是否经历过 getFieldDecorator 的值收集时机 options.trigger
+  const ageError = isFieldTouched('age') && getFieldError('age'); // getFieldError 获取某个输入控件的 Error
 
   useEffect(() => {
-    form.validateFields();
+    form.validateFields(); //校验并获取一组输入域的值与 Error，若 fieldNames 参数为空，则校验全部组件
   }, [])
 
   const changeFormValue = () => {
@@ -47,6 +47,8 @@ const BaseFormDva = (props: IProps) => {
   };
 
   const hasErrors = (fieldsError: any) => {
+    console.log(fieldsError);
+    
     return Object.keys(fieldsError).some(field => fieldsError[field]);
   }
 
@@ -61,7 +63,7 @@ const BaseFormDva = (props: IProps) => {
 
   return (
     <Form layout='inline' onSubmit={handleSubmit}>
-      <Item label='用户名：' validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>{getFieldDecorator('name', {
+      <Item label='用户名' colon={false} validateStatus={usernameError ? 'error' : ''} help={usernameError || ''} hasFeedback>{getFieldDecorator('name', {
         rules: [
           {
             required: true,

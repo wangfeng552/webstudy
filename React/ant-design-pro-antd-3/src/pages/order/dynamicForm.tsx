@@ -13,6 +13,17 @@ let id = 0;
 
 const dynamicForm = (props: dynamicFormProps) => {
 
+    useEffect(()=>{
+        props.form.setFieldsValue({ names: ["手动赋值1", "手动赋值2"],remarks:[10,20] }); 
+        id=2
+        console.log(1);
+        
+    },[])
+
+    const setFormValue = ()=>{
+       
+    }
+
     const remove = k => {
         const { form } = props;
         // can use data-binding to get
@@ -46,6 +57,8 @@ const dynamicForm = (props: dynamicFormProps) => {
         e.preventDefault();
         props.form.validateFields((err, values) => {
             if (!err) {
+                console.log('values',values);
+                
                 let names = values.names
                 let remarks = values.remarks
                 let data:any= []
@@ -62,84 +75,42 @@ const dynamicForm = (props: dynamicFormProps) => {
         });
     };
 
-    const createValues = (values) => {
-        const { row } = this.state;
-        const data = [];
-        const newValues = { // 用新的对象承载提交的数据
-          ...values,
-        };
-        const fieldNameData = []; // 保存fieldName值
-        const remarksData = []; // 保存remarks值
-        const isImgData = []; // 保存isImg值
-        const orderData = []; // 保存orderData值
-        const fieldName = RegExp(/fieldName/);
-        const remarks = RegExp(/remarks/);
-        const isImg = RegExp(/isImg/);
-        for (const key in newValues) {
-          if (fieldName.test(key)) {
-            fieldNameData.push(newValues[key]);
-          }
-        }
-        for (const key in newValues) {
-          if (remarks.test(key)) {
-            remarksData.push(newValues[key]);
-          }
-        }
-        for (const key in newValues) {
-          if (isImg.test(key)) {
-            isImgData.push(newValues[key]);
-          }
-        }
-        for (const key in newValues) {
-          if (isImg.test(key)) {
-            orderData.push(newValues[key]);
-          }
-        }
-        fieldNameData.forEach((item, index) => {
-          data.push({
-            fieldName: item,
-            remarks: remarksData[index],
-            isImg: isImgData[index],
-            order: orderData[index],
-            id: row.dataType ? row.dataType.id : '',
-          });
-        });
-        return data;
-      };
-
     const { getFieldDecorator, getFieldValue } = props.form;
 
     const formItemLayout = {
         labelCol: {
-            xs: { span: 24 },
             sm: { span: 4 },
         },
         wrapperCol: {
-            xs: { span: 24 },
             sm: { span: 20 },
         },
     }
 
     const formItemLayoutWithOutLabel = {
         wrapperCol: {
-            xs: { span: 24, offset: 0 },
-            sm: { span: 20, offset: 4 },
+            sm: { span: 20, },
         },
+        labelCol: {
+            sm: { span: 4 },
+        },
+        
     }
 
-    getFieldDecorator('keys', { initialValue: [] });
+    getFieldDecorator('keys', { initialValue: [0,1] });
+    console.log(2);
+    
 
     const keys = getFieldValue('keys');
     console.log('keys', keys);
 
     const formItems = keys.map((k, index) => (
-        <div key={k}>
+        <div key={k+index}>
 
             <Form.Item
                 {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
-                label={index === 0 ? 'Passengers' : ''}
+                label='Passengers'
                 required={false}
-                key={`names_${k}`}
+                key={`names_${k+index}`}
             >
                 {getFieldDecorator(`names[${k}]`, {
                     validateTrigger: ['onChange', 'onBlur'],
@@ -159,17 +130,20 @@ const dynamicForm = (props: dynamicFormProps) => {
                     />
                 ) : null}
             </Form.Item>
+
             <Form.Item
+              {...(index === 0 ? formItemLayout : formItemLayoutWithOutLabel)}
                 label="名称"
-                key={k+1}>
+                key={k+index}>
                 {getFieldDecorator(`remarks[${k}]`, {
                     validateTrigger: ['onChange', 'onBlur'],
                     rules: [{
                         required: true,
                         message: '请输入中文名称!',
                     }],
-                })(<Input placeholder="请输入中文名称" />)}
+                })(<Input placeholder="请输入中文名称" style={{ width: '60%', marginRight: 8 }}  />)}
             </Form.Item>
+
         </div>
     ));
 
@@ -186,6 +160,7 @@ const dynamicForm = (props: dynamicFormProps) => {
                     提交
                 </Button>
             </Form.Item>
+            <Button onClick={setFormValue}>设置值</Button>
         </Form>
     )
 }

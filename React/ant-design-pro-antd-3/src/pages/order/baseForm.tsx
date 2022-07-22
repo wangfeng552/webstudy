@@ -43,11 +43,16 @@ const BaseForm = (props: BaseFormProps) => {
         console.log('submit');
     }
 
+    let scope={
+        name:'12'
+    }
+
     return (
         <div>
             <Form layout='inline' onSubmit={handleSubmit}>
                 <Form.Item label='用户名：' validateStatus={usernameError ? 'error' : ''} help={usernameError || ''}>
                     {getFieldDecorator('username', {
+                        initialValue: scope ? scope.name : "",
                         rules: [
                             {
                                 required: true,
