@@ -24,6 +24,7 @@
        *         1. class：使用className属性来代替
        *         2. style：值必须使用对象，里面是对象，外面是插值表达式
        *         3. for: 使用htmlFor属性来代替
+       *         4. dangerouslySetInnerHTML 原始html
        */
 
       var a = "miaov"
@@ -34,6 +35,7 @@
           <h1 id={a}>Hello React!</h1>
           <h1 className="box">Hello React!</h1>
           <h1 style={{ color: "red" }}>Hello React!</h1>
+          <div dangerouslySetInnerHTML={{__item}}></div>
         </div>,
         document.getElementById("app")
       )
