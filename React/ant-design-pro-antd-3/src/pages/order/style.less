@@ -1,0 +1,156 @@
+.name{
+    color: red;
+    .fbt{
+        color: green;
+    }
+}
+/* 定义多个全局样式 */
+:global {
+    .footer {
+      color: #ccc;
+    }
+    .sider {
+      background: #ebebeb;
+    }
+  }
+
+  .main{
+    height: 100vh;
+  }
+
+  .container{
+    width: 100%;
+    height: 100%;
+  }
+
+  .properties-panel{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+    font-size: 12px;
+  
+    height: 100%;
+    max-height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #js-properties-panel {
+    width: 400px;
+  }
+  
+  a:link {
+    text-decoration: none;
+  }
+  
+  .content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+  
+    >.message {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      display: table;
+  
+      font-size: 16px;
+      color: #111;
+  
+      .note {
+        vertical-align: middle;
+        text-align: center;
+        display: table-cell;
+      }
+  
+      &.error {
+        .details {
+          max-width: 500px;
+          font-size: 12px;
+          margin: 20px auto;
+          text-align: left;
+          color: #BD2828;
+        }
+  
+        pre {
+          border: solid 1px #BD2828;
+          background: #fefafa;
+          padding: 10px;
+          color: #BD2828;
+        }
+      }
+    }
+  
+    &:not(.with-error) .error,
+    &.with-error .intro,
+    &.with-diagram .intro {
+      display: none;
+    }
+  
+    .canvas {
+      width: 100%;
+    }
+  
+    .canvas,
+    .properties-panel-parent {
+      display: none;
+    }
+  
+    &.with-diagram {
+  
+      .canvas,
+      .properties-panel-parent {
+        display: block;
+      }
+    }
+  }
+  
+  
+  .buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 99999;
+  
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  
+    >li {
+      display: inline-block;
+      margin-right: 10px;
+  
+    }
+  }
+  
+  .properties-panel-parent {
+    border-left: 1px solid #ccc;
+    overflow: auto;
+  
+    &:empty {
+      display: none;
+    }
+  
+    >.djs-properties-panel {
+      padding-bottom: 70px;
+      min-height: 100%;
+    }
+  }
+
+  .wrap_type{
+    background-color: #f60;
+    width: 100%;
+    height: 100vh;
+  }
