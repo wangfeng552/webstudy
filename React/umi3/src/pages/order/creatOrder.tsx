@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import ImgUpload from '@/components/imgUpload'
+import ImgUpload from '@/components/imgUpload';
+import Editor from '@/components/editor';
 
 const App = () => {
   const [form] = Form.useForm();
@@ -84,6 +85,18 @@ const App = () => {
         label="图片"
         name="imgUrl">
         <ImgUpload />
+      </Form.Item>
+
+      <Form.Item
+        label="富文本"
+        name="editorDetail">
+        <Editor
+          defaultHtml="<p>初始化内容哈哈哈</p>"
+          isUploadFile={true}
+          uploadFileServer="http://rap2api.taobao.org/app/mock/297868/libo/test1/uploadEditorFile"
+          maxFileSize={10}
+          uploadImgServer="http://rap2api.taobao.org/app/mock/297868/libo/test1/uploadEditorImg"
+          maxImgSize={2} />
       </Form.Item>
 
       <Form.Item
