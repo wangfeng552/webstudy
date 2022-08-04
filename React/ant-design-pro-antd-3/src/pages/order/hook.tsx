@@ -3,6 +3,7 @@ import { Button ,Input} from 'antd'
 const Example = ()=>{
     const [count, setCount] = useState(0)
     const [message, setMessage] = useState(0)
+    const [name,setName] = useState<string>('')
 
     const [searchForm, setSearchForm] = useState({ text: 'nihao', age: 0 });
     const inputRef = useRef<HTMLInputElement>(null);
@@ -46,6 +47,7 @@ const Example = ()=>{
             <Button onClick={getUser}>获取searchForm</Button>
             <input type="text"  value={searchForm.text} onChange={onChangeValue} ref={inputRef} />
             <Input type="text" value={searchForm.text} onChange={onChangeValue}/>
+            <Input onChange={(e)=>setName(e.target.value)}></Input>
             <Button onClick={getInputRef}>通过ref获取值</Button>
         </div>
     )

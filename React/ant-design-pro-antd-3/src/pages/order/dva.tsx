@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component,useState } from 'react'
 import { connect } from "dva"
 import { ConnectState } from '@/models/connect';
+import {Input} from 'antd'
 const DvaDemo = (props:any)=>{
     console.log(props);
     return (
-        <div>123</div>
+        <div>
+
+        </div>
     )
 }
 
