@@ -63,5 +63,6 @@ export default {
   'menu.order.baseFormDva': 'baseFormDva',
   'menu.order.dynamicForm': '动态form',
   'menu.order.dongtaiForm': '动态form对象',
+  'menu.ceshi': '测试',
 
 };

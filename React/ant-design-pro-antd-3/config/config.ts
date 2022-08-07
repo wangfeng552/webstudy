@@ -203,6 +203,12 @@ export default {
               ]
             },
             {
+              path:'/ceshi',
+              name:'ceshi',
+              component:'./ceshi/ceshi',
+              icon: 'smile',
+            },
+            {
               component: './404',
             },
           ],

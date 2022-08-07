@@ -1,4 +1,7 @@
-scoop安装
+安装scoop 
+通过scoop安装nvm
+scoop install nvm
+
 nvm                  // 会提示nvw下的相关命令
 nvm ls               // 查看已安装node版本
 nvm install vXX      // 安装对应vXX版本的node

@@ -53,6 +53,9 @@ class StateStudy extends React.Component<StateStudyProps, StateStudyState> {
                 age: 10
             }
         }))
+
+        // 方法4 第二个参数一个回调函数，当setState结束并重新呈现该组件时将被调用。
+        // this.setState({name:'11'},()=>{})
     }
     render() {
         let t = null

@@ -6,6 +6,7 @@ import Link from 'umi/link'
 import Prompt from 'umi/prompt';
 import styles from './style.less'
 
+
 interface ShopProps {
     location: RouteData;
     match:any
@@ -51,6 +52,7 @@ class Shop extends Component<ShopProps, ShopState> {
         console.log(location);
 
         return (
+            
             <div className='wf'>
                 <h2 className={styles.name}>标题 <span className={styles.fbt}>副标题</span></h2>
                 <div className={styles.footer}>全局样式</div>

@@ -26,7 +26,7 @@ class ChildUrl extends Component<ChildUrlProps, ChildUrlState> {
         console.log(this);
 
     }
-    chuandiName = (e, age) => {
+    chuandiName = (e:React.MouseEvent, age:number) => {
         console.log(e.target);
         console.log(age);
         this.props.showName()
