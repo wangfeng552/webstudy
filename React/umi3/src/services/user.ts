@@ -5,3 +5,11 @@ export async function getTags() {
     });
 
 }
+
+export async function login(data) {
+    return request('/api/login', {
+        method: 'post',
+        data
+    });
+
+}

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import ImgUpload from '@/components/imgUpload';
+import ImgUpload from '@/components/imgUpload'
 import Editor from '@/components/editor';
 
 const App = () => {
@@ -21,7 +21,7 @@ const App = () => {
       username: '',
     });
   };
-// 方法1 使用form - initialValues回显数据
+  // 方法1 使用form - initialValues回显数据
   const initData = {
     imgUrl: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
     password: '213',
@@ -84,9 +84,9 @@ const App = () => {
       <Form.Item
         label="图片"
         name="imgUrl">
-        <ImgUpload />
+        <ImgUpload
+        />
       </Form.Item>
-
       <Form.Item
         label="富文本"
         name="editorDetail">
