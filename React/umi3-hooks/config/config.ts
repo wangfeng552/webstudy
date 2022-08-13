@@ -1,5 +1,5 @@
 import { defineConfig } from 'umi';
-
+const { REACT_APP_ENV } = process.env;
 export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
@@ -17,8 +17,14 @@ export default defineConfig({
     locale: true,
     layout: 'side',
   },
+  define: {
+    REACT_APP_ENV: REACT_APP_ENV || false,
+  },
   routes: [
-    { path: '/', component: '@/pages/index' ,name:'首页'},
+    
+    { path: '/login', component: '@/pages/login' ,name:'登录',layout:false,hideInMenu: true,},
+    { path: '/', component: '@/pages/index' ,name:'首页',access: 'isWorker'},
+    { path: '/tree', component: '@/pages/tree/dragTree' ,name:'树',access: 'isWorker',},
    
     {
       path:'/order',
@@ -30,4 +36,5 @@ export default defineConfig({
     }
   ],
   fastRefresh: {},
+  exportStatic: {},
 });
