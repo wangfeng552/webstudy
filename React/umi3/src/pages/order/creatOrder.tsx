@@ -2,9 +2,13 @@ import React, { useEffect } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
 import ImgUpload from '@/components/imgUpload'
 import Editor from '@/components/editor';
+import {useAccess} from 'umi'
 
 const App = () => {
   const [form] = Form.useForm();
+  let access = useAccess()
+  console.log("access",access);
+  
 
   const onFinish = (values) => {
     console.log('Success:', values);

@@ -13,6 +13,11 @@ interface UserList {
 
 export default function IndexPage() {
 
+  console.log(REACT_APP_ENV );
+  console.log(API_URL );
+  console.log(API_SECRET_KEY );
+  
+
   // const [data, setUserList] = useState<UserList[]>([])
   // const [loading, setLoading] = useState(true)
 
