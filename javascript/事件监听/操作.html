@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+        <h2>思路</h2>
+        <p>
+            1、全局定义一个变量储存是否操作的状态，全局注册一个定时器，封装一个方法，传入一个callback函数，当用户一段时间未操作页面时执行，传入一个time时间，限定多长时间用户未操作就执行这个callback函数。
+        </p>
+        <p>2、通过onmousedown与onmouseup，两个事件判断用户有没有操作</p>
+        <h3>注意事项</h3>
+        <p>1、wfTimer定时器最好在注册成全局的，方便在任何地方进行清理</p>
+        <p>2、如果需求中有一段时间时要停止监测的，就直接clearInterval(wfTimer)清除定时器就可以了。再启动的时候调用hasOperate函数</p>
+    </div>
+
+    <script>
+      let wfTimer
+      let wfTimeStatus = true
+      function hasOperate(callback, time) {
+        document.body.onmousedown = function () {
+          wfTimeStatus = true
+        }
+        document.body.onmouseup = function () {
+          countTime()
+        }
+        function countTime() {
+          setInterval(function () {
+            if (!wfTimeStatus) {
+              callback()
+              wfTimeStatus = true
+            }
+          }, 1000) // 这里我是以秒为单位监听的，自己也可以改自己的
+          if (wfTimer) {
+            clearInterval(wfTimer)
+          }
+          wfTimer = setInterval(function () {
+            console.log('time',time);
+            wfTimeStatus = false
+          }, time)
+        }
+        countTime()
+      }
+
+      function show(){
+        alert('好久没操作了')
+      }
+      hasOperate(show,1000*20)
+    </script>
+  </body>
+</html>
