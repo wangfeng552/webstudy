@@ -57,6 +57,7 @@ git cherry-pick 62ecb3  合并某个分支上的单个commit
 版本回退
 HEAD指向当前版本 
 git reset --hard commit_id 版本穿梭
+git push -f -u origin dev  提交到远程
 git push -f origin develop:develop  回退提交
 git revert HEAD 	删除最后一次提交
 git push origin master
@@ -66,6 +67,8 @@ git log --graph		查看分支合并图
 git reflog		查看命令历史 以便确定要回到未来的哪个版本
 git checkout -- file  	丢弃修改回到最近的commit file指定的文件
 git reset HEAD file 	在暂存区回退到工作区
+
+
 
 
 bug修复

@@ -135,7 +135,7 @@ export default {
               routes:[
                 {
                   path: '/order/shop',
-                  name: 'shop',
+                  name: '路由参数',
                   component: './order/shop',
                 },
               

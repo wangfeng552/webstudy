@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+function timeUserFun(time,fn){
+     var time = time || 2;
+     var userTime = time*60;
+     var objTime = {
+       init:0,
+       time:function(){
+         objTime.init += 1;
+         console.log(objTime.init);
+         if(objTime.init == userTime){
+            fn() // 用户到达未操作事件 做一些处理
+         }
+       },
+       eventFun:function(){
+         clearInterval(testUser);
+         objTime.init = 0;
+         testUser = setInterval(objTime.time,1000);
+       }
+     }
+
+     var testUser = setInterval(objTime.time,1000);
+
+     var body = document.querySelector('html');
+     body.addEventListener("click",objTime.eventFun);
+     body.addEventListener("keydown",objTime.eventFun);
+     body.addEventListener("mousemove",objTime.eventFun);
+     body.addEventListener("mousewheel",objTime.eventFun);
+   }
+
+ function show(){
+    console.log('3333');
+ }
+
+
+//   直接调用 参数代表分钟数,可以有一位小数;
+  timeUserFun(0.2,show);
+    </script>
+    
+</body>
+</html>

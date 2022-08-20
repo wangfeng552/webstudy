@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let array1 = [{ Num: "A " }, { Num: "B" }]
+      let array2 = [
+        { Num: "A ", Name: "t1 " },
+        { Num: "B", Name: "t2" },
+        { Num: "C ", Name: "t3 " },
+      ]
+      let result = []
+      for (let i = 0; i < array2.length; i++) {
+        let obj = array2[i]
+        let num = obj.Num
+        let isExist = false
+        for (let j = 0; j < array1.length; j++) {
+          let aj = array1[j]
+          let n = aj.Num
+          if (n == num) {
+            isExist = true
+            break
+          }
+        }
+        if (!isExist) {
+          result.push(obj)
+        }
+      }
+      console.log(result)
+    </script>
+  </body>
+</html>
