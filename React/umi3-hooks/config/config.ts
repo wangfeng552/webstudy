@@ -27,19 +27,19 @@ export default defineConfig({
     REACT_APP_ENV: REACT_APP_ENV || false,
   },
   routes: [
-    
-    { path: '/login', component: '@/pages/login' ,name:'登录',layout:false,hideInMenu: true,},
-    { path: '/', component: '@/pages/index' ,name:'首页',access: 'isWorker'},
-    { path: '/tree', component: '@/pages/tree/dragTree' ,name:'树',access: 'isWorker',},
-   
+    { path: '/login', component: '@/pages/login' ,name:'login',layout:false,hideInMenu: true,},
+    { path: '/home', component: '@/pages/index' ,name:'home',access: 'isWorker'},
+    { path: '/tree', component: '@/pages/tree/dragTree' ,name:'tree',access: 'isWorker',},
     {
-      path:'/order',
+      path:'/study',
       name:'study',
       routes:[
-        { path: '/order/list', component: '@/pages/order/index' ,name:'路由跳转',},
-        { path: '/order/create', component: '@/pages/order/creatOrder' ,name:'表单创建',},
-        { path: '/order/oldlist', component: '@/pages/list/oldList' ,name:'普通请求列表',},
-        { path: '/order/hooklist', component: '@/pages/list/hookList' ,name:'hook列表',},
+        { path: '/study/router', component: '@/pages/study/router' ,name:'router',},
+        { path: '/study/create', component: '@/pages/study/create' ,name:'create',},
+        { path: '/study/oldlist', component: '@/pages/study/oldList' ,name:'oldList',},
+        { path: '/study/hooklist', component: '@/pages/study/hookList' ,name:'hookList',},
+        { path: '/study/parent', component: '@/pages/study/parent' ,name:'parent',},
+        { path: '/study/memo', component: '@/pages/study/memo' ,name:'memo',},
       ]
     },
   ],

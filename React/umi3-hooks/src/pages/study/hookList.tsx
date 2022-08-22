@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import styles from './index.less';
 import { getUserList, deleteUser } from '@/services/user';
-import { Space, Table, Tag, Button, Input } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import { Space, Table, Input } from 'antd';
+import { ColumnProps } from 'antd/es/table';
 import { useRequest } from 'umi';
-interface UserList {
+interface UserListType {
   id: number;
   name: string;
   value: number;
@@ -28,7 +27,7 @@ export default function IndexPage() {
 
   // 搜索
   const search = () => {
-    getList(params[0]);
+    getList(params[0],name);
   };
 
   // 清除空参数
@@ -89,8 +88,8 @@ export default function IndexPage() {
     },
   );
 
-  const { sorter = {}, filters = {} } = params[0] || ({} as any);
-  const columns: ColumnsType<UserList> = [
+  const { sorter = {}, filters = {}  } = params[0] || ({} as any);
+  const columns = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -134,8 +133,10 @@ export default function IndexPage() {
         </Space>
       ),
     },
-  ];
+  ]
 
+  console.log(tableProps);
+  
   return (
     <div>
       <Input
