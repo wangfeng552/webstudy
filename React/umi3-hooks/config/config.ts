@@ -17,6 +17,12 @@ export default defineConfig({
     locale: true,
     layout: 'side',
   },
+  locale: {
+    default: 'zh-CN',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    baseNavigator: true,
+  },
   define: {
     REACT_APP_ENV: REACT_APP_ENV || false,
   },
@@ -28,12 +34,14 @@ export default defineConfig({
    
     {
       path:'/order',
-      name:'订单管理',
+      name:'study',
       routes:[
-        { path: '/order/list', component: '@/pages/order/index' ,name:'订单列表',},
-        { path: '/order/create', component: '@/pages/order/creatOrder' ,name:'订单创建',},
+        { path: '/order/list', component: '@/pages/order/index' ,name:'路由跳转',},
+        { path: '/order/create', component: '@/pages/order/creatOrder' ,name:'表单创建',},
+        { path: '/order/oldlist', component: '@/pages/list/oldList' ,name:'普通请求列表',},
+        { path: '/order/hooklist', component: '@/pages/list/hookList' ,name:'hook列表',},
       ]
-    }
+    },
   ],
   fastRefresh: {},
   exportStatic: {},

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import ImgUpload from '@/components/imgUpload'
-import Editor from '@/components/editor';
+import ImgUpload from '@/components/AvatarUpload'
+import Editor from '@/components/Editor';
 import {useAccess} from 'umi'
 
 const App = () => {

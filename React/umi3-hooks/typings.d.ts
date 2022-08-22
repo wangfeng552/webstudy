@@ -5,6 +5,7 @@ declare module '*.css';
 declare module '*.less';
 declare module '*.png';
 declare module '*.png';
+declare module 'browser-md5-file';
 declare module '*.svg' {
   export function ReactComponent(
     props: React.SVGProps<SVGSVGElement>,

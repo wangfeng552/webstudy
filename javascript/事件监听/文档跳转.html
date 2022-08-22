@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getArticle(id) {
+        this.showArticle = false
+        const that = this
+        resourcesDetail(id).then((res) => {
+          if (resCorrect(res)) {
+            if (resCode(res) === 0) {
+              this.showArticle = true
+              that.liked = !!res.data.data.upvote
+              that.article = res.data.data
+              that.$nextTick(function () {
+                document.documentElement.scrollTop = 1
+                that.anchors = processArticleTitles()
+                document.documentElement.scrollTop = 0
+              })
+              this.currentId = id
+            } else if (resCode(res) === 3) {
+              this.invalidId()
+            } else {
+              this.$message.error(resMessage(res))
+            }
+          } else {
+            this.$message.error(resMessage(res))
+          }
+        })
+      }
+
+    //   获取富文本H2内容添加ID 
+      export function processArticleTitles() {
+        const titles = document.querySelectorAll(".lingshu-article h2")
+        const anchors = []
+        titles.forEach(function (title, index) {
+          const prefix = "lingshu-id-"
+          const id = prefix + index
+          title.id = id
+          anchors.push({ href: id, title: title.textContent })
+        })
+        return anchors
+      }
+    </script>
+  </body>
+</html>

@@ -58,7 +58,8 @@ export const layout = ({ initialState }) => {
                   ]
               // initialState.currentUser 中包含了所有用户信息
             //   const menuData = await fetchMenuData();
-              return routes;
+
+              // return routes;  
             },
           },
     }

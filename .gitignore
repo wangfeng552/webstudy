@@ -5,3 +5,9 @@ npm-debug.log
 .idea
 
 .vscode
+
+# umi
+/src/.umi
+/src/.umi-production
+/src/.umi-test
+/.env.local

@@ -22,7 +22,11 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
+    "browser-md5-file": "^1.1.1",
+    "i18next": "^21.8.16",
+    "lodash": "^4.17.20",
     "mockjs": "^1.1.0",
+    "moment": "^2.29.4",
     "nanoid": "^4.0.0",
     "react": "17.x",
     "react-dom": "17.x",
