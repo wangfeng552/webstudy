@@ -9,7 +9,7 @@ let dataList = mockjs.mock({
 let userList = mockjs.mock({
   msg: 'success',
   msgCode: 0,
-  'data|8': [{ name: '@city', 'value|1-100': 50, 'type|+1': 1, 'id|+1': 1,'area|0-1':1 }],
+  'data|300': [{ name: '@city', 'value|1-100': 50, 'type|+1': 1, 'id|+1': 1,'area|0-1':1 }],
   pageable: { "pageSize": 10, "pageNumber": 1, "total": 300 }
 })
 

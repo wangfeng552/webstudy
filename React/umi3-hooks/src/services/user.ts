@@ -14,12 +14,9 @@ export async function deleteTag(data) {
 }
 
 export async function getUserList(params: any) {
-    const { pageSize, pageNumber, name, type, area } = params
     return request('/api/user/list', {
         method: 'get',
-        params: {
-            pageSize, pageNumber, name, type, area
-        }
+        params
     });
 }
 

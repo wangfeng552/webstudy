@@ -38,6 +38,7 @@ export default defineConfig({
         { path: '/study/create', component: '@/pages/study/create' ,name:'create',},
         { path: '/study/oldlist', component: '@/pages/study/oldList' ,name:'oldList',},
         { path: '/study/hooklist', component: '@/pages/study/hookList' ,name:'hookList',},
+        { path: '/study/hookListNew', component: '@/pages/study/hookListNew' ,name:'hookListNew',},
         { path: '/study/parent', component: '@/pages/study/parent' ,name:'parent',},
         { path: '/study/memo', component: '@/pages/study/memo' ,name:'memo',},
       ]
