@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 
+
 export default function memo() {
   const [age, setAge] = useState(0);
   const [area, setArea] = useState(0);
@@ -10,6 +11,7 @@ export default function memo() {
 
   return (
     <div>
+     
       <p>使用useMemo计算出来的值 --- {totalAge}</p>
       <div>age:{age}</div>
       <div>area:{area}</div>

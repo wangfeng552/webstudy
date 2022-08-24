@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #ChartCanvas{
+	background:rgba(255,255,255,0);/*关键点*/
+	position:absolute;
+	z-index:1;/*确保在遮盖的元素的上方*/
+	top:0px;
+	left:0px;
+}
+    </style>
+    <div>
+        <!-- <canvas id="ChartCanvas"  width="500" height="500" style="border:1px solid #000000;">
+
+        </canvas> -->
+    </div>
+   <div>
+
+    <ul>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+        <li>23432489</li>
+    </ul>
+    <button onclick="drawLine(e)">画线</button>
+   </div>
+    <script>
+        function drawLine(e){
+            console.log(e);
+        }
+        window.onload = function () {
+    var canvas = document.getElementById('ChartCanvas')
+    canvas.width = 1024
+    canvas.height = 768
+    if (canvas.getContext('2d')) {
+      var context = canvas.getContext('2d')
+      // 使用context绘制
+      // 从坐标(100,100)为起点开始
+      context.moveTo(100, 100)
+      // 到坐标(700,700)为终点画一条直线
+      context.lineTo(700, 700)
+      // 线宽为5
+      context.lineWidth = 5
+      // 线的样式颜色
+      context.strokeStyle = '#005588'
+      // 执行划直线这个操作
+      context.stroke()
+    } else {
+      alert('当前浏览器不支持canvas，请更换浏览器后再试')
+    }
+}
+
+    </script>
+</body>
+</html>
