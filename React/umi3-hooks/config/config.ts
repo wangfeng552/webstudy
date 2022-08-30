@@ -41,6 +41,7 @@ export default defineConfig({
         { path: '/study/hookListNew', component: '@/pages/study/hookListNew' ,name:'hookListNew',},
         { path: '/study/parent', component: '@/pages/study/parent' ,name:'parent',},
         { path: '/study/memo', component: '@/pages/study/memo' ,name:'memo',},
+        { path: '/study/nanoid', component: '@/pages/study/nanoid' ,name:'nanoid',},
       ]
     },
   ],

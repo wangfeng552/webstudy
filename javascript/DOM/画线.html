@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="aa">点击</button>
+    <div id="line"></div>
+    <input type="text" id="name">
+    <style>
+        body{
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        document.getElementById('name').value = '12'
+        
+        var dot=new Array()
+        document.onmousedown = function(a){
+            if(!a) a=window.event;
+            var x = a.clientX
+            var y = a.clientY
+            if(dot.length>=4) dot.splice(0,4)
+            dot.push(x,y)
+            if(dot.length ==4){
+                var width = Math.abs(dot[0]-dot[2])
+                var height = Math.abs(dot[1]-dot[3])
+                var left = dot[0]-dot[2]<0?dot[0]:dot[2]
+                var top = dot[1]-dot[3]<0?dot[1]:dot[3]
+                var div = document.createElement('div')
+                div.className ="wrap";
+                div.innerHTML='<div style="width:'+3 + 'px;height:100vh;position:fixed;visibility:visible;left:'+left+'px;top:'+0+'px;border-left:3px solid #ccc;"></div>"'
+                document.getElementById('line').appendChild(div)
+            }
+
+            var wraps = document.querySelectorAll(".wrap")
+            for (let i = 0; i < wraps.length; i++) {
+                wraps[i].index = i;
+                wraps[i].onclick = function () {
+                    dot=[]
+                    document.getElementById("line").removeChild(this)//删除添加的节点
+                }
+            }
+        }
+    </script>
+    <div onclick="clearLine()">123</div>
+</body>
+</html>

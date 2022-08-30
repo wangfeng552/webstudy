@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        ul {
+            width: 100px;
+            height: 200px;
+            border: 1px solid black;
+            list-style: none;
+        }
+ 
+        li {
+            width: 100%;
+            height: 30px;
+            background-color: aqua;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+ 
+<body>
+    <input type="text">
+    <button type="button">提交</button>
+    <ul></ul>
+    <script>
+        var input = document.querySelector("input");
+        var btn = document.querySelector("button");
+        btn.onclick = function () {
+            var ul = document.querySelector("ul");
+            var li = document.createElement("li");//创建节点li
+            ul.appendChild(li);//追加节点
+            var lis = document.querySelectorAll("li")
+            li.innerHTML = input.value
+            input.value = ""//每次提交一次就清空input框里的内容
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].index = i;
+                lis[i].onclick = function () {
+                    ul.removeChild(this)//删除添加的节点
+                }
+            }
+        }
+    </script>
+</body>
+ 
+</html>

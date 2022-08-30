@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1">
+		<p id="demo">原始节点</p>
+		<button id="add">添加新节点</button>
+		<button id="del">移除新节点</button>
+		</div>
+	</body>
+	<script>
+	document.getElementById("add").addEventListener('click',add);
+	document.getElementById("del").addEventListener('click',del);
+	var count = -1;
+	function add(){
+		var para = document.createElement('p');
+		para.className ="p1";//让新增的每个p节点的class名为"p1"
+		var content = document.createTextNode("新的一条节点");
+		para.appendChild(content);
+		var element = document.getElementById("div1");
+		count++;
+		element.appendChild(para);
+	}
+	function del(){
+		var parent = document.getElementById("div1");
+		var child = document.getElementsByClassName("p1")[0];
+		if(document.getElementsByClassName('p1')[0]==null){
+			alert('已经移除完了');
+			return 0;
+		}
+			parent.removeChild(child);
+			count -= 1;
+	}
+	</script>
+</html>

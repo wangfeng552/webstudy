@@ -10,4 +10,5 @@ export default {
   'menu.study.hookListNew': 'hook自定义列表',
   'menu.study.parent': '父子组件',
   'menu.study.memo': 'useMemo',
+  'menu.study.nanoid': 'nanoid',
 };
