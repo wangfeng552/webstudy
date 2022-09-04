@@ -41,11 +41,13 @@ export default function IndexPage() {
     return copy;
   };
 
-  // 方法2使用useRequest 后台不是直接返回data需处理
-  // data格式必须 {data:[]}
-  // 开启分页 paginated: true, data:{list:[],total:10}
+  // 方法2使用useRequest 
+
+  // data是后端响应的数据包，默认情况下要求格式必须 {data:[]}
+  // 开启分页 paginated: true, data:{list:[],total:10}  
   // loading 异步请求状态
   // error 异步请求失败返回结果
+  
   // let {data,loading,error} = useRequest(async ()=>{
   //   const res = await getUserList()
   //   return {

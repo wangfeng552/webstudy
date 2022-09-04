@@ -1,0 +1,1 @@
+https://github.com/blueju/umi-request-practice   umi-request配置

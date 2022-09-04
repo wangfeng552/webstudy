@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = [
+            {
+                "id": 1,
+                "name": "女装/男装/内衣",
+                "parentId": 0,
+                "children": [
+                    {
+                        "id": 2,
+                        "name": "女装",
+                        "parentId": 1,
+                        "children": [
+                            {
+                                "id": 6,
+                                "name": "连衣裙",
+                                "parentId": 2
+                            },
+                            {
+                                "id": 7,
+                                "name": "毛呢外套",
+                                "parentId": 2
+                            },
+                            {
+                                "id": 8,
+                                "name": "休闲裤",
+                                "parentId": 2
+                            },
+                            {
+                                "id": 9,
+                                "name": "牛仔外套",
+                                "parentId": 2
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "name": "男装",
+                        "parentId": 1
+                    },
+                    {
+                        "id": 4,
+                        "name": "童装",
+                        "parentId": 1
+                    },
+                    {
+                        "id": 5,
+                        "name": "内衣",
+                        "parentId": 1
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "name": "鞋靴/箱包/配件",
+                "parentId": 0
+            }
+        ]
+
+        // 当前节点的子列表
+        let newList = [
+            {
+                "id": 600,
+                "name": "连衣裙-1",
+                "parentId": 6
+            },
+            {
+                "id": 601,
+                "name": "连衣裙-2",
+                "parentId": 6
+            },
+            {
+                "id": 602,
+                "name": "连衣裙-3",
+                "parentId": 6
+            }
+        ]
+
+        // 当前节点ID
+        let currentID = 6
+
+        function handleArr(initArr) {
+            return initArr.map((v) => {
+                if (v.id === currentID) {
+                    v = { ...v, children: newList };
+                    return v;
+                }
+                if (v.children) {
+                    let children = handleArr(v.children);
+                    return { ...v, children };
+                }
+                return v;
+            });
+        }
+
+    // handleArr (data )
+    </script>
+
+</body>
+
+</html>
