@@ -31,6 +31,13 @@ export default defineConfig({
   },
   routes: [
     { path: '/login', component: '@/pages/login' ,name:'login',layout:false,hideInMenu: true,},
+    { path: '/menu', component: '@/pages/menu/home', name: '首页', layout: false, hideInMenu: true,
+    routes:[
+      { path: '/menu/news', component: '@/pages/menu/news', name: '新闻', layout: false, hideInMenu: true, },
+      { path: '/menu/wether', component: '@/pages/menu/wether', name: '天气', layout: false, hideInMenu: true, },
+      { path: '/menu/dog', component: '@/pages/menu/dog', name: '狗', layout: false, hideInMenu: true, },
+    ]
+   },
     { path: '/home', component: '@/pages/index' ,name:'home',access: 'isWorker'},
     { path: '/tree', component: '@/pages/tree/dragTree' ,name:'tree',access: 'isWorker',},
     {
