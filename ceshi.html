@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let tree = [
+        {
+          id: 10,
+          name: "鞋靴/箱包/配件",
+          parentId: 0,
+        },
+        {
+          id: 1,
+          name: "女装/男装/内衣",
+          parentId: 0,
+          children: [
+            {
+              id: 2,
+              name: "女装",
+              parentId: 1,
+              children: [
+                {
+                  id: 6,
+                  name: "连衣裙",
+                  parentId: 2,
+                },
+                {
+                  id: 7,
+                  name: "毛呢外套",
+                  parentId: 2,
+                },
+              ],
+            },
+            {
+              id: 3,
+              name: "男装",
+              parentId: 1,
+            },
+          ],
+        },
+      ]
+
+      let id = 6
+
+      let newArr = [
+        {
+          parentId: 6,
+          id: 610,
+          name: "新增1",
+        },
+        {
+          parentId: 6,
+          id: 611,
+          name: "新增2",
+        },
+        {
+          parentId: 6,
+          id: 612,
+          name: "新增3",
+        },
+      ]
+
+      function setChild(arr, id) {
+        const currentID = arr.id
+        if (currentID === id) {
+          arr.children = newArr
+          return true
+        }
+
+        if (arr.children) {
+          for (let i = 0; i < arr.children.length; i++) {
+            const ptr = arr.children[i]
+            const result = setChild(ptr, id)
+            if (result === true) return true
+          }
+        }
+
+        return false
+      }
+
+      for (let i = 0; i < tree.length; i++) {
+        let item = tree[i]
+        setChild(item, 6)
+      }
+    </script>
+  </body>
+</html>

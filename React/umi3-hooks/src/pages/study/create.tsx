@@ -26,21 +26,21 @@ const App = () => {
     });
   };
   // 方法1 使用form - initialValues回显数据
-  const initData = {
-    imgUrl: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-    password: '213',
-    remember: false,
-    username: 'lisi'
-  }
+  // const initData = {
+  //   imgUrl: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+  //   password: '213',
+  //   remember: false,
+  //   username: 'lisi'
+  // }
 
   useEffect(() => {
     // 方法2 使用 form-setFieldsValue回显数据
-    // form.setFieldsValue({
-    //   imgUrl: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
-    //   password: '213',
-    //   remember: true,
-    //   username: 'lisi'
-    // });
+    form.setFieldsValue({
+      imgUrl: "https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+      password: '213',
+      remember: true,
+      username: 'lisi'
+    });
   }, [])
 
 
@@ -54,7 +54,7 @@ const App = () => {
         span: 16,
       }}
       form={form}
-      initialValues={initData}
+      // initialValues={initData}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
       autoComplete="off"

@@ -1,3 +1,4 @@
+npm cache clean --force  Çå³ıÒÀÀµ»º´æ
 npm install --save 
 npm install -S
 

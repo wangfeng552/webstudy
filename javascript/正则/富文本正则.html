@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <!-- public static String deleteHtmlSign(String str1) {
+        //定义script的正则表达式
+       String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>";
+       //定义style的正则表达式
+       String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>";
+       //定义HTML标签的正则表达式
+       String regEx_html = "<[^>]+>";
+       //过滤script标签
+       Pattern p_script = Pattern.compile(regEx_script, Pattern.CASE_INSENSITIVE);
+       Matcher m_script = p_script.matcher(str1);
+       str1 = m_script.replaceAll("");
+       //过滤style标签
+       Pattern p_style = Pattern.compile(regEx_style, Pattern.CASE_INSENSITIVE);
+       Matcher m_style = p_style.matcher(str1);
+       str1 = m_style.replaceAll("");
+        //过滤html标签
+       Pattern p_html = Pattern.compile(regEx_html, Pattern.CASE_INSENSITIVE);
+       Matcher m_html = p_html.matcher(str1);
+       str1=m_html.replaceAll("");
+       //将转义字符转化成纯文本
+       String str2 = StringEscapeUtils.unescapeHtml(str1);
+       //返回文本字符串
+       return str2.trim();
+//    }
+</div> -->
+
+   <script>
+        var  str="<p style='color:red'><strong>测试</strong></p><p><a>是否</a><s>成</s><i>功</i>!!!</p>";
+
+ 
+        let words = str.replace(/<[^<>]+>/g, "").replace(/&nbsp;/gi, ""); //这里是去除标签
+
+        console.log(words);
+    </script>
+    
+</body>
+</html>
