@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let listItem = [
+        {
+          id: "-1", //唯一标识id
+          name: "女装/男装/内衣",
+          parentId: "-2", //父级id
+        },
+        {
+          id: "2",
+          name: "女装",
+          parentId: "-1",
+        },
+        {
+          id: "3",
+          name: "男装",
+          parentId: "-1",
+        },
+        {
+          id: "4",
+          name: "童装",
+          parentId: "2",
+        },
+        {
+          id: "5",
+          name: "内衣",
+          parentId: "2",
+        },
+        {
+          id: "6",
+          name: "连衣裙",
+          parentId: "3",
+        },
+        {
+          id: "7",
+          name: "毛呢外套",
+          parentId: "3",
+        },
+        {
+          id: "8",
+          name: "休闲裤",
+          parentId: "4",
+        },
+        {
+          id: "9",
+          name: "牛仔外套",
+          parentId: "4",
+        },
+        {
+          id: "10",
+          name: "鞋靴/箱包/配件",
+          parentId: "5",
+        },
+      ]
+
+      // 拍平数据列表组合成树
+      const transListToTreeData = (listParam, root) => {
+        const list = JSON.parse(JSON.stringify(listParam))
+        const arr = []
+        list.forEach((item) => {
+          if (item.parentId === root) {
+            const children = transListToTreeData(list, item.id)
+            if (children.length) {
+              item.children = children
+              // item.count = item.children.length  // 查找当前目录下有多少个子集
+            }
+            arr.push(item)
+          }
+        })
+        return arr
+      }
+
+      // 将列表数据组合成树
+      let arrTree = transListToTreeData(listItem, "-2")
+
+      // 匹配到的相同id放进res
+      listItem.forEach((obj) => {
+        const res = []
+        findAllSubNode(arrTree, obj.id, res) // 整棵树, 每个item的ID, 找到的值
+        obj.nodeID = res // 匹配的id数组
+        obj.length = res.length
+      })
+
+      function findAllSubNode(tree, itemID, res) {
+        for (const obj of tree) {
+          if (obj.parentId === itemID) {
+            res.push(obj.id)
+            if (obj.children) {
+              findAllSubNode(obj.children, obj.id, res)
+            }
+          } else {
+            if (obj.children) {
+              findAllSubNode(obj.children, itemID, res)
+            }
+          }
+        }
+      }
+
+    let t =  transListToTreeData(listItem,'-2')
+    </script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+     let listItem = [
+        {
+          id: "-1", //唯一标识id
+          name: "女装/男装/内衣",
+          parentId: "-2", //父级id
+        },
+        {
+          id: "2",
+          name: "女装",
+          parentId: "-1",
+        },
+        {
+          id: "3",
+          name: "男装",
+          parentId: "-1",
+        },
+        {
+          id: "4",
+          name: "童装",
+          parentId: "2",
+        },
+        {
+          id: "5",
+          name: "内衣",
+          parentId: "2",
+        },
+        {
+          id: "6",
+          name: "连衣裙",
+          parentId: "3",
+        },
+        {
+          id: "7",
+          name: "毛呢外套",
+          parentId: "3",
+        },
+        {
+          id: "8",
+          name: "休闲裤",
+          parentId: "4",
+        },
+        {
+          id: "9",
+          name: "牛仔外套",
+          parentId: "4",
+        },
+        {
+          id: "10",
+          name: "鞋靴/箱包/配件",
+          parentId: "5",
+        },
+      ]
+
+      
+  /**
+   * @description 拍平数据组合成树
+   * @param menuList  拍平数据
+   * @param nodeID parentId
+   */
+      function listToTree(menuList,nodeID){
+        const res  = []
+        menuList.forEach((item)=>{
+          if(item.parentId === nodeID){
+            res.push(item)
+            const children = listToTree(listItem,item.id)
+            if(children){
+              item.children = children
+            }
+          }
+        })
+        console.log(res);
+        return res
+      }
+
+
+    
+      listToTree(listItem,'-2')
+
+    </script>
+  </body>
+</html>

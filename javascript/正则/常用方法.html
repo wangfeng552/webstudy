@@ -32,6 +32,12 @@
 
         return true
       }
+
+    let s=  /^[a-zA-Z0-9]([a-zA-Z0-9]{3,10})/g
+
+
+      // /^[a-zA-Z\u4e00-\u9fa5]([A-Za-z0-9\u4e00-\u9fa5]{3,32})$/;   以中英文开头 长度3-32
+      // getValueFromEvent={event => event.target.value.replace(/(^\s*|\s*$)/g, '')}  // antd react form 去除头尾空格
     </script>
   </body>
 </html>
