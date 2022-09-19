@@ -8,24 +8,17 @@
   </head>
   <body>
     <style>
-      @media (max-width: 800px) {
-        .mk {
-          color: red;
-        }
-      }
-      @media (min-width:801px) and (max-width: 1000px) {
-        .mk {
-          color: yellow;
-        }
-      }
-      @media (min-width:1001px) and (max-width: 1280px) {
-        .mk {
-          color: blue;
-        }
-      }
-      @media (min-width:1281px) {
+.mk{
+  color: red;
+  width: 1280px;
+  background-color: #ccc;
+}
+      @media (max-width:1280px) {
+        /* 小于1280分辨率写这里 */
         .mk {
           color: #fc5;
+          width: 1080px;
+          background: #f60;
         }
       }
     </style>

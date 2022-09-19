@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      .w-e-text ul li {
+        display: list-item;
+      }
+      .w-e-text ul li::before {
+        content: "• ";
+      }
+
+      .w-e-text ol {
+        list-style: none;
+        counter-reset: li;
+      }
+
+      .w-e-text li::before {
+        content: counter(li) ". ";
+        counter-increment: li;
+      }
+    </style>
+
+    <div>
+      1. 首先，需要隐掉OL原有的样式，使用list-style:none
+      2. 为OL设置一个新的变量counter-reset:li;
+      3.设置变量li为自递增变量，默认每次+1；counter-increment:li;
+      4.递增数值的样式修改,content:counter(li)'===~~~';该部分的作用就是 1 ===
+    </div>
+  </body>
+</html>
