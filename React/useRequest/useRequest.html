@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const { data, error, loading,run,refresh } = useRequest(service, {
+
+        manual: true, // 手动触发
+        onBefore: (params) => {
+            // 请求之前触发
+          message.info(`Start Request: ${params[0]}`)
+        },
+        onSuccess: (result, params) => {
+            // 请求成功触发
+          message.success(`The username was changed to "${params[0]}" !`)
+        },
+        onError: (error) => {
+            // 请求失败触发
+          message.error(error.message)
+        },
+        onFinally: (params, result, error) => {
+            // 请求完成触发
+          message.info(`Request finish`)
+        },
+      })
+    </script>
+
+    <button onClick={refresh}>重新刷新</button>
+  </body>
+</html>
