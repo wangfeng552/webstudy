@@ -37,5 +37,20 @@
         </ol>
     </div>
     
+    <script>
+        var arr = ['a','c','d','e','hh','dd']
+
+        var f = 3
+        var s = 5
+
+        function changArr (arr,first,second){
+            let firstValue = arr[first]
+            let secondValue = arr[second]
+            arr[first] =  secondValue
+            arr[second] =  firstValue
+            return arr
+        }
+        changArr( ['a','c','d','e','hh','dd'],3,5)
+    </script>
 </body>
 </html>
