@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListener</title>
+</head>
+<body>
+    <a href="https://blog.csdn.net/TTYLXWT/article/details/117964806"> addEventListener与事件捕获、事件冒泡</a>
+    <div id="first">
+        <div id="second">
+            <div id="third">
+                <div id="my">开始</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let first = document.querySelector('#first')
+        let second = document.querySelector('#second')
+        let third = document.querySelector('#third')
+        let my = document.querySelector('#my')
+
+        function showFirst(){
+            console.log('showFirst----1');
+        }
+        function showSecond(){
+            console.log('showSecond----2');
+        }
+        function showThird(){
+            console.log('showThird----3');
+        }
+        function showMy(){
+            console.log('showMy----4');
+        }
+
+        // first.addEventListener('click',showFirst,false)
+        // second.addEventListener('click',showSecond,false)
+        // third.addEventListener('click',showThird,false)
+        // my.addEventListener('click',showMy,false)
+        // 4-3-2-1
+
+        // first.addEventListener('click',showFirst,true)
+        // second.addEventListener('click',showSecond,true)
+        // third.addEventListener('click',showThird,true)
+        // my.addEventListener('click',showMy,true)
+        // 1-2-3-4
+
+        first.addEventListener('click',showFirst,true)
+        second.addEventListener('click',showSecond,false)
+        third.addEventListener('click',showThird,true)
+        my.addEventListener('click',showMy,false)
+        // 1-3-4-2
+
+    </script>
+    
+</body>
+</html>
