@@ -35,18 +35,21 @@
             console.log('showMy----4');
         }
 
+        // 默认false 冒泡
         // first.addEventListener('click',showFirst,false)
         // second.addEventListener('click',showSecond,false)
         // third.addEventListener('click',showThird,false)
         // my.addEventListener('click',showMy,false)
         // 4-3-2-1
 
+        // true 捕获
         // first.addEventListener('click',showFirst,true)
         // second.addEventListener('click',showSecond,true)
         // third.addEventListener('click',showThird,true)
         // my.addEventListener('click',showMy,true)
         // 1-2-3-4
 
+        // 先捕获在冒泡
         first.addEventListener('click',showFirst,true)
         second.addEventListener('click',showSecond,false)
         third.addEventListener('click',showThird,true)
