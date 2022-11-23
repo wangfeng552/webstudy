@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // Object.setPrototypeOf(obj,prototype),为现有对象设置原型，返回一个新对象 
+    // 接受2个参数：第一个是现有对象，第2个是原型对象
+    var obj1 = {}
+    var obj2 ={
+      name:'lisi',
+      age:12
+    }
+
+    Object.setPrototypeOf(obj1,obj2)
+
+  </script>
+  
+</body>
+</html>

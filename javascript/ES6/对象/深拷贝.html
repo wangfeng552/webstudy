@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    // 对象深拷贝方法
+    // 方法1
+    let person ={
+      name:'lsii',
+      age:12
+    }
+    let clone ={...person}
+    // 注意: 这种方式只能用于单层json对象，也就是对象中的每个value都是基本类型，没有嵌套。
+  </script>
+
+  <script>
+    // 方法2
+    const clone2 = Object.assign({},person)
+    // 注意: 这种方式只能用于单层json对象，也就是对象中的每个value都是基本类型，没有嵌套。
+  </script>
+
+  <script>
+    // 方法3
+    let user ={
+      name:'lsii',
+      age:12
+    }
+    JSON.parse(JSON.stringify(user))  
+    // 这个是可以对多层json对象进行拷贝的
+    // 注意: 使用这个方法，对象中不能有Date, functions, undefined, Infinity, RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, sparse Arrays这些数据类型。
+  </script>
+  
+</body>
+</html>

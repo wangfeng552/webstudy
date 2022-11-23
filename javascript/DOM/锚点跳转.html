@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  .w1{
+    height: 500px;
+  }
+  .w2{
+    height: 800px;
+  }
+  .w3{
+    height: 660px;
+  }
+  .mk{
+    position: sticky;
+    top: 0;
+    background-color: #f60;
+    height: 40px;
+  }
+</style>
+<body>
+  <div class="mk">
+    <span onclick="setTab(1)">1111</span>
+    <span onclick="setTab(2)">2222</span>
+    <span onclick="setTab(3)">3333</span>
+  </div>
+  <div class="w1">aaaaaa</div>
+  <div class="w2">bbbbbb</div>
+  <div class="w3">ccccccc</div>
+
+  <script>
+    function setTab(tab){
+      console.log(tab);
+      document.querySelector(".w"+tab).scrollIntoView(true);
+      document.documentElement.scrollTop = document.querySelector(".w"+tab).offsetTop-40;
+      document.body.scrollTop =  document.querySelector(".w"+tab)-40;
+    }
+  </script>
+ 
+</body>
+</html>

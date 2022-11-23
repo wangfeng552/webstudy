@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>属性的遍历</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      name:"里斯",
+      age:12,
+      [Symbol()]:0,
+    }
+
+    var arr = [1,2,3]
+
+    for(let key in obj ){}
+    // 1.循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）。
+
+    Object.keys(obj)
+    // 2.返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
+
+    Object.getOwnPropertyNames(obj)
+    // 3.返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名。
+
+    Object.getOwnPropertySymbols(obj)
+    // 4.返回一个数组，包含对象自身的所有 Symbol 属性的键名。
+
+    Reflect.ownKeys(obj)
+    // 5.返回一个数组，包含对象自身的（不含继承的）所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
+  </script>
+
+  
+</body>
+</html>

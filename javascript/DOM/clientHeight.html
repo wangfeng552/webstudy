@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .mk {
+      width: 100px;
+      height: 100px;
+      border: 25px solid #ccc;
+      padding: 50px;
+      background-color: #f60;
+    }
+  </style>
+
+  <div class="mk">123</div>
+  <div class="mk2">sdfsf</div>
+
+  <script>
+    function getViewport() {
+      if (document.compatMode == "BackCompat") {
+        return {
+          width: document.body.clientWidth,
+          height: document.body.clientHeight
+        }
+      } else {
+        return {
+          width: document.documentElement.clientWidth,
+          height: document.documentElement.clientHeight
+        }
+      }
+    }
+    // 上面的getViewport函数就可以返回浏览器窗口的高和宽。使用的时候，有三个地方需要注意：
+    // 1）这个函数必须在页面加载完成后才能运行，否则document对象还没生成，浏览器会报错。
+    // 2）大多数情况下，都是document.documentElement.clientWidth返回正确值。但是，在IE6的quirks模式中，document.body.clientWidth返回正确的值，因此函数中加入了对文档模式的判断。
+    // 3）clientWidth和clientHeight都是只读属性，不能对它们赋值。
+  </script>
+
+  <script>
+    // document对象的scrollHeight和scrollWidth属性就是网页的大小，意思就是滚动条滚过的所有长度和宽度。
+    function getPagearea() {
+      if (document.compatMode == "BackCompat") {
+        return {
+          width: document.body.scrollWidth,
+          height: document.body.scrollHeight
+        }
+      } else {
+        return {
+          width: document.documentElement.scrollWidth,
+          height: document.documentElement.scrollHeight
+        }
+      }
+    }
+  </script>
+
+  <script>
+    function getPagearea() {
+      if (document.compatMode == "BackCompat") {
+        return {
+          width: Math.max(document.body.scrollWidth,
+            document.body.clientWidth),
+          height: Math.max(document.body.scrollHeight,
+            document.body.clientHeight)
+        }
+      } else {
+        return {
+          width: Math.max(document.documentElement.scrollWidth,
+            document.documentElement.clientWidth),
+          height: Math.max(document.documentElement.scrollHeight,
+            document.documentElement.clientHeight)
+        }
+      }
+    }
+  </script>
+
+</body>
+
+</html>
