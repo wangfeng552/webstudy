@@ -90,6 +90,7 @@ git fetch origin 丢弃本地改动，服务器上获取最新分支
 
 
 git rebase 操作
+Git rebase -I commitID => reword 是修改提交信息，修改后可以继续编辑后面的提交信息；
 git pull --rebase dev
 
 git checkout -
