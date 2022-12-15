@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 保存当前的滚动距离
+        let scrollTop =
+            document.documentElement.scrollTop || document.body.scrollTop;
+        // 设置 fixed 布局
+        document.body.style.position = 'fixed';
+        document.body.style.height = '100%';
+        document.body.style.width = '100%';
+
+
+        // 还原默认布局
+        document.body.style.position = 'relative';
+        document.body.style.height = 'auto';
+        document.body.style.width = '100%';
+        // 恢复到禁止时的位置
+        window.scrollTo(0, scrollTop);
+
+    </script>
+</body>
+
+</html>

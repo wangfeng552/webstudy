@@ -9,34 +9,15 @@
 </head>
 
 <body>
-  <style>
-    .mk {
-      width: 100px;
-      height: 100px;
-      border: 25px solid #ccc;
-      padding: 50px;
-      background-color: #f60;
-      position: relative;
-      /* left: 10px; */
+  pending进行中 fulfilled已成功 rejected已失败
+  <script>
+  function showName(params) {
+      // params.foo = params.foo ?? '默认值'
+        params.foo??='默认值' //使用??= 逻辑赋值运算符
+      console.log(params);
     }
-
-    .mk2 {
-      height: 2000px;
-      background-color: #ccc;
-    }
-
-    .sl {
-      background-color: #fff;
-    }
-  </style>
-
-  <div class="mk">
-    <div class="sl">
-      2324
-    </div>
-  </div>
-  <div class="mk2">sdfsf</div>
-
+    showName({})
+  </script>
 
 
 

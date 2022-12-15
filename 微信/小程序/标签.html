@@ -19,7 +19,8 @@
 
 
   <view></view>
-  <text></text>
+  <text selectable></text>
+  <rich-text nodes="<h2>12344</h2>">渲染富文本内容</rich-text>
   <image>{{text}}</image>
   <text data-test="{{test}}"> hello world</text>
 
@@ -34,19 +35,22 @@
 
   <!-- isShow false 显示  true隐藏 -->
   <view hidden="isShow">
-    
+
   </view>
 
 
   <!-- 列表渲染 -->
-  <!-- array: [{message: 'foo',}, {message: 'bar'}]  
+  <!-- array: [{message: 'foo',id:1}, {message: 'bar',id:2}]  
     index 下标 || item 变量名
   -->
   <view wx:for="{{array}}">
     {{index}}: {{item.message}}
   </view>
 
-  <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+  <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
+    {{idx}}: {{itemName.message}}
+  </view>
+  <view wx:for="{{6}}" wx:key="*this">
     {{idx}}: {{itemName.message}}
   </view>
 </body>

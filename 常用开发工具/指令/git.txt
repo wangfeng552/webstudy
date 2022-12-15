@@ -61,10 +61,12 @@ git push -f -u origin dev  提交到远程
 git push -f origin develop:develop  回退提交
 git revert HEAD 	删除最后一次提交
 git push origin master
+
 git log 		查看历史提交
 git log --pretty=oneline最近到最远的提交日志
 git log --graph		查看分支合并图
 git reflog		查看命令历史 以便确定要回到未来的哪个版本
+
 git checkout -- file  	丢弃修改回到最近的commit file指定的文件
 git reset HEAD file 	在暂存区回退到工作区
 

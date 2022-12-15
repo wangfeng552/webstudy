@@ -15,12 +15,14 @@
   </div> -->
   <view bindtap="tapName">事件冒泡</view>
   <view catchtap="">可以阻止冒泡事件向上冒泡</view>
-  <view bindtap="getData" data-name="123">可以阻止冒泡事件向上冒泡</view>
+  <view bindtap="getData" data-name="123">事件冒泡</view>
+  <view catchtap="show">绑定并阻止事件冒泡</view>
+  <view capture-bindtap="">捕获事件</view>
   <script>
 
     Page({
       data: {
-        fileList:[],
+        fileList: [],
         motto: 'old',
         user: {
           name: '智囊',
@@ -47,10 +49,10 @@
           'user.name': "45"
         })
       },
-      delete(){
+      delete() {
         var index = e.detail.index
         var fileList = this.data.fileList
-        fileList.splice(index,1)
+        fileList.splice(index, 1)
       },
       changeArr() {
         // 假设某种情况要根据条件改变某个特定值的某个属性，那么就需要先将要改变的属性转换成字符串，再用中括号括起来就可以了。

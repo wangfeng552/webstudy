@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //根据年龄算日期
+        function gitBirthForAge(ageYear, ageMonth, ageDay) {
+            var subYear = parseInt(ageYear);
+            var subMonth = parseInt(ageMonth);
+            var subDay = parseInt(ageDay);
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            var nowMonth = now.getMonth() + 1;
+            var nowDay = now.getDate(); // 按照减法原理，先day相减，不够向month借；然后month相减，不够向year借；最后year相减。 
+            var day = nowDay - subDay;
+            var month = nowMonth - subMonth;
+            var year = nowYear - subYear; // 检查是否溢出 
+            if (day <= 0) { // 获得上月的天数 
+                var lastMonth = nowMonth - 1;
+                var lastMonthOfYear = nowYear;
+                if (lastMonth <= 0) {
+                    lastMonth = lastMonth + 12 //(lastMonth + 12) % 12; 
+                    lastMonthOfYear = lastMonthOfYear - 1;
+                }
+                day = day + new Date(lastMonthOfYear, lastMonth, 0).getDate();
+                month = month - 1;
+            }
+            if (month <= 0) {
+                month = month + 12 //(month + 12) % 12; 
+                year--;
+            }
+            if (month < 10) {
+                month = '0' + month
+            }
+            if (day < 10) {
+                day = '0' + day
+            }
+            console.log(year + '-' + month + '-' + day);
+        }
+        // myfunction(1,10,20)
+
+
+        function getBirthDay(age) {
+            // 转换为数字
+            const subYear = parseInt(age.substring(age.indexOf("岁") - 1));
+            const subMonth = parseInt(age.substring(age.indexOf("月") - 1));
+            const subDay = parseInt(age.substring(age.indexOf("日") - 1));
+            const now = new Date();
+            const nowYear = now.getFullYear();
+            const nowMonth = now.getMonth();
+            const nowDay = now.getDay();
+            // 按照减法原理，先day相减，不够向month借；然后month相减，不够向year借；最后year相减。
+            var day = nowDay - subDay;
+            var month = nowMonth - subMonth;
+            var year = nowYear - subYear;
+            // 检查是否溢出
+            if (day < 0) {
+                // 获得上月的天数
+                var lastMonth = nowMonth - 1;
+                var lastMonthOfYear = nowYear;
+                if (lastMonth < 0) {
+                    lastMonth = (lastMonth + 12) % 12;
+                    lastMonthOfYear = lastMonthOfYear - 1;
+                }
+                day = day + new Date(lastMonthOfYear, lastMonth, 0).getDate();
+                month = month - 1;
+            }
+            if (month < 0) {
+                month = (month + 12) % 12;
+                year--;
+            }
+            console.log(year + '年' + month + '月' + day + '日')
+        }
+        getBirthDay("2岁3月8日");
+
+    </script>
+</body>
+
+</html>

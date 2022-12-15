@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通过css属性overscroll-behavior</title>
+</head>
+
+<body>
+    <style>
+        .wrap {
+            height: 2000px;
+            background-color: #fcc;
+        }
+
+        .dialog {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 50vh;
+            width: 100vw;
+            background-color: #fff;
+            overflow-y: scroll;
+            overscroll-behavior: contain;
+        }
+
+        .dialog li {
+            height: 100px;
+            background-color: #ccc;
+        }
+
+        .scroll {
+            height: 30vh;
+            background-color: #eff;
+            overflow-y: scroll;
+        }
+    </style>
+    <div class="wrap">
+        sdfkjh
+    </div>
+    <div class="dialog">
+        <h3>通过css属性overscroll-behavior</h3>
+        <div class="scroll">
+            <ul>
+                <li>auto - 默认。元素的滚动会传播给祖先元素。</li>
+                <li>contain - 阻止滚动链接。滚动不会传播给祖先，但会显示元素内的原生效果。例如，Android 上的炫光效果或 iOS
+                    上的回弹效果，当用户触摸滚动边界时会通知用户。注意：overscroll-behavior: contain 在 html 元素上使用可防止滚动导航操作。</li>
+                <li>none - 和 contain 一样，但它也可以防止节点本身的滚动效果（例如 Android 炫光或 iOS 回弹）。</li>
+                <li>111111111</li>
+                <li>222222222</li>
+                <li>333333333</li>
+                <li>还有设置在body上也可以禁止下拉刷新和回弹效果</li>
+                <li>body {
+                    /* 禁用默认的下拉刷新和边界效果
+                    但是依然可以进行滑动导航 */
+                    overscroll-behavior-y: none;
+                    }
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

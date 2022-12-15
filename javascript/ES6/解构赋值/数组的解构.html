@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<meta content="telephone=no,email=no" name="format-detection"/>
+	<meta content="telephone=no,email=no" name="format-detection" />
 	<title>数组解构</title>
 </head>
+
 <body>
-<script>
-//1. 解构赋值可以嵌套的
-var [ a,b,[ c1,c2 ] ] = [ 1,2,[ 3.1,3.2 ] ];
+	<script>
+		//1. 解构赋值可以嵌套的
+		var [a, b, [c1, c2]] = [1, 2, [3.1, 3.2]];
 
-//2. 不完全解构
-var [a,b,c] = [1,2];
+		//2. 不完全解构
+		var [a, b, c] = [1, 2];
 
-//3. 赋值不成功，变量的值为undefined
-var [a,b,c] = [1,2];
-console.log(c);//结果：c的值为undefined
+		//3. 赋值不成功，变量的值为undefined
+		var [a, b, c] = [1, 2];
+		console.log(c);//结果：c的值为undefined
 
-//4. 允许设定默认值
-var [a,b,c="122"]=[1,2]
+		//4. 允许设定默认值
+		var [a, b, c = "122"] = [1, 2]
 
-//5. ...包含后面所有值
-var [a,...b]=[1,2,3,4,5]
-	console.log(b) //=>[2,3,4,5]
-</script>
+		//5. ...包含后面所有值
+		var [a, ...b] = [1, 2, 3, 4, 5]
+		console.log(b) //=>[2,3,4,5]
+
+		//6. 数组过滤
+		let liabilityList = [
+			{
+				maxAge: '22',
+				code: '4128'
+			},
+			{
+				maxAge: '122',
+				code: '413328'
+			}
+		]
+		let [{ maxAge }] = liabilityList.filter(item => item.code == '4128')
+	</script>
 
 </body>
+
 </html>

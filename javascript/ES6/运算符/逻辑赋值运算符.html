@@ -1,30 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <script>
-      let user = {
-        id: 15,
-      };
-      // 老的写法
-      // user.id = user.id || 1;
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      // 新的写法
-      user.id ||= 1;
-    </script>
+<body>
 
-    <script>
-      let a = undefined;
-      let b = 2;
+  <script>
+    // a = a || 1 
+    a ||= 1
 
-      a ??= b; // a = a ?? b; // => a=2
-      a &&= b; // a = a && b  // => a undefined
-    </script>
-  </body>
+    // a = a && 1
+    a &&= 1
+
+    // a = a ?? 1
+    a ??= 1
+
+    let user = {
+      id: 15,
+    };
+    // 老的写法
+    // user.id = user.id || 1;
+
+    // 新的写法
+    user.id ||= 1;
+  </script>
+
+  <script>
+    let a = undefined;
+    let b = 2;
+
+    a ??= b; // a = a ?? b; // => a=2
+    a &&= b; // a = a && b  // => a undefined
+  </script>
+
+  <script>
+    function showName(params) {
+      params.foo = params.foo ?? '默认值'
+      //   params.foo??='默认值' //使用??= 逻辑赋值运算符
+      console.log(params);
+    }
+    showName({ foo: null })
+  </script>
+</body>
+
 </html>

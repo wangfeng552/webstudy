@@ -91,6 +91,19 @@
         }
     </script>
 
+    <script>
+        // 深拷贝带方法
+        function returnStrify(obj) {
+            let copy = Object.create(Object.getPrototypeOf(obj)); // 在原型上生成新的对象的实例
+            let propNames = Object.getOwnPropertyNames(obj); // 枚举和不可枚举的属性
+            propNames.forEach(function (items) {
+                let item = Object.getOwnPropertyDescriptor(obj, items); // 获取指定对象的自身属性描述符
+                Object.defineProperty(copy, items, item);  // 定义属性名，以及给值
+            });
+            return copy;
+        }
+    </script>
+
 </body>
 
 </html>
