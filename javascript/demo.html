@@ -9,14 +9,20 @@
 </head>
 
 <body>
-  pending进行中 fulfilled已成功 rejected已失败
+
   <script>
-  function showName(params) {
-      // params.foo = params.foo ?? '默认值'
-        params.foo??='默认值' //使用??= 逻辑赋值运算符
-      console.log(params);
-    }
-    showName({})
+    let {keys,values,entries} = Object
+let obj = {
+  a:1,
+  b:2,
+  c:3
+}
+
+for(let [key,v] of entries(obj)){
+  console.log(key,v);
+}
+
+
   </script>
 
 

@@ -15,11 +15,13 @@
   </div> -->
   <view bindtap="tapName">事件冒泡</view>
   <view catchtap="">可以阻止冒泡事件向上冒泡</view>
-  <view bindtap="getData" data-name="123">事件冒泡</view>
-  <view catchtap="show">绑定并阻止事件冒泡</view>
-  <view capture-bindtap="">捕获事件</view>
-  <script>
 
+  <view bindtap="getData" data-name="123" data-user-name="李四" data-userAddress="上海">传递参数,以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符</view>
+
+  <view capture-bindtap="">捕获事件</view>
+  <view capture-catchtap="">中断捕获阶段和取消冒泡阶段</view>
+  
+  <script>
     Page({
       data: {
         fileList: [],
@@ -43,6 +45,9 @@
       },
       getData(event) {
         let name = event.currentTarget.dataset['name'];
+        // 以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符
+        let userName = event.currentTarget.dataset['userName'] // - 会转为驼峰写法
+        let userAddress = event.currentTarget.dataset['useraddress'] // 大写会转为小写
       },
       changeData() {
         this.setData({

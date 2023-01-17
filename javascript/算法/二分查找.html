@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 6, 34, 37, 48, 56, 78, 90, 100]
+        let qieArr = []
+
+        function getarr(arr, target) {
+            // debugger
+            let left = 0;
+            let right = arr.length - 1;
+            while (left <= right) {
+                let mid = parseInt((left + right) / 2);
+                console.log('arr[mid]', arr[mid]);
+                if (target == arr[mid]) {
+                    return target;
+                } else if (qieArr.length <= 3 && qieArr.length > 0) {
+                    // debugger
+                    let a, b, c
+                    for (let i = qieArr.length; i >= 0; i--) {
+                        if (i == 0) {
+                            a = qieArr[i]
+                        }
+                        if (i == 1) {
+                            b = qieArr[i]
+                        }
+                        if (i == 2) {
+                            c = qieArr[i]
+                        }
+                    }
+
+                    let a1 = Math.abs(a - target) || 0
+                    let b1 = Math.abs(b - target) || 0
+                    let c1 = Math.abs(c - target) || 0
+                    console.log('a1', a1);
+                    console.log('b1', b1);
+                    console.log('c1', c1);
+                    let map = new Map([[a1, a], [b1, b], [c1, c]])
+                    map.delete(0)
+                    let flag = a1
+                    for (let [key, value] of map.entries()) {
+                        if (key < flag) {
+                            flag = key
+                        }
+                    }
+                    console.log(map);
+                    console.log(flag);
+                    console.log(map.get(flag));
+                    return map.get(flag)
+                } else if (target > arr[mid]) {
+                    left = mid;
+                    console.log('切右边', qieArr);
+                    qieArr = arr.slice(left, right)
+                } else if (target < arr[mid]) {
+                    right = mid;
+                    qieArr = arr.slice(left, right)
+                    console.log('切左边', qieArr);
+                }
+            }
+            return -1;
+        }
+        let result = getarr(arr, 5);
+
+
+
+
+        console.log('结果',result)
+
+    </script>
+</body>
+
+</html>

@@ -15,7 +15,7 @@
       name: "心寒大概",
       age: "12313"
     }
-    console.log(Object.keys(prople))  // => ["name", "age"]
+    Object.keys(prople)  // => ["name", "age"]
 
 
     // 案例2 如果值是空的话就不传对象名
@@ -31,6 +31,25 @@
     const dog = { name: '大师傅', age: 45, color: 'red' }
     Object.values(dog) // => ['大师傅', 45, 'red']
   </script>
+
+  <script>
+    const cat = { name: '大师傅', age: 45, color: 'red' }
+    Object.entries(cat) // => [['name','大师傅'],['age',45],['color','red']]
+  </script>
+
+  <script>
+    let { keys, values, entries } = Object
+    let obj = {
+      a: 1,
+      b: 2,
+      c: 3
+    }
+
+    for (let [key, v] of entries(obj)) {
+      console.log(key, v);
+    }
+  </script>
+
 </body>
 
 </html>

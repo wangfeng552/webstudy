@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 自基础库版本 1.5.0 起，触摸类事件支持捕获阶段。捕获阶段位于冒泡阶段之前，且在捕获阶段中，事件到达节点的顺序与冒泡阶段恰好相反。需要在捕获阶段监听事件时，可以采用capture-bind、capture-catch关键字，后者将中断捕获阶段和取消冒泡阶段。 -->
+
+    <!-- 在下面的代码中，点击 inner view 会先后调用handleTap2、handleTap4、handleTap3、handleTap1。 -->
+    <view id="outer" bind:touchstart="handleTap1" capture-bind:touchstart="handleTap2">
+        outer view
+        <view id="inner" bind:touchstart="handleTap3" capture-bind:touchstart="handleTap4">
+            inner view
+        </view>
+    </view>
+
+    <!-- 如果将上面代码中的第一个capture-bind改为capture-catch，将只触发handleTap2。 -->
+    <view id="outer" bind:touchstart="handleTap1" capture-catch:touchstart="handleTap2">
+        outer view
+        <view id="inner" bind:touchstart="handleTap3" capture-bind:touchstart="handleTap4">
+            inner view
+        </view>
+    </view>
+
+</body>
+
+</html>

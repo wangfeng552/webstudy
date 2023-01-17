@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消请求</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.0/axios.js"></script>
+</head>
+
+<body>
+    <div id="one">请求one</div>
+    <div id="two">请求two</div>
+    <div id="cancel">取消请求</div>
+    <script>
+
+        const CancelToken = axios.CancelToken;
+        let cancel = null;
+        var one = document.getElementById('one')
+        var two = document.getElementById('two')
+        var cancelBtn = document.getElementById('cancel')
+
+        // 一般情况下我们需要判断请求是否发出去了再取消，如果用户频繁点击请求按钮，这时我们需要取消之前的请求而发送最后一个请求
+        one.onclick = function () {
+            if (cancel !== null) {
+                cancel()
+            }
+            axios.get({
+                method: 'get',
+                url: 'https://inintest.life.cntaiping.com/tpbb/jtp/ylsq/mini-program/stimuldate-switch?agentCode=00567504242',
+                cancelToken: new CancelToken(function executor(c) {
+                    // executor 函数接收一个 cancel 函数作为参数
+                    cancel = c;
+                })
+            }).then(response => {
+                cancel = null
+            }).catch((err) => {
+                if (axios.isCancel(err)) {
+                    console.log('手动取消');
+                } else {
+                    cancel = null
+                    console.log('发送失败');
+                }
+            })
+        }
+
+        // 点击取消
+        cancelBtn.onclick = function () {
+            if (typeof cancel === 'function') {
+                cancel()
+            } else {
+                console.log('没有可取消的请求');
+            }
+
+        }
+
+        // 首先把cancel赋值为null，如果每次点击的话cancel会赋值成c，也就是说再次点击的时候cancel就不是null就会进入if语句，取消请求，等请求结束后就会把cancel赋值为null这样下次点击就不会进入if语句
+
+    </script>
+</body>
+
+</html>

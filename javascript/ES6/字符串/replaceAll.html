@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = '124abc456'
+        const regex = /(\d+)([a-z]+)(\d+)/g;
+        function repeacer(match,p1,p2,p3,offset,string){
+            console.log(match); // 第一个参数是捕捉到的匹配内容  => 124abc456
+            console.log(p1); // 第二个参数捕捉到是组匹配（有多少个组匹配，就有多少个对应的参数） =>124
+            console.log(offset);
+            return [p1,p2,p3].join('-')
+        }
+        str.replaceAll(regex,repeacer)
+    </script>
+</body>
+</html>

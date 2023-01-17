@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 自基础库版本 2.8.2 起，除 bind 和 catch 外，还可以使用 mut-bind 来绑定事件。一个 mut-bind 触发后，如果事件冒泡到其他节点上，其他节点上的 mut-bind 绑定函数不会被触发，但 bind 绑定函数和 catch 绑定函数依旧会被触发。
+
+    换而言之，所有 mut-bind 是“互斥”的，只会有其中一个绑定函数被触发。同时，它完全不影响 bind 和 catch 的绑定效果。
+
+     -->
+
+    <view id="outer" mut-bind:tap="handleTap1">
+        outer view
+        <view id="middle" bindtap="handleTap2">
+            middle view
+            <view id="inner" mut-bind:tap="handleTap3">
+                inner view
+            </view>
+        </view>
+    </view>
+
+    <!-- 例如上边这个例子中，点击 inner view 会先后调用 handleTap3 和 handleTap2 ，点击 middle view 会调用 handleTap2 和 handleTap1 。 -->
+
+
+
+</body>
+
+</html>

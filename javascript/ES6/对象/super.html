@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
 
   <script>
-    const proto ={
-      x:'hello',
-      foo(){
-        console.log(this.x);
-      }
-    }
+    const proto = {
+      foo: 'hello'
+    };
 
     const obj = {
-      x:'world',
-      foo(){
-        super.foo();
+      foo: 'world',
+      find() {
+        return super.foo; //super关键字表示原型对象时，只能用在对象的方法之中，用在其他地方都会报错。
       }
-    }
+    };
 
-    Object.setPrototypeOf(obj,proto);
+    Object.setPrototypeOf(obj, proto);
+    obj.find() // "hello"
 
-    // obj.foo()  //=> 'world'
 
-    
-    
-    </script>
-  
+  </script>
+
 </body>
+
 </html>

@@ -40,7 +40,7 @@
 	arr.find(function (v) {return v>2 })	//=>3	找出数组中符合条件的第一个元素。
 	arr.findIndex(function (v) { return v>2 })//=>2 返回符合条件的第一个数组的位置
 	arr.fill("aa",1,2)				//=>[1,"aa",3,4,5] 用指定的值，填充到数组。从1开始，2前面结束；改变原始数组
-	arr.copyWithin(target,start,end)	//在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组
+	arr.copyWithin(target,start,end)	//在当前数组内部，将指定位置的成员复制到其他位置（会覆盖原有成员），然后返回当前数组,start开始, end前
 
 	for(let [i,v] of ["a","b"].entries()){	//entries( )函数返回的一个遍历器，用for...of进行遍历
 	    console.log(i,v)}					//=>0 "a"  1 "b"
