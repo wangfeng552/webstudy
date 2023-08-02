@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // “先行断言”指的是，x只有在y前面才匹配，必须写成/x(?=y)/。
+        let a = /\d+(?=%)/.exec('this is 100% of US pre12200%sidents have been male')   //  => ['100']
+        console.log(a);
+
+        // “先行否定断言”指的是，x只有不在y前面才匹配，必须写成/x(?!y)/
+        let b = /\d+(?!%)/.exec('this 1234% is 33 money 44 !') // => ['123']
+        console.log(b);
+    </script>
+
+    <script>
+        // “后行断言”正好与“先行断言”相反，x只有在y后面才匹配，必须写成/(?<=y)x/。
+        let c  = /(?<=\$)\d+/.exec('Benjamin Franklin is on the $100 bill')  // => ['100']
+
+        // “后行否定断言”则与“先行否定断言”相反，x只有不在y后面才匹配，必须写成/(?<!y)x/。
+        let d = /(?<!\$)\d+/.exec('it’s is12222 worth about €90')       // ['90']
+    </script>
+
+    <script>
+        // 下面的例子是使用后行断言进行字符串替换。
+        const RE_DOLLAR_PREFIX = /(?<=\$)foo/g;
+        '$foo %foo foo'.replace(RE_DOLLAR_PREFIX, 'bar'); // => '$bar %foo foo'
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    has()方法用来拦截HasProperty操作，即判断对象是否具有某个属性时，这个方法会生效。典型的操作就是in运算符。
+    <script>
+        var hander ={
+            has(target,key){
+                if(key[0]==='_'){
+                    return false
+                }
+                return key in target;
+            }
+        }
+
+        var obj={"_prop":"foo",'show':'name'}
+
+        var p = new Proxy(obj,hander)
+        "_prop" in p  // => false
+        "show" in p  // => true
+    </script>
+    
+</body>
+</html>

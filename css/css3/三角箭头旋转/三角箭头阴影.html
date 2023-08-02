@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>CSS实现消息框中带阴影效果的三角形箭头</title>
+  <style>
+    .wrap{
+      padding-left: 100px;
+    }
+    .box {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      background: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 3px #ccc;
+    }
+    .box:after {
+      position: absolute;
+      display: inline-block;
+      top: 30px;
+      left: -19px;
+      width: 0;
+      height: 0px;
+      content: '';
+      border-style: solid;
+      border-width: 20px;
+      border-color: #fff #fff transparent transparent;
+      transform: rotate(225deg);
+      box-shadow: 2px -2px 2px #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+ 
+  <div class="box">
+  </div>
+  </div>
+</body>
+</html>

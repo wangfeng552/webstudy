@@ -1,32 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var blessingWords =
+        "祝福早：一祝永健康，二祝胃口秒，三祝事事顺，四祝效率高，五祝多钞票，六祝不变老，七祝全家好，八祝好运罩，九祝您久久幸福天天笑。岁岁平安，安居乐业。业和邦兴，兴旺发达。大吉大利，力争上游。游刃有余。";
+      function lengthCutting(str, num) {
+        let strArr = [];
+        for (let i = 0; i < str.length; i += num)
+          strArr.push(str.slice(i, i + num) + '/n');
+        return strArr;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-
-  <script>
-    let {keys,values,entries} = Object
-let obj = {
-  a:1,
-  b:2,
-  c:3
-}
-
-for(let [key,v] of entries(obj)){
-  console.log(key,v);
-}
+      var cutBlessingWorldsList = lengthCutting(blessingWords, 20).join("")	
 
 
-  </script>
-
-
-
-</body>
-
+      console.log(cutBlessingWorldsList);
+    </script>
+  </body>
 </html>

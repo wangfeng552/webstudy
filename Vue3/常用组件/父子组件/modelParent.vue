@@ -8,6 +8,7 @@
 <script setup>
 // 子组件使用update更新值, 不需要再通过触发父组件的方法修改
 import { reactive } from "vue"
+import Child from './modelChild.vue';
 
 const state = reactive({
   name: "张三",

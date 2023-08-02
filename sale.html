@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    .mk{
+        width: 100px;
+        padding: 10px;
+        border: 5px solid #ccc;
+        box-sizing: border-box;
+        resize: both;
+        overflow: auto;
+    }
+    .stick{
+        position: sticky;
+        top: 0;
+    }
+    .wrap{
+        height: 2000px;
+        background-color: #fcc;
+    }
+</style>
+<div class="mk">
+    12
+</div>
+<div>1222</div>
+<div class="stick">123</div>
+
+<div class="wrap"></div>
+<script>
+    function _myFlat(arr) {
+      const result = [];
+      const stack = [].concat(arr); // 将数组元素拷贝至栈，直接赋值会改变原数组
+      //如果栈不为空，则循环遍历
+      while (stack.length !== 0) {
+        const val = stack.pop();
+        if (Array.isArray(val)) {
+          stack.push(...val); //如果是数组再次入栈，并且展开了一层
+        } else {
+          result.unshift(val); //如果不是数组就将其取出来放入结果数组中
+        }
+      }
+      return result;
+    }
+
+    var arr = [{name:'1222',age:22},{name:'lisi',age:12},]
+</script>
+
+<script>
+  // type=baobao&miniFlag=ssnf_2023&agentCode=00046164412&backUrl=&sellChannel=1
+  let person = {}
+  person.otherData = {
+    type:'baobao',
+    miniFlag:'ssnf_2023',
+    agentCode:'00046164412',
+    sellChannel:1,
+    // holderId:232939497,
+    backUrl:'1234',
+    isTpch:1 // 1 服拓 2个险非试点 ， 3太平长湖
+  }
+  let encName = encodeURIComponent(encodeURIComponent(JSON.stringify(person)))
+
+ let url =  `toCptZQ=generalMark&carryingData=${encName}`
+ console.log(url);
+
+ let m = 'toCptZQ=generalMark&carryingData=%257B%2522otherData%2522%253A%257B%2522type%2522%253A%2522baobao%2522%252C%2522miniFlag%2522%253A%2522ssnf_2023%2522%252C%2522agentCode%2522%253A%252206094334132%2522%257D%257D'
+</script>
+
+
+</body>
+</html>

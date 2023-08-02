@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var imageShowInfoList = [
+        {
+          imageUrl: "a",
+          imageDesc:'1',
+          policyBoxImage: {
+            imageBase64: "",
+            imageType: "jpg",
+          },
+        },
+        {
+          imageUrl: "b",
+          imageDesc:'b',
+          policyBoxImage: {
+            imageBase64: "",
+            imageType: "jpg",
+          },
+        },
+        {
+          imageUrl: "",
+          imageDesc:'c',
+          policyBoxImage: {
+            imageBase64: "c",
+            imageType: "jpg",
+          },
+        },
+        {
+          imageUrl: "",
+          imageDesc:'d',
+          policyBoxImage: {
+            imageBase64: "d",
+            imageType: "jpg",
+          },
+        },
+      ];
+      var imgArr = []
+      imageShowInfoList.map((item) => {
+        var currentObj = {
+          picDesc:item.imageDesc
+        }
+        if(item.imageUrl){
+          currentObj.picUrl = item.imageUrl
+        }else{
+          currentObj.picUrl = "data:image/png;base64," +  item.policyBoxImage.imageBase64
+        }
+        imgArr.push(currentObj)
+      });
+
+      console.log('imgArr',imgArr);
+    </script>
+  </body>
+</html>

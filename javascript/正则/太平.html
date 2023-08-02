@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       .sdf{ border-collapse: collapse;}
+.sdf td{border: 1px solid #ccc; padding: 3px 8px ;}
+.sdf .w-1{ background: #ccc; width:100px;}
+    </style>
+   <table border="0" cellspacing="0" cellpadding="0" class="sdf">
+    <tr>
+        <td>验证规则</td>
+        <td>名称</td>
+        <td>编码</td>
+        <td>提示</td>
+    </tr>
+    <tr>
+        <td>/^[0-6](\d{5})(\d{8})(\d{2})(\d)([0-9Xx])$/</td>
+        <td>身份证</td>
+        <td>1</td>
+        <td>投保人证件号不符合规范，请重新录入</td>
+    </tr>
+    <tr>
+        <td>/^[^\u4e00-\u9fa5]{7,26}$/</td>
+        <td>护照</td>
+        <td>3</td>
+        <td>投保人护照号必须大于等于7个字符</td>
+    </tr>
+    <tr>
+        <td>/^(810000|820000|830000)(\d{11})([0-9Xx])$/</td>
+        <td>港澳台居民居住证</td>
+        <td>16</td>
+        <td>投保人证件号不符合规范，请重新录入</td>
+    </tr>
+    <tr>
+        <td>/^[^\u4e00-\u9fa5]{8,11}$/</td>
+        <td>港澳台通行证</td>
+        <td>6</td>
+        <td>投保人通行证号码长度必须为8-11个字符</td>
+    </tr>
+    <tr>
+        <td>/^[a-zA-Z0-9\u4e00-\u9fa5]{5,18}$/</td>
+        <td>军人证</td>
+        <td>2</td>
+        <td>投保人证件号不符合规范，请重新录入</td>
+    </tr>
+    <tr>
+        <td>/^([A-Z]{3})([0-9]{12})$/</td>
+        <td>外国人永久居留身份证</td>
+        <td>61</td>
+        <td>投保人证件号不符合规范，请重新录入</td>
+    </tr>
+    <tr>
+        <td>/^[A-Z](\d{9})$/</td>
+        <td>出生证</td>
+        <td>4</td>
+        <td>出生证为1位大写字母+9位数字</td>
+    </tr>
+    <tr>
+        <td>同身份证调用getInsuredInfo接口验证</td>
+        <td>居民户口簿</td>
+        <td>12</td>
+        <td>被保人的年龄须为28天至16周岁才能使用居民户口簿</td>
+    </tr>
+    <tr style="background-color:#ccc">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>/^([\u4E00-\u9FCB\u3400-\u4DB5·]{2,26})(·[\u4E00-\u9FCB\u3400-\u4DB5]{2,26})*$/</td>
+        <td>中文姓名</td>
+        <td>匹配1，2，6，16</td>
+        <td>投保人姓名只能输入汉字、“·”字符, 且长度为2~26个字符'</td>
+    </tr>
+    <tr>
+        <td>/^[a-zA-Z\.\、]([a-zA-Z\.\、\ ]{0,48})[a-zA-Z\.\、]$/</td>
+        <td>英文姓名</td>
+        <td>匹配3，6，16</td>
+        <td>投保人姓名录入错误</td>
+    </tr>
+    <tr>
+        <td>/^[a-zA-Z]([a-zA-Z\,\ ]{0,48})[a-zA-Z]$/</td>
+        <td>外国人姓名</td>
+        <td>匹配61</td>
+        <td>请录入正确的英文姓名</td>
+    </tr>
+    <tr>
+        <td>/^(\d{6})$/</td>
+        <td>邮编</td>
+        <td></td>
+        <td>邮编不符合规则，请修改</td>
+    </tr>
+    <tr>
+        <td>/^(\w|([\u4e00-\u9fa5]))+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/</td>
+        <td>邮箱</td>
+        <td></td>
+        <td>Email不符合规则，请修改</td>
+    </tr>
+    <tr>
+        <td>/^[a-zA-Z]{5,30}$/</td>
+        <td>地址英文字母</td>
+        <td></td>
+        <td>详细地址不能录入全英文或全数字</td>
+    </tr>
+    <tr>
+        <td>/^[0-9]{5,30}$/</td>
+        <td>地址数字</td>
+        <td></td>
+        <td>详细地址不能录入全英文或全数字</td>
+    </tr>
+    <tr>
+        <td>/^[A-Za-z0-9\u4e00-\u9fa5]+$/</td>
+        <td>地址只能包含中文英文及数字</td>
+        <td></td>
+        <td>详细地址只能包含中文英文及数字</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+   </table>
+    
+</body>
+</html>

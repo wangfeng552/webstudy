@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      stringGroup(['a','b','c']) // 所有字符的排列组合
+      
+      function stringGroup(list = [], result = [], current = "", temp = "") {
+        current += temp;
+        if (list.length === 0) {
+          // 递归的出口，将对应结果添加到1ist中
+          return result.push(current);
+        }
+        for (let i = 0; i < list.length; i++) {
+          // 每次递归 固定第一个字符
+          temp = list.shift();
+          stringGroup(list, result, current, temp); // 将删除的temp重新添加到queue尾部，实现将数组反转的效果，如[a,b,c]反转为[c,b,a]
+          list.push(temp);
+        }
+        // 这里去重是解决str中有重复的字母，比如str为'aacd'
+        // return [...new Set(result)];
+        return result;
+      }
+    </script>
+  
+</body>
+</html>

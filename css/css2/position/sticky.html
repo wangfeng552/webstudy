@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 特性（坑）
+1、sticky 不会触发 BFC。
+
+2、样式表 z－index 无效。行内 style 写有效。
+
+3、sticky 是容器相关的，也就说 sticky 的特性只会在他所处的容器里生效。这个比较抽象，demo点击预览 在这里，看完之后就懂了。强调这一点是因为在实际使用中，碰到 body 设置 height：100% 的时候 sticky 元素停在某一个位置不动了。 -->
+    <style>
+        section {
+            border: 2px solid green;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            position: sticky;
+            position: -webkit-sticky;
+            top: 0;
+            background-color: red;
+            color: #fff;
+        }
+    </style>
+    <section>
+        <h2>I am sticky</h2>
+        <p>Blood, Sweat And Tears Winston Churchill May 13, 1940 On Friday evening last I received from His Majesty the
+            mission to form a new administration. It was the evident will of Parliament and the nation that this should
+            be conceived on the broadest possible basis and that it should include all parties. I have already completed
+            the most important part of this task. A war cabinet has been formed of five members, representing, with the
+            Labor, Opposition and Liberals, the unity of the nation. It was necessary that this should be done in one
+            single day on account of the extreme urgency and rigor of events. Other key positions were filled yesterday.
+            I am submitting a further list to the King tonight. I hope to complete the appointment of principal
+            Ministers during tomorrow. The appointment of other Ministers usually takes a little longer. I trust when
+            Parliament meets again this part of my task will be completed and that the administration will be complete
+            in all respects. I considered it in the public interest to suggest to the Speaker that the House should be
+            summoned today. At the end of today's
+            proceedings, the adjournment of the House will be proposed until May 2l with provision for earlier meeting if need be. Business for that will be notified to M. P. 's at the earliest opportunity.  I now invite the House by a resolution to record its approval of the steps taken and declare its confidence in the new government. The resolution   
+            That this House welcomes the formation of a government representing the united and inflexible resolve of the nation to prosecute the war with Germany to a victorious conclusion.  To form an administration of this scale and complexity is a serious undertaking in itself. But we are in the preliminary Phase of one of the greatest battles in history. We are in action at any other points-in Norway and in Holland-and we have to be prepared in the Mediterranean. The air battle is continuing, and many preparations have to be made here at home.  
+            In this crisis I think I may be pardoned if I do not address the House at any length today, and I hope that any of my friends and colleagues or for mer colleagues who are affected by the political reconstruction will make all allowances for any lack of ceremony with which it has been necessary to act.  
+            I say to the House as I said to Ministers who have joined this government, I have nothing to offer but blood, toil, tears and sweat.We
+            have before us an ordeal of the most grievous kind. We have before us many, many months of struggle and
+            suffering. You ask, what is our policy I say it is to wage war by land, sea and air. War with all our might
+            and with all the strength God has given us, and to wage war against a monstrous tyranny never surpassed in
+            the dark and lamentable catalogue of human crime. That is our policy. You ask, what is our aim I can answer
+            in one word, It is victory. Victory at all costs-victory in spite of all terrors-victory, however long and
+            hard the road may be, for without victory there is no survival. Let that be realized. No survival for the
+            British Empire, no survival for all that the British Empire has stood for, no survival for the urge, the
+            impulse of the ages, that mankind shall move forward toward his goal. I take up my task in buoyancy and
+            hope. I feel sure that our cause will not be suffered to fail among men. I feel entitled at this juncture,
+            at this time, to claim the aid of all and to say, Come then, let us go forward together with our united
+            strength. </p>
+    </section>
+    <section>
+        <h2>I am sticky</h2>
+        <p>Blood, Sweat And Tears Winston Churchill May 13, 1940 On Friday evening last I received from His Majesty the
+            mission to form a new administration. It was the evident will of Parliament and the nation that this should
+            be conceived on the broadest possible basis and that it should include all parties. I have already completed
+            the most important part of this task. A war cabinet has been formed of five members, representing, with the
+            Labor, Opposition and Liberals, the unity of the nation. It was necessary that this should be done in one
+            single day on account of the extreme urgency and rigor of events. Other key positions were filled yesterday.
+            I am submitting a further list to the King tonight. I hope to complete the appointment of principal
+            Ministers during tomorrow. The appointment of other Ministers usually takes a little longer. I trust when
+            Parliament meets again this part of my task will be completed and that the administration will be complete
+            in all respects. I considered it in the public interest to suggest to the Speaker that the House should be
+            summoned today. At the end of today's
+            proceedings, the adjournment of the House will be proposed until May 2l with provision for earlier meeting if need be. Business for that will be notified to M. P. 's at the earliest opportunity.  I now invite the House by a resolution to record its approval of the steps taken and declare its confidence in the new government. The resolution   
+            That this House welcomes the formation of a government representing the united and inflexible resolve of the nation to prosecute the war with Germany to a victorious conclusion.  To form an administration of this scale and complexity is a serious undertaking in itself. But we are in the preliminary Phase of one of the greatest battles in history. We are in action at any other points-in Norway and in Holland-and we have to be prepared in the Mediterranean. The air battle is continuing, and many preparations have to be made here at home.  
+            In this crisis I think I may be pardoned if I do not address the House at any length today, and I hope that any of my friends and colleagues or for mer colleagues who are affected by the political reconstruction will make all allowances for any lack of ceremony with which it has been necessary to act.  
+            I say to the House as I said to Ministers who have joined this government, I have nothing to offer but blood, toil, tears and sweat.We
+            have before us an ordeal of the most grievous kind. We have before us many, many months of struggle and
+            suffering. You ask, what is our policy I say it is to wage war by land, sea and air. War with all our might
+            and with all the strength God has given us, and to wage war against a monstrous tyranny never surpassed in
+            the dark and lamentable catalogue of human crime. That is our policy. You ask, what is our aim I can answer
+            in one word, It is victory. Victory at all costs-victory in spite of all terrors-victory, however long and
+            hard the road may be, for without victory there is no survival. Let that be realized. No survival for the
+            British Empire, no survival for all that the British Empire has stood for, no survival for the urge, the
+            impulse of the ages, that mankind shall move forward toward his goal. I take up my task in buoyancy and
+            hope. I feel sure that our cause will not be suffered to fail among men. I feel entitled at this juncture,
+            at this time, to claim the aid of all and to say, Come then, let us go forward together with our united
+            strength. </p>
+    </section>
+    <section>
+        <h2>I am sticky</h2>
+        <p>Blood, Sweat And Tears Winston Churchill May 13, 1940 On Friday evening last I received from His Majesty the
+            mission to form a new administration. It was the evident will of Parliament and the nation that this should
+            be conceived on the broadest possible basis and that it should include all parties. I have already completed
+            the most important part of this task. A war cabinet has been formed of five members, representing, with the
+            Labor, Opposition and Liberals, the unity of the nation. It was necessary that this should be done in one
+            single day on account of the extreme urgency and rigor of events. Other key positions were filled yesterday.
+            I am submitting a further list to the King tonight. I hope to complete the appointment of principal
+            Ministers during tomorrow. The appointment of other Ministers usually takes a little longer. I trust when
+            Parliament meets again this part of my task will be completed and that the administration will be complete
+            in all respects. I considered it in the public interest to suggest to the Speaker that the House should be
+            summoned today. At the end of today's
+            proceedings, the adjournment of the House will be proposed until May 2l with provision for earlier meeting if need be. Business for that will be notified to M. P. 's at the earliest opportunity.  I now invite the House by a resolution to record its approval of the steps taken and declare its confidence in the new government. The resolution   
+            That this House welcomes the formation of a government representing the united and inflexible resolve of the nation to prosecute the war with Germany to a victorious conclusion.  To form an administration of this scale and complexity is a serious undertaking in itself. But we are in the preliminary Phase of one of the greatest battles in history. We are in action at any other points-in Norway and in Holland-and we have to be prepared in the Mediterranean. The air battle is continuing, and many preparations have to be made here at home.  
+            In this crisis I think I may be pardoned if I do not address the House at any length today, and I hope that any of my friends and colleagues or for mer colleagues who are affected by the political reconstruction will make all allowances for any lack of ceremony with which it has been necessary to act.  
+            I say to the House as I said to Ministers who have joined this government, I have nothing to offer but blood, toil, tears and sweat.We
+            have before us an ordeal of the most grievous kind. We have before us many, many months of struggle and
+            suffering. You ask, what is our policy I say it is to wage war by land, sea and air. War with all our might
+            and with all the strength God has given us, and to wage war against a monstrous tyranny never surpassed in
+            the dark and lamentable catalogue of human crime. That is our policy. You ask, what is our aim I can answer
+            in one word, It is victory. Victory at all costs-victory in spite of all terrors-victory, however long and
+            hard the road may be, for without victory there is no survival. Let that be realized. No survival for the
+            British Empire, no survival for all that the British Empire has stood for, no survival for the urge, the
+            impulse of the ages, that mankind shall move forward toward his goal. I take up my task in buoyancy and
+            hope. I feel sure that our cause will not be suffered to fail among men. I feel entitled at this juncture,
+            at this time, to claim the aid of all and to say, Come then, let us go forward together with our united
+            strength. </p>
+    </section>
+</body>
+
+</html>

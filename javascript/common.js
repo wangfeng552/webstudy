@@ -313,3 +313,56 @@ function deepCopy(data) {
   }
   return o;
 }
+
+//- 小写数字转换成大写, 只处理到[0 ~ 99]
+function _numberConvertToUppercase(num) {
+  let n = Number(num);
+  var upperCaseNumber = [
+    "零",
+    "一",
+    "二",
+    "三",
+    "四",
+    "五",
+    "六",
+    "七",
+    "八",
+    "九",
+    "十",
+    "百",
+    "千",
+    "万",
+    "亿"
+  ];
+  var length = String(n).length;
+  if (length == 1) {
+    return upperCaseNumber[n];
+  } else if (length == 2) {
+    if (n == 10) {
+      return upperCaseNumber[n];
+    } else if (n > 10 && n < 20) {
+      return "十" + upperCaseNumber[String(n).charAt(1)];
+    } else {
+      return (
+        upperCaseNumber[String(n).charAt(0)] +
+        "十" +
+        upperCaseNumber[String(n).charAt(1)].replace("零", "")
+      );
+    }
+  }
+}
+
+/**
+ * 字符串按长度分割
+ * @param {string} str 
+ * @param {number} num 
+ * @returns 
+ */
+function lengthCutting(str, num) {
+  let strArr = [];
+  for (let i = 0; i < str.length; i += num)
+    strArr.push(str.slice(i, i + num) + '/n');
+  return strArr;
+}
+
+var cutBlessingWorldsList = lengthCutting('这里是思达分身乏术地方', 5).join("")	

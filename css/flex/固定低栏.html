@@ -7,6 +7,9 @@
 </head>
 <body>
   <style>
+    body{
+      margin: 0;
+    }
     .wrap{
       display: flex;
       min-height: 100vh;
@@ -19,10 +22,22 @@
       height: 90px;
       background-color: #f60;
     }
+    .list{
+      height: 100px;
+      background-color: #ccc;
+    }
+    .list:nth-child(2n){
+      background-color: #efefef;
+    }
   </style>
 <div class="wrap">
   <div class="header">111</div>
-  <div class="main">123</div>
+  <div class="main">
+    <div class="list">1</div>
+    <div class="list">2</div>
+    <div class="list">3</div>
+    <div class="list">4</div>
+  </div>
   <div class="footer">fffffffffff</div>
 </div>
 </body>

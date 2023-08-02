@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>circle</title>
+</head>
+
+<body>
+
+  <style>
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background-color: #f60;
+      position: relative;
+    }
+
+    .scal {
+      width: 100px;
+      height: 100px;
+      border-radius: 50px;
+      background-color: #f60;
+      position: absolute;
+      left: 0;
+      top: 0;
+      animation: scalcircle 1.5s cubic-bezier(0.775, 0.005, 0.310, 1.000) infinite;
+    }
+
+    @keyframes scalcircle {
+      from {}
+
+      to {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+  </style>
+  <div class="circle">
+    <div class="scal"></div>
+  </div>
+
+  <!-- 例2  -->
+  <style>
+    .circle {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin: 100px;
+      transition: all 1s ease-out;
+    }
+
+    .circle:hover {
+      transform: scale(2);
+    }
+  </style>
+  <div class="circle">
+  </div>
+</body>
+
+</html>

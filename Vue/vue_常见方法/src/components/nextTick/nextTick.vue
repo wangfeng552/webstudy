@@ -23,6 +23,7 @@ export default {
     changName() {
       this.name = "changed"
       //想要立即使用更新后的DOM。这样不行，因为设置message后DOM还没有更新
+    
       console.log(this.$el.textContent) // 并不会得到'changed'
 
       //这样可以，nextTick里面的代码会在DOM更新后执行

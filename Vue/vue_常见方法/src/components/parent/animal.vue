@@ -1,7 +1,7 @@
 <template>
   <div class="animal">
     <div>我是父元素</div>
-    <dog></dog>
+    <dog @click.native="emptyInputText"></dog>
   </div>
 </template>
 <script>
@@ -17,7 +17,8 @@ export default {
     this.$children[0].name // 访问自组件的name
   },
   methods: {
-    show() {}
+    show() {},
+    emptyInputText(){}
   }
 }
 </script>

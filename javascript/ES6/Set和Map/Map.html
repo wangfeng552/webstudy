@@ -68,15 +68,13 @@
 		const myMap = new Map().set(true, 7).set({}, 4)
 		let arr = [...myMap]  // => [[{true,7},[{},4]]]
 
-
 		//数组转Map
 		new Map([
 			[true, 7],
 			[{ foo: 3 }, ['abc']]
 		])
 
-		// Map 转为对象
-
+		//方法1 Map转为对象
 		function strMapToObj(strMap) {
 			let obj = Object.create(null);
 			for (let [k, v] of strMap) {
@@ -89,11 +87,12 @@
 			.set('no', false);
 		strMapToObj(myMap1)
 
-		Object.fromEntries(myMap1)  // 方法2 转对象
-
+		// 方法2 Map转对象
+		Object.fromEntries(myMap1)  
 		Object.fromEntries(new URLSearchParams('foo=bar&baz=qux'))
 
-		// 对象转为 Map
+
+		// 对象转为Map
 		let obj = { "a": 1, "b": 2 };
 		let objMap = new Map(Object.entries(obj));
 	</script>

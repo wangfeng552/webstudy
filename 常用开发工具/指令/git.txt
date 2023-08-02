@@ -45,6 +45,7 @@ git branch -d <name>	删除分支
 git branch --set-upstream-to=origin/develop develop 指定远程分支
 git checkout -b dev origin/dev  创建并从远程啦dev分支
 git checkout -t origin/home
+git push origin --delete branch  删除远程分支
 
 
 

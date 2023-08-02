@@ -15,6 +15,7 @@
   </div> -->
   <view bindtap="tapName">事件冒泡</view>
   <view catchtap="">可以阻止冒泡事件向上冒泡</view>
+  <text data-test="{{test}}"> hello world</text>
 
   <view bindtap="getData" data-name="123" data-user-name="李四" data-userAddress="上海">传递参数,以 data- 开头，多个单词由连字符 - 连接。这种写法中，连字符写法会转换成驼峰写法，而大写字符会自动转成小写字符</view>
 
@@ -24,6 +25,7 @@
   <script>
     Page({
       data: {
+        test:'',
         fileList: [],
         motto: 'old',
         user: {

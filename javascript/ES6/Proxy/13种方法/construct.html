@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    construct()方法用于拦截new命令，下面是拦截对象的写法。
+    target：目标对象必须是函数。
+    args：构造函数的参数数组。
+    newTarget：创造实例对象时，new命令作用的构造函数
+    <script>
+        let target = function () { }
+
+        let handler = {
+            construct(target, args, newTarget) {
+                console.log(this === handler);  // 注意，construct()方法中的this指向的是handler，而不是实例对象。
+                console.log(target);
+                console.log(args);
+                console.log(newTarget);
+                return {
+                    values: args[0]   // 方法返回的必须是一个对象，否则会报错。
+                }
+            }
+        }
+
+        let person = new Proxy(target, handler)
+
+        new person(2, 'a', 'up')
+    </script>
+</body>
+
+</html>

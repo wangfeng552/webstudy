@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p class="plan-bg1">
+    这里使用了内外描边文字效果
+  </p>
+  <style>
+  .plan-bg1 {
+    font-size: 30px;
+    font-weight: 900;
+    /* 设置描边宽度及颜色 默认为字体内外描边 */
+    text-stroke: 2px #2173FF;
+    /* 兼容Webkit(Chrome/Safari)内核浏览器的写法 */
+    -webkit-text-stroke: 2px #2173FF;
+    color: #fff;
+  }
+  </style>
+
+  <!-- 通过自定义属性 data-content 存储描边文字数据 -->
+<p class="plan-bg2" data-content="这里使用了外描边文字效果">
+	这里使用了外描边文字效果
+</p>
+<style>
+.plan-bg2 {
+  font-family: Heavy;
+  font-size: 30px;
+  font-weight: 900;
+  /* 设置描边宽度及颜色 */
+  text-stroke: 2px #006699;
+  /* 兼容Webkit(Chrome/Safari)内核浏览器的写法 */
+  -webkit-text-stroke: 2px #006699;
+}
+/* 通过属性选择器结合伪元素before 实现文字外描边效果 */
+[data-content]::before {
+  /* attr()是用来获取被选中元素的某属性值,并且在样式文件中使用 */
+  content: attr(data-content);
+  position: absolute;
+  /* 实现元素外描边的关键 */
+  -webkit-text-stroke: 0;
+  /* 文本颜色 */
+  color: #ffd485;
+}
+</style>
+
+  
+
+
+
+</body>
+
+</html>

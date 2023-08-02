@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    hasOwn 判断是否为自身的属性,可以接受两个参数，第一个是所要判断的对象，第二个是属性名
+    <script>
+        var obj = Object.create({a:'123'})
+        obj.b='22'
+        Object.hasOwn(obj,'a') // false
+        Object.hasOwn(obj,'b') // true
+        obj.hasOwnProperty('b') // true
+    </script>
+
+    <script>
+        var person = Object.create(null)
+        person.hasOwnProperty('foo') //这会报错 
+        Object.hasOwn(person,'foo') // =>false  对于不继承Object.prototype的对象不会报错
+
+    </script>
+    
+</body>
+</html>

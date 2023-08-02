@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>超出文档高度滚动</title>
+  </head>
+  <body>
+    <style>
+      .wrap {
+        overflow: auto; /* winphone8和android4+ */
+        -webkit-overflow-scrolling: touch; /* ios5+ */
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+  </body>
+</html>
